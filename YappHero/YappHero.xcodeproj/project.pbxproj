@@ -3,176 +3,171 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B08DA52F25E21AA3003A4079 /* YappUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B08DA51125E219A3003A4079 /* YappUI.framework */; };
-		B08DA54825E21CA0003A4079 /* YappUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B08DA51125E219A3003A4079 /* YappUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B0CC7AD725E105AF0040866A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CC7AD625E105AF0040866A /* AppDelegate.swift */; };
-		B0CC7ADB25E105AF0040866A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CC7ADA25E105AF0040866A /* ViewController.swift */; };
-		B0CC7AE125E105AF0040866A /* YappHero.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B0CC7ADF25E105AF0040866A /* YappHero.xcdatamodeld */; };
-		B0CC7AE325E105B00040866A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0CC7AE225E105B00040866A /* Assets.xcassets */; };
-		B0CC7AE625E105B00040866A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0CC7AE425E105B00040866A /* LaunchScreen.storyboard */; };
-		B0CC7AF125E105B10040866A /* YappHeroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CC7AF025E105B10040866A /* YappHeroTests.swift */; };
-		B0CC7AFC25E105B10040866A /* YappHeroUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CC7AFB25E105B10040866A /* YappHeroUITests.swift */; };
-		B0DD98F825E1DA4E00B67410 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B0DD98F725E1DA4E00B67410 /* SnapKit */; };
+		173823DD97D184854AB3E592 /* Pods_YappHero.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 248B50075022272D2F6DFF29 /* Pods_YappHero.framework */; };
+		515B39C3D64C2B6A018F4EDE /* Pods_YappHeroTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F67B46ADD8EC16655F1D731 /* Pods_YappHeroTests.framework */; };
+		908A1030BC843DC8C5DD9A32 /* Pods_YappHero_YappHeroUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 285474F93AF38E504495213E /* Pods_YappHero_YappHeroUITests.framework */; };
+		B041747225E2366E00D990A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B041747125E2366E00D990A2 /* AppDelegate.swift */; };
+		B041747425E2366E00D990A2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B041747325E2366E00D990A2 /* SceneDelegate.swift */; };
+		B041747625E2366E00D990A2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B041747525E2366E00D990A2 /* ViewController.swift */; };
+		B041747925E2366E00D990A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B041747725E2366E00D990A2 /* Main.storyboard */; };
+		B041747C25E2366E00D990A2 /* YappHero.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B041747A25E2366E00D990A2 /* YappHero.xcdatamodeld */; };
+		B041747E25E2366F00D990A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B041747D25E2366F00D990A2 /* Assets.xcassets */; };
+		B041748125E2366F00D990A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B041747F25E2366F00D990A2 /* LaunchScreen.storyboard */; };
+		B041748C25E2366F00D990A2 /* YappHeroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B041748B25E2366F00D990A2 /* YappHeroTests.swift */; };
+		B041749725E2366F00D990A2 /* YappHeroUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B041749625E2366F00D990A2 /* YappHeroUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		B08DA51025E219A3003A4079 /* PBXContainerItemProxy */ = {
+		B041748825E2366F00D990A2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = B08DA50B25E219A3003A4079 /* YappUI.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = B08DA4EF25E2198E003A4079;
-			remoteInfo = YappUI;
-		};
-		B08DA51225E219A3003A4079 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B08DA50B25E219A3003A4079 /* YappUI.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = B08DA4F825E2198E003A4079;
-			remoteInfo = YappUITests;
-		};
-		B0CC7AED25E105B10040866A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B0CC7ACB25E105AF0040866A /* Project object */;
+			containerPortal = B041746625E2366E00D990A2 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = B0CC7AD225E105AF0040866A;
+			remoteGlobalIDString = B041746D25E2366E00D990A2;
 			remoteInfo = YappHero;
 		};
-		B0CC7AF825E105B10040866A /* PBXContainerItemProxy */ = {
+		B041749325E2366F00D990A2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = B0CC7ACB25E105AF0040866A /* Project object */;
+			containerPortal = B041746625E2366E00D990A2 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = B0CC7AD225E105AF0040866A;
+			remoteGlobalIDString = B041746D25E2366E00D990A2;
 			remoteInfo = YappHero;
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		B08DA53125E21AA3003A4079 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				B08DA54825E21CA0003A4079 /* YappUI.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		B08DA50B25E219A3003A4079 /* YappUI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = YappUI.xcodeproj; path = YappUI/YappUI.xcodeproj; sourceTree = "<group>"; };
-		B0CC7AD325E105AF0040866A /* YappHero.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YappHero.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B0CC7AD625E105AF0040866A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B0CC7ADA25E105AF0040866A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B0CC7AE025E105AF0040866A /* YappHero.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = YappHero.xcdatamodel; sourceTree = "<group>"; };
-		B0CC7AE225E105B00040866A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		B0CC7AE525E105B00040866A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		B0CC7AE725E105B00040866A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B0CC7AEC25E105B10040866A /* YappHeroTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YappHeroTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B0CC7AF025E105B10040866A /* YappHeroTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YappHeroTests.swift; sourceTree = "<group>"; };
-		B0CC7AF225E105B10040866A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B0CC7AF725E105B10040866A /* YappHeroUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YappHeroUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B0CC7AFB25E105B10040866A /* YappHeroUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YappHeroUITests.swift; sourceTree = "<group>"; };
-		B0CC7AFD25E105B10040866A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		248B50075022272D2F6DFF29 /* Pods_YappHero.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YappHero.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		285474F93AF38E504495213E /* Pods_YappHero_YappHeroUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YappHero_YappHeroUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		43EAE2B568739BEAF050FCE0 /* Pods-YappHero.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHero.debug.xcconfig"; path = "Target Support Files/Pods-YappHero/Pods-YappHero.debug.xcconfig"; sourceTree = "<group>"; };
+		47A6764E8978C99A10AF4BDD /* Pods-YappHeroTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHeroTests.release.xcconfig"; path = "Target Support Files/Pods-YappHeroTests/Pods-YappHeroTests.release.xcconfig"; sourceTree = "<group>"; };
+		4F67B46ADD8EC16655F1D731 /* Pods_YappHeroTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YappHeroTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6688203010BC2CAC8F713E58 /* Pods-YappHero-YappHeroUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHero-YappHeroUITests.debug.xcconfig"; path = "Target Support Files/Pods-YappHero-YappHeroUITests/Pods-YappHero-YappHeroUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		96218509932EB88DC6A75E4B /* Pods-YappHeroTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHeroTests.debug.xcconfig"; path = "Target Support Files/Pods-YappHeroTests/Pods-YappHeroTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B041746E25E2366E00D990A2 /* YappHero.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YappHero.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B041747125E2366E00D990A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B041747325E2366E00D990A2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		B041747525E2366E00D990A2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B041747825E2366E00D990A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B041747B25E2366E00D990A2 /* YappHero.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = YappHero.xcdatamodel; sourceTree = "<group>"; };
+		B041747D25E2366F00D990A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B041748025E2366F00D990A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B041748225E2366F00D990A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B041748725E2366F00D990A2 /* YappHeroTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YappHeroTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B041748B25E2366F00D990A2 /* YappHeroTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YappHeroTests.swift; sourceTree = "<group>"; };
+		B041748D25E2366F00D990A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B041749225E2366F00D990A2 /* YappHeroUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YappHeroUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B041749625E2366F00D990A2 /* YappHeroUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YappHeroUITests.swift; sourceTree = "<group>"; };
+		B041749825E2366F00D990A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C1E8EED5C9EA91E7723D9698 /* Pods-YappHero.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHero.release.xcconfig"; path = "Target Support Files/Pods-YappHero/Pods-YappHero.release.xcconfig"; sourceTree = "<group>"; };
+		F65BD738214020871341DE05 /* Pods-YappHero-YappHeroUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHero-YappHeroUITests.release.xcconfig"; path = "Target Support Files/Pods-YappHero-YappHeroUITests/Pods-YappHero-YappHeroUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		B0CC7AD025E105AF0040866A /* Frameworks */ = {
+		B041746B25E2366E00D990A2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B08DA52F25E21AA3003A4079 /* YappUI.framework in Frameworks */,
-				B0DD98F825E1DA4E00B67410 /* SnapKit in Frameworks */,
+				173823DD97D184854AB3E592 /* Pods_YappHero.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B0CC7AE925E105B10040866A /* Frameworks */ = {
+		B041748425E2366F00D990A2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				515B39C3D64C2B6A018F4EDE /* Pods_YappHeroTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B0CC7AF425E105B10040866A /* Frameworks */ = {
+		B041748F25E2366F00D990A2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				908A1030BC843DC8C5DD9A32 /* Pods_YappHero_YappHeroUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B08DA50C25E219A3003A4079 /* Products */ = {
+		69EBCC9DA8CF7A7AC4E9B152 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B08DA51125E219A3003A4079 /* YappUI.framework */,
-				B08DA51325E219A3003A4079 /* YappUITests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		B08DA52625E21A80003A4079 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
+				248B50075022272D2F6DFF29 /* Pods_YappHero.framework */,
+				285474F93AF38E504495213E /* Pods_YappHero_YappHeroUITests.framework */,
+				4F67B46ADD8EC16655F1D731 /* Pods_YappHeroTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		B0CC7ACA25E105AF0040866A = {
+		A4F2BB761D83362580259525 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				B08DA50B25E219A3003A4079 /* YappUI.xcodeproj */,
-				B0CC7AD525E105AF0040866A /* YappHero */,
-				B0CC7AEF25E105B10040866A /* YappHeroTests */,
-				B0CC7AFA25E105B10040866A /* YappHeroUITests */,
-				B0CC7AD425E105AF0040866A /* Products */,
-				B08DA52625E21A80003A4079 /* Frameworks */,
+				43EAE2B568739BEAF050FCE0 /* Pods-YappHero.debug.xcconfig */,
+				C1E8EED5C9EA91E7723D9698 /* Pods-YappHero.release.xcconfig */,
+				6688203010BC2CAC8F713E58 /* Pods-YappHero-YappHeroUITests.debug.xcconfig */,
+				F65BD738214020871341DE05 /* Pods-YappHero-YappHeroUITests.release.xcconfig */,
+				96218509932EB88DC6A75E4B /* Pods-YappHeroTests.debug.xcconfig */,
+				47A6764E8978C99A10AF4BDD /* Pods-YappHeroTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		B041746525E2366E00D990A2 = {
+			isa = PBXGroup;
+			children = (
+				B041747025E2366E00D990A2 /* YappHero */,
+				B041748A25E2366F00D990A2 /* YappHeroTests */,
+				B041749525E2366F00D990A2 /* YappHeroUITests */,
+				B041746F25E2366E00D990A2 /* Products */,
+				A4F2BB761D83362580259525 /* Pods */,
+				69EBCC9DA8CF7A7AC4E9B152 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		B0CC7AD425E105AF0040866A /* Products */ = {
+		B041746F25E2366E00D990A2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B0CC7AD325E105AF0040866A /* YappHero.app */,
-				B0CC7AEC25E105B10040866A /* YappHeroTests.xctest */,
-				B0CC7AF725E105B10040866A /* YappHeroUITests.xctest */,
+				B041746E25E2366E00D990A2 /* YappHero.app */,
+				B041748725E2366F00D990A2 /* YappHeroTests.xctest */,
+				B041749225E2366F00D990A2 /* YappHeroUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B0CC7AD525E105AF0040866A /* YappHero */ = {
+		B041747025E2366E00D990A2 /* YappHero */ = {
 			isa = PBXGroup;
 			children = (
-				B0CC7AD625E105AF0040866A /* AppDelegate.swift */,
-				B0CC7ADA25E105AF0040866A /* ViewController.swift */,
-				B0CC7AE225E105B00040866A /* Assets.xcassets */,
-				B0CC7AE425E105B00040866A /* LaunchScreen.storyboard */,
-				B0CC7AE725E105B00040866A /* Info.plist */,
-				B0CC7ADF25E105AF0040866A /* YappHero.xcdatamodeld */,
+				B041747125E2366E00D990A2 /* AppDelegate.swift */,
+				B041747325E2366E00D990A2 /* SceneDelegate.swift */,
+				B041747525E2366E00D990A2 /* ViewController.swift */,
+				B041747725E2366E00D990A2 /* Main.storyboard */,
+				B041747D25E2366F00D990A2 /* Assets.xcassets */,
+				B041747F25E2366F00D990A2 /* LaunchScreen.storyboard */,
+				B041748225E2366F00D990A2 /* Info.plist */,
+				B041747A25E2366E00D990A2 /* YappHero.xcdatamodeld */,
 			);
 			path = YappHero;
 			sourceTree = "<group>";
 		};
-		B0CC7AEF25E105B10040866A /* YappHeroTests */ = {
+		B041748A25E2366F00D990A2 /* YappHeroTests */ = {
 			isa = PBXGroup;
 			children = (
-				B0CC7AF025E105B10040866A /* YappHeroTests.swift */,
-				B0CC7AF225E105B10040866A /* Info.plist */,
+				B041748B25E2366F00D990A2 /* YappHeroTests.swift */,
+				B041748D25E2366F00D990A2 /* Info.plist */,
 			);
 			path = YappHeroTests;
 			sourceTree = "<group>";
 		};
-		B0CC7AFA25E105B10040866A /* YappHeroUITests */ = {
+		B041749525E2366F00D990A2 /* YappHeroUITests */ = {
 			isa = PBXGroup;
 			children = (
-				B0CC7AFB25E105B10040866A /* YappHeroUITests.swift */,
-				B0CC7AFD25E105B10040866A /* Info.plist */,
+				B041749625E2366F00D990A2 /* YappHeroUITests.swift */,
+				B041749825E2366F00D990A2 /* Info.plist */,
 			);
 			path = YappHeroUITests;
 			sourceTree = "<group>";
@@ -180,86 +175,87 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B0CC7AD225E105AF0040866A /* YappHero */ = {
+		B041746D25E2366E00D990A2 /* YappHero */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B0CC7B0025E105B10040866A /* Build configuration list for PBXNativeTarget "YappHero" */;
+			buildConfigurationList = B041749B25E2366F00D990A2 /* Build configuration list for PBXNativeTarget "YappHero" */;
 			buildPhases = (
-				B0CC7ACF25E105AF0040866A /* Sources */,
-				B0CC7AD025E105AF0040866A /* Frameworks */,
-				B0CC7AD125E105AF0040866A /* Resources */,
-				B08DA53125E21AA3003A4079 /* Embed Frameworks */,
+				ACC5C29EF151955FF3537CFD /* [CP] Check Pods Manifest.lock */,
+				B041746A25E2366E00D990A2 /* Sources */,
+				B041746B25E2366E00D990A2 /* Frameworks */,
+				B041746C25E2366E00D990A2 /* Resources */,
+				F2FF2D657758E7AC0B6E7B45 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = YappHero;
-			packageProductDependencies = (
-				B0DD98F725E1DA4E00B67410 /* SnapKit */,
-			);
 			productName = YappHero;
-			productReference = B0CC7AD325E105AF0040866A /* YappHero.app */;
+			productReference = B041746E25E2366E00D990A2 /* YappHero.app */;
 			productType = "com.apple.product-type.application";
 		};
-		B0CC7AEB25E105B10040866A /* YappHeroTests */ = {
+		B041748625E2366F00D990A2 /* YappHeroTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B0CC7B0325E105B10040866A /* Build configuration list for PBXNativeTarget "YappHeroTests" */;
+			buildConfigurationList = B041749E25E2366F00D990A2 /* Build configuration list for PBXNativeTarget "YappHeroTests" */;
 			buildPhases = (
-				B0CC7AE825E105B10040866A /* Sources */,
-				B0CC7AE925E105B10040866A /* Frameworks */,
-				B0CC7AEA25E105B10040866A /* Resources */,
+				991D3A646A316E38BD4C8880 /* [CP] Check Pods Manifest.lock */,
+				B041748325E2366F00D990A2 /* Sources */,
+				B041748425E2366F00D990A2 /* Frameworks */,
+				B041748525E2366F00D990A2 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				B0CC7AEE25E105B10040866A /* PBXTargetDependency */,
+				B041748925E2366F00D990A2 /* PBXTargetDependency */,
 			);
 			name = YappHeroTests;
 			productName = YappHeroTests;
-			productReference = B0CC7AEC25E105B10040866A /* YappHeroTests.xctest */;
+			productReference = B041748725E2366F00D990A2 /* YappHeroTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		B0CC7AF625E105B10040866A /* YappHeroUITests */ = {
+		B041749125E2366F00D990A2 /* YappHeroUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B0CC7B0625E105B10040866A /* Build configuration list for PBXNativeTarget "YappHeroUITests" */;
+			buildConfigurationList = B04174A125E2366F00D990A2 /* Build configuration list for PBXNativeTarget "YappHeroUITests" */;
 			buildPhases = (
-				B0CC7AF325E105B10040866A /* Sources */,
-				B0CC7AF425E105B10040866A /* Frameworks */,
-				B0CC7AF525E105B10040866A /* Resources */,
+				5C45E8858704499A6C6AB1E6 /* [CP] Check Pods Manifest.lock */,
+				B041748E25E2366F00D990A2 /* Sources */,
+				B041748F25E2366F00D990A2 /* Frameworks */,
+				B041749025E2366F00D990A2 /* Resources */,
+				49CD8569BA1FE678EA398306 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				B0CC7AF925E105B10040866A /* PBXTargetDependency */,
+				B041749425E2366F00D990A2 /* PBXTargetDependency */,
 			);
 			name = YappHeroUITests;
 			productName = YappHeroUITests;
-			productReference = B0CC7AF725E105B10040866A /* YappHeroUITests.xctest */;
+			productReference = B041749225E2366F00D990A2 /* YappHeroUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		B0CC7ACB25E105AF0040866A /* Project object */ = {
+		B041746625E2366E00D990A2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1240;
+				LastSwiftUpdateCheck = 1230;
+				LastUpgradeCheck = 1230;
 				TargetAttributes = {
-					B0CC7AD225E105AF0040866A = {
-						CreatedOnToolsVersion = 12.4;
+					B041746D25E2366E00D990A2 = {
+						CreatedOnToolsVersion = 12.3;
 					};
-					B0CC7AEB25E105B10040866A = {
-						CreatedOnToolsVersion = 12.4;
-						TestTargetID = B0CC7AD225E105AF0040866A;
+					B041748625E2366F00D990A2 = {
+						CreatedOnToolsVersion = 12.3;
+						TestTargetID = B041746D25E2366E00D990A2;
 					};
-					B0CC7AF625E105B10040866A = {
-						CreatedOnToolsVersion = 12.4;
-						TestTargetID = B0CC7AD225E105AF0040866A;
+					B041749125E2366F00D990A2 = {
+						CreatedOnToolsVersion = 12.3;
+						TestTargetID = B041746D25E2366E00D990A2;
 					};
 				};
 			};
-			buildConfigurationList = B0CC7ACE25E105AF0040866A /* Build configuration list for PBXProject "YappHero" */;
+			buildConfigurationList = B041746925E2366E00D990A2 /* Build configuration list for PBXProject "YappHero" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -267,62 +263,37 @@
 				en,
 				Base,
 			);
-			mainGroup = B0CC7ACA25E105AF0040866A;
-			packageReferences = (
-				B0DD98F625E1DA4E00B67410 /* XCRemoteSwiftPackageReference "SnapKit" */,
-			);
-			productRefGroup = B0CC7AD425E105AF0040866A /* Products */;
+			mainGroup = B041746525E2366E00D990A2;
+			productRefGroup = B041746F25E2366E00D990A2 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = B08DA50C25E219A3003A4079 /* Products */;
-					ProjectRef = B08DA50B25E219A3003A4079 /* YappUI.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
-				B0CC7AD225E105AF0040866A /* YappHero */,
-				B0CC7AEB25E105B10040866A /* YappHeroTests */,
-				B0CC7AF625E105B10040866A /* YappHeroUITests */,
+				B041746D25E2366E00D990A2 /* YappHero */,
+				B041748625E2366F00D990A2 /* YappHeroTests */,
+				B041749125E2366F00D990A2 /* YappHeroUITests */,
 			);
 		};
 /* End PBXProject section */
 
-/* Begin PBXReferenceProxy section */
-		B08DA51125E219A3003A4079 /* YappUI.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = YappUI.framework;
-			remoteRef = B08DA51025E219A3003A4079 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		B08DA51325E219A3003A4079 /* YappUITests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = YappUITests.xctest;
-			remoteRef = B08DA51225E219A3003A4079 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
-
 /* Begin PBXResourcesBuildPhase section */
-		B0CC7AD125E105AF0040866A /* Resources */ = {
+		B041746C25E2366E00D990A2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0CC7AE625E105B00040866A /* LaunchScreen.storyboard in Resources */,
-				B0CC7AE325E105B00040866A /* Assets.xcassets in Resources */,
+				B041748125E2366F00D990A2 /* LaunchScreen.storyboard in Resources */,
+				B041747E25E2366F00D990A2 /* Assets.xcassets in Resources */,
+				B041747925E2366E00D990A2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B0CC7AEA25E105B10040866A /* Resources */ = {
+		B041748525E2366F00D990A2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B0CC7AF525E105B10040866A /* Resources */ = {
+		B041749025E2366F00D990A2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -331,53 +302,165 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		49CD8569BA1FE678EA398306 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-YappHero-YappHeroUITests/Pods-YappHero-YappHeroUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-YappHero-YappHeroUITests/Pods-YappHero-YappHeroUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-YappHero-YappHeroUITests/Pods-YappHero-YappHeroUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5C45E8858704499A6C6AB1E6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YappHero-YappHeroUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		991D3A646A316E38BD4C8880 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YappHeroTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ACC5C29EF151955FF3537CFD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YappHero-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F2FF2D657758E7AC0B6E7B45 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-YappHero/Pods-YappHero-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-YappHero/Pods-YappHero-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-YappHero/Pods-YappHero-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
-		B0CC7ACF25E105AF0040866A /* Sources */ = {
+		B041746A25E2366E00D990A2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0CC7ADB25E105AF0040866A /* ViewController.swift in Sources */,
-				B0CC7AE125E105AF0040866A /* YappHero.xcdatamodeld in Sources */,
-				B0CC7AD725E105AF0040866A /* AppDelegate.swift in Sources */,
+				B041747625E2366E00D990A2 /* ViewController.swift in Sources */,
+				B041747C25E2366E00D990A2 /* YappHero.xcdatamodeld in Sources */,
+				B041747225E2366E00D990A2 /* AppDelegate.swift in Sources */,
+				B041747425E2366E00D990A2 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B0CC7AE825E105B10040866A /* Sources */ = {
+		B041748325E2366F00D990A2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0CC7AF125E105B10040866A /* YappHeroTests.swift in Sources */,
+				B041748C25E2366F00D990A2 /* YappHeroTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B0CC7AF325E105B10040866A /* Sources */ = {
+		B041748E25E2366F00D990A2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0CC7AFC25E105B10040866A /* YappHeroUITests.swift in Sources */,
+				B041749725E2366F00D990A2 /* YappHeroUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		B0CC7AEE25E105B10040866A /* PBXTargetDependency */ = {
+		B041748925E2366F00D990A2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B0CC7AD225E105AF0040866A /* YappHero */;
-			targetProxy = B0CC7AED25E105B10040866A /* PBXContainerItemProxy */;
+			target = B041746D25E2366E00D990A2 /* YappHero */;
+			targetProxy = B041748825E2366F00D990A2 /* PBXContainerItemProxy */;
 		};
-		B0CC7AF925E105B10040866A /* PBXTargetDependency */ = {
+		B041749425E2366F00D990A2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B0CC7AD225E105AF0040866A /* YappHero */;
-			targetProxy = B0CC7AF825E105B10040866A /* PBXContainerItemProxy */;
+			target = B041746D25E2366E00D990A2 /* YappHero */;
+			targetProxy = B041749325E2366F00D990A2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		B0CC7AE425E105B00040866A /* LaunchScreen.storyboard */ = {
+		B041747725E2366E00D990A2 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				B0CC7AE525E105B00040866A /* Base */,
+				B041747825E2366E00D990A2 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B041747F25E2366F00D990A2 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B041748025E2366F00D990A2 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -385,7 +468,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		B0CC7AFE25E105B10040866A /* YappHero(Debug) */ = {
+		B041749925E2366F00D990A2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -436,7 +519,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -444,9 +527,9 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
-			name = "YappHero(Debug)";
+			name = Debug;
 		};
-		B0CC7AFF25E105B10040866A /* YappHero(Real) */ = {
+		B041749A25E2366F00D990A2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -491,7 +574,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -499,102 +582,97 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
-			name = "YappHero(Real)";
+			name = Release;
 		};
-		B0CC7B0125E105B10040866A /* YappHero(Debug) */ = {
+		B041749C25E2366F00D990A2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 43EAE2B568739BEAF050FCE0 /* Pods-YappHero.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M79H9K226Y;
-				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = YappHero/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yiteam.debug.YappHero;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Yapp iOS Team 1 Debug Provision Profile";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = "YappHero(Debug)";
-		};
-		B0CC7B0225E105B10040866A /* YappHero(Real) */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = M79H9K226Y;
-				ENABLE_BITCODE = NO;
-				ENABLE_TESTABILITY = YES;
-				INFOPLIST_FILE = YappHero/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yiteam.YappHero;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Yapp iOS Team 1 Real Provision Profile";
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = REAL;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
-			name = "YappHero(Real)";
+			name = Debug;
 		};
-		B0CC7B0425E105B10040866A /* YappHero(Debug) */ = {
+		B041749D25E2366F00D990A2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C1E8EED5C9EA91E7723D9698 /* Pods-YappHero.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M79H9K226Y;
+				INFOPLIST_FILE = YappHero/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yiteam.YappHero;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		B041749F25E2366F00D990A2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 96218509932EB88DC6A75E4B /* Pods-YappHeroTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M79H9K226Y;
 				INFOPLIST_FILE = YappHeroTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.denny.YappHeroTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yiteam.YappHeroTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YappHero.app/YappHero";
 			};
-			name = "YappHero(Debug)";
+			name = Debug;
 		};
-		B0CC7B0525E105B10040866A /* YappHero(Real) */ = {
+		B04174A025E2366F00D990A2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 47A6764E8978C99A10AF4BDD /* Pods-YappHeroTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M79H9K226Y;
 				INFOPLIST_FILE = YappHeroTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.denny.YappHeroTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yiteam.YappHeroTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YappHero.app/YappHero";
 			};
-			name = "YappHero(Real)";
+			name = Release;
 		};
-		B0CC7B0725E105B10040866A /* YappHero(Debug) */ = {
+		B04174A225E2366F00D990A2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6688203010BC2CAC8F713E58 /* Pods-YappHero-YappHeroUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -605,16 +683,17 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.denny.YappHeroUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yiteam.YappHeroUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = YappHero;
 			};
-			name = "YappHero(Debug)";
+			name = Debug;
 		};
-		B0CC7B0825E105B10040866A /* YappHero(Real) */ = {
+		B04174A325E2366F00D990A2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F65BD738214020871341DE05 /* Pods-YappHero-YappHeroUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -625,86 +704,67 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.denny.YappHeroUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yiteam.YappHeroUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = YappHero;
 			};
-			name = "YappHero(Real)";
+			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B0CC7ACE25E105AF0040866A /* Build configuration list for PBXProject "YappHero" */ = {
+		B041746925E2366E00D990A2 /* Build configuration list for PBXProject "YappHero" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B0CC7AFE25E105B10040866A /* YappHero(Debug) */,
-				B0CC7AFF25E105B10040866A /* YappHero(Real) */,
+				B041749925E2366F00D990A2 /* Debug */,
+				B041749A25E2366F00D990A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = "YappHero(Debug)";
+			defaultConfigurationName = Release;
 		};
-		B0CC7B0025E105B10040866A /* Build configuration list for PBXNativeTarget "YappHero" */ = {
+		B041749B25E2366F00D990A2 /* Build configuration list for PBXNativeTarget "YappHero" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B0CC7B0125E105B10040866A /* YappHero(Debug) */,
-				B0CC7B0225E105B10040866A /* YappHero(Real) */,
+				B041749C25E2366F00D990A2 /* Debug */,
+				B041749D25E2366F00D990A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = "YappHero(Debug)";
+			defaultConfigurationName = Release;
 		};
-		B0CC7B0325E105B10040866A /* Build configuration list for PBXNativeTarget "YappHeroTests" */ = {
+		B041749E25E2366F00D990A2 /* Build configuration list for PBXNativeTarget "YappHeroTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B0CC7B0425E105B10040866A /* YappHero(Debug) */,
-				B0CC7B0525E105B10040866A /* YappHero(Real) */,
+				B041749F25E2366F00D990A2 /* Debug */,
+				B04174A025E2366F00D990A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = "YappHero(Debug)";
+			defaultConfigurationName = Release;
 		};
-		B0CC7B0625E105B10040866A /* Build configuration list for PBXNativeTarget "YappHeroUITests" */ = {
+		B04174A125E2366F00D990A2 /* Build configuration list for PBXNativeTarget "YappHeroUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B0CC7B0725E105B10040866A /* YappHero(Debug) */,
-				B0CC7B0825E105B10040866A /* YappHero(Real) */,
+				B04174A225E2366F00D990A2 /* Debug */,
+				B04174A325E2366F00D990A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = "YappHero(Debug)";
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		B0DD98F625E1DA4E00B67410 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SnapKit/SnapKit";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.1;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		B0DD98F725E1DA4E00B67410 /* SnapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B0DD98F625E1DA4E00B67410 /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = SnapKit;
-		};
-/* End XCSwiftPackageProductDependency section */
-
 /* Begin XCVersionGroup section */
-		B0CC7ADF25E105AF0040866A /* YappHero.xcdatamodeld */ = {
+		B041747A25E2366E00D990A2 /* YappHero.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				B0CC7AE025E105AF0040866A /* YappHero.xcdatamodel */,
+				B041747B25E2366E00D990A2 /* YappHero.xcdatamodel */,
 			);
-			currentVersion = B0CC7AE025E105AF0040866A /* YappHero.xcdatamodel */;
+			currentVersion = B041747B25E2366E00D990A2 /* YappHero.xcdatamodel */;
 			path = YappHero.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
 /* End XCVersionGroup section */
 	};
-	rootObject = B0CC7ACB25E105AF0040866A /* Project object */;
+	rootObject = B041746625E2366E00D990A2 /* Project object */;
 }
