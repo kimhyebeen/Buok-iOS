@@ -17,6 +17,7 @@ class ViewController: UIViewController {
         view.addSubview(heroButton)
         
         heroButton.setTitle("Hello World", for: .normal)
+        heroButton.titleLabel?.font = .font14PBold
         heroButton.setTitleColor(.heroBlue100s, for: .normal)
         heroButton.snp.makeConstraints { make in
             make.center.equalToSuperview()
