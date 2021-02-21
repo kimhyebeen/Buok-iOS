@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,7 +11,6 @@
 		515B39C3D64C2B6A018F4EDE /* Pods_YappHeroTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F67B46ADD8EC16655F1D731 /* Pods_YappHeroTests.framework */; };
 		908A1030BC843DC8C5DD9A32 /* Pods_YappHero_YappHeroUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 285474F93AF38E504495213E /* Pods_YappHero_YappHeroUITests.framework */; };
 		B041747225E2366E00D990A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B041747125E2366E00D990A2 /* AppDelegate.swift */; };
-		B041747425E2366E00D990A2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B041747325E2366E00D990A2 /* SceneDelegate.swift */; };
 		B041747625E2366E00D990A2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B041747525E2366E00D990A2 /* ViewController.swift */; };
 		B041747925E2366E00D990A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B041747725E2366E00D990A2 /* Main.storyboard */; };
 		B041747C25E2366E00D990A2 /* YappHero.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B041747A25E2366E00D990A2 /* YappHero.xcdatamodeld */; };
@@ -39,16 +38,24 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F612B424FD0728306E3799D /* Pods-YappHero-YappHeroUITests.sandbox(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHero-YappHeroUITests.sandbox(debug).xcconfig"; path = "Target Support Files/Pods-YappHero-YappHeroUITests/Pods-YappHero-YappHeroUITests.sandbox(debug).xcconfig"; sourceTree = "<group>"; };
 		248B50075022272D2F6DFF29 /* Pods_YappHero.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YappHero.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		285474F93AF38E504495213E /* Pods_YappHero_YappHeroUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YappHero_YappHeroUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		43EAE2B568739BEAF050FCE0 /* Pods-YappHero.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHero.debug.xcconfig"; path = "Target Support Files/Pods-YappHero/Pods-YappHero.debug.xcconfig"; sourceTree = "<group>"; };
 		47A6764E8978C99A10AF4BDD /* Pods-YappHeroTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHeroTests.release.xcconfig"; path = "Target Support Files/Pods-YappHeroTests/Pods-YappHeroTests.release.xcconfig"; sourceTree = "<group>"; };
+		4BE414CD84DE5C96B36B278E /* Pods-YappHero.real.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHero.real.xcconfig"; path = "Target Support Files/Pods-YappHero/Pods-YappHero.real.xcconfig"; sourceTree = "<group>"; };
 		4F67B46ADD8EC16655F1D731 /* Pods_YappHeroTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YappHeroTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F93D0621D7E53F338B6AD22 /* Pods-YappHeroTests.sandbox(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHeroTests.sandbox(debug).xcconfig"; path = "Target Support Files/Pods-YappHeroTests/Pods-YappHeroTests.sandbox(debug).xcconfig"; sourceTree = "<group>"; };
+		56DD4736D819295D6C88234C /* Pods-YappHero-YappHeroUITests.real.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHero-YappHeroUITests.real.xcconfig"; path = "Target Support Files/Pods-YappHero-YappHeroUITests/Pods-YappHero-YappHeroUITests.real.xcconfig"; sourceTree = "<group>"; };
 		6688203010BC2CAC8F713E58 /* Pods-YappHero-YappHeroUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHero-YappHeroUITests.debug.xcconfig"; path = "Target Support Files/Pods-YappHero-YappHeroUITests/Pods-YappHero-YappHeroUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		6FCCE54585DDBFF3F0F1FD0A /* Pods-YappHero-YappHeroUITests.inhouse(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHero-YappHeroUITests.inhouse(debug).xcconfig"; path = "Target Support Files/Pods-YappHero-YappHeroUITests/Pods-YappHero-YappHeroUITests.inhouse(debug).xcconfig"; sourceTree = "<group>"; };
+		7682F502F9045598226F6237 /* Pods-YappHero.sandbox(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHero.sandbox(debug).xcconfig"; path = "Target Support Files/Pods-YappHero/Pods-YappHero.sandbox(debug).xcconfig"; sourceTree = "<group>"; };
+		7F4A07F4B049659C75D655C6 /* Pods-YappHero.inhouse(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHero.inhouse(debug).xcconfig"; path = "Target Support Files/Pods-YappHero/Pods-YappHero.inhouse(debug).xcconfig"; sourceTree = "<group>"; };
+		85A097A5531D35F3DC9786D7 /* Pods-YappHeroTests.inhouse(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHeroTests.inhouse(debug).xcconfig"; path = "Target Support Files/Pods-YappHeroTests/Pods-YappHeroTests.inhouse(debug).xcconfig"; sourceTree = "<group>"; };
+		90F023FF7F200E866B6BACB8 /* Pods-YappHeroTests.real.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHeroTests.real.xcconfig"; path = "Target Support Files/Pods-YappHeroTests/Pods-YappHeroTests.real.xcconfig"; sourceTree = "<group>"; };
 		96218509932EB88DC6A75E4B /* Pods-YappHeroTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHeroTests.debug.xcconfig"; path = "Target Support Files/Pods-YappHeroTests/Pods-YappHeroTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B041746E25E2366E00D990A2 /* YappHero.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YappHero.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B041747125E2366E00D990A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B041747325E2366E00D990A2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B041747525E2366E00D990A2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B041747825E2366E00D990A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B041747B25E2366E00D990A2 /* YappHero.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = YappHero.xcdatamodel; sourceTree = "<group>"; };
@@ -112,8 +119,16 @@
 				F65BD738214020871341DE05 /* Pods-YappHero-YappHeroUITests.release.xcconfig */,
 				96218509932EB88DC6A75E4B /* Pods-YappHeroTests.debug.xcconfig */,
 				47A6764E8978C99A10AF4BDD /* Pods-YappHeroTests.release.xcconfig */,
+				7F4A07F4B049659C75D655C6 /* Pods-YappHero.inhouse(debug).xcconfig */,
+				7682F502F9045598226F6237 /* Pods-YappHero.sandbox(debug).xcconfig */,
+				4BE414CD84DE5C96B36B278E /* Pods-YappHero.real.xcconfig */,
+				6FCCE54585DDBFF3F0F1FD0A /* Pods-YappHero-YappHeroUITests.inhouse(debug).xcconfig */,
+				1F612B424FD0728306E3799D /* Pods-YappHero-YappHeroUITests.sandbox(debug).xcconfig */,
+				56DD4736D819295D6C88234C /* Pods-YappHero-YappHeroUITests.real.xcconfig */,
+				85A097A5531D35F3DC9786D7 /* Pods-YappHeroTests.inhouse(debug).xcconfig */,
+				4F93D0621D7E53F338B6AD22 /* Pods-YappHeroTests.sandbox(debug).xcconfig */,
+				90F023FF7F200E866B6BACB8 /* Pods-YappHeroTests.real.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -143,7 +158,6 @@
 			isa = PBXGroup;
 			children = (
 				B041747125E2366E00D990A2 /* AppDelegate.swift */,
-				B041747325E2366E00D990A2 /* SceneDelegate.swift */,
 				B041747525E2366E00D990A2 /* ViewController.swift */,
 				B041747725E2366E00D990A2 /* Main.storyboard */,
 				B041747D25E2366F00D990A2 /* Assets.xcassets */,
@@ -413,7 +427,6 @@
 				B041747625E2366E00D990A2 /* ViewController.swift in Sources */,
 				B041747C25E2366E00D990A2 /* YappHero.xcdatamodeld in Sources */,
 				B041747225E2366E00D990A2 /* AppDelegate.swift in Sources */,
-				B041747425E2366E00D990A2 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -468,7 +481,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		B041749925E2366F00D990A2 /* Debug */ = {
+		B041749925E2366F00D990A2 /* Inhouse(Debug) */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -519,7 +532,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -527,9 +540,9 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
-			name = Debug;
+			name = "Inhouse(Debug)";
 		};
-		B041749A25E2366F00D990A2 /* Release */ = {
+		B041749A25E2366F00D990A2 /* Real */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -574,7 +587,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -582,51 +595,55 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
-			name = Release;
+			name = Real;
 		};
-		B041749C25E2366F00D990A2 /* Debug */ = {
+		B041749C25E2366F00D990A2 /* Inhouse(Debug) */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 43EAE2B568739BEAF050FCE0 /* Pods-YappHero.debug.xcconfig */;
+			baseConfigurationReference = 7F4A07F4B049659C75D655C6 /* Pods-YappHero.inhouse(debug).xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M79H9K226Y;
 				INFOPLIST_FILE = YappHero/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yiteam.YappHero;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = INHOUSE;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
-			name = Debug;
+			name = "Inhouse(Debug)";
 		};
-		B041749D25E2366F00D990A2 /* Release */ = {
+		B041749D25E2366F00D990A2 /* Real */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C1E8EED5C9EA91E7723D9698 /* Pods-YappHero.release.xcconfig */;
+			baseConfigurationReference = 4BE414CD84DE5C96B36B278E /* Pods-YappHero.real.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M79H9K226Y;
 				INFOPLIST_FILE = YappHero/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yiteam.YappHero;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = REAL;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
-			name = Release;
+			name = Real;
 		};
-		B041749F25E2366F00D990A2 /* Debug */ = {
+		B041749F25E2366F00D990A2 /* Inhouse(Debug) */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 96218509932EB88DC6A75E4B /* Pods-YappHeroTests.debug.xcconfig */;
+			baseConfigurationReference = 85A097A5531D35F3DC9786D7 /* Pods-YappHeroTests.inhouse(debug).xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -645,11 +662,11 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YappHero.app/YappHero";
 			};
-			name = Debug;
+			name = "Inhouse(Debug)";
 		};
-		B04174A025E2366F00D990A2 /* Release */ = {
+		B04174A025E2366F00D990A2 /* Real */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 47A6764E8978C99A10AF4BDD /* Pods-YappHeroTests.release.xcconfig */;
+			baseConfigurationReference = 90F023FF7F200E866B6BACB8 /* Pods-YappHeroTests.real.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -668,11 +685,11 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YappHero.app/YappHero";
 			};
-			name = Release;
+			name = Real;
 		};
-		B04174A225E2366F00D990A2 /* Debug */ = {
+		B04174A225E2366F00D990A2 /* Inhouse(Debug) */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6688203010BC2CAC8F713E58 /* Pods-YappHero-YappHeroUITests.debug.xcconfig */;
+			baseConfigurationReference = 6FCCE54585DDBFF3F0F1FD0A /* Pods-YappHero-YappHeroUITests.inhouse(debug).xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -689,11 +706,11 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = YappHero;
 			};
-			name = Debug;
+			name = "Inhouse(Debug)";
 		};
-		B04174A325E2366F00D990A2 /* Release */ = {
+		B04174A325E2366F00D990A2 /* Real */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F65BD738214020871341DE05 /* Pods-YappHero-YappHeroUITests.release.xcconfig */;
+			baseConfigurationReference = 56DD4736D819295D6C88234C /* Pods-YappHero-YappHeroUITests.real.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -710,7 +727,134 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = YappHero;
 			};
-			name = Release;
+			name = Real;
+		};
+		B04174B525E236D700D990A2 /* Sandbox(Debug) */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = "Sandbox(Debug)";
+		};
+		B04174B625E236D700D990A2 /* Sandbox(Debug) */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7682F502F9045598226F6237 /* Pods-YappHero.sandbox(debug).xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M79H9K226Y;
+				INFOPLIST_FILE = YappHero/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yiteam.YappHero;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = SANDBOX;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = "Sandbox(Debug)";
+		};
+		B04174B725E236D700D990A2 /* Sandbox(Debug) */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4F93D0621D7E53F338B6AD22 /* Pods-YappHeroTests.sandbox(debug).xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M79H9K226Y;
+				INFOPLIST_FILE = YappHeroTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yiteam.YappHeroTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YappHero.app/YappHero";
+			};
+			name = "Sandbox(Debug)";
+		};
+		B04174B825E236D700D990A2 /* Sandbox(Debug) */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1F612B424FD0728306E3799D /* Pods-YappHero-YappHeroUITests.sandbox(debug).xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M79H9K226Y;
+				INFOPLIST_FILE = YappHeroUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yiteam.YappHeroUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = YappHero;
+			};
+			name = "Sandbox(Debug)";
 		};
 /* End XCBuildConfiguration section */
 
@@ -718,38 +862,42 @@
 		B041746925E2366E00D990A2 /* Build configuration list for PBXProject "YappHero" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B041749925E2366F00D990A2 /* Debug */,
-				B041749A25E2366F00D990A2 /* Release */,
+				B041749925E2366F00D990A2 /* Inhouse(Debug) */,
+				B04174B525E236D700D990A2 /* Sandbox(Debug) */,
+				B041749A25E2366F00D990A2 /* Real */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Real;
 		};
 		B041749B25E2366F00D990A2 /* Build configuration list for PBXNativeTarget "YappHero" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B041749C25E2366F00D990A2 /* Debug */,
-				B041749D25E2366F00D990A2 /* Release */,
+				B041749C25E2366F00D990A2 /* Inhouse(Debug) */,
+				B04174B625E236D700D990A2 /* Sandbox(Debug) */,
+				B041749D25E2366F00D990A2 /* Real */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Real;
 		};
 		B041749E25E2366F00D990A2 /* Build configuration list for PBXNativeTarget "YappHeroTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B041749F25E2366F00D990A2 /* Debug */,
-				B04174A025E2366F00D990A2 /* Release */,
+				B041749F25E2366F00D990A2 /* Inhouse(Debug) */,
+				B04174B725E236D700D990A2 /* Sandbox(Debug) */,
+				B04174A025E2366F00D990A2 /* Real */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Real;
 		};
 		B04174A125E2366F00D990A2 /* Build configuration list for PBXNativeTarget "YappHeroUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B04174A225E2366F00D990A2 /* Debug */,
-				B04174A325E2366F00D990A2 /* Release */,
+				B04174A225E2366F00D990A2 /* Inhouse(Debug) */,
+				B04174B825E236D700D990A2 /* Sandbox(Debug) */,
+				B04174A325E2366F00D990A2 /* Real */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Real;
 		};
 /* End XCConfigurationList section */
 
