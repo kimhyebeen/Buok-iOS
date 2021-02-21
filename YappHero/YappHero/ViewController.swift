@@ -6,7 +6,7 @@
 //
 
 import SnapKit
-import UIKit
+import YappUI
 
 class ViewController: UIViewController {
 

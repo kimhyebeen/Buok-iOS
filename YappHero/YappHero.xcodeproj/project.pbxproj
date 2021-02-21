@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B08DA52F25E21AA3003A4079 /* YappUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B08DA51125E219A3003A4079 /* YappUI.framework */; };
+		B08DA54825E21CA0003A4079 /* YappUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B08DA51125E219A3003A4079 /* YappUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B0CC7AD725E105AF0040866A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CC7AD625E105AF0040866A /* AppDelegate.swift */; };
 		B0CC7ADB25E105AF0040866A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CC7ADA25E105AF0040866A /* ViewController.swift */; };
 		B0CC7AE125E105AF0040866A /* YappHero.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B0CC7ADF25E105AF0040866A /* YappHero.xcdatamodeld */; };
@@ -18,6 +20,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		B08DA51025E219A3003A4079 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B08DA50B25E219A3003A4079 /* YappUI.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B08DA4EF25E2198E003A4079;
+			remoteInfo = YappUI;
+		};
+		B08DA51225E219A3003A4079 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B08DA50B25E219A3003A4079 /* YappUI.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B08DA4F825E2198E003A4079;
+			remoteInfo = YappUITests;
+		};
 		B0CC7AED25E105B10040866A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B0CC7ACB25E105AF0040866A /* Project object */;
@@ -34,7 +50,22 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		B08DA53125E21AA3003A4079 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B08DA54825E21CA0003A4079 /* YappUI.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		B08DA50B25E219A3003A4079 /* YappUI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = YappUI.xcodeproj; path = YappUI/YappUI.xcodeproj; sourceTree = "<group>"; };
 		B0CC7AD325E105AF0040866A /* YappHero.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YappHero.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0CC7AD625E105AF0040866A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B0CC7ADA25E105AF0040866A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -55,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B08DA52F25E21AA3003A4079 /* YappUI.framework in Frameworks */,
 				B0DD98F825E1DA4E00B67410 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -76,13 +108,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B08DA50C25E219A3003A4079 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B08DA51125E219A3003A4079 /* YappUI.framework */,
+				B08DA51325E219A3003A4079 /* YappUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B08DA52625E21A80003A4079 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B0CC7ACA25E105AF0040866A = {
 			isa = PBXGroup;
 			children = (
+				B08DA50B25E219A3003A4079 /* YappUI.xcodeproj */,
 				B0CC7AD525E105AF0040866A /* YappHero */,
 				B0CC7AEF25E105B10040866A /* YappHeroTests */,
 				B0CC7AFA25E105B10040866A /* YappHeroUITests */,
 				B0CC7AD425E105AF0040866A /* Products */,
+				B08DA52625E21A80003A4079 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -137,6 +187,7 @@
 				B0CC7ACF25E105AF0040866A /* Sources */,
 				B0CC7AD025E105AF0040866A /* Frameworks */,
 				B0CC7AD125E105AF0040866A /* Resources */,
+				B08DA53125E21AA3003A4079 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -222,6 +273,12 @@
 			);
 			productRefGroup = B0CC7AD425E105AF0040866A /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = B08DA50C25E219A3003A4079 /* Products */;
+					ProjectRef = B08DA50B25E219A3003A4079 /* YappUI.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				B0CC7AD225E105AF0040866A /* YappHero */,
@@ -230,6 +287,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		B08DA51125E219A3003A4079 /* YappUI.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = YappUI.framework;
+			remoteRef = B08DA51025E219A3003A4079 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B08DA51325E219A3003A4079 /* YappUITests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = YappUITests.xctest;
+			remoteRef = B08DA51225E219A3003A4079 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		B0CC7AD125E105AF0040866A /* Resources */ = {
@@ -435,6 +509,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = M79H9K226Y;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = YappHero/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -457,6 +532,8 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = M79H9K226Y;
+				ENABLE_BITCODE = NO;
+				ENABLE_TESTABILITY = YES;
 				INFOPLIST_FILE = YappHero/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -480,7 +557,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M79H9K226Y;
 				INFOPLIST_FILE = YappHeroTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -502,7 +579,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M79H9K226Y;
 				INFOPLIST_FILE = YappHeroTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
