@@ -3,13 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2DEE883539E5D87A7C1D0616 /* Pods_YappHero_YappHeroUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B7D476802121D5194FA765A /* Pods_YappHero_YappHeroUITests.framework */; };
-		536B3341411B974A43B7C268 /* Pods_YappHeroTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00A82C66F462EF589F27BF11 /* Pods_YappHeroTests.framework */; };
-		6FD2148957C9CFB9B005F5BE /* Pods_YappHero.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9269D6DF22E1509A0AD44C /* Pods_YappHero.framework */; };
 		B0CC7AD725E105AF0040866A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CC7AD625E105AF0040866A /* AppDelegate.swift */; };
 		B0CC7ADB25E105AF0040866A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CC7ADA25E105AF0040866A /* ViewController.swift */; };
 		B0CC7AE125E105AF0040866A /* YappHero.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B0CC7ADF25E105AF0040866A /* YappHero.xcdatamodeld */; };
@@ -17,6 +14,7 @@
 		B0CC7AE625E105B00040866A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0CC7AE425E105B00040866A /* LaunchScreen.storyboard */; };
 		B0CC7AF125E105B10040866A /* YappHeroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CC7AF025E105B10040866A /* YappHeroTests.swift */; };
 		B0CC7AFC25E105B10040866A /* YappHeroUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CC7AFB25E105B10040866A /* YappHeroUITests.swift */; };
+		B0DD98F825E1DA4E00B67410 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B0DD98F725E1DA4E00B67410 /* SnapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,14 +35,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00A82C66F462EF589F27BF11 /* Pods_YappHeroTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YappHeroTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		19BFD3859D703F02511A9E17 /* Pods-YappHero-YappHeroUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHero-YappHeroUITests.release.xcconfig"; path = "Target Support Files/Pods-YappHero-YappHeroUITests/Pods-YappHero-YappHeroUITests.release.xcconfig"; sourceTree = "<group>"; };
-		2B7D476802121D5194FA765A /* Pods_YappHero_YappHeroUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YappHero_YappHeroUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4DE772DB67DC024C94DE9C64 /* Pods-YappHero.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHero.release.xcconfig"; path = "Target Support Files/Pods-YappHero/Pods-YappHero.release.xcconfig"; sourceTree = "<group>"; };
-		5E9269D6DF22E1509A0AD44C /* Pods_YappHero.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YappHero.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		73FE8727A2BD2644C24E5188 /* Pods-YappHero-YappHeroUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHero-YappHeroUITests.debug.xcconfig"; path = "Target Support Files/Pods-YappHero-YappHeroUITests/Pods-YappHero-YappHeroUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		939244314EB3E14BCEAD3CF3 /* Pods-YappHeroTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHeroTests.debug.xcconfig"; path = "Target Support Files/Pods-YappHeroTests/Pods-YappHeroTests.debug.xcconfig"; sourceTree = "<group>"; };
-		A6BD50B370F9ED56FA3D22E7 /* Pods-YappHeroTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHeroTests.release.xcconfig"; path = "Target Support Files/Pods-YappHeroTests/Pods-YappHeroTests.release.xcconfig"; sourceTree = "<group>"; };
 		B0CC7AD325E105AF0040866A /* YappHero.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YappHero.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0CC7AD625E105AF0040866A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B0CC7ADA25E105AF0040866A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -58,7 +48,6 @@
 		B0CC7AF725E105B10040866A /* YappHeroUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YappHeroUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0CC7AFB25E105B10040866A /* YappHeroUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YappHeroUITests.swift; sourceTree = "<group>"; };
 		B0CC7AFD25E105B10040866A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BE909F975833DB34046C4BA1 /* Pods-YappHero.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHero.debug.xcconfig"; path = "Target Support Files/Pods-YappHero/Pods-YappHero.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6FD2148957C9CFB9B005F5BE /* Pods_YappHero.framework in Frameworks */,
+				B0DD98F825E1DA4E00B67410 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,7 +63,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				536B3341411B974A43B7C268 /* Pods_YappHeroTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,23 +70,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DEE883539E5D87A7C1D0616 /* Pods_YappHero_YappHeroUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8FF58AEB15844B6D34655B94 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				5E9269D6DF22E1509A0AD44C /* Pods_YappHero.framework */,
-				2B7D476802121D5194FA765A /* Pods_YappHero_YappHeroUITests.framework */,
-				00A82C66F462EF589F27BF11 /* Pods_YappHeroTests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		B0CC7ACA25E105AF0040866A = {
 			isa = PBXGroup;
 			children = (
@@ -106,8 +83,6 @@
 				B0CC7AEF25E105B10040866A /* YappHeroTests */,
 				B0CC7AFA25E105B10040866A /* YappHeroUITests */,
 				B0CC7AD425E105AF0040866A /* Products */,
-				E15332654185E5B9AEFC40C9 /* Pods */,
-				8FF58AEB15844B6D34655B94 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -152,20 +127,6 @@
 			path = YappHeroUITests;
 			sourceTree = "<group>";
 		};
-		E15332654185E5B9AEFC40C9 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				BE909F975833DB34046C4BA1 /* Pods-YappHero.debug.xcconfig */,
-				4DE772DB67DC024C94DE9C64 /* Pods-YappHero.release.xcconfig */,
-				73FE8727A2BD2644C24E5188 /* Pods-YappHero-YappHeroUITests.debug.xcconfig */,
-				19BFD3859D703F02511A9E17 /* Pods-YappHero-YappHeroUITests.release.xcconfig */,
-				939244314EB3E14BCEAD3CF3 /* Pods-YappHeroTests.debug.xcconfig */,
-				A6BD50B370F9ED56FA3D22E7 /* Pods-YappHeroTests.release.xcconfig */,
-			);
-			name = Pods;
-			path = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -173,17 +134,18 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B0CC7B0025E105B10040866A /* Build configuration list for PBXNativeTarget "YappHero" */;
 			buildPhases = (
-				1D28E37FF09E9B306E56565E /* [CP] Check Pods Manifest.lock */,
 				B0CC7ACF25E105AF0040866A /* Sources */,
 				B0CC7AD025E105AF0040866A /* Frameworks */,
 				B0CC7AD125E105AF0040866A /* Resources */,
-				8F532662E1728831B5858298 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = YappHero;
+			packageProductDependencies = (
+				B0DD98F725E1DA4E00B67410 /* SnapKit */,
+			);
 			productName = YappHero;
 			productReference = B0CC7AD325E105AF0040866A /* YappHero.app */;
 			productType = "com.apple.product-type.application";
@@ -192,7 +154,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B0CC7B0325E105B10040866A /* Build configuration list for PBXNativeTarget "YappHeroTests" */;
 			buildPhases = (
-				952B54E35B7341D315C3687F /* [CP] Check Pods Manifest.lock */,
 				B0CC7AE825E105B10040866A /* Sources */,
 				B0CC7AE925E105B10040866A /* Frameworks */,
 				B0CC7AEA25E105B10040866A /* Resources */,
@@ -211,11 +172,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B0CC7B0625E105B10040866A /* Build configuration list for PBXNativeTarget "YappHeroUITests" */;
 			buildPhases = (
-				CCDC8A52583E5AC4E66B6C6F /* [CP] Check Pods Manifest.lock */,
 				B0CC7AF325E105B10040866A /* Sources */,
 				B0CC7AF425E105B10040866A /* Frameworks */,
 				B0CC7AF525E105B10040866A /* Resources */,
-				019DC5448B290B06BDA9B880 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -258,6 +217,9 @@
 				Base,
 			);
 			mainGroup = B0CC7ACA25E105AF0040866A;
+			packageReferences = (
+				B0DD98F625E1DA4E00B67410 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = B0CC7AD425E105AF0040866A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -294,109 +256,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		019DC5448B290B06BDA9B880 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-YappHero-YappHeroUITests/Pods-YappHero-YappHeroUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-YappHero-YappHeroUITests/Pods-YappHero-YappHeroUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-YappHero-YappHeroUITests/Pods-YappHero-YappHeroUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		1D28E37FF09E9B306E56565E /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-YappHero-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8F532662E1728831B5858298 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-YappHero/Pods-YappHero-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-YappHero/Pods-YappHero-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-YappHero/Pods-YappHero-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		952B54E35B7341D315C3687F /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-YappHeroTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CCDC8A52583E5AC4E66B6C6F /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-YappHero-YappHeroUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B0CC7ACF25E105AF0040866A /* Sources */ = {
@@ -570,7 +429,6 @@
 		};
 		B0CC7B0125E105B10040866A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BE909F975833DB34046C4BA1 /* Pods-YappHero.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -590,7 +448,6 @@
 		};
 		B0CC7B0225E105B10040866A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4DE772DB67DC024C94DE9C64 /* Pods-YappHero.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -610,7 +467,6 @@
 		};
 		B0CC7B0425E105B10040866A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 939244314EB3E14BCEAD3CF3 /* Pods-YappHeroTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -633,7 +489,6 @@
 		};
 		B0CC7B0525E105B10040866A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A6BD50B370F9ED56FA3D22E7 /* Pods-YappHeroTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -656,7 +511,6 @@
 		};
 		B0CC7B0725E105B10040866A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 73FE8727A2BD2644C24E5188 /* Pods-YappHero-YappHeroUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -677,7 +531,6 @@
 		};
 		B0CC7B0825E105B10040866A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 19BFD3859D703F02511A9E17 /* Pods-YappHero-YappHeroUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -736,6 +589,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B0DD98F625E1DA4E00B67410 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B0DD98F725E1DA4E00B67410 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B0DD98F625E1DA4E00B67410 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		B0CC7ADF25E105AF0040866A /* YappHero.xcdatamodeld */ = {

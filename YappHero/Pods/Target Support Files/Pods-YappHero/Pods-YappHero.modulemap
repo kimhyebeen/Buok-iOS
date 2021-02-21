@@ -1,6 +1,0 @@
-framework module Pods_YappHero {
-  umbrella header "Pods-YappHero-umbrella.h"
-
-  export *
-  module * { export * }
-}
