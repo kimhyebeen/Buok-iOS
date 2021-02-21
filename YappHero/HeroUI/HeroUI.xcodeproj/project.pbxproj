@@ -12,6 +12,8 @@
 		B041751A25E2382D00D990A2 /* HeroUI.h in Headers */ = {isa = PBXBuildFile; fileRef = B041750C25E2382C00D990A2 /* HeroUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B041759725E2394800D990A2 /* UIColor+Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = B041759625E2394800D990A2 /* UIColor+Hero.swift */; };
 		B041759B25E2398300D990A2 /* HeroButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B041759A25E2398300D990A2 /* HeroButton.swift */; };
+		B041761025E23BE400D990A2 /* HeroColorSet.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B041760F25E23BE400D990A2 /* HeroColorSet.xcassets */; };
+		B041761425E23C0600D990A2 /* Bundle+Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = B041761325E23C0600D990A2 /* Bundle+Hero.swift */; };
 		B94199A7340AA091D7EFED1D /* libPods-HeroUI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67AFB3E0E117A8D4DF3E3098 /* libPods-HeroUI.a */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +39,8 @@
 		B041751925E2382D00D990A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B041759625E2394800D990A2 /* UIColor+Hero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hero.swift"; sourceTree = "<group>"; };
 		B041759A25E2398300D990A2 /* HeroButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroButton.swift; sourceTree = "<group>"; };
+		B041760F25E23BE400D990A2 /* HeroColorSet.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = HeroColorSet.xcassets; sourceTree = "<group>"; };
+		B041761325E23C0600D990A2 /* Bundle+Hero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Hero.swift"; sourceTree = "<group>"; };
 		C33565CC9EFC666DA4E1F6C1 /* Pods-HeroUI.inhouse(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroUI.inhouse(debug).xcconfig"; path = "Target Support Files/Pods-HeroUI/Pods-HeroUI.inhouse(debug).xcconfig"; sourceTree = "<group>"; };
 		C39B8CF93D09A1C653D8841D /* Pods-HeroUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroUI.debug.xcconfig"; path = "Target Support Files/Pods-HeroUI/Pods-HeroUI.debug.xcconfig"; sourceTree = "<group>"; };
 		CF5BADAB0CAB732CEE18C3F8 /* Pods-HeroUI.real.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroUI.real.xcconfig"; path = "Target Support Files/Pods-HeroUI/Pods-HeroUI.real.xcconfig"; sourceTree = "<group>"; };
@@ -106,10 +110,12 @@
 		B041750B25E2382C00D990A2 /* HeroUI */ = {
 			isa = PBXGroup;
 			children = (
+				B041760E25E23BD800D990A2 /* Resources */,
 				B041750C25E2382C00D990A2 /* HeroUI.h */,
 				B041750D25E2382C00D990A2 /* Info.plist */,
 				B041759625E2394800D990A2 /* UIColor+Hero.swift */,
 				B041759A25E2398300D990A2 /* HeroButton.swift */,
+				B041761325E23C0600D990A2 /* Bundle+Hero.swift */,
 			);
 			path = HeroUI;
 			sourceTree = "<group>";
@@ -121,6 +127,14 @@
 				B041751925E2382D00D990A2 /* Info.plist */,
 			);
 			path = HeroUITests;
+			sourceTree = "<group>";
+		};
+		B041760E25E23BD800D990A2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B041760F25E23BE400D990A2 /* HeroColorSet.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -216,6 +230,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B041761025E23BE400D990A2 /* HeroColorSet.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +274,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B041759725E2394800D990A2 /* UIColor+Hero.swift in Sources */,
+				B041761425E23C0600D990A2 /* Bundle+Hero.swift in Sources */,
 				B041759B25E2398300D990A2 /* HeroButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

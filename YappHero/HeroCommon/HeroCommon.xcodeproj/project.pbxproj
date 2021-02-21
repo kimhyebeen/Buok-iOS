@@ -11,6 +11,7 @@
 		B041754525E2384300D990A2 /* HeroCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B041753B25E2384300D990A2 /* HeroCommon.framework */; };
 		B041754A25E2384300D990A2 /* HeroCommonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B041754925E2384300D990A2 /* HeroCommonTests.swift */; };
 		B041754C25E2384300D990A2 /* HeroCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = B041753E25E2384300D990A2 /* HeroCommon.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B041761825E23C8800D990A2 /* LogConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B041761725E23C8800D990A2 /* LogConfig.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		B041754425E2384300D990A2 /* HeroCommonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HeroCommonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B041754925E2384300D990A2 /* HeroCommonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroCommonTests.swift; sourceTree = "<group>"; };
 		B041754B25E2384300D990A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B041761725E23C8800D990A2 /* LogConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogConfig.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 			children = (
 				B041753E25E2384300D990A2 /* HeroCommon.h */,
 				B041753F25E2384300D990A2 /* Info.plist */,
+				B041761725E23C8800D990A2 /* LogConfig.swift */,
 			);
 			path = HeroCommon;
 			sourceTree = "<group>";
@@ -179,6 +182,7 @@
 				TargetAttributes = {
 					B041753A25E2384300D990A2 = {
 						CreatedOnToolsVersion = 12.3;
+						LastSwiftMigration = 1230;
 					};
 					B041754325E2384300D990A2 = {
 						CreatedOnToolsVersion = 12.3;
@@ -251,6 +255,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B041761825E23C8800D990A2 /* LogConfig.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,6 +404,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 01F7F75D806251D208604327 /* Pods-HeroCommon.inhouse(debug).xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = M79H9K226Y;
@@ -417,6 +423,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -426,6 +433,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8D1BBA080775050FBB242067 /* Pods-HeroCommon.real.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = M79H9K226Y;
@@ -452,6 +460,7 @@
 		B041755325E2384300D990A2 /* Inhouse(Debug) */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M79H9K226Y;
 				INFOPLIST_FILE = HeroCommonTests/Info.plist;
@@ -470,6 +479,7 @@
 		B041755425E2384300D990A2 /* Real */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M79H9K226Y;
 				INFOPLIST_FILE = HeroCommonTests/Info.plist;
@@ -553,6 +563,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2F7C60FFC177B2A75612FBE1 /* Pods-HeroCommon.sandbox(debug).xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = M79H9K226Y;
@@ -571,6 +582,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -579,6 +591,7 @@
 		B04175B825E23A2400D990A2 /* Sandbox(Debug) */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M79H9K226Y;
 				INFOPLIST_FILE = HeroCommonTests/Info.plist;

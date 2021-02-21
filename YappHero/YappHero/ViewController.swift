@@ -2,11 +2,12 @@
 //  ViewController.swift
 //  YappHero
 //
-//  Created by denny on 2021/02/21.
+//  Created by Taein Kim on 2021/02/21.
 //
 
-import SnapKit
+import HeroCommon
 import HeroUI
+import SnapKit
 
 class ViewController: UIViewController {
     private var heroButton: HeroButton = HeroButton()
@@ -14,6 +15,14 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         view.addSubview(heroButton)
+        
+        heroButton.setTitle("Hello World", for: .normal)
+        heroButton.setTitleColor(.heroBlue100s, for: .normal)
+        heroButton.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+        }
+        
+        HeroLog.debug("Hello World")
     }
 
 
