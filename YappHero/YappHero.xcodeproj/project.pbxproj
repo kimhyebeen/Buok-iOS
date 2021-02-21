@@ -18,6 +18,10 @@
 		B041748125E2366F00D990A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B041747F25E2366F00D990A2 /* LaunchScreen.storyboard */; };
 		B041748C25E2366F00D990A2 /* YappHeroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B041748B25E2366F00D990A2 /* YappHeroTests.swift */; };
 		B041749725E2366F00D990A2 /* YappHeroUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B041749625E2366F00D990A2 /* YappHeroUITests.swift */; };
+		B04175A225E239D900D990A2 /* HeroCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B041755B25E2384400D990A2 /* HeroCommon.framework */; };
+		B04175A325E239D900D990A2 /* HeroCommon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B041755B25E2384400D990A2 /* HeroCommon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B04175A425E239D900D990A2 /* HeroUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B041752925E2382D00D990A2 /* HeroUI.framework */; };
+		B04175A525E239D900D990A2 /* HeroUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B041752925E2382D00D990A2 /* HeroUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +39,50 @@
 			remoteGlobalIDString = B041746D25E2366E00D990A2;
 			remoteInfo = YappHero;
 		};
+		B041752825E2382D00D990A2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B041752325E2382D00D990A2 /* HeroUI.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B041750925E2382C00D990A2;
+			remoteInfo = HeroUI;
+		};
+		B041752A25E2382D00D990A2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B041752325E2382D00D990A2 /* HeroUI.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B041751225E2382D00D990A2;
+			remoteInfo = HeroUITests;
+		};
+		B041755A25E2384400D990A2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B041755525E2384300D990A2 /* HeroCommon.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B041753B25E2384300D990A2;
+			remoteInfo = HeroCommon;
+		};
+		B041755C25E2384400D990A2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B041755525E2384300D990A2 /* HeroCommon.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B041754425E2384300D990A2;
+			remoteInfo = HeroCommonTests;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B04175A625E239DA00D990A2 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B04175A525E239D900D990A2 /* HeroUI.framework in Embed Frameworks */,
+				B04175A325E239D900D990A2 /* HeroCommon.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1F612B424FD0728306E3799D /* Pods-YappHero-YappHeroUITests.sandbox(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHero-YappHeroUITests.sandbox(debug).xcconfig"; path = "Target Support Files/Pods-YappHero-YappHeroUITests/Pods-YappHero-YappHeroUITests.sandbox(debug).xcconfig"; sourceTree = "<group>"; };
@@ -68,6 +115,8 @@
 		B041749225E2366F00D990A2 /* YappHeroUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YappHeroUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B041749625E2366F00D990A2 /* YappHeroUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YappHeroUITests.swift; sourceTree = "<group>"; };
 		B041749825E2366F00D990A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B041752325E2382D00D990A2 /* HeroUI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = HeroUI.xcodeproj; path = HeroUI/HeroUI.xcodeproj; sourceTree = "<group>"; };
+		B041755525E2384300D990A2 /* HeroCommon.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = HeroCommon.xcodeproj; path = HeroCommon/HeroCommon.xcodeproj; sourceTree = "<group>"; };
 		C1E8EED5C9EA91E7723D9698 /* Pods-YappHero.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHero.release.xcconfig"; path = "Target Support Files/Pods-YappHero/Pods-YappHero.release.xcconfig"; sourceTree = "<group>"; };
 		F65BD738214020871341DE05 /* Pods-YappHero-YappHeroUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHero-YappHeroUITests.release.xcconfig"; path = "Target Support Files/Pods-YappHero-YappHeroUITests/Pods-YappHero-YappHeroUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -77,7 +126,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B04175A425E239D900D990A2 /* HeroUI.framework in Frameworks */,
 				173823DD97D184854AB3E592 /* Pods_YappHero.framework in Frameworks */,
+				B04175A225E239D900D990A2 /* HeroCommon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,6 +186,8 @@
 		B041746525E2366E00D990A2 = {
 			isa = PBXGroup;
 			children = (
+				B041755525E2384300D990A2 /* HeroCommon.xcodeproj */,
+				B041752325E2382D00D990A2 /* HeroUI.xcodeproj */,
 				B041747025E2366E00D990A2 /* YappHero */,
 				B041748A25E2366F00D990A2 /* YappHeroTests */,
 				B041749525E2366F00D990A2 /* YappHeroUITests */,
@@ -186,6 +239,24 @@
 			path = YappHeroUITests;
 			sourceTree = "<group>";
 		};
+		B041752425E2382D00D990A2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B041752925E2382D00D990A2 /* HeroUI.framework */,
+				B041752B25E2382D00D990A2 /* HeroUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B041755625E2384300D990A2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B041755B25E2384400D990A2 /* HeroCommon.framework */,
+				B041755D25E2384400D990A2 /* HeroCommonTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -198,6 +269,7 @@
 				B041746B25E2366E00D990A2 /* Frameworks */,
 				B041746C25E2366E00D990A2 /* Resources */,
 				F2FF2D657758E7AC0B6E7B45 /* [CP] Embed Pods Frameworks */,
+				B04175A625E239DA00D990A2 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -280,6 +352,16 @@
 			mainGroup = B041746525E2366E00D990A2;
 			productRefGroup = B041746F25E2366E00D990A2 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = B041755625E2384300D990A2 /* Products */;
+					ProjectRef = B041755525E2384300D990A2 /* HeroCommon.xcodeproj */;
+				},
+				{
+					ProductGroup = B041752425E2382D00D990A2 /* Products */;
+					ProjectRef = B041752325E2382D00D990A2 /* HeroUI.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				B041746D25E2366E00D990A2 /* YappHero */,
@@ -288,6 +370,37 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		B041752925E2382D00D990A2 /* HeroUI.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = HeroUI.framework;
+			remoteRef = B041752825E2382D00D990A2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B041752B25E2382D00D990A2 /* HeroUITests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = HeroUITests.xctest;
+			remoteRef = B041752A25E2382D00D990A2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B041755B25E2384400D990A2 /* HeroCommon.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = HeroCommon.framework;
+			remoteRef = B041755A25E2384400D990A2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B041755D25E2384400D990A2 /* HeroCommonTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = HeroCommonTests.xctest;
+			remoteRef = B041755C25E2384400D990A2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		B041746C25E2366E00D990A2 /* Resources */ = {

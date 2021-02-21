@@ -5,13 +5,15 @@
 //  Created by denny on 2021/02/21.
 //
 
-import UIKit
+import SnapKit
+import HeroUI
 
 class ViewController: UIViewController {
-
+    private var heroButton: HeroButton = HeroButton()
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        view.backgroundColor = .white
+        view.addSubview(heroButton)
     }
 
 
