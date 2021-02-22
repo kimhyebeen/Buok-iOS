@@ -1,0 +1,37 @@
+# Uncomment the next line to define a global platform for your project
+
+platform :ios, '12.0'
+workspace 'YappHero'
+
+xcodeproj 'YappHero/HeroUI.xcodeproj'
+xcodeproj 'YappHero/HeroCommon.xcodeproj'
+
+project 'YappHero' , 'Inhouse(Debug)' => :debug, 'Sandbox(Debug)' => :debug
+
+target 'YappHero' do
+  inhibit_all_warnings!
+  use_frameworks!
+
+  # Pods for YappHero
+  pod 'SnapKit'
+  pod 'Alamofire'
+
+  target 'YappHeroTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'YappHeroUITests' do
+    # Pods for testing
+  end
+
+end
+
+target 'HeroUI' do
+  project 'HeroUI/HeroUI'
+  pod 'SnapKit'
+end
+
+target 'HeroCommon' do
+  project 'HeroCommon/HeroCommon'
+end
