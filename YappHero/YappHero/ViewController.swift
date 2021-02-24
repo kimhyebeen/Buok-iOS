@@ -11,6 +11,7 @@ import SnapKit
 
 class ViewController: UIViewController {
     private var heroButton: HeroButton = HeroButton()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -25,7 +26,4 @@ class ViewController: UIViewController {
         
         HeroLog.debug("Hello World")
     }
-
-
 }
-
