@@ -5,8 +5,8 @@
 //  Created by Taein Kim on 2021/02/21.
 //
 
-import XCTest
 @testable import HeroCommon
+import XCTest
 
 class HeroCommonTests: XCTestCase {
 
