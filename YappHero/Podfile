@@ -15,6 +15,7 @@ target 'YappHero' do
   # Pods for YappHero
   pod 'SnapKit'
   pod 'Alamofire'
+  pod 'SwiftLint'
 
   target 'YappHeroTests' do
     inherit! :search_paths
@@ -30,6 +31,7 @@ end
 target 'HeroUI' do
   project 'HeroUI/HeroUI'
   pod 'SnapKit'
+  pod 'SwiftLint'
 end
 
 target 'HeroCommon' do
