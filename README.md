@@ -6,28 +6,27 @@
 
 👨‍💻 PM 
 
-*  **김유지**
+* **김유지**
 
 👨‍💻 Tech PM 
 
-*  **김태인**
+* **김태인**
 
 👨‍💻 iOS Client
 
-* **김태인**
-* **김보민**
-* **김혜빈**
+* **김태인**, **김보민**, **김혜빈**
 
 👨‍💻 Backend 
 
-* **최정균**
-* **문아영**
+* **최정균**, **문아영**
 
 👨‍💻 Designer
 
 * **최아현**
 
 ---
+### Cooperation Environment
+JIRA : [YAPP iOS 1 JIRA](https://yappios1.atlassian.net/jira/software/projects/YITEAM/boards/1)
 
 ### Project Info
 
