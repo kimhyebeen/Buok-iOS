@@ -1,6 +1,0 @@
-module Pods_HeroUI {
-  umbrella header "Pods-HeroUI-umbrella.h"
-
-  export *
-  module * { export * }
-}
