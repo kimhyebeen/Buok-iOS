@@ -1,0 +1,1079 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B041747225E2366E00D990A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B041747125E2366E00D990A2 /* AppDelegate.swift */; };
+		B041747625E2366E00D990A2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B041747525E2366E00D990A2 /* ViewController.swift */; };
+		B041747C25E2366E00D990A2 /* BucketList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B041747A25E2366E00D990A2 /* BucketList.xcdatamodeld */; };
+		B041747E25E2366F00D990A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B041747D25E2366F00D990A2 /* Assets.xcassets */; };
+		B041748125E2366F00D990A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B041747F25E2366F00D990A2 /* LaunchScreen.storyboard */; };
+		B041748C25E2366F00D990A2 /* BucketListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B041748B25E2366F00D990A2 /* BucketListTests.swift */; };
+		B041749725E2366F00D990A2 /* BucketListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B041749625E2366F00D990A2 /* BucketListUITests.swift */; };
+		B04175A225E239D900D990A2 /* HeroCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B041755B25E2384400D990A2 /* HeroCommon.framework */; };
+		B04175A325E239D900D990A2 /* HeroCommon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B041755B25E2384400D990A2 /* HeroCommon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B04175A425E239D900D990A2 /* HeroUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B041752925E2382D00D990A2 /* HeroUI.framework */; };
+		B04175A525E239D900D990A2 /* HeroUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B041752925E2382D00D990A2 /* HeroUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B1310C820678618E0CD8D237 /* Pods_BucketListTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 034700B09F3F5F387FCA8FAF /* Pods_BucketListTests.framework */; };
+		CC37E2F3C984BE1F4A929DF1 /* Pods_BucketList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3992BD9F50CABA19228CB25 /* Pods_BucketList.framework */; };
+		D31F4C930ABCC45CA075F57B /* Pods_BucketList_BucketListUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11AF6A797F6DEE4B8309CFA7 /* Pods_BucketList_BucketListUITests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B041748825E2366F00D990A2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B041746625E2366E00D990A2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B041746D25E2366E00D990A2;
+			remoteInfo = YappHero;
+		};
+		B041749325E2366F00D990A2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B041746625E2366E00D990A2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B041746D25E2366E00D990A2;
+			remoteInfo = YappHero;
+		};
+		B041752825E2382D00D990A2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B041752325E2382D00D990A2 /* HeroUI.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B041750925E2382C00D990A2;
+			remoteInfo = HeroUI;
+		};
+		B041752A25E2382D00D990A2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B041752325E2382D00D990A2 /* HeroUI.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B041751225E2382D00D990A2;
+			remoteInfo = HeroUITests;
+		};
+		B041755A25E2384400D990A2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B041755525E2384300D990A2 /* HeroCommon.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B041753B25E2384300D990A2;
+			remoteInfo = HeroCommon;
+		};
+		B041755C25E2384400D990A2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B041755525E2384300D990A2 /* HeroCommon.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B041754425E2384300D990A2;
+			remoteInfo = HeroCommonTests;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B04175A625E239DA00D990A2 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B04175A525E239D900D990A2 /* HeroUI.framework in Embed Frameworks */,
+				B04175A325E239D900D990A2 /* HeroCommon.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		034700B09F3F5F387FCA8FAF /* Pods_BucketListTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BucketListTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0D4181740375ECF8F5B69CC2 /* Pods-BucketList-BucketListUITests.real.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BucketList-BucketListUITests.real.xcconfig"; path = "Target Support Files/Pods-BucketList-BucketListUITests/Pods-BucketList-BucketListUITests.real.xcconfig"; sourceTree = "<group>"; };
+		11AF6A797F6DEE4B8309CFA7 /* Pods_BucketList_BucketListUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BucketList_BucketListUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F612B424FD0728306E3799D /* Pods-YappHero-YappHeroUITests.sandbox(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHero-YappHeroUITests.sandbox(debug).xcconfig"; path = "Target Support Files/Pods-YappHero-YappHeroUITests/Pods-YappHero-YappHeroUITests.sandbox(debug).xcconfig"; sourceTree = "<group>"; };
+		218B8F72E8EDC19D3A336452 /* Pods-BucketList-BucketListUITests.inhouse(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BucketList-BucketListUITests.inhouse(debug).xcconfig"; path = "Target Support Files/Pods-BucketList-BucketListUITests/Pods-BucketList-BucketListUITests.inhouse(debug).xcconfig"; sourceTree = "<group>"; };
+		3F11010035163CFAD8A2BECE /* Pods-BucketListTests.real.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BucketListTests.real.xcconfig"; path = "Target Support Files/Pods-BucketListTests/Pods-BucketListTests.real.xcconfig"; sourceTree = "<group>"; };
+		43EAE2B568739BEAF050FCE0 /* Pods-YappHero.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHero.debug.xcconfig"; path = "Target Support Files/Pods-YappHero/Pods-YappHero.debug.xcconfig"; sourceTree = "<group>"; };
+		47A6764E8978C99A10AF4BDD /* Pods-YappHeroTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHeroTests.release.xcconfig"; path = "Target Support Files/Pods-YappHeroTests/Pods-YappHeroTests.release.xcconfig"; sourceTree = "<group>"; };
+		4BE414CD84DE5C96B36B278E /* Pods-YappHero.real.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHero.real.xcconfig"; path = "Target Support Files/Pods-YappHero/Pods-YappHero.real.xcconfig"; sourceTree = "<group>"; };
+		4F93D0621D7E53F338B6AD22 /* Pods-YappHeroTests.sandbox(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHeroTests.sandbox(debug).xcconfig"; path = "Target Support Files/Pods-YappHeroTests/Pods-YappHeroTests.sandbox(debug).xcconfig"; sourceTree = "<group>"; };
+		56DD4736D819295D6C88234C /* Pods-YappHero-YappHeroUITests.real.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHero-YappHeroUITests.real.xcconfig"; path = "Target Support Files/Pods-YappHero-YappHeroUITests/Pods-YappHero-YappHeroUITests.real.xcconfig"; sourceTree = "<group>"; };
+		5C787C2468C12396EAD207F0 /* Pods-BucketList-BucketListUITests.sandbox(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BucketList-BucketListUITests.sandbox(debug).xcconfig"; path = "Target Support Files/Pods-BucketList-BucketListUITests/Pods-BucketList-BucketListUITests.sandbox(debug).xcconfig"; sourceTree = "<group>"; };
+		6688203010BC2CAC8F713E58 /* Pods-YappHero-YappHeroUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHero-YappHeroUITests.debug.xcconfig"; path = "Target Support Files/Pods-YappHero-YappHeroUITests/Pods-YappHero-YappHeroUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		6FCCE54585DDBFF3F0F1FD0A /* Pods-YappHero-YappHeroUITests.inhouse(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHero-YappHeroUITests.inhouse(debug).xcconfig"; path = "Target Support Files/Pods-YappHero-YappHeroUITests/Pods-YappHero-YappHeroUITests.inhouse(debug).xcconfig"; sourceTree = "<group>"; };
+		7682F502F9045598226F6237 /* Pods-YappHero.sandbox(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHero.sandbox(debug).xcconfig"; path = "Target Support Files/Pods-YappHero/Pods-YappHero.sandbox(debug).xcconfig"; sourceTree = "<group>"; };
+		7F4A07F4B049659C75D655C6 /* Pods-YappHero.inhouse(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHero.inhouse(debug).xcconfig"; path = "Target Support Files/Pods-YappHero/Pods-YappHero.inhouse(debug).xcconfig"; sourceTree = "<group>"; };
+		85A097A5531D35F3DC9786D7 /* Pods-YappHeroTests.inhouse(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHeroTests.inhouse(debug).xcconfig"; path = "Target Support Files/Pods-YappHeroTests/Pods-YappHeroTests.inhouse(debug).xcconfig"; sourceTree = "<group>"; };
+		90F023FF7F200E866B6BACB8 /* Pods-YappHeroTests.real.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHeroTests.real.xcconfig"; path = "Target Support Files/Pods-YappHeroTests/Pods-YappHeroTests.real.xcconfig"; sourceTree = "<group>"; };
+		96218509932EB88DC6A75E4B /* Pods-YappHeroTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHeroTests.debug.xcconfig"; path = "Target Support Files/Pods-YappHeroTests/Pods-YappHeroTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A146B5D5016257787821A4FE /* Pods-BucketListTests.sandbox(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BucketListTests.sandbox(debug).xcconfig"; path = "Target Support Files/Pods-BucketListTests/Pods-BucketListTests.sandbox(debug).xcconfig"; sourceTree = "<group>"; };
+		B041746E25E2366E00D990A2 /* BucketList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BucketList.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B041747125E2366E00D990A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B041747525E2366E00D990A2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B041747B25E2366E00D990A2 /* YappHero.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = YappHero.xcdatamodel; sourceTree = "<group>"; };
+		B041747D25E2366F00D990A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B041748025E2366F00D990A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B041748225E2366F00D990A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B041748725E2366F00D990A2 /* BucketListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BucketListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B041748B25E2366F00D990A2 /* BucketListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketListTests.swift; sourceTree = "<group>"; };
+		B041748D25E2366F00D990A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B041749225E2366F00D990A2 /* BucketListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BucketListUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B041749625E2366F00D990A2 /* BucketListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketListUITests.swift; sourceTree = "<group>"; };
+		B041749825E2366F00D990A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B041752325E2382D00D990A2 /* HeroUI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = HeroUI.xcodeproj; path = HeroUI/HeroUI.xcodeproj; sourceTree = "<group>"; };
+		B041755525E2384300D990A2 /* HeroCommon.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = HeroCommon.xcodeproj; path = HeroCommon/HeroCommon.xcodeproj; sourceTree = "<group>"; };
+		B321063553FBFA5630D0602E /* Pods-BucketList.sandbox(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BucketList.sandbox(debug).xcconfig"; path = "Target Support Files/Pods-BucketList/Pods-BucketList.sandbox(debug).xcconfig"; sourceTree = "<group>"; };
+		C1E8EED5C9EA91E7723D9698 /* Pods-YappHero.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHero.release.xcconfig"; path = "Target Support Files/Pods-YappHero/Pods-YappHero.release.xcconfig"; sourceTree = "<group>"; };
+		C3992BD9F50CABA19228CB25 /* Pods_BucketList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BucketList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA736E56E1344F51FD5025D9 /* Pods-BucketList.real.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BucketList.real.xcconfig"; path = "Target Support Files/Pods-BucketList/Pods-BucketList.real.xcconfig"; sourceTree = "<group>"; };
+		D75B344CFE28D7AF61D5B4AF /* Pods-BucketList.inhouse(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BucketList.inhouse(debug).xcconfig"; path = "Target Support Files/Pods-BucketList/Pods-BucketList.inhouse(debug).xcconfig"; sourceTree = "<group>"; };
+		F65BD738214020871341DE05 /* Pods-YappHero-YappHeroUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHero-YappHeroUITests.release.xcconfig"; path = "Target Support Files/Pods-YappHero-YappHeroUITests/Pods-YappHero-YappHeroUITests.release.xcconfig"; sourceTree = "<group>"; };
+		F694113430B9D3AC5B8FD3C8 /* Pods-BucketListTests.inhouse(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BucketListTests.inhouse(debug).xcconfig"; path = "Target Support Files/Pods-BucketListTests/Pods-BucketListTests.inhouse(debug).xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B041746B25E2366E00D990A2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B04175A425E239D900D990A2 /* HeroUI.framework in Frameworks */,
+				B04175A225E239D900D990A2 /* HeroCommon.framework in Frameworks */,
+				CC37E2F3C984BE1F4A929DF1 /* Pods_BucketList.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B041748425E2366F00D990A2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1310C820678618E0CD8D237 /* Pods_BucketListTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B041748F25E2366F00D990A2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D31F4C930ABCC45CA075F57B /* Pods_BucketList_BucketListUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		69EBCC9DA8CF7A7AC4E9B152 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C3992BD9F50CABA19228CB25 /* Pods_BucketList.framework */,
+				11AF6A797F6DEE4B8309CFA7 /* Pods_BucketList_BucketListUITests.framework */,
+				034700B09F3F5F387FCA8FAF /* Pods_BucketListTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A4F2BB761D83362580259525 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				43EAE2B568739BEAF050FCE0 /* Pods-YappHero.debug.xcconfig */,
+				C1E8EED5C9EA91E7723D9698 /* Pods-YappHero.release.xcconfig */,
+				6688203010BC2CAC8F713E58 /* Pods-YappHero-YappHeroUITests.debug.xcconfig */,
+				F65BD738214020871341DE05 /* Pods-YappHero-YappHeroUITests.release.xcconfig */,
+				96218509932EB88DC6A75E4B /* Pods-YappHeroTests.debug.xcconfig */,
+				47A6764E8978C99A10AF4BDD /* Pods-YappHeroTests.release.xcconfig */,
+				7F4A07F4B049659C75D655C6 /* Pods-YappHero.inhouse(debug).xcconfig */,
+				7682F502F9045598226F6237 /* Pods-YappHero.sandbox(debug).xcconfig */,
+				4BE414CD84DE5C96B36B278E /* Pods-YappHero.real.xcconfig */,
+				6FCCE54585DDBFF3F0F1FD0A /* Pods-YappHero-YappHeroUITests.inhouse(debug).xcconfig */,
+				1F612B424FD0728306E3799D /* Pods-YappHero-YappHeroUITests.sandbox(debug).xcconfig */,
+				56DD4736D819295D6C88234C /* Pods-YappHero-YappHeroUITests.real.xcconfig */,
+				85A097A5531D35F3DC9786D7 /* Pods-YappHeroTests.inhouse(debug).xcconfig */,
+				4F93D0621D7E53F338B6AD22 /* Pods-YappHeroTests.sandbox(debug).xcconfig */,
+				90F023FF7F200E866B6BACB8 /* Pods-YappHeroTests.real.xcconfig */,
+				D75B344CFE28D7AF61D5B4AF /* Pods-BucketList.inhouse(debug).xcconfig */,
+				B321063553FBFA5630D0602E /* Pods-BucketList.sandbox(debug).xcconfig */,
+				CA736E56E1344F51FD5025D9 /* Pods-BucketList.real.xcconfig */,
+				218B8F72E8EDC19D3A336452 /* Pods-BucketList-BucketListUITests.inhouse(debug).xcconfig */,
+				5C787C2468C12396EAD207F0 /* Pods-BucketList-BucketListUITests.sandbox(debug).xcconfig */,
+				0D4181740375ECF8F5B69CC2 /* Pods-BucketList-BucketListUITests.real.xcconfig */,
+				F694113430B9D3AC5B8FD3C8 /* Pods-BucketListTests.inhouse(debug).xcconfig */,
+				A146B5D5016257787821A4FE /* Pods-BucketListTests.sandbox(debug).xcconfig */,
+				3F11010035163CFAD8A2BECE /* Pods-BucketListTests.real.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		B041746525E2366E00D990A2 = {
+			isa = PBXGroup;
+			children = (
+				B041755525E2384300D990A2 /* HeroCommon.xcodeproj */,
+				B041752325E2382D00D990A2 /* HeroUI.xcodeproj */,
+				B041747025E2366E00D990A2 /* BucketList */,
+				B041748A25E2366F00D990A2 /* BucketListTests */,
+				B041749525E2366F00D990A2 /* BucketListUITests */,
+				B041746F25E2366E00D990A2 /* Products */,
+				A4F2BB761D83362580259525 /* Pods */,
+				69EBCC9DA8CF7A7AC4E9B152 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		B041746F25E2366E00D990A2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B041746E25E2366E00D990A2 /* BucketList.app */,
+				B041748725E2366F00D990A2 /* BucketListTests.xctest */,
+				B041749225E2366F00D990A2 /* BucketListUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B041747025E2366E00D990A2 /* BucketList */ = {
+			isa = PBXGroup;
+			children = (
+				B041747125E2366E00D990A2 /* AppDelegate.swift */,
+				B041747525E2366E00D990A2 /* ViewController.swift */,
+				B041747D25E2366F00D990A2 /* Assets.xcassets */,
+				B041747F25E2366F00D990A2 /* LaunchScreen.storyboard */,
+				B041748225E2366F00D990A2 /* Info.plist */,
+				B041747A25E2366E00D990A2 /* BucketList.xcdatamodeld */,
+			);
+			path = BucketList;
+			sourceTree = "<group>";
+		};
+		B041748A25E2366F00D990A2 /* BucketListTests */ = {
+			isa = PBXGroup;
+			children = (
+				B041748B25E2366F00D990A2 /* BucketListTests.swift */,
+				B041748D25E2366F00D990A2 /* Info.plist */,
+			);
+			path = BucketListTests;
+			sourceTree = "<group>";
+		};
+		B041749525E2366F00D990A2 /* BucketListUITests */ = {
+			isa = PBXGroup;
+			children = (
+				B041749625E2366F00D990A2 /* BucketListUITests.swift */,
+				B041749825E2366F00D990A2 /* Info.plist */,
+			);
+			path = BucketListUITests;
+			sourceTree = "<group>";
+		};
+		B041752425E2382D00D990A2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B041752925E2382D00D990A2 /* HeroUI.framework */,
+				B041752B25E2382D00D990A2 /* HeroUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B041755625E2384300D990A2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B041755B25E2384400D990A2 /* HeroCommon.framework */,
+				B041755D25E2384400D990A2 /* HeroCommonTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B041746D25E2366E00D990A2 /* BucketList */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B041749B25E2366F00D990A2 /* Build configuration list for PBXNativeTarget "BucketList" */;
+			buildPhases = (
+				ACC5C29EF151955FF3537CFD /* [CP] Check Pods Manifest.lock */,
+				B041746A25E2366E00D990A2 /* Sources */,
+				B041746B25E2366E00D990A2 /* Frameworks */,
+				B041746C25E2366E00D990A2 /* Resources */,
+				F2FF2D657758E7AC0B6E7B45 /* [CP] Embed Pods Frameworks */,
+				B04175A625E239DA00D990A2 /* Embed Frameworks */,
+				B011B0DA25E63C920017C3E4 /* ShellScript */,
+				B011B13425E63E890017C3E4 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BucketList;
+			productName = YappHero;
+			productReference = B041746E25E2366E00D990A2 /* BucketList.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B041748625E2366F00D990A2 /* BucketListTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B041749E25E2366F00D990A2 /* Build configuration list for PBXNativeTarget "BucketListTests" */;
+			buildPhases = (
+				991D3A646A316E38BD4C8880 /* [CP] Check Pods Manifest.lock */,
+				B041748325E2366F00D990A2 /* Sources */,
+				B041748425E2366F00D990A2 /* Frameworks */,
+				B041748525E2366F00D990A2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B041748925E2366F00D990A2 /* PBXTargetDependency */,
+			);
+			name = BucketListTests;
+			productName = YappHeroTests;
+			productReference = B041748725E2366F00D990A2 /* BucketListTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B041749125E2366F00D990A2 /* BucketListUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B04174A125E2366F00D990A2 /* Build configuration list for PBXNativeTarget "BucketListUITests" */;
+			buildPhases = (
+				5C45E8858704499A6C6AB1E6 /* [CP] Check Pods Manifest.lock */,
+				B041748E25E2366F00D990A2 /* Sources */,
+				B041748F25E2366F00D990A2 /* Frameworks */,
+				B041749025E2366F00D990A2 /* Resources */,
+				49CD8569BA1FE678EA398306 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B041749425E2366F00D990A2 /* PBXTargetDependency */,
+			);
+			name = BucketListUITests;
+			productName = YappHeroUITests;
+			productReference = B041749225E2366F00D990A2 /* BucketListUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B041746625E2366E00D990A2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1230;
+				LastUpgradeCheck = 1230;
+				TargetAttributes = {
+					B041746D25E2366E00D990A2 = {
+						CreatedOnToolsVersion = 12.3;
+					};
+					B041748625E2366F00D990A2 = {
+						CreatedOnToolsVersion = 12.3;
+						TestTargetID = B041746D25E2366E00D990A2;
+					};
+					B041749125E2366F00D990A2 = {
+						CreatedOnToolsVersion = 12.3;
+						TestTargetID = B041746D25E2366E00D990A2;
+					};
+				};
+			};
+			buildConfigurationList = B041746925E2366E00D990A2 /* Build configuration list for PBXProject "BucketList" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B041746525E2366E00D990A2;
+			productRefGroup = B041746F25E2366E00D990A2 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = B041755625E2384300D990A2 /* Products */;
+					ProjectRef = B041755525E2384300D990A2 /* HeroCommon.xcodeproj */;
+				},
+				{
+					ProductGroup = B041752425E2382D00D990A2 /* Products */;
+					ProjectRef = B041752325E2382D00D990A2 /* HeroUI.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				B041746D25E2366E00D990A2 /* BucketList */,
+				B041748625E2366F00D990A2 /* BucketListTests */,
+				B041749125E2366F00D990A2 /* BucketListUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		B041752925E2382D00D990A2 /* HeroUI.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = HeroUI.framework;
+			remoteRef = B041752825E2382D00D990A2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B041752B25E2382D00D990A2 /* HeroUITests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = HeroUITests.xctest;
+			remoteRef = B041752A25E2382D00D990A2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B041755B25E2384400D990A2 /* HeroCommon.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = HeroCommon.framework;
+			remoteRef = B041755A25E2384400D990A2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B041755D25E2384400D990A2 /* HeroCommonTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = HeroCommonTests.xctest;
+			remoteRef = B041755C25E2384400D990A2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B041746C25E2366E00D990A2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B041748125E2366F00D990A2 /* LaunchScreen.storyboard in Resources */,
+				B041747E25E2366F00D990A2 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B041748525E2366F00D990A2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B041749025E2366F00D990A2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		49CD8569BA1FE678EA398306 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BucketList-BucketListUITests/Pods-BucketList-BucketListUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BucketList-BucketListUITests/Pods-BucketList-BucketListUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BucketList-BucketListUITests/Pods-BucketList-BucketListUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5C45E8858704499A6C6AB1E6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BucketList-BucketListUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		991D3A646A316E38BD4C8880 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BucketListTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ACC5C29EF151955FF3537CFD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BucketList-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B011B0DA25E63C920017C3E4 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n${PODS_ROOT}/SwiftLint/swiftlint\n";
+		};
+		B011B13425E63E890017C3E4 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n";
+		};
+		F2FF2D657758E7AC0B6E7B45 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BucketList/Pods-BucketList-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BucketList/Pods-BucketList-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BucketList/Pods-BucketList-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B041746A25E2366E00D990A2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B041747625E2366E00D990A2 /* ViewController.swift in Sources */,
+				B041747C25E2366E00D990A2 /* BucketList.xcdatamodeld in Sources */,
+				B041747225E2366E00D990A2 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B041748325E2366F00D990A2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B041748C25E2366F00D990A2 /* BucketListTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B041748E25E2366F00D990A2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B041749725E2366F00D990A2 /* BucketListUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B041748925E2366F00D990A2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B041746D25E2366E00D990A2 /* BucketList */;
+			targetProxy = B041748825E2366F00D990A2 /* PBXContainerItemProxy */;
+		};
+		B041749425E2366F00D990A2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B041746D25E2366E00D990A2 /* BucketList */;
+			targetProxy = B041749325E2366F00D990A2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B041747F25E2366F00D990A2 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B041748025E2366F00D990A2 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B041749925E2366F00D990A2 /* Inhouse(Debug) */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = "Inhouse(Debug)";
+		};
+		B041749A25E2366F00D990A2 /* Real */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Real;
+		};
+		B041749C25E2366F00D990A2 /* Inhouse(Debug) */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D75B344CFE28D7AF61D5B4AF /* Pods-BucketList.inhouse(debug).xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = M79H9K226Y;
+				INFOPLIST_FILE = BucketList/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yiteam.inhouse.BucketList;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "YAPP iOS 1 BucketList Inhouse Provision";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = INHOUSE;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = "Inhouse(Debug)";
+		};
+		B041749D25E2366F00D990A2 /* Real */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CA736E56E1344F51FD5025D9 /* Pods-BucketList.real.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = M79H9K226Y;
+				INFOPLIST_FILE = BucketList/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yiteam.BucketList;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "YAPP iOS 1 BucketList Real Provision";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = REAL;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Real;
+		};
+		B041749F25E2366F00D990A2 /* Inhouse(Debug) */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F694113430B9D3AC5B8FD3C8 /* Pods-BucketListTests.inhouse(debug).xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M79H9K226Y;
+				INFOPLIST_FILE = YappHeroTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yiteam.YappHeroTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BucketList.app/BucketList";
+			};
+			name = "Inhouse(Debug)";
+		};
+		B04174A025E2366F00D990A2 /* Real */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3F11010035163CFAD8A2BECE /* Pods-BucketListTests.real.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M79H9K226Y;
+				INFOPLIST_FILE = YappHeroTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yiteam.YappHeroTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BucketList.app/BucketList";
+			};
+			name = Real;
+		};
+		B04174A225E2366F00D990A2 /* Inhouse(Debug) */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 218B8F72E8EDC19D3A336452 /* Pods-BucketList-BucketListUITests.inhouse(debug).xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M79H9K226Y;
+				INFOPLIST_FILE = YappHeroUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yiteam.YappHeroUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = YappHero;
+			};
+			name = "Inhouse(Debug)";
+		};
+		B04174A325E2366F00D990A2 /* Real */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0D4181740375ECF8F5B69CC2 /* Pods-BucketList-BucketListUITests.real.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M79H9K226Y;
+				INFOPLIST_FILE = YappHeroUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yiteam.YappHeroUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = YappHero;
+			};
+			name = Real;
+		};
+		B04174B525E236D700D990A2 /* Sandbox(Debug) */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = "Sandbox(Debug)";
+		};
+		B04174B625E236D700D990A2 /* Sandbox(Debug) */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B321063553FBFA5630D0602E /* Pods-BucketList.sandbox(debug).xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = M79H9K226Y;
+				INFOPLIST_FILE = BucketList/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yiteam.sandbox.BucketList;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "YAPP iOS 1 BucketList Sandbox Provision";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = SANDBOX;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = "Sandbox(Debug)";
+		};
+		B04174B725E236D700D990A2 /* Sandbox(Debug) */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A146B5D5016257787821A4FE /* Pods-BucketListTests.sandbox(debug).xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M79H9K226Y;
+				INFOPLIST_FILE = YappHeroTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yiteam.YappHeroTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BucketList.app/BucketList";
+			};
+			name = "Sandbox(Debug)";
+		};
+		B04174B825E236D700D990A2 /* Sandbox(Debug) */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5C787C2468C12396EAD207F0 /* Pods-BucketList-BucketListUITests.sandbox(debug).xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M79H9K226Y;
+				INFOPLIST_FILE = YappHeroUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yiteam.YappHeroUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = YappHero;
+			};
+			name = "Sandbox(Debug)";
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B041746925E2366E00D990A2 /* Build configuration list for PBXProject "BucketList" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B041749925E2366F00D990A2 /* Inhouse(Debug) */,
+				B04174B525E236D700D990A2 /* Sandbox(Debug) */,
+				B041749A25E2366F00D990A2 /* Real */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Real;
+		};
+		B041749B25E2366F00D990A2 /* Build configuration list for PBXNativeTarget "BucketList" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B041749C25E2366F00D990A2 /* Inhouse(Debug) */,
+				B04174B625E236D700D990A2 /* Sandbox(Debug) */,
+				B041749D25E2366F00D990A2 /* Real */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Real;
+		};
+		B041749E25E2366F00D990A2 /* Build configuration list for PBXNativeTarget "BucketListTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B041749F25E2366F00D990A2 /* Inhouse(Debug) */,
+				B04174B725E236D700D990A2 /* Sandbox(Debug) */,
+				B04174A025E2366F00D990A2 /* Real */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Real;
+		};
+		B04174A125E2366F00D990A2 /* Build configuration list for PBXNativeTarget "BucketListUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B04174A225E2366F00D990A2 /* Inhouse(Debug) */,
+				B04174B825E236D700D990A2 /* Sandbox(Debug) */,
+				B04174A325E2366F00D990A2 /* Real */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Real;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B041747A25E2366E00D990A2 /* BucketList.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B041747B25E2366E00D990A2 /* YappHero.xcdatamodel */,
+			);
+			currentVersion = B041747B25E2366E00D990A2 /* YappHero.xcdatamodel */;
+			path = BucketList.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = B041746625E2366E00D990A2 /* Project object */;
+}
