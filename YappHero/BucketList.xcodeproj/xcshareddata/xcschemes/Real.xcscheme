@@ -15,23 +15,43 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B041746D25E2366E00D990A2"
-               BuildableName = "YappHero.app"
-               BlueprintName = "YappHero"
-               ReferencedContainer = "container:YappHero.xcodeproj">
+               BuildableName = "BucketList.app"
+               BlueprintName = "BucketList"
+               ReferencedContainer = "container:BucketList.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
-      buildConfiguration = "Real"
+      buildConfiguration = "Inhouse(Debug)"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B041748625E2366F00D990A2"
+               BuildableName = "BucketListTests.xctest"
+               BlueprintName = "BucketListTests"
+               ReferencedContainer = "container:BucketList.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B041749125E2366F00D990A2"
+               BuildableName = "BucketListUITests.xctest"
+               BlueprintName = "BucketListUITests"
+               ReferencedContainer = "container:BucketList.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
-      buildConfiguration = "Real"
+      buildConfiguration = "Inhouse(Debug)"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
@@ -45,9 +65,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B041746D25E2366E00D990A2"
-            BuildableName = "YappHero.app"
-            BlueprintName = "YappHero"
-            ReferencedContainer = "container:YappHero.xcodeproj">
+            BuildableName = "BucketList.app"
+            BlueprintName = "BucketList"
+            ReferencedContainer = "container:BucketList.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -62,14 +82,14 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B041746D25E2366E00D990A2"
-            BuildableName = "YappHero.app"
-            BlueprintName = "YappHero"
-            ReferencedContainer = "container:YappHero.xcodeproj">
+            BuildableName = "BucketList.app"
+            BlueprintName = "BucketList"
+            ReferencedContainer = "container:BucketList.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
-      buildConfiguration = "Real">
+      buildConfiguration = "Inhouse(Debug)">
    </AnalyzeAction>
    <ArchiveAction
       buildConfiguration = "Real"

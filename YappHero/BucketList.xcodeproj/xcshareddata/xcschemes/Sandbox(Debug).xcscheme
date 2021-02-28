@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B041746D25E2366E00D990A2"
-               BuildableName = "YappHero.app"
-               BlueprintName = "YappHero"
-               ReferencedContainer = "container:YappHero.xcodeproj">
+               BuildableName = "BucketList.app"
+               BlueprintName = "BucketList"
+               ReferencedContainer = "container:BucketList.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,9 +45,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B041746D25E2366E00D990A2"
-            BuildableName = "YappHero.app"
-            BlueprintName = "YappHero"
-            ReferencedContainer = "container:YappHero.xcodeproj">
+            BuildableName = "BucketList.app"
+            BlueprintName = "BucketList"
+            ReferencedContainer = "container:BucketList.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B041746D25E2366E00D990A2"
-            BuildableName = "YappHero.app"
-            BlueprintName = "YappHero"
-            ReferencedContainer = "container:YappHero.xcodeproj">
+            BuildableName = "BucketList.app"
+            BlueprintName = "BucketList"
+            ReferencedContainer = "container:BucketList.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
