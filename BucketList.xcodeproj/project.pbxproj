@@ -24,6 +24,17 @@
 		B06B5EE925ECCED90045A491 /* SubOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06B5EE825ECCED90045A491 /* SubOneViewController.swift */; };
 		B06B5EEF25ECCEE10045A491 /* SubTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06B5EEE25ECCEE10045A491 /* SubTwoViewController.swift */; };
 		B06B5EF625ECD0140045A491 /* SubThreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06B5EF525ECD0140045A491 /* SubThreeViewController.swift */; };
+		B075221425ED036A0016DC3A /* BaseHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B075221325ED036A0016DC3A /* BaseHTTPClient.swift */; };
+		B075221E25ED039B0016DC3A /* HeroURLConsts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B075221D25ED039B0016DC3A /* HeroURLConsts.swift */; };
+		B075224425ED06390016DC3A /* UserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B075224325ED06390016DC3A /* UserUseCase.swift */; };
+		B075224A25ED06590016DC3A /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B075224925ED06590016DC3A /* UserService.swift */; };
+		B075224F25ED06CD0016DC3A /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B075224E25ED06CD0016DC3A /* UserResponse.swift */; };
+		B075225425ED06ED0016DC3A /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B075225325ED06ED0016DC3A /* UserModel.swift */; };
+		B075225825ED07C00016DC3A /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B075225725ED07BF0016DC3A /* AuthService.swift */; };
+		B075226325ED08550016DC3A /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B075226225ED08550016DC3A /* AuthResponse.swift */; };
+		B075226925ED08780016DC3A /* UserAuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B075226825ED08780016DC3A /* UserAuthModel.swift */; };
+		B075226D25ED089F0016DC3A /* AuthTokenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B075226C25ED089F0016DC3A /* AuthTokenModel.swift */; };
+		B075227125ED08EB0016DC3A /* TokenRefreshResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B075227025ED08EB0016DC3A /* TokenRefreshResponse.swift */; };
 		B1310C820678618E0CD8D237 /* Pods_BucketListTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 034700B09F3F5F387FCA8FAF /* Pods_BucketListTests.framework */; };
 		CC37E2F3C984BE1F4A929DF1 /* Pods_BucketList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3992BD9F50CABA19228CB25 /* Pods_BucketList.framework */; };
 		D31F4C930ABCC45CA075F57B /* Pods_BucketList_BucketListUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11AF6A797F6DEE4B8309CFA7 /* Pods_BucketList_BucketListUITests.framework */; };
@@ -131,6 +142,17 @@
 		B06B5EE825ECCED90045A491 /* SubOneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubOneViewController.swift; sourceTree = "<group>"; };
 		B06B5EEE25ECCEE10045A491 /* SubTwoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTwoViewController.swift; sourceTree = "<group>"; };
 		B06B5EF525ECD0140045A491 /* SubThreeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubThreeViewController.swift; sourceTree = "<group>"; };
+		B075221325ED036A0016DC3A /* BaseHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseHTTPClient.swift; sourceTree = "<group>"; };
+		B075221D25ED039B0016DC3A /* HeroURLConsts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroURLConsts.swift; sourceTree = "<group>"; };
+		B075224325ED06390016DC3A /* UserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserUseCase.swift; sourceTree = "<group>"; };
+		B075224925ED06590016DC3A /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		B075224E25ED06CD0016DC3A /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
+		B075225325ED06ED0016DC3A /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		B075225725ED07BF0016DC3A /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		B075226225ED08550016DC3A /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
+		B075226825ED08780016DC3A /* UserAuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthModel.swift; sourceTree = "<group>"; };
+		B075226C25ED089F0016DC3A /* AuthTokenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTokenModel.swift; sourceTree = "<group>"; };
+		B075227025ED08EB0016DC3A /* TokenRefreshResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenRefreshResponse.swift; sourceTree = "<group>"; };
 		B321063553FBFA5630D0602E /* Pods-BucketList.sandbox(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BucketList.sandbox(debug).xcconfig"; path = "Target Support Files/Pods-BucketList/Pods-BucketList.sandbox(debug).xcconfig"; sourceTree = "<group>"; };
 		C1E8EED5C9EA91E7723D9698 /* Pods-YappHero.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHero.release.xcconfig"; path = "Target Support Files/Pods-YappHero/Pods-YappHero.release.xcconfig"; sourceTree = "<group>"; };
 		C3992BD9F50CABA19228CB25 /* Pods_BucketList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BucketList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -238,6 +260,8 @@
 		B041747025E2366E00D990A2 /* BucketList */ = {
 			isa = PBXGroup;
 			children = (
+				B075225225ED06E50016DC3A /* Model */,
+				B07520E125ED003A0016DC3A /* Network */,
 				B06B5CB225ECA3EE0045A491 /* ViewControllers */,
 				B06B5CAD25ECA3E20045A491 /* Views */,
 				B041747125E2366E00D990A2 /* AppDelegate.swift */,
@@ -328,6 +352,79 @@
 				B06B5EF525ECD0140045A491 /* SubThreeViewController.swift */,
 			);
 			path = SubVC;
+			sourceTree = "<group>";
+		};
+		B07520E125ED003A0016DC3A /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				B075223B25ED06120016DC3A /* API */,
+				B075221325ED036A0016DC3A /* BaseHTTPClient.swift */,
+				B075221D25ED039B0016DC3A /* HeroURLConsts.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		B075223B25ED06120016DC3A /* API */ = {
+			isa = PBXGroup;
+			children = (
+				B075224225ED06240016DC3A /* Model */,
+				B075224125ED061D0016DC3A /* Service */,
+				B075224025ED06180016DC3A /* UseCase */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		B075224025ED06180016DC3A /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				B075224325ED06390016DC3A /* UserUseCase.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		B075224125ED061D0016DC3A /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				B075224925ED06590016DC3A /* UserService.swift */,
+				B075225725ED07BF0016DC3A /* AuthService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		B075224225ED06240016DC3A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B075226125ED084D0016DC3A /* Auth */,
+				B075224D25ED06C50016DC3A /* User */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B075224D25ED06C50016DC3A /* User */ = {
+			isa = PBXGroup;
+			children = (
+				B075224E25ED06CD0016DC3A /* UserResponse.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		B075225225ED06E50016DC3A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B075225325ED06ED0016DC3A /* UserModel.swift */,
+				B075226C25ED089F0016DC3A /* AuthTokenModel.swift */,
+				B075226825ED08780016DC3A /* UserAuthModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B075226125ED084D0016DC3A /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				B075226225ED08550016DC3A /* AuthResponse.swift */,
+				B075227025ED08EB0016DC3A /* TokenRefreshResponse.swift */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -646,14 +743,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				B06B5EEF25ECCEE10045A491 /* SubTwoViewController.swift in Sources */,
+				B075221E25ED039B0016DC3A /* HeroURLConsts.swift in Sources */,
+				B075226925ED08780016DC3A /* UserAuthModel.swift in Sources */,
+				B075226D25ED089F0016DC3A /* AuthTokenModel.swift in Sources */,
+				B075227125ED08EB0016DC3A /* TokenRefreshResponse.swift in Sources */,
 				B06B5EDF25ECCD550045A491 /* HeroNavigationController.swift in Sources */,
 				B041747625E2366E00D990A2 /* ViewController.swift in Sources */,
 				B06B5EE925ECCED90045A491 /* SubOneViewController.swift in Sources */,
 				B041747C25E2366E00D990A2 /* BucketList.xcdatamodeld in Sources */,
+				B075224A25ED06590016DC3A /* UserService.swift in Sources */,
+				B075221425ED036A0016DC3A /* BaseHTTPClient.swift in Sources */,
 				B06B5EE325ECCE610045A491 /* HeroBaseViewController.swift in Sources */,
+				B075224425ED06390016DC3A /* UserUseCase.swift in Sources */,
 				B041747225E2366E00D990A2 /* AppDelegate.swift in Sources */,
+				B075224F25ED06CD0016DC3A /* UserResponse.swift in Sources */,
 				B06B5EF625ECD0140045A491 /* SubThreeViewController.swift in Sources */,
+				B075225425ED06ED0016DC3A /* UserModel.swift in Sources */,
 				B06B5CB425ECA4070045A491 /* MainTabBarViewController.swift in Sources */,
+				B075225825ED07C00016DC3A /* AuthService.swift in Sources */,
+				B075226325ED08550016DC3A /* AuthResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
