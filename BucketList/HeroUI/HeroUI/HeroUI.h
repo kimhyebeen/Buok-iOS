@@ -6,6 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 //! Project version number for HeroUI.
 FOUNDATION_EXPORT double HeroUIVersionNumber;

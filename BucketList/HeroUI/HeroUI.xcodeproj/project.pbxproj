@@ -15,6 +15,9 @@
 		B041761025E23BE400D990A2 /* HeroColorSet.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B041760F25E23BE400D990A2 /* HeroColorSet.xcassets */; };
 		B041761425E23C0600D990A2 /* Bundle+Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = B041761325E23C0600D990A2 /* Bundle+Hero.swift */; };
 		B041763125E23DAA00D990A2 /* HeroFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = B041763025E23DAA00D990A2 /* HeroFont.swift */; };
+		B06B5ED325ECCC100045A491 /* HeroNavigationBarUpdatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06B5ED225ECCC100045A491 /* HeroNavigationBarUpdatable.swift */; };
+		B06B5ED725ECCC270045A491 /* HeroUINavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06B5ED625ECCC270045A491 /* HeroUINavigationBar.swift */; };
+		B06B5EDB25ECCC6E0045A491 /* UIImage+Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06B5EDA25ECCC6E0045A491 /* UIImage+Hero.swift */; };
 		B94199A7340AA091D7EFED1D /* libPods-HeroUI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67AFB3E0E117A8D4DF3E3098 /* libPods-HeroUI.a */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +46,10 @@
 		B041760F25E23BE400D990A2 /* HeroColorSet.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = HeroColorSet.xcassets; sourceTree = "<group>"; };
 		B041761325E23C0600D990A2 /* Bundle+Hero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Hero.swift"; sourceTree = "<group>"; };
 		B041763025E23DAA00D990A2 /* HeroFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroFont.swift; sourceTree = "<group>"; };
+		B06B5E3A25ECB9A70045A491 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		B06B5ED225ECCC100045A491 /* HeroNavigationBarUpdatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroNavigationBarUpdatable.swift; sourceTree = "<group>"; };
+		B06B5ED625ECCC270045A491 /* HeroUINavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroUINavigationBar.swift; sourceTree = "<group>"; };
+		B06B5EDA25ECCC6E0045A491 /* UIImage+Hero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Hero.swift"; sourceTree = "<group>"; };
 		C33565CC9EFC666DA4E1F6C1 /* Pods-HeroUI.inhouse(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroUI.inhouse(debug).xcconfig"; path = "Target Support Files/Pods-HeroUI/Pods-HeroUI.inhouse(debug).xcconfig"; sourceTree = "<group>"; };
 		C39B8CF93D09A1C653D8841D /* Pods-HeroUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroUI.debug.xcconfig"; path = "Target Support Files/Pods-HeroUI/Pods-HeroUI.debug.xcconfig"; sourceTree = "<group>"; };
 		CF5BADAB0CAB732CEE18C3F8 /* Pods-HeroUI.real.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroUI.real.xcconfig"; path = "Target Support Files/Pods-HeroUI/Pods-HeroUI.real.xcconfig"; sourceTree = "<group>"; };
@@ -84,6 +91,7 @@
 		71CECC8B5858AF62ADBDB5A6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B06B5E3A25ECB9A70045A491 /* UIKit.framework */,
 				67AFB3E0E117A8D4DF3E3098 /* libPods-HeroUI.a */,
 			);
 			name = Frameworks;
@@ -119,6 +127,9 @@
 				B041759A25E2398300D990A2 /* HeroButton.swift */,
 				B041761325E23C0600D990A2 /* Bundle+Hero.swift */,
 				B041763025E23DAA00D990A2 /* HeroFont.swift */,
+				B06B5ED225ECCC100045A491 /* HeroNavigationBarUpdatable.swift */,
+				B06B5ED625ECCC270045A491 /* HeroUINavigationBar.swift */,
+				B06B5EDA25ECCC6E0045A491 /* UIImage+Hero.swift */,
 			);
 			path = HeroUI;
 			sourceTree = "<group>";
@@ -276,9 +287,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B06B5EDB25ECCC6E0045A491 /* UIImage+Hero.swift in Sources */,
 				B041759725E2394800D990A2 /* UIColor+Hero.swift in Sources */,
+				B06B5ED725ECCC270045A491 /* HeroUINavigationBar.swift in Sources */,
 				B041761425E23C0600D990A2 /* Bundle+Hero.swift in Sources */,
 				B041763125E23DAA00D990A2 /* HeroFont.swift in Sources */,
+				B06B5ED325ECCC100045A491 /* HeroNavigationBarUpdatable.swift in Sources */,
 				B041759B25E2398300D990A2 /* HeroButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
