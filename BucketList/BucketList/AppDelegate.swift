@@ -6,7 +6,8 @@
 //
 
 import CoreData
-import UIKit
+import HeroCommon
+import HeroUI
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,7 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         let window = UIWindow(frame: UIScreen.main.bounds)
-        window.rootViewController = ViewController()
+        let navigationVC = HeroNavigationController(navigationBarClass: HeroUINavigationBar.self, toolbarClass: nil)
+        navigationVC.viewControllers = [MainTabBarViewController()]
+        
+        window.rootViewController = navigationVC
         window.makeKeyAndVisible()
         self.window = window
         
