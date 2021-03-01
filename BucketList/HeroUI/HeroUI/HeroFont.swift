@@ -2,7 +2,7 @@
 //  HeroFont.swift
 //  HeroUI
 //
-//  Created by denny on 2021/02/21.
+//  Created by Taein Kim on 2021/02/21.
 //
 
 import Foundation

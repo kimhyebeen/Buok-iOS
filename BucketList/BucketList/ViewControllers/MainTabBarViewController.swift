@@ -2,7 +2,7 @@
 //  HeroTabBarController.swift
 //  BucketList
 //
-//  Created by denny on 2021/03/01.
+//  Created by Taein Kim on 2021/03/01.
 //
 
 import Foundation
