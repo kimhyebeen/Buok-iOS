@@ -20,6 +20,10 @@
 		B04175A525E239D900D990A2 /* HeroUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B041752925E2382D00D990A2 /* HeroUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B06B5CB425ECA4070045A491 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06B5CB325ECA4070045A491 /* MainTabBarViewController.swift */; };
 		B06B5EDF25ECCD550045A491 /* HeroNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06B5EDE25ECCD550045A491 /* HeroNavigationController.swift */; };
+		B06B5EE325ECCE610045A491 /* HeroBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06B5EE225ECCE610045A491 /* HeroBaseViewController.swift */; };
+		B06B5EE925ECCED90045A491 /* SubOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06B5EE825ECCED90045A491 /* SubOneViewController.swift */; };
+		B06B5EEF25ECCEE10045A491 /* SubTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06B5EEE25ECCEE10045A491 /* SubTwoViewController.swift */; };
+		B06B5EF625ECD0140045A491 /* SubThreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06B5EF525ECD0140045A491 /* SubThreeViewController.swift */; };
 		B1310C820678618E0CD8D237 /* Pods_BucketListTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 034700B09F3F5F387FCA8FAF /* Pods_BucketListTests.framework */; };
 		CC37E2F3C984BE1F4A929DF1 /* Pods_BucketList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3992BD9F50CABA19228CB25 /* Pods_BucketList.framework */; };
 		D31F4C930ABCC45CA075F57B /* Pods_BucketList_BucketListUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11AF6A797F6DEE4B8309CFA7 /* Pods_BucketList_BucketListUITests.framework */; };
@@ -123,6 +127,10 @@
 		B041755525E2384300D990A2 /* HeroCommon.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = HeroCommon.xcodeproj; path = HeroCommon/HeroCommon.xcodeproj; sourceTree = "<group>"; };
 		B06B5CB325ECA4070045A491 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		B06B5EDE25ECCD550045A491 /* HeroNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroNavigationController.swift; sourceTree = "<group>"; };
+		B06B5EE225ECCE610045A491 /* HeroBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroBaseViewController.swift; sourceTree = "<group>"; };
+		B06B5EE825ECCED90045A491 /* SubOneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubOneViewController.swift; sourceTree = "<group>"; };
+		B06B5EEE25ECCEE10045A491 /* SubTwoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTwoViewController.swift; sourceTree = "<group>"; };
+		B06B5EF525ECD0140045A491 /* SubThreeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubThreeViewController.swift; sourceTree = "<group>"; };
 		B321063553FBFA5630D0602E /* Pods-BucketList.sandbox(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BucketList.sandbox(debug).xcconfig"; path = "Target Support Files/Pods-BucketList/Pods-BucketList.sandbox(debug).xcconfig"; sourceTree = "<group>"; };
 		C1E8EED5C9EA91E7723D9698 /* Pods-YappHero.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHero.release.xcconfig"; path = "Target Support Files/Pods-YappHero/Pods-YappHero.release.xcconfig"; sourceTree = "<group>"; };
 		C3992BD9F50CABA19228CB25 /* Pods_BucketList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BucketList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -287,11 +295,39 @@
 		B06B5CB225ECA3EE0045A491 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				B041747525E2366E00D990A2 /* ViewController.swift */,
-				B06B5CB325ECA4070045A491 /* MainTabBarViewController.swift */,
-				B06B5EDE25ECCD550045A491 /* HeroNavigationController.swift */,
+				B06B5EE725ECCEB80045A491 /* Base */,
+				B06B5EE625ECCEB00045A491 /* Main */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		B06B5EE625ECCEB00045A491 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				B06B5EF225ECCF8C0045A491 /* SubVC */,
+				B041747525E2366E00D990A2 /* ViewController.swift */,
+				B06B5CB325ECA4070045A491 /* MainTabBarViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		B06B5EE725ECCEB80045A491 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				B06B5EDE25ECCD550045A491 /* HeroNavigationController.swift */,
+				B06B5EE225ECCE610045A491 /* HeroBaseViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		B06B5EF225ECCF8C0045A491 /* SubVC */ = {
+			isa = PBXGroup;
+			children = (
+				B06B5EE825ECCED90045A491 /* SubOneViewController.swift */,
+				B06B5EEE25ECCEE10045A491 /* SubTwoViewController.swift */,
+				B06B5EF525ECD0140045A491 /* SubThreeViewController.swift */,
+			);
+			path = SubVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -609,10 +645,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B06B5EEF25ECCEE10045A491 /* SubTwoViewController.swift in Sources */,
 				B06B5EDF25ECCD550045A491 /* HeroNavigationController.swift in Sources */,
 				B041747625E2366E00D990A2 /* ViewController.swift in Sources */,
+				B06B5EE925ECCED90045A491 /* SubOneViewController.swift in Sources */,
 				B041747C25E2366E00D990A2 /* BucketList.xcdatamodeld in Sources */,
+				B06B5EE325ECCE610045A491 /* HeroBaseViewController.swift in Sources */,
 				B041747225E2366E00D990A2 /* AppDelegate.swift in Sources */,
+				B06B5EF625ECD0140045A491 /* SubThreeViewController.swift in Sources */,
 				B06B5CB425ECA4070045A491 /* MainTabBarViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
