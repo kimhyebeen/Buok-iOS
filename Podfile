@@ -22,6 +22,7 @@ target 'BucketList' do
   pod 'RxSwift',  '~> 4.0'
   pod 'RxCocoa',  '~> 4.0'
   pod 'SwiftLint'
+  pod 'Promises'
   pod 'Kingfisher'
 
   target 'BucketListTests' do

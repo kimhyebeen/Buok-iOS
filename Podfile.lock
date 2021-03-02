@@ -8,6 +8,7 @@ PODS:
     - ObjectMapper (~> 3.4)
   - Kingfisher (6.1.1)
   - ObjectMapper (3.5.3)
+  - Promises (2.0.4)
   - RxAlamofire (4.4.1):
     - RxAlamofire/Core (= 4.4.1)
   - RxAlamofire/Core (4.4.1):
@@ -25,6 +26,7 @@ DEPENDENCIES:
   - Alamofire-SwiftyJSON (~> 3.0.0)
   - AlamofireObjectMapper (~> 5.2.1)
   - Kingfisher
+  - Promises
   - RxAlamofire (~> 4.4.1)
   - RxCocoa (~> 4.0)
   - RxSwift (~> 4.0)
@@ -39,6 +41,7 @@ SPEC REPOS:
     - AlamofireObjectMapper
     - Kingfisher
     - ObjectMapper
+    - Promises
     - RxAlamofire
     - RxCocoa
     - RxSwift
@@ -52,6 +55,7 @@ SPEC CHECKSUMS:
   AlamofireObjectMapper: 1989f690e982b71921b9253f53a4f33a9bc00d88
   Kingfisher: 676d63307fbef6ed5d5ed400bff36983480d7500
   ObjectMapper: 97111c97e054a6ee25917662106689f0b4127b37
+  Promises: fcb83dc6be43294a8d30c343636ed1a45a8d2e0a
   RxAlamofire: ed65f451f5a9a59419b0b9e705043dc01410edd9
   RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
   RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
@@ -59,6 +63,6 @@ SPEC CHECKSUMS:
   SwiftLint: 4fa9579c63416865179bc416f0a92d55f009600d
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
 
-PODFILE CHECKSUM: de77944f36cd241aea5e98e5e200b0b13fde3fa8
+PODFILE CHECKSUM: 115afcac1cb8cdf0cf5d9168512c5a2ae413b7b0
 
 COCOAPODS: 1.10.1

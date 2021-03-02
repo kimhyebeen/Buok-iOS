@@ -35,6 +35,7 @@
 		B075226925ED08780016DC3A /* UserAuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B075226825ED08780016DC3A /* UserAuthModel.swift */; };
 		B075226D25ED089F0016DC3A /* AuthTokenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B075226C25ED089F0016DC3A /* AuthTokenModel.swift */; };
 		B075227125ED08EB0016DC3A /* TokenRefreshResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B075227025ED08EB0016DC3A /* TokenRefreshResponse.swift */; };
+		B07522A325EDBF6C0016DC3A /* PromiseSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07522A225EDBF6C0016DC3A /* PromiseSample.swift */; };
 		B1310C820678618E0CD8D237 /* Pods_BucketListTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 034700B09F3F5F387FCA8FAF /* Pods_BucketListTests.framework */; };
 		CC37E2F3C984BE1F4A929DF1 /* Pods_BucketList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3992BD9F50CABA19228CB25 /* Pods_BucketList.framework */; };
 		D31F4C930ABCC45CA075F57B /* Pods_BucketList_BucketListUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11AF6A797F6DEE4B8309CFA7 /* Pods_BucketList_BucketListUITests.framework */; };
@@ -153,6 +154,7 @@
 		B075226825ED08780016DC3A /* UserAuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthModel.swift; sourceTree = "<group>"; };
 		B075226C25ED089F0016DC3A /* AuthTokenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTokenModel.swift; sourceTree = "<group>"; };
 		B075227025ED08EB0016DC3A /* TokenRefreshResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenRefreshResponse.swift; sourceTree = "<group>"; };
+		B07522A225EDBF6C0016DC3A /* PromiseSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromiseSample.swift; sourceTree = "<group>"; };
 		B321063553FBFA5630D0602E /* Pods-BucketList.sandbox(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BucketList.sandbox(debug).xcconfig"; path = "Target Support Files/Pods-BucketList/Pods-BucketList.sandbox(debug).xcconfig"; sourceTree = "<group>"; };
 		C1E8EED5C9EA91E7723D9698 /* Pods-YappHero.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHero.release.xcconfig"; path = "Target Support Files/Pods-YappHero/Pods-YappHero.release.xcconfig"; sourceTree = "<group>"; };
 		C3992BD9F50CABA19228CB25 /* Pods_BucketList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BucketList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -357,6 +359,7 @@
 		B07520E125ED003A0016DC3A /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				B07522A125EDBF5F0016DC3A /* PromiseSample */,
 				B075223B25ED06120016DC3A /* API */,
 				B075221325ED036A0016DC3A /* BaseHTTPClient.swift */,
 				B075221D25ED039B0016DC3A /* HeroURLConsts.swift */,
@@ -425,6 +428,14 @@
 				B075227025ED08EB0016DC3A /* TokenRefreshResponse.swift */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		B07522A125EDBF5F0016DC3A /* PromiseSample */ = {
+			isa = PBXGroup;
+			children = (
+				B07522A225EDBF6C0016DC3A /* PromiseSample.swift */,
+			);
+			path = PromiseSample;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -754,6 +765,7 @@
 				B075224A25ED06590016DC3A /* UserService.swift in Sources */,
 				B075221425ED036A0016DC3A /* BaseHTTPClient.swift in Sources */,
 				B06B5EE325ECCE610045A491 /* HeroBaseViewController.swift in Sources */,
+				B07522A325EDBF6C0016DC3A /* PromiseSample.swift in Sources */,
 				B075224425ED06390016DC3A /* UserUseCase.swift in Sources */,
 				B041747225E2366E00D990A2 /* AppDelegate.swift in Sources */,
 				B075224F25ED06CD0016DC3A /* UserResponse.swift in Sources */,

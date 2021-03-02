@@ -41,5 +41,12 @@ public class SubOneViewController: HeroBaseViewController {
         }, onError: { error in
             HeroLog.debug("ERROR : \(error)")
         }).disposed(by: disposeBag)
+        
+        PromiseSampleAPIRequest(method: .get)
+            .getUserInfo().then { json -> Void in
+                HeroLog.debug(json)
+            }.catch { error in
+                HeroLog.error(error.localizedDescription)
+            }
     }
 }

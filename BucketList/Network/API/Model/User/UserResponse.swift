@@ -16,6 +16,6 @@ public class UserResponse: Mappable {
     
     public func mapping(map: Map) {
         userInfo <- map["userInfo"]
-        message  <- map["message"]
+        message <- map["message"]
     }
 }
