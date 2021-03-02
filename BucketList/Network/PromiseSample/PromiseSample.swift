@@ -31,15 +31,29 @@ public class PromiseSampleAPIRequest {
         }
     }
     
+    private let sessionManager: SessionManager = makeSessionManager()
+    private static let sessionDelegate = HeroSessionDelegate()
+    
     private var method: RequestMethod
     
     public init(method: RequestMethod) {
         self.method = method
     }
     
+    class func makeSessionManager() -> SessionManager {
+        let configuration = URLSessionConfiguration.ephemeral
+        configuration.httpMaximumConnectionsPerHost = 1
+        configuration.httpAdditionalHeaders = SessionManager.defaultHTTPHeaders
+        
+        let sessionManager = SessionManager(configuration: configuration, delegate: sessionDelegate, serverTrustPolicyManager: nil)
+        return sessionManager
+    }
+    
     func getUserInfo() -> Promise<[String: Any]> {
         return Promise { fulfill, reject in
-            Alamofire.request("https://jsonplaceholder.typicode.com/users/1")
+//            Alamofire.request("https://jsonplaceholder.typicode.com/users/1")
+//                .validate()
+            self.sessionManager.request("https://jsonplaceholder.typicode.com/users/1")
                 .validate()
                 .responseJSON { response in
                     switch response.result {
@@ -54,4 +68,19 @@ public class PromiseSampleAPIRequest {
                 }
         }
     }
+}
+
+class HeroSessionDelegate: SessionDelegate {
+    override open func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
+        super.urlSession(session, dataTask: dataTask, didReceive: data)
+        if let requestPath = dataTask.originalRequest?.url?.path,
+            requestPath == "/listen" {
+            if let listenTaskDidReceiveData = listenTaskDidReceiveData {
+                listenTaskDidReceiveData(session, dataTask, data)
+            }
+        }
+    }
+    
+     open var listenTaskDidReceiveData: ((URLSession, URLSessionDataTask, Data) -> Void)?
+    
 }
