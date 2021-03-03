@@ -14,13 +14,10 @@ target 'BucketList' do
 
   # Pods for BucketList
   pod 'SnapKit'
-  pod 'Alamofire', '~> 4.9.1'
-  pod 'Alamofire-SwiftyJSON', '~> 3.0.0'
-  pod 'RxAlamofire', '~> 4.4.1'
-  pod ‘AlamofireObjectMapper’, ‘~> 5.2.1’
+  pod 'Alamofire'
+  pod 'Alamofire-SwiftyJSON'
+  pod ‘AlamofireObjectMapper’
   pod 'SwiftyJSON'
-  pod 'RxSwift',  '~> 4.0'
-  pod 'RxCocoa',  '~> 4.0'
   pod 'SwiftLint'
   pod 'Promises'
   pod 'Kingfisher'

@@ -24,17 +24,9 @@
 		B06B5EE925ECCED90045A491 /* SubOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06B5EE825ECCED90045A491 /* SubOneViewController.swift */; };
 		B06B5EEF25ECCEE10045A491 /* SubTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06B5EEE25ECCEE10045A491 /* SubTwoViewController.swift */; };
 		B06B5EF625ECD0140045A491 /* SubThreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06B5EF525ECD0140045A491 /* SubThreeViewController.swift */; };
-		B075221425ED036A0016DC3A /* BaseHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B075221325ED036A0016DC3A /* BaseHTTPClient.swift */; };
-		B075221E25ED039B0016DC3A /* HeroURLConsts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B075221D25ED039B0016DC3A /* HeroURLConsts.swift */; };
-		B075224425ED06390016DC3A /* UserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B075224325ED06390016DC3A /* UserUseCase.swift */; };
-		B075224A25ED06590016DC3A /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B075224925ED06590016DC3A /* UserService.swift */; };
-		B075224F25ED06CD0016DC3A /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B075224E25ED06CD0016DC3A /* UserResponse.swift */; };
 		B075225425ED06ED0016DC3A /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B075225325ED06ED0016DC3A /* UserModel.swift */; };
-		B075225825ED07C00016DC3A /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B075225725ED07BF0016DC3A /* AuthService.swift */; };
-		B075226325ED08550016DC3A /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B075226225ED08550016DC3A /* AuthResponse.swift */; };
 		B075226925ED08780016DC3A /* UserAuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B075226825ED08780016DC3A /* UserAuthModel.swift */; };
 		B075226D25ED089F0016DC3A /* AuthTokenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B075226C25ED089F0016DC3A /* AuthTokenModel.swift */; };
-		B075227125ED08EB0016DC3A /* TokenRefreshResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B075227025ED08EB0016DC3A /* TokenRefreshResponse.swift */; };
 		B07522A325EDBF6C0016DC3A /* PromiseSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07522A225EDBF6C0016DC3A /* PromiseSample.swift */; };
 		B07522EE25EF0C140016DC3A /* HeroRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07522ED25EF0C140016DC3A /* HeroRequest.swift */; };
 		B07522F625EF0C410016DC3A /* HeroConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07522F525EF0C410016DC3A /* HeroConvertible.swift */; };
@@ -150,17 +142,9 @@
 		B06B5EE825ECCED90045A491 /* SubOneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubOneViewController.swift; sourceTree = "<group>"; };
 		B06B5EEE25ECCEE10045A491 /* SubTwoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTwoViewController.swift; sourceTree = "<group>"; };
 		B06B5EF525ECD0140045A491 /* SubThreeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubThreeViewController.swift; sourceTree = "<group>"; };
-		B075221325ED036A0016DC3A /* BaseHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseHTTPClient.swift; sourceTree = "<group>"; };
-		B075221D25ED039B0016DC3A /* HeroURLConsts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroURLConsts.swift; sourceTree = "<group>"; };
-		B075224325ED06390016DC3A /* UserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserUseCase.swift; sourceTree = "<group>"; };
-		B075224925ED06590016DC3A /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
-		B075224E25ED06CD0016DC3A /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
 		B075225325ED06ED0016DC3A /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
-		B075225725ED07BF0016DC3A /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
-		B075226225ED08550016DC3A /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
 		B075226825ED08780016DC3A /* UserAuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthModel.swift; sourceTree = "<group>"; };
 		B075226C25ED089F0016DC3A /* AuthTokenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTokenModel.swift; sourceTree = "<group>"; };
-		B075227025ED08EB0016DC3A /* TokenRefreshResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenRefreshResponse.swift; sourceTree = "<group>"; };
 		B07522A225EDBF6C0016DC3A /* PromiseSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromiseSample.swift; sourceTree = "<group>"; };
 		B07522ED25EF0C140016DC3A /* HeroRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroRequest.swift; sourceTree = "<group>"; };
 		B07522F525EF0C410016DC3A /* HeroConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroConvertible.swift; sourceTree = "<group>"; };
@@ -366,55 +350,8 @@
 			isa = PBXGroup;
 			children = (
 				B07522A125EDBF5F0016DC3A /* PromiseSample */,
-				B075223B25ED06120016DC3A /* API */,
-				B075221325ED036A0016DC3A /* BaseHTTPClient.swift */,
-				B075221D25ED039B0016DC3A /* HeroURLConsts.swift */,
 			);
 			path = Network;
-			sourceTree = "<group>";
-		};
-		B075223B25ED06120016DC3A /* API */ = {
-			isa = PBXGroup;
-			children = (
-				B075224225ED06240016DC3A /* Model */,
-				B075224125ED061D0016DC3A /* Service */,
-				B075224025ED06180016DC3A /* UseCase */,
-			);
-			path = API;
-			sourceTree = "<group>";
-		};
-		B075224025ED06180016DC3A /* UseCase */ = {
-			isa = PBXGroup;
-			children = (
-				B075224325ED06390016DC3A /* UserUseCase.swift */,
-			);
-			path = UseCase;
-			sourceTree = "<group>";
-		};
-		B075224125ED061D0016DC3A /* Service */ = {
-			isa = PBXGroup;
-			children = (
-				B075224925ED06590016DC3A /* UserService.swift */,
-				B075225725ED07BF0016DC3A /* AuthService.swift */,
-			);
-			path = Service;
-			sourceTree = "<group>";
-		};
-		B075224225ED06240016DC3A /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				B075226125ED084D0016DC3A /* Auth */,
-				B075224D25ED06C50016DC3A /* User */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		B075224D25ED06C50016DC3A /* User */ = {
-			isa = PBXGroup;
-			children = (
-				B075224E25ED06CD0016DC3A /* UserResponse.swift */,
-			);
-			path = User;
 			sourceTree = "<group>";
 		};
 		B075225225ED06E50016DC3A /* Model */ = {
@@ -425,15 +362,6 @@
 				B075226825ED08780016DC3A /* UserAuthModel.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		B075226125ED084D0016DC3A /* Auth */ = {
-			isa = PBXGroup;
-			children = (
-				B075226225ED08550016DC3A /* AuthResponse.swift */,
-				B075227025ED08EB0016DC3A /* TokenRefreshResponse.swift */,
-			);
-			path = Auth;
 			sourceTree = "<group>";
 		};
 		B07522A125EDBF5F0016DC3A /* PromiseSample */ = {
@@ -769,31 +697,23 @@
 				B06B5EEF25ECCEE10045A491 /* SubTwoViewController.swift in Sources */,
 				B07522FE25EF0D170016DC3A /* HeroAPIError.swift in Sources */,
 				B07522EE25EF0C140016DC3A /* HeroRequest.swift in Sources */,
-				B075221E25ED039B0016DC3A /* HeroURLConsts.swift in Sources */,
 				B075231325EF1E6F0016DC3A /* BaseAPIError.swift in Sources */,
 				B075226925ED08780016DC3A /* UserAuthModel.swift in Sources */,
 				B075230525EF19420016DC3A /* HeroConstants.swift in Sources */,
 				B075226D25ED089F0016DC3A /* AuthTokenModel.swift in Sources */,
-				B075227125ED08EB0016DC3A /* TokenRefreshResponse.swift in Sources */,
 				B06B5EDF25ECCD550045A491 /* HeroNavigationController.swift in Sources */,
 				B041747625E2366E00D990A2 /* ViewController.swift in Sources */,
 				B06B5EE925ECCED90045A491 /* SubOneViewController.swift in Sources */,
 				B041747C25E2366E00D990A2 /* BucketList.xcdatamodeld in Sources */,
-				B075224A25ED06590016DC3A /* UserService.swift in Sources */,
-				B075221425ED036A0016DC3A /* BaseHTTPClient.swift in Sources */,
 				B06B5EE325ECCE610045A491 /* HeroBaseViewController.swift in Sources */,
 				B07522A325EDBF6C0016DC3A /* PromiseSample.swift in Sources */,
-				B075224425ED06390016DC3A /* UserUseCase.swift in Sources */,
 				B041747225E2366E00D990A2 /* AppDelegate.swift in Sources */,
-				B075224F25ED06CD0016DC3A /* UserResponse.swift in Sources */,
 				B06B5EF625ECD0140045A491 /* SubThreeViewController.swift in Sources */,
 				B07522FA25EF0C850016DC3A /* HeroHeader.swift in Sources */,
 				B075225425ED06ED0016DC3A /* UserModel.swift in Sources */,
 				B06B5CB425ECA4070045A491 /* MainTabBarViewController.swift in Sources */,
 				B07522F625EF0C410016DC3A /* HeroConvertible.swift in Sources */,
-				B075225825ED07C00016DC3A /* AuthService.swift in Sources */,
 				B075230925EF1A0E0016DC3A /* BaseAPIRequest.swift in Sources */,
-				B075226325ED08550016DC3A /* AuthResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

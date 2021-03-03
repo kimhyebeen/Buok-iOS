@@ -181,9 +181,6 @@ if [[ "$CONFIGURATION" == "Inhouse(Debug)" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Promises/Promise.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/RxAlamofire/RxAlamofire.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SnapKit-framework/SnapKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework"
 fi
@@ -194,9 +191,6 @@ if [[ "$CONFIGURATION" == "Real" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Promises/Promise.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/RxAlamofire/RxAlamofire.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SnapKit-framework/SnapKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework"
 fi
@@ -207,9 +201,6 @@ if [[ "$CONFIGURATION" == "Sandbox(Debug)" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Promises/Promise.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/RxAlamofire/RxAlamofire.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SnapKit-framework/SnapKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework"
 fi
