@@ -15,7 +15,12 @@ target 'BucketList' do
   # Pods for BucketList
   pod 'SnapKit'
   pod 'Alamofire'
+  pod 'Alamofire-SwiftyJSON'
+  pod ‘AlamofireObjectMapper’
+  pod 'SwiftyJSON'
   pod 'SwiftLint'
+  pod 'Promises'
+  pod 'Kingfisher'
 
   target 'BucketListTests' do
     inherit! :search_paths
