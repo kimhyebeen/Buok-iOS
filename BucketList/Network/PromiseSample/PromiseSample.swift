@@ -53,8 +53,10 @@ public class PromiseSampleAPIRequest {
         return Promise { fulfill, reject in
 //            Alamofire.request("https://jsonplaceholder.typicode.com/users/1")
 //                .validate()
-            self.sessionManager.request("https://jsonplaceholder.typicode.com/users/1")
-                .validate()
+//            self.sessionManager.request(HeroRequest(path: "https://www.naer.com", encoding: .urlQuery))
+            
+            let dataRequest = self.sessionManager.request("https://jsonplaceholder.typicode.com/users/1")
+            dataRequest.validate(statusCode: 200..<400)
                 .responseJSON { response in
                     switch response.result {
                     case .success(let json):
