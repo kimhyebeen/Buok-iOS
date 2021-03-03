@@ -9,6 +9,7 @@ import Alamofire
 import Foundation
 import HeroCommon
 import Promise
+import SwiftyJSON
 
 protocol APIRequestType {
     var requestURL: URL { get }
@@ -24,15 +25,10 @@ extension APIRequestType {
     }
 }
 
-protocol BaseAPIRequestable {
-    associatedtype RequestType: APIRequestType
+public class BaseAPIRequest {
+    typealias RequestType = APIRequestType
     
-    static func request<T: Codable>(requestType: RequestType, modifyValue: (([String: Any]) -> [String: Any])?) -> Promise<T>
-    static func request(requestType: RequestType) -> Promise<Void>
-}
-
-extension BaseAPIRequestable {
-    static func requestJSONResponse(requestType: RequestType) -> Promise<[String: Any]?> {
+    func requestJSONResponse(requestType: RequestType) -> Promise<Any?> {
         Promise { fulfill, reject in
             let url = requestType.requestURL
             let heroRequest = HeroRequest(path: url.path, httpMethod: requestType.httpMethod, encoding: requestType.encoding, parameter: requestType.requestParameter)
@@ -41,8 +37,8 @@ extension BaseAPIRequestable {
             }
             
             Alamofire.request(heroRequest).responseJSON { response in
-                if response.result.isSuccess {
-                    fulfill(response.result.value as? [String: Any])
+                if response.result.isSuccess, let value = response.result.value {
+                    fulfill(value)
                 } else {
                     if response.error != nil {
                         reject(BaseAPIError(error: response.error))
@@ -52,7 +48,7 @@ extension BaseAPIRequestable {
         }
     }
     
-    static func requestStringResponse(requestType: RequestType) -> Promise<String?> {
+    func requestStringResponse(requestType: RequestType) -> Promise<String?> {
         Promise { fulfill, reject in
             let url = requestType.requestURL
             let heroRequest = HeroRequest(path: url.path, httpMethod: requestType.httpMethod, encoding: requestType.encoding, parameter: requestType.requestParameter)

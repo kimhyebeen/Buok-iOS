@@ -10,9 +10,9 @@ import Foundation
 public struct HeroConstants {
     public static var hostName: String {
         #if SANDBOX
-        return "sandbox.test.com"
+        return "reqres.in/api/users/"
         #else
-        return "production.test.com"
+        return "reqres.in/api/users/"
         #endif
     }
 }
@@ -31,12 +31,12 @@ public struct APIConstant {
     }
     
     #if SANDBOX
-    static let homeURL = URL(string: "https://home-sandbox.test.com")!
+    static let homeURL = URL(string: "https://api.mocki.io")!
     #elseif INHOUSE
-    static let homeURL = URL(string: "https://home-inhouse.test.com")!
+    static let homeURL = URL(string: "https://api.mocki.io")!
     #elseif REAL
-    static let homeURL = URL(string: "https://home.test.com")!
+    static let homeURL = URL(string: "https://api.mocki.io")!
     #else
-    static let homeURL = URL(string: "https://home.test.com")!
+    static let homeURL = URL(string: "https://api.mocki.io")!
     #endif
 }

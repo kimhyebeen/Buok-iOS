@@ -35,6 +35,7 @@
 		B075230525EF19420016DC3A /* HeroConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B075230425EF19420016DC3A /* HeroConstants.swift */; };
 		B075230925EF1A0E0016DC3A /* BaseAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B075230825EF1A0E0016DC3A /* BaseAPIRequest.swift */; };
 		B075231325EF1E6F0016DC3A /* BaseAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B075231225EF1E6F0016DC3A /* BaseAPIError.swift */; };
+		B075238125EF5AF70016DC3A /* BucketListHomeAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B075238025EF5AF70016DC3A /* BucketListHomeAPIRequest.swift */; };
 		B1310C820678618E0CD8D237 /* Pods_BucketListTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 034700B09F3F5F387FCA8FAF /* Pods_BucketListTests.framework */; };
 		CC37E2F3C984BE1F4A929DF1 /* Pods_BucketList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3992BD9F50CABA19228CB25 /* Pods_BucketList.framework */; };
 		D31F4C930ABCC45CA075F57B /* Pods_BucketList_BucketListUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11AF6A797F6DEE4B8309CFA7 /* Pods_BucketList_BucketListUITests.framework */; };
@@ -153,6 +154,7 @@
 		B075230425EF19420016DC3A /* HeroConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroConstants.swift; sourceTree = "<group>"; };
 		B075230825EF1A0E0016DC3A /* BaseAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAPIRequest.swift; sourceTree = "<group>"; };
 		B075231225EF1E6F0016DC3A /* BaseAPIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAPIError.swift; sourceTree = "<group>"; };
+		B075238025EF5AF70016DC3A /* BucketListHomeAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketListHomeAPIRequest.swift; sourceTree = "<group>"; };
 		B321063553FBFA5630D0602E /* Pods-BucketList.sandbox(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BucketList.sandbox(debug).xcconfig"; path = "Target Support Files/Pods-BucketList/Pods-BucketList.sandbox(debug).xcconfig"; sourceTree = "<group>"; };
 		C1E8EED5C9EA91E7723D9698 /* Pods-YappHero.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHero.release.xcconfig"; path = "Target Support Files/Pods-YappHero/Pods-YappHero.release.xcconfig"; sourceTree = "<group>"; };
 		C3992BD9F50CABA19228CB25 /* Pods_BucketList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BucketList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -367,6 +369,7 @@
 		B07522A125EDBF5F0016DC3A /* PromiseSample */ = {
 			isa = PBXGroup;
 			children = (
+				B075237B25EF5AEC0016DC3A /* Home */,
 				B07522A225EDBF6C0016DC3A /* PromiseSample.swift */,
 				B07522ED25EF0C140016DC3A /* HeroRequest.swift */,
 				B07522F525EF0C410016DC3A /* HeroConvertible.swift */,
@@ -377,6 +380,14 @@
 				B075231225EF1E6F0016DC3A /* BaseAPIError.swift */,
 			);
 			path = PromiseSample;
+			sourceTree = "<group>";
+		};
+		B075237B25EF5AEC0016DC3A /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B075238025EF5AF70016DC3A /* BucketListHomeAPIRequest.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -712,6 +723,7 @@
 				B07522FA25EF0C850016DC3A /* HeroHeader.swift in Sources */,
 				B075225425ED06ED0016DC3A /* UserModel.swift in Sources */,
 				B06B5CB425ECA4070045A491 /* MainTabBarViewController.swift in Sources */,
+				B075238125EF5AF70016DC3A /* BucketListHomeAPIRequest.swift in Sources */,
 				B07522F625EF0C410016DC3A /* HeroConvertible.swift in Sources */,
 				B075230925EF1A0E0016DC3A /* BaseAPIRequest.swift in Sources */,
 			);
