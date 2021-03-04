@@ -31,30 +31,30 @@ public class SubOneViewController: HeroBaseViewController {
         
         PromiseSampleAPIRequest(method: .get)
             .getUserInfo().then { json -> Void in
-                HeroLog.debug(json)
+                DebugLog("\(json)")
             }.catch { error in
-                HeroLog.error(error.localizedDescription)
+                ErrorLog(error.localizedDescription)
             }
         
-        let url = URL(string: "https://reqres.in/api/users/2")!
-        let heroRequest = HeroRequest(path: "2", httpMethod: .get  , encoding: .urlQuery, parameter: nil)
+//        let url = URL(string: "https://reqres.in/api/users/2")!
+//        let heroRequest = HeroRequest(path: "2", httpMethod: .get  , encoding: .urlQuery, parameter: nil)
 //        Alamofire.request(url).responseJSON { response in
 //            print("RESPONSE1 : \(response.result.isSuccess) \(response.result.value)")
 //        }
         
-        Alamofire.request(heroRequest).responseJSON { response in
-            print("RESPONSE2 : \(response.result.isSuccess) \(response.result.value)")
-            do {
-                if let dictValue = response.result.value as? NSDictionary {
-                    let jsonData = try JSONSerialization.data(withJSONObject: dictValue, options: .prettyPrinted)
-                    let getData = try JSONDecoder().decode(BucketListNoticeServerModel.self, from: jsonData)
-                    print(">>>> getData : \(getData)")
-                }
-            } catch {
-                print("ERROR")
-            }
-        }
-        
+//        Alamofire.request(heroRequest).responseJSON { response in
+//            print("RESPONSE2 : \(response.result.isSuccess) \(response.result.value)")
+//            do {
+//                if let dictValue = response.result.value as? NSDictionary {
+//                    let jsonData = try JSONSerialization.data(withJSONObject: dictValue, options: .prettyPrinted)
+//                    let getData = try JSONDecoder().decode(BucketListNoticeServerModel.self, from: jsonData)
+//                    print(">>>> getData : \(getData)")
+//                }
+//            } catch {
+//                print("ERROR")
+//            }
+//        }
+//
         BucketListAPIRequest.homeNoticeListRequest()
     }
 }

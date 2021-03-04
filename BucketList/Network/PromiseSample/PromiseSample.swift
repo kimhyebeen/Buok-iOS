@@ -2,7 +2,7 @@
 //  PromiseSample.swift
 //  BucketList
 //
-//  Created by denny on 2021/03/02.
+//  Created by Taein Kim on 2021/03/02.
 //
 
 import Alamofire

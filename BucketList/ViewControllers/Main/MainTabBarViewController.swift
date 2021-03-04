@@ -50,7 +50,7 @@ public class MainTabBarViewController: UITabBarController, UITabBarControllerDel
     }
     
     public func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        HeroLog.debug("tabBarController didSelect update Navigation Title")
+        DebugLog("tabBarController didSelect update Navigation Title")
         
         switch tabBarController.selectedIndex {
         case 0:

@@ -22,7 +22,7 @@ public extension UIColor {
         var hex = hex.deletingPrefix("#")
         hex = hex.deletingPrefix("0x")
         if hex.count != 6 {
-            HeroLog.debug("hex count is not length 6")
+            DebugLog("hex count is not length 6")
         }
         
         let scanner = Scanner(string: hex)

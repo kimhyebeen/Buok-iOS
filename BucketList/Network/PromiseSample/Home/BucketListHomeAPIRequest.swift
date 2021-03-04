@@ -64,16 +64,16 @@ public struct BucketListAPIRequest {
     }
     
     static func homeNoticeListRequest() {
-        print("API 실행 전 -- HomeURL : \(APIConstant.homeURL)")
+        DebugLog("API 실행 전 -- HomeURL : \(APIConstant.homeURL)")
         BaseAPIRequest().requestJSONResponse(requestType: RequestType.noticeList).then { responseData in
 //            HeroLog.debug(">>>> ")
-            print(">>>> HomeAPIRequest responseData : \(responseData.debugDescription)")
+            DebugLog(">>>> HomeAPIRequest responseData : \(responseData.debugDescription)")
             do {
                 let jsonData = try JSONSerialization.data(withJSONObject: responseData as? NSDictionary, options: .prettyPrinted)
                 let getData = try JSONDecoder().decode(BucketListNoticeServerModel.self, from: jsonData)
-                print(">>>> HomeAPIRequest getData : \(getData)")
+                DebugLog(">>>> HomeAPIRequest getData : \(getData)")
             } catch {
-                print(">>>> HomeAPIRequest ERROR")
+                DebugLog(">>>> HomeAPIRequest ERROR")
             }
         }
     }

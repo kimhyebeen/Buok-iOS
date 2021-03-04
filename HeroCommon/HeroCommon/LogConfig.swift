@@ -7,39 +7,26 @@
 
 import Foundation
 
-final public class HeroLog {
-    public class func debug(_ items: Any..., separator: String = " ", terminator: String = "\n") {
-        #if SANDBOX || INHOUSE
-            let output = items.map { "\($0)" }.joined(separator: separator)
-            print("🗣 [\(getCurrentTime())] \(#function) - \(output)", terminator: terminator)
-        #else
-            print("🗣 [\(getCurrentTime())] \(#function) - RELEASE MODE")
-        #endif
-    }
-    
-    public class func warning(_ items: Any..., separator: String = " ", terminator: String = "\n") {
-        #if SANDBOX || INHOUSE
-            let output = items.map { "\($0)" }.joined(separator: separator)
-            print("⚡️ [\(getCurrentTime())] \(#function) - \(output)", terminator: terminator)
-        #else
-            print("⚡️ [\(getCurrentTime())] \(#function) - RELEASE MODE")
-        #endif
-    }
-    
-    public class func error(_ items: Any..., separator: String = " ", terminator: String = "\n") {
-        #if SANDBOX || INHOUSE
-            let output = items.map { "\($0)" }.joined(separator: separator)
-            print("🚨 [\(getCurrentTime())] \(#function) - \(output)", terminator: terminator)
-        #else
-            print("🚨 [\(getCurrentTime())] \(#function) - RELEASE MODE")
-        #endif
-    }
-    
-    fileprivate class func getCurrentTime() -> String {
-        let now = NSDate()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+// swiftlint:disable identifier_name
+public func DebugLog(_ message: @autoclosure () -> String, file: StaticString = #file, function: StaticString = #function, line: UInt = #line) {
+    print("🗣 [\(getCurrentTime())] \(function) - \(message())")
+}
 
-        return dateFormatter.string(from: now as Date)
-    }
+// swiftlint:disable identifier_name
+public func ErrorLog(_ message: @autoclosure () -> String, file: StaticString = #file, function: StaticString = #function, line: UInt = #line) {
+    print("⚡️ [\(getCurrentTime())] \(function) - \(message())")
+}
+
+// swiftlint:disable identifier_name
+public func WarningLog(_ message: @autoclosure () -> String, file: StaticString = #file, function: StaticString = #function, line: UInt = #line) {
+    let logMessageWithCallStack = message() + "\n--------------\n" + Thread.callStackSymbols.joined(separator: "\n")
+    print("🚨 [\(getCurrentTime())] \(function) - \(logMessageWithCallStack)")
+}
+
+private func getCurrentTime() -> String {
+    let now = NSDate()
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+    
+    return dateFormatter.string(from: now as Date)
 }
