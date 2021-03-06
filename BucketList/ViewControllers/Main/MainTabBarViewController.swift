@@ -19,7 +19,6 @@ public class MainTabBarViewController: UITabBarController, UITabBarControllerDel
     private let actionButton: UIButton = {
         let button = UIButton(type: .custom)
         button.translatesAutoresizingMaskIntoConstraints = false
-        
         button.backgroundColor = .heroBlue100s
         button.layer.cornerRadius = Constants.actionButtonSize.height / 2
         button.layer.shadowColor = UIColor.black.cgColor
@@ -98,8 +97,33 @@ public class MainTabBarViewController: UITabBarController, UITabBarControllerDel
         }
     }
     
-    @objc private func actionButtonTapped(sender: UIButton) {
+    @objc
+    private func actionButtonTapped(sender: UIButton) {
         DebugLog("Action Button Tapped")
+        
+        self.view.layoutIfNeeded()
+        actionButton.snp.updateConstraints { make in
+            make.width.equalTo(Constants.actionButtonSize.width * 1.2)
+            make.height.equalTo(Constants.actionButtonSize.height * 1.2)
+        }
+        
+        UIView.animate(withDuration: 0.4, animations: {
+            self.view.layoutIfNeeded()
+            self.actionButton.layer.cornerRadius = (Constants.actionButtonSize.height * 1.2) / 2
+        })
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4, execute: {
+            self.view.layoutIfNeeded()
+            self.actionButton.snp.updateConstraints { make in
+                make.width.equalTo(Constants.actionButtonSize.width)
+                make.height.equalTo(Constants.actionButtonSize.height)
+            }
+            
+            UIView.animate(withDuration: 0.4, animations: {
+                self.view.layoutIfNeeded()
+                self.actionButton.layer.cornerRadius = (Constants.actionButtonSize.height) / 2
+            })
+        })
     }
     
     private func setupActionButtonConstraints() {
