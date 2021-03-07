@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import HeroCommon
 import SnapKit
 import UIKit
 
@@ -15,19 +16,27 @@ public protocol HeroTabBarViewDelegate: class {
 
 public class HeroTabBarView: UIView {
     private var tabStackView: UIStackView = UIStackView()
+    private var itemViewList: [HeroTabBarItemView] = [HeroTabBarItemView]()
     
-    public var itemViewList: [HeroTabBarItem] = [HeroTabBarItem]() {
+    public var itemList: [HeroTabBarItem] = [HeroTabBarItem]() {
         didSet {
             for view in tabStackView.subviews {
                 view.removeFromSuperview()
             }
             
-            for (index, item) in itemViewList.enumerated() {
+            itemViewList.removeAll()
+            for (index, item) in itemList.enumerated() {
                 let itemView = HeroTabBarItemView()
                 itemView.heroItem = item
                 itemView.heroItemIndex = index
+                itemView.isSelected = false
                 itemView.delegate = self
-                tabStackView.addArrangedSubview(itemView)
+                
+                itemViewList.append(itemView)
+            }
+            
+            for view in itemViewList {
+                tabStackView.addArrangedSubview(view)
             }
         }
     }
@@ -79,6 +88,14 @@ public class HeroTabBarView: UIView {
         layer.shadowRadius = borderRadius
         layer.shadowOpacity = isSpread ? 0 : 0.3
         layer.cornerRadius = borderRadius
+    }
+    
+    public func setTabBarItemSelected(index: Int, isSelected: Bool) {
+        for (idx, itemView) in tabStackView.arrangedSubviews.enumerated() {
+            if let tabItemView = itemView as? HeroTabBarItemView {
+                tabItemView.isSelected = (idx == index) && isSelected
+            }
+        }
     }
 }
 

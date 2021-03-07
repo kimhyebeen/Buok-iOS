@@ -38,16 +38,18 @@ public class MainTabBarViewController: UITabBarController, UITabBarControllerDel
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        self.delegate = self
         
+        setupMainLayout()
+        setupViewProperties()
+        setupTabBarItems()
+        tabChanged(tapped: 0)
+    }
+    
+    private func setupMainLayout() {
         navigationItem.titleView = titleView
         view.addSubview(tabBarBackView)
         view.addSubview(tabBarView)
         view.bringSubviewToFront(tabBarView)
-        
-        tabBarView.delegate = self
-        tabBarView.itemViewList = tabBarItemList
-        tabBarBackView.backgroundColor = .heroWhite100s
         
         tabBarBackView.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(16)
@@ -72,15 +74,19 @@ public class MainTabBarViewController: UITabBarController, UITabBarControllerDel
         titleLabel.snp.makeConstraints { make in
             make.center.equalToSuperview()
         }
+    }
+    
+    private func setupViewProperties() {
+        self.delegate = self
+        self.tabBar.isHidden = true
+        
+        tabBarView.delegate = self
+        tabBarView.itemList = tabBarItemList
+        tabBarBackView.backgroundColor = .heroWhite100s
         
         titleLabel.font = .font17PBold
         titleLabel.textColor = .black
         titleLabel.text = "타이틀"
-        
-        tabBar.isHidden = true
-        setupTabBarItems()
-        
-        tabChanged(tapped: 0)
     }
     
     private func setupTabBarItems() {
@@ -105,6 +111,8 @@ public class MainTabBarViewController: UITabBarController, UITabBarControllerDel
         previousIndex = currentIndex
         currentIndex = index
         
+        tabBarView.setTabBarItemSelected(index: currentIndex, isSelected: true)
+        
         let previousVC = tabViewControllers[previousIndex]
         previousVC.willMove(toParent: nil)
         previousVC.view.removeFromSuperview()
@@ -116,23 +124,6 @@ public class MainTabBarViewController: UITabBarController, UITabBarControllerDel
         self.addChild(vc)
         self.view.addSubview(vc.view)
         self.view.bringSubviewToFront(tabBarView)
-    }
-    
-    public func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        DebugLog("tabBarController didSelect update Navigation Title")
-        
-        switch tabBarController.selectedIndex {
-        case 0:
-            titleLabel.text = "타이틀"
-        case 1:
-            break
-        case 2:
-            break
-        case 3:
-            break
-        default:
-            break
-        }
     }
     
     private func updateTabBarView() {
@@ -185,10 +176,8 @@ extension MainTabBarViewController: HeroTabBarViewDelegate {
         tabChanged(tapped: index)
         
         if index == 3 {
-            DebugLog("Action Button Clicked")
             updateTabBarView()
         } else {
-            DebugLog("Normal Button Clicked")
             updateTabBarView()
         }
     }

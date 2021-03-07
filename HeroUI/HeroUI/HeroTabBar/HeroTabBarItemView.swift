@@ -30,6 +30,12 @@ public class HeroTabBarItemView: UIView {
         }
     }
     
+    public var isSelected: Bool = false {
+        didSet {
+            updateViewLayout()
+        }
+    }
+    
     public override init(frame: CGRect) {
         super.init(frame: frame)
         setupMainLayout()
@@ -76,8 +82,8 @@ public class HeroTabBarItemView: UIView {
     private func updateViewLayout() {
         let isEmphasis = heroItem?.isEmphasis ?? false
         backgroundColor = isEmphasis ? .heroBlue100s : .clear
-        titleLabel.textColor = isEmphasis ? .heroWhite100s : .heroGray600s
-        itemImageView.tintColor = isEmphasis ? .heroWhite100s : .heroGray600s
+        titleLabel.textColor = isEmphasis ? .heroWhite100s : (isSelected ? .heroBlue100s : .heroGray600s)
+        itemImageView.tintColor = isEmphasis ? .heroWhite100s : (isSelected ? .heroBlue100s : .heroGray600s)
     }
     
     @objc
