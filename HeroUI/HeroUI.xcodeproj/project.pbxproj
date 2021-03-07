@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B0376FF525F48768003D7750 /* TabBarActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0376FF425F48768003D7750 /* TabBarActionButton.swift */; };
+		B0376FF925F4893F003D7750 /* HeroTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0376FF825F4893F003D7750 /* HeroTabBarView.swift */; };
+		B0376FFE25F49462003D7750 /* HeroTabBarItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0376FFD25F49462003D7750 /* HeroTabBarItemView.swift */; };
+		B037700425F4947C003D7750 /* HeroTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B037700325F4947C003D7750 /* HeroTabBarItem.swift */; };
 		B041751325E2382D00D990A2 /* HeroUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B041750925E2382C00D990A2 /* HeroUI.framework */; };
 		B041751825E2382D00D990A2 /* HeroUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B041751725E2382D00D990A2 /* HeroUITests.swift */; };
 		B041751A25E2382D00D990A2 /* HeroUI.h in Headers */ = {isa = PBXBuildFile; fileRef = B041750C25E2382C00D990A2 /* HeroUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -35,6 +39,10 @@
 		070BB4DB8F8DA06E04A4DB97 /* Pods-HeroUI.sandbox(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroUI.sandbox(debug).xcconfig"; path = "Target Support Files/Pods-HeroUI/Pods-HeroUI.sandbox(debug).xcconfig"; sourceTree = "<group>"; };
 		67AFB3E0E117A8D4DF3E3098 /* libPods-HeroUI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HeroUI.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8162C627C794EEDF68EDEFFA /* Pods-HeroUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroUI.release.xcconfig"; path = "Target Support Files/Pods-HeroUI/Pods-HeroUI.release.xcconfig"; sourceTree = "<group>"; };
+		B0376FF425F48768003D7750 /* TabBarActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarActionButton.swift; sourceTree = "<group>"; };
+		B0376FF825F4893F003D7750 /* HeroTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroTabBarView.swift; sourceTree = "<group>"; };
+		B0376FFD25F49462003D7750 /* HeroTabBarItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroTabBarItemView.swift; sourceTree = "<group>"; };
+		B037700325F4947C003D7750 /* HeroTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroTabBarItem.swift; sourceTree = "<group>"; };
 		B041750925E2382C00D990A2 /* HeroUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HeroUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B041750C25E2382C00D990A2 /* HeroUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeroUI.h; sourceTree = "<group>"; };
 		B041750D25E2382C00D990A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -97,6 +105,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B0376FFC25F4944F003D7750 /* HeroTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				B0376FF425F48768003D7750 /* TabBarActionButton.swift */,
+				B0376FF825F4893F003D7750 /* HeroTabBarView.swift */,
+				B0376FFD25F49462003D7750 /* HeroTabBarItemView.swift */,
+				B037700325F4947C003D7750 /* HeroTabBarItem.swift */,
+			);
+			path = HeroTabBar;
+			sourceTree = "<group>";
+		};
 		B04174FF25E2382C00D990A2 = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +139,7 @@
 		B041750B25E2382C00D990A2 /* HeroUI */ = {
 			isa = PBXGroup;
 			children = (
+				B0376FFC25F4944F003D7750 /* HeroTabBar */,
 				B041760E25E23BD800D990A2 /* Resources */,
 				B041750C25E2382C00D990A2 /* HeroUI.h */,
 				B041750D25E2382C00D990A2 /* Info.plist */,
@@ -288,10 +308,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				B06B5EDB25ECCC6E0045A491 /* UIImage+Hero.swift in Sources */,
+				B0376FF525F48768003D7750 /* TabBarActionButton.swift in Sources */,
 				B041759725E2394800D990A2 /* UIColor+Hero.swift in Sources */,
+				B0376FFE25F49462003D7750 /* HeroTabBarItemView.swift in Sources */,
 				B06B5ED725ECCC270045A491 /* HeroUINavigationBar.swift in Sources */,
+				B0376FF925F4893F003D7750 /* HeroTabBarView.swift in Sources */,
 				B041761425E23C0600D990A2 /* Bundle+Hero.swift in Sources */,
 				B041763125E23DAA00D990A2 /* HeroFont.swift in Sources */,
+				B037700425F4947C003D7750 /* HeroTabBarItem.swift in Sources */,
 				B06B5ED325ECCC100045A491 /* HeroNavigationBarUpdatable.swift in Sources */,
 				B041759B25E2398300D990A2 /* HeroButton.swift in Sources */,
 			);
