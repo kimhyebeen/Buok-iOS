@@ -2,7 +2,7 @@
 //  HeroAlertButton.swift
 //  HeroUI
 //
-//  Created by denny on 2021/03/07.
+//  Created by Taein Kim on 2021/03/07.
 //
 
 import Foundation
