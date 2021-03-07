@@ -61,7 +61,8 @@ class ViewController: HeroBaseViewController {
         scrollView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             make.left.right.equalToSuperview()
-            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+//            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-70)
+            make.bottom.equalToSuperview()
         }
         
         contentView.snp.makeConstraints { make in
@@ -97,7 +98,7 @@ class ViewController: HeroBaseViewController {
         
         bottomFooterView.snp.makeConstraints { make in
             make.leading.trailing.bottom.equalToSuperview()
-            make.height.equalTo(116)
+            make.height.equalTo(116 + 100)
             make.top.greaterThanOrEqualTo(mainStackView.snp.bottom).offset(30)
         }
     }
