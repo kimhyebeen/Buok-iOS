@@ -17,6 +17,10 @@ public class MainTabBarViewController: UITabBarController, UITabBarControllerDel
     private let tabBarView: HeroTabBarView = HeroTabBarView()
     private let tabBarBackView: UIView = UIView()
     
+    private var tabViewControllers: [UIViewController] = [UIViewController]()
+    private var currentIndex: Int = 0
+    private var previousIndex: Int = 0
+    
     private let tabBarItemList: [HeroTabBarItem] = [
         HeroTabBarItem(title: "Item1",
                        image: UIImage(named: "tab_home.png")?.withRenderingMode(.alwaysTemplate),
@@ -74,30 +78,44 @@ public class MainTabBarViewController: UITabBarController, UITabBarControllerDel
         titleLabel.text = "타이틀"
         
         tabBar.isHidden = true
-        
-        //        view.addSubview(actionButton)
-        //        actionButton.setImage(UIImage(named: "tab_home.png")?.withRenderingMode(.alwaysTemplate), for: .normal)
-        //        actionButton.addTarget(self, action: #selector(actionButtonTapped(sender:)), for: .touchUpInside)
-        
         setupTabBarItems()
-        //        setupActionButtonConstraints()
+        
+        tabChanged(tapped: 0)
     }
     
     private func setupTabBarItems() {
-        var viewControllerList = [UIViewController]()
         let homeVC = ViewController()
         let homeItem = UITabBarItem(title: "", image: UIImage(named: "tab_home_un.png"), selectedImage: UIImage(named: "tab_home.png"))
         homeVC.tabBarItem = homeItem
-        viewControllerList.append(homeVC)
         
         let secondVC = SecondViewController()
         let secondItem = UITabBarItem(title: "", image: UIImage(named: "tab_home_un.png"), selectedImage: UIImage(named: "tab_home.png"))
         secondVC.tabBarItem = secondItem
-        viewControllerList.append(secondVC)
         
-        self.tabBar.barTintColor = .white
-        self.tabBar.tintColor = .heroBlue100s
-        self.viewControllers = viewControllerList
+        // Append 4 VCs
+        tabViewControllers.removeAll()
+        tabViewControllers.append(homeVC)
+        tabViewControllers.append(secondVC)
+        tabViewControllers.append(homeVC)
+        tabViewControllers.append(secondVC)
+    }
+    
+    @objc
+    private func tabChanged(tapped index: Int) {
+        previousIndex = currentIndex
+        currentIndex = index
+        
+        let previousVC = tabViewControllers[previousIndex]
+        previousVC.willMove(toParent: nil)
+        previousVC.view.removeFromSuperview()
+        previousVC.removeFromParent()
+        
+        let vc = tabViewControllers[currentIndex]
+        vc.view.frame = UIApplication.shared.windows[0].frame
+        vc.didMove(toParent: self)
+        self.addChild(vc)
+        self.view.addSubview(vc.view)
+        self.view.bringSubviewToFront(tabBarView)
     }
     
     public func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
@@ -114,44 +132,6 @@ public class MainTabBarViewController: UITabBarController, UITabBarControllerDel
             break
         default:
             break
-        }
-    }
-    
-    @objc
-    private func actionButtonTapped(sender: UIButton) {
-        DebugLog("Action Button Tapped")
-        
-        self.view.layoutIfNeeded()
-        actionButton.snp.updateConstraints { make in
-            make.width.equalTo(actionButton.actionButtonSize.width * 1.2)
-            make.height.equalTo(actionButton.actionButtonSize.height * 1.2)
-        }
-        
-        UIView.animate(withDuration: 0.4, animations: {
-            self.view.layoutIfNeeded()
-            self.actionButton.layer.cornerRadius = (self.actionButton.actionButtonSize.height * 1.2) / 2
-        })
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4, execute: {
-            self.view.layoutIfNeeded()
-            self.actionButton.snp.updateConstraints { make in
-                make.width.equalTo(self.actionButton.actionButtonSize.width)
-                make.height.equalTo(self.actionButton.actionButtonSize.height)
-            }
-            
-            UIView.animate(withDuration: 0.4, animations: {
-                self.view.layoutIfNeeded()
-                self.actionButton.layer.cornerRadius = (self.actionButton.actionButtonSize.height) / 2
-            })
-        })
-    }
-    
-    private func setupActionButtonConstraints() {
-        actionButton.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.width.equalTo(actionButton.actionButtonSize.width)
-            make.height.equalTo(actionButton.actionButtonSize.height)
-            make.bottom.equalTo(tabBar.safeAreaLayoutGuide.snp.bottom)
         }
     }
     
@@ -202,6 +182,8 @@ extension MainTabBarViewController: UIScrollViewDelegate {
 extension MainTabBarViewController: HeroTabBarViewDelegate {
     public func tabBarItem(at index: Int) {
         titleLabel.text = tabBarItemList[index].title
+        tabChanged(tapped: index)
+        
         if index == 3 {
             DebugLog("Action Button Clicked")
             updateTabBarView()
