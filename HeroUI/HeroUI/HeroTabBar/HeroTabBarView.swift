@@ -69,9 +69,6 @@ public class HeroTabBarView: UIView {
     private func setupMainLayout() {
         backgroundColor = .heroWhite100s
         addSubview(tabStackView)
-        tabStackView.axis = .horizontal
-        tabStackView.spacing = 20
-        tabStackView.distribution = .equalSpacing
         
         tabStackView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(internalSpacing)
@@ -80,6 +77,12 @@ public class HeroTabBarView: UIView {
             make.bottom.equalToSuperview().offset(-internalSpacing)
         }
         
+        let stackViewWidth = (UIScreen.main.bounds.width - 32) - (internalSpacing * 2)
+        let stackViewSpacing = (stackViewWidth - (62 * 4)) / 3
+        
+        tabStackView.axis = .horizontal
+        tabStackView.spacing = stackViewSpacing
+        tabStackView.distribution = .equalSpacing
         updateViewLayout()
     }
     

@@ -54,6 +54,7 @@ public class HeroTabBarItemView: UIView {
             make.top.equalToSuperview().offset(4)
             make.leading.greaterThanOrEqualToSuperview().offset(4)
             make.trailing.lessThanOrEqualToSuperview().offset(-4)
+            make.centerX.equalToSuperview()
             make.bottom.equalToSuperview().offset(-4)
             make.width.equalTo(itemStackView.snp.height)
         }
