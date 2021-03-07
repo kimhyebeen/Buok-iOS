@@ -23,6 +23,8 @@
 		B06B5ED725ECCC270045A491 /* HeroUINavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06B5ED625ECCC270045A491 /* HeroUINavigationBar.swift */; };
 		B06B5EDB25ECCC6E0045A491 /* UIImage+Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06B5EDA25ECCC6E0045A491 /* UIImage+Hero.swift */; };
 		B07CDC1225F4B7A100D18589 /* MainTabBarConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07CDC1125F4B7A100D18589 /* MainTabBarConstants.swift */; };
+		B07CDC2B25F4BE5A00D18589 /* HeroAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07CDC2A25F4BE5A00D18589 /* HeroAlertViewController.swift */; };
+		B07CDC3A25F4C1B400D18589 /* HeroAlertButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07CDC3925F4C1B400D18589 /* HeroAlertButton.swift */; };
 		B94199A7340AA091D7EFED1D /* libPods-HeroUI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67AFB3E0E117A8D4DF3E3098 /* libPods-HeroUI.a */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +62,8 @@
 		B06B5ED625ECCC270045A491 /* HeroUINavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroUINavigationBar.swift; sourceTree = "<group>"; };
 		B06B5EDA25ECCC6E0045A491 /* UIImage+Hero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Hero.swift"; sourceTree = "<group>"; };
 		B07CDC1125F4B7A100D18589 /* MainTabBarConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarConstants.swift; sourceTree = "<group>"; };
+		B07CDC2A25F4BE5A00D18589 /* HeroAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroAlertViewController.swift; sourceTree = "<group>"; };
+		B07CDC3925F4C1B400D18589 /* HeroAlertButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroAlertButton.swift; sourceTree = "<group>"; };
 		C33565CC9EFC666DA4E1F6C1 /* Pods-HeroUI.inhouse(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroUI.inhouse(debug).xcconfig"; path = "Target Support Files/Pods-HeroUI/Pods-HeroUI.inhouse(debug).xcconfig"; sourceTree = "<group>"; };
 		C39B8CF93D09A1C653D8841D /* Pods-HeroUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroUI.debug.xcconfig"; path = "Target Support Files/Pods-HeroUI/Pods-HeroUI.debug.xcconfig"; sourceTree = "<group>"; };
 		CF5BADAB0CAB732CEE18C3F8 /* Pods-HeroUI.real.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroUI.real.xcconfig"; path = "Target Support Files/Pods-HeroUI/Pods-HeroUI.real.xcconfig"; sourceTree = "<group>"; };
@@ -142,6 +146,7 @@
 		B041750B25E2382C00D990A2 /* HeroUI */ = {
 			isa = PBXGroup;
 			children = (
+				B07CDC2925F4BE4E00D18589 /* HeroAlertController */,
 				B0376FFC25F4944F003D7750 /* HeroTabBar */,
 				B041760E25E23BD800D990A2 /* Resources */,
 				B041750C25E2382C00D990A2 /* HeroUI.h */,
@@ -172,6 +177,15 @@
 				B041760F25E23BE400D990A2 /* HeroColorSet.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		B07CDC2925F4BE4E00D18589 /* HeroAlertController */ = {
+			isa = PBXGroup;
+			children = (
+				B07CDC2A25F4BE5A00D18589 /* HeroAlertViewController.swift */,
+				B07CDC3925F4C1B400D18589 /* HeroAlertButton.swift */,
+			);
+			path = HeroAlertController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -312,9 +326,11 @@
 			files = (
 				B06B5EDB25ECCC6E0045A491 /* UIImage+Hero.swift in Sources */,
 				B0376FF525F48768003D7750 /* TabBarActionButton.swift in Sources */,
+				B07CDC2B25F4BE5A00D18589 /* HeroAlertViewController.swift in Sources */,
 				B07CDC1225F4B7A100D18589 /* MainTabBarConstants.swift in Sources */,
 				B041759725E2394800D990A2 /* UIColor+Hero.swift in Sources */,
 				B0376FFE25F49462003D7750 /* HeroTabBarItemView.swift in Sources */,
+				B07CDC3A25F4C1B400D18589 /* HeroAlertButton.swift in Sources */,
 				B06B5ED725ECCC270045A491 /* HeroUINavigationBar.swift in Sources */,
 				B0376FF925F4893F003D7750 /* HeroTabBarView.swift in Sources */,
 				B041761425E23C0600D990A2 /* Bundle+Hero.swift in Sources */,
