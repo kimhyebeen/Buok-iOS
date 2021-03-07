@@ -17,6 +17,9 @@ public class MainTabBarViewController: UITabBarController, UITabBarControllerDel
     private let tabBarView: HeroTabBarView = HeroTabBarView()
     private let tabBarBackView: UIView = UIView()
     
+    private let indicatorView: UIView = UIView()
+    private let indicatorInnerView: UIView = UIView()
+    
     private var tabViewControllers: [UIViewController] = [UIViewController]()
     private var currentIndex: Int = 0
     private var previousIndex: Int = 0
@@ -50,6 +53,8 @@ public class MainTabBarViewController: UITabBarController, UITabBarControllerDel
         view.addSubview(tabBarBackView)
         view.addSubview(tabBarView)
         view.bringSubviewToFront(tabBarView)
+        tabBarView.addSubview(indicatorView)
+        indicatorView.addSubview(indicatorInnerView)
         
         tabBarBackView.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(16)
@@ -63,6 +68,19 @@ public class MainTabBarViewController: UITabBarController, UITabBarControllerDel
             make.trailing.equalToSuperview().offset(-16)
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-16)
             make.height.equalTo(70)
+        }
+        
+        indicatorView.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.leading.equalToSuperview()
+            make.height.equalTo(4)
+            make.width.equalTo(tabBarView.snp.height)
+        }
+        
+        indicatorInnerView.snp.makeConstraints { make in
+            make.top.bottom.equalToSuperview()
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().offset(-16)
         }
         
         titleView.addSubview(titleLabel)
@@ -82,6 +100,9 @@ public class MainTabBarViewController: UITabBarController, UITabBarControllerDel
         
         tabBarView.delegate = self
         tabBarView.itemList = tabBarItemList
+        
+        indicatorInnerView.backgroundColor = .heroBlue100s
+        indicatorInnerView.layer.cornerRadius = 2
         tabBarBackView.backgroundColor = .heroWhite100s
         
         titleLabel.font = .font17PBold
@@ -124,6 +145,37 @@ public class MainTabBarViewController: UITabBarController, UITabBarControllerDel
         self.addChild(vc)
         self.view.addSubview(vc.view)
         self.view.bringSubviewToFront(tabBarView)
+        
+        updateTabBarIndicatorView()
+    }
+    
+    private func updateTabBarIndicatorView() {
+        self.view.layoutIfNeeded()
+        let spacingOffset = (tabBarView.frame.width - (tabBarView.frame.height * CGFloat(tabBarItemList.count))) / CGFloat(tabBarItemList.count - 1)
+        let leadingOffset = (tabBarView.frame.height * CGFloat(currentIndex)) + spacingOffset * CGFloat(currentIndex)
+        
+        DebugLog("Spacing Offset : \(spacingOffset)")
+        DebugLog("Leading Offset : \(leadingOffset)")
+        
+        if currentIndex == (tabBarItemList.count - 1) {
+            indicatorView.snp.remakeConstraints { make in
+                make.top.equalToSuperview()
+                make.height.equalTo(4)
+                make.width.equalTo(tabBarView.snp.height)
+                make.trailing.equalToSuperview()
+            }
+        } else {
+            indicatorView.snp.remakeConstraints { make in
+                make.top.equalToSuperview()
+                make.height.equalTo(4)
+                make.width.equalTo(tabBarView.snp.height)
+                make.leading.equalToSuperview().offset(leadingOffset)
+            }
+        }
+        
+        UIView.animate(withDuration: 0.4, animations: {
+            self.view.layoutIfNeeded()
+        })
     }
     
     private func updateTabBarView() {
