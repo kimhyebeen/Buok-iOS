@@ -38,12 +38,11 @@ public class HeroTabBarView: UIView {
             for view in itemViewList {
                 tabStackView.addArrangedSubview(view)
             }
+            updateViewLayout()
         }
     }
     
     public weak var delegate: HeroTabBarViewDelegate?
-    
-    private var internalSpacing: CGFloat = 8
 
     public var borderRadius: CGFloat = 12 {
         didSet {
@@ -71,17 +70,13 @@ public class HeroTabBarView: UIView {
         addSubview(tabStackView)
         
         tabStackView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(internalSpacing)
-            make.leading.equalToSuperview().offset(internalSpacing)
-            make.trailing.equalToSuperview().offset(-internalSpacing)
-            make.bottom.equalToSuperview().offset(-internalSpacing)
+            make.top.equalToSuperview().offset(MainTabBarConstants.tabStackViewInnerSpacing)
+            make.leading.equalToSuperview().offset(MainTabBarConstants.tabStackViewInnerSpacing)
+            make.trailing.equalToSuperview().offset(-MainTabBarConstants.tabStackViewInnerSpacing)
+            make.bottom.equalToSuperview().offset(-MainTabBarConstants.tabStackViewInnerSpacing)
         }
         
-        let stackViewWidth = (UIScreen.main.bounds.width - 32) - (internalSpacing * 2)
-        let stackViewSpacing = (stackViewWidth - (62 * 4)) / 3
-        
         tabStackView.axis = .horizontal
-        tabStackView.spacing = stackViewSpacing
         tabStackView.distribution = .equalSpacing
         updateViewLayout()
     }
@@ -91,6 +86,12 @@ public class HeroTabBarView: UIView {
         layer.shadowRadius = borderRadius
         layer.shadowOpacity = isSpread ? 0 : 0.3
         layer.cornerRadius = borderRadius
+        
+        let stackViewWidth = (UIScreen.main.bounds.width - (MainTabBarConstants.outerSpacing * 2)) - (MainTabBarConstants.tabStackViewInnerSpacing * 2)
+        let stackViewHeight = MainTabBarConstants.tabBarHeight - (MainTabBarConstants.tabBarInternalConstant * 2)
+        let stackViewSpacing = (stackViewWidth - (stackViewHeight * CGFloat(itemViewList.count))) / CGFloat(itemViewList.count - 1)
+        
+        tabStackView.spacing = stackViewSpacing
     }
     
     public func setTabBarItemSelected(index: Int, isSelected: Bool) {

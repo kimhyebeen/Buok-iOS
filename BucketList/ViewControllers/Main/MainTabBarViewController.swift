@@ -57,30 +57,30 @@ public class MainTabBarViewController: UITabBarController, UITabBarControllerDel
         indicatorView.addSubview(indicatorInnerView)
         
         tabBarBackView.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(16)
-            make.trailing.equalToSuperview().offset(-16)
-            make.bottom.equalToSuperview().offset(-66)
-            make.height.equalTo(40)
+            make.leading.equalToSuperview().offset(MainTabBarConstants.outerSpacing)
+            make.trailing.equalToSuperview().offset(-MainTabBarConstants.outerSpacing)
+            make.bottom.equalToSuperview().offset(-MainTabBarConstants.backOuterBottomSpacing)
+            make.height.equalTo(MainTabBarConstants.backHeight)
         }
         
         tabBarView.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(16)
-            make.trailing.equalToSuperview().offset(-16)
-            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-16)
-            make.height.equalTo(70)
+            make.leading.equalToSuperview().offset(MainTabBarConstants.outerSpacing)
+            make.trailing.equalToSuperview().offset(-MainTabBarConstants.outerSpacing)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-MainTabBarConstants.outerSpacing)
+            make.height.equalTo(MainTabBarConstants.tabBarHeight)
         }
         
         indicatorView.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.leading.equalToSuperview()
-            make.height.equalTo(4)
+            make.height.equalTo(MainTabBarConstants.indicatorHeight)
             make.width.equalTo(tabBarView.snp.height)
         }
         
         indicatorInnerView.snp.makeConstraints { make in
             make.top.bottom.equalToSuperview()
-            make.leading.equalToSuperview().offset(16)
-            make.trailing.equalToSuperview().offset(-16)
+            make.leading.equalToSuperview().offset(MainTabBarConstants.indicatorInnerSpacing)
+            make.trailing.equalToSuperview().offset(-MainTabBarConstants.indicatorInnerSpacing)
         }
         
         titleView.addSubview(titleLabel)
@@ -102,7 +102,7 @@ public class MainTabBarViewController: UITabBarController, UITabBarControllerDel
         tabBarView.itemList = tabBarItemList
         
         indicatorInnerView.backgroundColor = .heroBlue100s
-        indicatorInnerView.layer.cornerRadius = 2
+        indicatorInnerView.layer.cornerRadius = MainTabBarConstants.indicatorHeight / 2
         tabBarBackView.backgroundColor = .heroWhite100s
         
         titleLabel.font = .font17PBold
@@ -160,14 +160,14 @@ public class MainTabBarViewController: UITabBarController, UITabBarControllerDel
         if currentIndex == (tabBarItemList.count - 1) {
             indicatorView.snp.remakeConstraints { make in
                 make.top.equalToSuperview()
-                make.height.equalTo(4)
+                make.height.equalTo(MainTabBarConstants.indicatorHeight)
                 make.width.equalTo(tabBarView.snp.height)
                 make.trailing.equalToSuperview()
             }
         } else {
             indicatorView.snp.remakeConstraints { make in
                 make.top.equalToSuperview()
-                make.height.equalTo(4)
+                make.height.equalTo(MainTabBarConstants.indicatorHeight)
                 make.width.equalTo(tabBarView.snp.height)
                 make.leading.equalToSuperview().offset(leadingOffset)
             }
@@ -195,15 +195,15 @@ public class MainTabBarViewController: UITabBarController, UITabBarControllerDel
             }
         } else {
             tabBarView.snp.updateConstraints { make in
-                make.leading.equalToSuperview().offset(16)
-                make.trailing.equalToSuperview().offset(-16)
-                make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-16)
+                make.leading.equalToSuperview().offset(MainTabBarConstants.outerSpacing)
+                make.trailing.equalToSuperview().offset(-MainTabBarConstants.outerSpacing)
+                make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-MainTabBarConstants.outerSpacing)
             }
             
             tabBarBackView.snp.updateConstraints { make in
-                make.leading.equalToSuperview().offset(16)
-                make.trailing.equalToSuperview().offset(-16)
-                make.bottom.equalToSuperview().offset(-66)
+                make.leading.equalToSuperview().offset(MainTabBarConstants.outerSpacing)
+                make.trailing.equalToSuperview().offset(-MainTabBarConstants.outerSpacing)
+                make.bottom.equalToSuperview().offset(-MainTabBarConstants.backOuterBottomSpacing)
             }
         }
         
