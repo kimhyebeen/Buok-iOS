@@ -15,6 +15,7 @@ public class MainTabBarViewController: UITabBarController, UITabBarControllerDel
     private let titleLabel: UILabel = UILabel()
     private let actionButton: TabBarActionButton = TabBarActionButton()
     private let tabBarView: HeroTabBarView = HeroTabBarView()
+    private let tabBarBackView: UIView = UIView()
     
     private let tabBarItemList: [HeroTabBarItem] = [
         HeroTabBarItem(title: "Item1",
@@ -36,10 +37,20 @@ public class MainTabBarViewController: UITabBarController, UITabBarControllerDel
         self.delegate = self
         
         navigationItem.titleView = titleView
+        view.addSubview(tabBarBackView)
         view.addSubview(tabBarView)
         view.bringSubviewToFront(tabBarView)
+        
         tabBarView.delegate = self
         tabBarView.itemViewList = tabBarItemList
+        tabBarBackView.backgroundColor = .heroWhite100s
+        
+        tabBarBackView.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().offset(-16)
+            make.bottom.equalToSuperview().offset(-66)
+            make.height.equalTo(40)
+        }
         
         tabBarView.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(16)
@@ -153,11 +164,23 @@ public class MainTabBarViewController: UITabBarController, UITabBarControllerDel
                 make.trailing.equalToSuperview()
                 make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
             }
+            
+            tabBarBackView.snp.updateConstraints { make in
+                make.leading.equalToSuperview()
+                make.trailing.equalToSuperview()
+                make.bottom.equalToSuperview()
+            }
         } else {
             tabBarView.snp.updateConstraints { make in
                 make.leading.equalToSuperview().offset(16)
                 make.trailing.equalToSuperview().offset(-16)
                 make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-16)
+            }
+            
+            tabBarBackView.snp.updateConstraints { make in
+                make.leading.equalToSuperview().offset(16)
+                make.trailing.equalToSuperview().offset(-16)
+                make.bottom.equalToSuperview().offset(-66)
             }
         }
         
@@ -178,6 +201,7 @@ extension MainTabBarViewController: UIScrollViewDelegate {
 
 extension MainTabBarViewController: HeroTabBarViewDelegate {
     public func tabBarItem(at index: Int) {
+        titleLabel.text = tabBarItemList[index].title
         if index == 3 {
             DebugLog("Action Button Clicked")
             updateTabBarView()
