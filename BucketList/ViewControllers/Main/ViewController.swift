@@ -10,10 +10,10 @@ import HeroUI
 import SnapKit
 
 class ViewController: HeroBaseViewController {
-    private let scrollView        = UIScrollView()
-    private let contentView       = UIView()
-    private let mainStackView     = UIStackView()
-    private let bottomFooterView  = UIView()
+    private let scrollView  = UIScrollView()
+    private let contentView  = UIView()
+    private let mainStackView  = UIStackView()
+    private let bottomFooterView = UIView()
     private let bottomFooterLabel = UILabel()
     
     private let subOneVC = SubOneViewController()
