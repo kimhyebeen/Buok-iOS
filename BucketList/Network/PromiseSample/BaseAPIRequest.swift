@@ -28,7 +28,7 @@ extension APIRequestType {
 public class BaseAPIRequest {
     typealias RequestType = APIRequestType
     
-    func requestJSONResponse(requestType: RequestType) -> Promise<Any?> {
+    static func requestJSONResponse(requestType: RequestType) -> Promise<Any?> {
         Promise { fulfill, reject in
             let url = requestType.requestURL
             let heroRequest = HeroRequest(path: url.path, httpMethod: requestType.httpMethod, encoding: requestType.encoding, parameter: requestType.requestParameter)
@@ -48,7 +48,7 @@ public class BaseAPIRequest {
         }
     }
     
-    func requestStringResponse(requestType: RequestType) -> Promise<String?> {
+    static func requestStringResponse(requestType: RequestType) -> Promise<String?> {
         Promise { fulfill, reject in
             let url = requestType.requestURL
             let heroRequest = HeroRequest(path: url.path, httpMethod: requestType.httpMethod, encoding: requestType.encoding, parameter: requestType.requestParameter)
