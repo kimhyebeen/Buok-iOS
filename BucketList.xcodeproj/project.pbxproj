@@ -27,7 +27,6 @@
 		B075225425ED06ED0016DC3A /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B075225325ED06ED0016DC3A /* UserModel.swift */; };
 		B075226925ED08780016DC3A /* UserAuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B075226825ED08780016DC3A /* UserAuthModel.swift */; };
 		B075226D25ED089F0016DC3A /* AuthTokenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B075226C25ED089F0016DC3A /* AuthTokenModel.swift */; };
-		B07522A325EDBF6C0016DC3A /* PromiseSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07522A225EDBF6C0016DC3A /* PromiseSample.swift */; };
 		B07522EE25EF0C140016DC3A /* HeroRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07522ED25EF0C140016DC3A /* HeroRequest.swift */; };
 		B07522F625EF0C410016DC3A /* HeroConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07522F525EF0C410016DC3A /* HeroConvertible.swift */; };
 		B07522FA25EF0C850016DC3A /* HeroHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07522F925EF0C850016DC3A /* HeroHeader.swift */; };
@@ -151,7 +150,6 @@
 		B075225325ED06ED0016DC3A /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		B075226825ED08780016DC3A /* UserAuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthModel.swift; sourceTree = "<group>"; };
 		B075226C25ED089F0016DC3A /* AuthTokenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTokenModel.swift; sourceTree = "<group>"; };
-		B07522A225EDBF6C0016DC3A /* PromiseSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromiseSample.swift; sourceTree = "<group>"; };
 		B07522ED25EF0C140016DC3A /* HeroRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroRequest.swift; sourceTree = "<group>"; };
 		B07522F525EF0C410016DC3A /* HeroConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroConvertible.swift; sourceTree = "<group>"; };
 		B07522F925EF0C850016DC3A /* HeroHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroHeader.swift; sourceTree = "<group>"; };
@@ -382,7 +380,6 @@
 			isa = PBXGroup;
 			children = (
 				B075237B25EF5AEC0016DC3A /* Home */,
-				B07522A225EDBF6C0016DC3A /* PromiseSample.swift */,
 				B07522ED25EF0C140016DC3A /* HeroRequest.swift */,
 				B07522F525EF0C410016DC3A /* HeroConvertible.swift */,
 				B07522F925EF0C850016DC3A /* HeroHeader.swift */,
@@ -753,7 +750,6 @@
 				B041747C25E2366E00D990A2 /* BucketList.xcdatamodeld in Sources */,
 				EEBCE41125FA3A3100BA6749 /* KeywordRequestBody.swift in Sources */,
 				B06B5EE325ECCE610045A491 /* HeroBaseViewController.swift in Sources */,
-				B07522A325EDBF6C0016DC3A /* PromiseSample.swift in Sources */,
 				B041747225E2366E00D990A2 /* AppDelegate.swift in Sources */,
 				B06B5EF625ECD0140045A491 /* SubThreeViewController.swift in Sources */,
 				B07522FA25EF0C850016DC3A /* HeroHeader.swift in Sources */,

@@ -6,17 +6,8 @@
 //
 
 import Foundation
-import ObjectMapper
 
-class AccessTokenModel: Mappable {
+struct AccessTokenModel: Codable {
     var token: String?
     var expiresIn: Int?
-    
-    required init?(map: Map) {
-    }
-    
-    func mapping(map: Map) {
-        token <- map["token"]
-        expiresIn <- map["expiresIn"]
-    }
 }

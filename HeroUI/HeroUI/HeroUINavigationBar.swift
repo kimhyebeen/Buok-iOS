@@ -44,7 +44,7 @@ public class HeroUINavigationBar: UINavigationBar {
 }
 
 public extension UINavigationItem {
-    func setRightBarButtonItem7(_ item: UIBarButtonItem?, animated: Bool) {
+    func setRightHeroBarButtonItem(_ item: UIBarButtonItem?, animated: Bool) {
         guard let item = item else {
             rightBarButtonItem = nil
             rightBarButtonItems = nil
@@ -54,7 +54,7 @@ public extension UINavigationItem {
         setRightBarButton(item, animated: animated)
     }
     
-    func setRightBarButtonItems7(_ items: [UIBarButtonItem]?, animated: Bool) {
+    func setRightHeroBarButtonItems(_ items: [UIBarButtonItem]?, animated: Bool) {
         guard let items = items else {
             rightBarButtonItem = nil
             rightBarButtonItems = nil
@@ -65,11 +65,11 @@ public extension UINavigationItem {
         setRightBarButtonItems(buttonItems, animated: animated)
     }
     
-    func setRightBarButtonItems7(_ items: [UIBarButtonItem]?) {
-        setRightBarButtonItems7(items, animated: false)
+    func setRightHeroBarButtonItems(_ items: [UIBarButtonItem]?) {
+        setRightHeroBarButtonItems(items, animated: false)
     }
     
-    func setLeftBarButtonItem7(_ item: UIBarButtonItem?, animated: Bool) {
+    func setLeftHeroBarButtonItem(_ item: UIBarButtonItem?, animated: Bool) {
         guard let item = item else {
             setLeftBarButton(nil, animated: animated)
             setLeftBarButtonItems(nil, animated: animated)
@@ -79,7 +79,7 @@ public extension UINavigationItem {
         setLeftBarButton(item, animated: animated)
     }
     
-    func setLeftBarButtonItems7(_ items: [UIBarButtonItem]?, animated: Bool) {
+    func setLeftHeroBarButtonItems(_ items: [UIBarButtonItem]?, animated: Bool) {
         guard let items = items else {
             leftBarButtonItem = nil
             leftBarButtonItems = nil
@@ -90,11 +90,11 @@ public extension UINavigationItem {
         setLeftBarButtonItems(buttonItems, animated: animated)
     }
     
-    func setLeftBarButtonItem7(_ item: UIBarButtonItem?) {
-        setLeftBarButtonItem7(item, animated: false)
+    func setLeftHeroBarButtonItem(_ item: UIBarButtonItem?) {
+        setLeftHeroBarButtonItem(item, animated: false)
     }
     
-    var rightBarButtonItem7: UIBarButtonItem? {
+    var rightHeroBarButtonItem: UIBarButtonItem? {
         if rightBarButtonItems != nil && rightBarButtonItems!.count > 0 {
             return rightBarButtonItems?.last
         }
@@ -104,7 +104,7 @@ public extension UINavigationItem {
         return nil
     }
     
-    var rightBarButtonItems7: [UIBarButtonItem]? {
+    var rightHeroBarButtonItems: [UIBarButtonItem]? {
         if rightBarButtonItems != nil {
             return rightBarButtonItems
         }
@@ -114,7 +114,7 @@ public extension UINavigationItem {
         return nil
     }
     
-    var leftBarButtonItem7: UIBarButtonItem? {
+    var leftHeroBarButtonItem: UIBarButtonItem? {
         if leftBarButtonItems != nil && leftBarButtonItems!.count > 0 {
             return leftBarButtonItems?.last
         }
@@ -124,7 +124,7 @@ public extension UINavigationItem {
         return nil
     }
     
-    var leftBarButtonItems7: [UIBarButtonItem]? {
+    var leftHeroBarButtonItems: [UIBarButtonItem]? {
         if leftBarButtonItems != nil {
             return leftBarButtonItems
         }
@@ -135,10 +135,10 @@ public extension UINavigationItem {
     }
     
     func setRightBarButtonItemEnabled(_ enabled: Bool) {
-        rightBarButtonItem7?.isEnabled = enabled
+        rightHeroBarButtonItem?.isEnabled = enabled
     }
     
     func setLeftBarButtonItemEnabled(_ enabled: Bool) {
-        leftBarButtonItem7?.isEnabled = enabled
+        leftHeroBarButtonItem?.isEnabled = enabled
     }
 }

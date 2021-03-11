@@ -90,7 +90,7 @@ public extension UIFont {
     }
     
     class var font18PBold: UIFont {
-        UIFont.systemFont(ofSize: 18, weight: .regular)
+        UIFont.systemFont(ofSize: 18, weight: .bold)
     }
     
     class var font18PMedium: UIFont {
@@ -98,7 +98,7 @@ public extension UIFont {
     }
     
     class var font19PBold: UIFont {
-        UIFont.systemFont(ofSize: 19, weight: .regular)
+        UIFont.systemFont(ofSize: 19, weight: .bold)
     }
     
     class var font19PMedium: UIFont {
@@ -106,7 +106,7 @@ public extension UIFont {
     }
     
     class var font20PBold: UIFont {
-        UIFont.systemFont(ofSize: 20, weight: .regular)
+        UIFont.systemFont(ofSize: 20, weight: .bold)
     }
     
     class var font20PMedium: UIFont {

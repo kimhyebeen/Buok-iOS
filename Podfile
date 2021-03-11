@@ -16,7 +16,6 @@ target 'BucketList' do
   pod 'SnapKit'
   pod 'Alamofire'
   pod 'Alamofire-SwiftyJSON'
-  pod ‘AlamofireObjectMapper’
   pod 'SwiftyJSON'
   pod 'SwiftLint'
   pod 'Promises'

@@ -65,7 +65,7 @@ public struct BucketListAPIRequest {
     
     static func homeNoticeListRequest() {
         DebugLog("API 실행 전 -- HomeURL : \(APIConstant.homeURL)")
-        BaseAPIRequest().requestJSONResponse(requestType: RequestType.noticeList).then { responseData in
+        BaseAPIRequest.requestJSONResponse(requestType: RequestType.noticeList).then { responseData in
 //            HeroLog.debug(">>>> ")
             DebugLog(">>>> HomeAPIRequest responseData : \(responseData.debugDescription)")
             do {
