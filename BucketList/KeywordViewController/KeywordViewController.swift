@@ -9,7 +9,7 @@ import HeroUI
 import SnapKit
 
 class KeywordViewController: UIViewController {
-    private var textField = UITextField()
+    private var textView = UITextView()
     private var button = UIButton()
     private var stackView = UIStackView()
 
@@ -20,6 +20,8 @@ class KeywordViewController: UIViewController {
     }
     
     private func setupView() {
+        self.view.backgroundColor = .heroWhite100s
+        self.title = "키워드"
         setupButton()
         setupTextField()
         setupStackView()
@@ -38,6 +40,7 @@ class KeywordViewController: UIViewController {
 extension KeywordViewController {
     private func setupButton() {
         button.setTitle("키워드 추출", for: .normal)
+        button.contentEdgeInsets = UIEdgeInsets(top: 4, left: 12, bottom: 4, right: 12)
         button.backgroundColor = .heroBlue100s
         button.layer.cornerRadius = 10
         self.view.addSubview(button)
@@ -49,12 +52,16 @@ extension KeywordViewController {
     }
     
     private func setupTextField() {
-        textField.placeholder = "텍스트를 입력해주세요"
-        self.view.addSubview(textField)
+        textView.text = ""
+        textView.font = .font14P
+        textView.layer.cornerRadius = 10
+        textView.layer.borderWidth = 1
+        textView.layer.borderColor = UIColor.systemGray.cgColor
+        self.view.addSubview(textView)
         
-        textField.snp.makeConstraints { make in
-            make.height.equalTo(150)
-            make.bottom.equalTo(button.snp.top).offset(16)
+        textView.snp.makeConstraints { make in
+            make.height.equalTo(120)
+            make.bottom.equalTo(button.snp.top).offset(-16)
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-20)
         }
