@@ -27,7 +27,7 @@ public class TagView: UIView {
     }
     
     private func setupView() {
-        self.backgroundColor = UIColor(hex: "#d2d2d2", alpha: 0.4)
+        self.backgroundColor = UIColor(hex: "#2e2e2e", alpha: 0.7)
         self.layer.cornerRadius = 10
         setupKeywordLabel()
     }
