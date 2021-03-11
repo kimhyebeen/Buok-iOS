@@ -9,7 +9,6 @@ import Alamofire
 import Foundation
 import HeroCommon
 import HeroUI
-import ObjectMapper
 import SnapKit
 
 public class SubOneViewController: HeroBaseViewController {

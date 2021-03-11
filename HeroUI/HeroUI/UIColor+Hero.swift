@@ -50,6 +50,7 @@ public extension UIColor {
     static var heroBlack100s: UIColor { fetchHeroColor(#function) }
     
     static var heroGray000s: UIColor { fetchHeroColor(#function) }
+    static var heroGray100a: UIColor { fetchHeroColor(#function) }
     static var heroGray600s: UIColor { fetchHeroColor(#function) }
     
     private static func fetchHeroColor(_ name: String) -> UIColor {
