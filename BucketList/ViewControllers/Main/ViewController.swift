@@ -61,7 +61,6 @@ class ViewController: HeroBaseViewController {
         scrollView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             make.left.right.equalToSuperview()
-//            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-70)
             make.bottom.equalToSuperview()
         }
         
