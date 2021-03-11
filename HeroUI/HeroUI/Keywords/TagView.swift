@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class TagView: UIView {
     private var keywordLabel = UILabel()
@@ -34,6 +35,12 @@ class TagView: UIView {
     private func setupKeywordLabel() {
         keywordLabel.textColor = .heroWhite100s
         keywordLabel.font = .font14PBold
+        keywordLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(8)
+            make.bottom.equalToSuperview().offset(-8)
+            make.leading.equalToSuperview().offset(12)
+            make.trailing.equalToSuperview().offset(-12)
+        }
     }
 
 }
