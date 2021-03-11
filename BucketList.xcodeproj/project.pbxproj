@@ -41,6 +41,8 @@
 		CC37E2F3C984BE1F4A929DF1 /* Pods_BucketList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3992BD9F50CABA19228CB25 /* Pods_BucketList.framework */; };
 		D31F4C930ABCC45CA075F57B /* Pods_BucketList_BucketListUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11AF6A797F6DEE4B8309CFA7 /* Pods_BucketList_BucketListUITests.framework */; };
 		EEBCE3DB25FA246D00BA6749 /* KeywordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBCE3DA25FA246D00BA6749 /* KeywordViewController.swift */; };
+		EEBCE41125FA3A3100BA6749 /* KeywordRequestBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBCE41025FA3A3100BA6749 /* KeywordRequestBody.swift */; };
+		EEBCE41725FA3A3B00BA6749 /* KeywordResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBCE41625FA3A3B00BA6749 /* KeywordResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -164,6 +166,8 @@
 		CA736E56E1344F51FD5025D9 /* Pods-BucketList.real.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BucketList.real.xcconfig"; path = "Target Support Files/Pods-BucketList/Pods-BucketList.real.xcconfig"; sourceTree = "<group>"; };
 		D75B344CFE28D7AF61D5B4AF /* Pods-BucketList.inhouse(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BucketList.inhouse(debug).xcconfig"; path = "Target Support Files/Pods-BucketList/Pods-BucketList.inhouse(debug).xcconfig"; sourceTree = "<group>"; };
 		EEBCE3DA25FA246D00BA6749 /* KeywordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordViewController.swift; sourceTree = "<group>"; };
+		EEBCE41025FA3A3100BA6749 /* KeywordRequestBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordRequestBody.swift; sourceTree = "<group>"; };
+		EEBCE41625FA3A3B00BA6749 /* KeywordResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordResponse.swift; sourceTree = "<group>"; };
 		F65BD738214020871341DE05 /* Pods-YappHero-YappHeroUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHero-YappHeroUITests.release.xcconfig"; path = "Target Support Files/Pods-YappHero-YappHeroUITests/Pods-YappHero-YappHeroUITests.release.xcconfig"; sourceTree = "<group>"; };
 		F694113430B9D3AC5B8FD3C8 /* Pods-BucketListTests.inhouse(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BucketListTests.inhouse(debug).xcconfig"; path = "Target Support Files/Pods-BucketListTests/Pods-BucketListTests.inhouse(debug).xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -399,15 +403,17 @@
 		EEBCE3D925FA245700BA6749 /* KeywordViewController */ = {
 			isa = PBXGroup;
 			children = (
-				EEBCE40C25FA334900BA6749 /* Model */,
+				EEBCE40F25FA3A1A00BA6749 /* Model */,
 				EEBCE3DA25FA246D00BA6749 /* KeywordViewController.swift */,
 			);
 			path = KeywordViewController;
 			sourceTree = "<group>";
 		};
-		EEBCE40C25FA334900BA6749 /* Model */ = {
+		EEBCE40F25FA3A1A00BA6749 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				EEBCE41025FA3A3100BA6749 /* KeywordRequestBody.swift */,
+				EEBCE41625FA3A3B00BA6749 /* KeywordResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -737,9 +743,11 @@
 				B075226D25ED089F0016DC3A /* AuthTokenModel.swift in Sources */,
 				B06B5EDF25ECCD550045A491 /* HeroNavigationController.swift in Sources */,
 				EEBCE3DB25FA246D00BA6749 /* KeywordViewController.swift in Sources */,
+				EEBCE41725FA3A3B00BA6749 /* KeywordResponse.swift in Sources */,
 				B041747625E2366E00D990A2 /* ViewController.swift in Sources */,
 				B06B5EE925ECCED90045A491 /* SubOneViewController.swift in Sources */,
 				B041747C25E2366E00D990A2 /* BucketList.xcdatamodeld in Sources */,
+				EEBCE41125FA3A3100BA6749 /* KeywordRequestBody.swift in Sources */,
 				B06B5EE325ECCE610045A491 /* HeroBaseViewController.swift in Sources */,
 				B07522A325EDBF6C0016DC3A /* PromiseSample.swift in Sources */,
 				B041747225E2366E00D990A2 /* AppDelegate.swift in Sources */,
