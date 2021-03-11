@@ -24,6 +24,7 @@
 		B06B5EDB25ECCC6E0045A491 /* UIImage+Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06B5EDA25ECCC6E0045A491 /* UIImage+Hero.swift */; };
 		B07CDC1225F4B7A100D18589 /* MainTabBarConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07CDC1125F4B7A100D18589 /* MainTabBarConstants.swift */; };
 		B94199A7340AA091D7EFED1D /* libPods-HeroUI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67AFB3E0E117A8D4DF3E3098 /* libPods-HeroUI.a */; };
+		EEBCE3C925FA1F2200BA6749 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBCE3C825FA1F2200BA6749 /* TagView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		C33565CC9EFC666DA4E1F6C1 /* Pods-HeroUI.inhouse(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroUI.inhouse(debug).xcconfig"; path = "Target Support Files/Pods-HeroUI/Pods-HeroUI.inhouse(debug).xcconfig"; sourceTree = "<group>"; };
 		C39B8CF93D09A1C653D8841D /* Pods-HeroUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroUI.debug.xcconfig"; path = "Target Support Files/Pods-HeroUI/Pods-HeroUI.debug.xcconfig"; sourceTree = "<group>"; };
 		CF5BADAB0CAB732CEE18C3F8 /* Pods-HeroUI.real.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroUI.real.xcconfig"; path = "Target Support Files/Pods-HeroUI/Pods-HeroUI.real.xcconfig"; sourceTree = "<group>"; };
+		EEBCE3C825FA1F2200BA6749 /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 		B041750B25E2382C00D990A2 /* HeroUI */ = {
 			isa = PBXGroup;
 			children = (
+				EEBCE3C725FA1EFA00BA6749 /* Keywords */,
 				B0376FFC25F4944F003D7750 /* HeroTabBar */,
 				B041760E25E23BD800D990A2 /* Resources */,
 				B041750C25E2382C00D990A2 /* HeroUI.h */,
@@ -172,6 +175,14 @@
 				B041760F25E23BE400D990A2 /* HeroColorSet.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		EEBCE3C725FA1EFA00BA6749 /* Keywords */ = {
+			isa = PBXGroup;
+			children = (
+				EEBCE3C825FA1F2200BA6749 /* TagView.swift */,
+			);
+			path = Keywords;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -316,6 +327,7 @@
 				B041759725E2394800D990A2 /* UIColor+Hero.swift in Sources */,
 				B0376FFE25F49462003D7750 /* HeroTabBarItemView.swift in Sources */,
 				B06B5ED725ECCC270045A491 /* HeroUINavigationBar.swift in Sources */,
+				EEBCE3C925FA1F2200BA6749 /* TagView.swift in Sources */,
 				B0376FF925F4893F003D7750 /* HeroTabBarView.swift in Sources */,
 				B041761425E23C0600D990A2 /* Bundle+Hero.swift in Sources */,
 				B041763125E23DAA00D990A2 /* HeroFont.swift in Sources */,
