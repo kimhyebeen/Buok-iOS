@@ -9,9 +9,10 @@ import HeroUI
 import SnapKit
 
 class KeywordViewController: UIViewController {
-    private var textView = UITextView()
-    private var button = UIButton()
-    private var stackView = UIStackView()
+    private let textView = UITextView()
+    private let button = UIButton()
+    private let stackView = UIStackView()
+    private let keywordRequest = KeywordRequest()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,12 +28,26 @@ class KeywordViewController: UIViewController {
         setupStackView()
     }
     
-    func addKeywordToStackView() {
+    func addKeywordToStackView(items: [KeywordItem]) {
         stackView.subviews.forEach({ subview in
             subview.removeFromSuperview()
         })
         
-        // todo - add keyword to stack view
+        for index in 0..<3 {
+            if index >= items.count { break }
+            let tag = TagView()
+            tag.keyword = items[index].keyword
+            self.stackView.addArrangedSubview(tag)
+        }
+    }
+    
+    @objc
+    private func clickButton(_ sender: UIButton) {
+        self.view.endEditing(true)
+        keywordRequest.getKeywords(body: KeywordRequestBody(argument: KeywordRequestArgument(question: textView.text)))
+            .then { [weak self] value in
+                self?.addKeywordToStackView(items: value)
+            }
     }
 
 }
@@ -43,8 +58,10 @@ extension KeywordViewController {
         button.contentEdgeInsets = UIEdgeInsets(top: 4, left: 12, bottom: 4, right: 12)
         button.backgroundColor = .heroBlue100s
         button.layer.cornerRadius = 10
+        button.addTarget(self, action: #selector(clickButton(_:)), for: .touchUpInside)
         self.view.addSubview(button)
         
+        button.translatesAutoresizingMaskIntoConstraints = false
         button.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.centerY.equalToSuperview()
@@ -59,6 +76,7 @@ extension KeywordViewController {
         textView.layer.borderColor = UIColor.systemGray.cgColor
         self.view.addSubview(textView)
         
+        textView.translatesAutoresizingMaskIntoConstraints = false
         textView.snp.makeConstraints { make in
             make.height.equalTo(120)
             make.bottom.equalTo(button.snp.top).offset(-16)
@@ -71,11 +89,14 @@ extension KeywordViewController {
         stackView.alignment = .center
         stackView.axis = .horizontal
         stackView.spacing = 10
+        stackView.distribution = .fillEqually
         self.view.addSubview(stackView)
         
+        stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.snp.makeConstraints { make in
-            make.top.equalTo(button.snp.bottom).offset(32)
-            make.centerX.equalToSuperview()
+            make.top.equalTo(button.snp.bottom).offset(64)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
         }
     }
 }

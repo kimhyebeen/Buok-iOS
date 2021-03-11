@@ -11,7 +11,7 @@ import Promise
 
 public class KeywordRequest {
     
-    func getKeywords(body: KeywordRequestBody) -> Promise<[String:Any]> {
+    func getKeywords(body: KeywordRequestBody) -> Promise<[KeywordItem]> {
         var request = URLRequest(url: URL(string: "http://svc.saltlux.ai:31781")!)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -28,7 +28,7 @@ public class KeywordRequest {
                 switch response.result {
                 case .success:
                     if let data = response.data, let item = try? JSONDecoder().decode(KeywordResponse.self, from: data) {
-                        fulfill(["items":item.returnObject.keylists])
+                        fulfill(item.returnObject.keylists)
                     }
                 case .failure:
                     reject(BaseAPIError(error: response.error))

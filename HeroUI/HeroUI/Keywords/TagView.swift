@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 public class TagView: UIView {
-    private var keywordLabel = UILabel()
+    private let keywordLabel = UILabel()
     public var keyword: String = "" {
         didSet {
             keywordLabel.text = "# \(keyword)"
@@ -37,6 +37,7 @@ public class TagView: UIView {
         keywordLabel.font = .font14PBold
         self.addSubview(keywordLabel)
         
+        keywordLabel.translatesAutoresizingMaskIntoConstraints = false
         keywordLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(8)
             make.bottom.equalToSuperview().offset(-8)
