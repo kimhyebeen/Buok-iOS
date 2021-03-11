@@ -40,6 +40,7 @@
 		B1310C820678618E0CD8D237 /* Pods_BucketListTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 034700B09F3F5F387FCA8FAF /* Pods_BucketListTests.framework */; };
 		CC37E2F3C984BE1F4A929DF1 /* Pods_BucketList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3992BD9F50CABA19228CB25 /* Pods_BucketList.framework */; };
 		D31F4C930ABCC45CA075F57B /* Pods_BucketList_BucketListUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11AF6A797F6DEE4B8309CFA7 /* Pods_BucketList_BucketListUITests.framework */; };
+		EEBCE3DB25FA246D00BA6749 /* KeywordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBCE3DA25FA246D00BA6749 /* KeywordViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -162,6 +163,7 @@
 		C3992BD9F50CABA19228CB25 /* Pods_BucketList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BucketList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA736E56E1344F51FD5025D9 /* Pods-BucketList.real.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BucketList.real.xcconfig"; path = "Target Support Files/Pods-BucketList/Pods-BucketList.real.xcconfig"; sourceTree = "<group>"; };
 		D75B344CFE28D7AF61D5B4AF /* Pods-BucketList.inhouse(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BucketList.inhouse(debug).xcconfig"; path = "Target Support Files/Pods-BucketList/Pods-BucketList.inhouse(debug).xcconfig"; sourceTree = "<group>"; };
+		EEBCE3DA25FA246D00BA6749 /* KeywordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordViewController.swift; sourceTree = "<group>"; };
 		F65BD738214020871341DE05 /* Pods-YappHero-YappHeroUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHero-YappHeroUITests.release.xcconfig"; path = "Target Support Files/Pods-YappHero-YappHeroUITests/Pods-YappHero-YappHeroUITests.release.xcconfig"; sourceTree = "<group>"; };
 		F694113430B9D3AC5B8FD3C8 /* Pods-BucketListTests.inhouse(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BucketListTests.inhouse(debug).xcconfig"; path = "Target Support Files/Pods-BucketListTests/Pods-BucketListTests.inhouse(debug).xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -264,6 +266,7 @@
 		B041747025E2366E00D990A2 /* BucketList */ = {
 			isa = PBXGroup;
 			children = (
+				EEBCE3D925FA245700BA6749 /* KeywordViewController */,
 				B075225225ED06E50016DC3A /* Model */,
 				B07520E125ED003A0016DC3A /* Network */,
 				B06B5CB225ECA3EE0045A491 /* ViewControllers */,
@@ -391,6 +394,22 @@
 				B075238025EF5AF70016DC3A /* BucketListHomeAPIRequest.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		EEBCE3D925FA245700BA6749 /* KeywordViewController */ = {
+			isa = PBXGroup;
+			children = (
+				EEBCE40C25FA334900BA6749 /* Model */,
+				EEBCE3DA25FA246D00BA6749 /* KeywordViewController.swift */,
+			);
+			path = KeywordViewController;
+			sourceTree = "<group>";
+		};
+		EEBCE40C25FA334900BA6749 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -717,6 +736,7 @@
 				B075230525EF19420016DC3A /* HeroConstants.swift in Sources */,
 				B075226D25ED089F0016DC3A /* AuthTokenModel.swift in Sources */,
 				B06B5EDF25ECCD550045A491 /* HeroNavigationController.swift in Sources */,
+				EEBCE3DB25FA246D00BA6749 /* KeywordViewController.swift in Sources */,
 				B041747625E2366E00D990A2 /* ViewController.swift in Sources */,
 				B06B5EE925ECCED90045A491 /* SubOneViewController.swift in Sources */,
 				B041747C25E2366E00D990A2 /* BucketList.xcdatamodeld in Sources */,

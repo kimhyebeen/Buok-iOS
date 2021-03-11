@@ -1,0 +1,68 @@
+//
+//  KeywordViewController.swift
+//  BucketList
+//
+//  Created by 김혜빈 on 2021/03/11.
+//
+
+import HeroUI
+import SnapKit
+
+class KeywordViewController: UIViewController {
+    private var textField = UITextField()
+    private var button = UIButton()
+    private var stackView = UIStackView()
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        setupView()
+    }
+    
+    private func setupView() {
+        setupButton()
+        setupTextField()
+        setupStackView()
+    }
+    
+    func addKeywordToStackView() {
+        stackView.subviews.forEach({ subview in
+            subview.removeFromSuperview()
+        })
+        
+        // todo - add keyword to stack view
+    }
+
+}
+
+extension KeywordViewController {
+    private func setupButton() {
+        button.setTitle("키워드 추출", for: .normal)
+        button.backgroundColor = .heroBlue100s
+        button.layer.cornerRadius = 10
+        button.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview()
+        }
+    }
+    
+    private func setupTextField() {
+        textField.placeholder = "텍스트를 입력해주세요"
+        textField.snp.makeConstraints { make in
+            make.height.equalTo(150)
+            make.bottom.equalTo(button.snp.top).offset(16)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+        }
+    }
+    
+    private func setupStackView() {
+        stackView.alignment = .center
+        stackView.axis = .horizontal
+        stackView.spacing = 10
+        stackView.snp.makeConstraints { make in
+            make.top.equalTo(button.snp.bottom).offset(32)
+            make.centerX.equalToSuperview()
+        }
+    }
+}
