@@ -33,6 +33,12 @@ public class FloatingButton: UIButton {
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = .heroBlue100s
         layer.cornerRadius = addContentsButtonSize.height / 2
+        
+        if #available(iOS 13.0, *) {
+            setImage(UIImage(named: "ic_right_arrow")?.withTintColor(.heroWhite100s), for: .normal)
+        } else {
+            setImage(UIImage(named: "ic_right_arrow"), for: .normal)
+        }
     }
 
 }

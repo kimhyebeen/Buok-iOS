@@ -35,6 +35,8 @@ public class TagView: UIView {
     private func setupKeywordLabel() {
         keywordLabel.textColor = .heroWhite100s
         keywordLabel.font = .font14PBold
+        self.addSubview(keywordLabel)
+        
         keywordLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(8)
             make.bottom.equalToSuperview().offset(-8)

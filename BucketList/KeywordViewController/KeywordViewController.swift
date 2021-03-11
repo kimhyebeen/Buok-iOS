@@ -40,6 +40,8 @@ extension KeywordViewController {
         button.setTitle("키워드 추출", for: .normal)
         button.backgroundColor = .heroBlue100s
         button.layer.cornerRadius = 10
+        self.view.addSubview(button)
+        
         button.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.centerY.equalToSuperview()
@@ -48,6 +50,8 @@ extension KeywordViewController {
     
     private func setupTextField() {
         textField.placeholder = "텍스트를 입력해주세요"
+        self.view.addSubview(textField)
+        
         textField.snp.makeConstraints { make in
             make.height.equalTo(150)
             make.bottom.equalTo(button.snp.top).offset(16)
@@ -60,6 +64,8 @@ extension KeywordViewController {
         stackView.alignment = .center
         stackView.axis = .horizontal
         stackView.spacing = 10
+        self.view.addSubview(stackView)
+        
         stackView.snp.makeConstraints { make in
             make.top.equalTo(button.snp.bottom).offset(32)
             make.centerX.equalToSuperview()
