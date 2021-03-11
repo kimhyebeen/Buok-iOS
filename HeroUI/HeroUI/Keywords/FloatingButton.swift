@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FloatingButton: UIButton {
+public class FloatingButton: UIButton {
     public var addContentsButtonSize = CGSize(width: 45, height: 45)
     public var image: UIImage? = UIImage(named: "ic_right_arrow") {
         didSet {

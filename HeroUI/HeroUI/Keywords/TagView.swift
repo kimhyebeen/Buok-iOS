@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class TagView: UIView {
+public class TagView: UIView {
     private var keywordLabel = UILabel()
     public var keyword: String = "" {
         didSet {
