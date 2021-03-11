@@ -25,6 +25,7 @@
 		B07CDC1225F4B7A100D18589 /* MainTabBarConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07CDC1125F4B7A100D18589 /* MainTabBarConstants.swift */; };
 		B94199A7340AA091D7EFED1D /* libPods-HeroUI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67AFB3E0E117A8D4DF3E3098 /* libPods-HeroUI.a */; };
 		EEBCE3C925FA1F2200BA6749 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBCE3C825FA1F2200BA6749 /* TagView.swift */; };
+		EEBCE3D225FA21CD00BA6749 /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBCE3D125FA21CD00BA6749 /* FloatingButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		C39B8CF93D09A1C653D8841D /* Pods-HeroUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroUI.debug.xcconfig"; path = "Target Support Files/Pods-HeroUI/Pods-HeroUI.debug.xcconfig"; sourceTree = "<group>"; };
 		CF5BADAB0CAB732CEE18C3F8 /* Pods-HeroUI.real.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroUI.real.xcconfig"; path = "Target Support Files/Pods-HeroUI/Pods-HeroUI.real.xcconfig"; sourceTree = "<group>"; };
 		EEBCE3C825FA1F2200BA6749 /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
+		EEBCE3D125FA21CD00BA6749 /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				EEBCE3C825FA1F2200BA6749 /* TagView.swift */,
+				EEBCE3D125FA21CD00BA6749 /* FloatingButton.swift */,
 			);
 			path = Keywords;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 				B0376FFE25F49462003D7750 /* HeroTabBarItemView.swift in Sources */,
 				B06B5ED725ECCC270045A491 /* HeroUINavigationBar.swift in Sources */,
 				EEBCE3C925FA1F2200BA6749 /* TagView.swift in Sources */,
+				EEBCE3D225FA21CD00BA6749 /* FloatingButton.swift in Sources */,
 				B0376FF925F4893F003D7750 /* HeroTabBarView.swift in Sources */,
 				B041761425E23C0600D990A2 /* Bundle+Hero.swift in Sources */,
 				B041763125E23DAA00D990A2 /* HeroFont.swift in Sources */,
