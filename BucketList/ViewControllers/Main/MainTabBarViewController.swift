@@ -16,6 +16,7 @@ public class MainTabBarViewController: UITabBarController, UITabBarControllerDel
     private let actionButton: TabBarActionButton = TabBarActionButton()
     private let tabBarView: HeroTabBarView = HeroTabBarView()
     private let tabBarBackView: UIView = UIView()
+    private let floatingButton = FloatingButton()
     
     private let indicatorView: UIView = UIView()
     private let indicatorInnerView: UIView = UIView()
@@ -46,6 +47,7 @@ public class MainTabBarViewController: UITabBarController, UITabBarControllerDel
         setupViewProperties()
         setupTabBarItems()
         tabChanged(tapped: 0)
+        setupFloatingButton()
     }
     
     private func setupMainLayout() {
@@ -127,6 +129,23 @@ public class MainTabBarViewController: UITabBarController, UITabBarControllerDel
         tabViewControllers.append(secondVC)
     }
     
+    private func setupFloatingButton() {
+        floatingButton.addTarget(self, action: #selector(clickFloatingButton(_:)), for: .touchUpInside)
+        self.view.addSubview(floatingButton)
+        
+        floatingButton.snp.makeConstraints { make in
+            make.width.equalTo(45)
+            make.height.equalTo(45)
+            make.bottom.equalTo(tabBarView.snp.top).offset(-12)
+            make.trailing.equalToSuperview().offset(-12)
+        }
+    }
+    
+    @objc
+    private func clickFloatingButton(_ sender: UIButton) {
+        self.navigationController?.show(KeywordViewController(), sender: nil)
+    }
+    
     @objc
     private func tabChanged(tapped index: Int) {
         previousIndex = currentIndex
@@ -147,6 +166,8 @@ public class MainTabBarViewController: UITabBarController, UITabBarControllerDel
         self.view.bringSubviewToFront(tabBarView)
         
         updateTabBarIndicatorView()
+        
+        self.view.bringSubviewToFront(floatingButton)
     }
     
     private func updateTabBarIndicatorView() {
