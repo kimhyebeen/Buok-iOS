@@ -12,6 +12,7 @@ import UIKit
 
 public class HeroAlertViewController: UIViewController {
     private let overLayWindow: UIWindow = UIWindow(frame: UIScreen.main.bounds)
+    private let contentView: UIView = UIView()
     private let alertContentView: UIView = UIView()
     private let contentStackView: UIStackView = UIStackView()
     private let topButton: HeroAlertButton = HeroAlertButton()
@@ -28,7 +29,7 @@ public class HeroAlertViewController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         
-        overLayWindow.backgroundColor = .heroGray100a
+        overLayWindow.backgroundColor = .clear
         overLayWindow.windowLevel = .normal + 25
         overLayWindow.makeKeyAndVisible()
         overLayWindow.isHidden = false
@@ -50,8 +51,12 @@ public class HeroAlertViewController: UIViewController {
     }
     
     private func setupMainLayout() {
-//        view.addSubview(alertContentView)
-        overLayWindow.addSubview(alertContentView)
+        overLayWindow.addSubview(contentView)
+        contentView.addSubview(alertContentView)
+        
+        contentView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
         
         alertContentView.snp.makeConstraints { make in
             make.center.equalToSuperview()
@@ -77,6 +82,14 @@ public class HeroAlertViewController: UIViewController {
     }
     
     private func setupViewProperties() {
+        contentView.backgroundColor = .clear
+        contentView.alpha = 0
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            self.contentView.backgroundColor = .heroGray100a
+            self.contentView.alpha = 1
+        })
+        
         contentStackView.axis = .vertical
         contentStackView.spacing = 0
         
@@ -115,21 +128,26 @@ public class HeroAlertViewController: UIViewController {
         descLabel.isHidden = false
     }
     
-    public func dismissAlertVC() {
-        dismiss(animated: false, completion: nil)
-    }
-    
     @objc
     private func onClickPositiveButton(_ sender: UIButton) {
         positiveHandler?()
-        overLayWindow.isHidden = true
-        dismiss(animated: false, completion: nil)
+        clearAndDismiss()
     }
     
     @objc
     private func onClickNegativeButton(_ sender: UIButton) {
         negativeHandler?()
-        overLayWindow.isHidden = true
-        dismiss(animated: false, completion: nil)
+        clearAndDismiss()
+    }
+    
+    private func clearAndDismiss() {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.contentView.alpha = 0
+        })
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
+            self.overLayWindow.isHidden = true
+            self.dismiss(animated: false, completion: nil)
+        })
     }
 }

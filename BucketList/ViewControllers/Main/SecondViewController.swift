@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import HeroCommon
 import HeroUI
 import SnapKit
 
@@ -31,11 +32,13 @@ public class SecondViewController: HeroBaseViewController {
     private func onClickSample(_ sender: UIButton) {
         let alertController = HeroAlertController(rootViewController: self)
         alertController.setPositiveAction(action: HeroAlertAction(content: "확인", handler: {
-            print("OK")
+            DebugLog("OK")
+            self.sampleButton.setTitle("Sample Button(OK)", for: .normal)
         }))
 
         alertController.setNegativeAction(action: HeroAlertAction(content: "취소", handler: {
-            print("Cancel")
+            DebugLog("Cancel")
+            self.sampleButton.setTitle("Sample Button(Cancel)", for: .normal)
         }))
 
         alertController.showAlert(title: "샘플 타이틀", message: "샘플 텍스트입니다. 샘플 텍스트입니다.", buttonSetType: .okCancel)

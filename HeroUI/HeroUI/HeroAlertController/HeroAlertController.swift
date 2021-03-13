@@ -39,14 +39,10 @@ public class HeroAlertController {
         self.rootViewController = rootViewController
         
         positiveHandler = {
-//            self.alertVC.dismissAlertVC()
-//            self.alertVC.dismiss(animated: false, completion: nil)
             self.positiveAction?.handler()
         }
         
         negativeHandler = {
-//            self.alertVC.dismissAlertVC()
-//            self.alertVC.dismiss(animated: false, completion: nil)
             self.negativeAction?.handler()
         }
         
