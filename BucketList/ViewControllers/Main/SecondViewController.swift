@@ -29,12 +29,15 @@ public class SecondViewController: HeroBaseViewController {
     
     @objc
     private func onClickSample(_ sender: UIButton) {
-        let alertVC = HeroAlertController()
-        alertVC.modalPresentationStyle = .overCurrentContext
-        alertVC.setTitle(title: "샘플 타이틀")
-        alertVC.setDescription(description: "샘플 디스크립션입니다.샘플 디스크립션입니다.샘플 디스크립션입니다.")
-        alertVC.buttonType = .okCancel
-        alertVC.titleType = .full
-        self.present(alertVC, animated: false, completion: nil)
+        let alertController = HeroAlertController(rootViewController: self)
+        alertController.setPositiveAction(action: HeroAlertAction(content: "확인", handler: {
+            print("OK")
+        }))
+
+        alertController.setNegativeAction(action: HeroAlertAction(content: "취소", handler: {
+            print("Cancel")
+        }))
+
+        alertController.showAlert(title: "샘플 타이틀", message: "샘플 텍스트입니다. 샘플 텍스트입니다.", buttonSetType: .okCancel)
     }
 }

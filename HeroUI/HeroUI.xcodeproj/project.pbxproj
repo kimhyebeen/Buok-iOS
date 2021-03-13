@@ -19,6 +19,7 @@
 		B041761025E23BE400D990A2 /* HeroColorSet.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B041760F25E23BE400D990A2 /* HeroColorSet.xcassets */; };
 		B041761425E23C0600D990A2 /* Bundle+Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = B041761325E23C0600D990A2 /* Bundle+Hero.swift */; };
 		B041763125E23DAA00D990A2 /* HeroFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = B041763025E23DAA00D990A2 /* HeroFont.swift */; };
+		B04CF73125FCDBE600FBAB10 /* HeroAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04CF73025FCDBE600FBAB10 /* HeroAlertController.swift */; };
 		B06B5ED325ECCC100045A491 /* HeroNavigationBarUpdatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06B5ED225ECCC100045A491 /* HeroNavigationBarUpdatable.swift */; };
 		B06B5ED725ECCC270045A491 /* HeroUINavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06B5ED625ECCC270045A491 /* HeroUINavigationBar.swift */; };
 		B06B5EDB25ECCC6E0045A491 /* UIImage+Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06B5EDA25ECCC6E0045A491 /* UIImage+Hero.swift */; };
@@ -59,6 +60,7 @@
 		B041760F25E23BE400D990A2 /* HeroColorSet.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = HeroColorSet.xcassets; sourceTree = "<group>"; };
 		B041761325E23C0600D990A2 /* Bundle+Hero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Hero.swift"; sourceTree = "<group>"; };
 		B041763025E23DAA00D990A2 /* HeroFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroFont.swift; sourceTree = "<group>"; };
+		B04CF73025FCDBE600FBAB10 /* HeroAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroAlertController.swift; sourceTree = "<group>"; };
 		B06B5E3A25ECB9A70045A491 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B06B5ED225ECCC100045A491 /* HeroNavigationBarUpdatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroNavigationBarUpdatable.swift; sourceTree = "<group>"; };
 		B06B5ED625ECCC270045A491 /* HeroUINavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroUINavigationBar.swift; sourceTree = "<group>"; };
@@ -184,7 +186,16 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-
+		B07CDC2925F4BE4E00D18589 /* HeroAlertController */ = {
+			isa = PBXGroup;
+			children = (
+				B07CDC2A25F4BE5A00D18589 /* HeroAlertViewController.swift */,
+				B07CDC3925F4C1B400D18589 /* HeroAlertButton.swift */,
+				B04CF73025FCDBE600FBAB10 /* HeroAlertController.swift */,
+			);
+			path = HeroAlertController;
+			sourceTree = "<group>";
+		};
 		EEBCE3C725FA1EFA00BA6749 /* Keywords */ = {
 			isa = PBXGroup;
 			children = (
@@ -192,16 +203,6 @@
 				EEBCE3D125FA21CD00BA6749 /* FloatingButton.swift */,
 			);
 			path = Keywords;
-			sourceTree = "<group>";
-		};
-
-		B07CDC2925F4BE4E00D18589 /* HeroAlertController */ = {
-			isa = PBXGroup;
-			children = (
-				B07CDC2A25F4BE5A00D18589 /* HeroAlertViewController.swift */,
-				B07CDC3925F4C1B400D18589 /* HeroAlertButton.swift */,
-			);
-			path = HeroAlertController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -349,6 +350,7 @@
 				B07CDC3A25F4C1B400D18589 /* HeroAlertButton.swift in Sources */,
 				B06B5ED725ECCC270045A491 /* HeroUINavigationBar.swift in Sources */,
 				EEBCE3C925FA1F2200BA6749 /* TagView.swift in Sources */,
+				B04CF73125FCDBE600FBAB10 /* HeroAlertController.swift in Sources */,
 				EEBCE3D225FA21CD00BA6749 /* FloatingButton.swift in Sources */,
 				B0376FF925F4893F003D7750 /* HeroTabBarView.swift in Sources */,
 				B041761425E23C0600D990A2 /* Bundle+Hero.swift in Sources */,

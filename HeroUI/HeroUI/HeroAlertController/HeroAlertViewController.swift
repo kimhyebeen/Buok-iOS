@@ -10,18 +10,8 @@ import HeroCommon
 import SnapKit
 import UIKit
 
-public enum AlertTitleType {
-    case full
-    case titleOnly
-    case descOnly
-}
-
-public enum AlertButtonType {
-    case okCancel
-    case yesNo
-}
-
-public class HeroAlertController: UIViewController {
+public class HeroAlertViewController: UIViewController {
+    private let overLayWindow: UIWindow = UIWindow(frame: UIScreen.main.bounds)
     private let alertContentView: UIView = UIView()
     private let contentStackView: UIStackView = UIStackView()
     private let topButton: HeroAlertButton = HeroAlertButton()
@@ -30,25 +20,21 @@ public class HeroAlertController: UIViewController {
     private let titleLabel: UILabel = UILabel()
     private let descLabel: UILabel = UILabel()
     
-    public var buttonType: AlertButtonType = .okCancel {
-        didSet {
-            updateButtonTitle()
-        }
-    }
+    public var positiveHandler: (() -> Void)?
+    public var negativeHandler: (() -> Void)?
     
-    public var titleType: AlertTitleType = .full {
-        didSet {
-            updateTitleViewHidden()
-        }
-    }
+    public var buttonType: AlertButtonSetType = .okCancel
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.setNavigationBarHidden(true, animated: false)
+        
+        overLayWindow.backgroundColor = .heroGray100a
+        overLayWindow.windowLevel = .normal + 25
+        overLayWindow.makeKeyAndVisible()
+        overLayWindow.isHidden = false
         
         setupMainLayout()
         setupViewProperties()
-        updateTitleViewHidden()
         updateButtonTitle()
     }
     
@@ -63,23 +49,9 @@ public class HeroAlertController: UIViewController {
         }
     }
     
-    private func updateTitleViewHidden() {
-        switch titleType {
-        case .full:
-            titleLabel.isHidden = false
-            descLabel.isHidden = false
-        case .titleOnly:
-            titleLabel.isHidden = false
-            descLabel.isHidden = true
-        case .descOnly:
-            titleLabel.isHidden = true
-            descLabel.isHidden = false
-        }
-    }
-    
     private func setupMainLayout() {
-        view.backgroundColor = .heroGray100a
-        view.addSubview(alertContentView)
+//        view.addSubview(alertContentView)
+        overLayWindow.addSubview(alertContentView)
         
         alertContentView.snp.makeConstraints { make in
             make.center.equalToSuperview()
@@ -120,6 +92,9 @@ public class HeroAlertController: UIViewController {
         
         topButton.alertButtonType = .okay
         bottomButton.alertButtonType = .cancel
+        
+        topButton.addTarget(self, action: #selector(onClickPositiveButton(_:)), for: .touchUpInside)
+        bottomButton.addTarget(self, action: #selector(onClickNegativeButton(_:)), for: .touchUpInside)
 
         alertContentView.backgroundColor = .heroWhite100s
         alertContentView.layer.shadowOpacity = 0.3
@@ -129,10 +104,32 @@ public class HeroAlertController: UIViewController {
     }
     
     public func setTitle(title: String) {
-        self.titleLabel.text = title
+        titleLabel.isHidden = true
+        titleLabel.text = title
+        titleLabel.isHidden = false
     }
     
     public func setDescription(description: String) {
-        self.descLabel.text = description
+        descLabel.isHidden = true
+        descLabel.text = description
+        descLabel.isHidden = false
+    }
+    
+    public func dismissAlertVC() {
+        dismiss(animated: false, completion: nil)
+    }
+    
+    @objc
+    private func onClickPositiveButton(_ sender: UIButton) {
+        positiveHandler?()
+        overLayWindow.isHidden = true
+        dismiss(animated: false, completion: nil)
+    }
+    
+    @objc
+    private func onClickNegativeButton(_ sender: UIButton) {
+        negativeHandler?()
+        overLayWindow.isHidden = true
+        dismiss(animated: false, completion: nil)
     }
 }
