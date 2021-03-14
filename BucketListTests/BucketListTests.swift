@@ -5,8 +5,8 @@
 //  Created by denny on 2021/02/21.
 //
 
-import XCTest
 @testable import BucketList
+import XCTest
 
 class BucketListTests: XCTestCase {
 
