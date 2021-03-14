@@ -380,7 +380,9 @@
 		B07520E125ED003A0016DC3A /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				B07522A125EDBF5F0016DC3A /* PromiseSample */,
+				B075237B25EF5AEC0016DC3A /* Home */,
+				B075230825EF1A0E0016DC3A /* BaseAPIRequest.swift */,
+				B075231225EF1E6F0016DC3A /* BaseAPIError.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -393,16 +395,6 @@
 				B075226825ED08780016DC3A /* UserAuthModel.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		B07522A125EDBF5F0016DC3A /* PromiseSample */ = {
-			isa = PBXGroup;
-			children = (
-				B075237B25EF5AEC0016DC3A /* Home */,
-				B075230825EF1A0E0016DC3A /* BaseAPIRequest.swift */,
-				B075231225EF1E6F0016DC3A /* BaseAPIError.swift */,
-			);
-			path = PromiseSample;
 			sourceTree = "<group>";
 		};
 		B075237B25EF5AEC0016DC3A /* Home */ = {

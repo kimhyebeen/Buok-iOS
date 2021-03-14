@@ -20,7 +20,6 @@ target 'BucketList' do
   pod 'SwiftyJSON'
   pod 'SwiftLint'
   pod 'Promises'
-  pod 'Kingfisher'
 
   target 'BucketListTests' do
     inherit! :search_paths

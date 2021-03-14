@@ -17,7 +17,7 @@ struct UserData: Codable {
     var lastName: String
     var avatar: String
     
-    enum CodingKeys : String, CodingKey {
+    enum CodingKeys: String, CodingKey {
         case id
         case email
         case firstName = "first_name"
@@ -60,18 +60,18 @@ public struct BucketListAPIRequest {
         }
         
         var encoding: HeroRequest.RequestEncoding {
-            .url
+            .json
         }
     }
     
     static func homeNoticeListRequest() {
         DebugLog("API 실행 전 -- HomeURL : \(APIConstant.homeURL)")
         BaseAPIRequest.requestJSONResponse(requestType: RequestType.noticeList).then { responseData in
-            DebugLog(">>>> HomeAPIRequest responseData : \(responseData.debugDescription)")
+//            DebugLog(">>>> HomeAPIRequest responseData : \(responseData.debugDescription)")
             do {
                 let jsonData = try JSONSerialization.data(withJSONObject: responseData as? NSDictionary, options: .prettyPrinted)
                 let getData = try JSONDecoder().decode(BucketListNoticeServerModel.self, from: jsonData)
-                DebugLog(">>>> HomeAPIRequest getData : \(getData)")
+                DebugLog(">>>> HomeAPIRequest getData : \(getData.data.email), \(getData.data.firstName), \(getData.data.lastName)")
             } catch {
                 DebugLog(">>>> HomeAPIRequest ERROR")
             }
