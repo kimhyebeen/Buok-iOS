@@ -1,0 +1,1 @@
+../../../Target Support Files/Alamofire-SwiftyJSON-library/Alamofire-SwiftyJSON-library-umbrella.h

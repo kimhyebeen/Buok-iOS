@@ -7,6 +7,7 @@
 
 import Foundation
 import HeroCommon
+import HeroNetwork
 import Promise
 
 struct UserData: Codable {
@@ -66,7 +67,6 @@ public struct BucketListAPIRequest {
     static func homeNoticeListRequest() {
         DebugLog("API 실행 전 -- HomeURL : \(APIConstant.homeURL)")
         BaseAPIRequest.requestJSONResponse(requestType: RequestType.noticeList).then { responseData in
-//            HeroLog.debug(">>>> ")
             DebugLog(">>>> HomeAPIRequest responseData : \(responseData.debugDescription)")
             do {
                 let jsonData = try JSONSerialization.data(withJSONObject: responseData as? NSDictionary, options: .prettyPrinted)

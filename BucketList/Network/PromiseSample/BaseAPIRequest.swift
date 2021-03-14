@@ -8,6 +8,7 @@
 import Alamofire
 import Foundation
 import HeroCommon
+import HeroNetwork
 import Promise
 import SwiftyJSON
 
