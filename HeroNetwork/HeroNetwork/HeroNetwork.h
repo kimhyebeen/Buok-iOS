@@ -2,7 +2,7 @@
 //  HeroNetwork.h
 //  HeroNetwork
 //
-//  Created by denny on 2021/03/14.
+//  Created by Taein Kim on 2021/03/14.
 //
 
 #import <Foundation/Foundation.h>

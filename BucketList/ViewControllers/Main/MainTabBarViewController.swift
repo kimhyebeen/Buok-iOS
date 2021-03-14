@@ -7,6 +7,7 @@
 
 import Foundation
 import HeroCommon
+import HeroSharedAssets
 import HeroUI
 import SnapKit
 
@@ -26,7 +27,7 @@ public class MainTabBarViewController: UITabBarController, UITabBarControllerDel
     private var previousIndex: Int = 0
     
     private let tabBarItemList: [HeroTabBarItem] = [
-        HeroTabBarItem(title: "Item1",
+        HeroTabBarItem(title: "Hero_Common_Sample_Title".localized,
                        image: UIImage(named: "tab_home.png")?.withRenderingMode(.alwaysTemplate),
                        isEmphasis: false),
         HeroTabBarItem(title: "Item2",

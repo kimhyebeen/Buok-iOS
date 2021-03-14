@@ -1,14 +1,14 @@
 //
-//  HeroNetworkTests.swift
-//  HeroNetworkTests
+//  HeroSharedAssetsTests.swift
+//  HeroSharedAssetsTests
 //
 //  Created by Taein Kim on 2021/03/14.
 //
 
 import XCTest
-@testable import HeroNetwork
+@testable import HeroSharedAssets
 
-class HeroNetworkTests: XCTestCase {
+class HeroSharedAssetsTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

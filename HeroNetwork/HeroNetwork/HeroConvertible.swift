@@ -7,7 +7,6 @@
 
 import Alamofire
 import Foundation
-import HeroNetwork
 
 public protocol HeroRequestConvertible: URLRequestConvertible {
     var httpMethod: Alamofire.HTTPMethod { get }
