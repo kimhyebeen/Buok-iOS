@@ -5,6 +5,7 @@ workspace 'BucketList'
 
 xcodeproj 'BucketList/HeroUI.xcodeproj'
 xcodeproj 'BucketList/HeroCommon.xcodeproj'
+xcodeproj 'BucketList/HeroNetwork.xcodeproj'
 
 project 'BucketList' , 'Inhouse(Debug)' => :debug, 'Sandbox(Debug)' => :debug
 
@@ -19,7 +20,6 @@ target 'BucketList' do
   pod 'SwiftyJSON'
   pod 'SwiftLint'
   pod 'Promises'
-  pod 'Kingfisher'
 
   target 'BucketListTests' do
     inherit! :search_paths
@@ -40,4 +40,12 @@ end
 
 target 'HeroCommon' do
   project 'HeroCommon/HeroCommon'
+  pod 'SwiftLint'
+end
+
+target 'HeroNetwork' do
+  project 'HeroNetwork/HeroNetwork'
+  pod 'Alamofire'
+  pod 'Alamofire-SwiftyJSON'
+  pod 'SwiftLint'
 end

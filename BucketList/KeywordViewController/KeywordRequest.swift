@@ -5,8 +5,8 @@
 //  Created by 김혜빈 on 2021/03/11.
 //
 
-import Foundation
 import Alamofire
+import Foundation
 import Promise
 
 public class KeywordRequest {

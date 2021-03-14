@@ -5,8 +5,8 @@
 //  Created by 김혜빈 on 2021/03/11.
 //
 
-import UIKit
 import SnapKit
+import UIKit
 
 public class TagView: UIView {
     private let keywordLabel = UILabel()

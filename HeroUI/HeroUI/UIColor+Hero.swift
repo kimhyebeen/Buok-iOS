@@ -7,6 +7,7 @@
 
 import Foundation
 import HeroCommon
+import HeroSharedAssets
 import SnapKit
 import UIKit
 
@@ -56,7 +57,7 @@ public extension UIColor {
     private static func fetchHeroColor(_ name: String) -> UIColor {
         let name = name.replacingOccurrences(of: "hero", with: "").lowercased()
         let assetName = "hero_\(name)"
-        guard let color = UIColor(named: assetName, in: Bundle.heroUI, compatibleWith: nil) else {
+        guard let color = UIColor(named: assetName, in: Bundle.heroShared, compatibleWith: nil) else {
             //            assertionFailure()
             return .darkGray
         }
