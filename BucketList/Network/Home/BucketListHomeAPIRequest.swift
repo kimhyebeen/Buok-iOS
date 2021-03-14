@@ -67,11 +67,12 @@ public struct BucketListAPIRequest {
     static func homeNoticeListRequest() {
         DebugLog("API 실행 전 -- HomeURL : \(APIConstant.homeURL)")
         BaseAPIRequest.requestJSONResponse(requestType: RequestType.noticeList).then { responseData in
-//            DebugLog(">>>> HomeAPIRequest responseData : \(responseData.debugDescription)")
             do {
-                let jsonData = try JSONSerialization.data(withJSONObject: responseData as? NSDictionary, options: .prettyPrinted)
-                let getData = try JSONDecoder().decode(BucketListNoticeServerModel.self, from: jsonData)
-                DebugLog(">>>> HomeAPIRequest getData : \(getData.data.email), \(getData.data.firstName), \(getData.data.lastName)")
+                if let dictData = responseData as? NSDictionary {
+                    let jsonData = try JSONSerialization.data(withJSONObject: dictData, options: .prettyPrinted)
+                    let getData = try JSONDecoder().decode(BucketListNoticeServerModel.self, from: jsonData)
+                    DebugLog(">>>> HomeAPIRequest getData : \(getData.data.email), \(getData.data.firstName), \(getData.data.lastName)")
+                }
             } catch {
                 DebugLog(">>>> HomeAPIRequest ERROR")
             }
