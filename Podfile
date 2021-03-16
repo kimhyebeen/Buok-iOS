@@ -1,19 +1,19 @@
 # Uncomment the next line to define a global platform for your project
 
 platform :ios, '12.0'
-workspace 'BucketList'
+workspace 'Nadam'
 
-xcodeproj 'BucketList/HeroUI.xcodeproj'
-xcodeproj 'BucketList/HeroCommon.xcodeproj'
-xcodeproj 'BucketList/HeroNetwork.xcodeproj'
+xcodeproj 'Nadam/HeroUI.xcodeproj'
+xcodeproj 'Nadam/HeroCommon.xcodeproj'
+xcodeproj 'Nadam/HeroNetwork.xcodeproj'
 
-project 'BucketList' , 'Inhouse(Debug)' => :debug, 'Sandbox(Debug)' => :debug
+project 'Nadam' , 'Inhouse(Debug)' => :debug, 'Sandbox(Debug)' => :debug
 
-target 'BucketList' do
+target 'Nadam' do
   inhibit_all_warnings!
   use_frameworks!
 
-  # Pods for BucketList
+  # Pods for Nadam
   pod 'SnapKit'
   pod 'Alamofire'
   pod 'Alamofire-SwiftyJSON'
@@ -21,14 +21,20 @@ target 'BucketList' do
   pod 'SwiftLint'
   pod 'Promises'
 
-  target 'BucketListTests' do
+  target 'NadamTests' do
     inherit! :search_paths
     # Pods for testing
   end
 
-  target 'BucketListUITests' do
+  target 'NadamUITests' do
     # Pods for testing
   end
+
+end
+
+target 'NadamWidgetExtension' do
+  inherit! :search_paths
+  use_frameworks!
 
 end
 

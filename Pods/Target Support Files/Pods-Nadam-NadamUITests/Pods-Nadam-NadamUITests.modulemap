@@ -1,0 +1,6 @@
+framework module Pods_Nadam_NadamUITests {
+  umbrella header "Pods-Nadam-NadamUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

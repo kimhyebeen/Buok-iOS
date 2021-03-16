@@ -1,0 +1,6 @@
+${PODS_ROOT}/Target Support Files/Pods-Nadam-NadamUITests/Pods-Nadam-NadamUITests-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Alamofire-framework/Alamofire.framework
+${BUILT_PRODUCTS_DIR}/Alamofire-SwiftyJSON-framework/Alamofire_SwiftyJSON.framework
+${BUILT_PRODUCTS_DIR}/Promises/Promise.framework
+${BUILT_PRODUCTS_DIR}/SnapKit-framework/SnapKit.framework
+${BUILT_PRODUCTS_DIR}/SwiftyJSON-framework/SwiftyJSON.framework
