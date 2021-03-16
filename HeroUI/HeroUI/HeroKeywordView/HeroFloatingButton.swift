@@ -1,13 +1,14 @@
 //
-//  AddContentsButton.swift
+//  HeroFloatingButton.swift
 //  HeroUI
 //
 //  Created by 김혜빈 on 2021/03/11.
+//  Edited by Taein Kim on 2021/03/16.
 //
 
 import UIKit
 
-public class FloatingButton: UIButton {
+public class HeroFloatingButton: UIButton {
     public var addContentsButtonSize = CGSize(width: 45, height: 45)
     public var image: UIImage? = UIImage(named: "ic_right_arrow") {
         didSet {
@@ -21,7 +22,6 @@ public class FloatingButton: UIButton {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         setupView()
     }
     
@@ -30,7 +30,6 @@ public class FloatingButton: UIButton {
     }
     
     private func setupView() {
-        translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = .heroBlue100s
         layer.cornerRadius = addContentsButtonSize.height / 2
         

@@ -1,14 +1,15 @@
 //
-//  TagView.swift
+//  HeroTagView.swift
 //  HeroUI
 //
 //  Created by 김혜빈 on 2021/03/11.
+//  Edited by Taein Kim on 2021/03/16.
 //
 
 import SnapKit
 import UIKit
 
-public class TagView: UIView {
+public class HeroTagView: UIView {
     private let keywordLabel = UILabel()
     public var keyword: String = "" {
         didSet {
@@ -18,7 +19,6 @@ public class TagView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         setupView()
     }
     
@@ -27,17 +27,16 @@ public class TagView: UIView {
     }
     
     private func setupView() {
-        self.backgroundColor = UIColor(hex: "#2e2e2e", alpha: 0.7)
-        self.layer.cornerRadius = 10
+        backgroundColor = UIColor(hex: "#2e2e2e", alpha: 0.7)
+        layer.cornerRadius = 10
         setupKeywordLabel()
     }
     
     private func setupKeywordLabel() {
         keywordLabel.textColor = .heroWhite100s
         keywordLabel.font = .font14PBold
-        self.addSubview(keywordLabel)
+        addSubview(keywordLabel)
         
-        keywordLabel.translatesAutoresizingMaskIntoConstraints = false
         keywordLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(8)
             make.bottom.equalToSuperview().offset(-8)
