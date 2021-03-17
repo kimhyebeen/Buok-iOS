@@ -27,7 +27,7 @@ public class MainTabBarViewController: UITabBarController, UITabBarControllerDel
     private var previousIndex: Int = 0
     
     private let tabBarItemList: [HeroTabBarItem] = [
-        HeroTabBarItem(title: "Hero_Common_Sample_Title".localized,
+        HeroTabBarItem(title: "Hero_Main_Tab_String_Home".localized,
                        image: UIImage(heroSharedNamed: "tab_home.png")?.withRenderingMode(.alwaysTemplate),
                        isEmphasis: false),
         HeroTabBarItem(title: "Item2",

@@ -372,12 +372,11 @@
 		B041747025E2366E00D990A2 /* Nadam */ = {
 			isa = PBXGroup;
 			children = (
+				B0D0218D26021EDE00F25329 /* Global */,
 				B0D0218626021A3C00F25329 /* Resources */,
 				B075225225ED06E50016DC3A /* Model */,
 				B07520E125ED003A0016DC3A /* Network */,
 				B06B5CB225ECA3EE0045A491 /* ViewControllers */,
-				B041747125E2366E00D990A2 /* AppDelegate.swift */,
-				B0D0218126021A2100F25329 /* NadamProperties.swift */,
 			);
 			path = Nadam;
 			sourceTree = "<group>";
@@ -554,6 +553,15 @@
 				B041747A25E2366E00D990A2 /* BucketList.xcdatamodeld */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		B0D0218D26021EDE00F25329 /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				B041747125E2366E00D990A2 /* AppDelegate.swift */,
+				B0D0218126021A2100F25329 /* NadamProperties.swift */,
+			);
+			path = Global;
 			sourceTree = "<group>";
 		};
 		B0D43A562600DA99003420CA /* NadamWidget */ = {
