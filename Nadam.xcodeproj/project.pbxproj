@@ -21,6 +21,7 @@
 		B04175A325E239D900D990A2 /* HeroCommon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B041755B25E2384400D990A2 /* HeroCommon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B04175A425E239D900D990A2 /* HeroUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B041752925E2382D00D990A2 /* HeroUI.framework */; };
 		B04175A525E239D900D990A2 /* HeroUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B041752925E2382D00D990A2 /* HeroUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B04C15E826015FCF0084BAEC /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04C15E726015FCF0084BAEC /* SignInViewController.swift */; };
 		B04CF78025FD857B00FBAB10 /* HeroNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B04CF76925FD84D600FBAB10 /* HeroNetwork.framework */; };
 		B04CF78125FD857B00FBAB10 /* HeroNetwork.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B04CF76925FD84D600FBAB10 /* HeroNetwork.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B06B5CB425ECA4070045A491 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06B5CB325ECA4070045A491 /* MainTabBarViewController.swift */; };
@@ -37,6 +38,8 @@
 		B075238125EF5AF70016DC3A /* BucketListHomeAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B075238025EF5AF70016DC3A /* BucketListHomeAPIRequest.swift */; };
 		B07C0CFE25FDB267000AE1B0 /* HeroSharedAssets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07C0CF425FDB1DC000AE1B0 /* HeroSharedAssets.framework */; };
 		B07C0CFF25FDB268000AE1B0 /* HeroSharedAssets.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B07C0CF425FDB1DC000AE1B0 /* HeroSharedAssets.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B0D0217D2602199600F25329 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D0217C2602199600F25329 /* SignUpViewController.swift */; };
+		B0D0218226021A2100F25329 /* NadamProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D0218126021A2100F25329 /* NadamProperties.swift */; };
 		B0D43A532600DA99003420CA /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0D43A522600DA99003420CA /* WidgetKit.framework */; };
 		B0D43A552600DA99003420CA /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0D43A542600DA99003420CA /* SwiftUI.framework */; };
 		B0D43A582600DA99003420CA /* NadamWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D43A572600DA99003420CA /* NadamWidget.swift */; };
@@ -201,6 +204,7 @@
 		B041749825E2366F00D990A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B041752325E2382D00D990A2 /* HeroUI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = HeroUI.xcodeproj; path = HeroUI/HeroUI.xcodeproj; sourceTree = "<group>"; };
 		B041755525E2384300D990A2 /* HeroCommon.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = HeroCommon.xcodeproj; path = HeroCommon/HeroCommon.xcodeproj; sourceTree = "<group>"; };
+		B04C15E726015FCF0084BAEC /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		B04CF75F25FD84D500FBAB10 /* HeroNetwork.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = HeroNetwork.xcodeproj; path = HeroNetwork/HeroNetwork.xcodeproj; sourceTree = "<group>"; };
 		B06B5CB325ECA4070045A491 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		B06B5EDE25ECCD550045A491 /* HeroNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroNavigationController.swift; sourceTree = "<group>"; };
@@ -216,6 +220,8 @@
 		B075238025EF5AF70016DC3A /* BucketListHomeAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketListHomeAPIRequest.swift; sourceTree = "<group>"; };
 		B07C0C8C25FDB146000AE1B0 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		B07C0CEE25FDB1D9000AE1B0 /* HeroSharedAssets.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = HeroSharedAssets.xcodeproj; path = HeroSharedAssets/HeroSharedAssets.xcodeproj; sourceTree = "<group>"; };
+		B0D0217C2602199600F25329 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		B0D0218126021A2100F25329 /* NadamProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NadamProperties.swift; sourceTree = "<group>"; };
 		B0D43A512600DA99003420CA /* NadamWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NadamWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0D43A522600DA99003420CA /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		B0D43A542600DA99003420CA /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -366,14 +372,12 @@
 		B041747025E2366E00D990A2 /* Nadam */ = {
 			isa = PBXGroup;
 			children = (
+				B0D0218626021A3C00F25329 /* Resources */,
 				B075225225ED06E50016DC3A /* Model */,
 				B07520E125ED003A0016DC3A /* Network */,
 				B06B5CB225ECA3EE0045A491 /* ViewControllers */,
 				B041747125E2366E00D990A2 /* AppDelegate.swift */,
-				B041747D25E2366F00D990A2 /* Assets.xcassets */,
-				B041747F25E2366F00D990A2 /* LaunchScreen.storyboard */,
-				B041748225E2366F00D990A2 /* Info.plist */,
-				B041747A25E2366E00D990A2 /* BucketList.xcdatamodeld */,
+				B0D0218126021A2100F25329 /* NadamProperties.swift */,
 			);
 			path = Nadam;
 			sourceTree = "<group>";
@@ -414,6 +418,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		B04C15E626015FBA0084BAEC /* User */ = {
+			isa = PBXGroup;
+			children = (
+				B0D0217B2602198800F25329 /* SignIn */,
+				B0D0217A2602198100F25329 /* SignUp */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
 		B04CF76025FD84D500FBAB10 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -426,6 +439,7 @@
 		B06B5CB225ECA3EE0045A491 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				B04C15E626015FBA0084BAEC /* User */,
 				B06B5EE725ECCEB80045A491 /* Base */,
 				B06B5EE625ECCEB00045A491 /* Main */,
 			);
@@ -435,10 +449,9 @@
 		B06B5EE625ECCEB00045A491 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				B06B5EF225ECCF8C0045A491 /* SubVC */,
-				B041747525E2366E00D990A2 /* ViewController.swift */,
+				B0D021792602196500F25329 /* MyPage */,
+				B0D021702602195B00F25329 /* Home */,
 				B06B5CB325ECA4070045A491 /* MainTabBarViewController.swift */,
-				B0F229AA25F3C9E000D96CBA /* SecondViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -497,6 +510,50 @@
 				B07C0CF625FDB1DC000AE1B0 /* HeroSharedAssetsTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		B0D021702602195B00F25329 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B06B5EF225ECCF8C0045A491 /* SubVC */,
+				B041747525E2366E00D990A2 /* ViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		B0D021792602196500F25329 /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				B0F229AA25F3C9E000D96CBA /* SecondViewController.swift */,
+			);
+			path = MyPage;
+			sourceTree = "<group>";
+		};
+		B0D0217A2602198100F25329 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				B0D0217C2602199600F25329 /* SignUpViewController.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		B0D0217B2602198800F25329 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				B04C15E726015FCF0084BAEC /* SignInViewController.swift */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
+		B0D0218626021A3C00F25329 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B041747D25E2366F00D990A2 /* Assets.xcassets */,
+				B041747F25E2366F00D990A2 /* LaunchScreen.storyboard */,
+				B041748225E2366F00D990A2 /* Info.plist */,
+				B041747A25E2366E00D990A2 /* BucketList.xcdatamodeld */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		B0D43A562600DA99003420CA /* NadamWidget */ = {
@@ -931,6 +988,7 @@
 				B075226925ED08780016DC3A /* UserAuthModel.swift in Sources */,
 				B075226D25ED089F0016DC3A /* AuthTokenModel.swift in Sources */,
 				B06B5EDF25ECCD550045A491 /* HeroNavigationController.swift in Sources */,
+				B0D0217D2602199600F25329 /* SignUpViewController.swift in Sources */,
 				B041747625E2366E00D990A2 /* ViewController.swift in Sources */,
 				B06B5EE925ECCED90045A491 /* SubOneViewController.swift in Sources */,
 				B041747C25E2366E00D990A2 /* BucketList.xcdatamodeld in Sources */,
@@ -938,8 +996,10 @@
 				B041747225E2366E00D990A2 /* AppDelegate.swift in Sources */,
 				B06B5EF625ECD0140045A491 /* SubThreeViewController.swift in Sources */,
 				B075225425ED06ED0016DC3A /* UserModel.swift in Sources */,
+				B04C15E826015FCF0084BAEC /* SignInViewController.swift in Sources */,
 				B06B5CB425ECA4070045A491 /* MainTabBarViewController.swift in Sources */,
 				B075238125EF5AF70016DC3A /* BucketListHomeAPIRequest.swift in Sources */,
+				B0D0218226021A2100F25329 /* NadamProperties.swift in Sources */,
 				B075230925EF1A0E0016DC3A /* BaseAPIRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1130,7 +1190,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = M79H9K226Y;
-				INFOPLIST_FILE = Nadam/Info.plist;
+				INFOPLIST_FILE = Nadam/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1155,7 +1215,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = M79H9K226Y;
-				INFOPLIST_FILE = Nadam/Info.plist;
+				INFOPLIST_FILE = Nadam/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1330,7 +1390,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = M79H9K226Y;
-				INFOPLIST_FILE = Nadam/Info.plist;
+				INFOPLIST_FILE = Nadam/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  YappHero
+//  Nadam
 //
 //  Created by Taein Kim on 2021/02/21.
 //

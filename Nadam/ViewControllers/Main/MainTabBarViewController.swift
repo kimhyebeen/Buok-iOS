@@ -1,6 +1,6 @@
 //
 //  HeroTabBarController.swift
-//  BucketList
+//  Nadam
 //
 //  Created by Taein Kim on 2021/03/01.
 //
@@ -28,16 +28,16 @@ public class MainTabBarViewController: UITabBarController, UITabBarControllerDel
     
     private let tabBarItemList: [HeroTabBarItem] = [
         HeroTabBarItem(title: "Hero_Common_Sample_Title".localized,
-                       image: UIImage(named: "tab_home.png")?.withRenderingMode(.alwaysTemplate),
+                       image: UIImage(heroSharedNamed: "tab_home.png")?.withRenderingMode(.alwaysTemplate),
                        isEmphasis: false),
         HeroTabBarItem(title: "Item2",
-                       image: UIImage(named: "tab_home.png")?.withRenderingMode(.alwaysTemplate),
+                       image: UIImage(heroSharedNamed: "tab_home.png")?.withRenderingMode(.alwaysTemplate),
                        isEmphasis: false),
         HeroTabBarItem(title: "Item3",
-                       image: UIImage(named: "tab_home.png")?.withRenderingMode(.alwaysTemplate),
+                       image: UIImage(heroSharedNamed: "tab_home.png")?.withRenderingMode(.alwaysTemplate),
                        isEmphasis: false),
         HeroTabBarItem(title: "Item4",
-                       image: UIImage(named: "tab_home.png")?.withRenderingMode(.alwaysTemplate),
+                       image: UIImage(heroSharedNamed: "tab_home.png")?.withRenderingMode(.alwaysTemplate),
                        isEmphasis: true)
     ]
     
@@ -124,11 +124,11 @@ public class MainTabBarViewController: UITabBarController, UITabBarControllerDel
     
     private func setupTabBarItems() {
         let homeVC = ViewController()
-        let homeItem = UITabBarItem(title: "", image: UIImage(named: "tab_home_un.png"), selectedImage: UIImage(named: "tab_home.png"))
+        let homeItem = UITabBarItem(title: "", image: UIImage(heroSharedNamed: "tab_home_un.png"), selectedImage: UIImage(heroSharedNamed: "tab_home.png"))
         homeVC.tabBarItem = homeItem
         
         let secondVC = SecondViewController()
-        let secondItem = UITabBarItem(title: "", image: UIImage(named: "tab_home_un.png"), selectedImage: UIImage(named: "tab_home.png"))
+        let secondItem = UITabBarItem(title: "", image: UIImage(heroSharedNamed: "tab_home_un.png"), selectedImage: UIImage(heroSharedNamed: "tab_home.png"))
         secondVC.tabBarItem = secondItem
         
         // Append 4 VCs
@@ -172,9 +172,6 @@ public class MainTabBarViewController: UITabBarController, UITabBarControllerDel
         self.view.layoutIfNeeded()
         let spacingOffset = (tabBarView.frame.width - (tabBarView.frame.height * CGFloat(tabBarItemList.count))) / CGFloat(tabBarItemList.count - 1)
         let leadingOffset = (tabBarView.frame.height * CGFloat(currentIndex)) + spacingOffset * CGFloat(currentIndex)
-        
-        DebugLog("Spacing Offset : \(spacingOffset)")
-        DebugLog("Leading Offset : \(leadingOffset)")
         
         if currentIndex == (tabBarItemList.count - 1) {
             indicatorView.snp.remakeConstraints { make in
