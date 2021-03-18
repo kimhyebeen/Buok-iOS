@@ -15,6 +15,7 @@ public class MyPageViewController: HeroBaseViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.isNavigationBarHidden = true
         view.addSubview(sampleButton)
         view.backgroundColor = .heroWhite100s
         

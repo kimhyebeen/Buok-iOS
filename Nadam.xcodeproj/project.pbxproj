@@ -25,6 +25,7 @@
 		B04CF78025FD857B00FBAB10 /* HeroNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B04CF76925FD84D600FBAB10 /* HeroNetwork.framework */; };
 		B04CF78125FD857B00FBAB10 /* HeroNetwork.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B04CF76925FD84D600FBAB10 /* HeroNetwork.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B0635AC52603897600046E88 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0635AC42603897600046E88 /* HomeViewController.swift */; };
+		B0635ADA260390E100046E88 /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0635AD9260390E100046E88 /* CreateViewController.swift */; };
 		B06B5CB425ECA4070045A491 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06B5CB325ECA4070045A491 /* MainTabBarViewController.swift */; };
 		B06B5EDF25ECCD550045A491 /* HeroNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06B5EDE25ECCD550045A491 /* HeroNavigationController.swift */; };
 		B06B5EE325ECCE610045A491 /* HeroBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06B5EE225ECCE610045A491 /* HeroBaseViewController.swift */; };
@@ -208,6 +209,7 @@
 		B04C15E726015FCF0084BAEC /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		B04CF75F25FD84D500FBAB10 /* HeroNetwork.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = HeroNetwork.xcodeproj; path = HeroNetwork/HeroNetwork.xcodeproj; sourceTree = "<group>"; };
 		B0635AC42603897600046E88 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		B0635AD9260390E100046E88 /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
 		B06B5CB325ECA4070045A491 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		B06B5EDE25ECCD550045A491 /* HeroNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroNavigationController.swift; sourceTree = "<group>"; };
 		B06B5EE225ECCE610045A491 /* HeroBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroBaseViewController.swift; sourceTree = "<group>"; };
@@ -445,6 +447,14 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		B0635AD8260390D200046E88 /* Create */ = {
+			isa = PBXGroup;
+			children = (
+				B0635AD9260390E100046E88 /* CreateViewController.swift */,
+			);
+			path = Create;
+			sourceTree = "<group>";
+		};
 		B06B5CB225ECA3EE0045A491 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -458,6 +468,7 @@
 		B06B5EE625ECCEB00045A491 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				B0635AD8260390D200046E88 /* Create */,
 				B0635AC32603896D00046E88 /* Home */,
 				B0D021792602196500F25329 /* MyPage */,
 				B0D021702602195B00F25329 /* MultiLevelVC */,
@@ -1000,6 +1011,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0635ADA260390E100046E88 /* CreateViewController.swift in Sources */,
 				B0F229AB25F3C9E000D96CBA /* MyPageViewController.swift in Sources */,
 				B06B5EEF25ECCEE10045A491 /* SubTwoViewController.swift in Sources */,
 				B0D43A5E2600DA9B003420CA /* NadamWidget.intentdefinition in Sources */,

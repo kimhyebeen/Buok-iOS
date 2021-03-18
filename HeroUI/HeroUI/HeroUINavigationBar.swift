@@ -25,13 +25,17 @@ public class HeroUINavigationBar: UINavigationBar {
         super.layoutSubviews()
     }
     
-    @objc
+    public func setDefaultHeroNavigationStyle() {
+        isTranslucent = false
+        tintColor = .heroBlue100s
+        backgroundColor = .heroWhite100s
+    }
+    
     public func setDefaultShadowImage() {
         guard shadowImage != defaultShadowImage else { return }
         shadowImage = defaultShadowImage
     }
     
-    @objc
     public func removeDefaultShadowImage() {
         guard shadowImage != emptyShadowImage else { return }
         shadowImage = emptyShadowImage

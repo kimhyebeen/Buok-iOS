@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let window = UIWindow(frame: UIScreen.main.bounds)
         let navigationVC = HeroNavigationController(navigationBarClass: HeroUINavigationBar.self, toolbarClass: nil)
         navigationVC.viewControllers = [MainTabBarViewController()]
+        navigationVC.isNavigationBarHidden = true
         
         window.rootViewController = navigationVC
         window.makeKeyAndVisible()

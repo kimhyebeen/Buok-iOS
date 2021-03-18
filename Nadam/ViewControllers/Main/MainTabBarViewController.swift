@@ -104,10 +104,10 @@ public class MainTabBarViewController: UITabBarController, UITabBarControllerDel
             self.view.addSubview(vc.view)
             self.view.bringSubviewToFront(tabBarView)
         } else {
-            let vc = UIViewController()
+            let vc = CreateViewController()
             vc.view.backgroundColor = .heroWhite100s
-//            vc.modalPresentationStyle = .fullScreen
-            self.present(vc, animated: true, completion: nil)
+            vc.modalPresentationStyle = .overCurrentContext
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
 }
