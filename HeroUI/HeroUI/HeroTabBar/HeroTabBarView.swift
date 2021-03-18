@@ -70,10 +70,11 @@ public class HeroTabBarView: UIView {
         addSubview(tabStackView)
         
         tabStackView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(MainTabBarConstants.tabStackViewInnerSpacing)
-            make.leading.equalToSuperview().offset(MainTabBarConstants.tabStackViewInnerSpacing)
-            make.trailing.equalToSuperview().offset(-MainTabBarConstants.tabStackViewInnerSpacing)
-            make.bottom.equalToSuperview().offset(-MainTabBarConstants.tabStackViewInnerSpacing)
+            make.edges.equalToSuperview()
+//            make.top.equalToSuperview().offset(MainTabBarConstants.tabStackViewInnerSpacing)
+//            make.leading.equalToSuperview().offset(MainTabBarConstants.tabStackViewInnerSpacing)
+//            make.trailing.equalToSuperview().offset(-MainTabBarConstants.tabStackViewInnerSpacing)
+//            make.bottom.equalToSuperview().offset(-MainTabBarConstants.tabStackViewInnerSpacing)
         }
         
         tabStackView.axis = .horizontal
@@ -91,7 +92,8 @@ public class HeroTabBarView: UIView {
         let stackViewHeight = MainTabBarConstants.tabBarHeight - (MainTabBarConstants.tabBarInternalConstant * 2)
         let stackViewSpacing = (stackViewWidth - (stackViewHeight * CGFloat(itemViewList.count))) / CGFloat(itemViewList.count - 1)
         
-        tabStackView.spacing = stackViewSpacing
+        tabStackView.distribution = .fillEqually
+//        tabStackView.spacing = stackViewSpacing
     }
     
     public func setTabBarItemSelected(index: Int, isSelected: Bool) {

@@ -9,9 +9,7 @@ import Foundation
 import HeroCommon
 
 public struct MainTabBarConstants {
-    public static let outerSpacing: CGFloat = 16
-    public static let backOuterBottomSpacing: CGFloat = 50
-    public static let backHeight: CGFloat = 40
+    public static let outerSpacing: CGFloat = 24
     
     public static let tabBarHeight: CGFloat = 70
     public static let tabBarInternalConstant: CGFloat = 4

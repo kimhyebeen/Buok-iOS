@@ -1,5 +1,5 @@
 //
-//  SecondViewController.swift
+//  MyPageViewController.swift
 //  Nadam
 //
 //  Created by Taein Kim on 2021/03/06.
@@ -10,7 +10,7 @@ import HeroCommon
 import HeroUI
 import SnapKit
 
-public class SecondViewController: HeroBaseViewController {
+public class MyPageViewController: HeroBaseViewController {
     private let sampleButton: UIButton = UIButton()
     
     public override func viewDidLoad() {

@@ -12,38 +12,27 @@ import HeroUI
 import SnapKit
 
 public class MainTabBarViewController: UITabBarController, UITabBarControllerDelegate {
-    private let titleView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 24))
-    private let titleLabel: UILabel = UILabel()
     private let actionButton: TabBarActionButton = TabBarActionButton()
     private let tabBarView: HeroTabBarView = HeroTabBarView()
-    private let tabBarBackView: UIView = UIView()
-    private let floatingButton: HeroFloatingButton = HeroFloatingButton()
-    
-    private let indicatorView: UIView = UIView()
-    private let indicatorInnerView: UIView = UIView()
     
     private var tabViewControllers: [UIViewController] = [UIViewController]()
     private var currentIndex: Int = 0
     private var previousIndex: Int = 0
     
     private let tabBarItemList: [HeroTabBarItem] = [
-        HeroTabBarItem(title: "Hero_Main_Tab_String_Home".localized,
+        HeroTabBarItem(title: nil,
                        image: UIImage(heroSharedNamed: "tab_home.png")?.withRenderingMode(.alwaysTemplate),
                        isEmphasis: false),
-        HeroTabBarItem(title: "Item2",
+        HeroTabBarItem(title: nil,
                        image: UIImage(heroSharedNamed: "tab_home.png")?.withRenderingMode(.alwaysTemplate),
                        isEmphasis: false),
-        HeroTabBarItem(title: "Item3",
+        HeroTabBarItem(title: nil,
                        image: UIImage(heroSharedNamed: "tab_home.png")?.withRenderingMode(.alwaysTemplate),
-                       isEmphasis: false),
-        HeroTabBarItem(title: "Item4",
-                       image: UIImage(heroSharedNamed: "tab_home.png")?.withRenderingMode(.alwaysTemplate),
-                       isEmphasis: true)
+                       isEmphasis: false)
     ]
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupMainLayout()
         setupViewProperties()
         setupTabBarItems()
@@ -51,56 +40,14 @@ public class MainTabBarViewController: UITabBarController, UITabBarControllerDel
     }
     
     private func setupMainLayout() {
-        navigationItem.titleView = titleView
-        view.addSubview(tabBarBackView)
         view.addSubview(tabBarView)
-        view.addSubview(floatingButton)
         view.bringSubviewToFront(tabBarView)
-        tabBarView.addSubview(indicatorView)
-        indicatorView.addSubview(indicatorInnerView)
-        
-        tabBarBackView.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(MainTabBarConstants.outerSpacing)
-            make.trailing.equalToSuperview().offset(-MainTabBarConstants.outerSpacing)
-            make.bottom.equalToSuperview().offset(-MainTabBarConstants.backOuterBottomSpacing)
-            make.height.equalTo(MainTabBarConstants.backHeight)
-        }
         
         tabBarView.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(MainTabBarConstants.outerSpacing)
             make.trailing.equalToSuperview().offset(-MainTabBarConstants.outerSpacing)
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-MainTabBarConstants.outerSpacing)
             make.height.equalTo(MainTabBarConstants.tabBarHeight)
-        }
-        
-        indicatorView.snp.makeConstraints { make in
-            make.top.equalToSuperview()
-            make.leading.equalToSuperview()
-            make.height.equalTo(MainTabBarConstants.indicatorHeight)
-            make.width.equalTo(tabBarView.snp.height)
-        }
-        
-        indicatorInnerView.snp.makeConstraints { make in
-            make.top.bottom.equalToSuperview()
-            make.leading.equalToSuperview().offset(MainTabBarConstants.indicatorInnerSpacing)
-            make.trailing.equalToSuperview().offset(-MainTabBarConstants.indicatorInnerSpacing)
-        }
-        
-        titleView.addSubview(titleLabel)
-        titleView.snp.makeConstraints { make in
-            make.width.equalTo(100)
-            make.height.equalTo(24)
-        }
-        
-        titleLabel.snp.makeConstraints { make in
-            make.center.equalToSuperview()
-        }
-        
-        floatingButton.snp.makeConstraints { make in
-            make.width.equalTo(45)
-            make.height.equalTo(45)
-            make.bottom.equalTo(tabBarView.snp.top).offset(-12)
-            make.trailing.equalToSuperview().offset(-12)
         }
     }
     
@@ -110,33 +57,28 @@ public class MainTabBarViewController: UITabBarController, UITabBarControllerDel
         
         tabBarView.delegate = self
         tabBarView.itemList = tabBarItemList
-        
-        indicatorInnerView.backgroundColor = .heroBlue100s
-        indicatorInnerView.layer.cornerRadius = MainTabBarConstants.indicatorHeight / 2
-        tabBarBackView.backgroundColor = .heroWhite100s
-        
-        titleLabel.font = .font17PBold
-        titleLabel.textColor = .black
-        titleLabel.text = "타이틀"
-        
-        floatingButton.addTarget(self, action: #selector(clickFloatingButton(_:)), for: .touchUpInside)
+        tabBarView.borderRadius = 12
     }
     
     private func setupTabBarItems() {
-        let homeVC = ViewController()
+        let homeVC = HomeViewController()
         let homeItem = UITabBarItem(title: "", image: UIImage(heroSharedNamed: "tab_home_un.png"), selectedImage: UIImage(heroSharedNamed: "tab_home.png"))
-        homeVC.tabBarItem = homeItem
         
-        let secondVC = SecondViewController()
-        let secondItem = UITabBarItem(title: "", image: UIImage(heroSharedNamed: "tab_home_un.png"), selectedImage: UIImage(heroSharedNamed: "tab_home.png"))
-        secondVC.tabBarItem = secondItem
+        let mypageVC = MyPageViewController()
+        let mypageItem = UITabBarItem(title: "", image: UIImage(heroSharedNamed: "tab_home_un.png"), selectedImage: UIImage(heroSharedNamed: "tab_home.png"))
         
-        // Append 4 VCs
+        let homeNavVC = HeroNavigationController(navigationBarClass: HeroUINavigationBar.self, toolbarClass: nil)
+        homeNavVC.viewControllers = [homeVC]
+        homeNavVC.tabBarItem = homeItem
+        
+        let mypageNavVC = HeroNavigationController(navigationBarClass: HeroUINavigationBar.self, toolbarClass: nil)
+        mypageNavVC.viewControllers = [mypageVC]
+        mypageNavVC.tabBarItem = mypageItem
+        
         tabViewControllers.removeAll()
-        tabViewControllers.append(homeVC)
-        tabViewControllers.append(secondVC)
-        tabViewControllers.append(homeVC)
-        tabViewControllers.append(secondVC)
+        tabViewControllers.append(homeNavVC)
+        tabViewControllers.append(UIViewController())
+        tabViewControllers.append(mypageNavVC)
     }
     
     @objc
@@ -146,87 +88,27 @@ public class MainTabBarViewController: UITabBarController, UITabBarControllerDel
     
     @objc
     private func tabChanged(tapped index: Int) {
-        previousIndex = currentIndex
-        currentIndex = index
-        
-        tabBarView.setTabBarItemSelected(index: currentIndex, isSelected: true)
-        
-        let previousVC = tabViewControllers[previousIndex]
-        previousVC.willMove(toParent: nil)
-        previousVC.view.removeFromSuperview()
-        previousVC.removeFromParent()
-        
-        let vc = tabViewControllers[currentIndex]
-        vc.view.frame = UIApplication.shared.windows[0].frame
-        vc.didMove(toParent: self)
-        self.addChild(vc)
-        self.view.addSubview(vc.view)
-        self.view.bringSubviewToFront(tabBarView)
-        
-        updateTabBarIndicatorView()
-        
-        self.view.bringSubviewToFront(floatingButton)
-    }
-    
-    private func updateTabBarIndicatorView() {
-        self.view.layoutIfNeeded()
-        let spacingOffset = (tabBarView.frame.width - (tabBarView.frame.height * CGFloat(tabBarItemList.count))) / CGFloat(tabBarItemList.count - 1)
-        let leadingOffset = (tabBarView.frame.height * CGFloat(currentIndex)) + spacingOffset * CGFloat(currentIndex)
-        
-        if currentIndex == (tabBarItemList.count - 1) {
-            indicatorView.snp.remakeConstraints { make in
-                make.top.equalToSuperview()
-                make.height.equalTo(MainTabBarConstants.indicatorHeight)
-                make.width.equalTo(tabBarView.snp.height)
-                make.trailing.equalToSuperview()
-            }
-        } else {
-            indicatorView.snp.remakeConstraints { make in
-                make.top.equalToSuperview()
-                make.height.equalTo(MainTabBarConstants.indicatorHeight)
-                make.width.equalTo(tabBarView.snp.height)
-                make.leading.equalToSuperview().offset(leadingOffset)
-            }
-        }
-        
-        UIView.animate(withDuration: 0.4, animations: {
-            self.view.layoutIfNeeded()
-        })
-    }
-    
-    private func updateTabBarView() {
-        self.view.layoutIfNeeded()
-        
-        if tabBarView.isSpread {
-            tabBarView.snp.updateConstraints { make in
-                make.leading.equalToSuperview()
-                make.trailing.equalToSuperview()
-                make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
-            }
+        if index != 1 {
+            previousIndex = currentIndex
+            currentIndex = index
+            tabBarView.setTabBarItemSelected(index: currentIndex, isSelected: true)
+            let previousVC = tabViewControllers[previousIndex]
+            previousVC.willMove(toParent: nil)
+            previousVC.view.removeFromSuperview()
+            previousVC.removeFromParent()
             
-            tabBarBackView.snp.updateConstraints { make in
-                make.leading.equalToSuperview()
-                make.trailing.equalToSuperview()
-                make.bottom.equalToSuperview()
-            }
+            let vc = tabViewControllers[currentIndex]
+            vc.view.frame = UIApplication.shared.windows[0].frame
+            vc.didMove(toParent: self)
+            self.addChild(vc)
+            self.view.addSubview(vc.view)
+            self.view.bringSubviewToFront(tabBarView)
         } else {
-            tabBarView.snp.updateConstraints { make in
-                make.leading.equalToSuperview().offset(MainTabBarConstants.outerSpacing)
-                make.trailing.equalToSuperview().offset(-MainTabBarConstants.outerSpacing)
-                make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-MainTabBarConstants.outerSpacing)
-            }
-            
-            tabBarBackView.snp.updateConstraints { make in
-                make.leading.equalToSuperview().offset(MainTabBarConstants.outerSpacing)
-                make.trailing.equalToSuperview().offset(-MainTabBarConstants.outerSpacing)
-                make.bottom.equalToSuperview().offset(-MainTabBarConstants.backOuterBottomSpacing)
-            }
+            let vc = UIViewController()
+            vc.view.backgroundColor = .heroWhite100s
+//            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true, completion: nil)
         }
-        
-        UIView.animate(withDuration: 0.4, animations: {
-            self.view.layoutIfNeeded()
-            self.tabBarView.borderRadius = self.tabBarView.isSpread ? 0 : 12
-        })
     }
 }
 
@@ -240,13 +122,6 @@ extension MainTabBarViewController: UIScrollViewDelegate {
 
 extension MainTabBarViewController: HeroTabBarViewDelegate {
     public func tabBarItem(at index: Int) {
-        titleLabel.text = tabBarItemList[index].title
         tabChanged(tapped: index)
-        
-        if index == 3 {
-            updateTabBarView()
-        } else {
-            updateTabBarView()
-        }
     }
 }

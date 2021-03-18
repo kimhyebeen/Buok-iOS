@@ -7,8 +7,8 @@
 
 import Foundation
 import HeroCommon
-import HeroUI
 import HeroSharedAssets
+import HeroUI
 import SnapKit
 
 public class SignInViewController: HeroBaseViewController {

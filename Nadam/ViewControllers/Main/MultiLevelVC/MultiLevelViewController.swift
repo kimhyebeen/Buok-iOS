@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MultiLevelViewController.swift
 //  Nadam
 //
 //  Created by Taein Kim on 2021/02/21.
@@ -9,7 +9,7 @@ import HeroCommon
 import HeroUI
 import SnapKit
 
-class ViewController: HeroBaseViewController {
+class MultiLevelViewController: HeroBaseViewController {
     private let scrollView = UIScrollView()
     private let contentView = UIView()
     private let mainStackView = UIStackView()
@@ -117,8 +117,8 @@ class ViewController: HeroBaseViewController {
     }
 }
 
-extension ViewController: HeroNavigationBarUpdatable { }
-extension ViewController: UIScrollViewDelegate {
+extension MultiLevelViewController: HeroNavigationBarUpdatable { }
+extension MultiLevelViewController: UIScrollViewDelegate {
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         refreshShadowLine(offset: scrollView.contentOffset.y)
     }

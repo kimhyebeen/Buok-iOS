@@ -11,7 +11,7 @@
 		8F9D858FF04EF3023EF730B4 /* Pods_Nadam_NadamUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABC0D63F5475507FDB0A190 /* Pods_Nadam_NadamUITests.framework */; };
 		AA403D860B597DD347A05D86 /* Pods_NadamWidgetExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A04DF86C226F75EB2C8EF22 /* Pods_NadamWidgetExtension.framework */; };
 		B041747225E2366E00D990A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B041747125E2366E00D990A2 /* AppDelegate.swift */; };
-		B041747625E2366E00D990A2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B041747525E2366E00D990A2 /* ViewController.swift */; };
+		B041747625E2366E00D990A2 /* MultiLevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B041747525E2366E00D990A2 /* MultiLevelViewController.swift */; };
 		B041747C25E2366E00D990A2 /* BucketList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B041747A25E2366E00D990A2 /* BucketList.xcdatamodeld */; };
 		B041747E25E2366F00D990A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B041747D25E2366F00D990A2 /* Assets.xcassets */; };
 		B041748125E2366F00D990A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B041747F25E2366F00D990A2 /* LaunchScreen.storyboard */; };
@@ -24,6 +24,7 @@
 		B04C15E826015FCF0084BAEC /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04C15E726015FCF0084BAEC /* SignInViewController.swift */; };
 		B04CF78025FD857B00FBAB10 /* HeroNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B04CF76925FD84D600FBAB10 /* HeroNetwork.framework */; };
 		B04CF78125FD857B00FBAB10 /* HeroNetwork.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B04CF76925FD84D600FBAB10 /* HeroNetwork.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B0635AC52603897600046E88 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0635AC42603897600046E88 /* HomeViewController.swift */; };
 		B06B5CB425ECA4070045A491 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06B5CB325ECA4070045A491 /* MainTabBarViewController.swift */; };
 		B06B5EDF25ECCD550045A491 /* HeroNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06B5EDE25ECCD550045A491 /* HeroNavigationController.swift */; };
 		B06B5EE325ECCE610045A491 /* HeroBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06B5EE225ECCE610045A491 /* HeroBaseViewController.swift */; };
@@ -47,7 +48,7 @@
 		B0D43A5D2600DA9B003420CA /* NadamWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = B0D43A592600DA99003420CA /* NadamWidget.intentdefinition */; };
 		B0D43A5E2600DA9B003420CA /* NadamWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = B0D43A592600DA99003420CA /* NadamWidget.intentdefinition */; };
 		B0D43A612600DA9B003420CA /* NadamWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B0D43A512600DA99003420CA /* NadamWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		B0F229AB25F3C9E000D96CBA /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F229AA25F3C9E000D96CBA /* SecondViewController.swift */; };
+		B0F229AB25F3C9E000D96CBA /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F229AA25F3C9E000D96CBA /* MyPageViewController.swift */; };
 		E52D683A34A3F92B8C4D7BAB /* Pods_Nadam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14F1F3104258F31B2DFD2A73 /* Pods_Nadam.framework */; };
 /* End PBXBuildFile section */
 
@@ -191,7 +192,7 @@
 		AA5970ABF9321C40A1373EEA /* Pods-Nadam-NadamUITests.sandbox(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nadam-NadamUITests.sandbox(debug).xcconfig"; path = "Target Support Files/Pods-Nadam-NadamUITests/Pods-Nadam-NadamUITests.sandbox(debug).xcconfig"; sourceTree = "<group>"; };
 		B041746E25E2366E00D990A2 /* Nadam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nadam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B041747125E2366E00D990A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B041747525E2366E00D990A2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B041747525E2366E00D990A2 /* MultiLevelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiLevelViewController.swift; sourceTree = "<group>"; };
 		B041747B25E2366E00D990A2 /* YappHero.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = YappHero.xcdatamodel; sourceTree = "<group>"; };
 		B041747D25E2366F00D990A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B041748025E2366F00D990A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -206,6 +207,7 @@
 		B041755525E2384300D990A2 /* HeroCommon.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = HeroCommon.xcodeproj; path = HeroCommon/HeroCommon.xcodeproj; sourceTree = "<group>"; };
 		B04C15E726015FCF0084BAEC /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		B04CF75F25FD84D500FBAB10 /* HeroNetwork.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = HeroNetwork.xcodeproj; path = HeroNetwork/HeroNetwork.xcodeproj; sourceTree = "<group>"; };
+		B0635AC42603897600046E88 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B06B5CB325ECA4070045A491 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		B06B5EDE25ECCD550045A491 /* HeroNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroNavigationController.swift; sourceTree = "<group>"; };
 		B06B5EE225ECCE610045A491 /* HeroBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroBaseViewController.swift; sourceTree = "<group>"; };
@@ -229,7 +231,7 @@
 		B0D43A592600DA99003420CA /* NadamWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = NadamWidget.intentdefinition; sourceTree = "<group>"; };
 		B0D43A5A2600DA9B003420CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B0D43A5C2600DA9B003420CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B0F229AA25F3C9E000D96CBA /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		B0F229AA25F3C9E000D96CBA /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		B321063553FBFA5630D0602E /* Pods-BucketList.sandbox(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BucketList.sandbox(debug).xcconfig"; path = "Target Support Files/Pods-BucketList/Pods-BucketList.sandbox(debug).xcconfig"; sourceTree = "<group>"; };
 		C1E8EED5C9EA91E7723D9698 /* Pods-YappHero.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHero.release.xcconfig"; path = "Target Support Files/Pods-YappHero/Pods-YappHero.release.xcconfig"; sourceTree = "<group>"; };
 		CA736E56E1344F51FD5025D9 /* Pods-BucketList.real.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BucketList.real.xcconfig"; path = "Target Support Files/Pods-BucketList/Pods-BucketList.real.xcconfig"; sourceTree = "<group>"; };
@@ -435,6 +437,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		B0635AC32603896D00046E88 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B0635AC42603897600046E88 /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		B06B5CB225ECA3EE0045A491 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -448,8 +458,9 @@
 		B06B5EE625ECCEB00045A491 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				B0635AC32603896D00046E88 /* Home */,
 				B0D021792602196500F25329 /* MyPage */,
-				B0D021702602195B00F25329 /* Home */,
+				B0D021702602195B00F25329 /* MultiLevelVC */,
 				B06B5CB325ECA4070045A491 /* MainTabBarViewController.swift */,
 			);
 			path = Main;
@@ -511,19 +522,19 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B0D021702602195B00F25329 /* Home */ = {
+		B0D021702602195B00F25329 /* MultiLevelVC */ = {
 			isa = PBXGroup;
 			children = (
 				B06B5EF225ECCF8C0045A491 /* SubVC */,
-				B041747525E2366E00D990A2 /* ViewController.swift */,
+				B041747525E2366E00D990A2 /* MultiLevelViewController.swift */,
 			);
-			path = Home;
+			path = MultiLevelVC;
 			sourceTree = "<group>";
 		};
 		B0D021792602196500F25329 /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
-				B0F229AA25F3C9E000D96CBA /* SecondViewController.swift */,
+				B0F229AA25F3C9E000D96CBA /* MyPageViewController.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -989,15 +1000,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0F229AB25F3C9E000D96CBA /* SecondViewController.swift in Sources */,
+				B0F229AB25F3C9E000D96CBA /* MyPageViewController.swift in Sources */,
 				B06B5EEF25ECCEE10045A491 /* SubTwoViewController.swift in Sources */,
 				B0D43A5E2600DA9B003420CA /* NadamWidget.intentdefinition in Sources */,
 				B075231325EF1E6F0016DC3A /* BaseAPIError.swift in Sources */,
 				B075226925ED08780016DC3A /* UserAuthModel.swift in Sources */,
+				B0635AC52603897600046E88 /* HomeViewController.swift in Sources */,
 				B075226D25ED089F0016DC3A /* AuthTokenModel.swift in Sources */,
 				B06B5EDF25ECCD550045A491 /* HeroNavigationController.swift in Sources */,
 				B0D0217D2602199600F25329 /* SignUpViewController.swift in Sources */,
-				B041747625E2366E00D990A2 /* ViewController.swift in Sources */,
+				B041747625E2366E00D990A2 /* MultiLevelViewController.swift in Sources */,
 				B06B5EE925ECCED90045A491 /* SubOneViewController.swift in Sources */,
 				B041747C25E2366E00D990A2 /* BucketList.xcdatamodeld in Sources */,
 				B06B5EE325ECCE610045A491 /* HeroBaseViewController.swift in Sources */,
