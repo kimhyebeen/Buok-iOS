@@ -76,16 +76,16 @@ public class HeroTabBarItemView: UIView {
         titleLabel.font = .font10P
         titleLabel.textAlignment = .center
         itemImageView.contentMode = .center
+        itemImageView.tintColor = .heroGraySample300s
         bringSubviewToFront(containerButton)
         
         updateViewLayout()
     }
     
     private func updateViewLayout() {
-        let isEmphasis = heroItem?.isEmphasis ?? false
-        backgroundColor = isEmphasis ? .heroBlue100s : .clear
-        titleLabel.textColor = isEmphasis ? .heroWhite100s : (isSelected ? .heroBlue100s : .heroGray600s)
-        itemImageView.tintColor = isEmphasis ? .heroWhite100s : (isSelected ? .heroBlue100s : .heroGray600s)
+        backgroundColor = .clear
+        titleLabel.textColor = (isSelected ? .heroGray600s : .heroGraySample300s)
+        itemImageView.tintColor = (isSelected ? .heroGray600s : .heroGraySample300s)
     }
     
     @objc

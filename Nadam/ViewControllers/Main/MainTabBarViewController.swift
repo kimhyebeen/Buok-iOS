@@ -21,14 +21,11 @@ public class MainTabBarViewController: UITabBarController, UITabBarControllerDel
     
     private let tabBarItemList: [HeroTabBarItem] = [
         HeroTabBarItem(title: nil,
-                       image: UIImage(heroSharedNamed: "tab_home.png")?.withRenderingMode(.alwaysTemplate),
-                       isEmphasis: false),
+                       image: UIImage(heroSharedNamed: "tab_home.png")?.withRenderingMode(.alwaysTemplate)),
         HeroTabBarItem(title: nil,
-                       image: UIImage(heroSharedNamed: "tab_home.png")?.withRenderingMode(.alwaysTemplate),
-                       isEmphasis: false),
+                       image: UIImage(heroSharedNamed: "tab_add.png")?.withRenderingMode(.alwaysTemplate)),
         HeroTabBarItem(title: nil,
-                       image: UIImage(heroSharedNamed: "tab_home.png")?.withRenderingMode(.alwaysTemplate),
-                       isEmphasis: false)
+                       image: UIImage(heroSharedNamed: "tab_mypage.png")?.withRenderingMode(.alwaysTemplate))
     ]
     
     public override func viewDidLoad() {
@@ -65,18 +62,13 @@ public class MainTabBarViewController: UITabBarController, UITabBarControllerDel
     
     private func setupTabBarItems() {
         let homeVC = HomeViewController()
-        let homeItem = UITabBarItem(title: "", image: UIImage(heroSharedNamed: "tab_home_un.png"), selectedImage: UIImage(heroSharedNamed: "tab_home.png"))
-        
         let mypageVC = MyPageViewController()
-        let mypageItem = UITabBarItem(title: "", image: UIImage(heroSharedNamed: "tab_home_un.png"), selectedImage: UIImage(heroSharedNamed: "tab_home.png"))
         
         let homeNavVC = HeroNavigationController(navigationBarClass: HeroUINavigationBar.self, toolbarClass: nil)
         homeNavVC.viewControllers = [homeVC]
-        homeNavVC.tabBarItem = homeItem
         
         let mypageNavVC = HeroNavigationController(navigationBarClass: HeroUINavigationBar.self, toolbarClass: nil)
         mypageNavVC.viewControllers = [mypageVC]
-        mypageNavVC.tabBarItem = mypageItem
         
         tabViewControllers.removeAll()
         tabViewControllers.append(homeNavVC)
@@ -108,8 +100,6 @@ public class MainTabBarViewController: UITabBarController, UITabBarControllerDel
             self.view.bringSubviewToFront(tabBarView)
         } else {
             let vc = CreateViewController()
-            vc.view.backgroundColor = .heroWhite100s
-            vc.modalPresentationStyle = .overCurrentContext
             navigationController?.pushViewController(vc, animated: true)
         }
     }

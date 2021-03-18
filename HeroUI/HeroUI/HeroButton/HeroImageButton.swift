@@ -15,9 +15,9 @@ public class HeroImageButton: UIButton {
         didSet {
             heroImageView.snp.updateConstraints { make in
                 make.top.equalToSuperview().offset(imageInset)
-                make.bottom.equalToSuperview().offset(imageInset)
+                make.bottom.equalToSuperview().offset(-imageInset)
                 make.leading.equalToSuperview().offset(imageInset)
-                make.trailing.equalToSuperview().offset(imageInset)
+                make.trailing.equalToSuperview().offset(-imageInset)
             }
         }
     }
@@ -25,7 +25,8 @@ public class HeroImageButton: UIButton {
     public var heroImage: UIImage? {
         didSet {
             DispatchQueue.main.async {
-                self.heroImageView.image = self.heroImage
+                self.heroImageView.image = self.heroImage?.withRenderingMode(.alwaysTemplate)
+                self.heroImageView.tintColor = .heroGraySample300s
             }
         }
     }
@@ -43,9 +44,9 @@ public class HeroImageButton: UIButton {
         addSubview(heroImageView)
         heroImageView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(imageInset)
-            make.bottom.equalToSuperview().offset(imageInset)
+            make.bottom.equalToSuperview().offset(-imageInset)
             make.leading.equalToSuperview().offset(imageInset)
-            make.trailing.equalToSuperview().offset(imageInset)
+            make.trailing.equalToSuperview().offset(-imageInset)
         }
     }
 }

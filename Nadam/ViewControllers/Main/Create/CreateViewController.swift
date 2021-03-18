@@ -14,6 +14,7 @@ public class CreateViewController: HeroBaseViewController {
     private let topContentView: UIView = UIView()
     private let backButton: HeroImageButton = HeroImageButton()
     private let doneButton: HeroImageButton = HeroImageButton()
+    private var viewModel: CreateViewModel?
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +48,8 @@ public class CreateViewController: HeroBaseViewController {
     }
     
     private func setupViewProperties() {
-        view.backgroundColor = .heroWhite100s
+        view.backgroundColor = .heroGraySample100s
+        backButton.imageInset = 8
         backButton.heroImage = UIImage(heroSharedNamed: "tab_home.png")
         backButton.addTarget(self, action: #selector(onClickBackButton(_:)), for: .touchUpInside)
     }

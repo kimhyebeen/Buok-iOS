@@ -10,11 +10,9 @@ import Foundation
 public struct HeroTabBarItem {
     public let title: String?
     public let image: UIImage?
-    public var isEmphasis: Bool = false
     
-    public init(title: String?, image: UIImage?, isEmphasis: Bool) {
+    public init(title: String?, image: UIImage?) {
         self.title = title
         self.image = image
-        self.isEmphasis = isEmphasis
     }
 }

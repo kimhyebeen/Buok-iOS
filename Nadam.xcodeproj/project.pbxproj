@@ -10,6 +10,9 @@
 		043E70FCB0D7DF9DCA84D583 /* Pods_NadamTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 466F72399C9F33E4853F5BE7 /* Pods_NadamTests.framework */; };
 		8F9D858FF04EF3023EF730B4 /* Pods_Nadam_NadamUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABC0D63F5475507FDB0A190 /* Pods_Nadam_NadamUITests.framework */; };
 		AA403D860B597DD347A05D86 /* Pods_NadamWidgetExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A04DF86C226F75EB2C8EF22 /* Pods_NadamWidgetExtension.framework */; };
+		B01D43A826039D2500F2D28C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01D43A726039D2500F2D28C /* DetailViewController.swift */; };
+		B01D43B026039D5700F2D28C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01D43AF26039D5700F2D28C /* HomeViewModel.swift */; };
+		B01D43B526039D6C00F2D28C /* CreateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01D43B426039D6C00F2D28C /* CreateViewModel.swift */; };
 		B041747225E2366E00D990A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B041747125E2366E00D990A2 /* AppDelegate.swift */; };
 		B041747625E2366E00D990A2 /* MultiLevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B041747525E2366E00D990A2 /* MultiLevelViewController.swift */; };
 		B041747C25E2366E00D990A2 /* BucketList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B041747A25E2366E00D990A2 /* BucketList.xcdatamodeld */; };
@@ -191,6 +194,9 @@
 		9B52E28803EF825980102EE8 /* Pods-Nadam-NadamUITests.real.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nadam-NadamUITests.real.xcconfig"; path = "Target Support Files/Pods-Nadam-NadamUITests/Pods-Nadam-NadamUITests.real.xcconfig"; sourceTree = "<group>"; };
 		A146B5D5016257787821A4FE /* Pods-BucketListTests.sandbox(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BucketListTests.sandbox(debug).xcconfig"; path = "Target Support Files/Pods-BucketListTests/Pods-BucketListTests.sandbox(debug).xcconfig"; sourceTree = "<group>"; };
 		AA5970ABF9321C40A1373EEA /* Pods-Nadam-NadamUITests.sandbox(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nadam-NadamUITests.sandbox(debug).xcconfig"; path = "Target Support Files/Pods-Nadam-NadamUITests/Pods-Nadam-NadamUITests.sandbox(debug).xcconfig"; sourceTree = "<group>"; };
+		B01D43A726039D2500F2D28C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		B01D43AF26039D5700F2D28C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		B01D43B426039D6C00F2D28C /* CreateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewModel.swift; sourceTree = "<group>"; };
 		B041746E25E2366E00D990A2 /* Nadam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nadam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B041747125E2366E00D990A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B041747525E2366E00D990A2 /* MultiLevelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiLevelViewController.swift; sourceTree = "<group>"; };
@@ -345,6 +351,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		B01D439E26039D1C00F2D28C /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				B01D43A726039D2500F2D28C /* DetailViewController.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
 		B041746525E2366E00D990A2 = {
 			isa = PBXGroup;
 			children = (
@@ -443,6 +457,7 @@
 			isa = PBXGroup;
 			children = (
 				B0635AC42603897600046E88 /* HomeViewController.swift */,
+				B01D43AF26039D5700F2D28C /* HomeViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -451,6 +466,7 @@
 			isa = PBXGroup;
 			children = (
 				B0635AD9260390E100046E88 /* CreateViewController.swift */,
+				B01D43B426039D6C00F2D28C /* CreateViewModel.swift */,
 			);
 			path = Create;
 			sourceTree = "<group>";
@@ -468,6 +484,7 @@
 		B06B5EE625ECCEB00045A491 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				B01D439E26039D1C00F2D28C /* Detail */,
 				B0635AD8260390D200046E88 /* Create */,
 				B0635AC32603896D00046E88 /* Home */,
 				B0D021792602196500F25329 /* MyPage */,
@@ -1013,9 +1030,11 @@
 			files = (
 				B0635ADA260390E100046E88 /* CreateViewController.swift in Sources */,
 				B0F229AB25F3C9E000D96CBA /* MyPageViewController.swift in Sources */,
+				B01D43A826039D2500F2D28C /* DetailViewController.swift in Sources */,
 				B06B5EEF25ECCEE10045A491 /* SubTwoViewController.swift in Sources */,
 				B0D43A5E2600DA9B003420CA /* NadamWidget.intentdefinition in Sources */,
 				B075231325EF1E6F0016DC3A /* BaseAPIError.swift in Sources */,
+				B01D43B526039D6C00F2D28C /* CreateViewModel.swift in Sources */,
 				B075226925ED08780016DC3A /* UserAuthModel.swift in Sources */,
 				B0635AC52603897600046E88 /* HomeViewController.swift in Sources */,
 				B075226D25ED089F0016DC3A /* AuthTokenModel.swift in Sources */,
@@ -1029,6 +1048,7 @@
 				B06B5EF625ECD0140045A491 /* SubThreeViewController.swift in Sources */,
 				B075225425ED06ED0016DC3A /* UserModel.swift in Sources */,
 				B04C15E826015FCF0084BAEC /* SignInViewController.swift in Sources */,
+				B01D43B026039D5700F2D28C /* HomeViewModel.swift in Sources */,
 				B06B5CB425ECA4070045A491 /* MainTabBarViewController.swift in Sources */,
 				B075238125EF5AF70016DC3A /* BucketListHomeAPIRequest.swift in Sources */,
 				B0D0218226021A2100F25329 /* NadamProperties.swift in Sources */,

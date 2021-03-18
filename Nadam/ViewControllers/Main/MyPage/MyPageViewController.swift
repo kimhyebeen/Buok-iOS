@@ -17,7 +17,7 @@ public class MyPageViewController: HeroBaseViewController {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = true
         view.addSubview(sampleButton)
-        view.backgroundColor = .heroWhite100s
+        view.backgroundColor = .heroGraySample100s
         
         sampleButton.setTitle("Sample Button", for: .normal)
         sampleButton.setTitleColor(.heroBlue100s, for: .normal)
