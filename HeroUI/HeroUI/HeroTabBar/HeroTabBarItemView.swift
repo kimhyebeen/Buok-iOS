@@ -23,8 +23,18 @@ public class HeroTabBarItemView: UIView {
     public var heroItemIndex: Int?
     public var heroItem: HeroTabBarItem? {
         didSet {
-            titleLabel.text = heroItem?.title
-            itemImageView.image = heroItem?.image?.withRenderingMode(.alwaysTemplate)
+            titleLabel.isHidden = true
+            itemImageView.isHidden = true
+            
+            if let title = heroItem?.title {
+                titleLabel.text = title
+                titleLabel.isHidden = false
+            }
+            
+            if let image = heroItem?.image {
+                itemImageView.image = image.withRenderingMode(.alwaysTemplate)
+                itemImageView.isHidden = false
+            }
             
             updateViewLayout()
         }
@@ -51,12 +61,7 @@ public class HeroTabBarItemView: UIView {
         addSubview(itemStackView)
         itemStackView.axis = .vertical
         itemStackView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(4)
-            make.leading.greaterThanOrEqualToSuperview().offset(4)
-            make.trailing.lessThanOrEqualToSuperview().offset(-4)
-            make.centerX.equalToSuperview()
-            make.bottom.equalToSuperview().offset(-4)
-            make.width.equalTo(itemStackView.snp.height)
+            make.edges.equalToSuperview()
         }
         
         itemStackView.addArrangedSubview(itemImageView)
@@ -65,11 +70,7 @@ public class HeroTabBarItemView: UIView {
         addSubview(containerButton)
         containerButton.addTarget(self, action: #selector(onClickItem(_:)), for: .touchUpInside)
         containerButton.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(4)
-            make.leading.greaterThanOrEqualToSuperview().offset(4)
-            make.trailing.lessThanOrEqualToSuperview().offset(-4)
-            make.bottom.equalToSuperview().offset(-4)
-            make.width.equalTo(containerButton.snp.height)
+            make.edges.equalToSuperview()
         }
         
         titleLabel.font = .font10P
