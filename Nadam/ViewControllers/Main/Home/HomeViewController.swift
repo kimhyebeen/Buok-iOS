@@ -14,6 +14,12 @@ public class HomeViewController: HeroBaseViewController {
     private let topContentView: UIView = UIView()
     private let notiButton: HeroImageButton = HeroImageButton()
     private let searchButton: HeroImageButton = HeroImageButton()
+    
+    private let topSectionView: UIStackView = UIStackView()
+    private let filterContainerView: UIView = UIView()
+    private let messageContainerView: UIView = UIView()
+    private let bucketFilterView: BucketFilterView = BucketFilterView()
+    
     private var viewModel: HomeViewModel?
     
     public override func viewDidLoad() {
@@ -25,8 +31,14 @@ public class HomeViewController: HeroBaseViewController {
     
     private func setupMainLayout() {
         view.addSubview(topContentView)
+        view.addSubview(topSectionView)
         topContentView.addSubview(notiButton)
         topContentView.addSubview(searchButton)
+        
+        // Top Filter Section
+        topSectionView.addArrangedSubview(filterContainerView)
+        topSectionView.addArrangedSubview(messageContainerView)
+        filterContainerView.addSubview(bucketFilterView)
 
         topContentView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
@@ -34,7 +46,7 @@ public class HomeViewController: HeroBaseViewController {
             make.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing)
             make.height.equalTo(44)
         }
-
+        
         notiButton.snp.makeConstraints { make in
             make.top.leading.bottom.equalToSuperview()
             make.width.equalTo(44)
@@ -46,6 +58,26 @@ public class HomeViewController: HeroBaseViewController {
             make.width.equalTo(44)
             make.height.equalTo(44)
         }
+        
+        // Top Filter Section
+        topSectionView.snp.makeConstraints { make in
+            make.top.equalTo(topContentView.snp.bottom).offset(8)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().offset(-16)
+        }
+        
+        filterContainerView.snp.makeConstraints { make in
+            make.height.equalTo(44)
+        }
+        
+        bucketFilterView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
+        messageContainerView.snp.makeConstraints { make in
+            make.height.equalTo(44)
+        }
+
     }
     
     private func setupViewProperties() {
@@ -54,6 +86,10 @@ public class HomeViewController: HeroBaseViewController {
         searchButton.imageInset = 8
         notiButton.heroImage = UIImage(heroSharedNamed: "tab_home.png")
         searchButton.heroImage = UIImage(heroSharedNamed: "tab_home.png")
+        
+        topSectionView.axis = .vertical
+        messageContainerView.backgroundColor = .heroWhite100s
+        bucketFilterView.delegate = self
     }
     
     @objc
@@ -64,5 +100,11 @@ public class HomeViewController: HeroBaseViewController {
     @objc
     private func onClickSearch(_ sender: Any?) {
         navigationController?.pushViewController(MultiLevelViewController(), animated: true)
+    }
+}
+
+extension HomeViewController: BucketFilterDelegate {
+    func filterChanged(filter to: HomeFilter) {
+        
     }
 }

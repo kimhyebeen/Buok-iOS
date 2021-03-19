@@ -3,3 +3,7 @@
 "Hero_Common_String_Yes" = "예";
 "Hero_Common_String_No" = "아니오";
 "Hero_Main_Tab_String_Home" = "홈";
+"Hero_Home_Filter_All" = "전체";
+"Hero_Home_Filter_Now" = "진행";
+"Hero_Home_Filter_Expect" = "예정";
+"Hero_Home_Filter_Done" = "완료";

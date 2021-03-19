@@ -7,6 +7,13 @@
 
 import Foundation
 
+public enum HomeFilter {
+    case now
+    case expect
+    case done
+    case all
+}
+
 public class HomeViewModel {
     public init() {
         

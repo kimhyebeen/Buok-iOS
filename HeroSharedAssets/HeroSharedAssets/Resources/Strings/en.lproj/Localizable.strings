@@ -3,3 +3,7 @@
 "Hero_Common_String_Yes" = "Yes";
 "Hero_Common_String_No" = "No";
 "Hero_Main_Tab_String_Home" = "Home";
+"Hero_Home_Filter_All" = "All";
+"Hero_Home_Filter_Now" = "Now";
+"Hero_Home_Filter_Expect" = "Expect";
+"Hero_Home_Filter_Done" = "Done";
