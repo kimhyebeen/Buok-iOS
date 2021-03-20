@@ -29,5 +29,6 @@ JIRA : [YAPP iOS 1 JIRA](https://yappios1.atlassian.net/jira/software/projects/Y
 - Deployment Target: 12.0
 - Network Module : PromiseKit + Alamofire
 - Protocol Oriented Programming, Clean Architecture
-- Design Patten: MVC / MVP / MVVM (미정)
+- Design Patten: MVVM
+- Widget Supported : WidgetKit, SwiftUI
 - Code Based View Code (Not using Storyboard and Xib)
