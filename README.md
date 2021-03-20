@@ -14,8 +14,8 @@ Recommended: iOS 14.0 (for WidgetKit)
 * [김태인](https://github.com/della-padula) - **Tech. Lead** / **iOS Engineer** : iOS 클라이언트 개발
 * [김보민](https://github.com/BOMS2) - **iOS Engineer** : iOS 클라이언트 개발
 * [김혜빈](https://github.com/kimhyebeen) - **iOS Engineer** : iOS 클라이언트 개발
-* [최정균](https://github.com/wjdrbs96) - **iOS Engineer** : 백엔드 개발
-* [문아영](https://github.com/ayoung0073) - **iOS Engineer** : 백엔드 개발
+* [최정균](https://github.com/wjdrbs96) - **Backend Engineer** : 백엔드 개발
+* [문아영](https://github.com/ayoung0073) - **Backend Engineer** : 백엔드 개발
 * [최아현](https://github.com/ahyun58) - **UI/UX Designer** : 디자인 작업 총괄
 
 ---
