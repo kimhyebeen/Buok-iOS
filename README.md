@@ -31,4 +31,5 @@ JIRA : [YAPP iOS 1 JIRA](https://yappios1.atlassian.net/jira/software/projects/Y
 - Protocol Oriented Programming, Clean Architecture
 - Design Patten: MVVM
 - Widget Supported : WidgetKit, SwiftUI
+- Strict Code Convension Management (feat. Swift Lint)
 - Code Based View Code (Not using Storyboard and Xib)
