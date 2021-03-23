@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import HeroCommon
 
 public enum HomeFilter {
     case now
@@ -15,7 +16,15 @@ public enum HomeFilter {
 }
 
 public class HomeViewModel {
+    var helloText = Dynamic("")
+    
     public init() {
         
+    }
+    
+    public func filterChanged(filter: HomeFilter) {
+        // Setting the value of the Dynamic variable
+        // will trigger the closure we defined in the View
+        helloText.value = "\(filter)"
     }
 }

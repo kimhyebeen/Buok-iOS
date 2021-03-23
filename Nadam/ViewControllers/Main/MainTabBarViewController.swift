@@ -41,9 +41,6 @@ public class MainTabBarViewController: UITabBarController, UITabBarControllerDel
         view.bringSubviewToFront(tabBarView)
         
         tabBarView.snp.makeConstraints { make in
-//            make.leading.equalToSuperview().offset(MainTabBarConstants.outerSpacing)
-//            make.trailing.equalToSuperview().offset(-MainTabBarConstants.outerSpacing)
-//            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-MainTabBarConstants.outerSpacing)
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
             make.bottom.equalToSuperview()
@@ -62,6 +59,8 @@ public class MainTabBarViewController: UITabBarController, UITabBarControllerDel
     
     private func setupTabBarItems() {
         let homeVC = HomeViewController()
+        homeVC.viewModel = HomeViewModel()
+        
         let mypageVC = MyPageViewController()
         
         let homeNavVC = HeroNavigationController(navigationBarClass: HeroUINavigationBar.self, toolbarClass: nil)

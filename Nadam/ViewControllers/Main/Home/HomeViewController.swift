@@ -20,13 +20,25 @@ public class HomeViewController: HeroBaseViewController {
     private let messageContainerView: UIView = UIView()
     private let bucketFilterView: BucketFilterView = BucketFilterView()
     
-    private var viewModel: HomeViewModel?
+    private var currentFilter: HomeFilter = .now
+    public var viewModel: HomeViewModel?
     
     public override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = true
+        bindViewModel()
         setupMainLayout()
         setupViewProperties()
+    }
+    
+    private func bindViewModel() {
+        if let viewModel = viewModel {
+            viewModel.helloText.bind({ helloText in
+                DispatchQueue.main.async {
+                    DebugLog(helloText)
+                }
+            })
+        }
     }
     
     private func setupMainLayout() {
@@ -39,7 +51,7 @@ public class HomeViewController: HeroBaseViewController {
         topSectionView.addArrangedSubview(filterContainerView)
         topSectionView.addArrangedSubview(messageContainerView)
         filterContainerView.addSubview(bucketFilterView)
-
+        
         topContentView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             make.leading.equalTo(view.safeAreaLayoutGuide.snp.leading)
@@ -52,7 +64,7 @@ public class HomeViewController: HeroBaseViewController {
             make.width.equalTo(44)
             make.height.equalTo(44)
         }
-
+        
         searchButton.snp.makeConstraints { make in
             make.top.trailing.bottom.equalToSuperview()
             make.width.equalTo(44)
@@ -77,7 +89,7 @@ public class HomeViewController: HeroBaseViewController {
         messageContainerView.snp.makeConstraints { make in
             make.height.equalTo(44)
         }
-
+        
     }
     
     private func setupViewProperties() {
@@ -105,6 +117,9 @@ public class HomeViewController: HeroBaseViewController {
 
 extension HomeViewController: BucketFilterDelegate {
     func filterChanged(filter to: HomeFilter) {
-        
+        if currentFilter != to {
+            currentFilter = to
+            viewModel?.filterChanged(filter: to)
+        }
     }
 }
