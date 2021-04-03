@@ -15,43 +15,23 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B041746D25E2366E00D990A2"
-               BuildableName = "Nadam.app"
-               BlueprintName = "Nadam"
-               ReferencedContainer = "container:Nadam.xcodeproj">
+               BuildableName = "Buok.app"
+               BlueprintName = "Buok"
+               ReferencedContainer = "container:Buok.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
-      buildConfiguration = "Inhouse(Debug)"
+      buildConfiguration = "Real"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B041748625E2366F00D990A2"
-               BuildableName = "NadamTests.xctest"
-               BlueprintName = "NadamTests"
-               ReferencedContainer = "container:Nadam.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B041749125E2366F00D990A2"
-               BuildableName = "NadamUITests.xctest"
-               BlueprintName = "NadamUITests"
-               ReferencedContainer = "container:Nadam.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
-      buildConfiguration = "Inhouse(Debug)"
+      buildConfiguration = "Real"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
@@ -65,9 +45,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B041746D25E2366E00D990A2"
-            BuildableName = "Nadam.app"
-            BlueprintName = "Nadam"
-            ReferencedContainer = "container:Nadam.xcodeproj">
+            BuildableName = "Buok.app"
+            BlueprintName = "Buok"
+            ReferencedContainer = "container:Buok.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -82,14 +62,14 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B041746D25E2366E00D990A2"
-            BuildableName = "Nadam.app"
-            BlueprintName = "Nadam"
-            ReferencedContainer = "container:Nadam.xcodeproj">
+            BuildableName = "Buok.app"
+            BlueprintName = "Buok"
+            ReferencedContainer = "container:Buok.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
-      buildConfiguration = "Inhouse(Debug)">
+      buildConfiguration = "Real">
    </AnalyzeAction>
    <ArchiveAction
       buildConfiguration = "Real"

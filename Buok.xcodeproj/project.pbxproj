@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		043E70FCB0D7DF9DCA84D583 /* Pods_NadamTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 466F72399C9F33E4853F5BE7 /* Pods_NadamTests.framework */; };
-		8F9D858FF04EF3023EF730B4 /* Pods_Nadam_NadamUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABC0D63F5475507FDB0A190 /* Pods_Nadam_NadamUITests.framework */; };
-		AA403D860B597DD347A05D86 /* Pods_NadamWidgetExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A04DF86C226F75EB2C8EF22 /* Pods_NadamWidgetExtension.framework */; };
+		20578AFA9B716592135E4D20 /* Pods_BuokTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA30482BA20B7DD44EA69D7 /* Pods_BuokTests.framework */; };
+		73A6015BE1A71587F5FCC6C5 /* Pods_BuokWidgetExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6C0B3A741D94BE2552F9A2D /* Pods_BuokWidgetExtension.framework */; };
+		7A23F5D60945D5051A7AF8BA /* Pods_Buok_BuokUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19D64A49C31935ACEF072549 /* Pods_Buok_BuokUITests.framework */; };
 		B01D43A826039D2500F2D28C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01D43A726039D2500F2D28C /* DetailViewController.swift */; };
 		B01D43B026039D5700F2D28C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01D43AF26039D5700F2D28C /* HomeViewModel.swift */; };
 		B01D43B526039D6C00F2D28C /* CreateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01D43B426039D6C00F2D28C /* CreateViewModel.swift */; };
@@ -52,9 +52,9 @@
 		B0D43A5B2600DA9B003420CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0D43A5A2600DA9B003420CA /* Assets.xcassets */; };
 		B0D43A5D2600DA9B003420CA /* NadamWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = B0D43A592600DA99003420CA /* NadamWidget.intentdefinition */; };
 		B0D43A5E2600DA9B003420CA /* NadamWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = B0D43A592600DA99003420CA /* NadamWidget.intentdefinition */; };
-		B0D43A612600DA9B003420CA /* NadamWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B0D43A512600DA99003420CA /* NadamWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B0D43A612600DA9B003420CA /* BuokWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B0D43A512600DA99003420CA /* BuokWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B0F229AB25F3C9E000D96CBA /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F229AA25F3C9E000D96CBA /* MyPageViewController.swift */; };
-		E52D683A34A3F92B8C4D7BAB /* Pods_Nadam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14F1F3104258F31B2DFD2A73 /* Pods_Nadam.framework */; };
+		F9EECDCC1BB268AD7FC97CF0 /* Pods_Buok.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AECABF2E7CD3020025E0B60D /* Pods_Buok.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -158,7 +158,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				B0D43A612600DA9B003420CA /* NadamWidgetExtension.appex in Embed App Extensions */,
+				B0D43A612600DA9B003420CA /* BuokWidgetExtension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -166,50 +166,60 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		06A3A2A2F70474FDB56CD321 /* Pods-BuokWidgetExtension.real.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuokWidgetExtension.real.xcconfig"; path = "Target Support Files/Pods-BuokWidgetExtension/Pods-BuokWidgetExtension.real.xcconfig"; sourceTree = "<group>"; };
 		0D4181740375ECF8F5B69CC2 /* Pods-BucketList-BucketListUITests.real.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BucketList-BucketListUITests.real.xcconfig"; path = "Target Support Files/Pods-BucketList-BucketListUITests/Pods-BucketList-BucketListUITests.real.xcconfig"; sourceTree = "<group>"; };
-		14F1F3104258F31B2DFD2A73 /* Pods_Nadam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nadam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1646EB61B2228484D9236E1E /* Pods-NadamWidgetExtension.inhouse(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NadamWidgetExtension.inhouse(debug).xcconfig"; path = "Target Support Files/Pods-NadamWidgetExtension/Pods-NadamWidgetExtension.inhouse(debug).xcconfig"; sourceTree = "<group>"; };
+		19D64A49C31935ACEF072549 /* Pods_Buok_BuokUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Buok_BuokUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F612B424FD0728306E3799D /* Pods-YappHero-YappHeroUITests.sandbox(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHero-YappHeroUITests.sandbox(debug).xcconfig"; path = "Target Support Files/Pods-YappHero-YappHeroUITests/Pods-YappHero-YappHeroUITests.sandbox(debug).xcconfig"; sourceTree = "<group>"; };
 		218B8F72E8EDC19D3A336452 /* Pods-BucketList-BucketListUITests.inhouse(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BucketList-BucketListUITests.inhouse(debug).xcconfig"; path = "Target Support Files/Pods-BucketList-BucketListUITests/Pods-BucketList-BucketListUITests.inhouse(debug).xcconfig"; sourceTree = "<group>"; };
+		2BB0B5F8CB1111CB6C492273 /* Pods-Buok.sandbox(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Buok.sandbox(debug).xcconfig"; path = "Target Support Files/Pods-Buok/Pods-Buok.sandbox(debug).xcconfig"; sourceTree = "<group>"; };
+		2ED6AAF01C650FDE03D6831F /* Pods-Buok-BuokUITests.real.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Buok-BuokUITests.real.xcconfig"; path = "Target Support Files/Pods-Buok-BuokUITests/Pods-Buok-BuokUITests.real.xcconfig"; sourceTree = "<group>"; };
+		30B041E2F4C7530B3BA87AF6 /* Pods-Buok-BuokUITests.sandbox(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Buok-BuokUITests.sandbox(debug).xcconfig"; path = "Target Support Files/Pods-Buok-BuokUITests/Pods-Buok-BuokUITests.sandbox(debug).xcconfig"; sourceTree = "<group>"; };
+		37F621F8B5B86FEACA0C4C02 /* Pods-Buok.inhouse(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Buok.inhouse(debug).xcconfig"; path = "Target Support Files/Pods-Buok/Pods-Buok.inhouse(debug).xcconfig"; sourceTree = "<group>"; };
+		3B419EF289B5904465AC1C0A /* Pods-BuokWidgetExtension.sandbox(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuokWidgetExtension.sandbox(debug).xcconfig"; path = "Target Support Files/Pods-BuokWidgetExtension/Pods-BuokWidgetExtension.sandbox(debug).xcconfig"; sourceTree = "<group>"; };
 		3F11010035163CFAD8A2BECE /* Pods-BucketListTests.real.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BucketListTests.real.xcconfig"; path = "Target Support Files/Pods-BucketListTests/Pods-BucketListTests.real.xcconfig"; sourceTree = "<group>"; };
 		3F205FDAF7CF626871DF7158 /* Pods-NadamTests.sandbox(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NadamTests.sandbox(debug).xcconfig"; path = "Target Support Files/Pods-NadamTests/Pods-NadamTests.sandbox(debug).xcconfig"; sourceTree = "<group>"; };
 		43EAE2B568739BEAF050FCE0 /* Pods-YappHero.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHero.debug.xcconfig"; path = "Target Support Files/Pods-YappHero/Pods-YappHero.debug.xcconfig"; sourceTree = "<group>"; };
 		4562CB2B247BB4604F8555B1 /* Pods-NadamTests.inhouse(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NadamTests.inhouse(debug).xcconfig"; path = "Target Support Files/Pods-NadamTests/Pods-NadamTests.inhouse(debug).xcconfig"; sourceTree = "<group>"; };
-		466F72399C9F33E4853F5BE7 /* Pods_NadamTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NadamTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		47A6764E8978C99A10AF4BDD /* Pods-YappHeroTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHeroTests.release.xcconfig"; path = "Target Support Files/Pods-YappHeroTests/Pods-YappHeroTests.release.xcconfig"; sourceTree = "<group>"; };
 		4BE414CD84DE5C96B36B278E /* Pods-YappHero.real.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHero.real.xcconfig"; path = "Target Support Files/Pods-YappHero/Pods-YappHero.real.xcconfig"; sourceTree = "<group>"; };
+		4ED130FF7235F27FE2025A97 /* Pods-BuokTests.inhouse(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuokTests.inhouse(debug).xcconfig"; path = "Target Support Files/Pods-BuokTests/Pods-BuokTests.inhouse(debug).xcconfig"; sourceTree = "<group>"; };
 		4F93D0621D7E53F338B6AD22 /* Pods-YappHeroTests.sandbox(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHeroTests.sandbox(debug).xcconfig"; path = "Target Support Files/Pods-YappHeroTests/Pods-YappHeroTests.sandbox(debug).xcconfig"; sourceTree = "<group>"; };
 		54167ECDDAF71780B1B61453 /* Pods-Nadam-NadamUITests.inhouse(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nadam-NadamUITests.inhouse(debug).xcconfig"; path = "Target Support Files/Pods-Nadam-NadamUITests/Pods-Nadam-NadamUITests.inhouse(debug).xcconfig"; sourceTree = "<group>"; };
 		56DD4736D819295D6C88234C /* Pods-YappHero-YappHeroUITests.real.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHero-YappHeroUITests.real.xcconfig"; path = "Target Support Files/Pods-YappHero-YappHeroUITests/Pods-YappHero-YappHeroUITests.real.xcconfig"; sourceTree = "<group>"; };
 		5C787C2468C12396EAD207F0 /* Pods-BucketList-BucketListUITests.sandbox(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BucketList-BucketListUITests.sandbox(debug).xcconfig"; path = "Target Support Files/Pods-BucketList-BucketListUITests/Pods-BucketList-BucketListUITests.sandbox(debug).xcconfig"; sourceTree = "<group>"; };
 		6688203010BC2CAC8F713E58 /* Pods-YappHero-YappHeroUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHero-YappHeroUITests.debug.xcconfig"; path = "Target Support Files/Pods-YappHero-YappHeroUITests/Pods-YappHero-YappHeroUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		6FCCE54585DDBFF3F0F1FD0A /* Pods-YappHero-YappHeroUITests.inhouse(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHero-YappHeroUITests.inhouse(debug).xcconfig"; path = "Target Support Files/Pods-YappHero-YappHeroUITests/Pods-YappHero-YappHeroUITests.inhouse(debug).xcconfig"; sourceTree = "<group>"; };
+		6FFDC647A6315BB2143F1A3C /* Pods-BuokWidgetExtension.inhouse(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuokWidgetExtension.inhouse(debug).xcconfig"; path = "Target Support Files/Pods-BuokWidgetExtension/Pods-BuokWidgetExtension.inhouse(debug).xcconfig"; sourceTree = "<group>"; };
 		7682F502F9045598226F6237 /* Pods-YappHero.sandbox(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHero.sandbox(debug).xcconfig"; path = "Target Support Files/Pods-YappHero/Pods-YappHero.sandbox(debug).xcconfig"; sourceTree = "<group>"; };
+		78B2470DF033E14DFCA4AB62 /* Pods-BuokTests.real.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuokTests.real.xcconfig"; path = "Target Support Files/Pods-BuokTests/Pods-BuokTests.real.xcconfig"; sourceTree = "<group>"; };
 		7F4A07F4B049659C75D655C6 /* Pods-YappHero.inhouse(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHero.inhouse(debug).xcconfig"; path = "Target Support Files/Pods-YappHero/Pods-YappHero.inhouse(debug).xcconfig"; sourceTree = "<group>"; };
+		80259888864004FA2F953251 /* Pods-Buok-BuokUITests.inhouse(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Buok-BuokUITests.inhouse(debug).xcconfig"; path = "Target Support Files/Pods-Buok-BuokUITests/Pods-Buok-BuokUITests.inhouse(debug).xcconfig"; sourceTree = "<group>"; };
 		85A097A5531D35F3DC9786D7 /* Pods-YappHeroTests.inhouse(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHeroTests.inhouse(debug).xcconfig"; path = "Target Support Files/Pods-YappHeroTests/Pods-YappHeroTests.inhouse(debug).xcconfig"; sourceTree = "<group>"; };
-		8A04DF86C226F75EB2C8EF22 /* Pods_NadamWidgetExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NadamWidgetExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		90F023FF7F200E866B6BACB8 /* Pods-YappHeroTests.real.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHeroTests.real.xcconfig"; path = "Target Support Files/Pods-YappHeroTests/Pods-YappHeroTests.real.xcconfig"; sourceTree = "<group>"; };
 		94FAC4BCB4E824FCE1DEB980 /* Pods-Nadam.inhouse(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nadam.inhouse(debug).xcconfig"; path = "Target Support Files/Pods-Nadam/Pods-Nadam.inhouse(debug).xcconfig"; sourceTree = "<group>"; };
 		95D4FCBE883ABBFA7673ED5B /* Pods-Nadam.sandbox(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nadam.sandbox(debug).xcconfig"; path = "Target Support Files/Pods-Nadam/Pods-Nadam.sandbox(debug).xcconfig"; sourceTree = "<group>"; };
 		96218509932EB88DC6A75E4B /* Pods-YappHeroTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHeroTests.debug.xcconfig"; path = "Target Support Files/Pods-YappHeroTests/Pods-YappHeroTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9B52E28803EF825980102EE8 /* Pods-Nadam-NadamUITests.real.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nadam-NadamUITests.real.xcconfig"; path = "Target Support Files/Pods-Nadam-NadamUITests/Pods-Nadam-NadamUITests.real.xcconfig"; sourceTree = "<group>"; };
+		A12B5EAF099E93EA0771F5FE /* Pods-BuokTests.sandbox(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuokTests.sandbox(debug).xcconfig"; path = "Target Support Files/Pods-BuokTests/Pods-BuokTests.sandbox(debug).xcconfig"; sourceTree = "<group>"; };
 		A146B5D5016257787821A4FE /* Pods-BucketListTests.sandbox(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BucketListTests.sandbox(debug).xcconfig"; path = "Target Support Files/Pods-BucketListTests/Pods-BucketListTests.sandbox(debug).xcconfig"; sourceTree = "<group>"; };
 		AA5970ABF9321C40A1373EEA /* Pods-Nadam-NadamUITests.sandbox(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nadam-NadamUITests.sandbox(debug).xcconfig"; path = "Target Support Files/Pods-Nadam-NadamUITests/Pods-Nadam-NadamUITests.sandbox(debug).xcconfig"; sourceTree = "<group>"; };
+		AECABF2E7CD3020025E0B60D /* Pods_Buok.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Buok.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B01D43A726039D2500F2D28C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		B01D43AF26039D5700F2D28C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		B01D43B426039D6C00F2D28C /* CreateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewModel.swift; sourceTree = "<group>"; };
 		B01D43B92604231800F2D28C /* CategoryFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryFilterView.swift; sourceTree = "<group>"; };
-		B041746E25E2366E00D990A2 /* Nadam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nadam.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B041746E25E2366E00D990A2 /* Buok.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Buok.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B041747125E2366E00D990A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B041747525E2366E00D990A2 /* MultiLevelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiLevelViewController.swift; sourceTree = "<group>"; };
 		B041747B25E2366E00D990A2 /* YappHero.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = YappHero.xcdatamodel; sourceTree = "<group>"; };
 		B041747D25E2366F00D990A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B041748025E2366F00D990A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B041748225E2366F00D990A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B041748725E2366F00D990A2 /* NadamTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NadamTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B041748725E2366F00D990A2 /* BuokTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BuokTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B041748B25E2366F00D990A2 /* BucketListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketListTests.swift; sourceTree = "<group>"; };
 		B041748D25E2366F00D990A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B041749225E2366F00D990A2 /* NadamUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NadamUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B041749225E2366F00D990A2 /* BuokUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BuokUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B041749625E2366F00D990A2 /* BucketListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketListUITests.swift; sourceTree = "<group>"; };
 		B041749825E2366F00D990A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B041752325E2382D00D990A2 /* HeroUI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = HeroUI.xcodeproj; path = HeroUI/HeroUI.xcodeproj; sourceTree = "<group>"; };
@@ -234,7 +244,7 @@
 		B07C0CEE25FDB1D9000AE1B0 /* HeroSharedAssets.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = HeroSharedAssets.xcodeproj; path = HeroSharedAssets/HeroSharedAssets.xcodeproj; sourceTree = "<group>"; };
 		B0D0217C2602199600F25329 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		B0D0218126021A2100F25329 /* NadamProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NadamProperties.swift; sourceTree = "<group>"; };
-		B0D43A512600DA99003420CA /* NadamWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NadamWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0D43A512600DA99003420CA /* BuokWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BuokWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0D43A522600DA99003420CA /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		B0D43A542600DA99003420CA /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		B0D43A572600DA99003420CA /* NadamWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NadamWidget.swift; sourceTree = "<group>"; };
@@ -245,14 +255,16 @@
 		B321063553FBFA5630D0602E /* Pods-BucketList.sandbox(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BucketList.sandbox(debug).xcconfig"; path = "Target Support Files/Pods-BucketList/Pods-BucketList.sandbox(debug).xcconfig"; sourceTree = "<group>"; };
 		C1E8EED5C9EA91E7723D9698 /* Pods-YappHero.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHero.release.xcconfig"; path = "Target Support Files/Pods-YappHero/Pods-YappHero.release.xcconfig"; sourceTree = "<group>"; };
 		CA736E56E1344F51FD5025D9 /* Pods-BucketList.real.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BucketList.real.xcconfig"; path = "Target Support Files/Pods-BucketList/Pods-BucketList.real.xcconfig"; sourceTree = "<group>"; };
-		CABC0D63F5475507FDB0A190 /* Pods_Nadam_NadamUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nadam_NadamUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC7E3A97C08CC191E56490D6 /* Pods-NadamWidgetExtension.sandbox(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NadamWidgetExtension.sandbox(debug).xcconfig"; path = "Target Support Files/Pods-NadamWidgetExtension/Pods-NadamWidgetExtension.sandbox(debug).xcconfig"; sourceTree = "<group>"; };
 		CE3B872146B9B5EDC486A1F3 /* Pods-Nadam.real.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nadam.real.xcconfig"; path = "Target Support Files/Pods-Nadam/Pods-Nadam.real.xcconfig"; sourceTree = "<group>"; };
 		D75B344CFE28D7AF61D5B4AF /* Pods-BucketList.inhouse(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BucketList.inhouse(debug).xcconfig"; path = "Target Support Files/Pods-BucketList/Pods-BucketList.inhouse(debug).xcconfig"; sourceTree = "<group>"; };
 		E164A81B3A19E60DC6D5B3E3 /* Pods-NadamTests.real.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NadamTests.real.xcconfig"; path = "Target Support Files/Pods-NadamTests/Pods-NadamTests.real.xcconfig"; sourceTree = "<group>"; };
 		E2FE24B9E264735FD53FA491 /* Pods-NadamWidgetExtension.real.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NadamWidgetExtension.real.xcconfig"; path = "Target Support Files/Pods-NadamWidgetExtension/Pods-NadamWidgetExtension.real.xcconfig"; sourceTree = "<group>"; };
+		E6C0B3A741D94BE2552F9A2D /* Pods_BuokWidgetExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BuokWidgetExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE64EE50EB3512280D8E7B47 /* Pods-Buok.real.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Buok.real.xcconfig"; path = "Target Support Files/Pods-Buok/Pods-Buok.real.xcconfig"; sourceTree = "<group>"; };
 		F65BD738214020871341DE05 /* Pods-YappHero-YappHeroUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHero-YappHeroUITests.release.xcconfig"; path = "Target Support Files/Pods-YappHero-YappHeroUITests/Pods-YappHero-YappHeroUITests.release.xcconfig"; sourceTree = "<group>"; };
 		F694113430B9D3AC5B8FD3C8 /* Pods-BucketListTests.inhouse(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BucketListTests.inhouse(debug).xcconfig"; path = "Target Support Files/Pods-BucketListTests/Pods-BucketListTests.inhouse(debug).xcconfig"; sourceTree = "<group>"; };
+		FAA30482BA20B7DD44EA69D7 /* Pods_BuokTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BuokTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -264,7 +276,7 @@
 				B07C0CFE25FDB267000AE1B0 /* HeroSharedAssets.framework in Frameworks */,
 				B04CF78025FD857B00FBAB10 /* HeroNetwork.framework in Frameworks */,
 				B04175A225E239D900D990A2 /* HeroCommon.framework in Frameworks */,
-				E52D683A34A3F92B8C4D7BAB /* Pods_Nadam.framework in Frameworks */,
+				F9EECDCC1BB268AD7FC97CF0 /* Pods_Buok.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,7 +284,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				043E70FCB0D7DF9DCA84D583 /* Pods_NadamTests.framework in Frameworks */,
+				20578AFA9B716592135E4D20 /* Pods_BuokTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,7 +292,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8F9D858FF04EF3023EF730B4 /* Pods_Nadam_NadamUITests.framework in Frameworks */,
+				7A23F5D60945D5051A7AF8BA /* Pods_Buok_BuokUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,7 +302,7 @@
 			files = (
 				B0D43A552600DA99003420CA /* SwiftUI.framework in Frameworks */,
 				B0D43A532600DA99003420CA /* WidgetKit.framework in Frameworks */,
-				AA403D860B597DD347A05D86 /* Pods_NadamWidgetExtension.framework in Frameworks */,
+				73A6015BE1A71587F5FCC6C5 /* Pods_BuokWidgetExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,10 +314,10 @@
 			children = (
 				B0D43A522600DA99003420CA /* WidgetKit.framework */,
 				B0D43A542600DA99003420CA /* SwiftUI.framework */,
-				14F1F3104258F31B2DFD2A73 /* Pods_Nadam.framework */,
-				CABC0D63F5475507FDB0A190 /* Pods_Nadam_NadamUITests.framework */,
-				466F72399C9F33E4853F5BE7 /* Pods_NadamTests.framework */,
-				8A04DF86C226F75EB2C8EF22 /* Pods_NadamWidgetExtension.framework */,
+				AECABF2E7CD3020025E0B60D /* Pods_Buok.framework */,
+				19D64A49C31935ACEF072549 /* Pods_Buok_BuokUITests.framework */,
+				FAA30482BA20B7DD44EA69D7 /* Pods_BuokTests.framework */,
+				E6C0B3A741D94BE2552F9A2D /* Pods_BuokWidgetExtension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -349,6 +361,18 @@
 				1646EB61B2228484D9236E1E /* Pods-NadamWidgetExtension.inhouse(debug).xcconfig */,
 				CC7E3A97C08CC191E56490D6 /* Pods-NadamWidgetExtension.sandbox(debug).xcconfig */,
 				E2FE24B9E264735FD53FA491 /* Pods-NadamWidgetExtension.real.xcconfig */,
+				37F621F8B5B86FEACA0C4C02 /* Pods-Buok.inhouse(debug).xcconfig */,
+				2BB0B5F8CB1111CB6C492273 /* Pods-Buok.sandbox(debug).xcconfig */,
+				EE64EE50EB3512280D8E7B47 /* Pods-Buok.real.xcconfig */,
+				80259888864004FA2F953251 /* Pods-Buok-BuokUITests.inhouse(debug).xcconfig */,
+				30B041E2F4C7530B3BA87AF6 /* Pods-Buok-BuokUITests.sandbox(debug).xcconfig */,
+				2ED6AAF01C650FDE03D6831F /* Pods-Buok-BuokUITests.real.xcconfig */,
+				4ED130FF7235F27FE2025A97 /* Pods-BuokTests.inhouse(debug).xcconfig */,
+				A12B5EAF099E93EA0771F5FE /* Pods-BuokTests.sandbox(debug).xcconfig */,
+				78B2470DF033E14DFCA4AB62 /* Pods-BuokTests.real.xcconfig */,
+				6FFDC647A6315BB2143F1A3C /* Pods-BuokWidgetExtension.inhouse(debug).xcconfig */,
+				3B419EF289B5904465AC1C0A /* Pods-BuokWidgetExtension.sandbox(debug).xcconfig */,
+				06A3A2A2F70474FDB56CD321 /* Pods-BuokWidgetExtension.real.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -368,9 +392,9 @@
 				B04CF75F25FD84D500FBAB10 /* HeroNetwork.xcodeproj */,
 				B041755525E2384300D990A2 /* HeroCommon.xcodeproj */,
 				B041752325E2382D00D990A2 /* HeroUI.xcodeproj */,
-				B041747025E2366E00D990A2 /* Nadam */,
-				B041748A25E2366F00D990A2 /* NadamTests */,
-				B041749525E2366F00D990A2 /* NadamUITests */,
+				B041747025E2366E00D990A2 /* Buok */,
+				B041748A25E2366F00D990A2 /* BuokTests */,
+				B041749525E2366F00D990A2 /* BuokUITests */,
 				B0D43A6A2600DAA8003420CA /* App Extensions */,
 				B041746F25E2366E00D990A2 /* Products */,
 				A4F2BB761D83362580259525 /* Pods */,
@@ -381,15 +405,15 @@
 		B041746F25E2366E00D990A2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B041746E25E2366E00D990A2 /* Nadam.app */,
-				B041748725E2366F00D990A2 /* NadamTests.xctest */,
-				B041749225E2366F00D990A2 /* NadamUITests.xctest */,
-				B0D43A512600DA99003420CA /* NadamWidgetExtension.appex */,
+				B041746E25E2366E00D990A2 /* Buok.app */,
+				B041748725E2366F00D990A2 /* BuokTests.xctest */,
+				B041749225E2366F00D990A2 /* BuokUITests.xctest */,
+				B0D43A512600DA99003420CA /* BuokWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B041747025E2366E00D990A2 /* Nadam */ = {
+		B041747025E2366E00D990A2 /* Buok */ = {
 			isa = PBXGroup;
 			children = (
 				B0D0218D26021EDE00F25329 /* Global */,
@@ -398,25 +422,25 @@
 				B07520E125ED003A0016DC3A /* Network */,
 				B06B5CB225ECA3EE0045A491 /* ViewControllers */,
 			);
-			path = Nadam;
+			path = Buok;
 			sourceTree = "<group>";
 		};
-		B041748A25E2366F00D990A2 /* NadamTests */ = {
+		B041748A25E2366F00D990A2 /* BuokTests */ = {
 			isa = PBXGroup;
 			children = (
 				B041748B25E2366F00D990A2 /* BucketListTests.swift */,
 				B041748D25E2366F00D990A2 /* Info.plist */,
 			);
-			path = NadamTests;
+			path = BuokTests;
 			sourceTree = "<group>";
 		};
-		B041749525E2366F00D990A2 /* NadamUITests */ = {
+		B041749525E2366F00D990A2 /* BuokUITests */ = {
 			isa = PBXGroup;
 			children = (
 				B041749625E2366F00D990A2 /* BucketListUITests.swift */,
 				B041749825E2366F00D990A2 /* Info.plist */,
 			);
-			path = NadamUITests;
+			path = BuokUITests;
 			sourceTree = "<group>";
 		};
 		B041752425E2382D00D990A2 /* Products */ = {
@@ -628,9 +652,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B041746D25E2366E00D990A2 /* Nadam */ = {
+		B041746D25E2366E00D990A2 /* Buok */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B041749B25E2366F00D990A2 /* Build configuration list for PBXNativeTarget "Nadam" */;
+			buildConfigurationList = B041749B25E2366F00D990A2 /* Build configuration list for PBXNativeTarget "Buok" */;
 			buildPhases = (
 				ACC5C29EF151955FF3537CFD /* [CP] Check Pods Manifest.lock */,
 				B041746A25E2366E00D990A2 /* Sources */,
@@ -647,14 +671,14 @@
 			dependencies = (
 				B0D43A602600DA9B003420CA /* PBXTargetDependency */,
 			);
-			name = Nadam;
+			name = Buok;
 			productName = YappHero;
-			productReference = B041746E25E2366E00D990A2 /* Nadam.app */;
+			productReference = B041746E25E2366E00D990A2 /* Buok.app */;
 			productType = "com.apple.product-type.application";
 		};
-		B041748625E2366F00D990A2 /* NadamTests */ = {
+		B041748625E2366F00D990A2 /* BuokTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B041749E25E2366F00D990A2 /* Build configuration list for PBXNativeTarget "NadamTests" */;
+			buildConfigurationList = B041749E25E2366F00D990A2 /* Build configuration list for PBXNativeTarget "BuokTests" */;
 			buildPhases = (
 				991D3A646A316E38BD4C8880 /* [CP] Check Pods Manifest.lock */,
 				B041748325E2366F00D990A2 /* Sources */,
@@ -666,14 +690,14 @@
 			dependencies = (
 				B041748925E2366F00D990A2 /* PBXTargetDependency */,
 			);
-			name = NadamTests;
+			name = BuokTests;
 			productName = YappHeroTests;
-			productReference = B041748725E2366F00D990A2 /* NadamTests.xctest */;
+			productReference = B041748725E2366F00D990A2 /* BuokTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		B041749125E2366F00D990A2 /* NadamUITests */ = {
+		B041749125E2366F00D990A2 /* BuokUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B04174A125E2366F00D990A2 /* Build configuration list for PBXNativeTarget "NadamUITests" */;
+			buildConfigurationList = B04174A125E2366F00D990A2 /* Build configuration list for PBXNativeTarget "BuokUITests" */;
 			buildPhases = (
 				5C45E8858704499A6C6AB1E6 /* [CP] Check Pods Manifest.lock */,
 				B041748E25E2366F00D990A2 /* Sources */,
@@ -686,14 +710,14 @@
 			dependencies = (
 				B041749425E2366F00D990A2 /* PBXTargetDependency */,
 			);
-			name = NadamUITests;
+			name = BuokUITests;
 			productName = YappHeroUITests;
-			productReference = B041749225E2366F00D990A2 /* NadamUITests.xctest */;
+			productReference = B041749225E2366F00D990A2 /* BuokUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
-		B0D43A502600DA99003420CA /* NadamWidgetExtension */ = {
+		B0D43A502600DA99003420CA /* BuokWidgetExtension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B0D43A622600DA9B003420CA /* Build configuration list for PBXNativeTarget "NadamWidgetExtension" */;
+			buildConfigurationList = B0D43A622600DA9B003420CA /* Build configuration list for PBXNativeTarget "BuokWidgetExtension" */;
 			buildPhases = (
 				C871DE13574B296A0EBFBFF6 /* [CP] Check Pods Manifest.lock */,
 				B0D43A4D2600DA99003420CA /* Sources */,
@@ -704,9 +728,9 @@
 			);
 			dependencies = (
 			);
-			name = NadamWidgetExtension;
+			name = BuokWidgetExtension;
 			productName = NadamWidgetExtension;
-			productReference = B0D43A512600DA99003420CA /* NadamWidgetExtension.appex */;
+			productReference = B0D43A512600DA99003420CA /* BuokWidgetExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -734,7 +758,7 @@
 					};
 				};
 			};
-			buildConfigurationList = B041746925E2366E00D990A2 /* Build configuration list for PBXProject "Nadam" */;
+			buildConfigurationList = B041746925E2366E00D990A2 /* Build configuration list for PBXProject "Buok" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -766,10 +790,10 @@
 			);
 			projectRoot = "";
 			targets = (
-				B041746D25E2366E00D990A2 /* Nadam */,
-				B041748625E2366F00D990A2 /* NadamTests */,
-				B041749125E2366F00D990A2 /* NadamUITests */,
-				B0D43A502600DA99003420CA /* NadamWidgetExtension */,
+				B041746D25E2366E00D990A2 /* Buok */,
+				B041748625E2366F00D990A2 /* BuokTests */,
+				B041749125E2366F00D990A2 /* BuokUITests */,
+				B0D43A502600DA99003420CA /* BuokWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -874,15 +898,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Nadam-NadamUITests/Pods-Nadam-NadamUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Buok-BuokUITests/Pods-Buok-BuokUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Nadam-NadamUITests/Pods-Nadam-NadamUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Buok-BuokUITests/Pods-Buok-BuokUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Nadam-NadamUITests/Pods-Nadam-NadamUITests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Buok-BuokUITests/Pods-Buok-BuokUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		5C45E8858704499A6C6AB1E6 /* [CP] Check Pods Manifest.lock */ = {
@@ -900,7 +924,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Nadam-NadamUITests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Buok-BuokUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -922,7 +946,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-NadamTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-BuokTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -944,7 +968,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Nadam-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Buok-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1000,7 +1024,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-NadamWidgetExtension-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-BuokWidgetExtension-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1013,15 +1037,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Nadam/Pods-Nadam-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Buok/Pods-Buok-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Nadam/Pods-Nadam-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Buok/Pods-Buok-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Nadam/Pods-Nadam-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Buok/Pods-Buok-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1090,17 +1114,17 @@
 /* Begin PBXTargetDependency section */
 		B041748925E2366F00D990A2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B041746D25E2366E00D990A2 /* Nadam */;
+			target = B041746D25E2366E00D990A2 /* Buok */;
 			targetProxy = B041748825E2366F00D990A2 /* PBXContainerItemProxy */;
 		};
 		B041749425E2366F00D990A2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B041746D25E2366E00D990A2 /* Nadam */;
+			target = B041746D25E2366E00D990A2 /* Buok */;
 			targetProxy = B041749325E2366F00D990A2 /* PBXContainerItemProxy */;
 		};
 		B0D43A602600DA9B003420CA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B0D43A502600DA99003420CA /* NadamWidgetExtension */;
+			target = B0D43A502600DA99003420CA /* BuokWidgetExtension */;
 			targetProxy = B0D43A5F2600DA9B003420CA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1238,7 +1262,7 @@
 		};
 		B041749C25E2366F00D990A2 /* Inhouse(Debug) */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 94FAC4BCB4E824FCE1DEB980 /* Pods-Nadam.inhouse(debug).xcconfig */;
+			baseConfigurationReference = 37F621F8B5B86FEACA0C4C02 /* Pods-Buok.inhouse(debug).xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1246,7 +1270,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = M79H9K226Y;
-				INFOPLIST_FILE = Nadam/Resources/Info.plist;
+				INFOPLIST_FILE = Buok/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1263,7 +1287,7 @@
 		};
 		B041749D25E2366F00D990A2 /* Real */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CE3B872146B9B5EDC486A1F3 /* Pods-Nadam.real.xcconfig */;
+			baseConfigurationReference = EE64EE50EB3512280D8E7B47 /* Pods-Buok.real.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1271,7 +1295,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = M79H9K226Y;
-				INFOPLIST_FILE = Nadam/Resources/Info.plist;
+				INFOPLIST_FILE = Buok/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1288,7 +1312,7 @@
 		};
 		B041749F25E2366F00D990A2 /* Inhouse(Debug) */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4562CB2B247BB4604F8555B1 /* Pods-NadamTests.inhouse(debug).xcconfig */;
+			baseConfigurationReference = 4ED130FF7235F27FE2025A97 /* Pods-BuokTests.inhouse(debug).xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1305,13 +1329,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Nadam.app/Nadam";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Buok.app/Buok";
 			};
 			name = "Inhouse(Debug)";
 		};
 		B04174A025E2366F00D990A2 /* Real */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E164A81B3A19E60DC6D5B3E3 /* Pods-NadamTests.real.xcconfig */;
+			baseConfigurationReference = 78B2470DF033E14DFCA4AB62 /* Pods-BuokTests.real.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1328,13 +1352,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Nadam.app/Nadam";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Buok.app/Buok";
 			};
 			name = Real;
 		};
 		B04174A225E2366F00D990A2 /* Inhouse(Debug) */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 54167ECDDAF71780B1B61453 /* Pods-Nadam-NadamUITests.inhouse(debug).xcconfig */;
+			baseConfigurationReference = 80259888864004FA2F953251 /* Pods-Buok-BuokUITests.inhouse(debug).xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1355,7 +1379,7 @@
 		};
 		B04174A325E2366F00D990A2 /* Real */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9B52E28803EF825980102EE8 /* Pods-Nadam-NadamUITests.real.xcconfig */;
+			baseConfigurationReference = 2ED6AAF01C650FDE03D6831F /* Pods-Buok-BuokUITests.real.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1438,7 +1462,7 @@
 		};
 		B04174B625E236D700D990A2 /* Sandbox(Debug) */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 95D4FCBE883ABBFA7673ED5B /* Pods-Nadam.sandbox(debug).xcconfig */;
+			baseConfigurationReference = 2BB0B5F8CB1111CB6C492273 /* Pods-Buok.sandbox(debug).xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1446,7 +1470,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = M79H9K226Y;
-				INFOPLIST_FILE = Nadam/Resources/Info.plist;
+				INFOPLIST_FILE = Buok/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1463,7 +1487,7 @@
 		};
 		B04174B725E236D700D990A2 /* Sandbox(Debug) */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3F205FDAF7CF626871DF7158 /* Pods-NadamTests.sandbox(debug).xcconfig */;
+			baseConfigurationReference = A12B5EAF099E93EA0771F5FE /* Pods-BuokTests.sandbox(debug).xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1480,13 +1504,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Nadam.app/Nadam";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Buok.app/Buok";
 			};
 			name = "Sandbox(Debug)";
 		};
 		B04174B825E236D700D990A2 /* Sandbox(Debug) */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AA5970ABF9321C40A1373EEA /* Pods-Nadam-NadamUITests.sandbox(debug).xcconfig */;
+			baseConfigurationReference = 30B041E2F4C7530B3BA87AF6 /* Pods-Buok-BuokUITests.sandbox(debug).xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1507,7 +1531,7 @@
 		};
 		B0D43A632600DA9B003420CA /* Inhouse(Debug) */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1646EB61B2228484D9236E1E /* Pods-NadamWidgetExtension.inhouse(debug).xcconfig */;
+			baseConfigurationReference = 6FFDC647A6315BB2143F1A3C /* Pods-BuokWidgetExtension.inhouse(debug).xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1586,7 +1610,7 @@
 		};
 		B0D43A642600DA9B003420CA /* Sandbox(Debug) */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CC7E3A97C08CC191E56490D6 /* Pods-NadamWidgetExtension.sandbox(debug).xcconfig */;
+			baseConfigurationReference = 3B419EF289B5904465AC1C0A /* Pods-BuokWidgetExtension.sandbox(debug).xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1659,7 +1683,7 @@
 		};
 		B0D43A652600DA9B003420CA /* Real */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E2FE24B9E264735FD53FA491 /* Pods-NadamWidgetExtension.real.xcconfig */;
+			baseConfigurationReference = 06A3A2A2F70474FDB56CD321 /* Pods-BuokWidgetExtension.real.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1733,7 +1757,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B041746925E2366E00D990A2 /* Build configuration list for PBXProject "Nadam" */ = {
+		B041746925E2366E00D990A2 /* Build configuration list for PBXProject "Buok" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B041749925E2366F00D990A2 /* Inhouse(Debug) */,
@@ -1743,7 +1767,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Real;
 		};
-		B041749B25E2366F00D990A2 /* Build configuration list for PBXNativeTarget "Nadam" */ = {
+		B041749B25E2366F00D990A2 /* Build configuration list for PBXNativeTarget "Buok" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B041749C25E2366F00D990A2 /* Inhouse(Debug) */,
@@ -1753,7 +1777,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Real;
 		};
-		B041749E25E2366F00D990A2 /* Build configuration list for PBXNativeTarget "NadamTests" */ = {
+		B041749E25E2366F00D990A2 /* Build configuration list for PBXNativeTarget "BuokTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B041749F25E2366F00D990A2 /* Inhouse(Debug) */,
@@ -1763,7 +1787,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Real;
 		};
-		B04174A125E2366F00D990A2 /* Build configuration list for PBXNativeTarget "NadamUITests" */ = {
+		B04174A125E2366F00D990A2 /* Build configuration list for PBXNativeTarget "BuokUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B04174A225E2366F00D990A2 /* Inhouse(Debug) */,
@@ -1773,7 +1797,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Real;
 		};
-		B0D43A622600DA9B003420CA /* Build configuration list for PBXNativeTarget "NadamWidgetExtension" */ = {
+		B0D43A622600DA9B003420CA /* Build configuration list for PBXNativeTarget "BuokWidgetExtension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B0D43A632600DA9B003420CA /* Inhouse(Debug) */,

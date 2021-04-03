@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_NadamVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_NadamVersionString[];
+FOUNDATION_EXPORT double Pods_Buok_BuokUITestsVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_Buok_BuokUITestsVersionString[];
 

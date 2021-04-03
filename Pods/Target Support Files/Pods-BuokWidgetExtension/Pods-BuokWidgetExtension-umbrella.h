@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_NadamWidgetExtensionVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_NadamWidgetExtensionVersionString[];
+FOUNDATION_EXPORT double Pods_BuokWidgetExtensionVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_BuokWidgetExtensionVersionString[];
 

@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Nadam.xcodeproj">
+      location = "group:Buok.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:HeroCommon/HeroCommon.xcodeproj">

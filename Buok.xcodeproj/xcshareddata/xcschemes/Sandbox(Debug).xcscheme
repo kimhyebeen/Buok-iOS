@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B041746D25E2366E00D990A2"
-               BuildableName = "Nadam.app"
-               BlueprintName = "Nadam"
-               ReferencedContainer = "container:Nadam.xcodeproj">
+               BuildableName = "Buok.app"
+               BlueprintName = "Buok"
+               ReferencedContainer = "container:Buok.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,9 +45,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B041746D25E2366E00D990A2"
-            BuildableName = "Nadam.app"
-            BlueprintName = "Nadam"
-            ReferencedContainer = "container:Nadam.xcodeproj">
+            BuildableName = "Buok.app"
+            BlueprintName = "Buok"
+            ReferencedContainer = "container:Buok.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B041746D25E2366E00D990A2"
-            BuildableName = "Nadam.app"
-            BlueprintName = "Nadam"
-            ReferencedContainer = "container:Nadam.xcodeproj">
+            BuildableName = "Buok.app"
+            BlueprintName = "Buok"
+            ReferencedContainer = "container:Buok.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
