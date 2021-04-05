@@ -26,7 +26,7 @@ JIRA : [YAPP iOS 1 JIRA](https://yappios1.atlassian.net/jira/software/projects/Y
 
 - Git Flow : (iteration) - develop - feature
 - Multi Module (Main - [UI / Common / etc.])
-- Deployment Target: 12.0
+- Deployment Target: iOS 12.0(14.0) / iPad OS 13.0
 - Network Module : PromiseKit + Alamofire
 - Protocol Oriented Programming, Clean Architecture
 - Design Patten: MVVM (Model - View - ViewModel)
