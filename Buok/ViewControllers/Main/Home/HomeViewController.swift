@@ -12,8 +12,17 @@ import HeroUI
 
 public class HomeViewController: HeroBaseViewController {
     private let topContentView: UIView = UIView()
-    private let notiButton: HeroImageButton = HeroImageButton()
-    private let searchButton: HeroImageButton = HeroImageButton()
+    private let notiButton: HeroImageButton = {
+        $0.imageInset = 8
+        $0.heroImage = UIImage(heroSharedNamed: "tab_home.png")
+        return $0
+    }(HeroImageButton())
+    
+    private let searchButton: HeroImageButton = {
+        $0.imageInset = 8
+        $0.heroImage = UIImage(heroSharedNamed: "tab_home.png")
+        return $0
+    }(HeroImageButton())
     
     private let topSectionView: UIStackView = UIStackView()
     private let filterContainerView: UIView = UIView()
@@ -40,9 +49,15 @@ public class HomeViewController: HeroBaseViewController {
     private func bindViewModel() {
         if let viewModel = viewModel {
             viewModel.helloText.bind({ helloText in
-                DispatchQueue.main.async {
-                    DebugLog(helloText)
-                }
+                self.asyncFunction(task: { function in
+                    function(helloText)
+                }, execute: { text in
+                    DebugLog(text)
+                })
+                
+//                DispatchQueue.main.async {
+//                    DebugLog(helloText)
+//                }
             })
         }
     }
@@ -100,10 +115,6 @@ public class HomeViewController: HeroBaseViewController {
     
     private func setupViewProperties() {
         view.backgroundColor = .heroGraySample100s
-        notiButton.imageInset = 8
-        searchButton.imageInset = 8
-        notiButton.heroImage = UIImage(heroSharedNamed: "tab_home.png")
-        searchButton.heroImage = UIImage(heroSharedNamed: "tab_home.png")
         
         topSectionView.axis = .vertical
         messageContainerView.backgroundColor = .heroWhite100s
@@ -118,6 +129,14 @@ public class HomeViewController: HeroBaseViewController {
     @objc
     private func onClickSearch(_ sender: Any?) {
         navigationController?.pushViewController(MultiLevelViewController(), animated: true)
+    }
+    
+    // MARK: Sample General Async Function
+    private func asyncFunction<T>(task: @escaping ((@escaping (T) -> Void) -> Void),
+                                  execute: @escaping (T) -> Void) {
+        DispatchQueue.main.async {
+            task(execute)
+        }
     }
 }
 
