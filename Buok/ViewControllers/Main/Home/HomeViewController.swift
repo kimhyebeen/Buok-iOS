@@ -27,8 +27,14 @@ public class HomeViewController: HeroBaseViewController {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = true
         bindViewModel()
+        
+        let beforeTimeMillis = CFAbsoluteTimeGetCurrent()
         setupMainLayout()
         setupViewProperties()
+        
+        let afterTimeMillis = CFAbsoluteTimeGetCurrent()
+        let elapsedTime = afterTimeMillis - beforeTimeMillis
+        DebugLog("View Configuration Elapsed Time : \(elapsedTime)")
     }
     
     private func bindViewModel() {
