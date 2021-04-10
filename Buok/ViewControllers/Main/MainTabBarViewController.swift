@@ -12,95 +12,84 @@ import HeroUI
 import SnapKit
 
 public class MainTabBarViewController: UITabBarController, UITabBarControllerDelegate {
-    private let actionButton: TabBarActionButton = TabBarActionButton()
-    private let tabBarView: HeroTabBarView = HeroTabBarView()
+    private let addButton: UIButton = {
+        $0.backgroundColor = .heroWhite100s
+        $0.setImage(UIImage(heroSharedNamed: "tab_add.png")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        $0.imageView?.tintColor = .heroGray600s
+        $0.frame = CGRect(x: 100, y: 0, width: 44, height: 44)
+        $0.addTarget(self, action: #selector(onClickAddButton(_:)), for: .touchUpInside)
+        return $0
+    }(UIButton())
     
     private var tabViewControllers: [UIViewController] = [UIViewController]()
-    private var currentIndex: Int = 0
-    private var previousIndex: Int = 0
     
-    private let tabBarItemList: [HeroTabBarItem] = [
-        HeroTabBarItem(title: nil,
-                       image: UIImage(heroSharedNamed: "tab_home.png")?.withRenderingMode(.alwaysTemplate)),
-        HeroTabBarItem(title: nil,
-                       image: UIImage(heroSharedNamed: "tab_add.png")?.withRenderingMode(.alwaysTemplate)),
-        HeroTabBarItem(title: nil,
-                       image: UIImage(heroSharedNamed: "tab_mypage.png")?.withRenderingMode(.alwaysTemplate))
-    ]
+    public override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        addButton.frame = CGRect(x: self.tabBar.center.x - 22, y: self.tabBar.frame.origin.y, width: 44, height: 44)
+    }
+    
+    public override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        setupMainLayout()
-        setupViewProperties()
+        delegate = self
+
+        navigationController?.isNavigationBarHidden = true
         setupTabBarItems()
-        tabChanged(tapped: 0)
+        self.view.insertSubview(addButton, aboveSubview: self.tabBar)
     }
-    
-    private func setupMainLayout() {
-        view.addSubview(tabBarView)
-        view.bringSubviewToFront(tabBarView)
-        
-        tabBarView.snp.makeConstraints { make in
-            make.leading.equalToSuperview()
-            make.trailing.equalToSuperview()
-            make.bottom.equalToSuperview()
-            make.height.equalTo(MainTabBarConstants.tabBarHeight)
-        }
-    }
-    
-    private func setupViewProperties() {
-        self.delegate = self
-        self.tabBar.isHidden = true
-        
-        tabBarView.delegate = self
-        tabBarView.itemList = tabBarItemList
-        tabBarView.borderRadius = 12
-    }
-    
+
     private func setupTabBarItems() {
         let homeVC = HomeViewController()
         homeVC.viewModel = HomeViewModel()
         
         let mypageVC = MyPageViewController()
         
-        let homeNavVC = HeroNavigationController(navigationBarClass: HeroUINavigationBar.self, toolbarClass: nil)
-        homeNavVC.viewControllers = [homeVC]
+        let homeNC = createNavController(for: homeVC,
+                                         normalImage: UIImage(heroSharedNamed: "tab_home.png"),
+                                         selectedImage: UIImage(heroSharedNamed: "tab_home.png"))
         
-        let mypageNavVC = HeroNavigationController(navigationBarClass: HeroUINavigationBar.self, toolbarClass: nil)
-        mypageNavVC.viewControllers = [mypageVC]
+        let addNC = createNavController(for: UIViewController(),
+                                        normalImage: nil,
+                                        selectedImage: nil)
+        
+        let mypageNC = createNavController(for: mypageVC,
+                                           normalImage: UIImage(heroSharedNamed: "tab_mypage.png"), selectedImage: UIImage(heroSharedNamed: "tab_mypage.png"))
         
         tabViewControllers.removeAll()
-        tabViewControllers.append(homeNavVC)
-        tabViewControllers.append(UIViewController())
-        tabViewControllers.append(mypageNavVC)
+        tabViewControllers.append(homeNC)
+        tabViewControllers.append(addNC)
+        tabViewControllers.append(mypageNC)
+        
+        tabBar.barTintColor = .heroWhite100s
+        tabBar.tintColor = .heroGray600s
+
+        viewControllers = tabViewControllers
+    }
+    
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+
+    public func tabBarController(_: UITabBarController, didSelect _: UIViewController) {
+        DebugLog("tabBarController didSelect update Navigation Title")
     }
     
     @objc
-    private func clickFloatingButton(_ sender: UIButton) {
-        DebugLog("Click Floating Button")
+    private func onClickAddButton(_ sender: Any) {
+        let vc = CreateViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
-    @objc
-    private func tabChanged(tapped index: Int) {
-        if index != 1 {
-            previousIndex = currentIndex
-            currentIndex = index
-            tabBarView.setTabBarItemSelected(index: currentIndex, isSelected: true)
-            let previousVC = tabViewControllers[previousIndex]
-            previousVC.willMove(toParent: nil)
-            previousVC.view.removeFromSuperview()
-            previousVC.removeFromParent()
-            
-            let vc = tabViewControllers[currentIndex]
-            vc.view.frame = UIApplication.shared.windows[0].frame
-            vc.didMove(toParent: self)
-            self.addChild(vc)
-            self.view.addSubview(vc.view)
-            self.view.bringSubviewToFront(tabBarView)
-        } else {
-            let vc = CreateViewController()
-            navigationController?.pushViewController(vc, animated: true)
-        }
+    fileprivate func createNavController(for rootViewController: UIViewController,
+                                         normalImage: UIImage?,
+                                         selectedImage: UIImage?) -> UIViewController {
+        let navController = HeroNavigationController(navigationBarClass: HeroUINavigationBar.self, toolbarClass: nil)
+        navController.tabBarItem = UITabBarItem(title: "", image: normalImage, selectedImage: selectedImage)
+        navController.viewControllers = [rootViewController]
+        return navController
     }
 }
 
@@ -114,6 +103,6 @@ extension MainTabBarViewController: UIScrollViewDelegate {
 
 extension MainTabBarViewController: HeroTabBarViewDelegate {
     public func tabBarItem(at index: Int) {
-        tabChanged(tapped: index)
+//        tabChanged(tapped: index)
     }
 }

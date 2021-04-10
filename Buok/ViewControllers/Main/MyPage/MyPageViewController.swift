@@ -1,6 +1,6 @@
 //
 //  MyPageViewController.swift
-//  Nadam
+//  Buok
 //
 //  Created by Taein Kim on 2021/03/06.
 //
@@ -11,37 +11,41 @@ import HeroUI
 import SnapKit
 
 public class MyPageViewController: HeroBaseViewController {
-    private let sampleButton: UIButton = UIButton()
-    
     public override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.isNavigationBarHidden = true
-        view.addSubview(sampleButton)
+        navigationController?.isNavigationBarHidden = false
+        navigationItem.setRightHeroBarButtonItem(
+            UIBarButtonItem(image: UIImage(heroSharedNamed: "tab_home.png")?.withRenderingMode(.alwaysTemplate),
+                            style: .plain,
+                            target: self,
+                            action: #selector(onClickSetting(_:))),
+            animated: false)
+        
         view.backgroundColor = .heroGraySample100s
-        
-        sampleButton.setTitle("Sample Button", for: .normal)
-        sampleButton.setTitleColor(.heroBlue100s, for: .normal)
-        sampleButton.titleLabel?.font = .font16PBold
-        sampleButton.addTarget(self, action: #selector(onClickSample(_:)), for: .touchUpInside)
-        
-        sampleButton.snp.makeConstraints { make in
-            make.center.equalToSuperview()
-        }
+    }
+    
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
     @objc
-    private func onClickSample(_ sender: UIButton) {
-        let alertController = HeroAlertController(rootViewController: self)
-        alertController.setPositiveAction(action: HeroAlertAction(content: "확인", handler: {
-            DebugLog("OK")
-            self.sampleButton.setTitle("Sample Button(OK)", for: .normal)
-        }))
-
-        alertController.setNegativeAction(action: HeroAlertAction(content: "취소", handler: {
-            DebugLog("Cancel")
-            self.sampleButton.setTitle("Sample Button(Cancel)", for: .normal)
-        }))
-
-        alertController.showAlert(title: "샘플 타이틀", message: "샘플 텍스트입니다. 샘플 텍스트입니다.", buttonSetType: .okCancel)
+    private func onClickSetting(_ sender: Any) {
+        
     }
+    
+//    @objc
+//    private func onClickSample(_ sender: UIButton) {
+//        let alertController = HeroAlertController(rootViewController: self)
+//        alertController.setPositiveAction(action: HeroAlertAction(content: "확인", handler: {
+//            DebugLog("OK")
+//            self.sampleButton.setTitle("Sample Button(OK)", for: .normal)
+//        }))
+//
+//        alertController.setNegativeAction(action: HeroAlertAction(content: "취소", handler: {
+//            DebugLog("Cancel")
+//            self.sampleButton.setTitle("Sample Button(Cancel)", for: .normal)
+//        }))
+//
+//        alertController.showAlert(title: "샘플 타이틀", message: "샘플 텍스트입니다. 샘플 텍스트입니다.", buttonSetType: .okCancel)
+//    }
 }
