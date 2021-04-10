@@ -33,6 +33,10 @@ public class MyPageViewController: HeroBaseViewController {
                             action: #selector(onClickSetting(_:))),
             animated: false)
         
+//        let backButtonImage = UIImage(heroSharedNamed: "tab_home.png")
+        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem = backBarButtonItem
+        
         view.backgroundColor = .heroGraySample100s
         setupViewLayout()
     }
@@ -43,7 +47,7 @@ public class MyPageViewController: HeroBaseViewController {
     
     @objc
     private func onClickSetting(_ sender: Any) {
-        
+        navigationController?.pushViewController(SettingViewController(), animated: true)
     }
     
     private func setupViewLayout() {
