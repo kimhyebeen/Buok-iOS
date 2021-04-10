@@ -11,6 +11,11 @@ import HeroUI
 import SnapKit
 
 public class MyPageViewController: HeroBaseViewController {
+    private let scrollView: UIScrollView = UIScrollView()
+    private let contentView: UIView = UIView()
+    
+    private let profileView: MyPageProfileView = MyPageProfileView()
+    
     public override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = false
@@ -22,6 +27,7 @@ public class MyPageViewController: HeroBaseViewController {
             animated: false)
         
         view.backgroundColor = .heroGraySample100s
+        setupViewLayout()
     }
     
     public override func viewWillAppear(_ animated: Bool) {
@@ -31,6 +37,30 @@ public class MyPageViewController: HeroBaseViewController {
     @objc
     private func onClickSetting(_ sender: Any) {
         
+    }
+    
+    private func setupViewLayout() {
+        view.addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        
+        scrollView.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            make.left.right.equalToSuperview()
+            make.bottom.equalToSuperview()
+        }
+        
+        contentView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+            make.height.equalToSuperview().priority(250)
+            make.width.equalToSuperview()
+        }
+        
+        contentView.backgroundColor = .heroGraySample100s
+        contentView.addSubview(profileView)
+        
+        profileView.snp.makeConstraints { make in
+            make.top.left.right.equalToSuperview()
+        }
     }
     
 //    @objc
