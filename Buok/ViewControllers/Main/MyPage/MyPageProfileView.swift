@@ -36,7 +36,9 @@ final class MyPageProfileView: UIView {
     private let profileCountView: MyPageProfileCountView = MyPageProfileCountView()
     private let profileMessageSectionView: UIView = UIView()
     private let profileMessageLabel: UILabel = {
-        $0.numberOfLines = 0
+        $0.numberOfLines = 3
+        $0.font = .font14P
+        $0.textColor = .heroGray600s
         return $0
     }(UILabel())
     
@@ -51,6 +53,10 @@ final class MyPageProfileView: UIView {
         profileImageSectionView.addSubview(profileContentView)
         profileContentView.addSubview(profileNameLabel)
         profileContentView.addSubview(profileAwardKeywordView)
+        
+        addSubview(profileCountView)
+        addSubview(profileMessageSectionView)
+        profileMessageSectionView.addSubview(profileMessageLabel)
         
         profileImageSectionView.snp.makeConstraints { make in
             make.top.equalToSuperview()
@@ -77,7 +83,25 @@ final class MyPageProfileView: UIView {
             make.left.bottom.equalToSuperview()
         }
         
+        profileCountView.snp.makeConstraints { make in
+            make.top.equalTo(profileImageSectionView.snp.bottom).offset(8)
+            make.left.right.equalToSuperview()
+            make.height.equalTo(64)
+        }
+        
+        DebugLog("ProfileView - profileCountView Width : \(profileCountView.frame.width)")
+        
+        profileMessageSectionView.snp.makeConstraints { make in
+            make.top.equalTo(profileCountView.snp.bottom).offset(8)
+            make.left.right.bottom.equalToSuperview()
+        }
+        
+        profileMessageLabel.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
         profileNameLabel.text = "홍길동"
+        profileMessageLabel.text = "안녕하세요\n홍길동의 버킷리스트입니다.\n세줄까지 보여줄 수 있고 그 밑 부터는 줄여서 표현"
     }
     
     required init?(coder: NSCoder) {
