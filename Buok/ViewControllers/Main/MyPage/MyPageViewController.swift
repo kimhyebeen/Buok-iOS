@@ -1,6 +1,6 @@
 //
 //  MyPageViewController.swift
-//  Nadam
+//  Buok
 //
 //  Created by Taein Kim on 2021/03/06.
 //
@@ -11,37 +11,80 @@ import HeroUI
 import SnapKit
 
 public class MyPageViewController: HeroBaseViewController {
-    private let sampleButton: UIButton = UIButton()
+    private let scrollView: UIScrollView = UIScrollView()
+    private let contentView: UIView = UIView()
+    
+    private let profileView: MyPageProfileView = MyPageProfileView()
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.isNavigationBarHidden = true
-        view.addSubview(sampleButton)
-        view.backgroundColor = .heroGraySample100s
+        navigationController?.isNavigationBarHidden = false
         
-        sampleButton.setTitle("Sample Button", for: .normal)
-        sampleButton.setTitleColor(.heroBlue100s, for: .normal)
-        sampleButton.titleLabel?.font = .font16PBold
-        sampleButton.addTarget(self, action: #selector(onClickSample(_:)), for: .touchUpInside)
-        
-        sampleButton.snp.makeConstraints { make in
-            make.center.equalToSuperview()
+        if let navBar = navigationController?.navigationBar as? HeroUINavigationBar {
+            navBar.tintColor = .heroGray600s
+            navBar.barTintColor = .heroGraySample100s
+            navBar.removeDefaultShadowImage()
         }
+        
+        navigationItem.setRightHeroBarButtonItem(
+            UIBarButtonItem(image: UIImage(heroSharedNamed: "tab_home.png")?.withRenderingMode(.alwaysTemplate),
+                            style: .plain,
+                            target: self,
+                            action: #selector(onClickSetting(_:))),
+            animated: false)
+        
+        view.backgroundColor = .heroGraySample100s
+        setupViewLayout()
+    }
+    
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
     @objc
-    private func onClickSample(_ sender: UIButton) {
-        let alertController = HeroAlertController(rootViewController: self)
-        alertController.setPositiveAction(action: HeroAlertAction(content: "확인", handler: {
-            DebugLog("OK")
-            self.sampleButton.setTitle("Sample Button(OK)", for: .normal)
-        }))
-
-        alertController.setNegativeAction(action: HeroAlertAction(content: "취소", handler: {
-            DebugLog("Cancel")
-            self.sampleButton.setTitle("Sample Button(Cancel)", for: .normal)
-        }))
-
-        alertController.showAlert(title: "샘플 타이틀", message: "샘플 텍스트입니다. 샘플 텍스트입니다.", buttonSetType: .okCancel)
+    private func onClickSetting(_ sender: Any) {
+        
     }
+    
+    private func setupViewLayout() {
+        view.addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        
+        scrollView.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            make.left.right.equalToSuperview()
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+        }
+        
+        contentView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+            make.height.equalToSuperview().priority(250)
+            make.width.equalToSuperview()
+        }
+        
+        contentView.backgroundColor = .heroGraySample100s
+        contentView.addSubview(profileView)
+        
+        profileView.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.left.equalToSuperview().offset(16)
+            make.right.equalToSuperview().offset(-16)
+        }
+    }
+    
+//    @objc
+//    private func onClickSample(_ sender: UIButton) {
+//        let alertController = HeroAlertController(rootViewController: self)
+//        alertController.setPositiveAction(action: HeroAlertAction(content: "확인", handler: {
+//            DebugLog("OK")
+//            self.sampleButton.setTitle("Sample Button(OK)", for: .normal)
+//        }))
+//
+//        alertController.setNegativeAction(action: HeroAlertAction(content: "취소", handler: {
+//            DebugLog("Cancel")
+//            self.sampleButton.setTitle("Sample Button(Cancel)", for: .normal)
+//        }))
+//
+//        alertController.showAlert(title: "샘플 타이틀", message: "샘플 텍스트입니다. 샘플 텍스트입니다.", buttonSetType: .okCancel)
+//    }
 }

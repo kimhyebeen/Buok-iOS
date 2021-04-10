@@ -44,6 +44,11 @@
 		B075238125EF5AF70016DC3A /* BucketListHomeAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B075238025EF5AF70016DC3A /* BucketListHomeAPIRequest.swift */; };
 		B07C0CFE25FDB267000AE1B0 /* HeroSharedAssets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07C0CF425FDB1DC000AE1B0 /* HeroSharedAssets.framework */; };
 		B07C0CFF25FDB268000AE1B0 /* HeroSharedAssets.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B07C0CF425FDB1DC000AE1B0 /* HeroSharedAssets.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B0B0338326219FCF00D65204 /* MyPageProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B0338226219FCF00D65204 /* MyPageProfileView.swift */; };
+		B0B0339026219FE200D65204 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B0338F26219FE200D65204 /* Profile.swift */; };
+		B0B033952621A0FD00D65204 /* MyPageProfileKeywordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B033942621A0FD00D65204 /* MyPageProfileKeywordView.swift */; };
+		B0B0339D2621A12200D65204 /* MyPageProfileCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B0339C2621A12200D65204 /* MyPageProfileCountView.swift */; };
+		B0B033A52621C6B500D65204 /* CountContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B033A42621C6B500D65204 /* CountContentView.swift */; };
 		B0D0217D2602199600F25329 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D0217C2602199600F25329 /* SignUpViewController.swift */; };
 		B0D0218226021A2100F25329 /* NadamProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D0218126021A2100F25329 /* NadamProperties.swift */; };
 		B0D43A532600DA99003420CA /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0D43A522600DA99003420CA /* WidgetKit.framework */; };
@@ -242,6 +247,11 @@
 		B075238025EF5AF70016DC3A /* BucketListHomeAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketListHomeAPIRequest.swift; sourceTree = "<group>"; };
 		B07C0C8C25FDB146000AE1B0 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		B07C0CEE25FDB1D9000AE1B0 /* HeroSharedAssets.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = HeroSharedAssets.xcodeproj; path = HeroSharedAssets/HeroSharedAssets.xcodeproj; sourceTree = "<group>"; };
+		B0B0338226219FCF00D65204 /* MyPageProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageProfileView.swift; sourceTree = "<group>"; };
+		B0B0338F26219FE200D65204 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		B0B033942621A0FD00D65204 /* MyPageProfileKeywordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageProfileKeywordView.swift; sourceTree = "<group>"; };
+		B0B0339C2621A12200D65204 /* MyPageProfileCountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageProfileCountView.swift; sourceTree = "<group>"; };
+		B0B033A42621C6B500D65204 /* CountContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountContentView.swift; sourceTree = "<group>"; };
 		B0D0217C2602199600F25329 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		B0D0218126021A2100F25329 /* NadamProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NadamProperties.swift; sourceTree = "<group>"; };
 		B0D43A512600DA99003420CA /* BuokWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BuokWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -556,6 +566,7 @@
 				B075225325ED06ED0016DC3A /* UserModel.swift */,
 				B075226C25ED089F0016DC3A /* AuthTokenModel.swift */,
 				B075226825ED08780016DC3A /* UserAuthModel.swift */,
+				B0B0338F26219FE200D65204 /* Profile.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -590,6 +601,10 @@
 			isa = PBXGroup;
 			children = (
 				B0F229AA25F3C9E000D96CBA /* MyPageViewController.swift */,
+				B0B0338226219FCF00D65204 /* MyPageProfileView.swift */,
+				B0B033942621A0FD00D65204 /* MyPageProfileKeywordView.swift */,
+				B0B0339C2621A12200D65204 /* MyPageProfileCountView.swift */,
+				B0B033A42621C6B500D65204 /* CountContentView.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -1058,9 +1073,11 @@
 				B0635ADA260390E100046E88 /* CreateViewController.swift in Sources */,
 				B0F229AB25F3C9E000D96CBA /* MyPageViewController.swift in Sources */,
 				B01D43A826039D2500F2D28C /* DetailViewController.swift in Sources */,
+				B0B033952621A0FD00D65204 /* MyPageProfileKeywordView.swift in Sources */,
 				B06B5EEF25ECCEE10045A491 /* SubTwoViewController.swift in Sources */,
 				B0D43A5E2600DA9B003420CA /* NadamWidget.intentdefinition in Sources */,
 				B075231325EF1E6F0016DC3A /* BaseAPIError.swift in Sources */,
+				B0B0338326219FCF00D65204 /* MyPageProfileView.swift in Sources */,
 				B01D43B526039D6C00F2D28C /* CreateViewModel.swift in Sources */,
 				B075226925ED08780016DC3A /* UserAuthModel.swift in Sources */,
 				B0635AC52603897600046E88 /* HomeViewController.swift in Sources */,
@@ -1068,10 +1085,13 @@
 				B06B5EDF25ECCD550045A491 /* HeroNavigationController.swift in Sources */,
 				B0D0217D2602199600F25329 /* SignUpViewController.swift in Sources */,
 				B041747625E2366E00D990A2 /* MultiLevelViewController.swift in Sources */,
+				B0B0339D2621A12200D65204 /* MyPageProfileCountView.swift in Sources */,
 				B06B5EE925ECCED90045A491 /* SubOneViewController.swift in Sources */,
 				B01D43BA2604231800F2D28C /* CategoryFilterView.swift in Sources */,
 				B041747C25E2366E00D990A2 /* BucketList.xcdatamodeld in Sources */,
+				B0B0339026219FE200D65204 /* Profile.swift in Sources */,
 				B06B5EE325ECCE610045A491 /* HeroBaseViewController.swift in Sources */,
+				B0B033A52621C6B500D65204 /* CountContentView.swift in Sources */,
 				B041747225E2366E00D990A2 /* AppDelegate.swift in Sources */,
 				B06B5EF625ECD0140045A491 /* SubThreeViewController.swift in Sources */,
 				B075225425ED06ED0016DC3A /* UserModel.swift in Sources */,
@@ -1721,7 +1741,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = M79H9K226Y;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
