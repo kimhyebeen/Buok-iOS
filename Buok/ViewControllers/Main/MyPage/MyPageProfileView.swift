@@ -19,12 +19,18 @@ final class MyPageProfileView: UIView {
     
     private let profileImageSectionView: UIView = UIView()
     private let profileImageView: UIImageView = {
-        $0.backgroundColor = .heroGray600s
+        $0.backgroundColor = .heroGraySample200s
+        $0.layer.cornerRadius = 30
         return $0
     }(UIImageView())
     
     private let profileContentView: UIView = UIView()
-    private let profileNameLabel: UILabel = UILabel()
+    private let profileNameLabel: UILabel = {
+        $0.font = .font17PBold
+        $0.textColor = .heroGray600s
+        return $0
+    }(UILabel())
+    
     private let profileAwardKeywordView: MyPageProfileKeywordView = MyPageProfileKeywordView()
     
     private let profileCountView: MyPageProfileCountView = MyPageProfileCountView()
@@ -70,6 +76,8 @@ final class MyPageProfileView: UIView {
             make.top.equalTo(profileNameLabel.snp.bottom).offset(4)
             make.left.bottom.equalToSuperview()
         }
+        
+        profileNameLabel.text = "홍길동"
     }
     
     required init?(coder: NSCoder) {

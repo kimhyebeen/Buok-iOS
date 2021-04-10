@@ -19,6 +19,13 @@ public class MyPageViewController: HeroBaseViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = false
+        
+        if let navBar = navigationController?.navigationBar as? HeroUINavigationBar {
+            navBar.tintColor = .heroGray600s
+            navBar.barTintColor = .heroGraySample100s
+            navBar.removeDefaultShadowImage()
+        }
+        
         navigationItem.setRightHeroBarButtonItem(
             UIBarButtonItem(image: UIImage(heroSharedNamed: "tab_home.png")?.withRenderingMode(.alwaysTemplate),
                             style: .plain,
@@ -59,7 +66,9 @@ public class MyPageViewController: HeroBaseViewController {
         contentView.addSubview(profileView)
         
         profileView.snp.makeConstraints { make in
-            make.top.left.right.equalToSuperview()
+            make.top.equalToSuperview()
+            make.left.equalToSuperview().offset(16)
+            make.right.equalToSuperview().offset(-16)
         }
     }
     
