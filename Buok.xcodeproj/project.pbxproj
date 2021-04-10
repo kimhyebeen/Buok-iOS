@@ -50,6 +50,8 @@
 		B0B0339D2621A12200D65204 /* MyPageProfileCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B0339C2621A12200D65204 /* MyPageProfileCountView.swift */; };
 		B0B033A52621C6B500D65204 /* CountContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B033A42621C6B500D65204 /* CountContentView.swift */; };
 		B0B033C12621C97300D65204 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B033C02621C97300D65204 /* SettingViewController.swift */; };
+		B0B033C92621CDA700D65204 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B033C82621CDA700D65204 /* SettingCell.swift */; };
+		B0B033CE2621CDBC00D65204 /* SettingInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B033CD2621CDBC00D65204 /* SettingInfoCell.swift */; };
 		B0D0217D2602199600F25329 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D0217C2602199600F25329 /* SignUpViewController.swift */; };
 		B0D0218226021A2100F25329 /* NadamProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D0218126021A2100F25329 /* NadamProperties.swift */; };
 		B0D43A532600DA99003420CA /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0D43A522600DA99003420CA /* WidgetKit.framework */; };
@@ -254,6 +256,8 @@
 		B0B0339C2621A12200D65204 /* MyPageProfileCountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageProfileCountView.swift; sourceTree = "<group>"; };
 		B0B033A42621C6B500D65204 /* CountContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountContentView.swift; sourceTree = "<group>"; };
 		B0B033C02621C97300D65204 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		B0B033C82621CDA700D65204 /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
+		B0B033CD2621CDBC00D65204 /* SettingInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingInfoCell.swift; sourceTree = "<group>"; };
 		B0D0217C2602199600F25329 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		B0D0218126021A2100F25329 /* NadamProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NadamProperties.swift; sourceTree = "<group>"; };
 		B0D43A512600DA99003420CA /* BuokWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BuokWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -595,6 +599,8 @@
 			isa = PBXGroup;
 			children = (
 				B0B033C02621C97300D65204 /* SettingViewController.swift */,
+				B0B033C82621CDA700D65204 /* SettingCell.swift */,
+				B0B033CD2621CDBC00D65204 /* SettingInfoCell.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -1105,8 +1111,10 @@
 				B06B5EE325ECCE610045A491 /* HeroBaseViewController.swift in Sources */,
 				B0B033A52621C6B500D65204 /* CountContentView.swift in Sources */,
 				B041747225E2366E00D990A2 /* AppDelegate.swift in Sources */,
+				B0B033CE2621CDBC00D65204 /* SettingInfoCell.swift in Sources */,
 				B06B5EF625ECD0140045A491 /* SubThreeViewController.swift in Sources */,
 				B075225425ED06ED0016DC3A /* UserModel.swift in Sources */,
+				B0B033C92621CDA700D65204 /* SettingCell.swift in Sources */,
 				B04C15E826015FCF0084BAEC /* SignInViewController.swift in Sources */,
 				B01D43B026039D5700F2D28C /* HomeViewModel.swift in Sources */,
 				B06B5CB425ECA4070045A491 /* MainTabBarViewController.swift in Sources */,
