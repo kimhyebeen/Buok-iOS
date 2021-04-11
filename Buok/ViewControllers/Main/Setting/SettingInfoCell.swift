@@ -14,6 +14,7 @@ final class SettingInfoCell: UITableViewCell {
     var type: SettingType? {
         didSet {
             titleLabel.text = type?.getTitle()
+            contentLabel.text = "최신 1.11.1 사용 중"
         }
     }
     
@@ -39,6 +40,20 @@ final class SettingInfoCell: UITableViewCell {
     }
     
     private func setupCellLayout() {
+        contentView.addSubview(titleLabel)
+        contentView.addSubview(contentLabel)
         
+        titleLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(8)
+            make.left.equalToSuperview().offset(16)
+            make.right.equalToSuperview().offset(-16)
+        }
+        
+        contentLabel.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(8)
+            make.left.equalToSuperview().offset(16)
+            make.right.equalToSuperview().offset(-16)
+            make.bottom.equalToSuperview().offset(-8)
+        }
     }
 }

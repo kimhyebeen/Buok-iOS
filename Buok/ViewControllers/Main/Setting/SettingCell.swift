@@ -17,9 +17,28 @@ final class SettingCell: UITableViewCell {
         }
     }
     
+    var content: String? {
+        didSet {
+            contentLabel.text = content
+        }
+    }
+    
+    private let arrowView: UIImageView = {
+        $0.image = UIImage(heroSharedNamed: "ic_right_arrow")?.withRenderingMode(.alwaysTemplate)
+        $0.tintColor = .heroGraySample300s
+        $0.contentMode = .scaleAspectFit
+        return $0
+    }(UIImageView())
+    
     private let titleLabel: UILabel = {
         $0.font = .font14P
         $0.textColor = .heroGraySample300s
+        return $0
+    }(UILabel())
+    
+    private let contentLabel: UILabel = {
+        $0.font = .font14P
+        $0.textColor = .heroGray600s
         return $0
     }(UILabel())
     
@@ -39,14 +58,38 @@ final class SettingCell: UITableViewCell {
     }
     
     private func updateViewType() {
-        
+        switch cellType {
+        case .normal:
+            contentLabel.isHidden = false
+            arrowView.isHidden = true
+        case .button:
+            contentLabel.isHidden = true
+            arrowView.isHidden = false
+        default:
+            contentLabel.isHidden = true
+            arrowView.isHidden = true
+        }
     }
     
     private func setupCellLayout() {
         contentView.addSubview(titleLabel)
+        contentView.addSubview(contentLabel)
+        contentView.addSubview(arrowView)
+        
         titleLabel.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.left.equalToSuperview().offset(16)
+            make.leading.equalToSuperview().offset(16)
+        }
+        
+        contentLabel.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.trailing.equalToSuperview().offset(-16)
+        }
+        
+        arrowView.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.trailing.equalToSuperview().offset(-16)
+            make.height.equalTo(16)
         }
     }
 }

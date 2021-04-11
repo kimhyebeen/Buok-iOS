@@ -9,47 +9,6 @@ import Foundation
 import HeroCommon
 import HeroUI
 
-enum SettingCellType: Int {
-    case normal = 0
-    case info
-    case button
-}
-
-enum SettingType: Int {
-    case mail = 0
-    case connectedAccount
-    case appVersion
-    case lock
-    case language
-    case notification
-    case dataManagement
-    case backup
-    case contact
-    
-    func getTitle() -> String {
-        switch self {
-        case .mail:
-            return "메일 주소"
-        case .connectedAccount:
-            return "연결된 계정"
-        case .appVersion:
-            return "앱 버전"
-        case .lock:
-            return "잠금"
-        case .language:
-            return "언어"
-        case .notification:
-            return "알림"
-        case .dataManagement:
-            return "저장 데이터 관리"
-        case .backup:
-            return "백업"
-        case .contact:
-            return "연락처"
-        }
-    }
-}
-
 final class SettingViewController: HeroBaseViewController {
     private let tableView: UITableView = UITableView()
     
@@ -69,6 +28,7 @@ final class SettingViewController: HeroBaseViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorInset = .zero
+        tableView.separatorStyle = .none
         tableView.backgroundColor = .clear
         tableView.tableFooterView = UIView()
         
@@ -98,13 +58,39 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
         return numberOfRowsInSection(section)
     }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return SettingSectionHeaderView()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let settingType = getSettingType(by: indexPath)
+        if let vc = SettingNavigator.getDestViewController(type: settingType) {
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: SettingCell.identifier, for: indexPath) as? SettingCell {
-            cell.selectionStyle = .none
-            cell.type = getSettingType(by: indexPath)
-            cell.cellType = getSettingCellType(by: indexPath)
-            cell.backgroundColor = .heroGraySample100s
-            return cell
+        let settingType = getSettingType(by: indexPath)
+        if settingType == .appVersion {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: SettingInfoCell.identifier, for: indexPath) as? SettingInfoCell {
+                cell.selectionStyle = .none
+                cell.type = .appVersion
+                cell.backgroundColor = .heroGraySample100s
+                return cell
+            }
+        } else {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: SettingCell.identifier, for: indexPath) as? SettingCell {
+                cell.selectionStyle = .none
+                cell.type = getSettingType(by: indexPath)
+                cell.cellType = getSettingCellType(by: indexPath)
+                cell.backgroundColor = .heroGraySample100s
+                
+                if settingType == .mail {
+                    cell.content = "test@gmail.com"
+                }
+                
+                return cell
+            }
         }
         
         return UITableViewCell()
