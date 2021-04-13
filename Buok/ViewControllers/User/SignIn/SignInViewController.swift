@@ -12,8 +12,22 @@ import HeroUI
 import SnapKit
 
 public class SignInViewController: HeroBaseViewController {
+    let guideLabel = UILabel()
+    let emailField = UITextField()
+    let nextButton = UIButton()
+    let orLabel = UILabel()
+    let appleSignInButton = UIButton()
+    let googleSignInButton = UIButton()
+    let kakaoSignInButton = UIButton()
+    let servicePolicyButton = UIButton()
+    
     public override func viewDidLoad() {
         super.viewDidLoad()
-        DebugLog("SignIn ViewController viewDidLoad()")
+        
+        setupView()
+    }
+    
+    private func setupView() {
+        
     }
 }
