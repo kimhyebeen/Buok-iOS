@@ -58,9 +58,18 @@ public extension UIColor {
     static var heroGraySample200s: UIColor { fetchHeroColor(#function) }
     static var heroGraySample300s: UIColor { fetchHeroColor(#function) }
     
+    static var heroServiceSkin: UIColor { fetchHeroColor(#function) }
+    static var heroServiceNavy: UIColor { fetchHeroColor(#function) }
+    static var heroGray5B: UIColor { fetchHeroColor(#function) }
+    static var heroGray7A: UIColor { fetchHeroColor(#function) }
+    static var heroGrayDA: UIColor { fetchHeroColor(#function) }
+    static var heroGrayA8: UIColor { fetchHeroColor(#function) }
+    
     private static func fetchHeroColor(_ name: String) -> UIColor {
-        let name = name.replacingOccurrences(of: "hero", with: "").lowercased()
-        let assetName = "hero_\(name)"
+        let name = name.replacingOccurrences(of: "hero", with: "")
+        
+        let assetName = "hero_\(name[name.startIndex].lowercased())\(name[name.index(after: name.startIndex)..<name.endIndex])"
+        
         guard let color = UIColor(named: assetName, in: Bundle.heroShared, compatibleWith: nil) else {
             //            assertionFailure()
             return .darkGray
