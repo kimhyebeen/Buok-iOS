@@ -65,6 +65,7 @@
 		B0D43A5E2600DA9B003420CA /* NadamWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = B0D43A592600DA99003420CA /* NadamWidget.intentdefinition */; };
 		B0D43A612600DA9B003420CA /* BuokWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B0D43A512600DA99003420CA /* BuokWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B0F229AB25F3C9E000D96CBA /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F229AA25F3C9E000D96CBA /* MyPageViewController.swift */; };
+		EEA213CB2625D59900E3AEA1 /* SignInViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA213CA2625D59900E3AEA1 /* SignInViewController+UI.swift */; };
 		F9EECDCC1BB268AD7FC97CF0 /* Pods_Buok.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AECABF2E7CD3020025E0B60D /* Pods_Buok.framework */; };
 /* End PBXBuildFile section */
 
@@ -284,6 +285,7 @@
 		E2FE24B9E264735FD53FA491 /* Pods-NadamWidgetExtension.real.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NadamWidgetExtension.real.xcconfig"; path = "Target Support Files/Pods-NadamWidgetExtension/Pods-NadamWidgetExtension.real.xcconfig"; sourceTree = "<group>"; };
 		E6C0B3A741D94BE2552F9A2D /* Pods_BuokWidgetExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BuokWidgetExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE64EE50EB3512280D8E7B47 /* Pods-Buok.real.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Buok.real.xcconfig"; path = "Target Support Files/Pods-Buok/Pods-Buok.real.xcconfig"; sourceTree = "<group>"; };
+		EEA213CA2625D59900E3AEA1 /* SignInViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignInViewController+UI.swift"; sourceTree = "<group>"; };
 		F65BD738214020871341DE05 /* Pods-YappHero-YappHeroUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHero-YappHeroUITests.release.xcconfig"; path = "Target Support Files/Pods-YappHero-YappHeroUITests/Pods-YappHero-YappHeroUITests.release.xcconfig"; sourceTree = "<group>"; };
 		F694113430B9D3AC5B8FD3C8 /* Pods-BucketListTests.inhouse(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BucketListTests.inhouse(debug).xcconfig"; path = "Target Support Files/Pods-BucketListTests/Pods-BucketListTests.inhouse(debug).xcconfig"; sourceTree = "<group>"; };
 		FAA30482BA20B7DD44EA69D7 /* Pods_BuokTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BuokTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -647,6 +649,7 @@
 			isa = PBXGroup;
 			children = (
 				B04C15E726015FCF0084BAEC /* SignInViewController.swift */,
+				EEA213CA2625D59900E3AEA1 /* SignInViewController+UI.swift */,
 			);
 			path = SignIn;
 			sourceTree = "<group>";
@@ -1111,6 +1114,7 @@
 				B06B5EDF25ECCD550045A491 /* HeroNavigationController.swift in Sources */,
 				B0D0217D2602199600F25329 /* SignUpViewController.swift in Sources */,
 				B041747625E2366E00D990A2 /* MultiLevelViewController.swift in Sources */,
+				EEA213CB2625D59900E3AEA1 /* SignInViewController+UI.swift in Sources */,
 				B0B0339D2621A12200D65204 /* MyPageProfileCountView.swift in Sources */,
 				B06B5EE925ECCED90045A491 /* SubOneViewController.swift in Sources */,
 				B01D43BA2604231800F2D28C /* CategoryFilterView.swift in Sources */,
