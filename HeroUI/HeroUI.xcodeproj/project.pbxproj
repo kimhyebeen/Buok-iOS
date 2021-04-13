@@ -29,6 +29,7 @@
 		B94199A7340AA091D7EFED1D /* libPods-HeroUI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67AFB3E0E117A8D4DF3E3098 /* libPods-HeroUI.a */; };
 		EEA213852625BA6B00E3AEA1 /* SignServiceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA213842625BA6B00E3AEA1 /* SignServiceButton.swift */; };
 		EEA213B32625C99D00E3AEA1 /* SignTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA213B22625C99D00E3AEA1 /* SignTextField.swift */; };
+		EEA213BF2625CF2900E3AEA1 /* PasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA213BE2625CF2900E3AEA1 /* PasswordTextField.swift */; };
 		EEBCE3C925FA1F2200BA6749 /* HeroTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBCE3C825FA1F2200BA6749 /* HeroTagView.swift */; };
 		EEBCE3D225FA21CD00BA6749 /* HeroFloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBCE3D125FA21CD00BA6749 /* HeroFloatingButton.swift */; };
 /* End PBXBuildFile section */
@@ -75,6 +76,7 @@
 		CF5BADAB0CAB732CEE18C3F8 /* Pods-HeroUI.real.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroUI.real.xcconfig"; path = "Target Support Files/Pods-HeroUI/Pods-HeroUI.real.xcconfig"; sourceTree = "<group>"; };
 		EEA213842625BA6B00E3AEA1 /* SignServiceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignServiceButton.swift; sourceTree = "<group>"; };
 		EEA213B22625C99D00E3AEA1 /* SignTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignTextField.swift; sourceTree = "<group>"; };
+		EEA213BE2625CF2900E3AEA1 /* PasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextField.swift; sourceTree = "<group>"; };
 		EEBCE3C825FA1F2200BA6749 /* HeroTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroTagView.swift; sourceTree = "<group>"; };
 		EEBCE3D125FA21CD00BA6749 /* HeroFloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroFloatingButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -366,6 +368,7 @@
 			files = (
 				B06B5EDB25ECCC6E0045A491 /* UIImage+Hero.swift in Sources */,
 				EEA213852625BA6B00E3AEA1 /* SignServiceButton.swift in Sources */,
+				EEA213BF2625CF2900E3AEA1 /* PasswordTextField.swift in Sources */,
 				B0376FF525F48768003D7750 /* TabBarActionButton.swift in Sources */,
 				B07CDC2B25F4BE5A00D18589 /* HeroAlertViewController.swift in Sources */,
 				B0635ACE260389EF00046E88 /* HeroImageButton.swift in Sources */,
