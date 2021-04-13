@@ -8,6 +8,23 @@
 import HeroUI
 
 extension SignInViewController {
+    // MARK: ScrollView
+    func setupScrollView() {
+        scrollView.addSubview(contentsView)
+        self.view.addSubview(scrollView)
+        
+        scrollView.snp.makeConstraints { make in
+            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
+            make.bottom.equalToSuperview()
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
+        }
+        
+        contentsView.snp.makeConstraints { make in
+            make.width.equalToSuperview()
+        }
+    }
+    
     // MARK: GuideLabel
     func setupGuideLabel() {
         guideLabel.text = "나만의 buok을 만들어 보세요."
@@ -16,7 +33,7 @@ extension SignInViewController {
         contentsView.addSubview(guideLabel)
         
         guideLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(92 + 44)
+            make.top.equalToSuperview().offset(92)
             make.leading.equalToSuperview().offset(20)
         }
     }
@@ -110,20 +127,6 @@ extension SignInViewController {
             make.top.equalTo(kakaoSignInButton.snp.bottom).offset(3)
             make.bottom.equalToSuperview().offset(-86)
             make.centerX.equalToSuperview()
-        }
-    }
-    
-    // MARK: ScrollView
-    func setupScrollView() {
-        scrollView.addSubview(contentsView)
-        self.view.addSubview(scrollView)
-        
-        scrollView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
-        
-        contentsView.snp.makeConstraints { make in
-            make.width.equalToSuperview()
         }
     }
 }
