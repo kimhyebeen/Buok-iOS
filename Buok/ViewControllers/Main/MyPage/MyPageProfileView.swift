@@ -48,6 +48,7 @@ final class MyPageProfileView: UIView {
     }
     
     private func setupViewLayout() {
+        backgroundColor = .heroGraySample100s
         addSubview(profileImageSectionView)
         profileImageSectionView.addSubview(profileImageView)
         profileImageSectionView.addSubview(profileContentView)
