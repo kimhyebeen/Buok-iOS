@@ -68,6 +68,9 @@
 		EEA213C32625D03E00E3AEA1 /* SignInPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA213C22625D03E00E3AEA1 /* SignInPasswordViewController.swift */; };
 		EEA213CB2625D59900E3AEA1 /* SignInViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA213CA2625D59900E3AEA1 /* SignInViewController+UI.swift */; };
 		EEA213D32625DAEA00E3AEA1 /* SignInPasswordViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA213D22625DAEA00E3AEA1 /* SignInPasswordViewController+UI.swift */; };
+		EEB9EF8C26269762001AF65F /* SignServiceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB9EF8B26269762001AF65F /* SignServiceButton.swift */; };
+		EEB9EF9126269765001AF65F /* PasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB9EF9026269765001AF65F /* PasswordTextField.swift */; };
+		EEB9EF9826269768001AF65F /* SignTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB9EF9726269768001AF65F /* SignTextField.swift */; };
 		F9EECDCC1BB268AD7FC97CF0 /* Pods_Buok.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AECABF2E7CD3020025E0B60D /* Pods_Buok.framework */; };
 /* End PBXBuildFile section */
 
@@ -290,6 +293,9 @@
 		EEA213C22625D03E00E3AEA1 /* SignInPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInPasswordViewController.swift; sourceTree = "<group>"; };
 		EEA213CA2625D59900E3AEA1 /* SignInViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignInViewController+UI.swift"; sourceTree = "<group>"; };
 		EEA213D22625DAEA00E3AEA1 /* SignInPasswordViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignInPasswordViewController+UI.swift"; sourceTree = "<group>"; };
+		EEB9EF8B26269762001AF65F /* SignServiceButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignServiceButton.swift; sourceTree = "<group>"; };
+		EEB9EF9026269765001AF65F /* PasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextField.swift; sourceTree = "<group>"; };
+		EEB9EF9726269768001AF65F /* SignTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignTextField.swift; sourceTree = "<group>"; };
 		F65BD738214020871341DE05 /* Pods-YappHero-YappHeroUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHero-YappHeroUITests.release.xcconfig"; path = "Target Support Files/Pods-YappHero-YappHeroUITests/Pods-YappHero-YappHeroUITests.release.xcconfig"; sourceTree = "<group>"; };
 		F694113430B9D3AC5B8FD3C8 /* Pods-BucketListTests.inhouse(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BucketListTests.inhouse(debug).xcconfig"; path = "Target Support Files/Pods-BucketListTests/Pods-BucketListTests.inhouse(debug).xcconfig"; sourceTree = "<group>"; };
 		FAA30482BA20B7DD44EA69D7 /* Pods_BuokTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BuokTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -652,6 +658,7 @@
 		B0D0217B2602198800F25329 /* SignIn */ = {
 			isa = PBXGroup;
 			children = (
+				EEB9EF822626973C001AF65F /* View */,
 				B04C15E726015FCF0084BAEC /* SignInViewController.swift */,
 				EEA213CA2625D59900E3AEA1 /* SignInViewController+UI.swift */,
 				EEA213C22625D03E00E3AEA1 /* SignInPasswordViewController.swift */,
@@ -697,6 +704,16 @@
 				B0D43A562600DA99003420CA /* NadamWidget */,
 			);
 			path = "App Extensions";
+			sourceTree = "<group>";
+		};
+		EEB9EF822626973C001AF65F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EEB9EF9726269768001AF65F /* SignTextField.swift */,
+				EEB9EF9026269765001AF65F /* PasswordTextField.swift */,
+				EEB9EF8B26269762001AF65F /* SignServiceButton.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1107,6 +1124,7 @@
 			files = (
 				B0635ADA260390E100046E88 /* CreateViewController.swift in Sources */,
 				B0F229AB25F3C9E000D96CBA /* MyPageViewController.swift in Sources */,
+				EEB9EF9126269765001AF65F /* PasswordTextField.swift in Sources */,
 				B01D43A826039D2500F2D28C /* DetailViewController.swift in Sources */,
 				B0B033952621A0FD00D65204 /* MyPageProfileKeywordView.swift in Sources */,
 				B06B5EEF25ECCEE10045A491 /* SubTwoViewController.swift in Sources */,
@@ -1125,6 +1143,7 @@
 				B06B5EE925ECCED90045A491 /* SubOneViewController.swift in Sources */,
 				B01D43BA2604231800F2D28C /* CategoryFilterView.swift in Sources */,
 				B041747C25E2366E00D990A2 /* BucketList.xcdatamodeld in Sources */,
+				EEB9EF9826269768001AF65F /* SignTextField.swift in Sources */,
 				B0B033D32622AA0900D65204 /* SettingNavigator.swift in Sources */,
 				B0B033C12621C97300D65204 /* SettingViewController.swift in Sources */,
 				EEA213D32625DAEA00E3AEA1 /* SignInPasswordViewController+UI.swift in Sources */,
@@ -1145,6 +1164,7 @@
 				B075238125EF5AF70016DC3A /* BucketListHomeAPIRequest.swift in Sources */,
 				B0D0218226021A2100F25329 /* NadamProperties.swift in Sources */,
 				B075230925EF1A0E0016DC3A /* BaseAPIRequest.swift in Sources */,
+				EEB9EF8C26269762001AF65F /* SignServiceButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

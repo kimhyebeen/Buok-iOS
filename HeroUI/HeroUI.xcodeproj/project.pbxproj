@@ -27,9 +27,6 @@
 		B07CDC2B25F4BE5A00D18589 /* HeroAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07CDC2A25F4BE5A00D18589 /* HeroAlertViewController.swift */; };
 		B07CDC3A25F4C1B400D18589 /* HeroAlertButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07CDC3925F4C1B400D18589 /* HeroAlertButton.swift */; };
 		B94199A7340AA091D7EFED1D /* libPods-HeroUI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67AFB3E0E117A8D4DF3E3098 /* libPods-HeroUI.a */; };
-		EEA213852625BA6B00E3AEA1 /* SignServiceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA213842625BA6B00E3AEA1 /* SignServiceButton.swift */; };
-		EEA213B32625C99D00E3AEA1 /* SignTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA213B22625C99D00E3AEA1 /* SignTextField.swift */; };
-		EEA213BF2625CF2900E3AEA1 /* PasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA213BE2625CF2900E3AEA1 /* PasswordTextField.swift */; };
 		EEBCE3C925FA1F2200BA6749 /* HeroTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBCE3C825FA1F2200BA6749 /* HeroTagView.swift */; };
 		EEBCE3D225FA21CD00BA6749 /* HeroFloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBCE3D125FA21CD00BA6749 /* HeroFloatingButton.swift */; };
 /* End PBXBuildFile section */
@@ -74,9 +71,6 @@
 		C33565CC9EFC666DA4E1F6C1 /* Pods-HeroUI.inhouse(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroUI.inhouse(debug).xcconfig"; path = "Target Support Files/Pods-HeroUI/Pods-HeroUI.inhouse(debug).xcconfig"; sourceTree = "<group>"; };
 		C39B8CF93D09A1C653D8841D /* Pods-HeroUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroUI.debug.xcconfig"; path = "Target Support Files/Pods-HeroUI/Pods-HeroUI.debug.xcconfig"; sourceTree = "<group>"; };
 		CF5BADAB0CAB732CEE18C3F8 /* Pods-HeroUI.real.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroUI.real.xcconfig"; path = "Target Support Files/Pods-HeroUI/Pods-HeroUI.real.xcconfig"; sourceTree = "<group>"; };
-		EEA213842625BA6B00E3AEA1 /* SignServiceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignServiceButton.swift; sourceTree = "<group>"; };
-		EEA213B22625C99D00E3AEA1 /* SignTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignTextField.swift; sourceTree = "<group>"; };
-		EEA213BE2625CF2900E3AEA1 /* PasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextField.swift; sourceTree = "<group>"; };
 		EEBCE3C825FA1F2200BA6749 /* HeroTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroTagView.swift; sourceTree = "<group>"; };
 		EEBCE3D125FA21CD00BA6749 /* HeroFloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroFloatingButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -158,8 +152,6 @@
 		B041750B25E2382C00D990A2 /* HeroUI */ = {
 			isa = PBXGroup;
 			children = (
-				EEA213AD2625C96000E3AEA1 /* TextFields */,
-				EEA213832625B97300E3AEA1 /* Buttons */,
 				B0635ACC260389DF00046E88 /* HeroButton */,
 				EEBCE3C725FA1EFA00BA6749 /* HeroKeywordView */,
 				B07CDC2925F4BE4E00D18589 /* HeroAlertController */,
@@ -202,23 +194,6 @@
 				B04CF73025FCDBE600FBAB10 /* HeroAlertController.swift */,
 			);
 			path = HeroAlertController;
-			sourceTree = "<group>";
-		};
-		EEA213832625B97300E3AEA1 /* Buttons */ = {
-			isa = PBXGroup;
-			children = (
-				EEA213842625BA6B00E3AEA1 /* SignServiceButton.swift */,
-			);
-			path = Buttons;
-			sourceTree = "<group>";
-		};
-		EEA213AD2625C96000E3AEA1 /* TextFields */ = {
-			isa = PBXGroup;
-			children = (
-				EEA213B22625C99D00E3AEA1 /* SignTextField.swift */,
-				EEA213BE2625CF2900E3AEA1 /* PasswordTextField.swift */,
-			);
-			path = TextFields;
 			sourceTree = "<group>";
 		};
 		EEBCE3C725FA1EFA00BA6749 /* HeroKeywordView */ = {
@@ -367,8 +342,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B06B5EDB25ECCC6E0045A491 /* UIImage+Hero.swift in Sources */,
-				EEA213852625BA6B00E3AEA1 /* SignServiceButton.swift in Sources */,
-				EEA213BF2625CF2900E3AEA1 /* PasswordTextField.swift in Sources */,
 				B0376FF525F48768003D7750 /* TabBarActionButton.swift in Sources */,
 				B07CDC2B25F4BE5A00D18589 /* HeroAlertViewController.swift in Sources */,
 				B0635ACE260389EF00046E88 /* HeroImageButton.swift in Sources */,
@@ -383,7 +356,6 @@
 				B0376FF925F4893F003D7750 /* HeroTabBarView.swift in Sources */,
 				B041761425E23C0600D990A2 /* Bundle+Hero.swift in Sources */,
 				B041763125E23DAA00D990A2 /* HeroFont.swift in Sources */,
-				EEA213B32625C99D00E3AEA1 /* SignTextField.swift in Sources */,
 				B037700425F4947C003D7750 /* HeroTabBarItem.swift in Sources */,
 				B06B5ED325ECCC100045A491 /* HeroNavigationBarUpdatable.swift in Sources */,
 				B041759B25E2398300D990A2 /* HeroButton.swift in Sources */,
