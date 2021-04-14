@@ -81,6 +81,7 @@ public class MyPageViewController: HeroBaseViewController {
             make.height.equalTo(44)
         }
         
+        collectionView.showsVerticalScrollIndicator = false
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.contentInset =
