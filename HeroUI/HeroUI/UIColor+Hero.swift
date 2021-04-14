@@ -67,9 +67,9 @@ public extension UIColor {
     static var heroGray82: UIColor { fetchHeroColor(#function) }
     
     private static func fetchHeroColor(_ name: String) -> UIColor {
-        let name = name.replacingOccurrences(of: "hero", with: "")
-        
-        let assetName = "hero_\(name[name.startIndex].lowercased())\(name[name.index(after: name.startIndex)..<name.endIndex])"
+        let name = name.replacingOccurrences(of: "hero", with: "").lowercased()
+        let assetName = "hero_\(name)"
+//        let assetName = "hero_\(name[name.startIndex].lowercased())\(name[name.index(after: name.startIndex)..<name.endIndex])"
         
         guard let color = UIColor(named: assetName, in: Bundle.heroShared, compatibleWith: nil) else {
             //            assertionFailure()
