@@ -53,6 +53,10 @@ public extension UIFont {
         UIFont.systemFont(ofSize: 20, weight: .regular)
     }
     
+    class var font22P: UIFont {
+        UIFont.systemFont(ofSize: 22, weight: .regular)
+    }
+    
     class var font26P: UIFont {
         UIFont.systemFont(ofSize: 26, weight: .regular)
     }
