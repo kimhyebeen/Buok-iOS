@@ -8,11 +8,21 @@
 import UIKit
 
 public class PasswordTextField: UITextField {
+    let insetX: CGFloat = 16
+    let insetY: CGFloat = 10
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
         
         setupView()
+    }
+    
+    public override func textRect(forBounds bounds: CGRect) -> CGRect {
+        return bounds.insetBy(dx: insetX, dy: insetY)
+    }
+    
+    public override func editingRect(forBounds bounds: CGRect) -> CGRect {
+        return bounds.insetBy(dx: insetX, dy: insetY)
     }
     
     required init?(coder: NSCoder) {
@@ -24,9 +34,6 @@ public class PasswordTextField: UITextField {
         self.layer.cornerRadius = 8
         self.font = .font22P
         self.isSecureTextEntry = true
-        
-        self.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 19, height: self.frame.height))
-        self.leftViewMode = .always
         // todo - 추후 눈 아이콘버튼 추가
     }
     

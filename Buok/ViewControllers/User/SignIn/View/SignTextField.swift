@@ -8,11 +8,21 @@
 import UIKit
 
 public class SignTextField: UITextField {
+    let insetX: CGFloat = 16
+    let insetY: CGFloat = 10
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
         
         setupView()
+    }
+    
+    public override func textRect(forBounds bounds: CGRect) -> CGRect {
+        return bounds.insetBy(dx: insetX, dy: insetY)
+    }
+    
+    public override func editingRect(forBounds bounds: CGRect) -> CGRect {
+        return bounds.insetBy(dx: insetX, dy: insetY)
     }
     
     required init?(coder: NSCoder) {
@@ -23,10 +33,6 @@ public class SignTextField: UITextField {
         self.backgroundColor = .white
         self.layer.cornerRadius = 8
         self.font = .font22P
-        self.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 19, height: self.frame.height))
-        self.rightView = UIView(frame: CGRect(x: 0, y: 0, width: 19, height: self.frame.height))
-        self.leftViewMode = .always
-        self.rightViewMode = .always
     }
     
     public func setPlaceHolder(_ text: String) {

@@ -34,8 +34,6 @@ class IntroduceTextField: UITextField {
         self.layer.cornerRadius = 8
         self.font = .font16P
         self.contentVerticalAlignment = .top
-        self.leftViewMode = .always
-        self.rightViewMode = .always
     }
     
     public func setPlaceHolder(_ text: String) {
