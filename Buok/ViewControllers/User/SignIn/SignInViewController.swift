@@ -30,9 +30,7 @@ public class SignInViewController: HeroBaseViewController {
         setupView()
     }
     
-    private func setupView() {
-        self.view.backgroundColor = .heroServiceSkin
-        
+    private func setupView() {        
         setupScrollView()
         setupGuideLabel()
         setupEmailField()

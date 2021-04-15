@@ -1,15 +1,15 @@
 //
-//  PasswordTextField.swift
-//  HeroUI
+//  IntroduceTextField.swift
+//  Buok
 //
-//  Created by 김혜빈 on 2021/04/13.
+//  Created by 김혜빈 on 2021/04/15.
 //
 
-import UIKit
+import HeroUI
 
-public class PasswordTextField: UITextField {
+class IntroduceTextField: UITextField {
     let insetX: CGFloat = 16
-    let insetY: CGFloat = 10
+    let insetY: CGFloat = 16
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -17,11 +17,11 @@ public class PasswordTextField: UITextField {
         setupView()
     }
     
-    public override func textRect(forBounds bounds: CGRect) -> CGRect {
+    override func textRect(forBounds bounds: CGRect) -> CGRect {
         return bounds.insetBy(dx: insetX, dy: insetY)
     }
     
-    public override func editingRect(forBounds bounds: CGRect) -> CGRect {
+    override func editingRect(forBounds bounds: CGRect) -> CGRect {
         return bounds.insetBy(dx: insetX, dy: insetY)
     }
     
@@ -32,13 +32,12 @@ public class PasswordTextField: UITextField {
     private func setupView() {
         self.backgroundColor = .white
         self.layer.cornerRadius = 8
-        self.font = .font22P
-        self.isSecureTextEntry = true
-        // todo - 추후 눈 아이콘버튼 추가
+        self.font = .font16P
+        self.contentVerticalAlignment = .top
     }
     
     public func setPlaceHolder(_ text: String) {
-        self.attributedPlaceholder = NSAttributedString(string: text, attributes: [.font: UIFont.font22P])
+        self.attributedPlaceholder = NSAttributedString(string: text, attributes: [.font: UIFont.font16P])
     }
 
 }

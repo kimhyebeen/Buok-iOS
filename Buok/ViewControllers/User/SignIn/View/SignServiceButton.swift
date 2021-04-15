@@ -25,12 +25,12 @@ public class SignServiceButton: UIButton {
     
     public func setHeroTitle(_ text: String) {
         self.setAttributedTitle(NSAttributedString(string: text, attributes: [.font: UIFont.font17P, .foregroundColor: UIColor.white]), for: .normal)
-        self.setAttributedTitle(NSAttributedString(string: text, attributes: [.font: UIFont.font17P, .foregroundColor: UIColor.heroGrayA8]), for: .disabled)
+        self.setAttributedTitle(NSAttributedString(string: text, attributes: [.font: UIFont.font17P, .foregroundColor: UIColor.white]), for: .disabled)
     }
     
     public func setHeroEnable(_ value: Bool) {
         self.isEnabled = value
-        self.backgroundColor = value ? .heroServiceNavy : .heroGrayDA
+        self.backgroundColor = value ? .heroServiceNavy : .heroGrayA6A4A1
     }
 
 }
