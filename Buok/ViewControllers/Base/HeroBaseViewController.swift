@@ -25,6 +25,7 @@ public class HeroBaseViewController: UIViewController, UIGestureRecognizerDelega
     
     override open func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = .heroServiceSkin
         
         if registerKeyboardObservers {
             registerKeyboardNotifications()

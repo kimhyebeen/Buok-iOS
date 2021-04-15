@@ -21,8 +21,6 @@ class SignInPasswordViewController: HeroBaseViewController {
     }
     
     private func setupView() {
-        self.view.backgroundColor = .heroServiceSkin
-        
         setupBackButton()
         setupGuideLabel()
         setupPasswordField()
