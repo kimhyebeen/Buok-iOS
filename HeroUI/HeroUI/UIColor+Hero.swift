@@ -65,6 +65,7 @@ public extension UIColor {
     static var heroGrayDA: UIColor { fetchHeroColor(#function) }
     static var heroGrayA8: UIColor { fetchHeroColor(#function) }
     static var heroGray82: UIColor { fetchHeroColor(#function) }
+    static var heroGrayA6A4A1: UIColor { fetchHeroColor(#function) }
     
     private static func fetchHeroColor(_ name: String) -> UIColor {
         let name = name.replacingOccurrences(of: "hero", with: "").lowercased()

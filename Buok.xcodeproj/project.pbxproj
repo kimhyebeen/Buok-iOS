@@ -71,6 +71,8 @@
 		EEB9EF8C26269762001AF65F /* SignServiceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB9EF8B26269762001AF65F /* SignServiceButton.swift */; };
 		EEB9EF9126269765001AF65F /* PasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB9EF9026269765001AF65F /* PasswordTextField.swift */; };
 		EEB9EF9826269768001AF65F /* SignTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB9EF9726269768001AF65F /* SignTextField.swift */; };
+		EECEF1752627D91100CF9394 /* SignUpNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECEF1742627D91100CF9394 /* SignUpNameViewController.swift */; };
+		EECEF1822627DF6A00CF9394 /* SignUpNameViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECEF1812627DF6A00CF9394 /* SignUpNameViewController+UI.swift */; };
 		F9EECDCC1BB268AD7FC97CF0 /* Pods_Buok.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AECABF2E7CD3020025E0B60D /* Pods_Buok.framework */; };
 /* End PBXBuildFile section */
 
@@ -296,6 +298,8 @@
 		EEB9EF8B26269762001AF65F /* SignServiceButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignServiceButton.swift; sourceTree = "<group>"; };
 		EEB9EF9026269765001AF65F /* PasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextField.swift; sourceTree = "<group>"; };
 		EEB9EF9726269768001AF65F /* SignTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignTextField.swift; sourceTree = "<group>"; };
+		EECEF1742627D91100CF9394 /* SignUpNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpNameViewController.swift; sourceTree = "<group>"; };
+		EECEF1812627DF6A00CF9394 /* SignUpNameViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignUpNameViewController+UI.swift"; sourceTree = "<group>"; };
 		F65BD738214020871341DE05 /* Pods-YappHero-YappHeroUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHero-YappHeroUITests.release.xcconfig"; path = "Target Support Files/Pods-YappHero-YappHeroUITests/Pods-YappHero-YappHeroUITests.release.xcconfig"; sourceTree = "<group>"; };
 		F694113430B9D3AC5B8FD3C8 /* Pods-BucketListTests.inhouse(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BucketListTests.inhouse(debug).xcconfig"; path = "Target Support Files/Pods-BucketListTests/Pods-BucketListTests.inhouse(debug).xcconfig"; sourceTree = "<group>"; };
 		FAA30482BA20B7DD44EA69D7 /* Pods_BuokTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BuokTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -651,6 +655,8 @@
 			isa = PBXGroup;
 			children = (
 				B0D0217C2602199600F25329 /* SignUpViewController.swift */,
+				EECEF1742627D91100CF9394 /* SignUpNameViewController.swift */,
+				EECEF1812627DF6A00CF9394 /* SignUpNameViewController+UI.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -1130,6 +1136,7 @@
 				B06B5EEF25ECCEE10045A491 /* SubTwoViewController.swift in Sources */,
 				B0D43A5E2600DA9B003420CA /* NadamWidget.intentdefinition in Sources */,
 				B075231325EF1E6F0016DC3A /* BaseAPIError.swift in Sources */,
+				EECEF1822627DF6A00CF9394 /* SignUpNameViewController+UI.swift in Sources */,
 				B0B0338326219FCF00D65204 /* MyPageProfileView.swift in Sources */,
 				B01D43B526039D6C00F2D28C /* CreateViewModel.swift in Sources */,
 				B075226925ED08780016DC3A /* UserAuthModel.swift in Sources */,
@@ -1153,6 +1160,7 @@
 				B041747225E2366E00D990A2 /* AppDelegate.swift in Sources */,
 				B0B033CE2621CDBC00D65204 /* SettingInfoCell.swift in Sources */,
 				EEA213C32625D03E00E3AEA1 /* SignInPasswordViewController.swift in Sources */,
+				EECEF1752627D91100CF9394 /* SignUpNameViewController.swift in Sources */,
 				B06B5EF625ECD0140045A491 /* SubThreeViewController.swift in Sources */,
 				B075225425ED06ED0016DC3A /* UserModel.swift in Sources */,
 				B0B035E82622B2B900D65204 /* SettingSectionHeaderView.swift in Sources */,
