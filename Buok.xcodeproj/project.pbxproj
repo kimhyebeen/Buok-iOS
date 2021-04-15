@@ -55,7 +55,7 @@
 		B0B033D32622AA0900D65204 /* SettingNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B033D22622AA0900D65204 /* SettingNavigator.swift */; };
 		B0B035E82622B2B900D65204 /* SettingSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B035E72622B2B900D65204 /* SettingSectionHeaderView.swift */; };
 		B0B035ED2622B33800D65204 /* SettingConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B035EC2622B33800D65204 /* SettingConstants.swift */; };
-		B0D0217D2602199600F25329 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D0217C2602199600F25329 /* SignUpViewController.swift */; };
+		B0D0217D2602199600F25329 /* SignUpPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D0217C2602199600F25329 /* SignUpPasswordViewController.swift */; };
 		B0D0218226021A2100F25329 /* NadamProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D0218126021A2100F25329 /* NadamProperties.swift */; };
 		B0D43A532600DA99003420CA /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0D43A522600DA99003420CA /* WidgetKit.framework */; };
 		B0D43A552600DA99003420CA /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0D43A542600DA99003420CA /* SwiftUI.framework */; };
@@ -65,6 +65,7 @@
 		B0D43A5E2600DA9B003420CA /* NadamWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = B0D43A592600DA99003420CA /* NadamWidget.intentdefinition */; };
 		B0D43A612600DA9B003420CA /* BuokWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B0D43A512600DA99003420CA /* BuokWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B0F229AB25F3C9E000D96CBA /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F229AA25F3C9E000D96CBA /* MyPageViewController.swift */; };
+		EE804C892627F8CE007AACD2 /* SignUpPasswordViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE804C882627F8CE007AACD2 /* SignUpPasswordViewController+UI.swift */; };
 		EEA213C32625D03E00E3AEA1 /* SignInPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA213C22625D03E00E3AEA1 /* SignInPasswordViewController.swift */; };
 		EEA213CB2625D59900E3AEA1 /* SignInViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA213CA2625D59900E3AEA1 /* SignInViewController+UI.swift */; };
 		EEA213D32625DAEA00E3AEA1 /* SignInPasswordViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA213D22625DAEA00E3AEA1 /* SignInPasswordViewController+UI.swift */; };
@@ -275,7 +276,7 @@
 		B0B033D22622AA0900D65204 /* SettingNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingNavigator.swift; sourceTree = "<group>"; };
 		B0B035E72622B2B900D65204 /* SettingSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSectionHeaderView.swift; sourceTree = "<group>"; };
 		B0B035EC2622B33800D65204 /* SettingConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingConstants.swift; sourceTree = "<group>"; };
-		B0D0217C2602199600F25329 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		B0D0217C2602199600F25329 /* SignUpPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPasswordViewController.swift; sourceTree = "<group>"; };
 		B0D0218126021A2100F25329 /* NadamProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NadamProperties.swift; sourceTree = "<group>"; };
 		B0D43A512600DA99003420CA /* BuokWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BuokWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0D43A522600DA99003420CA /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -295,6 +296,7 @@
 		E2FE24B9E264735FD53FA491 /* Pods-NadamWidgetExtension.real.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NadamWidgetExtension.real.xcconfig"; path = "Target Support Files/Pods-NadamWidgetExtension/Pods-NadamWidgetExtension.real.xcconfig"; sourceTree = "<group>"; };
 		E6C0B3A741D94BE2552F9A2D /* Pods_BuokWidgetExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BuokWidgetExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE64EE50EB3512280D8E7B47 /* Pods-Buok.real.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Buok.real.xcconfig"; path = "Target Support Files/Pods-Buok/Pods-Buok.real.xcconfig"; sourceTree = "<group>"; };
+		EE804C882627F8CE007AACD2 /* SignUpPasswordViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignUpPasswordViewController+UI.swift"; sourceTree = "<group>"; };
 		EEA213C22625D03E00E3AEA1 /* SignInPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInPasswordViewController.swift; sourceTree = "<group>"; };
 		EEA213CA2625D59900E3AEA1 /* SignInViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignInViewController+UI.swift"; sourceTree = "<group>"; };
 		EEA213D22625DAEA00E3AEA1 /* SignInPasswordViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignInPasswordViewController+UI.swift"; sourceTree = "<group>"; };
@@ -661,7 +663,8 @@
 			isa = PBXGroup;
 			children = (
 				EECEF1902627E06A00CF9394 /* View */,
-				B0D0217C2602199600F25329 /* SignUpViewController.swift */,
+				B0D0217C2602199600F25329 /* SignUpPasswordViewController.swift */,
+				EE804C882627F8CE007AACD2 /* SignUpPasswordViewController+UI.swift */,
 				EECEF1742627D91100CF9394 /* SignUpNameViewController.swift */,
 				EECEF1812627DF6A00CF9394 /* SignUpNameViewController+UI.swift */,
 				EECEF1862627DFD900CF9394 /* SignUpIntroduceViewController.swift */,
@@ -1160,7 +1163,7 @@
 				B0635AC52603897600046E88 /* HomeViewController.swift in Sources */,
 				B075226D25ED089F0016DC3A /* AuthTokenModel.swift in Sources */,
 				B06B5EDF25ECCD550045A491 /* HeroNavigationController.swift in Sources */,
-				B0D0217D2602199600F25329 /* SignUpViewController.swift in Sources */,
+				B0D0217D2602199600F25329 /* SignUpPasswordViewController.swift in Sources */,
 				B041747625E2366E00D990A2 /* MultiLevelViewController.swift in Sources */,
 				EEA213CB2625D59900E3AEA1 /* SignInViewController+UI.swift in Sources */,
 				B0B0339D2621A12200D65204 /* MyPageProfileCountView.swift in Sources */,
@@ -1180,6 +1183,7 @@
 				B041747225E2366E00D990A2 /* AppDelegate.swift in Sources */,
 				B0B033CE2621CDBC00D65204 /* SettingInfoCell.swift in Sources */,
 				EEA213C32625D03E00E3AEA1 /* SignInPasswordViewController.swift in Sources */,
+				EE804C892627F8CE007AACD2 /* SignUpPasswordViewController+UI.swift in Sources */,
 				EECEF1752627D91100CF9394 /* SignUpNameViewController.swift in Sources */,
 				B06B5EF625ECD0140045A491 /* SubThreeViewController.swift in Sources */,
 				B075225425ED06ED0016DC3A /* UserModel.swift in Sources */,
