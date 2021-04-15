@@ -73,6 +73,8 @@
 		EEB9EF9826269768001AF65F /* SignTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB9EF9726269768001AF65F /* SignTextField.swift */; };
 		EECEF1752627D91100CF9394 /* SignUpNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECEF1742627D91100CF9394 /* SignUpNameViewController.swift */; };
 		EECEF1822627DF6A00CF9394 /* SignUpNameViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECEF1812627DF6A00CF9394 /* SignUpNameViewController+UI.swift */; };
+		EECEF1872627DFD900CF9394 /* SignUpIntroduceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECEF1862627DFD900CF9394 /* SignUpIntroduceViewController.swift */; };
+		EECEF18C2627DFEA00CF9394 /* SignUpIntroduceViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECEF18B2627DFEA00CF9394 /* SignUpIntroduceViewController+UI.swift */; };
 		EECEF1922627E08300CF9394 /* IntroduceTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECEF1912627E08300CF9394 /* IntroduceTextField.swift */; };
 		F9EECDCC1BB268AD7FC97CF0 /* Pods_Buok.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AECABF2E7CD3020025E0B60D /* Pods_Buok.framework */; };
 /* End PBXBuildFile section */
@@ -301,6 +303,8 @@
 		EEB9EF9726269768001AF65F /* SignTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignTextField.swift; sourceTree = "<group>"; };
 		EECEF1742627D91100CF9394 /* SignUpNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpNameViewController.swift; sourceTree = "<group>"; };
 		EECEF1812627DF6A00CF9394 /* SignUpNameViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignUpNameViewController+UI.swift"; sourceTree = "<group>"; };
+		EECEF1862627DFD900CF9394 /* SignUpIntroduceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpIntroduceViewController.swift; sourceTree = "<group>"; };
+		EECEF18B2627DFEA00CF9394 /* SignUpIntroduceViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignUpIntroduceViewController+UI.swift"; sourceTree = "<group>"; };
 		EECEF1912627E08300CF9394 /* IntroduceTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroduceTextField.swift; sourceTree = "<group>"; };
 		F65BD738214020871341DE05 /* Pods-YappHero-YappHeroUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHero-YappHeroUITests.release.xcconfig"; path = "Target Support Files/Pods-YappHero-YappHeroUITests/Pods-YappHero-YappHeroUITests.release.xcconfig"; sourceTree = "<group>"; };
 		F694113430B9D3AC5B8FD3C8 /* Pods-BucketListTests.inhouse(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BucketListTests.inhouse(debug).xcconfig"; path = "Target Support Files/Pods-BucketListTests/Pods-BucketListTests.inhouse(debug).xcconfig"; sourceTree = "<group>"; };
@@ -660,6 +664,8 @@
 				B0D0217C2602199600F25329 /* SignUpViewController.swift */,
 				EECEF1742627D91100CF9394 /* SignUpNameViewController.swift */,
 				EECEF1812627DF6A00CF9394 /* SignUpNameViewController+UI.swift */,
+				EECEF1862627DFD900CF9394 /* SignUpIntroduceViewController.swift */,
+				EECEF18B2627DFEA00CF9394 /* SignUpIntroduceViewController+UI.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -1165,9 +1171,11 @@
 				B0B033D32622AA0900D65204 /* SettingNavigator.swift in Sources */,
 				B0B033C12621C97300D65204 /* SettingViewController.swift in Sources */,
 				EECEF1922627E08300CF9394 /* IntroduceTextField.swift in Sources */,
+				EECEF18C2627DFEA00CF9394 /* SignUpIntroduceViewController+UI.swift in Sources */,
 				EEA213D32625DAEA00E3AEA1 /* SignInPasswordViewController+UI.swift in Sources */,
 				B0B0339026219FE200D65204 /* Profile.swift in Sources */,
 				B06B5EE325ECCE610045A491 /* HeroBaseViewController.swift in Sources */,
+				EECEF1872627DFD900CF9394 /* SignUpIntroduceViewController.swift in Sources */,
 				B0B033A52621C6B500D65204 /* CountContentView.swift in Sources */,
 				B041747225E2366E00D990A2 /* AppDelegate.swift in Sources */,
 				B0B033CE2621CDBC00D65204 /* SettingInfoCell.swift in Sources */,
