@@ -6,7 +6,8 @@
 
 ### iOS Deployment Target Version
 Minimum : iOS 12.0  
-Recommended: iOS 14.0 (for WidgetKit)  
+SwiftUI 2.0 : iOS 14.0
+WidgetKit : iOS 14.0
 
 ## Built With
 
