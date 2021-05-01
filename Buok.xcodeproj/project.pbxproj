@@ -232,6 +232,7 @@
 		B01D43AF26039D5700F2D28C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		B01D43B426039D6C00F2D28C /* CreateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewModel.swift; sourceTree = "<group>"; };
 		B01D43B92604231800F2D28C /* CategoryFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryFilterView.swift; sourceTree = "<group>"; };
+		B02D1869263D3E1700FE7FC9 /* Buok.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Buok.entitlements; sourceTree = "<group>"; };
 		B041746E25E2366E00D990A2 /* Buok.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Buok.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B041747125E2366E00D990A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B041747525E2366E00D990A2 /* MultiLevelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiLevelViewController.swift; sourceTree = "<group>"; };
@@ -462,6 +463,7 @@
 		B041747025E2366E00D990A2 /* Buok */ = {
 			isa = PBXGroup;
 			children = (
+				B02D1869263D3E1700FE7FC9 /* Buok.entitlements */,
 				B0D0218D26021EDE00F25329 /* Global */,
 				B0D0218626021A3C00F25329 /* Resources */,
 				B075225225ED06E50016DC3A /* Model */,
@@ -1383,6 +1385,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Buok/Buok.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M79H9K226Y;
@@ -1408,6 +1411,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Buok/Buok.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M79H9K226Y;
@@ -1583,6 +1587,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Buok/Buok.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = M79H9K226Y;
