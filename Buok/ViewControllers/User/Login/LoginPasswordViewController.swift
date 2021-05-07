@@ -11,6 +11,7 @@ class LoginPasswordViewController: HeroBaseViewController {
     let backButton = UIButton()
     let guideLabel = UILabel()
     let passwordField = UserTextField()
+    let eyeButton = UIButton()
     let forgotPasswordButton = UIButton()
     let loginButton = UserServiceButton()
     
@@ -26,13 +27,26 @@ class LoginPasswordViewController: HeroBaseViewController {
         setupBackButton()
         setupGuideLabel()
         setupPasswordField()
+        setupEyeButton()
         setupForgotPasswordButton()
         setupLoginButton()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     @objc
     func clickBackButton(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    @objc
+    func clickEyeButton(_ sender: UIButton) {
+        guard let viewmodel = viewModel else { return }
+        viewmodel.isSelectedEyeButton = !viewmodel.isSelectedEyeButton
+        passwordField.isSecureTextEntry = !viewmodel.isSelectedEyeButton
+        sender.isSelected = viewmodel.isSelectedEyeButton
     }
     
     @objc

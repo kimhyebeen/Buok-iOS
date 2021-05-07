@@ -51,6 +51,20 @@ extension LoginPasswordViewController {
         }
     }
     
+    // MARK: EyeButton
+    func setupEyeButton() {
+        eyeButton.addTarget(self, action: #selector(clickEyeButton(_:)), for: .touchUpInside)
+        eyeButton.setImage(UIImage(heroSharedNamed: "ic_eye"), for: .normal)
+        eyeButton.setImage(UIImage(heroSharedNamed: "ic_eye_fill"), for: .selected)
+        self.view.addSubview(eyeButton)
+        
+        eyeButton.snp.makeConstraints { make in
+            make.width.height.equalTo(44)
+            make.centerY.equalTo(passwordField.snp.centerY)
+            make.trailing.equalTo(passwordField.snp.trailing).offset(-4)
+        }
+    }
+    
     // MARK: ForgotPasswordButton
     func setupForgotPasswordButton() {
         forgotPasswordButton.setAttributedTitle(NSAttributedString(string: "비밀번호를 잊으셨나요?", attributes: [.font: UIFont.font15P, .foregroundColor: UIColor.heroGray82]), for: .normal)
