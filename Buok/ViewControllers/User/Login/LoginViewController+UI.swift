@@ -123,10 +123,10 @@ extension LoginViewController {
         contentsView.addSubview(servicePolicyButton)
         
         servicePolicyButton.snp.makeConstraints { make in
-            make.height.equalTo(44)
-            make.top.equalTo(kakaoSignInButton.snp.bottom).offset(3)
-            make.bottom.equalToSuperview().offset(-86)
+            make.height.equalTo(45)
             make.centerX.equalToSuperview()
+            make.top.equalTo(kakaoSignInButton.snp.bottom).offset(8)
+            make.bottom.lessThanOrEqualToSuperview().offset(-75)
         }
     }
 }

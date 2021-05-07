@@ -40,5 +40,13 @@ public class LoginViewController: HeroBaseViewController {
         setupGoogleSignInButton()
         setupKakaoSignInButton()
         setupServicePolicyButton()
+        
+        setupTapGesture()
+    }
+    
+    private func setupTapGesture() {
+        let tap = UITapGestureRecognizer()
+        tap.delegate = self
+        scrollView.addGestureRecognizer(tap)
     }
 }
