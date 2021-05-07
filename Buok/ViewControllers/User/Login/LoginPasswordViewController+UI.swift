@@ -65,6 +65,20 @@ extension LoginPasswordViewController {
         }
     }
     
+    // MARK: WrongPasswordLabel
+    func setupWrongPasswordLabel() {
+        wrongPasswordLabel.text = "비밀번호가 틀렸습니다. 다시 입력해주세요."
+        wrongPasswordLabel.textColor = .heroServiceSubPink
+        wrongPasswordLabel.font = .font13P
+        wrongPasswordLabel.isHidden = true
+        self.view.addSubview(wrongPasswordLabel)
+        
+        wrongPasswordLabel.snp.makeConstraints { make in
+            make.top.equalTo(passwordField.snp.bottom).offset(8)
+            make.leading.equalToSuperview().offset(22)
+        }
+    }
+    
     // MARK: ForgotPasswordButton
     func setupForgotPasswordButton() {
         forgotPasswordButton.setAttributedTitle(NSAttributedString(string: "비밀번호를 잊으셨나요?", attributes: [.font: UIFont.font15P, .foregroundColor: UIColor.heroGray82]), for: .normal)

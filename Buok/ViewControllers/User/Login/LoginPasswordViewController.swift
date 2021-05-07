@@ -12,6 +12,7 @@ class LoginPasswordViewController: HeroBaseViewController {
     let guideLabel = UILabel()
     let passwordField = UserTextField()
     let eyeButton = UIButton()
+    let wrongPasswordLabel = UILabel()
     let forgotPasswordButton = UIButton()
     let loginButton = UserServiceButton()
     
@@ -28,6 +29,7 @@ class LoginPasswordViewController: HeroBaseViewController {
         setupGuideLabel()
         setupPasswordField()
         setupEyeButton()
+        setupWrongPasswordLabel()
         setupForgotPasswordButton()
         setupLoginButton()
     }
@@ -51,8 +53,17 @@ class LoginPasswordViewController: HeroBaseViewController {
     
     @objc
     func clickLoginButton(_ sender: UIButton) {
+        guard let viewmodel = viewModel else { return }
+        viewmodel.password = passwordField.text ?? ""
         // todo - 로그인 요청 성공 시 메인 화면으로 넘기기
         // todo - 로그인 요청 실패 시 실패라벨 처리
+        guard let token = viewmodel.requestLogin() else {
+            wrongPasswordLabel.isHidden = false
+            return
+        }
+        wrongPasswordLabel.isHidden = true
+        // todo - token 저장
+        // todo - main 화면 이동
     }
 }
 

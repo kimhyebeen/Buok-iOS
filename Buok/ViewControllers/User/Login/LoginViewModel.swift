@@ -9,6 +9,7 @@ import Promise
 
 class LoginViewModel {
     var email: String = ""
+    var password: String = ""
     var isSelectedEyeButton: Bool = false
     
     func validateEmail(_ email: String) -> Bool {
@@ -18,4 +19,10 @@ class LoginViewModel {
     }
     
     func validatePassword(_ password: String) -> Bool { password.count >= 6 }
+    
+    func requestLogin() -> String? {
+        // todo - email, password를 사용해서 로그인 요청
+        print("email: \(email), password: \(password)")
+        return nil
+    }
 }
