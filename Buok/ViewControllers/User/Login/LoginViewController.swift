@@ -24,6 +24,8 @@ public class LoginViewController: HeroBaseViewController {
     let kakaoSignInButton = UserServiceButton()
     let servicePolicyButton = UIButton()
     
+    var viewModel = LoginViewModel()
+    
     public override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -48,5 +50,20 @@ public class LoginViewController: HeroBaseViewController {
         let tap = UITapGestureRecognizer()
         tap.delegate = self
         scrollView.addGestureRecognizer(tap)
+    }
+    
+    @objc
+    func clickNextButton(_ sender: UIButton) {
+        guard let email = emailField.text else { return }
+        viewModel.email = email
+        let loginPasswordVC = LoginPasswordViewController()
+        loginPasswordVC.viewModel = viewModel
+        self.navigationController?.pushViewController(loginPasswordVC, animated: true)
+    }
+}
+
+extension LoginViewController: UITextFieldDelegate {
+    public func textFieldDidChangeSelection(_ textField: UITextField) {
+        nextButton.setHeroEnable(viewModel.validateEmail(textField.text ?? ""))
     }
 }

@@ -41,6 +41,7 @@ extension LoginViewController {
     // MARK: EmailField
     func setupEmailField() {
         emailField.setPlaceHolder("이메일 주소를 입력해주세요")
+        emailField.delegate = self
         contentsView.addSubview(emailField)
         
         emailField.snp.makeConstraints { make in
@@ -53,6 +54,7 @@ extension LoginViewController {
     
     // MARK: NextButton
     func setupNextButton() {
+        nextButton.addTarget(self, action: #selector(clickNextButton(_:)), for: .touchUpInside)
         nextButton.setHeroTitle("계속하기")
         nextButton.setHeroEnable(false)
         contentsView.addSubview(nextButton)

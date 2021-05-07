@@ -65,6 +65,7 @@
 		B0D43A5E2600DA9B003420CA /* NadamWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = B0D43A592600DA99003420CA /* NadamWidget.intentdefinition */; };
 		B0D43A612600DA9B003420CA /* BuokWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B0D43A512600DA99003420CA /* BuokWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B0F229AB25F3C9E000D96CBA /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F229AA25F3C9E000D96CBA /* MyPageViewController.swift */; };
+		EE61F70726457CA3004DF51B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE61F70626457CA3004DF51B /* LoginViewModel.swift */; };
 		EE804C892627F8CE007AACD2 /* JoinPasswordViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE804C882627F8CE007AACD2 /* JoinPasswordViewController+UI.swift */; };
 		EEA213C32625D03E00E3AEA1 /* LoginPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA213C22625D03E00E3AEA1 /* LoginPasswordViewController.swift */; };
 		EEA213CB2625D59900E3AEA1 /* LoginViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA213CA2625D59900E3AEA1 /* LoginViewController+UI.swift */; };
@@ -297,6 +298,7 @@
 		E164A81B3A19E60DC6D5B3E3 /* Pods-NadamTests.real.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NadamTests.real.xcconfig"; path = "Target Support Files/Pods-NadamTests/Pods-NadamTests.real.xcconfig"; sourceTree = "<group>"; };
 		E2FE24B9E264735FD53FA491 /* Pods-NadamWidgetExtension.real.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NadamWidgetExtension.real.xcconfig"; path = "Target Support Files/Pods-NadamWidgetExtension/Pods-NadamWidgetExtension.real.xcconfig"; sourceTree = "<group>"; };
 		E6C0B3A741D94BE2552F9A2D /* Pods_BuokWidgetExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BuokWidgetExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE61F70626457CA3004DF51B /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		EE64EE50EB3512280D8E7B47 /* Pods-Buok.real.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Buok.real.xcconfig"; path = "Target Support Files/Pods-Buok/Pods-Buok.real.xcconfig"; sourceTree = "<group>"; };
 		EE804C882627F8CE007AACD2 /* JoinPasswordViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JoinPasswordViewController+UI.swift"; sourceTree = "<group>"; };
 		EEA213C22625D03E00E3AEA1 /* LoginPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPasswordViewController.swift; sourceTree = "<group>"; };
@@ -683,6 +685,7 @@
 			children = (
 				B04C15E726015FCF0084BAEC /* LoginViewController.swift */,
 				EEA213CA2625D59900E3AEA1 /* LoginViewController+UI.swift */,
+				EE61F70626457CA3004DF51B /* LoginViewModel.swift */,
 				EEA213C22625D03E00E3AEA1 /* LoginPasswordViewController.swift */,
 				EEA213D22625DAEA00E3AEA1 /* LoginPasswordViewController+UI.swift */,
 				EEAFB0372629678B00CF3173 /* LoginForgetViewController.swift */,
@@ -1197,6 +1200,7 @@
 				B04C15E826015FCF0084BAEC /* LoginViewController.swift in Sources */,
 				B01D43B026039D5700F2D28C /* HomeViewModel.swift in Sources */,
 				B0B035ED2622B33800D65204 /* SettingConstants.swift in Sources */,
+				EE61F70726457CA3004DF51B /* LoginViewModel.swift in Sources */,
 				B06B5CB425ECA4070045A491 /* MainTabBarViewController.swift in Sources */,
 				B075238125EF5AF70016DC3A /* BucketListHomeAPIRequest.swift in Sources */,
 				B0D0218226021A2100F25329 /* NadamProperties.swift in Sources */,
