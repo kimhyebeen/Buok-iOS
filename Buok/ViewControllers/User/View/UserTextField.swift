@@ -1,5 +1,5 @@
 //
-//  PasswordTextField.swift
+//  SignTextField.swift
 //  HeroUI
 //
 //  Created by 김혜빈 on 2021/04/13.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class PasswordTextField: UITextField {
+public class UserTextField: UITextField {
     let insetX: CGFloat = 16
     let insetY: CGFloat = 10
 
@@ -33,8 +33,6 @@ public class PasswordTextField: UITextField {
         self.backgroundColor = .white
         self.layer.cornerRadius = 8
         self.font = .font22P
-        self.isSecureTextEntry = true
-        // todo - 추후 눈 아이콘버튼 추가
     }
     
     public func setPlaceHolder(_ text: String) {

@@ -7,7 +7,7 @@
 
 import HeroUI
 
-extension SignInPasswordViewController {
+extension LoginPasswordViewController {
     // MARK: BackButton
     func setupBackButton() {
         backButton.backgroundColor = .systemYellow
@@ -38,6 +38,7 @@ extension SignInPasswordViewController {
     
     // MARK: PasswordField
     func setupPasswordField() {
+        passwordField.isSecureTextEntry = true
         passwordField.setPlaceHolder("6글자 이상")
         self.view.addSubview(passwordField)
         

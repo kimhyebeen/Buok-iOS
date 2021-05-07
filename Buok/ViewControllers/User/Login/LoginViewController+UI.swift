@@ -7,7 +7,7 @@
 
 import HeroUI
 
-extension SignInViewController {
+extension LoginViewController {
     // MARK: ScrollView
     func setupScrollView() {
         scrollView.addSubview(contentsView)

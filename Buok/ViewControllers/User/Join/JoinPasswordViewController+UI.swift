@@ -7,7 +7,7 @@
 
 import HeroUI
 
-extension SignUpPasswordViewController {
+extension JoinPasswordViewController {
     // MARK: Back Button
     func setupBackButton() {
         // todo - 추후 뒤로가기 아이콘 적용
@@ -39,6 +39,7 @@ extension SignUpPasswordViewController {
     
     // MARK: Password Field
     func setupPasswordField() {
+        passwordField.isSecureTextEntry = true
         passwordField.setPlaceHolder("6글자 이상")
         self.view.addSubview(passwordField)
         

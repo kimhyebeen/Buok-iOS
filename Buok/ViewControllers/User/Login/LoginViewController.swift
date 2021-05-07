@@ -11,17 +11,17 @@ import HeroSharedAssets
 import HeroUI
 import SnapKit
 
-public class SignInViewController: HeroBaseViewController {
+public class LoginViewController: HeroBaseViewController {
     let scrollView = UIScrollView()
     let contentsView = UIView()
     
     let guideLabel = UILabel()
-    let emailField = SignTextField()
-    let nextButton = SignServiceButton()
+    let emailField = UserTextField()
+    let nextButton = UserServiceButton()
     let orLabel = UILabel()
-    let appleSignInButton = SignServiceButton()
-    let googleSignInButton = SignServiceButton()
-    let kakaoSignInButton = SignServiceButton()
+    let appleSignInButton = UserServiceButton()
+    let googleSignInButton = UserServiceButton()
+    let kakaoSignInButton = UserServiceButton()
     let servicePolicyButton = UIButton()
     
     public override func viewDidLoad() {

@@ -7,7 +7,7 @@
 
 import HeroUI
 
-extension SignUpNameViewController {
+extension JoinNameViewController {
     // MARK: Back Button
     func setupBackButton() {
         // todo - 뒤로가기 아이콘 적용

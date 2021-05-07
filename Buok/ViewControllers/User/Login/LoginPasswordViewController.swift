@@ -1,20 +1,19 @@
 //
-//  SignUpNameViewController.swift
+//  EnterPasswordViewController.swift
 //  Buok
 //
-//  Created by 김혜빈 on 2021/04/15.
+//  Created by 김혜빈 on 2021/04/13.
 //
 
 import HeroUI
 
-class SignUpNameViewController: HeroBaseViewController {
+class LoginPasswordViewController: HeroBaseViewController {
     let backButton = UIButton()
     let guideLabel = UILabel()
-    let nameField = SignTextField()
-    let subGuideLabel = UILabel()
-    let countLabel = UILabel()
-    let nextButton = SignServiceButton()
-
+    let passwordField = UserTextField()
+    let forgotPasswordButton = UIButton()
+    let signInButton = UserServiceButton()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,15 +23,13 @@ class SignUpNameViewController: HeroBaseViewController {
     private func setupView() {
         setupBackButton()
         setupGuideLabel()
-        setupNameField()
-        setupSubGuideLabel()
-        setupCountLabel()
-        setupNextButton()
+        setupPasswordField()
+        setupForgotPasswordButton()
+        setupSignInButton()
     }
     
     @objc
     func clickBackButton(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
-
 }

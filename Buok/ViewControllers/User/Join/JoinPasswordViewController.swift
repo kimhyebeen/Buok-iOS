@@ -1,35 +1,35 @@
 //
-//  SignUpIntroduceViewController.swift
+//  SignUpViewController.swift
 //  Buok
 //
 //  Created by 김혜빈 on 2021/04/15.
 //
 
+import Foundation
+import HeroCommon
+import HeroSharedAssets
 import HeroUI
+import SnapKit
 
-class SignUpIntroduceViewController: HeroBaseViewController {
+public class JoinPasswordViewController: HeroBaseViewController {
     let backButton = UIButton()
     let guideLabel = UILabel()
-    let enterField = IntroduceTextField()
-    let countLabel = UILabel()
-    let finishButton = SignServiceButton()
-    let passButton = UIButton()
-
-    override func viewDidLoad() {
+    let passwordField = UserTextField()
+    let nextButton = UserServiceButton()
+    
+    public override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setupView()
     }
     
     private func setupView() {
         setupBackButton()
         setupGuideLabel()
-        setupEnterField()
-        setupCountLabel()
-        setupFinishButton()
-        setupPassButton()
+        setupPasswordField()
+        setupNextButton()
     }
-
+    
     @objc
     func clickBackButton(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
