@@ -10,7 +10,7 @@ import HeroUI
 extension LoginPasswordViewController {
     // MARK: BackButton
     func setupBackButton() {
-        backButton.backgroundColor = .systemYellow
+        backButton.setImage(UIImage(heroSharedNamed: "ic_back"), for: .normal)
         // todo - color 해제 후 backbutton에 아이콘 추가 및 edge inset 적용
         backButton.addTarget(self, action: #selector(clickBackButton(_:)), for: .touchUpInside)
         self.view.addSubview(backButton)
@@ -38,6 +38,7 @@ extension LoginPasswordViewController {
     
     // MARK: PasswordField
     func setupPasswordField() {
+        passwordField.delegate = self
         passwordField.isSecureTextEntry = true
         passwordField.setPlaceHolder("6글자 이상")
         self.view.addSubview(passwordField)
@@ -62,12 +63,14 @@ extension LoginPasswordViewController {
         }
     }
     
-    // MARK: SignInButton
-    func setupSignInButton() {
-        signInButton.setHeroTitle("로그인")
-        self.view.addSubview(signInButton)
+    // MARK: LoginButton
+    func setupLoginButton() {
+        loginButton.setHeroTitle("로그인")
+        loginButton.setHeroEnable(false)
+        loginButton.addTarget(self, action: #selector(clickLoginButton(_:)), for: .touchUpInside)
+        self.view.addSubview(loginButton)
         
-        signInButton.snp.makeConstraints { make in
+        loginButton.snp.makeConstraints { make in
             make.height.equalTo(48)
             make.top.equalTo(forgotPasswordButton.snp.bottom).offset(4)
             make.leading.equalToSuperview().offset(20)

@@ -683,9 +683,9 @@
 		B0D0217B2602198800F25329 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				EE61F70626457CA3004DF51B /* LoginViewModel.swift */,
 				B04C15E726015FCF0084BAEC /* LoginViewController.swift */,
 				EEA213CA2625D59900E3AEA1 /* LoginViewController+UI.swift */,
-				EE61F70626457CA3004DF51B /* LoginViewModel.swift */,
 				EEA213C22625D03E00E3AEA1 /* LoginPasswordViewController.swift */,
 				EEA213D22625DAEA00E3AEA1 /* LoginPasswordViewController+UI.swift */,
 				EEAFB0372629678B00CF3173 /* LoginForgetViewController.swift */,

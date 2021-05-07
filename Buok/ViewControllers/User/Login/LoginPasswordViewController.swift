@@ -12,9 +12,9 @@ class LoginPasswordViewController: HeroBaseViewController {
     let guideLabel = UILabel()
     let passwordField = UserTextField()
     let forgotPasswordButton = UIButton()
-    let signInButton = UserServiceButton()
+    let loginButton = UserServiceButton()
     
-     weak var viewModel: LoginViewModel?
+    weak var viewModel: LoginViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,11 +27,23 @@ class LoginPasswordViewController: HeroBaseViewController {
         setupGuideLabel()
         setupPasswordField()
         setupForgotPasswordButton()
-        setupSignInButton()
+        setupLoginButton()
     }
     
     @objc
     func clickBackButton(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    @objc
+    func clickLoginButton(_ sender: UIButton) {
+        // todo - 로그인 요청 성공 시 메인 화면으로 넘기기
+        // todo - 로그인 요청 실패 시 실패라벨 처리
+    }
+}
+
+extension LoginPasswordViewController: UITextFieldDelegate {
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        loginButton.setHeroEnable(viewModel?.validatePassword(textField.text ?? "") ?? false)
     }
 }
