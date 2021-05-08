@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class SignServiceButton: UIButton {
+public class UserServiceButton: UIButton {
     public override init(frame: CGRect) {
         super.init(frame: frame)
         

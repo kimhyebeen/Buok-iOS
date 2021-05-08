@@ -7,7 +7,7 @@
 
 import HeroUI
 
-extension SignInViewController {
+extension LoginViewController {
     // MARK: ScrollView
     func setupScrollView() {
         scrollView.addSubview(contentsView)
@@ -41,6 +41,7 @@ extension SignInViewController {
     // MARK: EmailField
     func setupEmailField() {
         emailField.setPlaceHolder("이메일 주소를 입력해주세요")
+        emailField.delegate = self
         contentsView.addSubview(emailField)
         
         emailField.snp.makeConstraints { make in
@@ -53,6 +54,7 @@ extension SignInViewController {
     
     // MARK: NextButton
     func setupNextButton() {
+        nextButton.addTarget(self, action: #selector(clickNextButton(_:)), for: .touchUpInside)
         nextButton.setHeroTitle("계속하기")
         nextButton.setHeroEnable(false)
         contentsView.addSubview(nextButton)
@@ -123,10 +125,10 @@ extension SignInViewController {
         contentsView.addSubview(servicePolicyButton)
         
         servicePolicyButton.snp.makeConstraints { make in
-            make.height.equalTo(44)
-            make.top.equalTo(kakaoSignInButton.snp.bottom).offset(3)
-            make.bottom.equalToSuperview().offset(-86)
+            make.height.equalTo(45)
             make.centerX.equalToSuperview()
+            make.top.equalTo(kakaoSignInButton.snp.bottom).offset(8)
+            make.bottom.lessThanOrEqualToSuperview().offset(-75)
         }
     }
 }

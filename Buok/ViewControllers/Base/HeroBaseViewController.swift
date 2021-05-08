@@ -89,6 +89,11 @@ public class HeroBaseViewController: UIViewController, UIGestureRecognizerDelega
         scrollView.scrollIndicatorInsets = scrollView.contentInset
     }
     
+    public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
+    
     deinit {
         NotificationCenter.default.removeObserver(self)
         observers.forEach { NotificationCenter.default.removeObserver($0) }
