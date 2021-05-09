@@ -71,7 +71,7 @@ class LoginPasswordViewController: HeroBaseViewController {
         let navigationVC = UINavigationController(rootViewController: ForgetViewController())
         navigationVC.modalPresentationStyle = .fullScreen
         navigationVC.isNavigationBarHidden = true
-        self.show(navigationController, sender: nil)
+        self.show(navigationVC, sender: nil)
     }
 }
 
