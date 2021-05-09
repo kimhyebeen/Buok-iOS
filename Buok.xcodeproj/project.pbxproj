@@ -76,7 +76,6 @@
 		EEB9EF8C26269762001AF65F /* UserServiceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB9EF8B26269762001AF65F /* UserServiceButton.swift */; };
 		EEB9EF9826269768001AF65F /* UserTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB9EF9726269768001AF65F /* UserTextField.swift */; };
 		EECEF1752627D91100CF9394 /* JoinNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECEF1742627D91100CF9394 /* JoinNameViewController.swift */; };
-		EECEF1822627DF6A00CF9394 /* JoinNameViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECEF1812627DF6A00CF9394 /* JoinNameViewController+UI.swift */; };
 		EECEF1872627DFD900CF9394 /* JoinIntroduceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECEF1862627DFD900CF9394 /* JoinIntroduceViewController.swift */; };
 		EECEF18C2627DFEA00CF9394 /* JoinIntroduceViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECEF18B2627DFEA00CF9394 /* JoinIntroduceViewController+UI.swift */; };
 		EECEF1922627E08300CF9394 /* IntroduceTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECEF1912627E08300CF9394 /* IntroduceTextField.swift */; };
@@ -311,7 +310,6 @@
 		EEB9EF8B26269762001AF65F /* UserServiceButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserServiceButton.swift; sourceTree = "<group>"; };
 		EEB9EF9726269768001AF65F /* UserTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTextField.swift; sourceTree = "<group>"; };
 		EECEF1742627D91100CF9394 /* JoinNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinNameViewController.swift; sourceTree = "<group>"; };
-		EECEF1812627DF6A00CF9394 /* JoinNameViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JoinNameViewController+UI.swift"; sourceTree = "<group>"; };
 		EECEF1862627DFD900CF9394 /* JoinIntroduceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinIntroduceViewController.swift; sourceTree = "<group>"; };
 		EECEF18B2627DFEA00CF9394 /* JoinIntroduceViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JoinIntroduceViewController+UI.swift"; sourceTree = "<group>"; };
 		EECEF1912627E08300CF9394 /* IntroduceTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroduceTextField.swift; sourceTree = "<group>"; };
@@ -676,7 +674,6 @@
 				EECEF1902627E06A00CF9394 /* View */,
 				B0D0217C2602199600F25329 /* JoinViewController.swift */,
 				EECEF1742627D91100CF9394 /* JoinNameViewController.swift */,
-				EECEF1812627DF6A00CF9394 /* JoinNameViewController+UI.swift */,
 				EECEF1862627DFD900CF9394 /* JoinIntroduceViewController.swift */,
 				EECEF18B2627DFEA00CF9394 /* JoinIntroduceViewController+UI.swift */,
 			);
@@ -1174,7 +1171,6 @@
 				B06B5EEF25ECCEE10045A491 /* SubTwoViewController.swift in Sources */,
 				B0D43A5E2600DA9B003420CA /* NadamWidget.intentdefinition in Sources */,
 				B075231325EF1E6F0016DC3A /* BaseAPIError.swift in Sources */,
-				EECEF1822627DF6A00CF9394 /* JoinNameViewController+UI.swift in Sources */,
 				B0B0338326219FCF00D65204 /* MyPageProfileView.swift in Sources */,
 				B01D43B526039D6C00F2D28C /* CreateViewModel.swift in Sources */,
 				B075226925ED08780016DC3A /* UserAuthModel.swift in Sources */,

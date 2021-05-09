@@ -10,6 +10,7 @@ import Promise
 class UserViewModel {
     var email: String = ""
     var password: String = ""
+    var nickname: String = ""
     var isSelectedEyeButton: Bool = false
     
     func validateEmail(_ email: String) -> Bool {
@@ -20,9 +21,21 @@ class UserViewModel {
     
     func validatePassword(_ password: String) -> Bool { password.count >= 6 }
     
+    func validateNickName(_ nickname: String) -> Bool {
+        let regex = "(?!.*[~`!@#$%&*()-+=.^_?,/\\|]).{1,12}"
+        let nicknameTest = NSPredicate(format: "SELF MATCHES %@", regex)
+        return nicknameTest.evaluate(with: nickname)
+    }
+    
     func isExistEmail(_ email: String) -> Bool {
         self.email = email
         // todo - email이 존재하는 계정인지 아닌지 확인 요청
+        return false
+    }
+    
+    func isExistNickname(_ nickname: String) -> Bool {
+        self.nickname = nickname
+        // todo - nickname이 존재하는 별칭인지 아닌지 확인 요청
         return false
     }
     

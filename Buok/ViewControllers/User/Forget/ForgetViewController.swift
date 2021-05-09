@@ -5,7 +5,7 @@
 //  Created by 김혜빈 on 2021/05/09.
 //
 
-import UIKit
+import HeroUI
 
 class ForgetViewController: HeroBaseViewController {
     let closeButton = UIButton()

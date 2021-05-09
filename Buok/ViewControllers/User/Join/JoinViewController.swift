@@ -49,7 +49,12 @@ public class JoinViewController: HeroBaseViewController {
     
     @objc
     func clickNextButton(_ sender: UIButton) {
-        // todo - 별칭입력 화면 이동
+        guard let viewmodel = viewModel else { return }
+        viewmodel.password = passwordField.text!
+        
+        let nameVC = JoinNameViewController()
+        nameVC.viewModel = viewModel
+        self.navigationController?.pushViewController(nameVC, animated: true)
     }
 }
 
