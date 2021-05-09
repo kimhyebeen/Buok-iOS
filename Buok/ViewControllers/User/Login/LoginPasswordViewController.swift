@@ -79,4 +79,9 @@ extension LoginPasswordViewController: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
         loginButton.setHeroEnable(viewModel?.validatePassword(textField.text ?? "") ?? false)
     }
+    
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
 }

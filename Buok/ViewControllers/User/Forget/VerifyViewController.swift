@@ -65,6 +65,11 @@ extension VerifyViewController: UITextFieldDelegate {
         guard let viewmodel = viewModel else { return }
         nextButton.setHeroEnable(viewmodel.requestVerifyCode(textField.text ?? ""))
     }
+    
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
 }
 
 extension VerifyViewController {
