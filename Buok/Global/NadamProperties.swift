@@ -9,6 +9,29 @@ import Foundation
 import HeroCommon
 import HeroUI
 
+public enum BucketStatus {
+    case none
+    case pre
+    case present
+    case success
+    case failure
+    
+    public func getTitle() -> String {
+        switch self {
+        case .none:
+            return ""
+        case .pre:
+            return "Hero_Add_Bucket_Predestination".localized
+        case .present:
+            return "Hero_Add_Bucket_Present".localized
+        case .success:
+            return "Hero_Add_Bucket_Success".localized
+        case .failure:
+            return "Hero_Add_Bucket_Failure".localized
+        }
+    }
+}
+
 public enum NadamUserStatus: Int {
     case guest = 0
     case normal
