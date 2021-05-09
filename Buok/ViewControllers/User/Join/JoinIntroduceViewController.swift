@@ -1,5 +1,5 @@
 //
-//  SignUpNameViewController.swift
+//  SignUpIntroduceViewController.swift
 //  Buok
 //
 //  Created by 김혜빈 on 2021/04/15.
@@ -7,13 +7,13 @@
 
 import HeroUI
 
-class SignUpNameViewController: HeroBaseViewController {
+class JoinIntroduceViewController: HeroBaseViewController {
     let backButton = UIButton()
     let guideLabel = UILabel()
-    let nameField = SignTextField()
-    let subGuideLabel = UILabel()
+    let enterField = IntroduceTextField()
     let countLabel = UILabel()
-    let nextButton = SignServiceButton()
+    let finishButton = UserServiceButton()
+    let passButton = UIButton()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,15 +24,14 @@ class SignUpNameViewController: HeroBaseViewController {
     private func setupView() {
         setupBackButton()
         setupGuideLabel()
-        setupNameField()
-        setupSubGuideLabel()
+        setupEnterField()
         setupCountLabel()
-        setupNextButton()
+        setupFinishButton()
+        setupPassButton()
     }
-    
+
     @objc
     func clickBackButton(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
-
 }

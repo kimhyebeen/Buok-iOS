@@ -11,11 +11,11 @@ import HeroSharedAssets
 import HeroUI
 import SnapKit
 
-public class SignUpPasswordViewController: HeroBaseViewController {
+public class JoinPasswordViewController: HeroBaseViewController {
     let backButton = UIButton()
     let guideLabel = UILabel()
-    let passwordField = PasswordTextField()
-    let nextButton = SignServiceButton()
+    let passwordField = UserTextField()
+    let nextButton = UserServiceButton()
     
     public override func viewDidLoad() {
         super.viewDidLoad()

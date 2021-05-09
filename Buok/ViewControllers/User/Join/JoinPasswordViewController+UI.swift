@@ -1,17 +1,17 @@
 //
-//  EnterSignInPasswordViewController+UI.swift
+//  SignUpPasswordViewController+UI.swift
 //  Buok
 //
-//  Created by 김혜빈 on 2021/04/13.
+//  Created by 김혜빈 on 2021/04/15.
 //
 
 import HeroUI
 
-extension SignInPasswordViewController {
-    // MARK: BackButton
+extension JoinPasswordViewController {
+    // MARK: Back Button
     func setupBackButton() {
+        // todo - 추후 뒤로가기 아이콘 적용
         backButton.backgroundColor = .systemYellow
-        // todo - color 해제 후 backbutton에 아이콘 추가 및 edge inset 적용
         backButton.addTarget(self, action: #selector(clickBackButton(_:)), for: .touchUpInside)
         self.view.addSubview(backButton)
         
@@ -23,11 +23,12 @@ extension SignInPasswordViewController {
         }
     }
     
-    // MARK: GuideLabel
+    // MARK: Guide Label
     func setupGuideLabel() {
-        guideLabel.text = "비밀번호를 입력해주세요."
         guideLabel.font = .font22P
+        guideLabel.numberOfLines = 0
         guideLabel.textColor = .heroGray5B
+        guideLabel.text = "buok에 오신 것을 환영합니다.\n비밀번호를 설정해주세요."
         self.view.addSubview(guideLabel)
         
         guideLabel.snp.makeConstraints { make in
@@ -36,39 +37,28 @@ extension SignInPasswordViewController {
         }
     }
     
-    // MARK: PasswordField
+    // MARK: Password Field
     func setupPasswordField() {
+        passwordField.isSecureTextEntry = true
         passwordField.setPlaceHolder("6글자 이상")
         self.view.addSubview(passwordField)
         
         passwordField.snp.makeConstraints { make in
-            make.height.equalTo(48)
             make.top.equalTo(guideLabel.snp.bottom).offset(40)
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-20)
         }
     }
     
-    // MARK: ForgotPasswordButton
-    func setupForgotPasswordButton() {
-        forgotPasswordButton.setAttributedTitle(NSAttributedString(string: "비밀번호를 잊으셨나요?", attributes: [.font: UIFont.font15P, .foregroundColor: UIColor.heroGray82]), for: .normal)
-        self.view.addSubview(forgotPasswordButton)
+    // MARK: Next Button
+    func setupNextButton() {
+        nextButton.setHeroTitle("계속하기")
+        nextButton.setHeroEnable(false)
+        self.view.addSubview(nextButton)
         
-        forgotPasswordButton.snp.makeConstraints { make in
-            make.height.equalTo(44)
-            make.top.equalTo(passwordField.snp.bottom).offset(36)
-            make.centerX.equalToSuperview()
-        }
-    }
-    
-    // MARK: SignInButton
-    func setupSignInButton() {
-        signInButton.setHeroTitle("로그인")
-        self.view.addSubview(signInButton)
-        
-        signInButton.snp.makeConstraints { make in
+        nextButton.snp.makeConstraints { make in
             make.height.equalTo(48)
-            make.top.equalTo(forgotPasswordButton.snp.bottom).offset(4)
+            make.top.equalTo(passwordField.snp.bottom).offset(16)
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-20)
         }

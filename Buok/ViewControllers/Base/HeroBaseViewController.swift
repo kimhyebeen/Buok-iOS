@@ -32,6 +32,10 @@ public class HeroBaseViewController: UIViewController, UIGestureRecognizerDelega
         }
     }
     
+    open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
     open override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
     }
@@ -87,6 +91,11 @@ public class HeroBaseViewController: UIViewController, UIGestureRecognizerDelega
         }
         scrollView.contentInset = inset
         scrollView.scrollIndicatorInsets = scrollView.contentInset
+    }
+    
+    public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        self.view.endEditing(true)
+        return true
     }
     
     deinit {
