@@ -13,7 +13,7 @@ class LoginPasswordViewController: HeroBaseViewController {
     let passwordField = UserTextField()
     let eyeButton = UIButton()
     let wrongPasswordLabel = UILabel()
-    let forgotPasswordButton = UIButton()
+    let forgetButton = UIButton()
     let loginButton = UserServiceButton()
     
     weak var viewModel: LoginViewModel?
@@ -30,7 +30,7 @@ class LoginPasswordViewController: HeroBaseViewController {
         setupPasswordField()
         setupEyeButton()
         setupWrongPasswordLabel()
-        setupForgotPasswordButton()
+        setupForgetButton()
         setupLoginButton()
     }
     
@@ -64,6 +64,14 @@ class LoginPasswordViewController: HeroBaseViewController {
         wrongPasswordLabel.isHidden = true
         // todo - token 저장
         // todo - main 화면 이동
+    }
+    
+    @objc
+    func clickforgetButton(_ sender: UIButton) {
+        let navigationVC = UINavigationController(rootViewController: ForgetViewController())
+        navigationVC.modalPresentationStyle = .fullScreen
+        navigationVC.isNavigationBarHidden = true
+        self.show(navigationController, sender: nil)
     }
 }
 
