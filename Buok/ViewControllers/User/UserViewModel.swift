@@ -11,6 +11,7 @@ class UserViewModel {
     var email: String = ""
     var password: String = ""
     var nickname: String = ""
+    var introduce: String? = nil
     var isSelectedEyeButton: Bool = false
     
     func validateEmail(_ email: String) -> Bool {
@@ -42,6 +43,12 @@ class UserViewModel {
     func requestLogin() -> String? {
         // todo - email, password를 사용해서 로그인 요청
         print("email: \(email), password: \(password)")
+        return nil
+    }
+    
+    func requestJoin() -> String? {
+        // todo - email, password, nickname, introduce를 사용해서 회원가입 요청
+        print("email: \(email), password: \(password), nickname: \(nickname), introduce: \(introduce ?? "nil")")
         return nil
     }
 }

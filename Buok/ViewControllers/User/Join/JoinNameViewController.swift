@@ -44,7 +44,9 @@ class JoinNameViewController: HeroBaseViewController {
             subGuideLabel.text = "중복된 별칭입니다"
             subGuideLabel.textColor = .heroServiceSubPink
         } else {
-            // todo - 자기소개 화면으로 이동하기
+            let introduceVC = JoinIntroduceViewController()
+            introduceVC.viewModel = viewModel
+            self.navigationController?.pushViewController(introduceVC, animated: true)
         }
     }
 }
