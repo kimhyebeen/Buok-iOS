@@ -518,6 +518,7 @@
 			children = (
 				EE61F6E126457821004DF51B /* View */,
 				EE61F70626457CA3004DF51B /* UserViewModel.swift */,
+				EECEF1912627E08300CF9394 /* IntroduceTextField.swift */,
 				EE49406526475A3700CB0B71 /* Forget */,
 				B0D0217B2602198800F25329 /* Login */,
 				B0D0217A2602198100F25329 /* Join */,
@@ -671,7 +672,6 @@
 		B0D0217A2602198100F25329 /* Join */ = {
 			isa = PBXGroup;
 			children = (
-				EECEF1902627E06A00CF9394 /* View */,
 				B0D0217C2602199600F25329 /* JoinViewController.swift */,
 				EECEF1742627D91100CF9394 /* JoinNameViewController.swift */,
 				EECEF1862627DFD900CF9394 /* JoinIntroduceViewController.swift */,
@@ -746,14 +746,6 @@
 			children = (
 				EEB9EF9726269768001AF65F /* UserTextField.swift */,
 				EEB9EF8B26269762001AF65F /* UserServiceButton.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		EECEF1902627E06A00CF9394 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				EECEF1912627E08300CF9394 /* IntroduceTextField.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
