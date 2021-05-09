@@ -32,11 +32,12 @@ public class UserTextField: UITextField {
     private func setupView() {
         self.backgroundColor = .white
         self.layer.cornerRadius = 8
+        self.textColor = .heroGray5B
         self.font = .font22P
     }
     
     public func setPlaceHolder(_ text: String) {
-        self.attributedPlaceholder = NSAttributedString(string: text, attributes: [.font: UIFont.font22P])
+        self.attributedPlaceholder = NSAttributedString(string: text, attributes: [.font: UIFont.font22P, .foregroundColor: UIColor.heroGrayDA])
     }
 
 }

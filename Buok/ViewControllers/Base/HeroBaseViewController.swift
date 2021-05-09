@@ -32,6 +32,10 @@ public class HeroBaseViewController: UIViewController, UIGestureRecognizerDelega
         }
     }
     
+    open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
     open override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
     }

@@ -53,9 +53,14 @@ extension LoginPasswordViewController {
     
     // MARK: EyeButton
     func setupEyeButton() {
+        if #available(iOS 13.0, *) {
+            eyeButton.setImage(UIImage(heroSharedNamed: "ic_eye")!.withTintColor(.heroGrayA6A4A1), for: .normal)
+            eyeButton.setImage(UIImage(heroSharedNamed: "ic_eye_fill")!.withTintColor(.heroGray5B), for: .selected)
+        } else {
+            eyeButton.setImage(UIImage(heroSharedNamed: "ic_eye")!, for: .normal)
+            eyeButton.setImage(UIImage(heroSharedNamed: "ic_eye_fill")!, for: .selected)
+        }
         eyeButton.addTarget(self, action: #selector(clickEyeButton(_:)), for: .touchUpInside)
-        eyeButton.setImage(UIImage(heroSharedNamed: "ic_eye"), for: .normal)
-        eyeButton.setImage(UIImage(heroSharedNamed: "ic_eye_fill"), for: .selected)
         self.view.addSubview(eyeButton)
         
         eyeButton.snp.makeConstraints { make in
@@ -79,12 +84,13 @@ extension LoginPasswordViewController {
         }
     }
     
-    // MARK: ForgotPasswordButton
-    func setupForgotPasswordButton() {
-        forgotPasswordButton.setAttributedTitle(NSAttributedString(string: "비밀번호를 잊으셨나요?", attributes: [.font: UIFont.font15P, .foregroundColor: UIColor.heroGray82]), for: .normal)
-        self.view.addSubview(forgotPasswordButton)
+    // MARK: ForgetButton
+    func setupForgetButton() {
+        forgetButton.addTarget(self, action: #selector(clickforgetButton(_:)), for: .touchUpInside)
+        forgetButton.setAttributedTitle(NSAttributedString(string: "비밀번호를 잊으셨나요?", attributes: [.font: UIFont.font15P, .foregroundColor: UIColor.heroGray82]), for: .normal)
+        self.view.addSubview(forgetButton)
         
-        forgotPasswordButton.snp.makeConstraints { make in
+        forgetButton.snp.makeConstraints { make in
             make.height.equalTo(44)
             make.top.equalTo(passwordField.snp.bottom).offset(36)
             make.centerX.equalToSuperview()
@@ -100,7 +106,7 @@ extension LoginPasswordViewController {
         
         loginButton.snp.makeConstraints { make in
             make.height.equalTo(48)
-            make.top.equalTo(forgotPasswordButton.snp.bottom).offset(4)
+            make.top.equalTo(forgetButton.snp.bottom).offset(4)
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-20)
         }

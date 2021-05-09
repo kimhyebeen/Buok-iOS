@@ -66,4 +66,9 @@ extension LoginViewController: UITextFieldDelegate {
     public func textFieldDidChangeSelection(_ textField: UITextField) {
         nextButton.setHeroEnable(viewModel.validateEmail(textField.text ?? ""))
     }
+    
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
 }
