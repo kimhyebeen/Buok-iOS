@@ -54,9 +54,9 @@ class VerifyViewController: HeroBaseViewController {
     }
     
     private func activeWrongLabel() {
-        wrongLabel.isHidden = true
+        wrongLabel.isHidden = false
         DispatchQueue.main.async { [weak self] in
-            self?.nextButtonTopAnchor?.constant = 16
+            self?.nextButtonTopAnchor?.constant = 50
         }
     }
     
@@ -66,7 +66,7 @@ class VerifyViewController: HeroBaseViewController {
 extension VerifyViewController: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
         guard let viewmodel = viewModel else { return }
-        nextButton.setHeroEnable(viewmodel.requestVerifyCode(textField.text ?? ""))
+        nextButton.setHeroEnable(!(textField.text?.isEmpty ?? true))
     }
     
     public func textFieldShouldReturn(_ textField: UITextField) -> Bool {

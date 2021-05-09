@@ -46,9 +46,9 @@ class ForgetViewController: HeroBaseViewController {
     }
     
     private func activeWrongLabel() {
-        wrongLabel.isHidden = true
+        wrongLabel.isHidden = false
         DispatchQueue.main.async { [weak self] in
-            self?.nextButtonTopAnchor?.constant = 16
+            self?.nextButtonTopAnchor?.constant = 50
         }
     }
     
