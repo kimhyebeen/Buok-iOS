@@ -39,8 +39,6 @@ class ForgetViewController: HeroBaseViewController {
     @objc
     func clickNextButton(_ sender: UIButton) {
         if viewModel.requestCheckingEmail(emailField.text!) {
-            viewModel.email = emailField.text!
-            
             let verifyVC = VerifyViewController()
             verifyVC.viewModel = viewModel
             self.navigationController?.pushViewController(verifyVC, animated: true)
@@ -77,7 +75,7 @@ extension ForgetViewController {
         closeButton.snp.makeConstraints { make in
             make.width.height.equalTo(44)
             make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
-            make.trailing.equalToSuperview()
+            make.trailing.equalToSuperview().offset(-4)
         }
     }
     

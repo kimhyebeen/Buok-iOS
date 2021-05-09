@@ -53,9 +53,14 @@ extension LoginPasswordViewController {
     
     // MARK: EyeButton
     func setupEyeButton() {
+        if #available(iOS 13.0, *) {
+            eyeButton.setImage(UIImage(heroSharedNamed: "ic_eye")!.withTintColor(.heroGrayA6A4A1), for: .normal)
+            eyeButton.setImage(UIImage(heroSharedNamed: "ic_eye_fill")!.withTintColor(.heroGray5B), for: .selected)
+        } else {
+            eyeButton.setImage(UIImage(heroSharedNamed: "ic_eye")!, for: .normal)
+            eyeButton.setImage(UIImage(heroSharedNamed: "ic_eye_fill")!, for: .selected)
+        }
         eyeButton.addTarget(self, action: #selector(clickEyeButton(_:)), for: .touchUpInside)
-        eyeButton.setImage(UIImage(heroSharedNamed: "ic_eye"), for: .normal)
-        eyeButton.setImage(UIImage(heroSharedNamed: "ic_eye_fill"), for: .selected)
         self.view.addSubview(eyeButton)
         
         eyeButton.snp.makeConstraints { make in

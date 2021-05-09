@@ -8,7 +8,7 @@
 import Foundation
 
 class ForgetViewModel {
-    var email: String = ""
+    var isSelectedEyeButton: Bool = false
     
     func validateEmail(_ email: String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
@@ -29,4 +29,6 @@ class ForgetViewModel {
         // 인증번호 확인 요청
         return true
     }
+    
+    func validatePassword(_ password: String) -> Bool { password.count >= 6 }
 }

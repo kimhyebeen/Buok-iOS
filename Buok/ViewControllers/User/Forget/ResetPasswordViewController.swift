@@ -1,5 +1,5 @@
 //
-//  VerifyViewController.swift
+//  ResetPasswordViewController.swift
 //  Buok
 //
 //  Created by 김혜빈 on 2021/05/09.
@@ -7,16 +7,15 @@
 
 import UIKit
 
-class VerifyViewController: HeroBaseViewController {
+class ResetPasswordViewController: HeroBaseViewController {
     let backButton = UIButton()
     let closeButton = UIButton()
     let guideLabel = UILabel()
-    let verifyField = UserTextField()
-    let wrongLabel = UILabel()
-    let nextButton = UserServiceButton()
+    let passwordField = UserTextField()
+    let eyeButton = UIButton()
+    let finishButton = UserServiceButton()
     
     weak var viewModel: ForgetViewModel?
-    var nextButtonTopAnchor: NSLayoutConstraint?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,9 +27,9 @@ class VerifyViewController: HeroBaseViewController {
         setupBackButton()
         setupCloseButton()
         setupGuideLabel()
-        setupVerifyField()
-        setupWrongLabel()
-        setupNextButton()
+        setupPasswordField()
+        setupEyeButton()
+        setupFinishButton()
     }
     
     @objc
@@ -44,29 +43,25 @@ class VerifyViewController: HeroBaseViewController {
     }
     
     @objc
-    func clickNextButton(_ sender: UIButton) {
+    func clickEyeButton(_ sender: UIButton) {
         guard let viewmodel = viewModel else { return }
-        if viewmodel.requestVerifyCode(verifyField.text!) {
-            let resetVC = ResetPasswordViewController()
-            resetVC.viewModel = viewModel
-            self.navigationController?.pushViewController(resetVC, animated: true)
-        } else { activeWrongLabel() }
+        viewmodel.isSelectedEyeButton = !viewmodel.isSelectedEyeButton
+        passwordField.isSecureTextEntry = !viewmodel.isSelectedEyeButton
+        sender.isSelected = viewmodel.isSelectedEyeButton
     }
     
-    private func activeWrongLabel() {
-        wrongLabel.isHidden = true
-        DispatchQueue.main.async { [weak self] in
-            self?.nextButtonTopAnchor?.constant = 16
-        }
+    @objc
+    func clickFinishButton(_ sender: UIButton) {
+        // todo - 비밀번호 재설정 요청
+        self.dismiss(animated: true, completion: nil)
     }
     
 }
 
-// MARK: Delegate
-extension VerifyViewController: UITextFieldDelegate {
+extension ResetPasswordViewController: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
         guard let viewmodel = viewModel else { return }
-        nextButton.setHeroEnable(viewmodel.requestVerifyCode(textField.text ?? ""))
+        finishButton.setHeroEnable(viewmodel.validatePassword(textField.text ?? ""))
     }
     
     public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -75,7 +70,7 @@ extension VerifyViewController: UITextFieldDelegate {
     }
 }
 
-extension VerifyViewController {
+extension ResetPasswordViewController {
     // MARK: BackButton
     func setupBackButton() {
         backButton.setImage(UIImage(heroSharedNamed: "ic_back"), for: .normal)
@@ -105,9 +100,8 @@ extension VerifyViewController {
     // MARK: GuideLabel
     func setupGuideLabel() {
         guideLabel.font = .font22P
-        guideLabel.numberOfLines = 0
         guideLabel.textColor = .heroGray5B
-        guideLabel.text = "발송된 이메일에 기재된\n인증번호를 입력해주세요."
+        guideLabel.text = "비밀번호를 재설정해주세요."
         self.view.addSubview(guideLabel)
         
         guideLabel.snp.makeConstraints { make in
@@ -116,47 +110,51 @@ extension VerifyViewController {
         }
     }
     
-    // MARK: VerifyField
-    func setupVerifyField() {
-        verifyField.delegate = self
-        verifyField.setPlaceHolder("인증번호를 입력해주세요")
-        self.view.addSubview(verifyField)
+    // MARK: PasswordField
+    func setupPasswordField() {
+        passwordField.delegate = self
+        passwordField.isSecureTextEntry = true
+        passwordField.setPlaceHolder("6글자 이상")
+        self.view.addSubview(passwordField)
         
-        verifyField.snp.makeConstraints { make in
+        passwordField.snp.makeConstraints { make in
             make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(192)
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-20)
         }
     }
     
-    // MARK: WrongLabel
-    func setupWrongLabel() {
-        wrongLabel.font = .font13P
-        wrongLabel.isHidden = true
-        wrongLabel.textColor = .heroServiceSubPink
-        wrongLabel.text = "입력하신 인증번호가 일치하지 않습니다."
-        self.view.addSubview(wrongLabel)
+    // MARK: EyeButton
+    func setupEyeButton() {
+        if #available(iOS 13.0, *) {
+            eyeButton.setImage(UIImage(heroSharedNamed: "ic_eye")!.withTintColor(.heroGrayA6A4A1), for: .normal)
+            eyeButton.setImage(UIImage(heroSharedNamed: "ic_eye_fill")!.withTintColor(.heroGray5B), for: .selected)
+        } else {
+            eyeButton.setImage(UIImage(heroSharedNamed: "ic_eye")!, for: .normal)
+            eyeButton.setImage(UIImage(heroSharedNamed: "ic_eye_fill")!, for: .selected)
+        }
+        eyeButton.addTarget(self, action: #selector(clickEyeButton(_:)), for: .touchUpInside)
+        self.view.addSubview(eyeButton)
         
-        wrongLabel.snp.makeConstraints { make in
-            make.top.equalTo(verifyField.snp.bottom).offset(8)
-            make.leading.equalTo(verifyField.snp.leading).offset(2)
+        eyeButton.snp.makeConstraints { make in
+            make.width.height.equalTo(44)
+            make.centerY.equalTo(passwordField.snp.centerY)
+            make.trailing.equalTo(passwordField.snp.trailing).offset(-4)
         }
     }
     
-    // MARK: NextButton
-    func setupNextButton() {
-        nextButton.setHeroEnable(false)
-        nextButton.setHeroTitle("계속하기")
-        nextButton.addTarget(self, action: #selector(clickNextButton(_:)), for: .touchUpInside)
-        self.view.addSubview(nextButton)
+    // MARK: FinishButton
+    func setupFinishButton() {
+        finishButton.setHeroEnable(false)
+        finishButton.setHeroTitle("완료")
+        finishButton.addTarget(self, action: #selector(clickFinishButton(_:)), for: .touchUpInside)
+        self.view.addSubview(finishButton)
         
-        nextButton.snp.makeConstraints { make in
+        finishButton.snp.makeConstraints { make in
             make.height.equalTo(48)
+            make.top.equalTo(passwordField.snp.bottom).offset(16)
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-20)
         }
-        nextButtonTopAnchor = nextButton.topAnchor.constraint(equalTo: verifyField.bottomAnchor)
-        nextButtonTopAnchor?.constant = 16
-        nextButtonTopAnchor?.isActive = true
     }
 }
