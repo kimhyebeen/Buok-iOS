@@ -20,6 +20,12 @@ class UserViewModel {
     
     func validatePassword(_ password: String) -> Bool { password.count >= 6 }
     
+    func isExistEmail(_ email: String) -> Bool {
+        self.email = email
+        // todo - email이 존재하는 계정인지 아닌지 확인 요청
+        return false
+    }
+    
     func requestLogin() -> String? {
         // todo - email, password를 사용해서 로그인 요청
         print("email: \(email), password: \(password)")

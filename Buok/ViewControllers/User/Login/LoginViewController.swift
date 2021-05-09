@@ -24,7 +24,7 @@ public class LoginViewController: HeroBaseViewController {
     let kakaoSignInButton = UserServiceButton()
     let servicePolicyButton = UIButton()
     
-    var viewModel = LoginViewModel()
+    var viewModel = UserViewModel()
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,10 +55,15 @@ public class LoginViewController: HeroBaseViewController {
     @objc
     func clickNextButton(_ sender: UIButton) {
         guard let email = emailField.text else { return }
-        viewModel.email = email
-        let loginPasswordVC = LoginPasswordViewController()
-        loginPasswordVC.viewModel = viewModel
-        self.navigationController?.pushViewController(loginPasswordVC, animated: true)
+        if viewModel.isExistEmail(email) {
+            let loginPasswordVC = LoginPasswordViewController()
+            loginPasswordVC.viewModel = viewModel
+            self.navigationController?.pushViewController(loginPasswordVC, animated: true)
+        } else {
+            let joinVC = JoinViewController()
+            joinVC.viewModel = viewModel
+            self.navigationController?.pushViewController(joinVC, animated: true)
+        }
     }
 }
 

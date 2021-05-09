@@ -16,7 +16,7 @@ class LoginPasswordViewController: HeroBaseViewController {
     let forgetButton = UIButton()
     let loginButton = UserServiceButton()
     
-    weak var viewModel: LoginViewModel?
+    weak var viewModel: UserViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
