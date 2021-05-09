@@ -104,6 +104,10 @@ public class CreateViewController: HeroBaseViewController {
             make.height.equalTo(12)
         }
         
+        statusButton.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
         categoryContainerView.snp.makeConstraints { make in
             make.top.bottom.equalToSuperview()
             make.leading.equalTo(statusContainerView.snp.trailing).offset(16)
@@ -123,6 +127,10 @@ public class CreateViewController: HeroBaseViewController {
             make.leading.equalTo(categoryTitleLabel.snp.trailing).offset(2)
             make.width.equalTo(12)
             make.height.equalTo(12)
+        }
+        
+        categoryButton.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
         }
         
         // MARK: Title
@@ -180,6 +188,7 @@ public class CreateViewController: HeroBaseViewController {
         doneButton.titleLabel?.font = .font15P
         doneButton.setTitleColor(.heroWhite100s, for: .normal)
         doneButton.setTitle("Hero_Add_Item_Submit".localized, for: .normal)
+        doneButton.addTarget(self, action: #selector(onClickDoneButton(_:)), for: .touchUpInside)
         
         statusTitleLabel.text = "Hero_Common_Status".localized
         statusTitleLabel.font = .font15P
@@ -211,6 +220,11 @@ public class CreateViewController: HeroBaseViewController {
     @objc
     private func onClickBackButton(_ sender: Any?) {
         navigationController?.popViewController(animated: true)
+    }
+    
+    @objc
+    private func onClickDoneButton(_ sender: Any?) {
+        DebugLog("Done Button Clicked")
     }
     
     @objc
