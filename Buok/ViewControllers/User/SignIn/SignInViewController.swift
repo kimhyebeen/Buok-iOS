@@ -25,10 +25,13 @@ public class SignInViewController: HeroBaseViewController {
     let servicePolicyButton = UIButton()
     
     public override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        setupView()
-    }
+		super.viewDidLoad()
+		
+		setupView()
+		if #available(iOS 13.0, *) {
+			configureAppleSignButton()
+		}
+	}
     
     private func setupView() {        
         setupScrollView()
