@@ -69,6 +69,7 @@
 		EE4940842647659700CB0B71 /* ForgetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4940832647659700CB0B71 /* ForgetViewModel.swift */; };
 		EE49408C2647670D00CB0B71 /* VerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE49408B2647670D00CB0B71 /* VerifyViewController.swift */; };
 		EE49409126476D5400CB0B71 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE49409026476D5400CB0B71 /* ResetPasswordViewController.swift */; };
+		EE4940E02648332C00CB0B71 /* UITextView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4940DF2648332C00CB0B71 /* UITextView+.swift */; };
 		EE61F70726457CA3004DF51B /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE61F70626457CA3004DF51B /* UserViewModel.swift */; };
 		EEA213C32625D03E00E3AEA1 /* LoginPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA213C22625D03E00E3AEA1 /* LoginPasswordViewController.swift */; };
 		EEA213CB2625D59900E3AEA1 /* LoginViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA213CA2625D59900E3AEA1 /* LoginViewController+UI.swift */; };
@@ -78,7 +79,7 @@
 		EECEF1752627D91100CF9394 /* JoinNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECEF1742627D91100CF9394 /* JoinNameViewController.swift */; };
 		EECEF1872627DFD900CF9394 /* JoinIntroduceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECEF1862627DFD900CF9394 /* JoinIntroduceViewController.swift */; };
 		EECEF18C2627DFEA00CF9394 /* JoinIntroduceViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECEF18B2627DFEA00CF9394 /* JoinIntroduceViewController+UI.swift */; };
-		EECEF1922627E08300CF9394 /* IntroduceTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECEF1912627E08300CF9394 /* IntroduceTextField.swift */; };
+		EECEF1922627E08300CF9394 /* IntroduceTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECEF1912627E08300CF9394 /* IntroduceTextView.swift */; };
 		F9EECDCC1BB268AD7FC97CF0 /* Pods_Buok.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AECABF2E7CD3020025E0B60D /* Pods_Buok.framework */; };
 /* End PBXBuildFile section */
 
@@ -302,6 +303,7 @@
 		EE4940832647659700CB0B71 /* ForgetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetViewModel.swift; sourceTree = "<group>"; };
 		EE49408B2647670D00CB0B71 /* VerifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyViewController.swift; sourceTree = "<group>"; };
 		EE49409026476D5400CB0B71 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
+		EE4940DF2648332C00CB0B71 /* UITextView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+.swift"; sourceTree = "<group>"; };
 		EE61F70626457CA3004DF51B /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		EE64EE50EB3512280D8E7B47 /* Pods-Buok.real.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Buok.real.xcconfig"; path = "Target Support Files/Pods-Buok/Pods-Buok.real.xcconfig"; sourceTree = "<group>"; };
 		EEA213C22625D03E00E3AEA1 /* LoginPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPasswordViewController.swift; sourceTree = "<group>"; };
@@ -312,7 +314,7 @@
 		EECEF1742627D91100CF9394 /* JoinNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinNameViewController.swift; sourceTree = "<group>"; };
 		EECEF1862627DFD900CF9394 /* JoinIntroduceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinIntroduceViewController.swift; sourceTree = "<group>"; };
 		EECEF18B2627DFEA00CF9394 /* JoinIntroduceViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JoinIntroduceViewController+UI.swift"; sourceTree = "<group>"; };
-		EECEF1912627E08300CF9394 /* IntroduceTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroduceTextField.swift; sourceTree = "<group>"; };
+		EECEF1912627E08300CF9394 /* IntroduceTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroduceTextView.swift; sourceTree = "<group>"; };
 		F65BD738214020871341DE05 /* Pods-YappHero-YappHeroUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHero-YappHeroUITests.release.xcconfig"; path = "Target Support Files/Pods-YappHero-YappHeroUITests/Pods-YappHero-YappHeroUITests.release.xcconfig"; sourceTree = "<group>"; };
 		F694113430B9D3AC5B8FD3C8 /* Pods-BucketListTests.inhouse(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BucketListTests.inhouse(debug).xcconfig"; path = "Target Support Files/Pods-BucketListTests/Pods-BucketListTests.inhouse(debug).xcconfig"; sourceTree = "<group>"; };
 		FAA30482BA20B7DD44EA69D7 /* Pods_BuokTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BuokTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -518,7 +520,6 @@
 			children = (
 				EE61F6E126457821004DF51B /* View */,
 				EE61F70626457CA3004DF51B /* UserViewModel.swift */,
-				EECEF1912627E08300CF9394 /* IntroduceTextField.swift */,
 				EE49406526475A3700CB0B71 /* Forget */,
 				B0D0217B2602198800F25329 /* Login */,
 				B0D0217A2602198100F25329 /* Join */,
@@ -746,6 +747,8 @@
 			children = (
 				EEB9EF9726269768001AF65F /* UserTextField.swift */,
 				EEB9EF8B26269762001AF65F /* UserServiceButton.swift */,
+				EECEF1912627E08300CF9394 /* IntroduceTextView.swift */,
+				EE4940DF2648332C00CB0B71 /* UITextView+.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1177,9 +1180,10 @@
 				B01D43BA2604231800F2D28C /* CategoryFilterView.swift in Sources */,
 				B041747C25E2366E00D990A2 /* BucketList.xcdatamodeld in Sources */,
 				EEB9EF9826269768001AF65F /* UserTextField.swift in Sources */,
+				EE4940E02648332C00CB0B71 /* UITextView+.swift in Sources */,
 				B0B033D32622AA0900D65204 /* SettingNavigator.swift in Sources */,
 				B0B033C12621C97300D65204 /* SettingViewController.swift in Sources */,
-				EECEF1922627E08300CF9394 /* IntroduceTextField.swift in Sources */,
+				EECEF1922627E08300CF9394 /* IntroduceTextView.swift in Sources */,
 				EE4940842647659700CB0B71 /* ForgetViewModel.swift in Sources */,
 				EECEF18C2627DFEA00CF9394 /* JoinIntroduceViewController+UI.swift in Sources */,
 				EEA213D32625DAEA00E3AEA1 /* LoginPasswordViewController+UI.swift in Sources */,
