@@ -1,5 +1,5 @@
 //
-//  ForgetViewController.swift
+//  VerifyViewController.swift
 //  Buok
 //
 //  Created by 김혜빈 on 2021/05/09.
@@ -7,14 +7,15 @@
 
 import UIKit
 
-class ForgetViewController: HeroBaseViewController {
+class VerifyViewController: HeroBaseViewController {
+    let backButton = UIButton()
     let closeButton = UIButton()
     let guideLabel = UILabel()
-    let emailField = UserTextField()
+    let verifyField = UserTextField()
     let wrongLabel = UILabel()
     let nextButton = UserServiceButton()
     
-    let viewModel = ForgetViewModel()
+    weak var viewModel: ForgetViewModel?
     var nextButtonTopAnchor: NSLayoutConstraint?
 
     override func viewDidLoad() {
@@ -24,11 +25,17 @@ class ForgetViewController: HeroBaseViewController {
     }
     
     private func setupView() {
+        setupBackButton()
         setupCloseButton()
         setupGuideLabel()
-        setupEmailField()
+        setupVerifyField()
         setupWrongLabel()
         setupNextButton()
+    }
+    
+    @objc
+    func clickBackButton(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
     }
     
     @objc
@@ -38,12 +45,9 @@ class ForgetViewController: HeroBaseViewController {
     
     @objc
     func clickNextButton(_ sender: UIButton) {
-        if viewModel.requestCheckingEmail(emailField.text!) {
-            viewModel.email = emailField.text!
-            
-            let verifyVC = VerifyViewController()
-            verifyVC.viewModel = viewModel
-            self.navigationController?.pushViewController(verifyVC, animated: true)
+        guard let viewmodel = viewModel else { return }
+        if viewmodel.requestVerifyCode(verifyField.text!) {
+            // 비밀번호 재설정 화면 띄우기
         } else { activeWrongLabel() }
     }
     
@@ -56,13 +60,27 @@ class ForgetViewController: HeroBaseViewController {
     
 }
 
-extension ForgetViewController: UITextFieldDelegate {
+extension VerifyViewController: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
-        nextButton.setHeroEnable(viewModel.validateEmail(textField.text ?? ""))
+        guard let viewmodel = viewModel else { return }
+        nextButton.setHeroEnable(viewmodel.requestVerifyCode(textField.text ?? ""))
     }
 }
 
-extension ForgetViewController {
+extension VerifyViewController {
+    // MARK: BackButton
+    func setupBackButton() {
+        backButton.setImage(UIImage(heroSharedNamed: "ic_back"), for: .normal)
+        backButton.addTarget(self, action: #selector(clickBackButton(_:)), for: .touchUpInside)
+        self.view.addSubview(backButton)
+        
+        backButton.snp.makeConstraints { make in
+            make.width.height.equalTo(44)
+            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
+            make.leading.equalToSuperview()
+        }
+    }
+    
     // MARK: CloseButton
     func setupCloseButton() {
         closeButton.setImage(UIImage(heroSharedNamed: "ic_x"), for: .normal)
@@ -81,7 +99,7 @@ extension ForgetViewController {
         guideLabel.font = .font22P
         guideLabel.numberOfLines = 0
         guideLabel.textColor = .heroGray5B
-        guideLabel.text = "비밀번호 재설정을 위해\n가입된 이메일을 입력해주세요."
+        guideLabel.text = "발송된 이메일에 기재된\n인증번호를 입력해주세요."
         self.view.addSubview(guideLabel)
         
         guideLabel.snp.makeConstraints { make in
@@ -90,13 +108,13 @@ extension ForgetViewController {
         }
     }
     
-    // MARK: EmailField
-    func setupEmailField() {
-        emailField.delegate = self
-        emailField.setPlaceHolder("이메일 주소를 입력해주세요")
-        self.view.addSubview(emailField)
+    // MARK: VerifyField
+    func setupVerifyField() {
+        verifyField.delegate = self
+        verifyField.setPlaceHolder("인증번호를 입력해주세요")
+        self.view.addSubview(verifyField)
         
-        emailField.snp.makeConstraints { make in
+        verifyField.snp.makeConstraints { make in
             make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(192)
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-20)
@@ -108,12 +126,12 @@ extension ForgetViewController {
         wrongLabel.font = .font13P
         wrongLabel.isHidden = true
         wrongLabel.textColor = .heroServiceSubPink
-        wrongLabel.text = "입력하신 이메일이 존재하지 않습니다."
+        wrongLabel.text = "입력하신 인증번호가 일치하지 않습니다."
         self.view.addSubview(wrongLabel)
         
         wrongLabel.snp.makeConstraints { make in
-            make.top.equalTo(emailField.snp.bottom).offset(8)
-            make.leading.equalTo(emailField.snp.leading).offset(2)
+            make.top.equalTo(verifyField.snp.bottom).offset(8)
+            make.leading.equalTo(verifyField.snp.leading).offset(2)
         }
     }
     
@@ -129,7 +147,7 @@ extension ForgetViewController {
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-20)
         }
-        nextButtonTopAnchor = nextButton.topAnchor.constraint(equalTo: emailField.bottomAnchor)
+        nextButtonTopAnchor = nextButton.topAnchor.constraint(equalTo: verifyField.bottomAnchor)
         nextButtonTopAnchor?.constant = 16
         nextButtonTopAnchor?.isActive = true
     }
