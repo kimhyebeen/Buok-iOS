@@ -69,7 +69,7 @@
 		EE4940842647659700CB0B71 /* ForgetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4940832647659700CB0B71 /* ForgetViewModel.swift */; };
 		EE49408C2647670D00CB0B71 /* VerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE49408B2647670D00CB0B71 /* VerifyViewController.swift */; };
 		EE49409126476D5400CB0B71 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE49409026476D5400CB0B71 /* ResetPasswordViewController.swift */; };
-		EE61F70726457CA3004DF51B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE61F70626457CA3004DF51B /* LoginViewModel.swift */; };
+		EE61F70726457CA3004DF51B /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE61F70626457CA3004DF51B /* UserViewModel.swift */; };
 		EE804C892627F8CE007AACD2 /* JoinPasswordViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE804C882627F8CE007AACD2 /* JoinPasswordViewController+UI.swift */; };
 		EEA213C32625D03E00E3AEA1 /* LoginPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA213C22625D03E00E3AEA1 /* LoginPasswordViewController.swift */; };
 		EEA213CB2625D59900E3AEA1 /* LoginViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA213CA2625D59900E3AEA1 /* LoginViewController+UI.swift */; };
@@ -304,7 +304,7 @@
 		EE4940832647659700CB0B71 /* ForgetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetViewModel.swift; sourceTree = "<group>"; };
 		EE49408B2647670D00CB0B71 /* VerifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyViewController.swift; sourceTree = "<group>"; };
 		EE49409026476D5400CB0B71 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
-		EE61F70626457CA3004DF51B /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		EE61F70626457CA3004DF51B /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		EE64EE50EB3512280D8E7B47 /* Pods-Buok.real.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Buok.real.xcconfig"; path = "Target Support Files/Pods-Buok/Pods-Buok.real.xcconfig"; sourceTree = "<group>"; };
 		EE804C882627F8CE007AACD2 /* JoinPasswordViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JoinPasswordViewController+UI.swift"; sourceTree = "<group>"; };
 		EEA213C22625D03E00E3AEA1 /* LoginPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPasswordViewController.swift; sourceTree = "<group>"; };
@@ -521,6 +521,7 @@
 			isa = PBXGroup;
 			children = (
 				EE61F6E126457821004DF51B /* View */,
+				EE61F70626457CA3004DF51B /* UserViewModel.swift */,
 				EE49406526475A3700CB0B71 /* Forget */,
 				B0D0217B2602198800F25329 /* Login */,
 				B0D0217A2602198100F25329 /* Join */,
@@ -688,7 +689,6 @@
 		B0D0217B2602198800F25329 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				EE61F70626457CA3004DF51B /* LoginViewModel.swift */,
 				B04C15E726015FCF0084BAEC /* LoginViewController.swift */,
 				EEA213CA2625D59900E3AEA1 /* LoginViewController+UI.swift */,
 				EEA213C22625D03E00E3AEA1 /* LoginPasswordViewController.swift */,
@@ -1217,7 +1217,7 @@
 				B04C15E826015FCF0084BAEC /* LoginViewController.swift in Sources */,
 				B01D43B026039D5700F2D28C /* HomeViewModel.swift in Sources */,
 				B0B035ED2622B33800D65204 /* SettingConstants.swift in Sources */,
-				EE61F70726457CA3004DF51B /* LoginViewModel.swift in Sources */,
+				EE61F70726457CA3004DF51B /* UserViewModel.swift in Sources */,
 				B06B5CB425ECA4070045A491 /* MainTabBarViewController.swift in Sources */,
 				B075238125EF5AF70016DC3A /* BucketListHomeAPIRequest.swift in Sources */,
 				B0D0218226021A2100F25329 /* NadamProperties.swift in Sources */,

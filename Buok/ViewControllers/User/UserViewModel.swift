@@ -7,7 +7,7 @@
 
 import Promise
 
-class LoginViewModel {
+class UserViewModel {
     var email: String = ""
     var password: String = ""
     var isSelectedEyeButton: Bool = false
