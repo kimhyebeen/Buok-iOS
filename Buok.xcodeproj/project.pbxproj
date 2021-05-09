@@ -55,7 +55,7 @@
 		B0B033D32622AA0900D65204 /* SettingNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B033D22622AA0900D65204 /* SettingNavigator.swift */; };
 		B0B035E82622B2B900D65204 /* SettingSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B035E72622B2B900D65204 /* SettingSectionHeaderView.swift */; };
 		B0B035ED2622B33800D65204 /* SettingConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B035EC2622B33800D65204 /* SettingConstants.swift */; };
-		B0D0217D2602199600F25329 /* JoinPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D0217C2602199600F25329 /* JoinPasswordViewController.swift */; };
+		B0D0217D2602199600F25329 /* JoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D0217C2602199600F25329 /* JoinViewController.swift */; };
 		B0D0218226021A2100F25329 /* NadamProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D0218126021A2100F25329 /* NadamProperties.swift */; };
 		B0D43A532600DA99003420CA /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0D43A522600DA99003420CA /* WidgetKit.framework */; };
 		B0D43A552600DA99003420CA /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0D43A542600DA99003420CA /* SwiftUI.framework */; };
@@ -70,7 +70,6 @@
 		EE49408C2647670D00CB0B71 /* VerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE49408B2647670D00CB0B71 /* VerifyViewController.swift */; };
 		EE49409126476D5400CB0B71 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE49409026476D5400CB0B71 /* ResetPasswordViewController.swift */; };
 		EE61F70726457CA3004DF51B /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE61F70626457CA3004DF51B /* UserViewModel.swift */; };
-		EE804C892627F8CE007AACD2 /* JoinPasswordViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE804C882627F8CE007AACD2 /* JoinPasswordViewController+UI.swift */; };
 		EEA213C32625D03E00E3AEA1 /* LoginPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA213C22625D03E00E3AEA1 /* LoginPasswordViewController.swift */; };
 		EEA213CB2625D59900E3AEA1 /* LoginViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA213CA2625D59900E3AEA1 /* LoginViewController+UI.swift */; };
 		EEA213D32625DAEA00E3AEA1 /* LoginPasswordViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA213D22625DAEA00E3AEA1 /* LoginPasswordViewController+UI.swift */; };
@@ -281,7 +280,7 @@
 		B0B033D22622AA0900D65204 /* SettingNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingNavigator.swift; sourceTree = "<group>"; };
 		B0B035E72622B2B900D65204 /* SettingSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSectionHeaderView.swift; sourceTree = "<group>"; };
 		B0B035EC2622B33800D65204 /* SettingConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingConstants.swift; sourceTree = "<group>"; };
-		B0D0217C2602199600F25329 /* JoinPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinPasswordViewController.swift; sourceTree = "<group>"; };
+		B0D0217C2602199600F25329 /* JoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinViewController.swift; sourceTree = "<group>"; };
 		B0D0218126021A2100F25329 /* NadamProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NadamProperties.swift; sourceTree = "<group>"; };
 		B0D43A512600DA99003420CA /* BuokWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BuokWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0D43A522600DA99003420CA /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -306,7 +305,6 @@
 		EE49409026476D5400CB0B71 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		EE61F70626457CA3004DF51B /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		EE64EE50EB3512280D8E7B47 /* Pods-Buok.real.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Buok.real.xcconfig"; path = "Target Support Files/Pods-Buok/Pods-Buok.real.xcconfig"; sourceTree = "<group>"; };
-		EE804C882627F8CE007AACD2 /* JoinPasswordViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JoinPasswordViewController+UI.swift"; sourceTree = "<group>"; };
 		EEA213C22625D03E00E3AEA1 /* LoginPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPasswordViewController.swift; sourceTree = "<group>"; };
 		EEA213CA2625D59900E3AEA1 /* LoginViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+UI.swift"; sourceTree = "<group>"; };
 		EEA213D22625DAEA00E3AEA1 /* LoginPasswordViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginPasswordViewController+UI.swift"; sourceTree = "<group>"; };
@@ -676,8 +674,7 @@
 			isa = PBXGroup;
 			children = (
 				EECEF1902627E06A00CF9394 /* View */,
-				B0D0217C2602199600F25329 /* JoinPasswordViewController.swift */,
-				EE804C882627F8CE007AACD2 /* JoinPasswordViewController+UI.swift */,
+				B0D0217C2602199600F25329 /* JoinViewController.swift */,
 				EECEF1742627D91100CF9394 /* JoinNameViewController.swift */,
 				EECEF1812627DF6A00CF9394 /* JoinNameViewController+UI.swift */,
 				EECEF1862627DFD900CF9394 /* JoinIntroduceViewController.swift */,
@@ -1184,7 +1181,7 @@
 				B0635AC52603897600046E88 /* HomeViewController.swift in Sources */,
 				B075226D25ED089F0016DC3A /* AuthTokenModel.swift in Sources */,
 				B06B5EDF25ECCD550045A491 /* HeroNavigationController.swift in Sources */,
-				B0D0217D2602199600F25329 /* JoinPasswordViewController.swift in Sources */,
+				B0D0217D2602199600F25329 /* JoinViewController.swift in Sources */,
 				B041747625E2366E00D990A2 /* MultiLevelViewController.swift in Sources */,
 				EEA213CB2625D59900E3AEA1 /* LoginViewController+UI.swift in Sources */,
 				B0B0339D2621A12200D65204 /* MyPageProfileCountView.swift in Sources */,
@@ -1207,7 +1204,6 @@
 				B041747225E2366E00D990A2 /* AppDelegate.swift in Sources */,
 				B0B033CE2621CDBC00D65204 /* SettingInfoCell.swift in Sources */,
 				EEA213C32625D03E00E3AEA1 /* LoginPasswordViewController.swift in Sources */,
-				EE804C892627F8CE007AACD2 /* JoinPasswordViewController+UI.swift in Sources */,
 				EECEF1752627D91100CF9394 /* JoinNameViewController.swift in Sources */,
 				B06B5EF625ECD0140045A491 /* SubThreeViewController.swift in Sources */,
 				EE49409126476D5400CB0B71 /* ResetPasswordViewController.swift in Sources */,
