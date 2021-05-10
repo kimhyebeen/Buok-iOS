@@ -1,35 +1,37 @@
 //
-//  ResetPasswordViewController.swift
+//  SignUpViewController.swift
 //  Buok
 //
-//  Created by 김혜빈 on 2021/05/09.
+//  Created by 김혜빈 on 2021/04/15.
 //
 
+import Foundation
+import HeroCommon
+import HeroSharedAssets
 import HeroUI
+import SnapKit
 
-class ResetPasswordViewController: HeroBaseViewController {
+public class JoinViewController: HeroBaseViewController {
     let backButton = UIButton()
-    let closeButton = UIButton()
     let guideLabel = UILabel()
     let passwordField = UserTextField()
     let eyeButton = UIButton()
-    let finishButton = UserServiceButton()
+    let nextButton = UserServiceButton()
     
-    weak var viewModel: ForgetViewModel?
-
-    override func viewDidLoad() {
+    weak var viewModel: UserViewModel?
+    
+    public override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setupView()
     }
     
     private func setupView() {
         setupBackButton()
-        setupCloseButton()
         setupGuideLabel()
         setupPasswordField()
         setupEyeButton()
-        setupFinishButton()
+        setupNextButton()
     }
     
     @objc
@@ -38,39 +40,33 @@ class ResetPasswordViewController: HeroBaseViewController {
     }
     
     @objc
-    func clickCloseButton(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    @objc
     func clickEyeButton(_ sender: UIButton) {
         guard let viewmodel = viewModel else { return }
         viewmodel.isSelectedEyeButton = !viewmodel.isSelectedEyeButton
-        passwordField.isSecureTextEntry = !viewmodel.isSelectedEyeButton
         sender.isSelected = viewmodel.isSelectedEyeButton
+        passwordField.isSecureTextEntry = !eyeButton.isSelected
     }
     
     @objc
-    func clickFinishButton(_ sender: UIButton) {
-        // todo - 비밀번호 재설정 요청
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-}
-
-extension ResetPasswordViewController: UITextFieldDelegate {
-    func textFieldDidChangeSelection(_ textField: UITextField) {
+    func clickNextButton(_ sender: UIButton) {
         guard let viewmodel = viewModel else { return }
-        finishButton.setHeroEnable(viewmodel.validatePassword(textField.text ?? ""))
-    }
-    
-    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true)
-        return true
+        viewmodel.password = passwordField.text!
+        
+        let nameVC = JoinNameViewController()
+        nameVC.viewModel = viewModel
+        self.navigationController?.pushViewController(nameVC, animated: true)
     }
 }
 
-extension ResetPasswordViewController {
+// MARK: Delegate
+extension JoinViewController: UITextFieldDelegate {
+    public func textFieldDidChangeSelection(_ textField: UITextField) {
+        guard let viewmodel = viewModel else { return }
+        nextButton.setHeroEnable(viewmodel.validatePassword(textField.text ?? ""))
+    }
+}
+
+extension JoinViewController {
     // MARK: BackButton
     func setupBackButton() {
         backButton.setImage(UIImage(heroSharedNamed: "ic_back"), for: .normal)
@@ -78,35 +74,24 @@ extension ResetPasswordViewController {
         self.view.addSubview(backButton)
         
         backButton.snp.makeConstraints { make in
-            make.width.height.equalTo(44)
+            make.width.equalTo(44)
+            make.height.equalTo(44)
             make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
             make.leading.equalToSuperview().offset(3)
-        }
-    }
-    
-    // MARK: CloseButton
-    func setupCloseButton() {
-        closeButton.setImage(UIImage(heroSharedNamed: "ic_x"), for: .normal)
-        closeButton.addTarget(self, action: #selector(clickCloseButton(_:)), for: .touchUpInside)
-        self.view.addSubview(closeButton)
-        
-        closeButton.snp.makeConstraints { make in
-            make.width.height.equalTo(44)
-            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
-            make.trailing.equalToSuperview().offset(-4)
         }
     }
     
     // MARK: GuideLabel
     func setupGuideLabel() {
         guideLabel.font = .font22P
+        guideLabel.numberOfLines = 0
         guideLabel.textColor = .heroGray5B
-        guideLabel.text = "비밀번호를 재설정해주세요."
+        guideLabel.text = "buok에 오신 것을 환영합니다.\n비밀번호를 설정해주세요."
         self.view.addSubview(guideLabel)
         
         guideLabel.snp.makeConstraints { make in
             make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(92)
-            make.leading.equalToSuperview().offset(22)
+            make.leading.equalToSuperview().offset(20)
         }
     }
     
@@ -118,7 +103,7 @@ extension ResetPasswordViewController {
         self.view.addSubview(passwordField)
         
         passwordField.snp.makeConstraints { make in
-            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(192)
+            make.top.equalTo(guideLabel.snp.bottom).offset(40)
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-20)
         }
@@ -143,14 +128,14 @@ extension ResetPasswordViewController {
         }
     }
     
-    // MARK: FinishButton
-    func setupFinishButton() {
-        finishButton.setHeroEnable(false)
-        finishButton.setHeroTitle("완료")
-        finishButton.addTarget(self, action: #selector(clickFinishButton(_:)), for: .touchUpInside)
-        self.view.addSubview(finishButton)
+    // MARK: NextButton
+    func setupNextButton() {
+        nextButton.setHeroTitle("계속하기")
+        nextButton.setHeroEnable(false)
+        nextButton.addTarget(self, action: #selector(clickNextButton(_:)), for: .touchUpInside)
+        self.view.addSubview(nextButton)
         
-        finishButton.snp.makeConstraints { make in
+        nextButton.snp.makeConstraints { make in
             make.height.equalTo(48)
             make.top.equalTo(passwordField.snp.bottom).offset(16)
             make.leading.equalToSuperview().offset(20)

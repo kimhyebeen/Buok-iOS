@@ -33,6 +33,11 @@ public class CreateViewController: HeroBaseViewController {
     private let finishDateTitleLabel: UILabel = UILabel()
     private let finishDateSelectButton: HeroButton = HeroButton()
     
+    private let detailTitleLabel: UILabel = UILabel()
+    private let detailBackgroundView: UIView = UIView()
+    private let detailTextView: UITextView = UITextView()
+    private let detailLengthLabel: UILabel = UILabel()
+    
     private var viewModel: CreateViewModel?
     
     public override func viewDidLoad() {
@@ -48,28 +53,30 @@ public class CreateViewController: HeroBaseViewController {
         view.addSubview(titleField)
         view.addSubview(divisionBar)
         view.addSubview(finishDateContainerView)
+        view.addSubview(detailTitleLabel)
+        view.addSubview(detailBackgroundView)
         
         topContentView.addSubview(backButton)
         topContentView.addSubview(doneButton)
-
+        
         topContentView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             make.leading.equalTo(view.safeAreaLayoutGuide.snp.leading).offset(13)
             make.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing).offset(-20)
             make.height.equalTo(48)
         }
-
+        
         backButton.snp.makeConstraints { make in
             make.leading.equalToSuperview()
             make.centerY.equalToSuperview()
             make.width.equalTo(24)
             make.height.equalTo(24)
         }
-
+        
         doneButton.snp.makeConstraints { make in
             make.trailing.equalToSuperview()
             make.centerY.equalToSuperview()
-            make.width.equalTo(48)
+            make.width.greaterThanOrEqualTo(48)
             make.height.equalTo(32)
         }
         
@@ -168,6 +175,36 @@ public class CreateViewController: HeroBaseViewController {
             make.centerY.equalToSuperview()
             make.trailing.equalToSuperview()
         }
+        
+        // MARK: Detail Field Section
+        detailTitleLabel.snp.makeConstraints { make in
+            make.top.equalTo(finishDateContainerView.snp.bottom).offset(9)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+            make.height.equalTo(16)
+        }
+        
+        detailBackgroundView.snp.makeConstraints { make in
+            make.top.equalTo(detailTitleLabel.snp.bottom).offset(8)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+            make.height.greaterThanOrEqualTo(200)
+        }
+        
+        detailBackgroundView.addSubview(detailTextView)
+        detailBackgroundView.addSubview(detailLengthLabel)
+        
+        detailTextView.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(16)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().offset(-16)
+            make.bottom.equalToSuperview().offset(-16)
+        }
+        
+        detailLengthLabel.snp.makeConstraints { make in
+            make.trailing.equalToSuperview().offset(-12)
+            make.bottom.equalToSuperview().offset(-8)
+        }
     }
     
     private func bindViewModel() {
@@ -215,6 +252,22 @@ public class CreateViewController: HeroBaseViewController {
         finishDateSelectButton.setTitleColor(.heroGrayA6A4A1, for: .normal)
         finishDateSelectButton.titleLabel?.font = .font15P
         finishDateSelectButton.addTarget(self, action: #selector(onClickFinishDateButton(_:)), for: .touchUpInside)
+        
+        detailTitleLabel.text = "상세 내용"
+        detailTitleLabel.font = .font15P
+        detailTitleLabel.textColor = .heroGray82
+        
+        detailBackgroundView.backgroundColor = .heroWhite100s
+        detailBackgroundView.layer.cornerRadius = 7
+        
+        detailTextView.delegate = self
+        detailTextView.font = .font13P
+        detailTextView.textColor = .heroGrayDA
+        detailTextView.text = "메모할 내용을 기입해보세요.\n혹은 버킷리스트와 관련해서 상세 내용을 입력해봅시다!"
+        
+        detailLengthLabel.font = .font13P
+        detailLengthLabel.textColor = .heroGrayA6A4A1
+        detailLengthLabel.text = "0/1500"
     }
     
     @objc
@@ -240,5 +293,29 @@ public class CreateViewController: HeroBaseViewController {
     @objc
     private func onClickFinishDateButton(_ sender: Any?) {
         DebugLog("FinishDateButton Clicked")
+    }
+}
+
+extension CreateViewController: UITextViewDelegate {
+    public func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == .heroGrayDA {
+            textView.text = nil
+            textView.textColor = .heroGray5B
+        }
+    }
+    
+    public func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "메모할 내용을 기입해보세요.\n혹은 버킷리스트와 관련해서 상세 내용을 입력해봅시다!"
+            textView.textColor = .heroGrayDA
+        }
+    }
+    
+    public func textViewDidChange(_ textView: UITextView) {
+        if textView.textColor == .heroGrayDA {
+            detailLengthLabel.text = "0/1500"
+        } else {
+            detailLengthLabel.text = "\(textView.text.count)/1500"
+        }
     }
 }

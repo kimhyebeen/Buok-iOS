@@ -5,7 +5,7 @@
 //  Created by 김혜빈 on 2021/04/13.
 //
 
-import UIKit
+import HeroUI
 
 public class UserServiceButton: UIButton {
     public override init(frame: CGRect) {
