@@ -1,5 +1,5 @@
 //
-//  SignInViewController+AppleID.swift
+//  LoginViewController+AppleID.swift
 //  Buok
 //
 //  Created by 김보민 on 2021/05/09.
@@ -9,12 +9,23 @@ import AuthenticationServices
 import HeroCommon
 
 @available(iOS 13.0, *)
-extension SignInViewController: ASAuthorizationControllerDelegate, ASAuthorizationControllerPresentationContextProviding {
+extension LoginViewController: ASAuthorizationControllerDelegate, ASAuthorizationControllerPresentationContextProviding {
 	func configureAppleSignButton() {
 		let appleSignButton: ASAuthorizationAppleIDButton
-		appleSignButton = ASAuthorizationAppleIDButton(type: .signIn, style: .white)
+		if #available(iOS 13.2, *), viewModel.appleLoginMode == false {
+			appleSignButton = ASAuthorizationAppleIDButton(type: .signUp, style: .white)
+		} else {
+			appleSignButton = ASAuthorizationAppleIDButton(type: .signIn, style: .white)
+		}
 		appleSignButton.addTarget(self, action: #selector(appleSignIn), for: .touchUpInside)
-		appleSignInButton.addSubview(appleSignButton)
+		contentsView.addSubview(appleSignButton)
+		
+		appleSignButton.snp.makeConstraints { make in
+			make.top.equalTo(orLabel.snp.bottom).offset(20)
+			make.leading.equalToSuperview().offset(20)
+			make.trailing.equalToSuperview().offset(-20)
+			make.height.equalTo(48)
+		}
 	}
 
 	public func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {

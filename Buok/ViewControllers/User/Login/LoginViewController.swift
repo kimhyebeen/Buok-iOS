@@ -30,9 +30,6 @@ public class LoginViewController: HeroBaseViewController {
 		super.viewDidLoad()
 		
 		setupView()
-		if #available(iOS 13.0, *) {
-			configureAppleSignButton()
-		}
 	}
     
     private func setupView() {        
@@ -47,6 +44,10 @@ public class LoginViewController: HeroBaseViewController {
         setupServicePolicyButton()
         
         setupTapGesture()
+		if #available(iOS 13.0, *) {
+			configureAppleSignButton()
+			viewModel.appleLoginMode = true
+		}
     }
     
     private func setupTapGesture() {

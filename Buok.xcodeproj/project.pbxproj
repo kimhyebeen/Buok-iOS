@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		20578AFA9B716592135E4D20 /* Pods_BuokTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA30482BA20B7DD44EA69D7 /* Pods_BuokTests.framework */; };
-		29773EFB2647FAB900FB7AA8 /* SignInViewController+AppleID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29773EFA2647FAB900FB7AA8 /* SignInViewController+AppleID.swift */; };
+		29773EFB2647FAB900FB7AA8 /* LoginViewController+AppleID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29773EFA2647FAB900FB7AA8 /* LoginViewController+AppleID.swift */; };
 		73A6015BE1A71587F5FCC6C5 /* Pods_BuokWidgetExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6C0B3A741D94BE2552F9A2D /* Pods_BuokWidgetExtension.framework */; };
 		7A23F5D60945D5051A7AF8BA /* Pods_Buok_BuokUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19D64A49C31935ACEF072549 /* Pods_Buok_BuokUITests.framework */; };
 		B01D43A826039D2500F2D28C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01D43A726039D2500F2D28C /* DetailViewController.swift */; };
@@ -200,8 +200,7 @@
 		19D64A49C31935ACEF072549 /* Pods_Buok_BuokUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Buok_BuokUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F612B424FD0728306E3799D /* Pods-YappHero-YappHeroUITests.sandbox(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHero-YappHeroUITests.sandbox(debug).xcconfig"; path = "Target Support Files/Pods-YappHero-YappHeroUITests/Pods-YappHero-YappHeroUITests.sandbox(debug).xcconfig"; sourceTree = "<group>"; };
 		218B8F72E8EDC19D3A336452 /* Pods-BucketList-BucketListUITests.inhouse(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BucketList-BucketListUITests.inhouse(debug).xcconfig"; path = "Target Support Files/Pods-BucketList-BucketListUITests/Pods-BucketList-BucketListUITests.inhouse(debug).xcconfig"; sourceTree = "<group>"; };
-		29773E32263D3A7D00FB7AA8 /* Buok.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Buok.entitlements; sourceTree = "<group>"; };
-		29773EFA2647FAB900FB7AA8 /* SignInViewController+AppleID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "SignInViewController+AppleID.swift"; path = "Buok/ViewControllers/User/SignIn/SignInViewController+AppleID.swift"; sourceTree = SOURCE_ROOT; };
+		29773EFA2647FAB900FB7AA8 /* LoginViewController+AppleID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "LoginViewController+AppleID.swift"; path = "Buok/ViewControllers/User/SignIn/LoginViewController+AppleID.swift"; sourceTree = SOURCE_ROOT; };
 		2BB0B5F8CB1111CB6C492273 /* Pods-Buok.sandbox(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Buok.sandbox(debug).xcconfig"; path = "Target Support Files/Pods-Buok/Pods-Buok.sandbox(debug).xcconfig"; sourceTree = "<group>"; };
 		2ED6AAF01C650FDE03D6831F /* Pods-Buok-BuokUITests.real.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Buok-BuokUITests.real.xcconfig"; path = "Target Support Files/Pods-Buok-BuokUITests/Pods-Buok-BuokUITests.real.xcconfig"; sourceTree = "<group>"; };
 		30B041E2F4C7530B3BA87AF6 /* Pods-Buok-BuokUITests.sandbox(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Buok-BuokUITests.sandbox(debug).xcconfig"; path = "Target Support Files/Pods-Buok-BuokUITests/Pods-Buok-BuokUITests.sandbox(debug).xcconfig"; sourceTree = "<group>"; };
@@ -693,10 +692,10 @@
 			children = (
 				EE61F70626457CA3004DF51B /* LoginViewModel.swift */,
 				B04C15E726015FCF0084BAEC /* LoginViewController.swift */,
+				29773EFA2647FAB900FB7AA8 /* LoginViewController+AppleID.swift */,
 				EEA213CA2625D59900E3AEA1 /* LoginViewController+UI.swift */,
 				EEA213C22625D03E00E3AEA1 /* LoginPasswordViewController.swift */,
 				EEA213D22625DAEA00E3AEA1 /* LoginPasswordViewController+UI.swift */,
-				29773EFA2647FAB900FB7AA8 /* SignInViewController+AppleID.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -1210,7 +1209,7 @@
 				B0B033A52621C6B500D65204 /* CountContentView.swift in Sources */,
 				B041747225E2366E00D990A2 /* AppDelegate.swift in Sources */,
 				B0B033CE2621CDBC00D65204 /* SettingInfoCell.swift in Sources */,
-				29773EFB2647FAB900FB7AA8 /* SignInViewController+AppleID.swift in Sources */,
+				29773EFB2647FAB900FB7AA8 /* LoginViewController+AppleID.swift in Sources */,
 				EEA213C32625D03E00E3AEA1 /* LoginPasswordViewController.swift in Sources */,
 				EE804C892627F8CE007AACD2 /* JoinPasswordViewController+UI.swift in Sources */,
 				EECEF1752627D91100CF9394 /* JoinNameViewController.swift in Sources */,

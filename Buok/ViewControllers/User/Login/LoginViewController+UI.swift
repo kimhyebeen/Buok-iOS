@@ -84,7 +84,7 @@ extension LoginViewController {
     func setupAppleSignInButton() {
         appleSignInButton.setHeroTitle("애플아이디로 시작하기")
         contentsView.addSubview(appleSignInButton)
-        
+
         appleSignInButton.snp.makeConstraints { make in
             make.height.equalTo(48)
             make.top.equalTo(orLabel.snp.bottom).offset(20)
@@ -100,7 +100,8 @@ extension LoginViewController {
         
         googleSignInButton.snp.makeConstraints { make in
             make.height.equalTo(48)
-            make.top.equalTo(appleSignInButton.snp.bottom).offset(16)
+//            make.top.equalTo(appleSignInButton.snp.bottom).offset(16)
+			make.top.equalTo(orLabel.snp.bottom).offset(88)
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-20)
         }
