@@ -11,7 +11,7 @@ extension JoinIntroduceViewController {
     // MARK: Back Button
     func setupBackButton() {
         // todo - 추후 뒤로가기 아이콘 적용
-        backButton.backgroundColor = .systemYellow
+        backButton.setImage(UIImage(heroSharedNamed: "ic_back"), for: .normal)
         backButton.addTarget(self, action: #selector(clickBackButton(_:)), for: .touchUpInside)
         self.view.addSubview(backButton)
         
@@ -39,7 +39,8 @@ extension JoinIntroduceViewController {
     
     // MARK: Enter Field
     func setupEnterField() {
-        enterField.setPlaceHolder("자기소개를 입력해주세요.")
+        enterField.isScrollEnabled = false
+        enterField.delegate = self
         self.view.addSubview(enterField)
         
         enterField.snp.makeConstraints { make in
@@ -47,6 +48,19 @@ extension JoinIntroduceViewController {
             make.top.equalTo(guideLabel.snp.bottom).offset(24)
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-20)
+        }
+    }
+    
+    // MARK: Placeholder
+    func setupPlaceholder() {
+        placeholder.text = "자기소개를 입력해주세요 (최대 3줄)"
+        placeholder.textColor = .heroGrayDA
+        placeholder.font = .font15P
+        self.view.addSubview(placeholder)
+        
+        placeholder.snp.makeConstraints { make in
+            make.top.equalTo(enterField.snp.top).offset(16)
+            make.leading.equalTo(enterField.snp.leading).offset(16)
         }
     }
     
@@ -67,6 +81,7 @@ extension JoinIntroduceViewController {
     func setupFinishButton() {
         finishButton.setHeroTitle("완료")
         finishButton.setHeroEnable(false)
+        finishButton.addTarget(self, action: #selector(clickFinishButton(_:)), for: .touchUpInside)
         self.view.addSubview(finishButton)
         
         finishButton.snp.makeConstraints { make in
@@ -79,6 +94,7 @@ extension JoinIntroduceViewController {
     
     // MARK: Pass Button
     func setupPassButton() {
+        passButton.addTarget(self, action: #selector(clickPassButton(_:)), for: .touchUpInside)
         passButton.setAttributedTitle(NSAttributedString(string: "건너뛰기", attributes: [.font: UIFont.font17P, .foregroundColor: UIColor.heroGrayA6A4A1]), for: .normal)
         self.view.addSubview(passButton)
         
