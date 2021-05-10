@@ -56,6 +56,49 @@ public class CreateViewController: HeroBaseViewController {
         view.addSubview(detailTitleLabel)
         view.addSubview(detailBackgroundView)
         
+        setupNavigationView()
+        setupTitleSectionView()
+        
+        // MARK: Title
+        titleField.snp.makeConstraints { make in
+            make.top.equalTo(filterContentView.snp.bottom).offset(12)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().offset(-16)
+            make.height.equalTo(48)
+        }
+        
+        divisionBar.snp.makeConstraints { make in
+            make.top.equalTo(titleField.snp.bottom).offset(4)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+            make.height.equalTo(2)
+        }
+        
+        // MARK: Finish Date
+        finishDateContainerView.addSubview(finishDateTitleLabel)
+        finishDateContainerView.addSubview(finishDateSelectButton)
+        
+        finishDateContainerView.snp.makeConstraints { make in
+            make.top.equalTo(divisionBar.snp.bottom).offset(7)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+            make.height.equalTo(40)
+        }
+        
+        finishDateTitleLabel.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.leading.equalToSuperview()
+        }
+        
+        finishDateSelectButton.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.trailing.equalToSuperview()
+        }
+        
+        setupDetailSectionView()
+    }
+    
+    private func setupNavigationView() {
         topContentView.addSubview(backButton)
         topContentView.addSubview(doneButton)
         
@@ -79,8 +122,9 @@ public class CreateViewController: HeroBaseViewController {
             make.width.greaterThanOrEqualTo(48)
             make.height.equalTo(32)
         }
-        
-        // MARK: Filter Content View
+    }
+    
+    private func setupTitleSectionView() {
         filterContentView.snp.makeConstraints { make in
             make.top.equalTo(topContentView.snp.bottom).offset(24)
             make.leading.equalTo(view.safeAreaLayoutGuide.snp.leading).offset(20)
@@ -139,44 +183,9 @@ public class CreateViewController: HeroBaseViewController {
         categoryButton.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        
-        // MARK: Title
-        titleField.snp.makeConstraints { make in
-            make.top.equalTo(filterContentView.snp.bottom).offset(12)
-            make.leading.equalToSuperview().offset(16)
-            make.trailing.equalToSuperview().offset(-16)
-            make.height.equalTo(48)
-        }
-        
-        divisionBar.snp.makeConstraints { make in
-            make.top.equalTo(titleField.snp.bottom).offset(4)
-            make.leading.equalToSuperview().offset(20)
-            make.trailing.equalToSuperview().offset(-20)
-            make.height.equalTo(2)
-        }
-        
-        // MARK: Finish Date
-        finishDateContainerView.addSubview(finishDateTitleLabel)
-        finishDateContainerView.addSubview(finishDateSelectButton)
-        
-        finishDateContainerView.snp.makeConstraints { make in
-            make.top.equalTo(divisionBar.snp.bottom).offset(7)
-            make.leading.equalToSuperview().offset(20)
-            make.trailing.equalToSuperview().offset(-20)
-            make.height.equalTo(40)
-        }
-        
-        finishDateTitleLabel.snp.makeConstraints { make in
-            make.centerY.equalToSuperview()
-            make.leading.equalToSuperview()
-        }
-        
-        finishDateSelectButton.snp.makeConstraints { make in
-            make.centerY.equalToSuperview()
-            make.trailing.equalToSuperview()
-        }
-        
-        // MARK: Detail Field Section
+    }
+    
+    private func setupDetailSectionView() {
         detailTitleLabel.snp.makeConstraints { make in
             make.top.equalTo(finishDateContainerView.snp.bottom).offset(9)
             make.leading.equalToSuperview().offset(20)
