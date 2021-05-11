@@ -75,6 +75,7 @@
 		EE79C436264AC57800E83B6A /* MypageCountingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE79C435264AC57800E83B6A /* MypageCountingButton.swift */; };
 		EE79C43B264AC78600E83B6A /* MypageCountingStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE79C43A264AC78600E83B6A /* MypageCountingStackView.swift */; };
 		EE79C440264ACE4200E83B6A /* MypageContentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE79C43F264ACE4200E83B6A /* MypageContentsView.swift */; };
+		EE79C445264AD72600E83B6A /* MypageBuokmarkHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE79C444264AD72600E83B6A /* MypageBuokmarkHeaderView.swift */; };
 		EEA213C32625D03E00E3AEA1 /* LoginPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA213C22625D03E00E3AEA1 /* LoginPasswordViewController.swift */; };
 		EEA213CB2625D59900E3AEA1 /* LoginViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA213CA2625D59900E3AEA1 /* LoginViewController+UI.swift */; };
 		EEA213D32625DAEA00E3AEA1 /* LoginPasswordViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA213D22625DAEA00E3AEA1 /* LoginPasswordViewController+UI.swift */; };
@@ -314,6 +315,7 @@
 		EE79C435264AC57800E83B6A /* MypageCountingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageCountingButton.swift; sourceTree = "<group>"; };
 		EE79C43A264AC78600E83B6A /* MypageCountingStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageCountingStackView.swift; sourceTree = "<group>"; };
 		EE79C43F264ACE4200E83B6A /* MypageContentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageContentsView.swift; sourceTree = "<group>"; };
+		EE79C444264AD72600E83B6A /* MypageBuokmarkHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageBuokmarkHeaderView.swift; sourceTree = "<group>"; };
 		EEA213C22625D03E00E3AEA1 /* LoginPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPasswordViewController.swift; sourceTree = "<group>"; };
 		EEA213CA2625D59900E3AEA1 /* LoginViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+UI.swift"; sourceTree = "<group>"; };
 		EEA213D22625DAEA00E3AEA1 /* LoginPasswordViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginPasswordViewController+UI.swift"; sourceTree = "<group>"; };
@@ -675,9 +677,10 @@
 				B0B0339C2621A12200D65204 /* MyPageProfileCountView.swift */,
 				B0B033A42621C6B500D65204 /* CountContentView.swift */,
 				EE79C430264AC43000E83B6A /* MypageViewController.swift */,
-				EE79C435264AC57800E83B6A /* MypageCountingButton.swift */,
-				EE79C43A264AC78600E83B6A /* MypageCountingStackView.swift */,
 				EE79C43F264ACE4200E83B6A /* MypageContentsView.swift */,
+				EE79C43A264AC78600E83B6A /* MypageCountingStackView.swift */,
+				EE79C435264AC57800E83B6A /* MypageCountingButton.swift */,
+				EE79C444264AD72600E83B6A /* MypageBuokmarkHeaderView.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -1195,6 +1198,7 @@
 				B041747C25E2366E00D990A2 /* BucketList.xcdatamodeld in Sources */,
 				EE79C43B264AC78600E83B6A /* MypageCountingStackView.swift in Sources */,
 				EEB9EF9826269768001AF65F /* UserTextField.swift in Sources */,
+				EE79C445264AD72600E83B6A /* MypageBuokmarkHeaderView.swift in Sources */,
 				EE4940E02648332C00CB0B71 /* UITextView+.swift in Sources */,
 				B0B033D32622AA0900D65204 /* SettingNavigator.swift in Sources */,
 				B0B033C12621C97300D65204 /* SettingViewController.swift in Sources */,

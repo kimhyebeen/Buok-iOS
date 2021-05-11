@@ -139,6 +139,7 @@ extension MypageContentsView {
             make.width.equalTo(18)
             make.height.equalTo(18.75)
             make.top.equalTo(introduceLabel.snp.bottom).offset(18.25)
+            make.bottom.equalToSuperview().offset(-27)
             make.leading.equalTo(introduceLabel.snp.leading)
         }
     }

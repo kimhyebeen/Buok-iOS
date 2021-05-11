@@ -10,6 +10,7 @@ import HeroUI
 class MypageViewController: HeroBaseViewController {
     let settingButton = UIButton()
     let contentsView = MypageContentsView()
+    let buokmarkHeader = MypageBuokmarkHeaderView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +21,7 @@ class MypageViewController: HeroBaseViewController {
     private func setupView() {
         setupSettingButton()
         setupContentsView()
+        setupBuokmarkHeader()
     }
 
     @objc
@@ -53,6 +55,17 @@ extension MypageViewController {
         
         contentsView.snp.makeConstraints { make in
             make.top.equalTo(settingButton.snp.bottom)
+            make.leading.trailing.equalToSuperview()
+        }
+    }
+    
+    // MARK: BuokmarkHeader
+    private func setupBuokmarkHeader() {
+        self.view.addSubview(buokmarkHeader)
+        
+        buokmarkHeader.snp.makeConstraints { make in
+            make.height.equalTo(40)
+            make.top.equalTo(contentsView.snp.bottom)
             make.leading.trailing.equalToSuperview()
         }
     }

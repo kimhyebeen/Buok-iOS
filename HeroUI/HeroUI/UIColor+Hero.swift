@@ -69,6 +69,8 @@ public extension UIColor {
     static var heroServiceSubPink: UIColor { fetchHeroColor(#function) }
     static var heroGrayscale200: UIColor { fetchHeroColor(#function) }
     
+    static var heroPrimaryPink: UIColor { fetchHeroColor(#function) }
+    
     private static func fetchHeroColor(_ name: String) -> UIColor {
         let name = name.replacingOccurrences(of: "hero", with: "").lowercased()
         let assetName = "hero_\(name)"
