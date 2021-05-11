@@ -9,6 +9,7 @@ import HeroUI
 
 class MypageViewController: HeroBaseViewController {
     let settingButton = UIButton()
+    let contentsView = MypageContentsView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +19,7 @@ class MypageViewController: HeroBaseViewController {
     
     private func setupView() {
         setupSettingButton()
+        setupContentsView()
     }
 
     @objc
@@ -42,6 +44,16 @@ extension MypageViewController {
             make.width.height.equalTo(44)
             make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
             make.trailing.equalToSuperview().offset(-8)
+        }
+    }
+    
+    // MARK: ContentsView
+    private func setupContentsView() {
+        self.view.addSubview(contentsView)
+        
+        contentsView.snp.makeConstraints { make in
+            make.top.equalTo(settingButton.snp.bottom)
+            make.leading.trailing.equalToSuperview()
         }
     }
 }
