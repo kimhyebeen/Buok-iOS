@@ -33,7 +33,8 @@ class MypageCountingButton: UIButton {
     }
     
     private func setupView() {
-        
+        setupCountLabel()
+        setupMainLabel()
     }
 
 }
@@ -47,8 +48,8 @@ extension MypageCountingButton {
         self.addSubview(countLabel)
         
         countLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(12)
             make.centerX.equalToSuperview()
+            make.top.equalToSuperview().offset(12)
         }
     }
     
