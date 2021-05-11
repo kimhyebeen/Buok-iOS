@@ -5,7 +5,7 @@
 //  Created by 김혜빈 on 2021/05/11.
 //
 
-import UIKit
+import HeroUI
 
 class MypageViewController: HeroBaseViewController {
     let settingButton = UIButton()
