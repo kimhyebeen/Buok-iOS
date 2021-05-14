@@ -79,7 +79,7 @@ extension MypageViewController {
         collectionView.dataSource = self
         collectionView.backgroundColor = .clear
         collectionView.showsVerticalScrollIndicator = false
-        collectionView.contentInset = UIEdgeInsets(top: 368, left: 0, bottom: 0, right: 0)
+        collectionView.contentInset = UIEdgeInsets(top: 368+20, left: 0, bottom: 0, right: 0)
         self.view.addSubview(collectionView)
         
         collectionView.snp.makeConstraints { make in

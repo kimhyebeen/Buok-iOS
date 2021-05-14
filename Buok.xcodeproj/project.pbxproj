@@ -60,6 +60,8 @@
 		B0D43A5D2600DA9B003420CA /* NadamWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = B0D43A592600DA99003420CA /* NadamWidget.intentdefinition */; };
 		B0D43A5E2600DA9B003420CA /* NadamWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = B0D43A592600DA99003420CA /* NadamWidget.intentdefinition */; };
 		B0D43A612600DA9B003420CA /* BuokWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B0D43A512600DA99003420CA /* BuokWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		EE23DF74264EB2F500AB31D1 /* BuokmarkCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE23DF73264EB2F500AB31D1 /* BuokmarkCollectionCell.swift */; };
+		EE23DF77264EB36900AB31D1 /* BuokmarkFlagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE23DF76264EB36900AB31D1 /* BuokmarkFlagView.swift */; };
 		EE49406726475A5D00CB0B71 /* ForgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE49406626475A5D00CB0B71 /* ForgetViewController.swift */; };
 		EE4940842647659700CB0B71 /* ForgetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4940832647659700CB0B71 /* ForgetViewModel.swift */; };
 		EE49408C2647670D00CB0B71 /* VerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE49408B2647670D00CB0B71 /* VerifyViewController.swift */; };
@@ -294,6 +296,8 @@
 		E164A81B3A19E60DC6D5B3E3 /* Pods-NadamTests.real.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NadamTests.real.xcconfig"; path = "Target Support Files/Pods-NadamTests/Pods-NadamTests.real.xcconfig"; sourceTree = "<group>"; };
 		E2FE24B9E264735FD53FA491 /* Pods-NadamWidgetExtension.real.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NadamWidgetExtension.real.xcconfig"; path = "Target Support Files/Pods-NadamWidgetExtension/Pods-NadamWidgetExtension.real.xcconfig"; sourceTree = "<group>"; };
 		E6C0B3A741D94BE2552F9A2D /* Pods_BuokWidgetExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BuokWidgetExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE23DF73264EB2F500AB31D1 /* BuokmarkCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuokmarkCollectionCell.swift; sourceTree = "<group>"; };
+		EE23DF76264EB36900AB31D1 /* BuokmarkFlagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuokmarkFlagView.swift; sourceTree = "<group>"; };
 		EE49406626475A5D00CB0B71 /* ForgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetViewController.swift; sourceTree = "<group>"; };
 		EE4940832647659700CB0B71 /* ForgetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetViewModel.swift; sourceTree = "<group>"; };
 		EE49408B2647670D00CB0B71 /* VerifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyViewController.swift; sourceTree = "<group>"; };
@@ -518,8 +522,8 @@
 		B04C15E626015FBA0084BAEC /* User */ = {
 			isa = PBXGroup;
 			children = (
-				EE61F6E126457821004DF51B /* View */,
 				EE61F70626457CA3004DF51B /* UserViewModel.swift */,
+				EE61F6E126457821004DF51B /* View */,
 				EE49406526475A3700CB0B71 /* Forget */,
 				B0D0217B2602198800F25329 /* Login */,
 				B0D0217A2602198100F25329 /* Join */,
@@ -661,11 +665,8 @@
 		B0D021792602196500F25329 /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
+				EE23DF75264EB2FB00AB31D1 /* View */,
 				EE79C430264AC43000E83B6A /* MypageViewController.swift */,
-				EE79C43F264ACE4200E83B6A /* MypageContentsView.swift */,
-				EE79C43A264AC78600E83B6A /* MypageCountingStackView.swift */,
-				EE79C435264AC57800E83B6A /* MypageCountingButton.swift */,
-				EE79C444264AD72600E83B6A /* MypageBuokmarkHeaderView.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -729,6 +730,19 @@
 				B0D43A562600DA99003420CA /* NadamWidget */,
 			);
 			path = "App Extensions";
+			sourceTree = "<group>";
+		};
+		EE23DF75264EB2FB00AB31D1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EE79C43F264ACE4200E83B6A /* MypageContentsView.swift */,
+				EE79C43A264AC78600E83B6A /* MypageCountingStackView.swift */,
+				EE79C435264AC57800E83B6A /* MypageCountingButton.swift */,
+				EE79C444264AD72600E83B6A /* MypageBuokmarkHeaderView.swift */,
+				EE23DF73264EB2F500AB31D1 /* BuokmarkCollectionCell.swift */,
+				EE23DF76264EB36900AB31D1 /* BuokmarkFlagView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		EE49406526475A3700CB0B71 /* Forget */ = {
@@ -1170,6 +1184,7 @@
 				B0635AC52603897600046E88 /* HomeViewController.swift in Sources */,
 				B075226D25ED089F0016DC3A /* AuthTokenModel.swift in Sources */,
 				B06B5EDF25ECCD550045A491 /* HeroNavigationController.swift in Sources */,
+				EE23DF74264EB2F500AB31D1 /* BuokmarkCollectionCell.swift in Sources */,
 				B0D0217D2602199600F25329 /* JoinViewController.swift in Sources */,
 				EE79C440264ACE4200E83B6A /* MypageContentsView.swift in Sources */,
 				B041747625E2366E00D990A2 /* MultiLevelViewController.swift in Sources */,
@@ -1182,6 +1197,7 @@
 				EE79C445264AD72600E83B6A /* MypageBuokmarkHeaderView.swift in Sources */,
 				EE4940E02648332C00CB0B71 /* UITextView+.swift in Sources */,
 				B0B033D32622AA0900D65204 /* SettingNavigator.swift in Sources */,
+				EE23DF77264EB36900AB31D1 /* BuokmarkFlagView.swift in Sources */,
 				B0B033C12621C97300D65204 /* SettingViewController.swift in Sources */,
 				EECEF1922627E08300CF9394 /* IntroduceTextView.swift in Sources */,
 				EE4940842647659700CB0B71 /* ForgetViewModel.swift in Sources */,
