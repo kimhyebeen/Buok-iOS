@@ -31,15 +31,33 @@ class MypageViewController: HeroBaseViewController {
         // todo - 설정 버튼 기능
     }
     
+    @objc
+    func clickEditProfileButton(_ sender: UIButton) {
+        // todo - 프로필 수정 버튼 기능
+    }
+    
+    @objc
+    func clickFriendButton(_ sender: UIButton) {
+        // todo - 친구 카운팅 버튼 기능
+    }
+    
+    @objc
+    func clickBucketButton(_ sender: UIButton) {
+        // todo - 버킷 카운팅 버튼 기능
+    }
+    
 }
 
 extension MypageViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+        return 10
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BuokmarkCollectionCell.identifier, for: indexPath) as? BuokmarkCollectionCell else { return BuokmarkCollectionCell() }
+        let test: [[String]] = [["2021.03", "나홀로 북유럽\n배낭여행 떠나기"], ["2021.01", "취뽀 성공하기"], ["2020.12", "패러글라이딩 도전"], ["2020.11", "교양학점 A이상 받기"], ["2020.09", "친구들과 일본여행가서\n초밥 먹기"], ["2020.08", "버킷리스트6"], ["2020.06", "버킷리스트7"], ["2020.02", "버킷리스트8"], ["2019.08", "버킷리스트9"], ["2019.05", "버킷리스트10"]]
+        cell.setInformation(test[indexPath.row][0], test[indexPath.row][1])
+        return cell
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -47,7 +65,7 @@ extension MypageViewController: UICollectionViewDelegate, UICollectionViewDataSo
         let heightForProfileView: CGFloat = 284
         let heightForHeader: CGFloat = 40
         
-        let totalOffset = scrollView.contentOffset.y + heightForSettingButton + heightForProfileView + heightForHeader
+        let totalOffset = scrollView.contentOffset.y + heightForSettingButton + heightForProfileView + heightForHeader + 20
         let offsetForHeader = heightForSettingButton + heightForProfileView
         
         var transform = CATransform3DIdentity
@@ -59,8 +77,7 @@ extension MypageViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        return CGSize(width: self.view.frame.width, height: 96)
+        return CGSize(width: collectionView.frame.width, height: 96)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -80,6 +97,7 @@ extension MypageViewController {
         collectionView.backgroundColor = .clear
         collectionView.showsVerticalScrollIndicator = false
         collectionView.contentInset = UIEdgeInsets(top: 368+20, left: 0, bottom: 0, right: 0)
+        collectionView.register(BuokmarkCollectionCell.self, forCellWithReuseIdentifier: BuokmarkCollectionCell.identifier)
         self.view.addSubview(collectionView)
         
         collectionView.snp.makeConstraints { make in
@@ -107,6 +125,9 @@ extension MypageViewController {
     
     // MARK: ContentsView
     private func setupContentsView() {
+        contentsView.editButton.addTarget(self, action: #selector(clickEditProfileButton(_:)), for: .touchUpInside)
+        contentsView.countingButtonStack.friendButton.addTarget(self, action: #selector(clickFriendButton(_:)), for: .touchUpInside)
+        contentsView.countingButtonStack.bucketButton.addTarget(self, action: #selector(clickBucketButton(_:)), for: .touchUpInside)
         self.view.addSubview(contentsView)
         
         contentsView.snp.makeConstraints { make in
@@ -117,6 +138,8 @@ extension MypageViewController {
     
     // MARK: BuokmarkHeader
     private func setupBuokmarkHeader() {
+        buokmarkHeader.count = 10
+        buokmarkHeader.backgroundColor = .heroServiceSkin
         self.view.addSubview(buokmarkHeader)
         
         buokmarkHeader.snp.makeConstraints { make in

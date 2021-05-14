@@ -11,8 +11,8 @@ class MypageContentsView: UIView {
     private let profileImageView = UIImageView()
     private let nameLabel = UILabel()
     private let emailLabel = UILabel()
-    private let modifyButton = UIButton()
-    private let countingButtonStack = MypageCountingStackView()
+    let editButton = UIButton()
+    let countingButtonStack = MypageCountingStackView()
     private let introduceLabel = UILabel()
     private let dateImageView = UIImageView()
     private let dateLabel = UILabel()
@@ -31,7 +31,7 @@ class MypageContentsView: UIView {
         setupProfileImageView()
         setupNameLabel()
         setupEmailLabel()
-        setupModifyButton()
+        setupEditButton()
         setupCountingButtonStack()
         setupIntroduceLabel()
         setupDateImageView()
@@ -84,16 +84,16 @@ extension MypageContentsView {
         }
     }
     
-    // MARK: ModifyButton
-    private func setupModifyButton() {
-        modifyButton.setAttributedTitle(NSAttributedString(string: "프로필 수정", attributes: [.font: UIFont.font15P, .foregroundColor: UIColor.heroGray82]), for: .normal)
-        modifyButton.titleEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        modifyButton.layer.cornerRadius = 8
-        modifyButton.layer.borderWidth = 1
-        modifyButton.layer.borderColor = UIColor.heroGray82.cgColor
-        self.addSubview(modifyButton)
+    // MARK: EditButton
+    private func setupEditButton() {
+        editButton.setAttributedTitle(NSAttributedString(string: "프로필 수정", attributes: [.font: UIFont.font15P, .foregroundColor: UIColor.heroGray82]), for: .normal)
+        editButton.titleEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        editButton.layer.cornerRadius = 8
+        editButton.layer.borderWidth = 1
+        editButton.layer.borderColor = UIColor.heroGray82.cgColor
+        self.addSubview(editButton)
         
-        modifyButton.snp.makeConstraints { make in
+        editButton.snp.makeConstraints { make in
             make.width.equalTo(90)
             make.height.equalTo(36)
             make.centerY.equalTo(profileImageView.snp.centerY)

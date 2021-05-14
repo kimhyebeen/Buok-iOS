@@ -8,6 +8,7 @@
 import UIKit
 
 class BuokmarkCollectionCell: UICollectionViewCell {
+    static let identifier = "BuokmarkCollectionCell"
     let dateLabel = UILabel()
     let flagView = BuokmarkFlagView()
     let iconImageView = UIImageView()
@@ -28,6 +29,12 @@ class BuokmarkCollectionCell: UICollectionViewCell {
         setupFlagView()
         setupIconImageView()
         setupBuokLabel()
+    }
+    
+    func setInformation(_ date: String,_ buok: String) {
+        // todo - 나중에 model 구조체로 생성해서 설정하도록 구현
+        dateLabel.text = date
+        buokLabel.text = buok
     }
 }
 
@@ -58,12 +65,14 @@ extension BuokmarkCollectionCell {
     
     // MARK: IconImageView
     private func setupIconImageView() {
+        iconImageView.layer.cornerRadius = 16
+        iconImageView.layer.backgroundColor = UIColor.white.cgColor
         iconImageView.contentMode = .scaleAspectFit
         self.addSubview(iconImageView)
         
         iconImageView.snp.makeConstraints { make in
             make.width.height.equalTo(32)
-            make.centerY.equalTo(flagView.snp.centerY).offset(-16)
+            make.centerY.equalToSuperview().offset(-8)
             make.leading.equalTo(flagView.snp.leading).offset(27)
         }
     }
@@ -77,7 +86,7 @@ extension BuokmarkCollectionCell {
         self.addSubview(buokLabel)
         
         buokLabel.snp.makeConstraints { make in
-            make.centerY.equalTo(iconImageView.snp.centerY)
+            make.centerY.equalToSuperview().offset(-8)
             make.leading.equalTo(iconImageView.snp.trailing).offset(24)
             make.trailing.lessThanOrEqualTo(flagView.snp.trailing).offset(-31)
         }

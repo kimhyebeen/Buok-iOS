@@ -38,8 +38,8 @@ class BuokmarkFlagView: UIView {
     
     private func setupFlagView() {
         flagView.layer.cornerRadius = 8
-        flagView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
-        flagView.layer.backgroundColor = UIColor.heroPrimaryBeigeDark.cgColor
+        flagView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
+        flagView.layer.backgroundColor = UIColor.heroPrimaryPink.cgColor
         self.addSubview(flagView)
         
         flagView.snp.makeConstraints { make in
