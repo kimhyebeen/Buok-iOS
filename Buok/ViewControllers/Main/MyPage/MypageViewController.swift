@@ -8,6 +8,7 @@
 import HeroUI
 
 class MypageViewController: HeroBaseViewController {
+    let collectionView = UICollectionView(frame: UIScreen.main.bounds, collectionViewLayout: UICollectionViewFlowLayout())
     let settingButton = UIButton()
     let contentsView = MypageContentsView()
     let buokmarkHeader = MypageBuokmarkHeaderView()
@@ -19,6 +20,7 @@ class MypageViewController: HeroBaseViewController {
     }
     
     private func setupView() {
+        setupCollectionView()
         setupSettingButton()
         setupContentsView()
         setupBuokmarkHeader()
@@ -31,7 +33,61 @@ class MypageViewController: HeroBaseViewController {
     
 }
 
+extension MypageViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        return UICollectionViewCell()
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let heightForSettingButton: CGFloat = 44
+        let heightForProfileView: CGFloat = 284
+        let heightForHeader: CGFloat = 40
+        
+        let totalOffset = scrollView.contentOffset.y + heightForSettingButton + heightForProfileView + heightForHeader
+        let offsetForHeader = heightForSettingButton + heightForProfileView
+        
+        var transform = CATransform3DIdentity
+        transform = CATransform3DTranslate(transform, 0, max(-offsetForHeader, -totalOffset), 0)
+        
+        settingButton.layer.transform = transform
+        contentsView.layer.transform = transform
+        buokmarkHeader.layer.transform = transform
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        return CGSize(width: self.view.frame.width, height: 96)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+}
+
 extension MypageViewController {
+    // MARK: CollectionView
+    private func setupCollectionView() {
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.backgroundColor = .clear
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.contentInset = UIEdgeInsets(top: 368, left: 0, bottom: 0, right: 0)
+        self.view.addSubview(collectionView)
+        
+        collectionView.snp.makeConstraints { make in
+            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
+            make.bottom.leading.trailing.equalToSuperview()
+        }
+    }
+    
     // MARK: SettingButton
     private func setupSettingButton() {
         if #available(iOS 13.0, *) {
