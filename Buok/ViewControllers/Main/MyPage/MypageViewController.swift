@@ -10,7 +10,7 @@ import HeroUI
 class MypageViewController: HeroBaseViewController {
     let collectionView = UICollectionView(frame: UIScreen.main.bounds, collectionViewLayout: UICollectionViewFlowLayout())
     let settingButton = UIButton()
-    let contentsView = MypageContentsView()
+    let profileView = MypageProfileView()
     let buokmarkHeader = MypageBuokmarkHeaderView()
 
     override func viewDidLoad() {
@@ -22,7 +22,7 @@ class MypageViewController: HeroBaseViewController {
     private func setupView() {
         setupCollectionView()
         setupSettingButton()
-        setupContentsView()
+        setupProfileView()
         setupBuokmarkHeader()
     }
 
@@ -72,7 +72,7 @@ extension MypageViewController: UICollectionViewDelegate, UICollectionViewDataSo
         transform = CATransform3DTranslate(transform, 0, max(-offsetForHeader, -totalOffset), 0)
         
         settingButton.layer.transform = transform
-        contentsView.layer.transform = transform
+        profileView.layer.transform = transform
         buokmarkHeader.layer.transform = transform
     }
     
@@ -123,14 +123,14 @@ extension MypageViewController {
         }
     }
     
-    // MARK: ContentsView
-    private func setupContentsView() {
-        contentsView.editButton.addTarget(self, action: #selector(clickEditProfileButton(_:)), for: .touchUpInside)
-        contentsView.countingButtonStack.friendButton.addTarget(self, action: #selector(clickFriendButton(_:)), for: .touchUpInside)
-        contentsView.countingButtonStack.bucketButton.addTarget(self, action: #selector(clickBucketButton(_:)), for: .touchUpInside)
-        self.view.addSubview(contentsView)
+    // MARK: ProfileView
+    private func setupProfileView() {
+        profileView.editButton.addTarget(self, action: #selector(clickEditProfileButton(_:)), for: .touchUpInside)
+        profileView.countingButtonStack.friendButton.addTarget(self, action: #selector(clickFriendButton(_:)), for: .touchUpInside)
+        profileView.countingButtonStack.bucketButton.addTarget(self, action: #selector(clickBucketButton(_:)), for: .touchUpInside)
+        self.view.addSubview(profileView)
         
-        contentsView.snp.makeConstraints { make in
+        profileView.snp.makeConstraints { make in
             make.top.equalTo(settingButton.snp.bottom)
             make.leading.trailing.equalToSuperview()
         }
@@ -144,7 +144,7 @@ extension MypageViewController {
         
         buokmarkHeader.snp.makeConstraints { make in
             make.height.equalTo(40)
-            make.top.equalTo(contentsView.snp.bottom)
+            make.top.equalTo(profileView.snp.bottom)
             make.leading.trailing.equalToSuperview()
         }
     }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MypageContentsView: UIView {
+class MypageProfileView: UIView {
     private let profileImageView = UIImageView()
     private let nameLabel = UILabel()
     private let emailLabel = UILabel()
@@ -44,7 +44,7 @@ class MypageContentsView: UIView {
 
 }
 
-extension MypageContentsView {
+extension MypageProfileView {
     // MARK: ProfileImageView
     private func setupProfileImageView() {
         profileImageView.layer.cornerRadius = 32

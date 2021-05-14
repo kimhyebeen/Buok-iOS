@@ -71,7 +71,7 @@
 		EE79C431264AC43000E83B6A /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE79C430264AC43000E83B6A /* MypageViewController.swift */; };
 		EE79C436264AC57800E83B6A /* MypageCountingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE79C435264AC57800E83B6A /* MypageCountingButton.swift */; };
 		EE79C43B264AC78600E83B6A /* MypageCountingStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE79C43A264AC78600E83B6A /* MypageCountingStackView.swift */; };
-		EE79C440264ACE4200E83B6A /* MypageContentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE79C43F264ACE4200E83B6A /* MypageContentsView.swift */; };
+		EE79C440264ACE4200E83B6A /* MypageProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE79C43F264ACE4200E83B6A /* MypageProfileView.swift */; };
 		EE79C445264AD72600E83B6A /* MypageBuokmarkHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE79C444264AD72600E83B6A /* MypageBuokmarkHeaderView.swift */; };
 		EEA213C32625D03E00E3AEA1 /* LoginPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA213C22625D03E00E3AEA1 /* LoginPasswordViewController.swift */; };
 		EEA213CB2625D59900E3AEA1 /* LoginViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA213CA2625D59900E3AEA1 /* LoginViewController+UI.swift */; };
@@ -308,7 +308,7 @@
 		EE79C430264AC43000E83B6A /* MypageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
 		EE79C435264AC57800E83B6A /* MypageCountingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageCountingButton.swift; sourceTree = "<group>"; };
 		EE79C43A264AC78600E83B6A /* MypageCountingStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageCountingStackView.swift; sourceTree = "<group>"; };
-		EE79C43F264ACE4200E83B6A /* MypageContentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageContentsView.swift; sourceTree = "<group>"; };
+		EE79C43F264ACE4200E83B6A /* MypageProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageProfileView.swift; sourceTree = "<group>"; };
 		EE79C444264AD72600E83B6A /* MypageBuokmarkHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageBuokmarkHeaderView.swift; sourceTree = "<group>"; };
 		EEA213C22625D03E00E3AEA1 /* LoginPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPasswordViewController.swift; sourceTree = "<group>"; };
 		EEA213CA2625D59900E3AEA1 /* LoginViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+UI.swift"; sourceTree = "<group>"; };
@@ -735,7 +735,7 @@
 		EE23DF75264EB2FB00AB31D1 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				EE79C43F264ACE4200E83B6A /* MypageContentsView.swift */,
+				EE79C43F264ACE4200E83B6A /* MypageProfileView.swift */,
 				EE79C43A264AC78600E83B6A /* MypageCountingStackView.swift */,
 				EE79C435264AC57800E83B6A /* MypageCountingButton.swift */,
 				EE79C444264AD72600E83B6A /* MypageBuokmarkHeaderView.swift */,
@@ -1186,7 +1186,7 @@
 				B06B5EDF25ECCD550045A491 /* HeroNavigationController.swift in Sources */,
 				EE23DF74264EB2F500AB31D1 /* BuokmarkCollectionCell.swift in Sources */,
 				B0D0217D2602199600F25329 /* JoinViewController.swift in Sources */,
-				EE79C440264ACE4200E83B6A /* MypageContentsView.swift in Sources */,
+				EE79C440264ACE4200E83B6A /* MypageProfileView.swift in Sources */,
 				B041747625E2366E00D990A2 /* MultiLevelViewController.swift in Sources */,
 				EEA213CB2625D59900E3AEA1 /* LoginViewController+UI.swift in Sources */,
 				B06B5EE925ECCED90045A491 /* SubOneViewController.swift in Sources */,
