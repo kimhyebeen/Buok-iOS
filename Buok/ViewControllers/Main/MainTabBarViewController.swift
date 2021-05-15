@@ -45,7 +45,7 @@ public class MainTabBarViewController: UITabBarController, UITabBarControllerDel
         let homeVC = HomeViewController()
         homeVC.viewModel = HomeViewModel()
         
-        let mypageVC = MyPageViewController()
+        let mypageVC = MypageViewController()
         
         let homeNC = createNavController(for: homeVC,
                                          normalImage: UIImage(heroSharedNamed: "tab_home.png"),
