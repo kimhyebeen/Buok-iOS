@@ -45,11 +45,7 @@
 		B075238125EF5AF70016DC3A /* BucketListHomeAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B075238025EF5AF70016DC3A /* BucketListHomeAPIRequest.swift */; };
 		B07C0CFE25FDB267000AE1B0 /* HeroSharedAssets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07C0CF425FDB1DC000AE1B0 /* HeroSharedAssets.framework */; };
 		B07C0CFF25FDB268000AE1B0 /* HeroSharedAssets.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B07C0CF425FDB1DC000AE1B0 /* HeroSharedAssets.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B0B0338326219FCF00D65204 /* MyPageProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B0338226219FCF00D65204 /* MyPageProfileView.swift */; };
 		B0B0339026219FE200D65204 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B0338F26219FE200D65204 /* Profile.swift */; };
-		B0B033952621A0FD00D65204 /* MyPageProfileKeywordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B033942621A0FD00D65204 /* MyPageProfileKeywordView.swift */; };
-		B0B0339D2621A12200D65204 /* MyPageProfileCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B0339C2621A12200D65204 /* MyPageProfileCountView.swift */; };
-		B0B033A52621C6B500D65204 /* CountContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B033A42621C6B500D65204 /* CountContentView.swift */; };
 		B0B033C12621C97300D65204 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B033C02621C97300D65204 /* SettingViewController.swift */; };
 		B0B033C92621CDA700D65204 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B033C82621CDA700D65204 /* SettingCell.swift */; };
 		B0B033CE2621CDBC00D65204 /* SettingInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B033CD2621CDBC00D65204 /* SettingInfoCell.swift */; };
@@ -65,13 +61,19 @@
 		B0D43A5D2600DA9B003420CA /* NadamWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = B0D43A592600DA99003420CA /* NadamWidget.intentdefinition */; };
 		B0D43A5E2600DA9B003420CA /* NadamWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = B0D43A592600DA99003420CA /* NadamWidget.intentdefinition */; };
 		B0D43A612600DA9B003420CA /* BuokWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B0D43A512600DA99003420CA /* BuokWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		B0F229AB25F3C9E000D96CBA /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F229AA25F3C9E000D96CBA /* MyPageViewController.swift */; };
+		EE23DF74264EB2F500AB31D1 /* BuokmarkCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE23DF73264EB2F500AB31D1 /* BuokmarkCollectionCell.swift */; };
+		EE23DF77264EB36900AB31D1 /* BuokmarkFlagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE23DF76264EB36900AB31D1 /* BuokmarkFlagView.swift */; };
 		EE49406726475A5D00CB0B71 /* ForgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE49406626475A5D00CB0B71 /* ForgetViewController.swift */; };
 		EE4940842647659700CB0B71 /* ForgetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4940832647659700CB0B71 /* ForgetViewModel.swift */; };
 		EE49408C2647670D00CB0B71 /* VerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE49408B2647670D00CB0B71 /* VerifyViewController.swift */; };
 		EE49409126476D5400CB0B71 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE49409026476D5400CB0B71 /* ResetPasswordViewController.swift */; };
 		EE4940E02648332C00CB0B71 /* UITextView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4940DF2648332C00CB0B71 /* UITextView+.swift */; };
 		EE61F70726457CA3004DF51B /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE61F70626457CA3004DF51B /* UserViewModel.swift */; };
+		EE79C431264AC43000E83B6A /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE79C430264AC43000E83B6A /* MypageViewController.swift */; };
+		EE79C436264AC57800E83B6A /* MypageCountingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE79C435264AC57800E83B6A /* MypageCountingButton.swift */; };
+		EE79C43B264AC78600E83B6A /* MypageCountingStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE79C43A264AC78600E83B6A /* MypageCountingStackView.swift */; };
+		EE79C440264ACE4200E83B6A /* MypageProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE79C43F264ACE4200E83B6A /* MypageProfileView.swift */; };
+		EE79C445264AD72600E83B6A /* MypageBuokmarkHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE79C444264AD72600E83B6A /* MypageBuokmarkHeaderView.swift */; };
 		EEA213C32625D03E00E3AEA1 /* LoginPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA213C22625D03E00E3AEA1 /* LoginPasswordViewController.swift */; };
 		EEA213CB2625D59900E3AEA1 /* LoginViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA213CA2625D59900E3AEA1 /* LoginViewController+UI.swift */; };
 		EEA213D32625DAEA00E3AEA1 /* LoginPasswordViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA213D22625DAEA00E3AEA1 /* LoginPasswordViewController+UI.swift */; };
@@ -271,11 +273,7 @@
 		B075238025EF5AF70016DC3A /* BucketListHomeAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketListHomeAPIRequest.swift; sourceTree = "<group>"; };
 		B07C0C8C25FDB146000AE1B0 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		B07C0CEE25FDB1D9000AE1B0 /* HeroSharedAssets.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = HeroSharedAssets.xcodeproj; path = HeroSharedAssets/HeroSharedAssets.xcodeproj; sourceTree = "<group>"; };
-		B0B0338226219FCF00D65204 /* MyPageProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageProfileView.swift; sourceTree = "<group>"; };
 		B0B0338F26219FE200D65204 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
-		B0B033942621A0FD00D65204 /* MyPageProfileKeywordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageProfileKeywordView.swift; sourceTree = "<group>"; };
-		B0B0339C2621A12200D65204 /* MyPageProfileCountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageProfileCountView.swift; sourceTree = "<group>"; };
-		B0B033A42621C6B500D65204 /* CountContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountContentView.swift; sourceTree = "<group>"; };
 		B0B033C02621C97300D65204 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		B0B033C82621CDA700D65204 /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
 		B0B033CD2621CDBC00D65204 /* SettingInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingInfoCell.swift; sourceTree = "<group>"; };
@@ -291,7 +289,6 @@
 		B0D43A592600DA99003420CA /* NadamWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = NadamWidget.intentdefinition; sourceTree = "<group>"; };
 		B0D43A5A2600DA9B003420CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B0D43A5C2600DA9B003420CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B0F229AA25F3C9E000D96CBA /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		B321063553FBFA5630D0602E /* Pods-BucketList.sandbox(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BucketList.sandbox(debug).xcconfig"; path = "Target Support Files/Pods-BucketList/Pods-BucketList.sandbox(debug).xcconfig"; sourceTree = "<group>"; };
 		C1E8EED5C9EA91E7723D9698 /* Pods-YappHero.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHero.release.xcconfig"; path = "Target Support Files/Pods-YappHero/Pods-YappHero.release.xcconfig"; sourceTree = "<group>"; };
 		CA736E56E1344F51FD5025D9 /* Pods-BucketList.real.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BucketList.real.xcconfig"; path = "Target Support Files/Pods-BucketList/Pods-BucketList.real.xcconfig"; sourceTree = "<group>"; };
@@ -301,6 +298,8 @@
 		E164A81B3A19E60DC6D5B3E3 /* Pods-NadamTests.real.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NadamTests.real.xcconfig"; path = "Target Support Files/Pods-NadamTests/Pods-NadamTests.real.xcconfig"; sourceTree = "<group>"; };
 		E2FE24B9E264735FD53FA491 /* Pods-NadamWidgetExtension.real.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NadamWidgetExtension.real.xcconfig"; path = "Target Support Files/Pods-NadamWidgetExtension/Pods-NadamWidgetExtension.real.xcconfig"; sourceTree = "<group>"; };
 		E6C0B3A741D94BE2552F9A2D /* Pods_BuokWidgetExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BuokWidgetExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE23DF73264EB2F500AB31D1 /* BuokmarkCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuokmarkCollectionCell.swift; sourceTree = "<group>"; };
+		EE23DF76264EB36900AB31D1 /* BuokmarkFlagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuokmarkFlagView.swift; sourceTree = "<group>"; };
 		EE49406626475A5D00CB0B71 /* ForgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetViewController.swift; sourceTree = "<group>"; };
 		EE4940832647659700CB0B71 /* ForgetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetViewModel.swift; sourceTree = "<group>"; };
 		EE49408B2647670D00CB0B71 /* VerifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyViewController.swift; sourceTree = "<group>"; };
@@ -308,6 +307,11 @@
 		EE4940DF2648332C00CB0B71 /* UITextView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+.swift"; sourceTree = "<group>"; };
 		EE61F70626457CA3004DF51B /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		EE64EE50EB3512280D8E7B47 /* Pods-Buok.real.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Buok.real.xcconfig"; path = "Target Support Files/Pods-Buok/Pods-Buok.real.xcconfig"; sourceTree = "<group>"; };
+		EE79C430264AC43000E83B6A /* MypageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
+		EE79C435264AC57800E83B6A /* MypageCountingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageCountingButton.swift; sourceTree = "<group>"; };
+		EE79C43A264AC78600E83B6A /* MypageCountingStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageCountingStackView.swift; sourceTree = "<group>"; };
+		EE79C43F264ACE4200E83B6A /* MypageProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageProfileView.swift; sourceTree = "<group>"; };
+		EE79C444264AD72600E83B6A /* MypageBuokmarkHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageBuokmarkHeaderView.swift; sourceTree = "<group>"; };
 		EEA213C22625D03E00E3AEA1 /* LoginPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPasswordViewController.swift; sourceTree = "<group>"; };
 		EEA213CA2625D59900E3AEA1 /* LoginViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+UI.swift"; sourceTree = "<group>"; };
 		EEA213D22625DAEA00E3AEA1 /* LoginPasswordViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginPasswordViewController+UI.swift"; sourceTree = "<group>"; };
@@ -520,8 +524,8 @@
 		B04C15E626015FBA0084BAEC /* User */ = {
 			isa = PBXGroup;
 			children = (
-				EE61F6E126457821004DF51B /* View */,
 				EE61F70626457CA3004DF51B /* UserViewModel.swift */,
+				EE61F6E126457821004DF51B /* View */,
 				EE49406526475A3700CB0B71 /* Forget */,
 				B0D0217B2602198800F25329 /* Login */,
 				B0D0217A2602198100F25329 /* Join */,
@@ -663,11 +667,8 @@
 		B0D021792602196500F25329 /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
-				B0F229AA25F3C9E000D96CBA /* MyPageViewController.swift */,
-				B0B0338226219FCF00D65204 /* MyPageProfileView.swift */,
-				B0B033942621A0FD00D65204 /* MyPageProfileKeywordView.swift */,
-				B0B0339C2621A12200D65204 /* MyPageProfileCountView.swift */,
-				B0B033A42621C6B500D65204 /* CountContentView.swift */,
+				EE23DF75264EB2FB00AB31D1 /* View */,
+				EE79C430264AC43000E83B6A /* MypageViewController.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -732,6 +733,19 @@
 				B0D43A562600DA99003420CA /* NadamWidget */,
 			);
 			path = "App Extensions";
+			sourceTree = "<group>";
+		};
+		EE23DF75264EB2FB00AB31D1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EE79C43F264ACE4200E83B6A /* MypageProfileView.swift */,
+				EE79C43A264AC78600E83B6A /* MypageCountingStackView.swift */,
+				EE79C435264AC57800E83B6A /* MypageCountingButton.swift */,
+				EE79C444264AD72600E83B6A /* MypageBuokmarkHeaderView.swift */,
+				EE23DF73264EB2F500AB31D1 /* BuokmarkCollectionCell.swift */,
+				EE23DF76264EB36900AB31D1 /* BuokmarkFlagView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		EE49406526475A3700CB0B71 /* Forget */ = {
@@ -1163,28 +1177,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0635ADA260390E100046E88 /* CreateViewController.swift in Sources */,
-				B0F229AB25F3C9E000D96CBA /* MyPageViewController.swift in Sources */,
 				B01D43A826039D2500F2D28C /* DetailViewController.swift in Sources */,
-				B0B033952621A0FD00D65204 /* MyPageProfileKeywordView.swift in Sources */,
+				EE79C431264AC43000E83B6A /* MypageViewController.swift in Sources */,
 				B06B5EEF25ECCEE10045A491 /* SubTwoViewController.swift in Sources */,
 				B0D43A5E2600DA9B003420CA /* NadamWidget.intentdefinition in Sources */,
 				B075231325EF1E6F0016DC3A /* BaseAPIError.swift in Sources */,
-				B0B0338326219FCF00D65204 /* MyPageProfileView.swift in Sources */,
 				B01D43B526039D6C00F2D28C /* CreateViewModel.swift in Sources */,
 				B075226925ED08780016DC3A /* UserAuthModel.swift in Sources */,
 				B0635AC52603897600046E88 /* HomeViewController.swift in Sources */,
 				B075226D25ED089F0016DC3A /* AuthTokenModel.swift in Sources */,
 				B06B5EDF25ECCD550045A491 /* HeroNavigationController.swift in Sources */,
+				EE23DF74264EB2F500AB31D1 /* BuokmarkCollectionCell.swift in Sources */,
 				B0D0217D2602199600F25329 /* JoinViewController.swift in Sources */,
+				EE79C440264ACE4200E83B6A /* MypageProfileView.swift in Sources */,
 				B041747625E2366E00D990A2 /* MultiLevelViewController.swift in Sources */,
 				EEA213CB2625D59900E3AEA1 /* LoginViewController+UI.swift in Sources */,
-				B0B0339D2621A12200D65204 /* MyPageProfileCountView.swift in Sources */,
 				B06B5EE925ECCED90045A491 /* SubOneViewController.swift in Sources */,
 				B01D43BA2604231800F2D28C /* CategoryFilterView.swift in Sources */,
 				B041747C25E2366E00D990A2 /* BucketList.xcdatamodeld in Sources */,
+				EE79C43B264AC78600E83B6A /* MypageCountingStackView.swift in Sources */,
 				EEB9EF9826269768001AF65F /* UserTextField.swift in Sources */,
+				EE79C445264AD72600E83B6A /* MypageBuokmarkHeaderView.swift in Sources */,
 				EE4940E02648332C00CB0B71 /* UITextView+.swift in Sources */,
 				B0B033D32622AA0900D65204 /* SettingNavigator.swift in Sources */,
+				EE23DF77264EB36900AB31D1 /* BuokmarkFlagView.swift in Sources */,
 				B0B033C12621C97300D65204 /* SettingViewController.swift in Sources */,
 				EECEF1922627E08300CF9394 /* IntroduceTextView.swift in Sources */,
 				EE4940842647659700CB0B71 /* ForgetViewModel.swift in Sources */,
@@ -1195,7 +1211,6 @@
 				B0B0339026219FE200D65204 /* Profile.swift in Sources */,
 				B06B5EE325ECCE610045A491 /* HeroBaseViewController.swift in Sources */,
 				EECEF1872627DFD900CF9394 /* JoinIntroduceViewController.swift in Sources */,
-				B0B033A52621C6B500D65204 /* CountContentView.swift in Sources */,
 				B041747225E2366E00D990A2 /* AppDelegate.swift in Sources */,
 				B0B033CE2621CDBC00D65204 /* SettingInfoCell.swift in Sources */,
 				29773EFB2647FAB900FB7AA8 /* LoginViewController+AppleID.swift in Sources */,
@@ -1211,6 +1226,7 @@
 				B0B035ED2622B33800D65204 /* SettingConstants.swift in Sources */,
 				EE61F70726457CA3004DF51B /* UserViewModel.swift in Sources */,
 				B06B5CB425ECA4070045A491 /* MainTabBarViewController.swift in Sources */,
+				EE79C436264AC57800E83B6A /* MypageCountingButton.swift in Sources */,
 				B075238125EF5AF70016DC3A /* BucketListHomeAPIRequest.swift in Sources */,
 				B0D0218226021A2100F25329 /* NadamProperties.swift in Sources */,
 				B075230925EF1A0E0016DC3A /* BaseAPIRequest.swift in Sources */,
