@@ -19,7 +19,6 @@ public class LoginViewController: HeroBaseViewController {
     let emailField = UserTextField()
     let nextButton = UserServiceButton()
     let orLabel = UILabel()
-    let appleSignInButton = UserServiceButton()
     let googleSignInButton = UserServiceButton()
     let kakaoSignInButton = UserServiceButton()
     let servicePolicyButton = UIButton()
@@ -38,7 +37,6 @@ public class LoginViewController: HeroBaseViewController {
         setupEmailField()
         setupNextButton()
         setupOrLabel()
-        setupAppleSignInButton()
         setupGoogleSignInButton()
         setupKakaoSignInButton()
         setupServicePolicyButton()
@@ -46,7 +44,6 @@ public class LoginViewController: HeroBaseViewController {
         setupTapGesture()
 		if #available(iOS 13.0, *) {
 			configureAppleSignButton()
-			viewModel.appleLoginMode = true
 		}
     }
     

@@ -57,6 +57,7 @@ extension LoginViewController: ASAuthorizationControllerDelegate, ASAuthorizatio
 				case .authorized:
 					DebugLog("Apple ID Login Authorized")
 					//서버 연결 코드 추가 예정
+					self.viewModel.appleLoginMode = true
 				case .notFound:
 					DebugLog("Apple ID Login Not Found")
 				case .revoked:
@@ -69,6 +70,5 @@ extension LoginViewController: ASAuthorizationControllerDelegate, ASAuthorizatio
 	
 	public func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
 		DebugLog("Apple ID Login Fail")
-		//회원가입 화면
 	}
 }
