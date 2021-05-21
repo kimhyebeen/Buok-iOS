@@ -12,6 +12,8 @@ class MypageViewController: HeroBaseViewController {
     let settingButton = UIButton()
     let profileView = MypageProfileView()
     let buokmarkHeader = MypageBuokmarkHeaderView()
+    
+    static let buokmarkColors: [UIColor] = [.heroPrimaryPinkLight, .heroPrimaryNavyLight, .heroPrimaryBlueLight]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +50,7 @@ class MypageViewController: HeroBaseViewController {
     
 }
 
+// MARK: +Delegate
 extension MypageViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 10
@@ -55,8 +58,20 @@ extension MypageViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BuokmarkCollectionCell.identifier, for: indexPath) as? BuokmarkCollectionCell else { return BuokmarkCollectionCell() }
-        let test: [[String]] = [["2021.03", "나홀로 북유럽\n배낭여행 떠나기"], ["2021.01", "취뽀 성공하기"], ["2020.12", "패러글라이딩 도전"], ["2020.11", "교양학점 A이상 받기"], ["2020.09", "친구들과 일본여행가서\n초밥 먹기"], ["2020.08", "버킷리스트6"], ["2020.06", "버킷리스트7"], ["2020.02", "버킷리스트8"], ["2019.08", "버킷리스트9"], ["2019.05", "버킷리스트10"]]
-        cell.setInformation(test[indexPath.row][0], test[indexPath.row][1])
+        
+        let testFlags: [BuokmarkFlag] = [
+            BuokmarkFlag(date: "2021.03", title: "나홀로 북유럽\n배낭여행 떠나기", category: "ic_fill_travel"),
+            BuokmarkFlag(date: "2021.01", title: "취뽀 성공하기", category: "ic_fill_goal"),
+            BuokmarkFlag(date: "2020.12", title: "패러글라이딩 도전", category: "ic_fill_hobby"),
+            BuokmarkFlag(date: "2020.11", title: "교양학점 A이상 받기", category: "ic_fill_goal"),
+            BuokmarkFlag(date: "2020.09", title: "친구들과 일본여행가서\n초밥 먹기", category: "ic_fill_travel"),
+            BuokmarkFlag(date: "2020.08", title: "버킷리스트6", category: "ic_fill_want"),
+            BuokmarkFlag(date: "2020.06", title: "버킷리스트7", category: "ic_fill_volunteer"),
+            BuokmarkFlag(date: "2020.02", title: "버킷리스트8", category: "ic_fill_finance"),
+            BuokmarkFlag(date: "2019.08", title: "버킷리스트9", category: "ic_fill_health"),
+            BuokmarkFlag(date: "2019.05", title: "버킷리스트10", category: "ic_fill_etc")]
+        
+        cell.setInformation(to: testFlags[indexPath.row], color: MypageViewController.buokmarkColors[indexPath.row % 3])
         return cell
     }
     
@@ -96,7 +111,7 @@ extension MypageViewController {
         collectionView.dataSource = self
         collectionView.backgroundColor = .clear
         collectionView.showsVerticalScrollIndicator = false
-        collectionView.contentInset = UIEdgeInsets(top: 368+20, left: 0, bottom: 0, right: 0)
+        collectionView.contentInset = UIEdgeInsets(top: 368 + 20, left: 0, bottom: 0, right: 0)
         collectionView.register(BuokmarkCollectionCell.self, forCellWithReuseIdentifier: BuokmarkCollectionCell.identifier)
         self.view.addSubview(collectionView)
         
