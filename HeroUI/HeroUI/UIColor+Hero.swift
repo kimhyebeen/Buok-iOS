@@ -71,6 +71,9 @@ public extension UIColor {
     
     static var heroPrimaryPink: UIColor { fetchHeroColor(#function) }
     static var heroPrimaryBeigeDark: UIColor { fetchHeroColor(#function) }
+    static var heroPrimaryPinkLight: UIColor { fetchHeroColor(#function) }
+    static var heroPrimaryNavyLight: UIColor { fetchHeroColor(#function) }
+    static var heroPrimaryBlueLight: UIColor { fetchHeroColor(#function) }
     
     private static func fetchHeroColor(_ name: String) -> UIColor {
         let name = name.replacingOccurrences(of: "hero", with: "").lowercased()
