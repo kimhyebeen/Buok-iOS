@@ -67,6 +67,7 @@
 		EE49408C2647670D00CB0B71 /* VerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE49408B2647670D00CB0B71 /* VerifyViewController.swift */; };
 		EE49409126476D5400CB0B71 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE49409026476D5400CB0B71 /* ResetPasswordViewController.swift */; };
 		EE4940E02648332C00CB0B71 /* UITextView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4940DF2648332C00CB0B71 /* UITextView+.swift */; };
+		EE4C015026587401002C5018 /* BuokmarkFlag.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4C014F26587401002C5018 /* BuokmarkFlag.swift */; };
 		EE61F70726457CA3004DF51B /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE61F70626457CA3004DF51B /* UserViewModel.swift */; };
 		EE79C431264AC43000E83B6A /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE79C430264AC43000E83B6A /* MypageViewController.swift */; };
 		EE79C436264AC57800E83B6A /* MypageCountingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE79C435264AC57800E83B6A /* MypageCountingButton.swift */; };
@@ -303,6 +304,7 @@
 		EE49408B2647670D00CB0B71 /* VerifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyViewController.swift; sourceTree = "<group>"; };
 		EE49409026476D5400CB0B71 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		EE4940DF2648332C00CB0B71 /* UITextView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+.swift"; sourceTree = "<group>"; };
+		EE4C014F26587401002C5018 /* BuokmarkFlag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuokmarkFlag.swift; sourceTree = "<group>"; };
 		EE61F70626457CA3004DF51B /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		EE64EE50EB3512280D8E7B47 /* Pods-Buok.real.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Buok.real.xcconfig"; path = "Target Support Files/Pods-Buok/Pods-Buok.real.xcconfig"; sourceTree = "<group>"; };
 		EE79C430264AC43000E83B6A /* MypageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
@@ -619,6 +621,7 @@
 				B075226C25ED089F0016DC3A /* AuthTokenModel.swift */,
 				B075226825ED08780016DC3A /* UserAuthModel.swift */,
 				B0B0338F26219FE200D65204 /* Profile.swift */,
+				EE4C014F26587401002C5018 /* BuokmarkFlag.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1198,6 +1201,7 @@
 				EE4940E02648332C00CB0B71 /* UITextView+.swift in Sources */,
 				B0B033D32622AA0900D65204 /* SettingNavigator.swift in Sources */,
 				EE23DF77264EB36900AB31D1 /* BuokmarkFlagView.swift in Sources */,
+				EE4C015026587401002C5018 /* BuokmarkFlag.swift in Sources */,
 				B0B033C12621C97300D65204 /* SettingViewController.swift in Sources */,
 				EECEF1922627E08300CF9394 /* IntroduceTextView.swift in Sources */,
 				EE4940842647659700CB0B71 /* ForgetViewModel.swift in Sources */,
