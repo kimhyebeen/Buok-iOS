@@ -14,22 +14,15 @@ class MypageViewController: HeroBaseViewController {
     let buokmarkHeader = MypageBuokmarkHeaderView()
     
     static let buokmarkColors: [UIColor] = [.heroPrimaryPinkLight, .heroPrimaryNavyLight, .heroPrimaryBlueLight]
-    let testFlags: [BuokmarkFlag] = [
-        BuokmarkFlag(date: "2021.03", title: "나홀로 북유럽\n배낭여행 떠나기", category: "ic_fill_travel"),
-        BuokmarkFlag(date: "2021.01", title: "취뽀 성공하기", category: "ic_fill_goal"),
-        BuokmarkFlag(date: "2020.12", title: "패러글라이딩 도전", category: "ic_fill_hobby"),
-        BuokmarkFlag(date: "2020.11", title: "교양학점 A이상 받기", category: "ic_fill_goal"),
-        BuokmarkFlag(date: "2020.09", title: "친구들과 일본여행가서\n초밥 먹기", category: "ic_fill_travel"),
-        BuokmarkFlag(date: "2020.08", title: "버킷리스트6", category: "ic_fill_want"),
-        BuokmarkFlag(date: "2020.06", title: "버킷리스트7", category: "ic_fill_volunteer"),
-        BuokmarkFlag(date: "2020.02", title: "버킷리스트8", category: "ic_fill_finance"),
-        BuokmarkFlag(date: "2019.08", title: "버킷리스트9", category: "ic_fill_health"),
-        BuokmarkFlag(date: "2019.05", title: "버킷리스트10", category: "ic_fill_etc")]
+    
+    private let viewModel = MypageViewModel()
+    private var buokmarks: [BuokmarkFlag] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupView()
+        bindingViewModel()
     }
     
     private func setupView() {
@@ -37,6 +30,14 @@ class MypageViewController: HeroBaseViewController {
         setupSettingButton()
         setupProfileView()
         setupBuokmarkHeader()
+    }
+    
+    private func bindingViewModel() {
+        viewModel.fetchBuokmarks().then { [weak self] values in
+            self?.buokmarks = values
+            self?.buokmarkHeader.count = values.count
+            self?.collectionView.reloadSections(IndexSet(0...0))
+        }
     }
 
     @objc
@@ -69,7 +70,7 @@ extension MypageViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if section == 0 {
-            return testFlags.count
+            return buokmarks.count
         } else { return 3 }
     }
     
@@ -85,7 +86,7 @@ extension MypageViewController: UICollectionViewDelegate, UICollectionViewDataSo
             return BuokmarkCollectionCell()
         }
         
-        cell.setInformation(to: testFlags[indexPath.row], color: MypageViewController.buokmarkColors[indexPath.row % 3])
+        cell.setInformation(to: buokmarks[indexPath.row], color: MypageViewController.buokmarkColors[indexPath.row % 3])
         
         return cell
     }

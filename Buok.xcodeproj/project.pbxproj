@@ -69,6 +69,7 @@
 		EE4940E02648332C00CB0B71 /* UITextView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4940DF2648332C00CB0B71 /* UITextView+.swift */; };
 		EE4C015026587401002C5018 /* BuokmarkFlag.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4C014F26587401002C5018 /* BuokmarkFlag.swift */; };
 		EE4C015A26587912002C5018 /* BuokmarkEmptyCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4C015926587912002C5018 /* BuokmarkEmptyCollectionCell.swift */; };
+		EE4C015C26588245002C5018 /* MypageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4C015B26588245002C5018 /* MypageViewModel.swift */; };
 		EE61F70726457CA3004DF51B /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE61F70626457CA3004DF51B /* UserViewModel.swift */; };
 		EE79C431264AC43000E83B6A /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE79C430264AC43000E83B6A /* MypageViewController.swift */; };
 		EE79C436264AC57800E83B6A /* MypageCountingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE79C435264AC57800E83B6A /* MypageCountingButton.swift */; };
@@ -307,6 +308,7 @@
 		EE4940DF2648332C00CB0B71 /* UITextView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+.swift"; sourceTree = "<group>"; };
 		EE4C014F26587401002C5018 /* BuokmarkFlag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuokmarkFlag.swift; sourceTree = "<group>"; };
 		EE4C015926587912002C5018 /* BuokmarkEmptyCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuokmarkEmptyCollectionCell.swift; sourceTree = "<group>"; };
+		EE4C015B26588245002C5018 /* MypageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewModel.swift; sourceTree = "<group>"; };
 		EE61F70626457CA3004DF51B /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		EE64EE50EB3512280D8E7B47 /* Pods-Buok.real.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Buok.real.xcconfig"; path = "Target Support Files/Pods-Buok/Pods-Buok.real.xcconfig"; sourceTree = "<group>"; };
 		EE79C430264AC43000E83B6A /* MypageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
@@ -672,6 +674,7 @@
 			children = (
 				EE23DF75264EB2FB00AB31D1 /* View */,
 				EE79C430264AC43000E83B6A /* MypageViewController.swift */,
+				EE4C015B26588245002C5018 /* MypageViewModel.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -1221,6 +1224,7 @@
 				EEA213C32625D03E00E3AEA1 /* LoginPasswordViewController.swift in Sources */,
 				EECEF1752627D91100CF9394 /* JoinNameViewController.swift in Sources */,
 				B06B5EF625ECD0140045A491 /* SubThreeViewController.swift in Sources */,
+				EE4C015C26588245002C5018 /* MypageViewModel.swift in Sources */,
 				EE49409126476D5400CB0B71 /* ResetPasswordViewController.swift in Sources */,
 				B075225425ED06ED0016DC3A /* UserModel.swift in Sources */,
 				B0B035E82622B2B900D65204 /* SettingSectionHeaderView.swift in Sources */,
