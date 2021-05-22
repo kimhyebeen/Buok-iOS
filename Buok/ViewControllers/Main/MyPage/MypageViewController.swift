@@ -8,8 +8,12 @@
 import HeroUI
 
 class MypageViewController: HeroBaseViewController {
-    let collectionView = UICollectionView(frame: UIScreen.main.bounds, collectionViewLayout: UICollectionViewFlowLayout())
+    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    
+    let safeAreaFillView: UIView = UIView()
+    let topNavBar: UIView = UIView()
     let settingButton = UIButton()
+    
     let profileView = MypageProfileView()
     let buokmarkHeader = MypageBuokmarkHeaderView()
     
@@ -26,10 +30,23 @@ class MypageViewController: HeroBaseViewController {
     }
     
     private func setupView() {
-        setupCollectionView()
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        view.backgroundColor = .heroServiceSkin
+        view.addSubview(safeAreaFillView)
+        safeAreaFillView.backgroundColor = .heroServiceSkin
+        safeAreaFillView.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.top)
+            make.leading.trailing.equalToSuperview()
+        }
+        
         setupSettingButton()
+        setupCollectionView()
         setupProfileView()
         setupBuokmarkHeader()
+        
+        view.bringSubviewToFront(safeAreaFillView)
+        view.bringSubviewToFront(topNavBar)
     }
     
     private func bindingViewModel() {
@@ -108,7 +125,7 @@ extension MypageViewController: UICollectionViewDelegate, UICollectionViewDataSo
         var transform = CATransform3DIdentity
         transform = CATransform3DTranslate(transform, 0, max(-offsetForHeader, -totalOffset), 0)
         
-        settingButton.layer.transform = transform
+//        settingButton.layer.transform = transform
         profileView.layer.transform = transform
         buokmarkHeader.layer.transform = transform
     }
@@ -136,6 +153,11 @@ extension MypageViewController: UICollectionViewDelegate, UICollectionViewDataSo
 extension MypageViewController {
     // MARK: CollectionView
     private func setupCollectionView() {
+        view.addSubview(collectionView)
+        collectionView.snp.makeConstraints { make in
+            make.edges.equalTo(view.safeAreaLayoutGuide.snp.edges)
+        }
+        
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.backgroundColor = .clear
@@ -143,7 +165,6 @@ extension MypageViewController {
         collectionView.contentInset = UIEdgeInsets(top: 368 + 20, left: 0, bottom: 0, right: 0)
         collectionView.register(BuokmarkCollectionCell.self, forCellWithReuseIdentifier: BuokmarkCollectionCell.identifier)
         collectionView.register(BuokmarkEmptyCollectionCell.self, forCellWithReuseIdentifier: BuokmarkEmptyCollectionCell.identifier)
-        self.view.addSubview(collectionView)
         
         collectionView.snp.makeConstraints { make in
             make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
@@ -153,17 +174,25 @@ extension MypageViewController {
     
     // MARK: SettingButton
     private func setupSettingButton() {
+        view.addSubview(topNavBar)
+        topNavBar.backgroundColor = .heroServiceSkin
+        topNavBar.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            make.height.equalTo(48)
+            make.leading.trailing.equalToSuperview()
+        }
+        
         if #available(iOS 13.0, *) {
             settingButton.setImage(UIImage(heroSharedNamed: "ic_setting")!.withTintColor(.heroGray82), for: .normal)
         } else {
             settingButton.setImage(UIImage(heroSharedNamed: "ic_setting")!, for: .normal)
         }
         settingButton.addTarget(self, action: #selector(clickSettingButton(_:)), for: .touchUpInside)
-        self.view.addSubview(settingButton)
+        topNavBar.addSubview(settingButton)
         
         settingButton.snp.makeConstraints { make in
             make.width.height.equalTo(44)
-            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
+            make.centerY.equalToSuperview()
             make.trailing.equalToSuperview().offset(-8)
         }
     }
@@ -176,7 +205,7 @@ extension MypageViewController {
         self.view.addSubview(profileView)
         
         profileView.snp.makeConstraints { make in
-            make.top.equalTo(settingButton.snp.bottom)
+            make.top.equalTo(topNavBar.snp.bottom)
             make.leading.trailing.equalToSuperview()
         }
     }
