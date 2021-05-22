@@ -25,6 +25,16 @@ public class CreateViewModel {
                                             HeroSelectItem(title: "성공"),
                                             HeroSelectItem(title: "실패")]
     
+    public let categoryItemList: [HeroSelectItem] = [HeroSelectItem(title: "여행"),
+                                            HeroSelectItem(title: "취미"),
+                                            HeroSelectItem(title: "소유"),
+                                            HeroSelectItem(title: "재정"),
+                                            HeroSelectItem(title: "건강"),
+                                            HeroSelectItem(title: "목표"),
+                                            HeroSelectItem(title: "조직"),
+                                            HeroSelectItem(title: "봉사"),
+                                            HeroSelectItem(title: "기타")]
+    
     public init() {
         bucketStatus = Dynamic(.pre)
         bucketCategory = Dynamic(.travel)

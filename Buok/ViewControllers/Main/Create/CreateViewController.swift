@@ -42,6 +42,7 @@ public class CreateViewController: HeroBaseViewController {
     private let datePicker: UIDatePicker = UIDatePicker()
     
     private let viewModel: CreateViewModel = CreateViewModel()
+    private var selectViewType: Any.Type = BucketStatus.self
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -270,6 +271,7 @@ public class CreateViewController: HeroBaseViewController {
         
         viewModel.bucketStatus.bind({ status in
             DebugLog("BucketStatus Changed : \(status)")
+            self.statusTitleLabel.text = status.getTitle()
         })
         
         viewModel.finishDate.bind({ date in
@@ -278,6 +280,7 @@ public class CreateViewController: HeroBaseViewController {
         
         viewModel.bucketCategory.bind({ category in
             DebugLog("Selected Category : \(category.getTitle())")
+            self.categoryTitleLabel.text = category.getTitle()
         })
     }
     
@@ -355,12 +358,21 @@ public class CreateViewController: HeroBaseViewController {
         selectVC.modalPresentationStyle = .overCurrentContext
         selectVC.itemList = viewModel.statusItemList
         selectVC.delegate = self
+        selectViewType = BucketStatus.self
         self.present(selectVC, animated: false, completion: nil)
     }
     
     @objc
     private func onClickCategoryFilterButton(_ sender: Any?) {
         DebugLog("CategoryFilter Clicked")
+        let selectVC = HeroSelectViewController()
+        
+        selectVC.titleContent = "카테고리 선택"
+        selectVC.modalPresentationStyle = .overCurrentContext
+        selectVC.itemList = viewModel.categoryItemList
+        selectVC.delegate = self
+        selectViewType = BucketCategory.self
+        self.present(selectVC, animated: false, completion: nil)
     }
     
     @objc
@@ -376,7 +388,12 @@ extension CreateViewController: HeroSelectViewDelegate {
     }
     
     public func selectViewItemSelected(viewController: HeroSelectViewController, selected index: Int) {
-        statusTitleLabel.text = viewModel.statusItemList[index].title
+//        statusTitleLabel.text = viewModel.statusItemList[index].title
+        if selectViewType == BucketStatus.self {
+            viewModel.bucketStatus.value = BucketStatus(rawValue: index) ?? .pre
+        } else if selectViewType == BucketCategory.self {
+            viewModel.bucketCategory.value = BucketCategory(rawValue: index) ?? .travel
+        }
         viewController.dismiss(animated: false, completion: nil)
     }
 }
