@@ -22,6 +22,8 @@ class EditProfileViewController: HeroBaseViewController {
     let introduceTextView = IntroduceTextView()
     let introducePlaceholder = UILabel()
     let introduceCountLabel = UILabel()
+    
+    private let viewModel = EditProfileViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,8 +55,14 @@ class EditProfileViewController: HeroBaseViewController {
     
     @objc
     func clickFinishButton(_ sender: UIButton) {
-        // todo - 프로필을 저장하거나, 닉네임 중복 실패 처리
-        self.navigationController?.popViewController(animated: true)
+        viewModel.requestSaveProfile().then { [weak self] isSuccess in
+            if isSuccess {
+                self?.navigationController?.popViewController(animated: true)
+            } else {
+                // todo - 실패 처리
+                self?.nicknameSubLabel.isHidden = false
+            }
+        }
     }
     
     @objc
