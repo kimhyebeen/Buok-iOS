@@ -118,6 +118,14 @@ extension MypageViewController: UICollectionViewDelegate, UICollectionViewDataSo
         buokmarkHeader.layer.transform = transform
     }
     
+    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        if indexPath.section == 1 {
+            if indexPath.row > 0 { return false }
+            print("새로운 북마크 추가")
+        }
+        return true
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width, height: 96)
     }
