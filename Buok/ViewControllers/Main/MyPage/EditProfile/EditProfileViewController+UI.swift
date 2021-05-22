@@ -53,8 +53,8 @@ extension EditProfileViewController {
     
     // MARK: ProfileImageView
     func setupProfileImageView() {
-        profileImageView.layer.backgroundColor = UIColor.systemYellow.cgColor
-        // todo - 이미지 넣어주기
+        profileImageView.contentMode = .scaleAspectFit
+        profileImageView.image = UIImage(heroSharedNamed: "ic_profile_48")!
         profileImageView.layer.cornerRadius = 44
         profileImageView.clipsToBounds = true
         self.view.addSubview(profileImageView)
