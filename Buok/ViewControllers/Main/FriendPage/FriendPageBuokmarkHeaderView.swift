@@ -22,6 +22,8 @@ class FriendPageBuokmarkHeaderView: UIView {
     }
     
     private func setupView() {
+        self.backgroundColor = .heroServiceSkin
+        
         setupBuokmarkButton()
         setupBucketBookButton()
     }

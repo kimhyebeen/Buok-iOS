@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let window = UIWindow(frame: UIScreen.main.bounds)
         let navigationVC = HeroNavigationController(navigationBarClass: HeroUINavigationBar.self, toolbarClass: nil)
-        navigationVC.viewControllers = [MainTabBarViewController()]
+        navigationVC.viewControllers = [FriendPageViewController()]
         navigationVC.isNavigationBarHidden = true
         
         window.rootViewController = navigationVC
