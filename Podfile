@@ -15,6 +15,8 @@ target 'Buok' do
 
   # Pods for Buok
   pod 'SnapKit'
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Messaging'
   pod 'Alamofire'
   pod 'Alamofire-SwiftyJSON'
   pod 'SwiftyJSON'
