@@ -72,6 +72,9 @@
 		EE4C015026587401002C5018 /* BuokmarkFlag.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4C014F26587401002C5018 /* BuokmarkFlag.swift */; };
 		EE4C015A26587912002C5018 /* BuokmarkEmptyCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4C015926587912002C5018 /* BuokmarkEmptyCollectionCell.swift */; };
 		EE4C015C26588245002C5018 /* MypageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4C015B26588245002C5018 /* MypageViewModel.swift */; };
+		EE4C015E2658866F002C5018 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4C015D2658866F002C5018 /* EditProfileViewController.swift */; };
+		EE4C016026588821002C5018 /* EditProfileViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4C015F26588821002C5018 /* EditProfileViewController+UI.swift */; };
+		EE4C017326589743002C5018 /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4C017226589743002C5018 /* EditProfileViewModel.swift */; };
 		EE61F70726457CA3004DF51B /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE61F70626457CA3004DF51B /* UserViewModel.swift */; };
 		EE79C431264AC43000E83B6A /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE79C430264AC43000E83B6A /* MypageViewController.swift */; };
 		EE79C436264AC57800E83B6A /* MypageCountingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE79C435264AC57800E83B6A /* MypageCountingButton.swift */; };
@@ -313,6 +316,9 @@
 		EE4C014F26587401002C5018 /* BuokmarkFlag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuokmarkFlag.swift; sourceTree = "<group>"; };
 		EE4C015926587912002C5018 /* BuokmarkEmptyCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuokmarkEmptyCollectionCell.swift; sourceTree = "<group>"; };
 		EE4C015B26588245002C5018 /* MypageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewModel.swift; sourceTree = "<group>"; };
+		EE4C015D2658866F002C5018 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		EE4C015F26588821002C5018 /* EditProfileViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditProfileViewController+UI.swift"; sourceTree = "<group>"; };
+		EE4C017226589743002C5018 /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
 		EE61F70626457CA3004DF51B /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		EE64EE50EB3512280D8E7B47 /* Pods-Buok.real.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Buok.real.xcconfig"; path = "Target Support Files/Pods-Buok/Pods-Buok.real.xcconfig"; sourceTree = "<group>"; };
 		EE79C430264AC43000E83B6A /* MypageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
@@ -678,6 +684,7 @@
 			isa = PBXGroup;
 			children = (
 				EE23DF75264EB2FB00AB31D1 /* View */,
+				EE4C016926589730002C5018 /* EditProfile */,
 				EE79C430264AC43000E83B6A /* MypageViewController.swift */,
 				EE4C015B26588245002C5018 /* MypageViewModel.swift */,
 			);
@@ -769,6 +776,16 @@
 				EE49409026476D5400CB0B71 /* ResetPasswordViewController.swift */,
 			);
 			path = Forget;
+			sourceTree = "<group>";
+		};
+		EE4C016926589730002C5018 /* EditProfile */ = {
+			isa = PBXGroup;
+			children = (
+				EE4C015D2658866F002C5018 /* EditProfileViewController.swift */,
+				EE4C015F26588821002C5018 /* EditProfileViewController+UI.swift */,
+				EE4C017226589743002C5018 /* EditProfileViewModel.swift */,
+			);
+			path = EditProfile;
 			sourceTree = "<group>";
 		};
 		EE61F6E126457821004DF51B /* View */ = {
@@ -1189,6 +1206,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE4C015E2658866F002C5018 /* EditProfileViewController.swift in Sources */,
 				B0635ADA260390E100046E88 /* CreateViewController.swift in Sources */,
 				B01D43A826039D2500F2D28C /* DetailViewController.swift in Sources */,
 				EE79C431264AC43000E83B6A /* MypageViewController.swift in Sources */,
@@ -1200,6 +1218,7 @@
 				B0635AC52603897600046E88 /* HomeViewController.swift in Sources */,
 				EE4C015A26587912002C5018 /* BuokmarkEmptyCollectionCell.swift in Sources */,
 				B075226D25ED089F0016DC3A /* AuthTokenModel.swift in Sources */,
+				EE4C017326589743002C5018 /* EditProfileViewModel.swift in Sources */,
 				B06B5EDF25ECCD550045A491 /* HeroNavigationController.swift in Sources */,
 				EE23DF74264EB2F500AB31D1 /* BuokmarkCollectionCell.swift in Sources */,
 				B0D0217D2602199600F25329 /* JoinViewController.swift in Sources */,
@@ -1241,6 +1260,7 @@
 				B01D43B026039D5700F2D28C /* HomeViewModel.swift in Sources */,
 				B0B035ED2622B33800D65204 /* SettingConstants.swift in Sources */,
 				EE61F70726457CA3004DF51B /* UserViewModel.swift in Sources */,
+				EE4C016026588821002C5018 /* EditProfileViewController+UI.swift in Sources */,
 				B06B5CB425ECA4070045A491 /* MainTabBarViewController.swift in Sources */,
 				EE79C436264AC57800E83B6A /* MypageCountingButton.swift in Sources */,
 				B075238125EF5AF70016DC3A /* BucketListHomeAPIRequest.swift in Sources */,
