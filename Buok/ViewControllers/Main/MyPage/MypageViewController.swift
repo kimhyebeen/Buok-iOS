@@ -49,7 +49,7 @@ class MypageViewController: HeroBaseViewController {
     func clickEditProfileButton(_ sender: UIButton) {
         let editVC = EditProfileViewController()
         editVC.modalPresentationStyle = .fullScreen
-        self.pushViewController(editVC)
+        self.present(editVC, animated: true, completion: nil)
     }
     
     @objc

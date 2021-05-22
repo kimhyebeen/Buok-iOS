@@ -50,14 +50,14 @@ class EditProfileViewController: HeroBaseViewController {
     
     @objc
     func clickCancelButton(_ sender: UIButton) {
-        self.navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true, completion: nil)
     }
     
     @objc
     func clickFinishButton(_ sender: UIButton) {
         viewModel.requestSaveProfile().then { [weak self] isSuccess in
             if isSuccess {
-                self?.navigationController?.popViewController(animated: true)
+                self?.dismiss(animated: true, completion: nil)
             } else {
                 // todo - 실패 처리
                 self?.nicknameSubLabel.isHidden = false
