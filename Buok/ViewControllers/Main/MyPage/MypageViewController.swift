@@ -120,7 +120,7 @@ extension MypageViewController: UICollectionViewDelegate, UICollectionViewDataSo
         let heightForHeader: CGFloat = 40
         
         let totalOffset = scrollView.contentOffset.y + heightForSettingButton + heightForProfileView + heightForHeader + 20
-        let offsetForHeader = heightForSettingButton + heightForProfileView
+        let offsetForHeader = heightForProfileView
         
         var transform = CATransform3DIdentity
         transform = CATransform3DTranslate(transform, 0, max(-offsetForHeader, -totalOffset), 0)
