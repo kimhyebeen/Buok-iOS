@@ -7,9 +7,23 @@
 
 import UIKit
 
+protocol FriendPageBuokmarkHeaderViewDelegate: AnyObject {
+    func onClickBuokmarkButton()
+    func onClickBucketBookButton()
+}
+
 class FriendPageBuokmarkHeaderView: UIView {
-    let buokmarkButton = BuokmarkHeaderButton()
-    let bucketBookButton = BucketBookHeaderButton()
+    private let buokmarkButton = BuokmarkHeaderButton()
+    private let bucketBookButton = BucketBookHeaderButton()
+    
+    var isSelectBuokmarkButton: Bool {
+        get { buokmarkButton.isSelected }
+    }
+    var isSelectBucketBookButton: Bool {
+        get { bucketBookButton.isSelected }
+    }
+    
+    weak var delegate: FriendPageBuokmarkHeaderViewDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -27,12 +41,29 @@ class FriendPageBuokmarkHeaderView: UIView {
         setupBuokmarkButton()
         setupBucketBookButton()
     }
+    
+    @objc
+    func clickBuokmarkButton(_ sender: UIButton) {
+        if buokmarkButton.isSelected { return }
+        delegate?.onClickBuokmarkButton()
+        buokmarkButton.isSelected = !buokmarkButton.isSelected
+        bucketBookButton.isSelected = !bucketBookButton.isSelected
+    }
+    
+    @objc
+    func clickBucketBookButton(_ sender: UIButton) {
+        if bucketBookButton.isSelected { return }
+        delegate?.onClickBucketBookButton()
+        buokmarkButton.isSelected = !buokmarkButton.isSelected
+        bucketBookButton.isSelected = !bucketBookButton.isSelected
+    }
 }
 
 extension FriendPageBuokmarkHeaderView {
     // MARK: BuokmarkButton
     private func setupBuokmarkButton() {
         buokmarkButton.isSelected = true
+        buokmarkButton.addTarget(self, action: #selector(clickBuokmarkButton(_:)), for: .touchUpInside)
         self.addSubview(buokmarkButton)
         
         buokmarkButton.snp.makeConstraints { make in
@@ -44,6 +75,7 @@ extension FriendPageBuokmarkHeaderView {
     // MARK: BucketBookButton
     private func setupBucketBookButton() {
         bucketBookButton.isSelected = false
+        bucketBookButton.addTarget(self, action: #selector(clickBucketBookButton(_:)), for: .touchUpInside)
         self.addSubview(bucketBookButton)
         
         bucketBookButton.snp.makeConstraints { make in

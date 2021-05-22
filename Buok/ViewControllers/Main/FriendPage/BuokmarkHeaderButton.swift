@@ -79,6 +79,7 @@ class BuokmarkHeaderButton: UIButton {
     private func setupStackView() {
         stackView.axis = .horizontal
         stackView.spacing = 4
+        stackView.isUserInteractionEnabled = false
         self.addSubview(stackView)
         
         stackView.snp.makeConstraints { make in
