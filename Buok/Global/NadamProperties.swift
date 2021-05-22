@@ -9,17 +9,14 @@ import Foundation
 import HeroCommon
 import HeroUI
 
-public enum BucketStatus {
-    case none
-    case pre
-    case present
-    case success
-    case failure
+public enum BucketStatus: Int {
+    case pre = 0
+    case present = 1
+    case success = 2
+    case failure = 3
     
     public func getTitle() -> String {
         switch self {
-        case .none:
-            return ""
         case .pre:
             return "Hero_Add_Bucket_Predestination".localized
         case .present:

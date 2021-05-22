@@ -38,10 +38,14 @@ public class CreateViewController: HeroBaseViewController {
     private let detailTextView: UITextView = UITextView()
     private let detailLengthLabel: UILabel = UILabel()
     
+    private let dateChooserAlert = UIAlertController(title: "날짜 선택", message: nil, preferredStyle: .actionSheet)
+    private let datePicker: UIDatePicker = UIDatePicker()
+    
     private var viewModel: CreateViewModel?
     
     public override func viewDidLoad() {
         super.viewDidLoad()
+        setupDatePicker()
         setupMainLayout()
         setupViewProperties()
         bindViewModel()
@@ -214,6 +218,18 @@ public class CreateViewController: HeroBaseViewController {
             make.trailing.equalToSuperview().offset(-12)
             make.bottom.equalToSuperview().offset(-8)
         }
+    }
+    
+    private func setupDatePicker() {
+        datePicker.datePickerMode = .dateAndTime
+        datePicker.locale = Locale(identifier: "ko-KR")
+        datePicker.timeZone = .autoupdatingCurrent
+        datePicker.addTarget(self, action: #selector(handleDatePicker(_:)), for: .valueChanged)
+    }
+    
+    @objc
+    private func handleDatePicker(_ sender: UIDatePicker) {
+        DebugLog("[Date Picker] Date Selected : \(sender.date.description)")
     }
     
     private func bindViewModel() {
