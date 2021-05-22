@@ -10,7 +10,7 @@ import HeroCommon
 import HeroSharedAssets
 import HeroUI
 
-public class CreateViewController: HeroBaseViewController {
+final class CreateViewController: HeroBaseViewController, UINavigationControllerDelegate {
     private let topContentView: UIView = UIView()
     private let backButton: HeroImageButton = HeroImageButton()
     private let doneButton: HeroImageButton = HeroImageButton()
@@ -38,10 +38,15 @@ public class CreateViewController: HeroBaseViewController {
     private let detailTextView: UITextView = UITextView()
     private let detailLengthLabel: UILabel = UILabel()
     
+    private var imageCollectionView: UICollectionView?
+    private var tagCollectionView: UICollectionView?
+    
     private let dateChooserAlert = UIAlertController(title: "날짜 선택", message: nil, preferredStyle: .actionSheet)
     private let datePicker: UIDatePicker = UIDatePicker()
+    private let imagePicker = UIImagePickerController()
     
-    private var viewModel: CreateViewModel?
+    private let viewModel: CreateViewModel = CreateViewModel()
+    private var selectViewType: Any.Type = BucketStatus.self
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,6 +64,7 @@ public class CreateViewController: HeroBaseViewController {
         view.addSubview(finishDateContainerView)
         view.addSubview(detailTitleLabel)
         view.addSubview(detailBackgroundView)
+        imagePicker.delegate = self
         
         setupNavigationView()
         setupTitleSectionView()
@@ -100,6 +106,8 @@ public class CreateViewController: HeroBaseViewController {
         }
         
         setupDetailSectionView()
+        setupImageCollectionView()
+        setupTagCollectionView()
     }
     
     private func setupNavigationView() {
@@ -201,7 +209,7 @@ public class CreateViewController: HeroBaseViewController {
             make.top.equalTo(detailTitleLabel.snp.bottom).offset(8)
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-20)
-            make.height.greaterThanOrEqualTo(200)
+            make.height.equalTo(200)
         }
         
         detailBackgroundView.addSubview(detailTextView)
@@ -220,24 +228,119 @@ public class CreateViewController: HeroBaseViewController {
         }
     }
     
+    private func setupImageCollectionView() {
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        layout.itemSize = CGSize(width: 76, height: 64)
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
+        layout.scrollDirection = .horizontal
+        
+        imageCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        imageCollectionView?.dataSource = self
+        imageCollectionView?.delegate = self
+        imageCollectionView?.register(CreateImageCell.self, forCellWithReuseIdentifier: CreateImageCell.identifier)
+        imageCollectionView?.register(CreateAddCell.self, forCellWithReuseIdentifier: CreateAddCell.identifier)
+        imageCollectionView?.backgroundColor = .clear
+        
+        view.addSubview(imageCollectionView!)
+        imageCollectionView?.snp.makeConstraints { make in
+            make.top.equalTo(detailBackgroundView.snp.bottom).offset(20)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+            make.height.equalTo(64)
+        }
+    }
+    
+    private func setupTagCollectionView() {
+        let layout = AlignedCollectionViewFlowLayout(horizontalAlignment: .left, verticalAlignment: .top)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        layout.estimatedItemSize = CGSize(width: 140, height: 32)
+        
+//        let layout = TagFlowLayout()
+//        layout.estimatedItemSize = CGSize(width: 140, height: 40)
+        
+        tagCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        tagCollectionView?.dataSource = self
+        tagCollectionView?.delegate = self
+        tagCollectionView?.register(CreateTagAddCell.self, forCellWithReuseIdentifier: CreateTagAddCell.identifier)
+        tagCollectionView?.register(CreateTagCell.self, forCellWithReuseIdentifier: CreateTagCell.identifier)
+        tagCollectionView?.backgroundColor = .clear
+        view.addSubview(tagCollectionView!)
+        
+        tagCollectionView?.snp.makeConstraints { make in
+            make.top.equalTo(imageCollectionView!.snp.bottom).offset(20)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+            make.height.equalTo(32)
+        }
+    }
+    
     private func setupDatePicker() {
-        datePicker.datePickerMode = .dateAndTime
+        if #available(iOS 13.4, *) {
+            datePicker.preferredDatePickerStyle = .wheels
+        }
+        
+        datePicker.datePickerMode = .date
+        datePicker.minimumDate = Date()
         datePicker.locale = Locale(identifier: "ko-KR")
         datePicker.timeZone = .autoupdatingCurrent
         datePicker.addTarget(self, action: #selector(handleDatePicker(_:)), for: .valueChanged)
+        
+        dateChooserAlert.view.addSubview(datePicker)
+        dateChooserAlert.view.snp.makeConstraints { make in
+            make.height.equalTo(350)
+        }
+        
+        datePicker.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
+            make.bottom.equalToSuperview().offset(-30)
+            make.top.equalToSuperview()
+        }
+        
+        dateChooserAlert.addAction(UIAlertAction(title: "선택완료", style: .default, handler: { _ in
+            self.viewModel.finishDate.value = self.datePicker.date
+        }))
+    }
+    
+    private func setDateStringToButton(_ date: Date) {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy년 MM월 dd일"
+        let dateString = formatter.string(from: date)
+        DebugLog("[DatePicker]-> choose -> \(dateString)")
+        
+        finishDateSelectButton.setTitleColor(.heroGray5B, for: .normal)
+        finishDateSelectButton.setTitle(dateString, for: .normal)
     }
     
     @objc
     private func handleDatePicker(_ sender: UIDatePicker) {
-        DebugLog("[Date Picker] Date Selected : \(sender.date.description)")
+        DebugLog(datePicker.date.description)
+        viewModel.finishDate.value = datePicker.date
     }
     
     private func bindViewModel() {
-        if let viewModel = viewModel {
-            viewModel.bucketStatus.bind({ status in
-                DebugLog("BucketStatus Changed : \(status)")
-            })
-        }
+        viewModel.bucketTitle.bind({ title in
+            DebugLog("Bucket Title : \(title)")
+        })
+        
+        viewModel.bucketStatus.bind({ status in
+            DebugLog("BucketStatus Changed : \(status)")
+            self.statusTitleLabel.text = status.getTitle()
+        })
+        
+        viewModel.finishDate.bind({ date in
+            self.setDateStringToButton(self.datePicker.date)
+        })
+        
+        viewModel.bucketCategory.bind({ category in
+            DebugLog("Selected Category : \(category.getTitle())")
+            self.categoryTitleLabel.text = category.getTitle()
+        })
+        
+        viewModel.imageList.bind({ _ in
+            self.imageCollectionView?.reloadData()
+        })
     }
     
     private func setupViewProperties() {
@@ -264,9 +367,9 @@ public class CreateViewController: HeroBaseViewController {
         categoryButton.addTarget(self, action: #selector(onClickCategoryFilterButton(_:)), for: .touchUpInside)
         categoryImageView.image = UIImage(heroSharedNamed: "ic_narrow_12")
         
-        titleField.font = .font20P
-        titleField.textColor = .heroGrayA6A4A1
-        titleField.placeholder = "Hero_Add_Title_Placeholder".localized
+        titleField.font = .font20PMedium
+        titleField.textColor = .heroGray5B
+        titleField.attributedPlaceholder = NSAttributedString(string: "Hero_Add_Title_Placeholder".localized, attributes: [NSAttributedString.Key.foregroundColor: UIColor.heroGrayA6A4A1])
         divisionBar.backgroundColor = .heroGrayE7E1DC
         
         finishDateTitleLabel.text = "Hero_Add_FinishDate_Title".localized
@@ -307,17 +410,134 @@ public class CreateViewController: HeroBaseViewController {
     
     @objc
     private func onClickStatusFilterButton(_ sender: Any?) {
-        DebugLog("StatusFilter Clicked")
+        let selectVC = HeroSelectViewController()
+        
+        selectVC.titleContent = "상태 선택"
+        selectVC.modalPresentationStyle = .overCurrentContext
+        selectVC.itemList = viewModel.statusItemList
+        selectVC.delegate = self
+        selectViewType = BucketStatus.self
+        self.present(selectVC, animated: false, completion: nil)
     }
     
     @objc
     private func onClickCategoryFilterButton(_ sender: Any?) {
-        DebugLog("CategoryFilter Clicked")
+        let selectVC = HeroSelectViewController()
+        
+        selectVC.titleContent = "카테고리 선택"
+        selectVC.modalPresentationStyle = .overCurrentContext
+        selectVC.itemList = viewModel.categoryItemList
+        selectVC.delegate = self
+        selectViewType = BucketCategory.self
+        self.present(selectVC, animated: false, completion: nil)
     }
     
     @objc
     private func onClickFinishDateButton(_ sender: Any?) {
         DebugLog("FinishDateButton Clicked")
+        present(dateChooserAlert, animated: true, completion: nil)
+    }
+}
+
+extension CreateViewController: UIImagePickerControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        guard let selectedImage = info[.originalImage] as? UIImage else {
+            fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
+        }
+//        self.profileImageView.image = selectedImage
+        viewModel.imageList.value.append(selectedImage)
+//        let _ = selectedImage.jpegData(compressionQuality: 0.5)
+        self.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension CreateViewController: UICollectionViewDataSource, UICollectionViewDelegate, CreateImageCellDelegate {
+    public func didSelectDeleteButton(index: Int) {
+        viewModel.imageList.value.remove(at: index)
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == imageCollectionView {
+            // IMAGE Collection View
+            if indexPath.row == 0 {
+                if viewModel.imageList.value.count < 4 {
+                    imagePicker.sourceType = .photoLibrary
+                    self.present(imagePicker, animated: true, completion: nil)
+                } else {
+                    let alertController = UIAlertController(title: "", message: "사진은 4개까지 선택 가능합니다.", preferredStyle: UIAlertController.Style.alert)
+                    let okButton = UIAlertAction(title: "확인", style: UIAlertAction.Style.cancel, handler: nil)
+                    
+                    alertController.addAction(okButton)
+                    self.present(alertController, animated: true, completion: nil)
+                }
+            } else {
+                viewModel.imageList.value.remove(at: indexPath.row - 1)
+            }
+        } else {
+            // TAG Collection View
+        }
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if collectionView == imageCollectionView {
+            // IMAGE Collection View
+            return viewModel.imageList.value.count + 1
+        } else {
+            // TAG Collection View
+            return viewModel.tagList.value.count + 1
+        }
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if collectionView == imageCollectionView {
+            // IMAGE Collection View
+            if indexPath.row == 0 {
+                if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CreateAddCell.identifier, for: indexPath) as? CreateAddCell {
+                    return cell
+                }
+            } else {
+                if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CreateImageCell.identifier, for: indexPath) as? CreateImageCell {
+                    cell.itemImage = viewModel.imageList.value[indexPath.row - 1]
+                    cell.index = indexPath.row - 1
+                    cell.delegate = self
+                    
+                    return cell
+                }
+            }
+        } else {
+            // TAG Collection View
+            DebugLog("tagCollectionView!.contentSize.height : \(tagCollectionView!.contentSize.height)")
+            tagCollectionView!.snp.updateConstraints { make in
+                make.height.equalTo(tagCollectionView!.contentSize.height)
+            }
+            
+            if indexPath.row == 0 {
+                if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CreateTagAddCell.identifier, for: indexPath) as? CreateTagAddCell {
+                    return cell
+                }
+            } else {
+                if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CreateTagCell.identifier, for: indexPath) as? CreateTagCell {
+                    cell.itemTitle = viewModel.tagList.value[indexPath.row - 1]
+                    return cell
+                }
+            }
+        }
+        return UICollectionViewCell()
+    }
+}
+
+extension CreateViewController: HeroSelectViewDelegate {
+    public func selectViewCloseClicked(viewController: HeroSelectViewController) {
+        viewController.dismiss(animated: false, completion: nil)
+    }
+    
+    public func selectViewItemSelected(viewController: HeroSelectViewController, selected index: Int) {
+        if selectViewType == BucketStatus.self {
+            viewModel.bucketStatus.value = BucketStatus(rawValue: index) ?? .pre
+        } else if selectViewType == BucketCategory.self {
+            viewModel.bucketCategory.value = BucketCategory(rawValue: index) ?? .travel
+        }
+        viewController.dismiss(animated: false, completion: nil)
     }
 }
 

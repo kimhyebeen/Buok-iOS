@@ -46,6 +46,11 @@
 		B07C0CFE25FDB267000AE1B0 /* HeroSharedAssets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07C0CF425FDB1DC000AE1B0 /* HeroSharedAssets.framework */; };
 		B07C0CFF25FDB268000AE1B0 /* HeroSharedAssets.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B07C0CF425FDB1DC000AE1B0 /* HeroSharedAssets.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B082F2972658D59800A7AB6B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B082F28E2658D59800A7AB6B /* GoogleService-Info.plist */; };
+		B082F2C426594EC200A7AB6B /* CreateImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B082F2C326594EC200A7AB6B /* CreateImageCell.swift */; };
+		B082F2CE26594F3900A7AB6B /* CreateAddCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B082F2CD26594F3900A7AB6B /* CreateAddCell.swift */; };
+		B082F2D026595AB700A7AB6B /* CreateTagAddCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B082F2CF26595AB700A7AB6B /* CreateTagAddCell.swift */; };
+		B082F2D226595ABD00A7AB6B /* CreateTagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B082F2D126595ABD00A7AB6B /* CreateTagCell.swift */; };
+		B082F2D626595EB500A7AB6B /* AlignedCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B082F2D526595EB500A7AB6B /* AlignedCollectionViewFlowLayout.swift */; };
 		B0B0339026219FE200D65204 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B0338F26219FE200D65204 /* Profile.swift */; };
 		B0B033C12621C97300D65204 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B033C02621C97300D65204 /* SettingViewController.swift */; };
 		B0B033C92621CDA700D65204 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B033C82621CDA700D65204 /* SettingCell.swift */; };
@@ -287,6 +292,11 @@
 		B07C0C8C25FDB146000AE1B0 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		B07C0CEE25FDB1D9000AE1B0 /* HeroSharedAssets.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = HeroSharedAssets.xcodeproj; path = HeroSharedAssets/HeroSharedAssets.xcodeproj; sourceTree = "<group>"; };
 		B082F28E2658D59800A7AB6B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B082F2C326594EC200A7AB6B /* CreateImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateImageCell.swift; sourceTree = "<group>"; };
+		B082F2CD26594F3900A7AB6B /* CreateAddCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAddCell.swift; sourceTree = "<group>"; };
+		B082F2CF26595AB700A7AB6B /* CreateTagAddCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTagAddCell.swift; sourceTree = "<group>"; };
+		B082F2D126595ABD00A7AB6B /* CreateTagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTagCell.swift; sourceTree = "<group>"; };
+		B082F2D526595EB500A7AB6B /* AlignedCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlignedCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		B0B0338F26219FE200D65204 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		B0B033C02621C97300D65204 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		B0B033C82621CDA700D65204 /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
@@ -584,6 +594,11 @@
 			children = (
 				B0635AD9260390E100046E88 /* CreateViewController.swift */,
 				B01D43B426039D6C00F2D28C /* CreateViewModel.swift */,
+				B082F2C326594EC200A7AB6B /* CreateImageCell.swift */,
+				B082F2CD26594F3900A7AB6B /* CreateAddCell.swift */,
+				B082F2CF26595AB700A7AB6B /* CreateTagAddCell.swift */,
+				B082F2D126595ABD00A7AB6B /* CreateTagCell.swift */,
+				B082F2D526595EB500A7AB6B /* AlignedCollectionViewFlowLayout.swift */,
 			);
 			path = Create;
 			sourceTree = "<group>";
@@ -1245,8 +1260,10 @@
 				B01D43A826039D2500F2D28C /* DetailViewController.swift in Sources */,
 				EEC802032659293700777B43 /* FriendPageViewModel.swift in Sources */,
 				EE79C431264AC43000E83B6A /* MypageViewController.swift in Sources */,
+				B082F2CE26594F3900A7AB6B /* CreateAddCell.swift in Sources */,
 				B06B5EEF25ECCEE10045A491 /* SubTwoViewController.swift in Sources */,
 				B0D43A5E2600DA9B003420CA /* NadamWidget.intentdefinition in Sources */,
+				B082F2D626595EB500A7AB6B /* AlignedCollectionViewFlowLayout.swift in Sources */,
 				B075231325EF1E6F0016DC3A /* BaseAPIError.swift in Sources */,
 				B01D43B526039D6C00F2D28C /* CreateViewModel.swift in Sources */,
 				B075226925ED08780016DC3A /* UserAuthModel.swift in Sources */,
@@ -1260,6 +1277,7 @@
 				EE79C440264ACE4200E83B6A /* MypageProfileView.swift in Sources */,
 				B041747625E2366E00D990A2 /* MultiLevelViewController.swift in Sources */,
 				EEA213CB2625D59900E3AEA1 /* LoginViewController+UI.swift in Sources */,
+				B082F2D226595ABD00A7AB6B /* CreateTagCell.swift in Sources */,
 				B06B5EE925ECCED90045A491 /* SubOneViewController.swift in Sources */,
 				EEC801FB265911E100777B43 /* BuokmarkHeaderButton.swift in Sources */,
 				B01D43BA2604231800F2D28C /* CategoryFilterView.swift in Sources */,
@@ -1277,6 +1295,7 @@
 				EECEF18C2627DFEA00CF9394 /* JoinIntroduceViewController+UI.swift in Sources */,
 				EEA213D32625DAEA00E3AEA1 /* LoginPasswordViewController+UI.swift in Sources */,
 				EE49406726475A5D00CB0B71 /* ForgetViewController.swift in Sources */,
+				B082F2D026595AB700A7AB6B /* CreateTagAddCell.swift in Sources */,
 				EE49408C2647670D00CB0B71 /* VerifyViewController.swift in Sources */,
 				B0B0339026219FE200D65204 /* Profile.swift in Sources */,
 				B06B5EE325ECCE610045A491 /* HeroBaseViewController.swift in Sources */,
@@ -1287,6 +1306,7 @@
 				EEA213C32625D03E00E3AEA1 /* LoginPasswordViewController.swift in Sources */,
 				EECEF1752627D91100CF9394 /* JoinNameViewController.swift in Sources */,
 				B06B5EF625ECD0140045A491 /* SubThreeViewController.swift in Sources */,
+				B082F2C426594EC200A7AB6B /* CreateImageCell.swift in Sources */,
 				EE4C015C26588245002C5018 /* MypageViewModel.swift in Sources */,
 				EEC801F9265910FF00777B43 /* FriendPageBuokmarkHeaderView.swift in Sources */,
 				EE49409126476D5400CB0B71 /* ResetPasswordViewController.swift in Sources */,
@@ -1498,7 +1518,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = M79H9K226Y;
 				INFOPLIST_FILE = Buok/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1524,7 +1544,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = M79H9K226Y;
 				INFOPLIST_FILE = Buok/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1700,7 +1720,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = M79H9K226Y;
 				INFOPLIST_FILE = Buok/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
