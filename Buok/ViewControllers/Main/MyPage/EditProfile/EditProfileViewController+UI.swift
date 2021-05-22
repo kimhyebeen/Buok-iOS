@@ -54,7 +54,7 @@ extension EditProfileViewController {
     // MARK: ProfileImageView
     func setupProfileImageView() {
         profileImageView.contentMode = .scaleAspectFill
-        profileImageView.image = UIImage(heroSharedNamed: "ic_profile_48")!
+        profileImageView.image = UIImage(heroSharedNamed: "ic_profile_48")
         profileImageView.layer.cornerRadius = 44
         profileImageView.clipsToBounds = true
         self.view.addSubview(profileImageView)
@@ -82,9 +82,9 @@ extension EditProfileViewController {
     // MARK: EditProfileImageButton
     func setupEditProfileImageButton() {
         if #available(iOS 13.0, *) {
-            editProfileImageButton.setImage(UIImage(heroSharedNamed: "ic_camera")!.withTintColor(.heroGray82), for: .normal)
+            editProfileImageButton.setImage(UIImage(heroSharedNamed: "ic_camera")?.withTintColor(.heroGray82), for: .normal)
         } else {
-            editProfileImageButton.setImage(UIImage(heroSharedNamed: "ic_camera")!, for: .normal)
+            editProfileImageButton.setImage(UIImage(heroSharedNamed: "ic_camera"), for: .normal)
         }
         editProfileImageButton.imageEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         editProfileImageButton.addTarget(self, action: #selector(clickEditProfileImageButton(_:)), for: .touchUpInside)
