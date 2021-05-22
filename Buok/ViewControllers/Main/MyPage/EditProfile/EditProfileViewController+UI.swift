@@ -53,7 +53,7 @@ extension EditProfileViewController {
     
     // MARK: ProfileImageView
     func setupProfileImageView() {
-        profileImageView.contentMode = .scaleAspectFit
+        profileImageView.contentMode = .scaleAspectFill
         profileImageView.image = UIImage(heroSharedNamed: "ic_profile_48")!
         profileImageView.layer.cornerRadius = 44
         profileImageView.clipsToBounds = true

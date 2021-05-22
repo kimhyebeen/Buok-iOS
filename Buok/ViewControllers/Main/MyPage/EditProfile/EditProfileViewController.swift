@@ -23,6 +23,8 @@ class EditProfileViewController: HeroBaseViewController {
     let introducePlaceholder = UILabel()
     let introduceCountLabel = UILabel()
     
+    let imagePicker = UIImagePickerController()
+    
     private let viewModel = EditProfileViewModel()
 
     override func viewDidLoad() {
@@ -46,6 +48,8 @@ class EditProfileViewController: HeroBaseViewController {
         setupIntroduceTextView()
         setupIntroducePlaceholder()
         setupIntroduceCountLabel()
+        
+        imagePicker.delegate = self
     }
     
     @objc
@@ -55,6 +59,7 @@ class EditProfileViewController: HeroBaseViewController {
     
     @objc
     func clickFinishButton(_ sender: UIButton) {
+        // todo - requestSaveProfile의 파라미터로 프로필 정보를 넘겨줘야 함
         viewModel.requestSaveProfile().then { [weak self] isSuccess in
             if isSuccess {
                 self?.dismiss(animated: true, completion: nil)
@@ -67,7 +72,8 @@ class EditProfileViewController: HeroBaseViewController {
     
     @objc
     func clickEditProfileImageButton(_ sender: UIButton) {
-        // todo - 프로필 이미지 편집 기능
+        imagePicker.sourceType = .photoLibrary
+        self.present(imagePicker, animated: true, completion: nil)
     }
 }
 
@@ -101,5 +107,17 @@ extension EditProfileViewController: UITextFieldDelegate, UITextViewDelegate {
             let beforeEnd = textView.text.index(before: textView.text.endIndex)
             textView.text = String(textView.text[start..<beforeEnd])
         }
+    }
+}
+
+extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let selectedImage = info[.originalImage] as? UIImage else {
+            fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
+        }
+        self.profileImageView.image = selectedImage
+        let imageData = selectedImage.jpegData(compressionQuality: 0.5) // 추후 서버에 저장할 때 필요
+        
+        self.dismiss(animated: true, completion: nil)
     }
 }
