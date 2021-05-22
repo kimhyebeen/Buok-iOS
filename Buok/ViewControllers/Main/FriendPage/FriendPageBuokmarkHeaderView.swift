@@ -8,6 +8,7 @@
 import UIKit
 
 class FriendPageBuokmarkHeaderView: UIView {
+    let buokmarkButton = BuokmarkHeaderButton()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -28,7 +29,13 @@ class FriendPageBuokmarkHeaderView: UIView {
 extension FriendPageBuokmarkHeaderView {
     // MARK: BuokmarkButton
     private func setupBuokmarkButton() {
+        buokmarkButton.isSelected = true
+        self.addSubview(buokmarkButton)
         
+        buokmarkButton.snp.makeConstraints { make in
+            make.top.bottom.leading.equalToSuperview()
+            make.trailing.equalTo(self.snp.centerX)
+        }
     }
     
     // MARK: BucketBookButton

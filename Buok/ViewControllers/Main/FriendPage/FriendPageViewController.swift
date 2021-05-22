@@ -12,6 +12,7 @@ class FriendPageViewController: HeroBaseViewController {
     let topView = UIView()
     let backButton = UIButton()
     let profileView = FriendPageProfileView()
+    let headerView = FriendPageBuokmarkHeaderView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,7 @@ class FriendPageViewController: HeroBaseViewController {
         setupTopView()
         setupBackButton()
         setupProfileView()
+        setupHeaderView()
         
         self.view.bringSubviewToFront(safeAreaView)
         self.view.bringSubviewToFront(topView)
@@ -81,6 +83,17 @@ extension FriendPageViewController {
         
         profileView.snp.makeConstraints { make in
             make.top.equalTo(topView.snp.bottom)
+            make.leading.trailing.equalToSuperview()
+        }
+    }
+    
+    // MARK: HeaderView
+    func setupHeaderView() {
+        self.view.addSubview(headerView)
+        
+        headerView.snp.makeConstraints { make in
+            make.height.equalTo(44)
+            make.top.equalTo(profileView.snp.bottom)
             make.leading.trailing.equalToSuperview()
         }
     }
