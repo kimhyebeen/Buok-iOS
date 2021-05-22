@@ -7,6 +7,12 @@
 
 import HeroUI
 
+enum FriendButtonType {
+    case friend
+    case request
+    case none
+}
+
 class FriendPageProfileView: UIView {
     private let profileImageView = UIImageView()
     private let nameLabel = UILabel()
@@ -16,6 +22,8 @@ class FriendPageProfileView: UIView {
     private let introduceLabel = UILabel()
     private let dateImageView = UIImageView()
     private let dateLabel = UILabel()
+    
+    private var widthOfFriendButton: NSLayoutConstraint?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -40,6 +48,30 @@ class FriendPageProfileView: UIView {
     
     func setProfile() {
         // todo - Profile 객체를 받아 뷰 업데이트
+    }
+    
+    func settingFriendButtonType(for type: FriendButtonType) {
+        if type == .friend {
+            friendButton.setAttributedTitle(NSAttributedString(string: "Hero_Profile_Friend".localized, attributes: [.font: UIFont.font15P, .foregroundColor: UIColor.white]), for: .normal)
+            friendButton.layer.borderWidth = 0
+            friendButton.layer.backgroundColor = UIColor.heroGray5B.cgColor
+            
+            widthOfFriendButton?.constant = 48
+        } else if type == .request {
+            friendButton.setAttributedTitle(NSAttributedString(string: "Hero_Profile_Request_Cancel".localized, attributes: [.font: UIFont.font15P, .foregroundColor: UIColor.heroGray82]), for: .normal)
+            friendButton.layer.borderWidth = 1
+            friendButton.layer.backgroundColor = UIColor.clear.cgColor
+            friendButton.layer.borderColor = UIColor.heroGray82.cgColor
+            
+            widthOfFriendButton?.constant = 72
+        } else {
+            friendButton.setAttributedTitle(NSAttributedString(string: "Hero_Profile_Request".localized, attributes: [.font: UIFont.font15P, .foregroundColor: UIColor.heroGray82]), for: .normal)
+            friendButton.layer.borderWidth = 1
+            friendButton.layer.backgroundColor = UIColor.clear.cgColor
+            friendButton.layer.borderColor = UIColor.heroGray82.cgColor
+            
+            widthOfFriendButton?.constant = 48
+        }
     }
 
 }
@@ -89,17 +121,18 @@ extension FriendPageProfileView {
     private func setupEditButton() {
         friendButton.setAttributedTitle(NSAttributedString(string: "Hero_Profile_Friend".localized, attributes: [.font: UIFont.font15P, .foregroundColor: UIColor.white]), for: .normal)
         friendButton.layer.cornerRadius = 8
-//        friendButton.layer.borderWidth = 1
         friendButton.layer.backgroundColor = UIColor.heroGray5B.cgColor
-//        friendButton.layer.borderColor = UIColor.heroGray82.cgColor
         self.addSubview(friendButton)
         
         friendButton.snp.makeConstraints { make in
-            make.width.equalTo(48)
             make.height.equalTo(32)
             make.centerY.equalTo(profileImageView.snp.centerY)
             make.trailing.equalToSuperview().offset(-20)
         }
+        
+        widthOfFriendButton = friendButton.widthAnchor.constraint(equalToConstant: 0)
+        widthOfFriendButton?.constant = 48
+        widthOfFriendButton?.isActive = true
     }
     
     // MARK: CountingButtonStack

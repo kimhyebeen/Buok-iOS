@@ -8,8 +8,7 @@
 import UIKit
 
 protocol FriendPageBuokmarkHeaderViewDelegate: AnyObject {
-    func onClickBuokmarkButton()
-    func onClickBucketBookButton()
+    func reloadCollectionView()
 }
 
 class FriendPageBuokmarkHeaderView: UIView {
@@ -21,6 +20,12 @@ class FriendPageBuokmarkHeaderView: UIView {
     }
     var isSelectBucketBookButton: Bool {
         get { bucketBookButton.isSelected }
+    }
+    
+    var countOfBuokmark: Int = 0 {
+        didSet {
+            buokmarkButton.count = countOfBuokmark
+        }
     }
     
     weak var delegate: FriendPageBuokmarkHeaderViewDelegate?
@@ -45,7 +50,7 @@ class FriendPageBuokmarkHeaderView: UIView {
     @objc
     func clickBuokmarkButton(_ sender: UIButton) {
         if buokmarkButton.isSelected { return }
-        delegate?.onClickBuokmarkButton()
+        delegate?.reloadCollectionView()
         buokmarkButton.isSelected = !buokmarkButton.isSelected
         bucketBookButton.isSelected = !bucketBookButton.isSelected
     }
@@ -53,7 +58,7 @@ class FriendPageBuokmarkHeaderView: UIView {
     @objc
     func clickBucketBookButton(_ sender: UIButton) {
         if bucketBookButton.isSelected { return }
-        delegate?.onClickBucketBookButton()
+        delegate?.reloadCollectionView()
         buokmarkButton.isSelected = !buokmarkButton.isSelected
         bucketBookButton.isSelected = !bucketBookButton.isSelected
     }

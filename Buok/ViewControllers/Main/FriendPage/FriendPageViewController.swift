@@ -20,24 +20,13 @@ class FriendPageViewController: HeroBaseViewController {
     let bottomView = UIView()
     let emptyBucketStackView = UIStackView()
     
-    private var buokmarks: [BuokmarkFlag] = [
-        BuokmarkFlag(date: "2021.03", title: "나홀로 북유럽\n배낭여행 떠나기", category: "ic_fill_travel"),
-        BuokmarkFlag(date: "2021.01", title: "취뽀 성공하기", category: "ic_fill_goal"),
-        BuokmarkFlag(date: "2020.12", title: "패러글라이딩 도전", category: "ic_fill_hobby"),
-        BuokmarkFlag(date: "2020.11", title: "교양학점 A이상 받기", category: "ic_fill_goal"),
-        BuokmarkFlag(date: "2020.09", title: "친구들과 일본여행가서\n초밥 먹기", category: "ic_fill_travel"),
-        BuokmarkFlag(date: "2020.08", title: "버킷리스트6", category: "ic_fill_want"),
-        BuokmarkFlag(date: "2020.06", title: "버킷리스트7", category: "ic_fill_volunteer"),
-        BuokmarkFlag(date: "2020.02", title: "버킷리스트8", category: "ic_fill_finance"),
-        BuokmarkFlag(date: "2019.08", title: "버킷리스트9", category: "ic_fill_health"),
-        BuokmarkFlag(date: "2019.05", title: "버킷리스트10", category: "ic_fill_etc")]
-//    private var buokmarks: [BuokmarkFlag] = []
-    private var bucketbooks: [Any] = []
+    private var viewModel = FriendPageViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupView()
+        bindingViewModel()
     }
     
     private func setupView() {
@@ -54,6 +43,15 @@ class FriendPageViewController: HeroBaseViewController {
         
         self.view.bringSubviewToFront(safeAreaView)
         self.view.bringSubviewToFront(topView)
+    }
+    
+    private func bindingViewModel() {
+        viewModel.fetchFriendProfile().then { [weak self] profile in
+            // todo - profileView에 적용
+            self?.headerView.countOfBuokmark = profile.buokmarks.count
+            self?.profileView.settingFriendButtonType(for: profile.type)
+            self?.collectionView.reloadData()
+        }
     }
     
     @objc
@@ -76,14 +74,15 @@ extension FriendPageViewController: UICollectionViewDelegate, UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if headerView.isSelectBuokmarkButton {
             emptyBucketStackView.isHidden = true
-            return section == 0 ? buokmarks.count : 0
+            return section == 0 ? viewModel.buokmarks.count : 0
         } else {
-            if bucketbooks.count == 0 {
-                emptyBucketStackView.isHidden = false
-            } else {
+            if viewModel.friendType == .friend {
                 emptyBucketStackView.isHidden = true
+                return section == 0 ? 0 : viewModel.bucketBooks.count
+            } else {
+                emptyBucketStackView.isHidden = false
+                return section == 0 ? 0 : 0
             }
-            return section == 0 ? 0 : bucketbooks.count
         }
     }
     
@@ -100,7 +99,7 @@ extension FriendPageViewController: UICollectionViewDelegate, UICollectionViewDa
             return BuokmarkCollectionCell()
         }
         
-        cell.setInformation(to: buokmarks[indexPath.row], color: MypageViewController.buokmarkColors[indexPath.row % 3])
+        cell.setInformation(to: viewModel.buokmarks[indexPath.row], color: MypageViewController.buokmarkColors[indexPath.row % 3])
         cell.backgroundColor = .heroPrimaryBeigeLighter
         
         return cell
@@ -151,14 +150,9 @@ extension FriendPageViewController: UICollectionViewDelegate, UICollectionViewDa
 }
 
 extension FriendPageViewController: FriendPageBuokmarkHeaderViewDelegate {
-    func onClickBuokmarkButton() {
+    func reloadCollectionView() {
         self.collectionView.reloadData()
     }
-    
-    func onClickBucketBookButton() {
-        self.collectionView.reloadData()
-    }
-    
 }
 
 extension FriendPageViewController {

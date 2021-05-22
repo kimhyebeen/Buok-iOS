@@ -14,7 +14,7 @@ class BuokmarkHeaderButton: UIButton {
     
     var count: Int = 0 {
         didSet {
-            if count < 0 {
+            if count < 10 {
                 buokmarkCountLabel.text = "0\(count)"
             } else if count < 100 {
                 buokmarkCountLabel.text = "\(count)"
