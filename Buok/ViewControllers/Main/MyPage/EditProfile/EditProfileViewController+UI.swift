@@ -10,7 +10,7 @@ import HeroUI
 extension EditProfileViewController {
     // MARK: CancelButton
     func setupCancelButton() {
-        cancelButton.setTitle("취소", for: .normal)
+        cancelButton.setTitle("Hero_Common_String_Cancel".localized, for: .normal)
         cancelButton.setTitleColor(.heroGray82, for: .normal)
         cancelButton.titleLabel?.font = .font17P
         cancelButton.addTarget(self, action: #selector(clickCancelButton(_:)), for: .touchUpInside)
@@ -25,7 +25,7 @@ extension EditProfileViewController {
     
     // MARK: TitleLabel
     func setupTitleLabel() {
-        titleLabel.text = "프로필 편집"
+        titleLabel.text = "Hero_Edit_Profile_Title".localized
         titleLabel.textColor = .heroGray82
         titleLabel.font = .font17PBold
         self.view.addSubview(titleLabel)
@@ -38,7 +38,7 @@ extension EditProfileViewController {
     
     // MARK: FinishButton
     func setupFinishButton() {
-        finishButton.setTitle("완료", for: .normal)
+        finishButton.setTitle("Hero_Home_Filter_Done".localized, for: .normal)
         finishButton.setTitleColor(.heroGray82, for: .normal)
         finishButton.titleLabel?.font = .font17P
         finishButton.addTarget(self, action: #selector(clickFinishButton(_:)), for: .touchUpInside)
@@ -99,7 +99,7 @@ extension EditProfileViewController {
     
     // MARK: NicknameLabel
     func setupNicknameLabel() {
-        nicknameLabel.text = "별칭"
+        nicknameLabel.text = "Hero_Edit_Profile_Nickname".localized
         nicknameLabel.textColor = .heroGray82
         nicknameLabel.font = .font15P
         self.view.addSubview(nicknameLabel)
@@ -114,7 +114,7 @@ extension EditProfileViewController {
     func setupNicknameTextField() {
         nicknameTextField.delegate = self
         nicknameTextField.textFont = .font15P
-        nicknameTextField.setPlaceHolder("별칭을 입력해주세요")
+        nicknameTextField.setPlaceHolder("Hero_Edit_Profile_Nickname_Placeholder".localized)
         self.view.addSubview(nicknameTextField)
         
         nicknameTextField.snp.makeConstraints { make in
@@ -128,7 +128,7 @@ extension EditProfileViewController {
     // MARK: NicknameSubLabel
     func setupNicknameSubLabel() {
         nicknameSubLabel.isHidden = true
-        nicknameSubLabel.text = "중복된 별칭입니다."
+        nicknameSubLabel.text = "Hero_Edit_Profile_Nickname_Error".localized
         nicknameSubLabel.textColor = .heroServiceSubPink
         nicknameSubLabel.font = .font13P
         self.view.addSubview(nicknameSubLabel)
@@ -154,7 +154,7 @@ extension EditProfileViewController {
     
     // MARK: IntroduceLabel
     func setupIntroduceLabel() {
-        introduceLabel.text = "자기소개"
+        introduceLabel.text = "Hero_Edit_Profile_Introduce".localized
         introduceLabel.textColor = .heroGray82
         introduceLabel.font = .font15P
         self.view.addSubview(introduceLabel)
@@ -180,7 +180,7 @@ extension EditProfileViewController {
     
     // MARK: IntroducePlaceholder
     func setupIntroducePlaceholder() {
-        introducePlaceholder.text = "자기소개를 입력해주세요"
+        introducePlaceholder.text = "Hero_Edit_Profile_Introduce_Placeholder".localized
         introducePlaceholder.textColor = .heroGrayDA
         introducePlaceholder.font = .font15P
         self.view.addSubview(introducePlaceholder)
