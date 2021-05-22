@@ -18,19 +18,20 @@ class FriendPageViewController: HeroBaseViewController {
     let headerView = FriendPageBuokmarkHeaderView()
     let backgroundHeaderBottomView = UIView()
     let bottomView = UIView()
+    let emptyBucketStackView = UIStackView()
     
-//    private var buokmarks: [BuokmarkFlag] = [
-//        BuokmarkFlag(date: "2021.03", title: "나홀로 북유럽\n배낭여행 떠나기", category: "ic_fill_travel"),
-//        BuokmarkFlag(date: "2021.01", title: "취뽀 성공하기", category: "ic_fill_goal"),
-//        BuokmarkFlag(date: "2020.12", title: "패러글라이딩 도전", category: "ic_fill_hobby"),
-//        BuokmarkFlag(date: "2020.11", title: "교양학점 A이상 받기", category: "ic_fill_goal"),
-//        BuokmarkFlag(date: "2020.09", title: "친구들과 일본여행가서\n초밥 먹기", category: "ic_fill_travel"),
-//        BuokmarkFlag(date: "2020.08", title: "버킷리스트6", category: "ic_fill_want"),
-//        BuokmarkFlag(date: "2020.06", title: "버킷리스트7", category: "ic_fill_volunteer"),
-//        BuokmarkFlag(date: "2020.02", title: "버킷리스트8", category: "ic_fill_finance"),
-//        BuokmarkFlag(date: "2019.08", title: "버킷리스트9", category: "ic_fill_health"),
-//        BuokmarkFlag(date: "2019.05", title: "버킷리스트10", category: "ic_fill_etc")]
-    private var buokmarks: [BuokmarkFlag] = []
+    private var buokmarks: [BuokmarkFlag] = [
+        BuokmarkFlag(date: "2021.03", title: "나홀로 북유럽\n배낭여행 떠나기", category: "ic_fill_travel"),
+        BuokmarkFlag(date: "2021.01", title: "취뽀 성공하기", category: "ic_fill_goal"),
+        BuokmarkFlag(date: "2020.12", title: "패러글라이딩 도전", category: "ic_fill_hobby"),
+        BuokmarkFlag(date: "2020.11", title: "교양학점 A이상 받기", category: "ic_fill_goal"),
+        BuokmarkFlag(date: "2020.09", title: "친구들과 일본여행가서\n초밥 먹기", category: "ic_fill_travel"),
+        BuokmarkFlag(date: "2020.08", title: "버킷리스트6", category: "ic_fill_want"),
+        BuokmarkFlag(date: "2020.06", title: "버킷리스트7", category: "ic_fill_volunteer"),
+        BuokmarkFlag(date: "2020.02", title: "버킷리스트8", category: "ic_fill_finance"),
+        BuokmarkFlag(date: "2019.08", title: "버킷리스트9", category: "ic_fill_health"),
+        BuokmarkFlag(date: "2019.05", title: "버킷리스트10", category: "ic_fill_etc")]
+//    private var buokmarks: [BuokmarkFlag] = []
     private var bucketbooks: [Any] = []
 
     override func viewDidLoad() {
@@ -49,6 +50,7 @@ class FriendPageViewController: HeroBaseViewController {
         setupHeaderView()
         setupBackgroundHeaderBottomView()
         setupBottomView()
+        setupEmptyBucketView()
         
         self.view.bringSubviewToFront(safeAreaView)
         self.view.bringSubviewToFront(topView)
@@ -72,9 +74,15 @@ extension FriendPageViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if headerView.buokmarkButton.isSelected {
+        if headerView.isSelectBuokmarkButton {
+            emptyBucketStackView.isHidden = true
             return section == 0 ? buokmarks.count : 0
         } else {
+            if bucketbooks.count == 0 {
+                emptyBucketStackView.isHidden = false
+            } else {
+                emptyBucketStackView.isHidden = true
+            }
             return section == 0 ? 0 : bucketbooks.count
         }
     }
@@ -140,6 +148,17 @@ extension FriendPageViewController: UICollectionViewDelegate, UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return section == 0 ? 0 : 20
     }
+}
+
+extension FriendPageViewController: FriendPageBuokmarkHeaderViewDelegate {
+    func onClickBuokmarkButton() {
+        self.collectionView.reloadData()
+    }
+    
+    func onClickBucketBookButton() {
+        self.collectionView.reloadData()
+    }
+    
 }
 
 extension FriendPageViewController {
@@ -210,6 +229,7 @@ extension FriendPageViewController {
     
     // MARK: HeaderView
     func setupHeaderView() {
+        headerView.delegate = self
         self.view.addSubview(headerView)
         
         headerView.snp.makeConstraints { make in
@@ -244,5 +264,29 @@ extension FriendPageViewController {
         }
         
         self.view.sendSubviewToBack(bottomView)
+    }
+    
+    // MARK: EmptyBucketImageView
+    func setupEmptyBucketView() {
+        let emptyBucketImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 143, height: 143))
+        emptyBucketImageView.image = UIImage(heroSharedNamed: "ill_lock")
+        emptyBucketImageView.contentMode = .scaleAspectFit
+        emptyBucketStackView.addArrangedSubview(emptyBucketImageView)
+        
+        let emptyBucketLabel = UILabel()
+        emptyBucketLabel.numberOfLines = 0
+        emptyBucketLabel.textAlignment = .center
+        emptyBucketLabel.text = "Hero_Profile_Empty_Bucket".localized
+        emptyBucketLabel.textColor = .heroGrayA6A4A1
+        emptyBucketLabel.font = .font13P
+        emptyBucketStackView.addArrangedSubview(emptyBucketLabel)
+        
+        emptyBucketStackView.axis = .vertical
+        emptyBucketStackView.spacing = 8
+        self.view.addSubview(emptyBucketStackView)
+        
+        emptyBucketStackView.snp.makeConstraints { make in
+            make.center.equalTo(bottomView.snp.center)
+        }
     }
 }

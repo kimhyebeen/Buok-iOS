@@ -45,3 +45,4 @@
 "Hero_Profile_Request" = "맺기";
 "Hero_Profile_Buokmark" = "북마크";
 "Hero_Profile_BucketBook" = "버킷북";
+"Hero_Profile_Empty_Bucket" = "친구 상태일 경우 볼 수 있습니다.\nBuok을 보고 싶으시다면 친구 맺기를 해주세요!";
