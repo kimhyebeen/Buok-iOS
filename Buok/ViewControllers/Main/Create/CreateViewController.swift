@@ -39,6 +39,7 @@ final class CreateViewController: HeroBaseViewController, UINavigationController
     private let detailLengthLabel: UILabel = UILabel()
     
     private var imageCollectionView: UICollectionView?
+    private var tagCollectionView: UICollectionView?
     
     private let dateChooserAlert = UIAlertController(title: "날짜 선택", message: nil, preferredStyle: .actionSheet)
     private let datePicker: UIDatePicker = UIDatePicker()
@@ -106,6 +107,7 @@ final class CreateViewController: HeroBaseViewController, UINavigationController
         
         setupDetailSectionView()
         setupImageCollectionView()
+        setupTagCollectionView()
     }
     
     private func setupNavigationView() {
@@ -207,7 +209,7 @@ final class CreateViewController: HeroBaseViewController, UINavigationController
             make.top.equalTo(detailTitleLabel.snp.bottom).offset(8)
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-20)
-            make.height.greaterThanOrEqualTo(200)
+            make.height.equalTo(200)
         }
         
         detailBackgroundView.addSubview(detailTextView)
@@ -247,6 +249,29 @@ final class CreateViewController: HeroBaseViewController, UINavigationController
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-20)
             make.height.equalTo(64)
+        }
+    }
+    
+    private func setupTagCollectionView() {
+        let layout = AlignedCollectionViewFlowLayout(horizontalAlignment: .left, verticalAlignment: .top)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        layout.estimatedItemSize = CGSize(width: 140, height: 32)
+        
+//        let layout = TagFlowLayout()
+//        layout.estimatedItemSize = CGSize(width: 140, height: 40)
+        
+        tagCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        tagCollectionView?.dataSource = self
+        tagCollectionView?.delegate = self
+        tagCollectionView?.register(CreateTagAddCell.self, forCellWithReuseIdentifier: CreateTagAddCell.identifier)
+        tagCollectionView?.backgroundColor = .clear
+        view.addSubview(tagCollectionView!)
+        
+        tagCollectionView?.snp.makeConstraints { make in
+            make.top.equalTo(imageCollectionView!.snp.bottom).offset(20)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+            make.height.greaterThanOrEqualTo(32)
         }
     }
     
@@ -431,38 +456,59 @@ extension CreateViewController: UICollectionViewDataSource, UICollectionViewDele
     }
     
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if indexPath.row == 0 {
-            if viewModel.imageList.value.count < 4 {
-                imagePicker.sourceType = .photoLibrary
-                self.present(imagePicker, animated: true, completion: nil)
+        if collectionView == imageCollectionView {
+            // IMAGE Collection View
+            if indexPath.row == 0 {
+                if viewModel.imageList.value.count < 4 {
+                    imagePicker.sourceType = .photoLibrary
+                    self.present(imagePicker, animated: true, completion: nil)
+                } else {
+                    let alertController = UIAlertController(title: "", message: "사진은 4개까지 선택 가능합니다.", preferredStyle: UIAlertController.Style.alert)
+                    let okButton = UIAlertAction(title: "확인", style: UIAlertAction.Style.cancel, handler: nil)
+                    
+                    alertController.addAction(okButton)
+                    self.present(alertController, animated: true, completion: nil)
+                }
             } else {
-                let alertController = UIAlertController(title: "", message: "사진은 4개까지 선택 가능합니다.", preferredStyle: UIAlertController.Style.alert)
-                let okButton = UIAlertAction(title: "확인", style: UIAlertAction.Style.cancel, handler: nil)
-                
-                alertController.addAction(okButton)
-                self.present(alertController, animated: true, completion: nil)
+                viewModel.imageList.value.remove(at: indexPath.row - 1)
             }
         } else {
-            viewModel.imageList.value.remove(at: indexPath.row - 1)
+            // TAG Collection View
         }
     }
     
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.imageList.value.count + 1
+        if collectionView == imageCollectionView {
+            // IMAGE Collection View
+            return viewModel.imageList.value.count + 1
+        } else {
+            // TAG Collection View
+            return viewModel.tagList.value.count + 1
+        }
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if indexPath.row == 0 {
-            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CreateAddCell.identifier, for: indexPath) as? CreateAddCell {
-                return cell
+        if collectionView == imageCollectionView {
+            // IMAGE Collection View
+            if indexPath.row == 0 {
+                if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CreateAddCell.identifier, for: indexPath) as? CreateAddCell {
+                    return cell
+                }
+            } else {
+                if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CreateImageCell.identifier, for: indexPath) as? CreateImageCell {
+                    cell.itemImage = viewModel.imageList.value[indexPath.row - 1]
+                    cell.index = indexPath.row - 1
+                    cell.delegate = self
+                    
+                    return cell
+                }
             }
         } else {
-            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CreateImageCell.identifier, for: indexPath) as? CreateImageCell {
-                cell.itemImage = viewModel.imageList.value[indexPath.row - 1]
-                cell.index = indexPath.row - 1
-                cell.delegate = self
-                
-                return cell
+            // TAG Collection View
+            if indexPath.row == 0 {
+                if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CreateTagAddCell.identifier, for: indexPath) as? CreateTagAddCell {
+                    return cell
+                }
             }
         }
         return UICollectionViewCell()
