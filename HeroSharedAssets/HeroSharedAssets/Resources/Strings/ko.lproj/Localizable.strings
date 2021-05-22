@@ -1,9 +1,37 @@
+// App
+"APP_NAME" = "Nadam iOS";
+
+// Content
 "Hero_Common_String_Ok" = "확인";
 "Hero_Common_String_Cancel" = "취소";
 "Hero_Common_String_Yes" = "예";
 "Hero_Common_String_No" = "아니오";
-"Hero_Main_Tab_String_Home" = "홈";
 "Hero_Home_Filter_All" = "전체";
 "Hero_Home_Filter_Now" = "진행";
 "Hero_Home_Filter_Expect" = "예정";
 "Hero_Home_Filter_Done" = "완료";
+"Hero_Add_Bucket_Predestination" = "예정";
+"Hero_Add_Bucket_Present" = "진행";
+"Hero_Add_Bucket_Success" = "성공";
+"Hero_Add_Bucket_Failure" = "실패";
+"Hero_Add_Title_Placeholder" = "버킷북을 입력해주세요";
+"Hero_Add_Item_Submit" = "등록";
+"Hero_Add_Category_Travel" = "여행";
+"Hero_Add_Category_Hobby" = "취미";
+"Hero_Add_Category_Own" = "소유";
+"Hero_Add_Category_Finance" = "재정";
+"Hero_Add_Category_Health" = "건강";
+"Hero_Add_Category_Goal" = "목표";
+"Hero_Add_Category_Group" = "조직";
+"Hero_Add_Category_Volunteer" = "봉사";
+"Hero_Add_Category_Others" = "기타";
+"Hero_Common_Category" = "카테고리";
+"Hero_Common_Status" = "상태";
+"Hero_Add_FinishDate_Description" = "완료 시간을 선택해주세요";
+"Hero_Add_FinishDate_Title" = "완료 일자";
+"Hero_Edit_Profile_Title" = "프로필 편집";
+"Hero_Edit_Profile_Nickname" = "별칭";
+"Hero_Edit_Profile_Nickname_Placeholder" = "별칭을 입력해주세요";
+"Hero_Edit_Profile_Introduce" = "자기소개";
+"Hero_Edit_Profile_Introduce_Placeholder" = "자기소개를 입력해주세요";
+"Hero_Edit_Profile_Nickname_Error" = "중복된 별칭입니다.";
