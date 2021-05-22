@@ -88,6 +88,7 @@
 		EEB9EF9826269768001AF65F /* UserTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB9EF9726269768001AF65F /* UserTextField.swift */; };
 		EEC801F52659048500777B43 /* FriendPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC801F42659048500777B43 /* FriendPageViewController.swift */; };
 		EEC801F72659051700777B43 /* FriendPageProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC801F62659051700777B43 /* FriendPageProfileView.swift */; };
+		EEC801F9265910FF00777B43 /* FriendPageBuokmarkHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC801F8265910FF00777B43 /* FriendPageBuokmarkHeaderView.swift */; };
 		EECEF1752627D91100CF9394 /* JoinNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECEF1742627D91100CF9394 /* JoinNameViewController.swift */; };
 		EECEF1872627DFD900CF9394 /* JoinIntroduceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECEF1862627DFD900CF9394 /* JoinIntroduceViewController.swift */; };
 		EECEF18C2627DFEA00CF9394 /* JoinIntroduceViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECEF18B2627DFEA00CF9394 /* JoinIntroduceViewController+UI.swift */; };
@@ -335,6 +336,7 @@
 		EEB9EF9726269768001AF65F /* UserTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTextField.swift; sourceTree = "<group>"; };
 		EEC801F42659048500777B43 /* FriendPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendPageViewController.swift; sourceTree = "<group>"; };
 		EEC801F62659051700777B43 /* FriendPageProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendPageProfileView.swift; sourceTree = "<group>"; };
+		EEC801F8265910FF00777B43 /* FriendPageBuokmarkHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendPageBuokmarkHeaderView.swift; sourceTree = "<group>"; };
 		EECEF1742627D91100CF9394 /* JoinNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinNameViewController.swift; sourceTree = "<group>"; };
 		EECEF1862627DFD900CF9394 /* JoinIntroduceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinIntroduceViewController.swift; sourceTree = "<group>"; };
 		EECEF18B2627DFEA00CF9394 /* JoinIntroduceViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JoinIntroduceViewController+UI.swift"; sourceTree = "<group>"; };
@@ -809,6 +811,7 @@
 			children = (
 				EEC801F42659048500777B43 /* FriendPageViewController.swift */,
 				EEC801F62659051700777B43 /* FriendPageProfileView.swift */,
+				EEC801F8265910FF00777B43 /* FriendPageBuokmarkHeaderView.swift */,
 			);
 			path = FriendPage;
 			sourceTree = "<group>";
@@ -1266,6 +1269,7 @@
 				EECEF1752627D91100CF9394 /* JoinNameViewController.swift in Sources */,
 				B06B5EF625ECD0140045A491 /* SubThreeViewController.swift in Sources */,
 				EE4C015C26588245002C5018 /* MypageViewModel.swift in Sources */,
+				EEC801F9265910FF00777B43 /* FriendPageBuokmarkHeaderView.swift in Sources */,
 				EE49409126476D5400CB0B71 /* ResetPasswordViewController.swift in Sources */,
 				B075225425ED06ED0016DC3A /* UserModel.swift in Sources */,
 				B0B035E82622B2B900D65204 /* SettingSectionHeaderView.swift in Sources */,
