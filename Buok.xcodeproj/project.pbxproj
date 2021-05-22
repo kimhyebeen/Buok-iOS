@@ -815,14 +815,22 @@
 		EEC801EB2659047300777B43 /* FriendPage */ = {
 			isa = PBXGroup;
 			children = (
+				EEC8020C26592F9200777B43 /* View */,
 				EEC801F42659048500777B43 /* FriendPageViewController.swift */,
 				EEC802022659293700777B43 /* FriendPageViewModel.swift */,
+			);
+			path = FriendPage;
+			sourceTree = "<group>";
+		};
+		EEC8020C26592F9200777B43 /* View */ = {
+			isa = PBXGroup;
+			children = (
 				EEC801F62659051700777B43 /* FriendPageProfileView.swift */,
 				EEC801F8265910FF00777B43 /* FriendPageBuokmarkHeaderView.swift */,
 				EEC801FA265911E100777B43 /* BuokmarkHeaderButton.swift */,
 				EEC801FC2659171D00777B43 /* BucketBookHeaderButton.swift */,
 			);
-			path = FriendPage;
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -57,26 +57,41 @@ class FriendPageProfileView: UIView {
     
     func settingFriendButtonType(for type: FriendButtonType) {
         if type == .friend {
-            friendButton.setAttributedTitle(NSAttributedString(string: "Hero_Profile_Friend".localized, attributes: [.font: UIFont.font15P, .foregroundColor: UIColor.white]), for: .normal)
-            friendButton.layer.borderWidth = 0
-            friendButton.layer.backgroundColor = UIColor.heroGray5B.cgColor
-            
-            widthOfFriendButton?.constant = 48
+            settingFriendMode()
         } else if type == .request {
-            friendButton.setAttributedTitle(NSAttributedString(string: "Hero_Profile_Request_Cancel".localized, attributes: [.font: UIFont.font15P, .foregroundColor: UIColor.heroGray82]), for: .normal)
-            friendButton.layer.borderWidth = 1
-            friendButton.layer.backgroundColor = UIColor.clear.cgColor
-            friendButton.layer.borderColor = UIColor.heroGray82.cgColor
-            
-            widthOfFriendButton?.constant = 72
+            settingRequestFriendMode()
         } else {
-            friendButton.setAttributedTitle(NSAttributedString(string: "Hero_Profile_Request".localized, attributes: [.font: UIFont.font15P, .foregroundColor: UIColor.heroGray82]), for: .normal)
-            friendButton.layer.borderWidth = 1
-            friendButton.layer.backgroundColor = UIColor.clear.cgColor
-            friendButton.layer.borderColor = UIColor.heroGray82.cgColor
-            
-            widthOfFriendButton?.constant = 48
+            settingNotFriendMode()
         }
+    }
+    
+    private func settingFriendMode() {
+        let textOfButton = "Hero_Profile_Friend".localized
+        friendButton.setAttributedTitle(NSAttributedString(string: textOfButton, attributes: [.font: UIFont.font15P, .foregroundColor: UIColor.white]), for: .normal)
+        friendButton.layer.borderWidth = 0
+        friendButton.layer.backgroundColor = UIColor.heroGray5B.cgColor
+        
+        widthOfFriendButton?.constant = 48
+    }
+    
+    private func settingRequestFriendMode() {
+        let textOfButton = "Hero_Profile_Request_Cancel".localized
+        friendButton.setAttributedTitle(NSAttributedString(string: textOfButton, attributes: [.font: UIFont.font15P, .foregroundColor: UIColor.heroGray82]), for: .normal)
+        friendButton.layer.borderWidth = 1
+        friendButton.layer.backgroundColor = UIColor.clear.cgColor
+        friendButton.layer.borderColor = UIColor.heroGray82.cgColor
+        
+        widthOfFriendButton?.constant = 72
+    }
+    
+    private func settingNotFriendMode() {
+        let textOfButton = "Hero_Profile_Request".localized
+        friendButton.setAttributedTitle(NSAttributedString(string: textOfButton, attributes: [.font: UIFont.font15P, .foregroundColor: UIColor.heroGray82]), for: .normal)
+        friendButton.layer.borderWidth = 1
+        friendButton.layer.backgroundColor = UIColor.clear.cgColor
+        friendButton.layer.borderColor = UIColor.heroGray82.cgColor
+        
+        widthOfFriendButton?.constant = 48
     }
     
     @objc

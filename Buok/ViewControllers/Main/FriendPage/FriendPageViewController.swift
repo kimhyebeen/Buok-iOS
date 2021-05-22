@@ -66,6 +66,7 @@ class FriendPageViewController: HeroBaseViewController {
 }
 
 // MARK: +Delegate
+
 extension FriendPageViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 2
@@ -73,16 +74,24 @@ extension FriendPageViewController: UICollectionViewDelegate, UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if headerView.isSelectBuokmarkButton {
-            emptyBucketStackView.isHidden = true
-            return section == 0 ? viewModel.buokmarks.count : 0
+            return countOfBuokmarkMode(for: section)
         } else {
-            if viewModel.friendType == .friend {
-                emptyBucketStackView.isHidden = true
-                return section == 0 ? 0 : viewModel.bucketBooks.count
-            } else {
-                emptyBucketStackView.isHidden = false
-                return section == 0 ? 0 : 0
-            }
+            return countOfBucketBookMode(for: section)
+        }
+    }
+    
+    private func countOfBuokmarkMode(for section: Int) -> Int {
+        emptyBucketStackView.isHidden = true
+        return section == 0 ? viewModel.buokmarks.count : 0
+    }
+    
+    private func countOfBucketBookMode(for section: Int) -> Int {
+        if viewModel.friendType == .friend {
+            emptyBucketStackView.isHidden = true
+            return section == 0 ? 0 : viewModel.bucketBooks.count
+        } else {
+            emptyBucketStackView.isHidden = false
+            return section == 0 ? 0 : 0
         }
     }
     
@@ -158,7 +167,6 @@ extension FriendPageViewController: FriendPageBuokmarkHeaderViewDelegate {
 extension FriendPageViewController: FriendPageProfileViewDelegate {
     func onClickFriendButton() {
         // todo - 친구버튼 구현
-        print("친구 버튼")
     }
 }
 
