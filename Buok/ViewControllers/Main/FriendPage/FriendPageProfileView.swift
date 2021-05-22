@@ -13,17 +13,22 @@ enum FriendButtonType {
     case none
 }
 
+protocol FriendPageProfileViewDelegate: AnyObject {
+    func onClickFriendButton()
+}
+
 class FriendPageProfileView: UIView {
     private let profileImageView = UIImageView()
     private let nameLabel = UILabel()
     private let emailLabel = UILabel()
-    let friendButton = UIButton()
+    private let friendButton = UIButton()
     let countingButtonStack = MypageCountingStackView()
     private let introduceLabel = UILabel()
     private let dateImageView = UIImageView()
     private let dateLabel = UILabel()
     
     private var widthOfFriendButton: NSLayoutConstraint?
+    weak var delegate: FriendPageProfileViewDelegate?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -72,6 +77,11 @@ class FriendPageProfileView: UIView {
             
             widthOfFriendButton?.constant = 48
         }
+    }
+    
+    @objc
+    func clickFriendButton(_ sender: UIButton) {
+        delegate?.onClickFriendButton()
     }
 
 }
@@ -122,6 +132,7 @@ extension FriendPageProfileView {
         friendButton.setAttributedTitle(NSAttributedString(string: "Hero_Profile_Friend".localized, attributes: [.font: UIFont.font15P, .foregroundColor: UIColor.white]), for: .normal)
         friendButton.layer.cornerRadius = 8
         friendButton.layer.backgroundColor = UIColor.heroGray5B.cgColor
+        friendButton.addTarget(self, action: #selector(clickFriendButton(_:)), for: .touchUpInside)
         self.addSubview(friendButton)
         
         friendButton.snp.makeConstraints { make in

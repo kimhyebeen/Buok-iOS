@@ -155,6 +155,13 @@ extension FriendPageViewController: FriendPageBuokmarkHeaderViewDelegate {
     }
 }
 
+extension FriendPageViewController: FriendPageProfileViewDelegate {
+    func onClickFriendButton() {
+        // todo - 친구버튼 구현
+        print("친구 버튼")
+    }
+}
+
 extension FriendPageViewController {
     // MARK: SafeAreaView
     func setupSafeAreaView() {
@@ -213,6 +220,7 @@ extension FriendPageViewController {
     
     // MARK: ProfileView
     func setupProfileView() {
+        profileView.delegate = self
         self.view.addSubview(profileView)
         
         profileView.snp.makeConstraints { make in
