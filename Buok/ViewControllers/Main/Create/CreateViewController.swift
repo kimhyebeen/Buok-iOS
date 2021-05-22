@@ -41,7 +41,7 @@ public class CreateViewController: HeroBaseViewController {
     private let dateChooserAlert = UIAlertController(title: "날짜 선택", message: nil, preferredStyle: .actionSheet)
     private let datePicker: UIDatePicker = UIDatePicker()
     
-    private var viewModel: CreateViewModel?
+    private let viewModel: CreateViewModel = CreateViewModel()
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -221,23 +221,60 @@ public class CreateViewController: HeroBaseViewController {
     }
     
     private func setupDatePicker() {
-        datePicker.datePickerMode = .dateAndTime
+        if #available(iOS 13.4, *) {
+            datePicker.preferredDatePickerStyle = .wheels
+        }
+        
+        datePicker.datePickerMode = .date
+        datePicker.minimumDate = Date()
         datePicker.locale = Locale(identifier: "ko-KR")
         datePicker.timeZone = .autoupdatingCurrent
         datePicker.addTarget(self, action: #selector(handleDatePicker(_:)), for: .valueChanged)
+        
+        dateChooserAlert.view.addSubview(datePicker)
+        dateChooserAlert.view.snp.makeConstraints { make in
+            make.height.equalTo(350)
+        }
+        
+        datePicker.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
+            make.bottom.equalToSuperview().offset(-30)
+            make.top.equalToSuperview()
+        }
+        
+        dateChooserAlert.addAction(UIAlertAction(title: "선택완료", style: .default, handler: { _ in
+            self.viewModel.finishDate.value = self.datePicker.date
+        }))
+    }
+    
+    private func setDateStringToButton(_ date: Date) {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy년 MM월 dd일"
+        let dateString = formatter.string(from: date)
+        DebugLog("[DatePicker]-> choose -> \(dateString)")
+        
+        finishDateSelectButton.setTitleColor(.heroGray5B, for: .normal)
+        finishDateSelectButton.setTitle(dateString, for: .normal)
     }
     
     @objc
     private func handleDatePicker(_ sender: UIDatePicker) {
-        DebugLog("[Date Picker] Date Selected : \(sender.date.description)")
+        DebugLog(datePicker.date.description)
+        viewModel.finishDate.value = datePicker.date
     }
     
     private func bindViewModel() {
-        if let viewModel = viewModel {
-            viewModel.bucketStatus.bind({ status in
-                DebugLog("BucketStatus Changed : \(status)")
-            })
-        }
+        viewModel.bucketTitle.bind({ title in
+            DebugLog("Bucket Title : \(title)")
+        })
+        
+        viewModel.bucketStatus.bind({ status in
+            DebugLog("BucketStatus Changed : \(status)")
+        })
+        
+        viewModel.finishDate.bind({ date in
+            self.setDateStringToButton(self.datePicker.date)
+        })
     }
     
     private func setupViewProperties() {
@@ -264,9 +301,9 @@ public class CreateViewController: HeroBaseViewController {
         categoryButton.addTarget(self, action: #selector(onClickCategoryFilterButton(_:)), for: .touchUpInside)
         categoryImageView.image = UIImage(heroSharedNamed: "ic_narrow_12")
         
-        titleField.font = .font20P
-        titleField.textColor = .heroGrayA6A4A1
-        titleField.placeholder = "Hero_Add_Title_Placeholder".localized
+        titleField.font = .font20PMedium
+        titleField.textColor = .heroGray5B
+        titleField.attributedPlaceholder = NSAttributedString(string: "Hero_Add_Title_Placeholder".localized, attributes: [NSAttributedString.Key.foregroundColor: UIColor.heroGrayA6A4A1])
         divisionBar.backgroundColor = .heroGrayE7E1DC
         
         finishDateTitleLabel.text = "Hero_Add_FinishDate_Title".localized
@@ -318,6 +355,7 @@ public class CreateViewController: HeroBaseViewController {
     @objc
     private func onClickFinishDateButton(_ sender: Any?) {
         DebugLog("FinishDateButton Clicked")
+        present(dateChooserAlert, animated: true, completion: nil)
     }
 }
 
