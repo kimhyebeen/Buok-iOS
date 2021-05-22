@@ -29,6 +29,41 @@ public enum BucketStatus: Int {
     }
 }
 
+public enum BucketCategory: Int {
+    case travel = 0
+    case hobby
+    case own
+    case financial
+    case health
+    case goal
+    case organization
+    case volunteer
+    case other
+    
+    public func getTitle() -> String {
+        switch self {
+        case .travel:
+            return "Hero_Add_Category_Travel".localized
+        case .hobby:
+            return "Hero_Add_Category_Hobby".localized
+        case .own:
+            return "Hero_Add_Category_Own".localized
+        case .financial:
+            return "Hero_Add_Category_Finance".localized
+        case .health:
+            return "Hero_Add_Category_Health".localized
+        case .goal:
+            return "Hero_Add_Category_Goal".localized
+        case .organization:
+            return "Hero_Add_Category_Group".localized
+        case .volunteer:
+            return "Hero_Add_Category_Volunteer".localized
+        case .other:
+            return "Hero_Add_Category_Others".localized
+        }
+    }
+}
+
 public enum NadamUserStatus: Int {
     case guest = 0
     case normal
