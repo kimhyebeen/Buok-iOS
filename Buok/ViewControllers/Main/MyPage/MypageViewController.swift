@@ -14,6 +14,17 @@ class MypageViewController: HeroBaseViewController {
     let buokmarkHeader = MypageBuokmarkHeaderView()
     
     static let buokmarkColors: [UIColor] = [.heroPrimaryPinkLight, .heroPrimaryNavyLight, .heroPrimaryBlueLight]
+    let testFlags: [BuokmarkFlag] = [
+        BuokmarkFlag(date: "2021.03", title: "나홀로 북유럽\n배낭여행 떠나기", category: "ic_fill_travel"),
+        BuokmarkFlag(date: "2021.01", title: "취뽀 성공하기", category: "ic_fill_goal"),
+        BuokmarkFlag(date: "2020.12", title: "패러글라이딩 도전", category: "ic_fill_hobby"),
+        BuokmarkFlag(date: "2020.11", title: "교양학점 A이상 받기", category: "ic_fill_goal"),
+        BuokmarkFlag(date: "2020.09", title: "친구들과 일본여행가서\n초밥 먹기", category: "ic_fill_travel"),
+        BuokmarkFlag(date: "2020.08", title: "버킷리스트6", category: "ic_fill_want"),
+        BuokmarkFlag(date: "2020.06", title: "버킷리스트7", category: "ic_fill_volunteer"),
+        BuokmarkFlag(date: "2020.02", title: "버킷리스트8", category: "ic_fill_finance"),
+        BuokmarkFlag(date: "2019.08", title: "버킷리스트9", category: "ic_fill_health"),
+        BuokmarkFlag(date: "2019.05", title: "버킷리스트10", category: "ic_fill_etc")]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,26 +63,42 @@ class MypageViewController: HeroBaseViewController {
 
 // MARK: +Delegate
 extension MypageViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 2
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        if section == 0 {
+            return testFlags.count
+        } else { return 3 }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BuokmarkCollectionCell.identifier, for: indexPath) as? BuokmarkCollectionCell else { return BuokmarkCollectionCell() }
         
-        let testFlags: [BuokmarkFlag] = [
-            BuokmarkFlag(date: "2021.03", title: "나홀로 북유럽\n배낭여행 떠나기", category: "ic_fill_travel"),
-            BuokmarkFlag(date: "2021.01", title: "취뽀 성공하기", category: "ic_fill_goal"),
-            BuokmarkFlag(date: "2020.12", title: "패러글라이딩 도전", category: "ic_fill_hobby"),
-            BuokmarkFlag(date: "2020.11", title: "교양학점 A이상 받기", category: "ic_fill_goal"),
-            BuokmarkFlag(date: "2020.09", title: "친구들과 일본여행가서\n초밥 먹기", category: "ic_fill_travel"),
-            BuokmarkFlag(date: "2020.08", title: "버킷리스트6", category: "ic_fill_want"),
-            BuokmarkFlag(date: "2020.06", title: "버킷리스트7", category: "ic_fill_volunteer"),
-            BuokmarkFlag(date: "2020.02", title: "버킷리스트8", category: "ic_fill_finance"),
-            BuokmarkFlag(date: "2019.08", title: "버킷리스트9", category: "ic_fill_health"),
-            BuokmarkFlag(date: "2019.05", title: "버킷리스트10", category: "ic_fill_etc")]
+        if indexPath.section == 0 {
+            return settingBuokmarkCell(collectionView, indexPath)
+        } else { return settingEmptyCell(collectionView, indexPath) }
+    }
+    
+    private func settingBuokmarkCell(_ collectionView: UICollectionView, _ indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BuokmarkCollectionCell.identifier, for: indexPath) as? BuokmarkCollectionCell else {
+            return BuokmarkCollectionCell()
+        }
         
         cell.setInformation(to: testFlags[indexPath.row], color: MypageViewController.buokmarkColors[indexPath.row % 3])
+        
+        return cell
+    }
+    
+    private func settingEmptyCell(_ collectionView: UICollectionView, _ indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BuokmarkEmptyCollectionCell.identifier, for: indexPath) as? BuokmarkEmptyCollectionCell else {
+            return BuokmarkEmptyCollectionCell()
+        }
+        
+        if indexPath.row == 0 {
+            cell.isFirst = true
+        } else { cell.isFirst = false }
+        
         return cell
     }
     
@@ -113,6 +140,7 @@ extension MypageViewController {
         collectionView.showsVerticalScrollIndicator = false
         collectionView.contentInset = UIEdgeInsets(top: 368 + 20, left: 0, bottom: 0, right: 0)
         collectionView.register(BuokmarkCollectionCell.self, forCellWithReuseIdentifier: BuokmarkCollectionCell.identifier)
+        collectionView.register(BuokmarkEmptyCollectionCell.self, forCellWithReuseIdentifier: BuokmarkEmptyCollectionCell.identifier)
         self.view.addSubview(collectionView)
         
         collectionView.snp.makeConstraints { make in
