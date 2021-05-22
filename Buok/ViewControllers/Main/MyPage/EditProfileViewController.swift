@@ -12,6 +12,7 @@ class EditProfileViewController: HeroBaseViewController {
     let cancelButton = UIButton()
     let finishButton = UIButton()
     let profileImageView = UIImageView()
+    let editProfileImageButtonBackgroundCircle = UIView()
     let editProfileImageButton = UIButton()
     let nicknameLabel = UILabel()
     let nicknameTextField = UserTextField()
@@ -19,6 +20,7 @@ class EditProfileViewController: HeroBaseViewController {
     let nicknameCountLabel = UILabel()
     let introduceLabel = UILabel()
     let introduceTextView = IntroduceTextView()
+    let introducePlaceholder = UILabel()
     let introduceCountLabel = UILabel()
 
     override func viewDidLoad() {
@@ -32,6 +34,7 @@ class EditProfileViewController: HeroBaseViewController {
         setupTitleLabel()
         setupFinishButton()
         setupProfileImageView()
+        setupEditProfileImageButtonBackgroundCircle()
         setupEditProfileImageButton()
         setupNicknameLabel()
         setupNicknameTextField()
@@ -39,6 +42,7 @@ class EditProfileViewController: HeroBaseViewController {
         setupNicknameCountLabel()
         setupIntroduceLabel()
         setupIntroduceTextView()
+        setupIntroducePlaceholder()
         setupIntroduceCountLabel()
     }
     
@@ -56,5 +60,38 @@ class EditProfileViewController: HeroBaseViewController {
     @objc
     func clickEditProfileImageButton(_ sender: UIButton) {
         // todo - 프로필 이미지 편집 기능
+    }
+}
+
+// MARK: +Delegate
+extension EditProfileViewController: UITextFieldDelegate, UITextViewDelegate {
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        guard var text = textField.text else {
+            self.nicknameCountLabel.text = "0/12"
+            return
+        }
+        if text.count > 12 {
+            text.removeLast()
+            self.nicknameTextField.text = text
+        }
+        self.nicknameCountLabel.text = "\(text.count)/12"
+    }
+    
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+        introducePlaceholder.isHidden = true
+        return true
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        introducePlaceholder.isHidden = textView.text.count != 0
+    }
+    
+    func textViewDidChangeSelection(_ textView: UITextView) {
+        introduceCountLabel.text = "\(textView.text.count)/75"
+        if textView.text.count > 75 || textView.numberOfLine() > 3 {
+            let start = textView.text.startIndex
+            let beforeEnd = textView.text.index(before: textView.text.endIndex)
+            textView.text = String(textView.text[start..<beforeEnd])
+        }
     }
 }
