@@ -264,6 +264,7 @@ final class CreateViewController: HeroBaseViewController, UINavigationController
         tagCollectionView?.dataSource = self
         tagCollectionView?.delegate = self
         tagCollectionView?.register(CreateTagAddCell.self, forCellWithReuseIdentifier: CreateTagAddCell.identifier)
+        tagCollectionView?.register(CreateTagCell.self, forCellWithReuseIdentifier: CreateTagCell.identifier)
         tagCollectionView?.backgroundColor = .clear
         view.addSubview(tagCollectionView!)
         
@@ -271,7 +272,7 @@ final class CreateViewController: HeroBaseViewController, UINavigationController
             make.top.equalTo(imageCollectionView!.snp.bottom).offset(20)
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-20)
-            make.height.greaterThanOrEqualTo(32)
+            make.height.equalTo(32)
         }
     }
     
@@ -505,8 +506,18 @@ extension CreateViewController: UICollectionViewDataSource, UICollectionViewDele
             }
         } else {
             // TAG Collection View
+            DebugLog("tagCollectionView!.contentSize.height : \(tagCollectionView!.contentSize.height)")
+            tagCollectionView!.snp.updateConstraints { make in
+                make.height.equalTo(tagCollectionView!.contentSize.height)
+            }
+            
             if indexPath.row == 0 {
                 if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CreateTagAddCell.identifier, for: indexPath) as? CreateTagAddCell {
+                    return cell
+                }
+            } else {
+                if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CreateTagCell.identifier, for: indexPath) as? CreateTagCell {
+                    cell.itemTitle = viewModel.tagList.value[indexPath.row - 1]
                     return cell
                 }
             }
