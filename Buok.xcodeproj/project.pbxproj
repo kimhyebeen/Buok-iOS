@@ -46,6 +46,8 @@
 		B07C0CFE25FDB267000AE1B0 /* HeroSharedAssets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07C0CF425FDB1DC000AE1B0 /* HeroSharedAssets.framework */; };
 		B07C0CFF25FDB268000AE1B0 /* HeroSharedAssets.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B07C0CF425FDB1DC000AE1B0 /* HeroSharedAssets.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B082F2972658D59800A7AB6B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B082F28E2658D59800A7AB6B /* GoogleService-Info.plist */; };
+		B082F2C426594EC200A7AB6B /* CreateImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B082F2C326594EC200A7AB6B /* CreateImageCell.swift */; };
+		B082F2CE26594F3900A7AB6B /* CreateAddCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B082F2CD26594F3900A7AB6B /* CreateAddCell.swift */; };
 		B0B0339026219FE200D65204 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B0338F26219FE200D65204 /* Profile.swift */; };
 		B0B033C12621C97300D65204 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B033C02621C97300D65204 /* SettingViewController.swift */; };
 		B0B033C92621CDA700D65204 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B033C82621CDA700D65204 /* SettingCell.swift */; };
@@ -287,6 +289,8 @@
 		B07C0C8C25FDB146000AE1B0 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		B07C0CEE25FDB1D9000AE1B0 /* HeroSharedAssets.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = HeroSharedAssets.xcodeproj; path = HeroSharedAssets/HeroSharedAssets.xcodeproj; sourceTree = "<group>"; };
 		B082F28E2658D59800A7AB6B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B082F2C326594EC200A7AB6B /* CreateImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateImageCell.swift; sourceTree = "<group>"; };
+		B082F2CD26594F3900A7AB6B /* CreateAddCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAddCell.swift; sourceTree = "<group>"; };
 		B0B0338F26219FE200D65204 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		B0B033C02621C97300D65204 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		B0B033C82621CDA700D65204 /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
@@ -584,6 +588,8 @@
 			children = (
 				B0635AD9260390E100046E88 /* CreateViewController.swift */,
 				B01D43B426039D6C00F2D28C /* CreateViewModel.swift */,
+				B082F2C326594EC200A7AB6B /* CreateImageCell.swift */,
+				B082F2CD26594F3900A7AB6B /* CreateAddCell.swift */,
 			);
 			path = Create;
 			sourceTree = "<group>";
@@ -1245,6 +1251,7 @@
 				B01D43A826039D2500F2D28C /* DetailViewController.swift in Sources */,
 				EEC802032659293700777B43 /* FriendPageViewModel.swift in Sources */,
 				EE79C431264AC43000E83B6A /* MypageViewController.swift in Sources */,
+				B082F2CE26594F3900A7AB6B /* CreateAddCell.swift in Sources */,
 				B06B5EEF25ECCEE10045A491 /* SubTwoViewController.swift in Sources */,
 				B0D43A5E2600DA9B003420CA /* NadamWidget.intentdefinition in Sources */,
 				B075231325EF1E6F0016DC3A /* BaseAPIError.swift in Sources */,
@@ -1287,6 +1294,7 @@
 				EEA213C32625D03E00E3AEA1 /* LoginPasswordViewController.swift in Sources */,
 				EECEF1752627D91100CF9394 /* JoinNameViewController.swift in Sources */,
 				B06B5EF625ECD0140045A491 /* SubThreeViewController.swift in Sources */,
+				B082F2C426594EC200A7AB6B /* CreateImageCell.swift in Sources */,
 				EE4C015C26588245002C5018 /* MypageViewModel.swift in Sources */,
 				EEC801F9265910FF00777B43 /* FriendPageBuokmarkHeaderView.swift in Sources */,
 				EE49409126476D5400CB0B71 /* ResetPasswordViewController.swift in Sources */,

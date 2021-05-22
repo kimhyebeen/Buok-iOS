@@ -10,7 +10,7 @@ import HeroCommon
 import HeroSharedAssets
 import HeroUI
 
-public class CreateViewController: HeroBaseViewController {
+final class CreateViewController: HeroBaseViewController, UINavigationControllerDelegate {
     private let topContentView: UIView = UIView()
     private let backButton: HeroImageButton = HeroImageButton()
     private let doneButton: HeroImageButton = HeroImageButton()
@@ -38,8 +38,11 @@ public class CreateViewController: HeroBaseViewController {
     private let detailTextView: UITextView = UITextView()
     private let detailLengthLabel: UILabel = UILabel()
     
+    private var imageCollectionView: UICollectionView?
+    
     private let dateChooserAlert = UIAlertController(title: "날짜 선택", message: nil, preferredStyle: .actionSheet)
     private let datePicker: UIDatePicker = UIDatePicker()
+    private let imagePicker = UIImagePickerController()
     
     private let viewModel: CreateViewModel = CreateViewModel()
     private var selectViewType: Any.Type = BucketStatus.self
@@ -60,6 +63,7 @@ public class CreateViewController: HeroBaseViewController {
         view.addSubview(finishDateContainerView)
         view.addSubview(detailTitleLabel)
         view.addSubview(detailBackgroundView)
+        imagePicker.delegate = self
         
         setupNavigationView()
         setupTitleSectionView()
@@ -101,6 +105,7 @@ public class CreateViewController: HeroBaseViewController {
         }
         
         setupDetailSectionView()
+        setupImageCollectionView()
     }
     
     private func setupNavigationView() {
@@ -221,6 +226,30 @@ public class CreateViewController: HeroBaseViewController {
         }
     }
     
+    private func setupImageCollectionView() {
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        layout.itemSize = CGSize(width: 76, height: 64)
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
+        layout.scrollDirection = .horizontal
+        
+        imageCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        imageCollectionView?.dataSource = self
+        imageCollectionView?.delegate = self
+        imageCollectionView?.register(CreateImageCell.self, forCellWithReuseIdentifier: CreateImageCell.identifier)
+        imageCollectionView?.register(CreateAddCell.self, forCellWithReuseIdentifier: CreateAddCell.identifier)
+        imageCollectionView?.backgroundColor = .clear
+        
+        view.addSubview(imageCollectionView!)
+        imageCollectionView?.snp.makeConstraints { make in
+            make.top.equalTo(detailBackgroundView.snp.bottom).offset(20)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+            make.height.equalTo(64)
+        }
+    }
+    
     private func setupDatePicker() {
         if #available(iOS 13.4, *) {
             datePicker.preferredDatePickerStyle = .wheels
@@ -281,6 +310,10 @@ public class CreateViewController: HeroBaseViewController {
         viewModel.bucketCategory.bind({ category in
             DebugLog("Selected Category : \(category.getTitle())")
             self.categoryTitleLabel.text = category.getTitle()
+        })
+        
+        viewModel.imageList.bind({ _ in
+            self.imageCollectionView?.reloadData()
         })
     }
     
@@ -351,7 +384,6 @@ public class CreateViewController: HeroBaseViewController {
     
     @objc
     private func onClickStatusFilterButton(_ sender: Any?) {
-        DebugLog("StatusFilter Clicked")
         let selectVC = HeroSelectViewController()
         
         selectVC.titleContent = "상태 선택"
@@ -364,7 +396,6 @@ public class CreateViewController: HeroBaseViewController {
     
     @objc
     private func onClickCategoryFilterButton(_ sender: Any?) {
-        DebugLog("CategoryFilter Clicked")
         let selectVC = HeroSelectViewController()
         
         selectVC.titleContent = "카테고리 선택"
@@ -382,13 +413,68 @@ public class CreateViewController: HeroBaseViewController {
     }
 }
 
+extension CreateViewController: UIImagePickerControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        guard let selectedImage = info[.originalImage] as? UIImage else {
+            fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
+        }
+//        self.profileImageView.image = selectedImage
+        viewModel.imageList.value.append(selectedImage)
+//        let _ = selectedImage.jpegData(compressionQuality: 0.5)
+        self.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension CreateViewController: UICollectionViewDataSource, UICollectionViewDelegate, CreateImageCellDelegate {
+    public func didSelectDeleteButton(index: Int) {
+        viewModel.imageList.value.remove(at: index)
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            if viewModel.imageList.value.count < 4 {
+                imagePicker.sourceType = .photoLibrary
+                self.present(imagePicker, animated: true, completion: nil)
+            } else {
+                let alertController = UIAlertController(title: "", message: "사진은 4개까지 선택 가능합니다.", preferredStyle: UIAlertController.Style.alert)
+                let okButton = UIAlertAction(title: "확인", style: UIAlertAction.Style.cancel, handler: nil)
+                
+                alertController.addAction(okButton)
+                self.present(alertController, animated: true, completion: nil)
+            }
+        } else {
+            viewModel.imageList.value.remove(at: indexPath.row - 1)
+        }
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewModel.imageList.value.count + 1
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if indexPath.row == 0 {
+            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CreateAddCell.identifier, for: indexPath) as? CreateAddCell {
+                return cell
+            }
+        } else {
+            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CreateImageCell.identifier, for: indexPath) as? CreateImageCell {
+                cell.itemImage = viewModel.imageList.value[indexPath.row - 1]
+                cell.index = indexPath.row - 1
+                cell.delegate = self
+                
+                return cell
+            }
+        }
+        return UICollectionViewCell()
+    }
+}
+
 extension CreateViewController: HeroSelectViewDelegate {
     public func selectViewCloseClicked(viewController: HeroSelectViewController) {
         viewController.dismiss(animated: false, completion: nil)
     }
     
     public func selectViewItemSelected(viewController: HeroSelectViewController, selected index: Int) {
-//        statusTitleLabel.text = viewModel.statusItemList[index].title
         if selectViewType == BucketStatus.self {
             viewModel.bucketStatus.value = BucketStatus(rawValue: index) ?? .pre
         } else if selectViewType == BucketCategory.self {
