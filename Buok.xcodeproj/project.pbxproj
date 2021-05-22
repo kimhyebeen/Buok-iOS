@@ -86,6 +86,12 @@
 		EEA213D32625DAEA00E3AEA1 /* LoginPasswordViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA213D22625DAEA00E3AEA1 /* LoginPasswordViewController+UI.swift */; };
 		EEB9EF8C26269762001AF65F /* UserServiceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB9EF8B26269762001AF65F /* UserServiceButton.swift */; };
 		EEB9EF9826269768001AF65F /* UserTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB9EF9726269768001AF65F /* UserTextField.swift */; };
+		EEC801F52659048500777B43 /* FriendPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC801F42659048500777B43 /* FriendPageViewController.swift */; };
+		EEC801F72659051700777B43 /* FriendPageProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC801F62659051700777B43 /* FriendPageProfileView.swift */; };
+		EEC801F9265910FF00777B43 /* FriendPageBuokmarkHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC801F8265910FF00777B43 /* FriendPageBuokmarkHeaderView.swift */; };
+		EEC801FB265911E100777B43 /* BuokmarkHeaderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC801FA265911E100777B43 /* BuokmarkHeaderButton.swift */; };
+		EEC801FD2659171D00777B43 /* BucketBookHeaderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC801FC2659171D00777B43 /* BucketBookHeaderButton.swift */; };
+		EEC802032659293700777B43 /* FriendPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC802022659293700777B43 /* FriendPageViewModel.swift */; };
 		EECEF1752627D91100CF9394 /* JoinNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECEF1742627D91100CF9394 /* JoinNameViewController.swift */; };
 		EECEF1872627DFD900CF9394 /* JoinIntroduceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECEF1862627DFD900CF9394 /* JoinIntroduceViewController.swift */; };
 		EECEF18C2627DFEA00CF9394 /* JoinIntroduceViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECEF18B2627DFEA00CF9394 /* JoinIntroduceViewController+UI.swift */; };
@@ -331,6 +337,12 @@
 		EEA213D22625DAEA00E3AEA1 /* LoginPasswordViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginPasswordViewController+UI.swift"; sourceTree = "<group>"; };
 		EEB9EF8B26269762001AF65F /* UserServiceButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserServiceButton.swift; sourceTree = "<group>"; };
 		EEB9EF9726269768001AF65F /* UserTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTextField.swift; sourceTree = "<group>"; };
+		EEC801F42659048500777B43 /* FriendPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendPageViewController.swift; sourceTree = "<group>"; };
+		EEC801F62659051700777B43 /* FriendPageProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendPageProfileView.swift; sourceTree = "<group>"; };
+		EEC801F8265910FF00777B43 /* FriendPageBuokmarkHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendPageBuokmarkHeaderView.swift; sourceTree = "<group>"; };
+		EEC801FA265911E100777B43 /* BuokmarkHeaderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuokmarkHeaderButton.swift; sourceTree = "<group>"; };
+		EEC801FC2659171D00777B43 /* BucketBookHeaderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketBookHeaderButton.swift; sourceTree = "<group>"; };
+		EEC802022659293700777B43 /* FriendPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendPageViewModel.swift; sourceTree = "<group>"; };
 		EECEF1742627D91100CF9394 /* JoinNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinNameViewController.swift; sourceTree = "<group>"; };
 		EECEF1862627DFD900CF9394 /* JoinIntroduceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinIntroduceViewController.swift; sourceTree = "<group>"; };
 		EECEF18B2627DFEA00CF9394 /* JoinIntroduceViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JoinIntroduceViewController+UI.swift"; sourceTree = "<group>"; };
@@ -593,6 +605,7 @@
 				B0635AD8260390D200046E88 /* Create */,
 				B0635AC32603896D00046E88 /* Home */,
 				B0D021792602196500F25329 /* MyPage */,
+				EEC801EB2659047300777B43 /* FriendPage */,
 				B0B033B72621C95B00D65204 /* Setting */,
 				B0D021702602195B00F25329 /* MultiLevelVC */,
 				B06B5CB325ECA4070045A491 /* MainTabBarViewController.swift */,
@@ -795,6 +808,27 @@
 				EEB9EF8B26269762001AF65F /* UserServiceButton.swift */,
 				EECEF1912627E08300CF9394 /* IntroduceTextView.swift */,
 				EE4940DF2648332C00CB0B71 /* UITextView+.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EEC801EB2659047300777B43 /* FriendPage */ = {
+			isa = PBXGroup;
+			children = (
+				EEC8020C26592F9200777B43 /* View */,
+				EEC801F42659048500777B43 /* FriendPageViewController.swift */,
+				EEC802022659293700777B43 /* FriendPageViewModel.swift */,
+			);
+			path = FriendPage;
+			sourceTree = "<group>";
+		};
+		EEC8020C26592F9200777B43 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EEC801F62659051700777B43 /* FriendPageProfileView.swift */,
+				EEC801F8265910FF00777B43 /* FriendPageBuokmarkHeaderView.swift */,
+				EEC801FA265911E100777B43 /* BuokmarkHeaderButton.swift */,
+				EEC801FC2659171D00777B43 /* BucketBookHeaderButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1209,6 +1243,7 @@
 				EE4C015E2658866F002C5018 /* EditProfileViewController.swift in Sources */,
 				B0635ADA260390E100046E88 /* CreateViewController.swift in Sources */,
 				B01D43A826039D2500F2D28C /* DetailViewController.swift in Sources */,
+				EEC802032659293700777B43 /* FriendPageViewModel.swift in Sources */,
 				EE79C431264AC43000E83B6A /* MypageViewController.swift in Sources */,
 				B06B5EEF25ECCEE10045A491 /* SubTwoViewController.swift in Sources */,
 				B0D43A5E2600DA9B003420CA /* NadamWidget.intentdefinition in Sources */,
@@ -1226,6 +1261,7 @@
 				B041747625E2366E00D990A2 /* MultiLevelViewController.swift in Sources */,
 				EEA213CB2625D59900E3AEA1 /* LoginViewController+UI.swift in Sources */,
 				B06B5EE925ECCED90045A491 /* SubOneViewController.swift in Sources */,
+				EEC801FB265911E100777B43 /* BuokmarkHeaderButton.swift in Sources */,
 				B01D43BA2604231800F2D28C /* CategoryFilterView.swift in Sources */,
 				B041747C25E2366E00D990A2 /* BucketList.xcdatamodeld in Sources */,
 				EE79C43B264AC78600E83B6A /* MypageCountingStackView.swift in Sources */,
@@ -1252,6 +1288,7 @@
 				EECEF1752627D91100CF9394 /* JoinNameViewController.swift in Sources */,
 				B06B5EF625ECD0140045A491 /* SubThreeViewController.swift in Sources */,
 				EE4C015C26588245002C5018 /* MypageViewModel.swift in Sources */,
+				EEC801F9265910FF00777B43 /* FriendPageBuokmarkHeaderView.swift in Sources */,
 				EE49409126476D5400CB0B71 /* ResetPasswordViewController.swift in Sources */,
 				B075225425ED06ED0016DC3A /* UserModel.swift in Sources */,
 				B0B035E82622B2B900D65204 /* SettingSectionHeaderView.swift in Sources */,
@@ -1261,11 +1298,14 @@
 				B0B035ED2622B33800D65204 /* SettingConstants.swift in Sources */,
 				EE61F70726457CA3004DF51B /* UserViewModel.swift in Sources */,
 				EE4C016026588821002C5018 /* EditProfileViewController+UI.swift in Sources */,
+				EEC801FD2659171D00777B43 /* BucketBookHeaderButton.swift in Sources */,
+				EEC801F52659048500777B43 /* FriendPageViewController.swift in Sources */,
 				B06B5CB425ECA4070045A491 /* MainTabBarViewController.swift in Sources */,
 				EE79C436264AC57800E83B6A /* MypageCountingButton.swift in Sources */,
 				B075238125EF5AF70016DC3A /* BucketListHomeAPIRequest.swift in Sources */,
 				B0D0218226021A2100F25329 /* NadamProperties.swift in Sources */,
 				B075230925EF1A0E0016DC3A /* BaseAPIRequest.swift in Sources */,
+				EEC801F72659051700777B43 /* FriendPageProfileView.swift in Sources */,
 				EEB9EF8C26269762001AF65F /* UserServiceButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
