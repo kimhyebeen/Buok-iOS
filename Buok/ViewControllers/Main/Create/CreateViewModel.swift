@@ -9,11 +9,11 @@ import Foundation
 import HeroCommon
 
 public class CreateViewModel {
-    public var bucketStatus: Dynamic<BucketStatus> = Dynamic(.none)
+    public var bucketStatus: Dynamic<BucketStatus> = Dynamic(.pre)
     public var tagList: Dynamic<[String]> = Dynamic([String]())
     
     public init() {
-        bucketStatus = Dynamic(.none)
+        bucketStatus = Dynamic(.pre)
         tagList = Dynamic([String]())
     }
     
