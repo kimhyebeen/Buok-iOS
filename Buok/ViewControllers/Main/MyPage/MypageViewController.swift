@@ -64,19 +64,13 @@ class MypageViewController: HeroBaseViewController {
 
 // MARK: +Delegate
 extension MypageViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2
-    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if section == 0 {
-            return buokmarks.count
-        } else { return 3 }
+        return buokmarks.count > 0 ? buokmarks.count : 3
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        if indexPath.section == 0 {
+        if buokmarks.count > 0 {
             return settingBuokmarkCell(collectionView, indexPath)
         } else { return settingEmptyCell(collectionView, indexPath) }
     }
@@ -120,10 +114,9 @@ extension MypageViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        if indexPath.section == 1 {
-            if indexPath.row > 0 { return false }
-            print("새로운 북마크 추가")
-        }
+        if buokmarks.count > 0 || indexPath.row > 0 { return false }
+        // todo - home > 완료 이동
+        print("MypageViewController - shouldSelectItemAt - home의 완료로 이동")
         return true
     }
     
