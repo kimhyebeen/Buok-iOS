@@ -275,6 +275,10 @@ public class CreateViewController: HeroBaseViewController {
         viewModel.finishDate.bind({ date in
             self.setDateStringToButton(self.datePicker.date)
         })
+        
+        viewModel.bucketCategory.bind({ category in
+            DebugLog("Selected Category : \(category.getTitle())")
+        })
     }
     
     private func setupViewProperties() {
@@ -345,6 +349,13 @@ public class CreateViewController: HeroBaseViewController {
     @objc
     private func onClickStatusFilterButton(_ sender: Any?) {
         DebugLog("StatusFilter Clicked")
+        let selectVC = HeroSelectViewController()
+        
+        selectVC.titleContent = "상태 선택"
+        selectVC.modalPresentationStyle = .overCurrentContext
+        selectVC.itemList = viewModel.statusItemList
+        selectVC.delegate = self
+        self.present(selectVC, animated: false, completion: nil)
     }
     
     @objc
@@ -356,6 +367,17 @@ public class CreateViewController: HeroBaseViewController {
     private func onClickFinishDateButton(_ sender: Any?) {
         DebugLog("FinishDateButton Clicked")
         present(dateChooserAlert, animated: true, completion: nil)
+    }
+}
+
+extension CreateViewController: HeroSelectViewDelegate {
+    public func selectViewCloseClicked(viewController: HeroSelectViewController) {
+        viewController.dismiss(animated: false, completion: nil)
+    }
+    
+    public func selectViewItemSelected(viewController: HeroSelectViewController, selected index: Int) {
+        statusTitleLabel.text = viewModel.statusItemList[index].title
+        viewController.dismiss(animated: false, completion: nil)
     }
 }
 

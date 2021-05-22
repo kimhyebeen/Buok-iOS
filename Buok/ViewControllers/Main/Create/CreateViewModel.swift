@@ -20,6 +20,11 @@ public class CreateViewModel {
     public var imageURLStringList: Dynamic<[String]>
     public var tagList: Dynamic<[String]>
     
+    public let statusItemList: [HeroSelectItem] = [HeroSelectItem(title: "예정"),
+                                            HeroSelectItem(title: "진행"),
+                                            HeroSelectItem(title: "성공"),
+                                            HeroSelectItem(title: "실패")]
+    
     public init() {
         bucketStatus = Dynamic(.pre)
         bucketCategory = Dynamic(.travel)
