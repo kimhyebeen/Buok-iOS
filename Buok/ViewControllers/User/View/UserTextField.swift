@@ -10,6 +10,11 @@ import HeroUI
 public class UserTextField: UITextField {
     let insetX: CGFloat = 16
     let insetY: CGFloat = 10
+    var textFont: UIFont = .font22P {
+        didSet {
+            self.font = textFont
+        }
+    }
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -33,11 +38,11 @@ public class UserTextField: UITextField {
         self.backgroundColor = .white
         self.layer.cornerRadius = 8
         self.textColor = .heroGray5B
-        self.font = .font22P
+        self.font = textFont
     }
     
     public func setPlaceHolder(_ text: String) {
-        self.attributedPlaceholder = NSAttributedString(string: text, attributes: [.font: UIFont.font22P, .foregroundColor: UIColor.heroGrayDA])
+        self.attributedPlaceholder = NSAttributedString(string: text, attributes: [.font: textFont, .foregroundColor: UIColor.heroGrayDA])
     }
 
 }

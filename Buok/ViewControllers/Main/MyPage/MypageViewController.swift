@@ -64,7 +64,9 @@ class MypageViewController: HeroBaseViewController {
     
     @objc
     func clickEditProfileButton(_ sender: UIButton) {
-        // todo - 프로필 수정 버튼 기능
+        let editVC = EditProfileViewController()
+        editVC.modalPresentationStyle = .fullScreen
+        self.present(editVC, animated: true, completion: nil)
     }
     
     @objc
@@ -165,11 +167,6 @@ extension MypageViewController {
         collectionView.contentInset = UIEdgeInsets(top: 368 + 20, left: 0, bottom: 0, right: 0)
         collectionView.register(BuokmarkCollectionCell.self, forCellWithReuseIdentifier: BuokmarkCollectionCell.identifier)
         collectionView.register(BuokmarkEmptyCollectionCell.self, forCellWithReuseIdentifier: BuokmarkEmptyCollectionCell.identifier)
-        
-        collectionView.snp.makeConstraints { make in
-            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
-            make.bottom.leading.trailing.equalToSuperview()
-        }
     }
     
     // MARK: SettingButton

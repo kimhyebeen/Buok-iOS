@@ -1,21 +1,34 @@
 //
-//  MypageContentsView.swift
+//  FriendPageProfileView.swift
 //  Buok
 //
-//  Created by 김혜빈 on 2021/05/11.
+//  Created by 김혜빈 on 2021/05/22.
 //
 
 import HeroUI
 
-class MypageProfileView: UIView {
+enum FriendButtonType {
+    case friend
+    case request
+    case none
+}
+
+protocol FriendPageProfileViewDelegate: AnyObject {
+    func onClickFriendButton()
+}
+
+class FriendPageProfileView: UIView {
     private let profileImageView = UIImageView()
     private let nameLabel = UILabel()
     private let emailLabel = UILabel()
-    let editButton = UIButton()
+    private let friendButton = UIButton()
     let countingButtonStack = MypageCountingStackView()
     private let introduceLabel = UILabel()
     private let dateImageView = UIImageView()
     private let dateLabel = UILabel()
+    
+    private var widthOfFriendButton: NSLayoutConstraint?
+    weak var delegate: FriendPageProfileViewDelegate?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -41,16 +54,59 @@ class MypageProfileView: UIView {
     func setProfile() {
         // todo - Profile 객체를 받아 뷰 업데이트
     }
+    
+    func settingFriendButtonType(for type: FriendButtonType) {
+        if type == .friend {
+            settingFriendMode()
+        } else if type == .request {
+            settingRequestFriendMode()
+        } else {
+            settingNotFriendMode()
+        }
+    }
+    
+    private func settingFriendMode() {
+        let textOfButton = "Hero_Profile_Friend".localized
+        friendButton.setAttributedTitle(NSAttributedString(string: textOfButton, attributes: [.font: UIFont.font15P, .foregroundColor: UIColor.white]), for: .normal)
+        friendButton.layer.borderWidth = 0
+        friendButton.layer.backgroundColor = UIColor.heroGray5B.cgColor
+        
+        widthOfFriendButton?.constant = 48
+    }
+    
+    private func settingRequestFriendMode() {
+        let textOfButton = "Hero_Profile_Request_Cancel".localized
+        friendButton.setAttributedTitle(NSAttributedString(string: textOfButton, attributes: [.font: UIFont.font15P, .foregroundColor: UIColor.heroGray82]), for: .normal)
+        friendButton.layer.borderWidth = 1
+        friendButton.layer.backgroundColor = UIColor.clear.cgColor
+        friendButton.layer.borderColor = UIColor.heroGray82.cgColor
+        
+        widthOfFriendButton?.constant = 72
+    }
+    
+    private func settingNotFriendMode() {
+        let textOfButton = "Hero_Profile_Request".localized
+        friendButton.setAttributedTitle(NSAttributedString(string: textOfButton, attributes: [.font: UIFont.font15P, .foregroundColor: UIColor.heroGray82]), for: .normal)
+        friendButton.layer.borderWidth = 1
+        friendButton.layer.backgroundColor = UIColor.clear.cgColor
+        friendButton.layer.borderColor = UIColor.heroGray82.cgColor
+        
+        widthOfFriendButton?.constant = 48
+    }
+    
+    @objc
+    func clickFriendButton(_ sender: UIButton) {
+        delegate?.onClickFriendButton()
+    }
 
 }
 
-extension MypageProfileView {
+extension FriendPageProfileView {
     // MARK: ProfileImageView
     private func setupProfileImageView() {
         profileImageView.image = UIImage(heroSharedNamed: "ic_profile_48")
         profileImageView.contentMode = .scaleAspectFill
         profileImageView.layer.cornerRadius = 32
-        profileImageView.layer.backgroundColor = UIColor.white.cgColor
         self.addSubview(profileImageView)
         
         profileImageView.snp.makeConstraints { make in
@@ -62,7 +118,7 @@ extension MypageProfileView {
     
     // MARK: NameLabel
     private func setupNameLabel() {
-        nameLabel.text = "홍길동"
+        nameLabel.text = "Hero_Profile_Name_Sample".localized
         nameLabel.textColor = .heroGray5B
         nameLabel.font = .font20PBold // todo - 폰트 수정 필요
         self.addSubview(nameLabel)
@@ -75,7 +131,7 @@ extension MypageProfileView {
     
     // MARK: EmailLabel
     private func setupEmailLabel() {
-        emailLabel.text = "gildong@naver.com"
+        emailLabel.text = "Hero_Profile_Email_Sample".localized
         emailLabel.textColor = .heroGray82
         emailLabel.font = .font13P
         self.addSubview(emailLabel)
@@ -86,21 +142,23 @@ extension MypageProfileView {
         }
     }
     
-    // MARK: EditButton
+    // MARK: FriendButton
     private func setupEditButton() {
-        editButton.setAttributedTitle(NSAttributedString(string: "프로필 수정", attributes: [.font: UIFont.font15P, .foregroundColor: UIColor.heroGray82]), for: .normal)
-        editButton.titleEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        editButton.layer.cornerRadius = 8
-        editButton.layer.borderWidth = 1
-        editButton.layer.borderColor = UIColor.heroGray82.cgColor
-        self.addSubview(editButton)
+        friendButton.setAttributedTitle(NSAttributedString(string: "Hero_Profile_Friend".localized, attributes: [.font: UIFont.font15P, .foregroundColor: UIColor.white]), for: .normal)
+        friendButton.layer.cornerRadius = 8
+        friendButton.layer.backgroundColor = UIColor.heroGray5B.cgColor
+        friendButton.addTarget(self, action: #selector(clickFriendButton(_:)), for: .touchUpInside)
+        self.addSubview(friendButton)
         
-        editButton.snp.makeConstraints { make in
-            make.width.equalTo(90)
-            make.height.equalTo(36)
+        friendButton.snp.makeConstraints { make in
+            make.height.equalTo(32)
             make.centerY.equalTo(profileImageView.snp.centerY)
             make.trailing.equalToSuperview().offset(-20)
         }
+        
+        widthOfFriendButton = friendButton.widthAnchor.constraint(equalToConstant: 0)
+        widthOfFriendButton?.constant = 48
+        widthOfFriendButton?.isActive = true
     }
     
     // MARK: CountingButtonStack
@@ -116,7 +174,7 @@ extension MypageProfileView {
     
     // MARK: IntroduceLabel
     private func setupIntroduceLabel() {
-        introduceLabel.text = "안녕하세요.\n사용자 홍길동의 버킷 페이지입니다.\n75자까지 입력 가능, 3줄까지만 보여짐"
+        introduceLabel.text = "Hero_Profile_Introduce_Sample".localized
         introduceLabel.numberOfLines = 0
         introduceLabel.textColor = .heroGray82
         introduceLabel.font = .font13P
@@ -148,7 +206,7 @@ extension MypageProfileView {
     
     // MARK: DateLabel
     private func setupDateLabel() {
-        dateLabel.text = "2021년 06월에 가입함"
+        dateLabel.text = "Hero_Profile_Register_Date".localized
         dateLabel.textColor = .heroGray82
         dateLabel.font = .font13P
         self.addSubview(dateLabel)
