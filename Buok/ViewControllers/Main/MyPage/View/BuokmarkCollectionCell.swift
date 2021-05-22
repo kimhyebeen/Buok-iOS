@@ -11,6 +11,7 @@ class BuokmarkCollectionCell: UICollectionViewCell {
     static let identifier = "BuokmarkCollectionCell"
     let dateLabel = UILabel()
     let flagView = BuokmarkFlagView()
+    let iconCircleView = UIView()
     let iconImageView = UIImageView()
     let buokLabel = UILabel()
     
@@ -27,14 +28,21 @@ class BuokmarkCollectionCell: UICollectionViewCell {
     private func setupView() {
         setupDateLabel()
         setupFlagView()
+        setupIconCircleView()
         setupIconImageView()
         setupBuokLabel()
     }
     
-    func setInformation(_ date: String,_ buok: String) {
+    func setInformation(to model: BuokmarkFlag, color: UIColor) {
         // todo - 나중에 model 구조체로 생성해서 설정하도록 구현
-        dateLabel.text = date
-        buokLabel.text = buok
+        dateLabel.text = model.date
+        buokLabel.text = model.title
+        if #available(iOS 13.0, *) {
+            iconImageView.image = UIImage(heroSharedNamed: model.category)!.withTintColor(color)
+        } else {
+            iconImageView.image = UIImage(heroSharedNamed: model.category)!
+        }
+        flagView.flagView.layer.backgroundColor = color.cgColor
     }
 }
 
@@ -63,17 +71,27 @@ extension BuokmarkCollectionCell {
         }
     }
     
+    // MARK: IconCircleView
+    private func setupIconCircleView() {
+        iconCircleView.layer.cornerRadius = 16
+        iconCircleView.layer.backgroundColor = UIColor.white.cgColor
+        self.addSubview(iconCircleView)
+        
+        iconCircleView.snp.makeConstraints { make in
+            make.width.height.equalTo(32)
+            make.centerY.equalToSuperview().offset(-8)
+            make.leading.equalTo(flagView.snp.leading).offset(27)
+        }
+    }
+    
     // MARK: IconImageView
     private func setupIconImageView() {
-        iconImageView.layer.cornerRadius = 16
-        iconImageView.layer.backgroundColor = UIColor.white.cgColor
         iconImageView.contentMode = .scaleAspectFit
         self.addSubview(iconImageView)
         
         iconImageView.snp.makeConstraints { make in
-            make.width.height.equalTo(32)
-            make.centerY.equalToSuperview().offset(-8)
-            make.leading.equalTo(flagView.snp.leading).offset(27)
+            make.width.height.equalTo(24)
+            make.center.equalTo(iconCircleView.snp.center)
         }
     }
     
