@@ -35,3 +35,13 @@
 "Hero_Edit_Profile_Introduce" = "자기소개";
 "Hero_Edit_Profile_Introduce_Placeholder" = "자기소개를 입력해주세요";
 "Hero_Edit_Profile_Nickname_Error" = "중복된 별칭입니다.";
+"Hero_Profile_Name_Sample" = "홍길동";
+"Hero_Profile_Email_Sample" = "gildong@naver.com";
+"Hero_Profile_Edit" = "프로필 수정";
+"Hero_Profile_Introduce_Sample" = "안녕하세요.\n사용자 홍길동의 버킷 페이지입니다.\n75자까지 입력 가능, 3줄까지만 보여짐";
+"Hero_Profile_Register_Date" = "2021년 6월에 가입함";
+"Hero_Profile_Friend" = "친구";
+"Hero_Profile_Request_Cancel" = "요청 취소";
+"Hero_Profile_Request" = "맺기";
+"Hero_Profile_Buokmark" = "북마크";
+"Hero_Profile_BucketBook" = "버킷북";
