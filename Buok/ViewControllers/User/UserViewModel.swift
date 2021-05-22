@@ -13,6 +13,7 @@ class UserViewModel {
     var nickname: String = ""
     var introduce: String? = nil
     var isSelectedEyeButton: Bool = false
+	var appleLoginMode: Bool = false
     
     func validateEmail(_ email: String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"

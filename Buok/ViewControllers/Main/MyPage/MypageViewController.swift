@@ -8,8 +8,12 @@
 import HeroUI
 
 class MypageViewController: HeroBaseViewController {
-    let collectionView = UICollectionView(frame: UIScreen.main.bounds, collectionViewLayout: UICollectionViewFlowLayout())
+    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    
+    let safeAreaFillView: UIView = UIView()
+    let topNavBar: UIView = UIView()
     let settingButton = UIButton()
+    
     let profileView = MypageProfileView()
     let buokmarkHeader = MypageBuokmarkHeaderView()
     
@@ -26,10 +30,23 @@ class MypageViewController: HeroBaseViewController {
     }
     
     private func setupView() {
-        setupCollectionView()
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        view.backgroundColor = .heroServiceSkin
+        view.addSubview(safeAreaFillView)
+        safeAreaFillView.backgroundColor = .heroServiceSkin
+        safeAreaFillView.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.top)
+            make.leading.trailing.equalToSuperview()
+        }
+        
         setupSettingButton()
+        setupCollectionView()
         setupProfileView()
         setupBuokmarkHeader()
+        
+        view.bringSubviewToFront(safeAreaFillView)
+        view.bringSubviewToFront(topNavBar)
     }
     
     private func bindingViewModel() {
@@ -66,19 +83,13 @@ class MypageViewController: HeroBaseViewController {
 
 // MARK: +Delegate
 extension MypageViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2
-    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if section == 0 {
-            return buokmarks.count
-        } else { return 3 }
+        return buokmarks.count > 0 ? buokmarks.count : 3
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        if indexPath.section == 0 {
+        if buokmarks.count > 0 {
             return settingBuokmarkCell(collectionView, indexPath)
         } else { return settingEmptyCell(collectionView, indexPath) }
     }
@@ -111,21 +122,20 @@ extension MypageViewController: UICollectionViewDelegate, UICollectionViewDataSo
         let heightForHeader: CGFloat = 40
         
         let totalOffset = scrollView.contentOffset.y + heightForSettingButton + heightForProfileView + heightForHeader + 20
-        let offsetForHeader = heightForSettingButton + heightForProfileView
+        let offsetForHeader = heightForProfileView
         
         var transform = CATransform3DIdentity
         transform = CATransform3DTranslate(transform, 0, max(-offsetForHeader, -totalOffset), 0)
         
-        settingButton.layer.transform = transform
+//        settingButton.layer.transform = transform
         profileView.layer.transform = transform
         buokmarkHeader.layer.transform = transform
     }
     
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        if indexPath.section == 1 {
-            if indexPath.row > 0 { return false }
-            print("새로운 북마크 추가")
-        }
+        if buokmarks.count > 0 || indexPath.row > 0 { return false }
+        // todo - home > 완료 이동
+        print("MypageViewController - shouldSelectItemAt - home의 완료로 이동")
         return true
     }
     
@@ -145,6 +155,11 @@ extension MypageViewController: UICollectionViewDelegate, UICollectionViewDataSo
 extension MypageViewController {
     // MARK: CollectionView
     private func setupCollectionView() {
+        view.addSubview(collectionView)
+        collectionView.snp.makeConstraints { make in
+            make.edges.equalTo(view.safeAreaLayoutGuide.snp.edges)
+        }
+        
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.backgroundColor = .clear
@@ -152,7 +167,6 @@ extension MypageViewController {
         collectionView.contentInset = UIEdgeInsets(top: 368 + 20, left: 0, bottom: 0, right: 0)
         collectionView.register(BuokmarkCollectionCell.self, forCellWithReuseIdentifier: BuokmarkCollectionCell.identifier)
         collectionView.register(BuokmarkEmptyCollectionCell.self, forCellWithReuseIdentifier: BuokmarkEmptyCollectionCell.identifier)
-        self.view.addSubview(collectionView)
         
         collectionView.snp.makeConstraints { make in
             make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
@@ -162,17 +176,25 @@ extension MypageViewController {
     
     // MARK: SettingButton
     private func setupSettingButton() {
+        view.addSubview(topNavBar)
+        topNavBar.backgroundColor = .heroServiceSkin
+        topNavBar.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            make.height.equalTo(48)
+            make.leading.trailing.equalToSuperview()
+        }
+        
         if #available(iOS 13.0, *) {
             settingButton.setImage(UIImage(heroSharedNamed: "ic_setting")!.withTintColor(.heroGray82), for: .normal)
         } else {
             settingButton.setImage(UIImage(heroSharedNamed: "ic_setting")!, for: .normal)
         }
         settingButton.addTarget(self, action: #selector(clickSettingButton(_:)), for: .touchUpInside)
-        self.view.addSubview(settingButton)
+        topNavBar.addSubview(settingButton)
         
         settingButton.snp.makeConstraints { make in
             make.width.height.equalTo(44)
-            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
+            make.centerY.equalToSuperview()
             make.trailing.equalToSuperview().offset(-8)
         }
     }
@@ -185,7 +207,7 @@ extension MypageViewController {
         self.view.addSubview(profileView)
         
         profileView.snp.makeConstraints { make in
-            make.top.equalTo(settingButton.snp.bottom)
+            make.top.equalTo(topNavBar.snp.bottom)
             make.leading.trailing.equalToSuperview()
         }
     }
