@@ -28,8 +28,8 @@ class EditProfileViewController: HeroBaseViewController {
     }
     
     private func setupView() {
-        setupTitleLabel()
         setupCancelButton()
+        setupTitleLabel()
         setupFinishButton()
         setupProfileImageView()
         setupEditProfileImageButton()
@@ -44,16 +44,17 @@ class EditProfileViewController: HeroBaseViewController {
     
     @objc
     func clickCancelButton(_ sender: UIButton) {
-        
+        self.navigationController?.popViewController(animated: true)
     }
     
     @objc
     func clickFinishButton(_ sender: UIButton) {
-        
+        // todo - 프로필을 저장하거나, 닉네임 중복 실패 처리
+        self.navigationController?.popViewController(animated: true)
     }
     
     @objc
     func clickEditProfileImageButton(_ sender: UIButton) {
-        
+        // todo - 프로필 이미지 편집 기능
     }
 }

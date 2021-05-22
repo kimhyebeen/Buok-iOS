@@ -47,7 +47,9 @@ class MypageViewController: HeroBaseViewController {
     
     @objc
     func clickEditProfileButton(_ sender: UIButton) {
-        // todo - 프로필 수정 버튼 기능
+        let editVC = EditProfileViewController()
+        editVC.modalPresentationStyle = .fullScreen
+        self.pushViewController(editVC)
     }
     
     @objc
