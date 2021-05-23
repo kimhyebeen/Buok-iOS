@@ -13,22 +13,22 @@ import Promise
 import SwiftyJSON
 
 protocol APIRequestType {
-    var requestURL: URL { get }
-    var requestParameter: [String: Any]? { get }
-    var httpMethod: HeroRequest.Method { get }
-    var encoding: HeroRequest.RequestEncoding { get }
-    var requestHeaders: [HeroHeader]? { get }
+	var requestURL: URL { get }
+	var requestParameter: [String: Any]? { get }
+	var httpMethod: HeroRequest.Method { get }
+	var encoding: HeroRequest.RequestEncoding { get }
+	var requestHeaders: [HeroHeader]? { get }
 }
 
 extension APIRequestType {
-    var requestHeaders: [HeroHeader]? {
-        nil
-    }
+	var requestHeaders: [HeroHeader]? {
+		nil
+	}
 }
 
 public class BaseAPIRequest {
-    typealias RequestType = APIRequestType
-    
+	typealias RequestType = APIRequestType
+	
     static func requestJSONResponse(requestType: RequestType) -> Promise<Any?> {
         Promise { fulfill, reject in
             let url = requestType.requestURL
@@ -36,7 +36,7 @@ public class BaseAPIRequest {
             if let requestHeaders = requestType.requestHeaders {
                 heroRequest.requestHeaders = requestHeaders
             }
-            
+
             Alamofire.request(heroRequest).responseJSON { response in
                 if response.result.isSuccess, let value = response.result.value {
                     fulfill(value)
@@ -48,7 +48,7 @@ public class BaseAPIRequest {
             }
         }
     }
-    
+
     static func requestStringResponse(requestType: RequestType) -> Promise<String?> {
         Promise { fulfill, reject in
             let url = requestType.requestURL
@@ -56,7 +56,7 @@ public class BaseAPIRequest {
             if let requestHeaders = requestType.requestHeaders {
                 heroRequest.requestHeaders = requestHeaders
             }
-            
+
             Alamofire.request(heroRequest).responseString { response in
                 if response.result.isSuccess {
                     fulfill(response.result.value)

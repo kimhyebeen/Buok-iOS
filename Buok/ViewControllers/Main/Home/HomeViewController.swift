@@ -44,6 +44,8 @@ public class HomeViewController: HeroBaseViewController {
         let afterTimeMillis = CFAbsoluteTimeGetCurrent()
         let elapsedTime = afterTimeMillis - beforeTimeMillis
         DebugLog("View Configuration Elapsed Time : \(elapsedTime)")
+		
+		notiButton.addTarget(self, action: #selector(onClickNotification(_:)), for: .touchUpInside)
     }
     
     private func bindViewModel() {

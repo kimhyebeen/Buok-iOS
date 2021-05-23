@@ -8,35 +8,29 @@
 import Foundation
 
 public struct HeroConstants {
-    public static var hostName: String {
-        #if SANDBOX
-        return "reqres.in/api/users/"
-        #else
-        return "reqres.in/api/users/"
-        #endif
-    }
-}
-
-public struct APIConstant {
-    public static var authURL: URL {
-        var urlComponents = URLComponents()
-        urlComponents.path = "/auth"
-        return urlComponents.url!
-    }
-    
-    public static var userURL: URL {
-        var urlComponents = URLComponents()
-        urlComponents.path = "/user"
-        return urlComponents.url!
-    }
-    
     #if SANDBOX
-    public static let homeURL = URL(string: "https://api.mocki.io")!
+    public static let base = "http://13.125.236.11:8080/api/v2"
     #elseif INHOUSE
-    public static let homeURL = URL(string: "https://api.mocki.io")!
+    public static let base = "http://13.125.236.11:8080/api/v2"
     #elseif REAL
-    public static let homeURL = URL(string: "https://api.mocki.io")!
+    public static let base = "http://13.125.236.11:8080/api/v2"
     #else
-    public static let homeURL = URL(string: "https://api.mocki.io")!
+    public static let base = "http://13.125.236.11:8080/api/v2"
     #endif
+	
+	public static var token: String {
+		return "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiZXhwIjoxNjIyMDE2NTI5fQ.ev-E1Ndtp2e0dp_6UeYdF7Fye2B3DHaa4JVxre86OF4"
+	}
+	
+	public static var user: String {
+		return "/users"
+	}
+	
+	public static var bucket: String {
+		return "/buckets"
+	}
+	
+	public static var me: String {
+		return "/me"
+	}
 }

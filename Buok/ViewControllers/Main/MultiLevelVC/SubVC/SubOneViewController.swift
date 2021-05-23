@@ -28,6 +28,8 @@ public class SubOneViewController: HeroBaseViewController {
         oneLabel.textColor = .white
         oneLabel.text = "111. One View Controller"
         
-        BucketListAPIRequest.homeNoticeListRequest()
+//		BucketListAPIRequest.bucketListRequest(bucketState: "ALL", category: "ALL", sort: "1")
+//		UserAPIRequest.usersListRequest()
+		UserAPIRequest.usersmeListRequest()
     }
 }
