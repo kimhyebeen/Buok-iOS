@@ -800,7 +800,6 @@
 				EE23DF76264EB36900AB31D1 /* BuokmarkFlagView.swift */,
 				EE23DF73264EB2F500AB31D1 /* BuokmarkCollectionCell.swift */,
 				EE4C015926587912002C5018 /* BuokmarkEmptyCollectionCell.swift */,
-				EE77F555265AA80E002C4782 /* FriendListCollectionCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -842,6 +841,7 @@
 			children = (
 				EE77F562265AAE28002C4782 /* FriendListViewController.swift */,
 				EE77F564265AB39E002C4782 /* FriendListViewModel.swift */,
+				EE77F555265AA80E002C4782 /* FriendListCollectionCell.swift */,
 			);
 			path = FriendList;
 			sourceTree = "<group>";

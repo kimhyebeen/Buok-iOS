@@ -7,6 +7,12 @@
 
 import HeroUI
 
+protocol MypageProfileViewDelegate: AnyObject {
+    func onClickEditButton()
+    func onClickFriendCountingButton()
+    func onClickBucketCountingButton()
+}
+
 class MypageProfileView: UIView {
     private let profileImageView = UIImageView()
     private let nameLabel = UILabel()
@@ -16,6 +22,8 @@ class MypageProfileView: UIView {
     private let introduceLabel = UILabel()
     private let dateImageView = UIImageView()
     private let dateLabel = UILabel()
+    
+    weak var delegate: MypageProfileViewDelegate?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -41,7 +49,22 @@ class MypageProfileView: UIView {
     func setProfile() {
         // todo - Profile 객체를 받아 뷰 업데이트
     }
-
+    
+    @objc
+    func clickEditButton(_ sender: UIButton) {
+        delegate?.onClickEditButton()
+    }
+    
+    @objc
+    func clickFriendCountingButton(_ sender: UIButton) {
+        delegate?.onClickFriendCountingButton()
+    }
+    
+    @objc
+    func clickBucketCountingButton(_ sender: UIButton) {
+        delegate?.onClickBucketCountingButton()
+    }
+    
 }
 
 extension MypageProfileView {
@@ -93,6 +116,7 @@ extension MypageProfileView {
         editButton.layer.cornerRadius = 8
         editButton.layer.borderWidth = 1
         editButton.layer.borderColor = UIColor.heroGray82.cgColor
+        editButton.addTarget(self, action: #selector(clickEditButton(_:)), for: .touchUpInside)
         self.addSubview(editButton)
         
         editButton.snp.makeConstraints { make in
@@ -105,6 +129,8 @@ extension MypageProfileView {
     
     // MARK: CountingButtonStack
     private func setupCountingButtonStack() {
+        countingButtonStack.friendButton.addTarget(self, action: #selector(clickFriendCountingButton(_:)), for: .touchUpInside)
+        countingButtonStack.bucketButton.addTarget(self, action: #selector(clickBucketCountingButton(_:)), for: .touchUpInside)
         self.addSubview(countingButtonStack)
         
         countingButtonStack.snp.makeConstraints { make in
