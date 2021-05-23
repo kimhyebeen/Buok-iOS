@@ -8,6 +8,7 @@
 import HeroUI
 
 class FriendListCollectionCell: UICollectionViewCell {
+    static let identifier = "FriendListCollectionCell"
     private let profileImageView = UIImageView()
     private let userLabel = UILabel()
     private let introLabel = UILabel()
@@ -30,6 +31,10 @@ class FriendListCollectionCell: UICollectionViewCell {
         setupUserLabel()
         setupIntroLabel()
         setupFriendButton()
+    }
+    
+    func settingInformation() {
+        // todo - 친구 프로필, 계정이름, 자기소개 전달받기
     }
     
     @objc
