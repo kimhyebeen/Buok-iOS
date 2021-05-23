@@ -85,6 +85,7 @@
 		EE77F560265AA900002C4782 /* FriendButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE77F55F265AA900002C4782 /* FriendButton.swift */; };
 		EE77F563265AAE28002C4782 /* FriendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE77F562265AAE28002C4782 /* FriendListViewController.swift */; };
 		EE77F565265AB39E002C4782 /* FriendListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE77F564265AB39E002C4782 /* FriendListViewModel.swift */; };
+		EE77F57D265B20EF002C4782 /* BucketStatusFlagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE77F57C265B20EF002C4782 /* BucketStatusFlagView.swift */; };
 		EE79C431264AC43000E83B6A /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE79C430264AC43000E83B6A /* MypageViewController.swift */; };
 		EE79C436264AC57800E83B6A /* MypageCountingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE79C435264AC57800E83B6A /* MypageCountingButton.swift */; };
 		EE79C43B264AC78600E83B6A /* MypageCountingStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE79C43A264AC78600E83B6A /* MypageCountingStackView.swift */; };
@@ -345,6 +346,7 @@
 		EE77F55F265AA900002C4782 /* FriendButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendButton.swift; sourceTree = "<group>"; };
 		EE77F562265AAE28002C4782 /* FriendListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListViewController.swift; sourceTree = "<group>"; };
 		EE77F564265AB39E002C4782 /* FriendListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListViewModel.swift; sourceTree = "<group>"; };
+		EE77F57C265B20EF002C4782 /* BucketStatusFlagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketStatusFlagView.swift; sourceTree = "<group>"; };
 		EE79C430264AC43000E83B6A /* MypageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
 		EE79C435264AC57800E83B6A /* MypageCountingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageCountingButton.swift; sourceTree = "<group>"; };
 		EE79C43A264AC78600E83B6A /* MypageCountingStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageCountingStackView.swift; sourceTree = "<group>"; };
@@ -593,6 +595,7 @@
 				B0635AC42603897600046E88 /* HomeViewController.swift */,
 				B01D43AF26039D5700F2D28C /* HomeViewModel.swift */,
 				B01D43B92604231800F2D28C /* CategoryFilterView.swift */,
+				EE77F57C265B20EF002C4782 /* BucketStatusFlagView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1346,6 +1349,7 @@
 				EEC801F52659048500777B43 /* FriendPageViewController.swift in Sources */,
 				B06B5CB425ECA4070045A491 /* MainTabBarViewController.swift in Sources */,
 				EE79C436264AC57800E83B6A /* MypageCountingButton.swift in Sources */,
+				EE77F57D265B20EF002C4782 /* BucketStatusFlagView.swift in Sources */,
 				B075238125EF5AF70016DC3A /* BucketListHomeAPIRequest.swift in Sources */,
 				B0D0218226021A2100F25329 /* NadamProperties.swift in Sources */,
 				B075230925EF1A0E0016DC3A /* BaseAPIRequest.swift in Sources */,
