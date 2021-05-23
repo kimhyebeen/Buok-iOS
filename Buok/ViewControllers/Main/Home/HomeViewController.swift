@@ -14,13 +14,13 @@ public class HomeViewController: HeroBaseViewController {
     private let topContentView: UIView = UIView()
     private let notiButton: HeroImageButton = {
         $0.imageInset = 8
-        $0.heroImage = UIImage(heroSharedNamed: "tab_home.png")
+        $0.heroImage = UIImage(heroSharedNamed: "ic_noti")
         return $0
     }(HeroImageButton())
     
     private let searchButton: HeroImageButton = {
         $0.imageInset = 8
-        $0.heroImage = UIImage(heroSharedNamed: "tab_home.png")
+        $0.heroImage = UIImage(heroSharedNamed: "ic_search")
         return $0
     }(HeroImageButton())
     
@@ -77,17 +77,19 @@ public class HomeViewController: HeroBaseViewController {
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             make.leading.equalTo(view.safeAreaLayoutGuide.snp.leading)
             make.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing)
-            make.height.equalTo(44)
+            make.height.equalTo(48)
         }
         
         notiButton.snp.makeConstraints { make in
-            make.top.leading.bottom.equalToSuperview()
+            make.leading.equalToSuperview().offset(7)
+            make.centerY.equalToSuperview()
             make.width.equalTo(44)
             make.height.equalTo(44)
         }
         
         searchButton.snp.makeConstraints { make in
-            make.top.trailing.bottom.equalToSuperview()
+            make.trailing.equalToSuperview().offset(-7)
+            make.centerY.equalToSuperview()
             make.width.equalTo(44)
             make.height.equalTo(44)
         }
@@ -114,7 +116,7 @@ public class HomeViewController: HeroBaseViewController {
     }
     
     private func setupViewProperties() {
-        view.backgroundColor = .heroGraySample100s
+        view.backgroundColor = .heroGrayF2EDE8
         
         topSectionView.axis = .vertical
         messageContainerView.backgroundColor = .heroWhite100s
