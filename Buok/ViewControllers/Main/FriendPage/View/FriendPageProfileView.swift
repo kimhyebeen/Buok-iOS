@@ -35,6 +35,8 @@ class FriendPageProfileView: UIView {
     }
     
     private func setupView() {
+        self.backgroundColor = .heroServiceSkin
+        
         setupProfileImageView()
         setupNameLabel()
         setupEmailLabel()

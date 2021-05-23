@@ -16,8 +16,6 @@ class FriendPageViewController: HeroBaseViewController {
     
     let profileView = FriendPageProfileView()
     let headerView = FriendPageBuokmarkHeaderView()
-    let backgroundHeaderBottomView = UIView()
-    let bottomView = UIView()
     let emptyBucketStackView = UIStackView()
     
     private var viewModel = FriendPageViewModel()
@@ -30,6 +28,8 @@ class FriendPageViewController: HeroBaseViewController {
     }
     
     private func setupView() {
+        self.view.backgroundColor = .heroPrimaryBeigeLighter
+        
         setupSafeAreaView()
         setupTopView()
         setupBackButton()
@@ -37,8 +37,6 @@ class FriendPageViewController: HeroBaseViewController {
         setupCollectionView()
         setupProfileView()
         setupHeaderView()
-        setupBackgroundHeaderBottomView()
-        setupBottomView()
         setupEmptyBucketView()
         
         self.view.bringSubviewToFront(safeAreaView)
@@ -109,7 +107,6 @@ extension FriendPageViewController: UICollectionViewDelegate, UICollectionViewDa
         }
         
         cell.setInformation(to: viewModel.buokmarks[indexPath.row], color: MypageViewController.buokmarkColors[indexPath.row % 3])
-        cell.backgroundColor = .heroPrimaryBeigeLighter
         
         return cell
     }
@@ -130,7 +127,6 @@ extension FriendPageViewController: UICollectionViewDelegate, UICollectionViewDa
         var transform = CATransform3DIdentity
         transform = CATransform3DTranslate(transform, 0, max(-offsetForHeader, -totalOffset), 0)
         
-        backgroundHeaderBottomView.layer.transform = transform
         profileView.layer.transform = transform
         headerView.layer.transform = transform
     }
@@ -249,33 +245,6 @@ extension FriendPageViewController {
         }
     }
     
-    // MARK: BackgroundHeaderBottomView
-    func setupBackgroundHeaderBottomView() {
-        backgroundHeaderBottomView.backgroundColor = .heroPrimaryBeigeLighter
-        self.view.addSubview(backgroundHeaderBottomView)
-        
-        backgroundHeaderBottomView.snp.makeConstraints { make in
-            make.height.equalTo(20)
-            make.top.equalTo(headerView.snp.bottom)
-            make.leading.trailing.equalToSuperview()
-        }
-        
-        self.view.sendSubviewToBack(backgroundHeaderBottomView)
-    }
-    
-    // MARK: BottomView
-    func setupBottomView() {
-        bottomView.backgroundColor = .heroPrimaryBeigeLighter
-        self.view.addSubview(bottomView)
-        
-        bottomView.snp.makeConstraints { make in
-            make.top.equalTo(self.headerView.snp.bottom)
-            make.leading.trailing.bottom.equalToSuperview()
-        }
-        
-        self.view.sendSubviewToBack(bottomView)
-    }
-    
     // MARK: EmptyBucketImageView
     func setupEmptyBucketView() {
         let emptyBucketImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 143, height: 143))
@@ -296,7 +265,8 @@ extension FriendPageViewController {
         self.view.addSubview(emptyBucketStackView)
         
         emptyBucketStackView.snp.makeConstraints { make in
-            make.center.equalTo(bottomView.snp.center)
+            make.top.equalTo(headerView.snp.bottom).offset(40)
+            make.centerX.equalToSuperview()
         }
     }
 }
