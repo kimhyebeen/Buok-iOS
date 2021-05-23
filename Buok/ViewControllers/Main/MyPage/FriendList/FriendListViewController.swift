@@ -38,15 +38,18 @@ extension FriendListViewController: UICollectionViewDelegate, UICollectionViewDa
         }
         
         // todo - cell 정보 적용
+        cell.settingInformation(indexPath.row % 2 == 0 ? nil : "자기소개입니다.")
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+        return 15
     }
     
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        // todo - 친구 페이지 이동
+        // todo - 해당친구의 정보를 띄운 친구페이지로 이동
+        let friendVC = FriendPageViewController()
+        self.navigationController?.pushViewController(friendVC, animated: true)
         return true
     }
     
@@ -94,7 +97,8 @@ extension FriendListViewController {
     private func setupCollectionView() {
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.contentInset = UIEdgeInsets(top: 14, left: 0, bottom: 44, right: 0)
+        collectionView.backgroundColor = .clear
+        collectionView.contentInset = UIEdgeInsets(top: 14, left: 0, bottom: 0, right: 0)
         collectionView.register(FriendListCollectionCell.self, forCellWithReuseIdentifier: FriendListCollectionCell.identifier)
         self.view.addSubview(collectionView)
         

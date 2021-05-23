@@ -14,7 +14,7 @@ class FriendListCollectionCell: UICollectionViewCell {
     private let introLabel = UILabel()
     private let friendButton = FriendButton()
     
-    private var widthOfFriendButton: NSLayoutConstraint?
+    private var topOfUserLabel: NSLayoutConstraint?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -33,8 +33,16 @@ class FriendListCollectionCell: UICollectionViewCell {
         setupFriendButton()
     }
     
-    func settingInformation() {
+    func settingInformation(_ intro: String? = nil) {
         // todo - 친구 프로필, 계정이름, 자기소개 전달받기
+        if let introduce = intro {
+            introLabel.isHidden = false
+            introLabel.text = introduce
+            topOfUserLabel?.constant = 6
+        } else {
+            introLabel.isHidden = true
+            topOfUserLabel?.constant = 16
+        }
     }
     
     @objc
@@ -65,14 +73,17 @@ extension FriendListCollectionCell {
         self.addSubview(userLabel)
         
         userLabel.snp.makeConstraints { make in
-            make.top.equalTo(profileImageView.snp.top).offset(6)
             make.leading.equalTo(profileImageView.snp.trailing).offset(12)
         }
+        
+        topOfUserLabel = userLabel.topAnchor.constraint(equalTo: profileImageView.topAnchor)
+        topOfUserLabel?.constant = 6
+        topOfUserLabel?.isActive = true
     }
     
     // MARK: IntroLabel
     private func setupIntroLabel() {
-        introLabel.text = "소개글"
+        introLabel.text = ""
         introLabel.textColor = .heroGray5B
         introLabel.font = .font12P
         self.addSubview(introLabel)
@@ -92,7 +103,7 @@ extension FriendListCollectionCell {
         friendButton.snp.makeConstraints { make in
             make.width.equalTo(48)
             make.centerY.equalToSuperview()
-            make.leading.equalToSuperview().offset(-20)
+            make.trailing.equalToSuperview().offset(-20)
         }
     }
 }
