@@ -15,12 +15,14 @@ public class HomeViewController: HeroBaseViewController {
     private let notiButton: HeroImageButton = {
         $0.imageInset = 8
         $0.heroImage = UIImage(heroSharedNamed: "ic_noti")
+        $0.addTarget(self, action: #selector(onClickNotification(_:)), for: .touchUpInside)
         return $0
     }(HeroImageButton())
     
     private let searchButton: HeroImageButton = {
         $0.imageInset = 8
         $0.heroImage = UIImage(heroSharedNamed: "ic_search")
+        $0.addTarget(self, action: #selector(onClickSearch(_:)), for: .touchUpInside)
         return $0
     }(HeroImageButton())
     
