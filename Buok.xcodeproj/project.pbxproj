@@ -84,6 +84,7 @@
 		EE77F556265AA80E002C4782 /* FriendListCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE77F555265AA80E002C4782 /* FriendListCollectionCell.swift */; };
 		EE77F560265AA900002C4782 /* FriendButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE77F55F265AA900002C4782 /* FriendButton.swift */; };
 		EE77F563265AAE28002C4782 /* FriendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE77F562265AAE28002C4782 /* FriendListViewController.swift */; };
+		EE77F565265AB39E002C4782 /* FriendListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE77F564265AB39E002C4782 /* FriendListViewModel.swift */; };
 		EE79C431264AC43000E83B6A /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE79C430264AC43000E83B6A /* MypageViewController.swift */; };
 		EE79C436264AC57800E83B6A /* MypageCountingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE79C435264AC57800E83B6A /* MypageCountingButton.swift */; };
 		EE79C43B264AC78600E83B6A /* MypageCountingStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE79C43A264AC78600E83B6A /* MypageCountingStackView.swift */; };
@@ -343,6 +344,7 @@
 		EE77F555265AA80E002C4782 /* FriendListCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListCollectionCell.swift; sourceTree = "<group>"; };
 		EE77F55F265AA900002C4782 /* FriendButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendButton.swift; sourceTree = "<group>"; };
 		EE77F562265AAE28002C4782 /* FriendListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListViewController.swift; sourceTree = "<group>"; };
+		EE77F564265AB39E002C4782 /* FriendListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListViewModel.swift; sourceTree = "<group>"; };
 		EE79C430264AC43000E83B6A /* MypageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
 		EE79C435264AC57800E83B6A /* MypageCountingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageCountingButton.swift; sourceTree = "<group>"; };
 		EE79C43A264AC78600E83B6A /* MypageCountingStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageCountingStackView.swift; sourceTree = "<group>"; };
@@ -839,6 +841,7 @@
 			isa = PBXGroup;
 			children = (
 				EE77F562265AAE28002C4782 /* FriendListViewController.swift */,
+				EE77F564265AB39E002C4782 /* FriendListViewModel.swift */,
 			);
 			path = FriendList;
 			sourceTree = "<group>";
@@ -1308,6 +1311,7 @@
 				B0B033D32622AA0900D65204 /* SettingNavigator.swift in Sources */,
 				EE23DF77264EB36900AB31D1 /* BuokmarkFlagView.swift in Sources */,
 				EE77F563265AAE28002C4782 /* FriendListViewController.swift in Sources */,
+				EE77F565265AB39E002C4782 /* FriendListViewModel.swift in Sources */,
 				EE4C015026587401002C5018 /* BuokmarkFlag.swift in Sources */,
 				B0B033C12621C97300D65204 /* SettingViewController.swift in Sources */,
 				EECEF1922627E08300CF9394 /* IntroduceTextView.swift in Sources */,

@@ -11,6 +11,8 @@ class FriendListViewController: HeroBaseViewController {
     private let backButton = UIButton()
     private let titleLabel = UILabel()
     private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    
+    private let viewModel = FriendListViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +45,7 @@ extension FriendListViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 15
+        return viewModel.friends.count
     }
     
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
