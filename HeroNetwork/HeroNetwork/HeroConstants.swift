@@ -19,7 +19,7 @@ public struct HeroConstants {
     #endif
 	
 	public static var token: String {
-		return "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiZXhwIjoxNjIyMDE2NTI5fQ.ev-E1Ndtp2e0dp_6UeYdF7Fye2B3DHaa4JVxre86OF4"
+		return "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzMiIsImV4cCI6MTYyMzY1MjU0MH0.6LMJe5g825BC3mMf8n30UHKiHs9HDyhrT-7EkHOqick"
 	}
 	
 	public static var user: String {

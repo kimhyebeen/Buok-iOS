@@ -15,7 +15,7 @@ struct UserData: Codable {
 	var email: String?
 	var nickname: String
 	var intro: String
-	var profileUrl: String
+	var profileUrl: String?
 	var createdDate: String?
 	
 	enum CodingKeys: String, CodingKey {
@@ -43,7 +43,7 @@ struct UsermeData: Codable {
 }
 
 struct BookmarkData: Codable {
-	var bookmarkList: [BookmarkListData]
+	var bookmarkList: [BookmarkListData]?
 	var bookMarkCount: Int
 	
 	enum CodingKeys: String, CodingKey {
@@ -113,7 +113,7 @@ public struct UserAPIRequest {
 					let jsonData = try JSONSerialization.data(withJSONObject: dictData, options: .prettyPrinted)
 					let getData = try JSONDecoder().decode(UserListServerModel.self, from: jsonData)
 					DebugLog(">>>> UserAPIRequest - usersListRequest getData: \(getData.status), \(getData.message)")
-					DebugLog(">>>> UserAPIRequest - usersListRequest getData: \(getData.data.nickname), \(getData.data.intro), \(getData.data.profileUrl)")
+					DebugLog(">>>> UserAPIRequest - usersListRequest getData: \(getData.data.nickname), \(getData.data.intro), \(getData.data.profileUrl ?? "")")
 				}
 			} catch {
 				DebugLog(">>>> UserAPIRequest ERROR")
@@ -130,12 +130,11 @@ public struct UserAPIRequest {
 					DebugLog(">>>> UserAPIRequest - getData: \(getData.status), \(getData.message)")
 					DebugLog(">>>> UserAPIRequest - getData: \(getData.data.user.nickname)")
 					DebugLog(">>>> UserAPIRequest - getData: \(getData.data.friendCount), \(getData.data.bucketCount)")
-					DebugLog(">>>> UserAPIRequest - getData: \(getData.data.bookmark.bookMarkCount), \(getData.data.bookmark.bookmarkList.first?.bucketName ?? "")")
+                    DebugLog(">>>> UserAPIRequest - getData: \(getData.data.bookmark.bookMarkCount), \(getData.data.bookmark.bookmarkList?.first?.bucketName ?? "")")
 				}
 			} catch {
 				DebugLog(">>>> UserAPIRequest ERROR")
 			}
 		}
 	}
-	
 }

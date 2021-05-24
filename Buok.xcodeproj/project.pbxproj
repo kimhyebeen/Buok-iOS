@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		20578AFA9B716592135E4D20 /* Pods_BuokTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA30482BA20B7DD44EA69D7 /* Pods_BuokTests.framework */; };
 		29CA50B5265AEE7B00533ED6 /* UserAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CA50B4265AEE7B00533ED6 /* UserAPIRequest.swift */; };
+		528E6F27265BB53A00F9013D /* SignAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528E6F26265BB53A00F9013D /* SignAPIRequest.swift */; };
 		73A6015BE1A71587F5FCC6C5 /* Pods_BuokWidgetExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6C0B3A741D94BE2552F9A2D /* Pods_BuokWidgetExtension.framework */; };
 		7A23F5D60945D5051A7AF8BA /* Pods_Buok_BuokUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19D64A49C31935ACEF072549 /* Pods_Buok_BuokUITests.framework */; };
 		B01D43A826039D2500F2D28C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01D43A726039D2500F2D28C /* DetailViewController.swift */; };
@@ -215,6 +216,7 @@
 		4BE414CD84DE5C96B36B278E /* Pods-YappHero.real.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHero.real.xcconfig"; path = "Target Support Files/Pods-YappHero/Pods-YappHero.real.xcconfig"; sourceTree = "<group>"; };
 		4ED130FF7235F27FE2025A97 /* Pods-BuokTests.inhouse(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuokTests.inhouse(debug).xcconfig"; path = "Target Support Files/Pods-BuokTests/Pods-BuokTests.inhouse(debug).xcconfig"; sourceTree = "<group>"; };
 		4F93D0621D7E53F338B6AD22 /* Pods-YappHeroTests.sandbox(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHeroTests.sandbox(debug).xcconfig"; path = "Target Support Files/Pods-YappHeroTests/Pods-YappHeroTests.sandbox(debug).xcconfig"; sourceTree = "<group>"; };
+		528E6F26265BB53A00F9013D /* SignAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignAPIRequest.swift; sourceTree = "<group>"; };
 		54167ECDDAF71780B1B61453 /* Pods-Nadam-NadamUITests.inhouse(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nadam-NadamUITests.inhouse(debug).xcconfig"; path = "Target Support Files/Pods-Nadam-NadamUITests/Pods-Nadam-NadamUITests.inhouse(debug).xcconfig"; sourceTree = "<group>"; };
 		56DD4736D819295D6C88234C /* Pods-YappHero-YappHeroUITests.real.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHero-YappHeroUITests.real.xcconfig"; path = "Target Support Files/Pods-YappHero-YappHeroUITests/Pods-YappHero-YappHeroUITests.real.xcconfig"; sourceTree = "<group>"; };
 		5C787C2468C12396EAD207F0 /* Pods-BucketList-BucketListUITests.sandbox(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BucketList-BucketListUITests.sandbox(debug).xcconfig"; path = "Target Support Files/Pods-BucketList-BucketListUITests/Pods-BucketList-BucketListUITests.sandbox(debug).xcconfig"; sourceTree = "<group>"; };
@@ -372,6 +374,7 @@
 			isa = PBXGroup;
 			children = (
 				29CA50B4265AEE7B00533ED6 /* UserAPIRequest.swift */,
+				528E6F26265BB53A00F9013D /* SignAPIRequest.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -1235,6 +1238,7 @@
 				EE61F70726457CA3004DF51B /* UserViewModel.swift in Sources */,
 				B06B5CB425ECA4070045A491 /* MainTabBarViewController.swift in Sources */,
 				EE79C436264AC57800E83B6A /* MypageCountingButton.swift in Sources */,
+				528E6F27265BB53A00F9013D /* SignAPIRequest.swift in Sources */,
 				B075238125EF5AF70016DC3A /* BucketListAPIRequest.swift in Sources */,
 				B0D0218226021A2100F25329 /* NadamProperties.swift in Sources */,
 				B075230925EF1A0E0016DC3A /* BaseAPIRequest.swift in Sources */,
