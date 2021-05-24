@@ -20,7 +20,6 @@ class MypageViewController: HeroBaseViewController {
     static let buokmarkColors: [UIColor] = [.heroPrimaryPinkLight, .heroPrimaryNavyLight, .heroPrimaryBlueLight]
     
     private let viewModel = MypageViewModel()
-    private var buokmarks: [BuokmarkFlag] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +50,6 @@ class MypageViewController: HeroBaseViewController {
     
     private func bindingViewModel() {
         viewModel.fetchBuokmarks().then { [weak self] values in
-            self?.buokmarks = values
             self?.buokmarkHeader.count = values.count
             self?.collectionView.reloadSections(IndexSet(0...0))
         }
@@ -68,11 +66,11 @@ class MypageViewController: HeroBaseViewController {
 extension MypageViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return buokmarks.count > 0 ? buokmarks.count : 3
+        return viewModel.buokmarks.count > 0 ? viewModel.buokmarks.count : 3
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if buokmarks.count > 0 {
+        if viewModel.buokmarks.count > 0 {
             return settingBuokmarkCell(collectionView, indexPath)
         } else { return settingEmptyCell(collectionView, indexPath) }
     }
@@ -82,7 +80,7 @@ extension MypageViewController: UICollectionViewDelegate, UICollectionViewDataSo
             return BuokmarkCollectionCell()
         }
         
-        cell.setInformation(to: buokmarks[indexPath.row], color: MypageViewController.buokmarkColors[indexPath.row % 3])
+        cell.setInformation(to: viewModel.buokmarks[indexPath.row], color: MypageViewController.buokmarkColors[indexPath.row % 3])
         
         return cell
     }
@@ -116,14 +114,14 @@ extension MypageViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        if buokmarks.count > 0 || indexPath.row > 0 { return false }
+        if viewModel.buokmarks.count > 0 || indexPath.row > 0 { return false }
         // todo - home > 완료 이동
         print("MypageViewController - shouldSelectItemAt - home의 완료로 이동")
         return true
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: 96)
+        return CGSize(width: collectionView.frame.width - 40, height: 96)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -163,7 +161,7 @@ extension MypageViewController {
         collectionView.dataSource = self
         collectionView.backgroundColor = .clear
         collectionView.showsVerticalScrollIndicator = false
-        collectionView.contentInset = UIEdgeInsets(top: 368 + 20, left: 0, bottom: 0, right: 0)
+        collectionView.contentInset = UIEdgeInsets(top: 368 + 20, left: 20, bottom: 0, right: 20)
         collectionView.register(BuokmarkCollectionCell.self, forCellWithReuseIdentifier: BuokmarkCollectionCell.identifier)
         collectionView.register(BuokmarkEmptyCollectionCell.self, forCellWithReuseIdentifier: BuokmarkEmptyCollectionCell.identifier)
     }

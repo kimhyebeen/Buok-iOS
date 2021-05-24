@@ -137,11 +137,11 @@ extension FriendPageViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = collectionView.frame.width
+        let width = collectionView.frame.width - 40
         if indexPath.section == 0 {
             return CGSize(width: width, height: 96)
         } else {
-            return CGSize(width: width / 2 - 28, height: width / 2 - 28 + 16 + 2)
+            return CGSize(width: width / 2 - 30, height: width / 2 - 30 + 16 + 2)
         }
     }
     
@@ -150,7 +150,7 @@ extension FriendPageViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return section == 0 ? 0 : 20
+        return section == 0 ? 0 : 18
     }
 }
 
@@ -217,7 +217,7 @@ extension FriendPageViewController {
         collectionView.dataSource = self
         collectionView.backgroundColor = .clear
         collectionView.showsVerticalScrollIndicator = false
-        collectionView.contentInset = UIEdgeInsets(top: 368 + 20, left: 0, bottom: 0, right: 0)
+        collectionView.contentInset = UIEdgeInsets(top: 368 + 20, left: 20, bottom: 0, right: 20)
         collectionView.register(BuokmarkCollectionCell.self, forCellWithReuseIdentifier: BuokmarkCollectionCell.identifier)
         // todo - 버킷북 cell 등록
     }

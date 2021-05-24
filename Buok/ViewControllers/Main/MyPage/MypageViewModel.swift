@@ -8,6 +8,8 @@
 import Promise
 
 class MypageViewModel {
+    var buokmarks: [BuokmarkFlag] = []
+    
     func fetchFriends() {
         
     }
@@ -30,6 +32,9 @@ class MypageViewModel {
                 BuokmarkFlag(date: "2020.02", title: "버킷리스트8", category: "ic_fill_finance"),
                 BuokmarkFlag(date: "2019.08", title: "버킷리스트9", category: "ic_fill_health"),
                 BuokmarkFlag(date: "2019.05", title: "버킷리스트10", category: "ic_fill_etc")]
+            
+            buokmarks = flags
+            
             return flags
         }())
     }
