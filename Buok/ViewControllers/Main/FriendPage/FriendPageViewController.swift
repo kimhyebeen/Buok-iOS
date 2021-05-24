@@ -37,7 +37,7 @@ class FriendPageViewController: HeroBaseViewController {
         setupCollectionView()
         setupProfileView()
         setupHeaderView()
-        setupEmptyBucketView()
+        setupDisabledBucketView()
         
         self.view.bringSubviewToFront(safeAreaView)
         self.view.bringSubviewToFront(topView)
@@ -112,7 +112,14 @@ extension FriendPageViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     private func settingBucketBookCell(_ collectionView: UICollectionView, _ indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BucketCollectionCell.identifier, for: indexPath) as? BucketCollectionCell else {
+            return BucketCollectionCell()
+        }
+        
+        let types: [BucketStatusType] = [.inProgress, .expected, .fail, .done]
+        cell.setInformation(viewModel.bucketBooks[indexPath.row], types[indexPath.row % 4])
+        
+        return cell
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -141,7 +148,7 @@ extension FriendPageViewController: UICollectionViewDelegate, UICollectionViewDa
         if indexPath.section == 0 {
             return CGSize(width: width, height: 96)
         } else {
-            return CGSize(width: width / 2 - 30, height: width / 2 - 30 + 16 + 2)
+            return CGSize(width: width / 2 - 9, height: width / 2 - 9 + 16 + 2)
         }
     }
     
@@ -219,7 +226,7 @@ extension FriendPageViewController {
         collectionView.showsVerticalScrollIndicator = false
         collectionView.contentInset = UIEdgeInsets(top: 368 + 20, left: 20, bottom: 0, right: 20)
         collectionView.register(BuokmarkCollectionCell.self, forCellWithReuseIdentifier: BuokmarkCollectionCell.identifier)
-        // todo - 버킷북 cell 등록
+        collectionView.register(BucketCollectionCell.self, forCellWithReuseIdentifier: BucketCollectionCell.identifier)
     }
     
     // MARK: ProfileView
@@ -245,12 +252,12 @@ extension FriendPageViewController {
         }
     }
     
-    // MARK: EmptyBucketImageView
-    func setupEmptyBucketView() {
-        let emptyBucketImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 143, height: 143))
-        emptyBucketImageView.image = UIImage(heroSharedNamed: "ill_lock")
-        emptyBucketImageView.contentMode = .scaleAspectFit
-        emptyBucketStackView.addArrangedSubview(emptyBucketImageView)
+    // MARK: DisabledBucketImageView
+    func setupDisabledBucketView() {
+        let disabledBucketImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 143, height: 143))
+        disabledBucketImageView.image = UIImage(heroSharedNamed: "ill_lock")
+        disabledBucketImageView.contentMode = .scaleAspectFit
+        emptyBucketStackView.addArrangedSubview(disabledBucketImageView)
         
         let emptyBucketLabel = UILabel()
         emptyBucketLabel.numberOfLines = 0
@@ -264,8 +271,10 @@ extension FriendPageViewController {
         emptyBucketStackView.spacing = 8
         self.view.addSubview(emptyBucketStackView)
         
+        let heightOfUntilHeaderView: CGFloat = 456
+        let heightOfBottom = self.view.frame.maxY - heightOfUntilHeaderView
         emptyBucketStackView.snp.makeConstraints { make in
-            make.top.equalTo(headerView.snp.bottom).offset(40)
+            make.top.equalTo(headerView.snp.bottom).offset((heightOfBottom - 143) / 2)
             make.centerX.equalToSuperview()
         }
     }
