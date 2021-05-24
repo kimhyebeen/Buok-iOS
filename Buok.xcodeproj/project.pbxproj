@@ -81,6 +81,10 @@
 		EE4C016026588821002C5018 /* EditProfileViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4C015F26588821002C5018 /* EditProfileViewController+UI.swift */; };
 		EE4C017326589743002C5018 /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4C017226589743002C5018 /* EditProfileViewModel.swift */; };
 		EE61F70726457CA3004DF51B /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE61F70626457CA3004DF51B /* UserViewModel.swift */; };
+		EE77F556265AA80E002C4782 /* FriendListCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE77F555265AA80E002C4782 /* FriendListCollectionCell.swift */; };
+		EE77F560265AA900002C4782 /* FriendButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE77F55F265AA900002C4782 /* FriendButton.swift */; };
+		EE77F563265AAE28002C4782 /* FriendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE77F562265AAE28002C4782 /* FriendListViewController.swift */; };
+		EE77F565265AB39E002C4782 /* FriendListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE77F564265AB39E002C4782 /* FriendListViewModel.swift */; };
 		EE79C431264AC43000E83B6A /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE79C430264AC43000E83B6A /* MypageViewController.swift */; };
 		EE79C436264AC57800E83B6A /* MypageCountingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE79C435264AC57800E83B6A /* MypageCountingButton.swift */; };
 		EE79C43B264AC78600E83B6A /* MypageCountingStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE79C43A264AC78600E83B6A /* MypageCountingStackView.swift */; };
@@ -337,6 +341,10 @@
 		EE4C017226589743002C5018 /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
 		EE61F70626457CA3004DF51B /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		EE64EE50EB3512280D8E7B47 /* Pods-Buok.real.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Buok.real.xcconfig"; path = "Target Support Files/Pods-Buok/Pods-Buok.real.xcconfig"; sourceTree = "<group>"; };
+		EE77F555265AA80E002C4782 /* FriendListCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListCollectionCell.swift; sourceTree = "<group>"; };
+		EE77F55F265AA900002C4782 /* FriendButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendButton.swift; sourceTree = "<group>"; };
+		EE77F562265AAE28002C4782 /* FriendListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListViewController.swift; sourceTree = "<group>"; };
+		EE77F564265AB39E002C4782 /* FriendListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListViewModel.swift; sourceTree = "<group>"; };
 		EE79C430264AC43000E83B6A /* MypageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
 		EE79C435264AC57800E83B6A /* MypageCountingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageCountingButton.swift; sourceTree = "<group>"; };
 		EE79C43A264AC78600E83B6A /* MypageCountingStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageCountingStackView.swift; sourceTree = "<group>"; };
@@ -713,6 +721,7 @@
 			children = (
 				EE23DF75264EB2FB00AB31D1 /* View */,
 				EE4C016926589730002C5018 /* EditProfile */,
+				EE77F561265AAE13002C4782 /* FriendList */,
 				EE79C430264AC43000E83B6A /* MypageViewController.swift */,
 				EE4C015B26588245002C5018 /* MypageViewModel.swift */,
 			);
@@ -788,9 +797,9 @@
 				EE79C43A264AC78600E83B6A /* MypageCountingStackView.swift */,
 				EE79C435264AC57800E83B6A /* MypageCountingButton.swift */,
 				EE79C444264AD72600E83B6A /* MypageBuokmarkHeaderView.swift */,
+				EE23DF76264EB36900AB31D1 /* BuokmarkFlagView.swift */,
 				EE23DF73264EB2F500AB31D1 /* BuokmarkCollectionCell.swift */,
 				EE4C015926587912002C5018 /* BuokmarkEmptyCollectionCell.swift */,
-				EE23DF76264EB36900AB31D1 /* BuokmarkFlagView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -827,6 +836,16 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		EE77F561265AAE13002C4782 /* FriendList */ = {
+			isa = PBXGroup;
+			children = (
+				EE77F562265AAE28002C4782 /* FriendListViewController.swift */,
+				EE77F564265AB39E002C4782 /* FriendListViewModel.swift */,
+				EE77F555265AA80E002C4782 /* FriendListCollectionCell.swift */,
+			);
+			path = FriendList;
+			sourceTree = "<group>";
+		};
 		EEC801EB2659047300777B43 /* FriendPage */ = {
 			isa = PBXGroup;
 			children = (
@@ -844,6 +863,7 @@
 				EEC801F8265910FF00777B43 /* FriendPageBuokmarkHeaderView.swift */,
 				EEC801FA265911E100777B43 /* BuokmarkHeaderButton.swift */,
 				EEC801FC2659171D00777B43 /* BucketBookHeaderButton.swift */,
+				EE77F55F265AA900002C4782 /* FriendButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1259,6 +1279,7 @@
 				B0635ADA260390E100046E88 /* CreateViewController.swift in Sources */,
 				B01D43A826039D2500F2D28C /* DetailViewController.swift in Sources */,
 				EEC802032659293700777B43 /* FriendPageViewModel.swift in Sources */,
+				EE77F556265AA80E002C4782 /* FriendListCollectionCell.swift in Sources */,
 				EE79C431264AC43000E83B6A /* MypageViewController.swift in Sources */,
 				B082F2CE26594F3900A7AB6B /* CreateAddCell.swift in Sources */,
 				B06B5EEF25ECCEE10045A491 /* SubTwoViewController.swift in Sources */,
@@ -1267,6 +1288,7 @@
 				B075231325EF1E6F0016DC3A /* BaseAPIError.swift in Sources */,
 				B01D43B526039D6C00F2D28C /* CreateViewModel.swift in Sources */,
 				B075226925ED08780016DC3A /* UserAuthModel.swift in Sources */,
+				EE77F560265AA900002C4782 /* FriendButton.swift in Sources */,
 				B0635AC52603897600046E88 /* HomeViewController.swift in Sources */,
 				EE4C015A26587912002C5018 /* BuokmarkEmptyCollectionCell.swift in Sources */,
 				B075226D25ED089F0016DC3A /* AuthTokenModel.swift in Sources */,
@@ -1288,6 +1310,8 @@
 				EE4940E02648332C00CB0B71 /* UITextView+.swift in Sources */,
 				B0B033D32622AA0900D65204 /* SettingNavigator.swift in Sources */,
 				EE23DF77264EB36900AB31D1 /* BuokmarkFlagView.swift in Sources */,
+				EE77F563265AAE28002C4782 /* FriendListViewController.swift in Sources */,
+				EE77F565265AB39E002C4782 /* FriendListViewModel.swift in Sources */,
 				EE4C015026587401002C5018 /* BuokmarkFlag.swift in Sources */,
 				B0B033C12621C97300D65204 /* SettingViewController.swift in Sources */,
 				EECEF1922627E08300CF9394 /* IntroduceTextView.swift in Sources */,

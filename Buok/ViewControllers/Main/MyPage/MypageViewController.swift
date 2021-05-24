@@ -62,23 +62,6 @@ class MypageViewController: HeroBaseViewController {
         // todo - 설정 버튼 기능
     }
     
-    @objc
-    func clickEditProfileButton(_ sender: UIButton) {
-        let editVC = EditProfileViewController()
-        editVC.modalPresentationStyle = .fullScreen
-        self.present(editVC, animated: true, completion: nil)
-    }
-    
-    @objc
-    func clickFriendButton(_ sender: UIButton) {
-        // todo - 친구 카운팅 버튼 기능
-    }
-    
-    @objc
-    func clickBucketButton(_ sender: UIButton) {
-        // todo - 버킷 카운팅 버튼 기능
-    }
-    
 }
 
 // MARK: +Delegate
@@ -152,6 +135,22 @@ extension MypageViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
 }
 
+extension MypageViewController: MypageProfileViewDelegate {
+    func onClickEditButton() {
+        let editVC = EditProfileViewController()
+        editVC.modalPresentationStyle = .fullScreen
+        self.present(editVC, animated: true, completion: nil)
+    }
+    
+    func onClickFriendCountingButton() {
+        self.navigationController?.pushViewController(FriendListViewController(), animated: true)
+    }
+    
+    func onClickBucketCountingButton() {
+        // todo - 홈 화면 > 완료 화면으로 가기
+    }    
+}
+
 extension MypageViewController {
     // MARK: CollectionView
     private func setupCollectionView() {
@@ -196,9 +195,7 @@ extension MypageViewController {
     
     // MARK: ProfileView
     private func setupProfileView() {
-        profileView.editButton.addTarget(self, action: #selector(clickEditProfileButton(_:)), for: .touchUpInside)
-        profileView.countingButtonStack.friendButton.addTarget(self, action: #selector(clickFriendButton(_:)), for: .touchUpInside)
-        profileView.countingButtonStack.bucketButton.addTarget(self, action: #selector(clickBucketButton(_:)), for: .touchUpInside)
+        profileView.delegate = self
         self.view.addSubview(profileView)
         
         profileView.snp.makeConstraints { make in
