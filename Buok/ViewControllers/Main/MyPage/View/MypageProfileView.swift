@@ -5,7 +5,13 @@
 //  Created by 김혜빈 on 2021/05/11.
 //
 
-import UIKit
+import HeroUI
+
+protocol MypageProfileViewDelegate: AnyObject {
+    func onClickEditButton()
+    func onClickFriendCountingButton()
+    func onClickBucketCountingButton()
+}
 
 class MypageProfileView: UIView {
     private let profileImageView = UIImageView()
@@ -16,6 +22,8 @@ class MypageProfileView: UIView {
     private let introduceLabel = UILabel()
     private let dateImageView = UIImageView()
     private let dateLabel = UILabel()
+    
+    weak var delegate: MypageProfileViewDelegate?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -41,12 +49,29 @@ class MypageProfileView: UIView {
     func setProfile() {
         // todo - Profile 객체를 받아 뷰 업데이트
     }
-
+    
+    @objc
+    func clickEditButton(_ sender: UIButton) {
+        delegate?.onClickEditButton()
+    }
+    
+    @objc
+    func clickFriendCountingButton(_ sender: UIButton) {
+        delegate?.onClickFriendCountingButton()
+    }
+    
+    @objc
+    func clickBucketCountingButton(_ sender: UIButton) {
+        delegate?.onClickBucketCountingButton()
+    }
+    
 }
 
 extension MypageProfileView {
     // MARK: ProfileImageView
     private func setupProfileImageView() {
+        profileImageView.image = UIImage(heroSharedNamed: "ic_profile_48")
+        profileImageView.contentMode = .scaleAspectFill
         profileImageView.layer.cornerRadius = 32
         profileImageView.layer.backgroundColor = UIColor.white.cgColor
         self.addSubview(profileImageView)
@@ -91,6 +116,7 @@ extension MypageProfileView {
         editButton.layer.cornerRadius = 8
         editButton.layer.borderWidth = 1
         editButton.layer.borderColor = UIColor.heroGray82.cgColor
+        editButton.addTarget(self, action: #selector(clickEditButton(_:)), for: .touchUpInside)
         self.addSubview(editButton)
         
         editButton.snp.makeConstraints { make in
@@ -103,6 +129,8 @@ extension MypageProfileView {
     
     // MARK: CountingButtonStack
     private func setupCountingButtonStack() {
+        countingButtonStack.friendButton.addTarget(self, action: #selector(clickFriendCountingButton(_:)), for: .touchUpInside)
+        countingButtonStack.bucketButton.addTarget(self, action: #selector(clickBucketCountingButton(_:)), for: .touchUpInside)
         self.addSubview(countingButtonStack)
         
         countingButtonStack.snp.makeConstraints { make in

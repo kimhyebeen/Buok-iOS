@@ -26,6 +26,7 @@
 		B07CDC1225F4B7A100D18589 /* MainTabBarConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07CDC1125F4B7A100D18589 /* MainTabBarConstants.swift */; };
 		B07CDC2B25F4BE5A00D18589 /* HeroAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07CDC2A25F4BE5A00D18589 /* HeroAlertViewController.swift */; };
 		B07CDC3A25F4C1B400D18589 /* HeroAlertButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07CDC3925F4C1B400D18589 /* HeroAlertButton.swift */; };
+		B082F2BA2658F3CF00A7AB6B /* HeroSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B082F2B92658F3CF00A7AB6B /* HeroSelectViewController.swift */; };
 		B94199A7340AA091D7EFED1D /* libPods-HeroUI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67AFB3E0E117A8D4DF3E3098 /* libPods-HeroUI.a */; };
 		EEBCE3C925FA1F2200BA6749 /* HeroTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBCE3C825FA1F2200BA6749 /* HeroTagView.swift */; };
 		EEBCE3D225FA21CD00BA6749 /* HeroFloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBCE3D125FA21CD00BA6749 /* HeroFloatingButton.swift */; };
@@ -68,6 +69,7 @@
 		B07CDC1125F4B7A100D18589 /* MainTabBarConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarConstants.swift; sourceTree = "<group>"; };
 		B07CDC2A25F4BE5A00D18589 /* HeroAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroAlertViewController.swift; sourceTree = "<group>"; };
 		B07CDC3925F4C1B400D18589 /* HeroAlertButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroAlertButton.swift; sourceTree = "<group>"; };
+		B082F2B92658F3CF00A7AB6B /* HeroSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroSelectViewController.swift; sourceTree = "<group>"; };
 		C33565CC9EFC666DA4E1F6C1 /* Pods-HeroUI.inhouse(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroUI.inhouse(debug).xcconfig"; path = "Target Support Files/Pods-HeroUI/Pods-HeroUI.inhouse(debug).xcconfig"; sourceTree = "<group>"; };
 		C39B8CF93D09A1C653D8841D /* Pods-HeroUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroUI.debug.xcconfig"; path = "Target Support Files/Pods-HeroUI/Pods-HeroUI.debug.xcconfig"; sourceTree = "<group>"; };
 		CF5BADAB0CAB732CEE18C3F8 /* Pods-HeroUI.real.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroUI.real.xcconfig"; path = "Target Support Files/Pods-HeroUI/Pods-HeroUI.real.xcconfig"; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 		B041750B25E2382C00D990A2 /* HeroUI */ = {
 			isa = PBXGroup;
 			children = (
+				B082F2B82658F3B400A7AB6B /* HeroSelectViewController */,
 				B0635ACC260389DF00046E88 /* HeroButton */,
 				EEBCE3C725FA1EFA00BA6749 /* HeroKeywordView */,
 				B07CDC2925F4BE4E00D18589 /* HeroAlertController */,
@@ -194,6 +197,14 @@
 				B04CF73025FCDBE600FBAB10 /* HeroAlertController.swift */,
 			);
 			path = HeroAlertController;
+			sourceTree = "<group>";
+		};
+		B082F2B82658F3B400A7AB6B /* HeroSelectViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B082F2B92658F3CF00A7AB6B /* HeroSelectViewController.swift */,
+			);
+			path = HeroSelectViewController;
 			sourceTree = "<group>";
 		};
 		EEBCE3C725FA1EFA00BA6749 /* HeroKeywordView */ = {
@@ -341,6 +352,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B082F2BA2658F3CF00A7AB6B /* HeroSelectViewController.swift in Sources */,
 				B06B5EDB25ECCC6E0045A491 /* UIImage+Hero.swift in Sources */,
 				B0376FF525F48768003D7750 /* TabBarActionButton.swift in Sources */,
 				B07CDC2B25F4BE5A00D18589 /* HeroAlertViewController.swift in Sources */,

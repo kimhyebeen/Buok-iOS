@@ -60,17 +60,27 @@ public extension UIColor {
     
     static var heroServiceSkin: UIColor { fetchHeroColor(#function) }
     static var heroServiceNavy: UIColor { fetchHeroColor(#function) }
+    static var heroGrayF1F1F1: UIColor { fetchHeroColor(#function) }
+    static var heroGray333333700: UIColor { fetchHeroColor(#function) }
     static var heroGray5B: UIColor { fetchHeroColor(#function) }
     static var heroGray7A: UIColor { fetchHeroColor(#function) }
     static var heroGrayDA: UIColor { fetchHeroColor(#function) }
     static var heroGrayA8: UIColor { fetchHeroColor(#function) }
     static var heroGray82: UIColor { fetchHeroColor(#function) }
     static var heroGrayA6A4A1: UIColor { fetchHeroColor(#function) }
+    static var heroGrayE7E1DC: UIColor { fetchHeroColor(#function) }
+    static var heroGrayF2EDE8: UIColor { fetchHeroColor(#function) }
+    static var heroGrayC7BFB8: UIColor { fetchHeroColor(#function) }
     static var heroServiceSubPink: UIColor { fetchHeroColor(#function) }
     static var heroGrayscale200: UIColor { fetchHeroColor(#function) }
     
     static var heroPrimaryPink: UIColor { fetchHeroColor(#function) }
     static var heroPrimaryBeigeDark: UIColor { fetchHeroColor(#function) }
+    static var heroPrimaryBeigeDown: UIColor { fetchHeroColor(#function) }
+    static var heroPrimaryBeigeLighter: UIColor { fetchHeroColor(#function) }
+    static var heroPrimaryPinkLight: UIColor { fetchHeroColor(#function) }
+    static var heroPrimaryNavyLight: UIColor { fetchHeroColor(#function) }
+    static var heroPrimaryBlueLight: UIColor { fetchHeroColor(#function) }
     
     private static func fetchHeroColor(_ name: String) -> UIColor {
         let name = name.replacingOccurrences(of: "hero", with: "").lowercased()

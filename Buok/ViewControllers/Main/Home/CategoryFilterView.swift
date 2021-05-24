@@ -57,17 +57,17 @@ class BucketFilterView: UIView {
         
         expectButton.snp.makeConstraints { make in
             make.top.bottom.equalToSuperview()
-            make.leading.equalTo(nowButton.snp.trailing).offset(8)
+            make.leading.equalTo(nowButton.snp.trailing).offset(16)
         }
         
         doneButton.snp.makeConstraints { make in
             make.top.bottom.equalToSuperview()
-            make.leading.equalTo(expectButton.snp.trailing).offset(8)
+            make.leading.equalTo(expectButton.snp.trailing).offset(16)
         }
         
         allButton.snp.makeConstraints { make in
             make.top.bottom.equalToSuperview()
-            make.leading.equalTo(doneButton.snp.trailing).offset(8)
+            make.leading.equalTo(doneButton.snp.trailing).offset(16)
             make.trailing.lessThanOrEqualToSuperview()
         }
     }
@@ -86,17 +86,17 @@ class BucketFilterView: UIView {
     }
     
     private func updateButtonTextStyle() {
-        nowButton.titleLabel?.font = (homeFilter == .now) ? .font17PBold : .font17P
-        nowButton.setTitleColor((homeFilter == .now) ? .heroGray600s : .heroGraySample300s, for: .normal)
+        nowButton.titleLabel?.font = (homeFilter == .now) ? .font20PBold : .font20P
+        nowButton.setTitleColor((homeFilter == .now) ? .heroGray5B : .heroGray82, for: .normal)
         
-        expectButton.titleLabel?.font = (homeFilter == .expect) ? .font17PBold : .font17P
-        expectButton.setTitleColor((homeFilter == .expect) ? .heroGray600s : .heroGraySample300s, for: .normal)
+        expectButton.titleLabel?.font = (homeFilter == .expect) ? .font20PBold : .font20P
+        expectButton.setTitleColor((homeFilter == .expect) ? .heroGray5B : .heroGray82, for: .normal)
         
-        doneButton.titleLabel?.font = (homeFilter == .done) ? .font17PBold : .font17P
-        doneButton.setTitleColor((homeFilter == .done) ? .heroGray600s : .heroGraySample300s, for: .normal)
+        doneButton.titleLabel?.font = (homeFilter == .done) ? .font20PBold : .font20P
+        doneButton.setTitleColor((homeFilter == .done) ? .heroGray5B : .heroGray82, for: .normal)
         
-        allButton.titleLabel?.font = (homeFilter == .all) ? .font17PBold : .font17P
-        allButton.setTitleColor((homeFilter == .all) ? .heroGray600s : .heroGraySample300s, for: .normal)
+        allButton.titleLabel?.font = (homeFilter == .all) ? .font20PBold : .font20P
+        allButton.setTitleColor((homeFilter == .all) ? .heroGray5B : .heroGray82, for: .normal)
     }
     
     @objc
