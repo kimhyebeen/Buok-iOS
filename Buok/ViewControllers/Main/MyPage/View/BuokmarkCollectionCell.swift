@@ -56,7 +56,7 @@ extension BuokmarkCollectionCell {
         
         dateLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(2)
-            make.leading.equalToSuperview().offset(20)
+            make.leading.equalToSuperview()
         }
     }
     
@@ -66,8 +66,8 @@ extension BuokmarkCollectionCell {
         
         flagView.snp.makeConstraints { make in
             make.top.bottom.equalToSuperview()
-            make.leading.equalToSuperview().offset(121)
-            make.trailing.equalToSuperview().offset(-20)
+            make.leading.equalToSuperview().offset(100)
+            make.trailing.equalToSuperview()
         }
     }
     
