@@ -75,6 +75,7 @@ public extension UIColor {
     static var heroGrayscale200: UIColor { fetchHeroColor(#function) }
     
     static var heroPrimaryPink: UIColor { fetchHeroColor(#function) }
+    static var heroPrimaryBlue: UIColor { fetchHeroColor(#function) }
     static var heroPrimaryBeigeDark: UIColor { fetchHeroColor(#function) }
     static var heroPrimaryBeigeDown: UIColor { fetchHeroColor(#function) }
     static var heroPrimaryBeigeLighter: UIColor { fetchHeroColor(#function) }
