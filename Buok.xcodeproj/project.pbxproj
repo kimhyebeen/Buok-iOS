@@ -58,6 +58,7 @@
 		B08CEB37266212BF00FF77BD /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08CEB36266212BF00FF77BD /* AppConfiguration.swift */; };
 		B08CEB3C2662162A00FF77BD /* StartCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08CEB3B2662162A00FF77BD /* StartCoordinator.swift */; };
 		B08CEB3E2662163E00FF77BD /* StartDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08CEB3D2662163E00FF77BD /* StartDIContainer.swift */; };
+		B08CEB592662252900FF77BD /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08CEB582662252900FF77BD /* TokenManager.swift */; };
 		B0B0339026219FE200D65204 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B0338F26219FE200D65204 /* Profile.swift */; };
 		B0B033C12621C97300D65204 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B033C02621C97300D65204 /* SettingViewController.swift */; };
 		B0B033C92621CDA700D65204 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B033C82621CDA700D65204 /* SettingCell.swift */; };
@@ -99,7 +100,6 @@
 		EE79C43B264AC78600E83B6A /* MypageCountingStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE79C43A264AC78600E83B6A /* MypageCountingStackView.swift */; };
 		EE79C440264ACE4200E83B6A /* MypageProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE79C43F264ACE4200E83B6A /* MypageProfileView.swift */; };
 		EE79C445264AD72600E83B6A /* MypageBuokmarkHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE79C444264AD72600E83B6A /* MypageBuokmarkHeaderView.swift */; };
-		EE87F8672662152200DED70E /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE87F8662662152200DED70E /* KeychainManager.swift */; };
 		EEA213C32625D03E00E3AEA1 /* LoginPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA213C22625D03E00E3AEA1 /* LoginPasswordViewController.swift */; };
 		EEA213CB2625D59900E3AEA1 /* LoginViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA213CA2625D59900E3AEA1 /* LoginViewController+UI.swift */; };
 		EEA213D32625DAEA00E3AEA1 /* LoginPasswordViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA213D22625DAEA00E3AEA1 /* LoginPasswordViewController+UI.swift */; };
@@ -318,6 +318,7 @@
 		B08CEB36266212BF00FF77BD /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
 		B08CEB3B2662162A00FF77BD /* StartCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartCoordinator.swift; sourceTree = "<group>"; };
 		B08CEB3D2662163E00FF77BD /* StartDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartDIContainer.swift; sourceTree = "<group>"; };
+		B08CEB582662252900FF77BD /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 		B0B0338F26219FE200D65204 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		B0B033C02621C97300D65204 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		B0B033C82621CDA700D65204 /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
@@ -369,7 +370,6 @@
 		EE79C43A264AC78600E83B6A /* MypageCountingStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageCountingStackView.swift; sourceTree = "<group>"; };
 		EE79C43F264ACE4200E83B6A /* MypageProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageProfileView.swift; sourceTree = "<group>"; };
 		EE79C444264AD72600E83B6A /* MypageBuokmarkHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageBuokmarkHeaderView.swift; sourceTree = "<group>"; };
-		EE87F8662662152200DED70E /* KeychainManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		EEA213C22625D03E00E3AEA1 /* LoginPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPasswordViewController.swift; sourceTree = "<group>"; };
 		EEA213CA2625D59900E3AEA1 /* LoginViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+UI.swift"; sourceTree = "<group>"; };
 		EEA213D22625DAEA00E3AEA1 /* LoginPasswordViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginPasswordViewController+UI.swift"; sourceTree = "<group>"; };
@@ -598,7 +598,6 @@
 		B04C15E626015FBA0084BAEC /* User */ = {
 			isa = PBXGroup;
 			children = (
-				EE87F8662662152200DED70E /* KeychainManager.swift */,
 				EE61F70626457CA3004DF51B /* UserViewModel.swift */,
 				EE61F6E126457821004DF51B /* View */,
 				EE49406526475A3700CB0B71 /* Forget */,
@@ -821,6 +820,7 @@
 				B041747125E2366E00D990A2 /* AppDelegate.swift */,
 				B0D0218126021A2100F25329 /* NadamProperties.swift */,
 				B08CEB36266212BF00FF77BD /* AppConfiguration.swift */,
+				B08CEB582662252900FF77BD /* TokenManager.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -1388,6 +1388,7 @@
 				29773EFB2647FAB900FB7AA8 /* LoginViewController+AppleID.swift in Sources */,
 				EEA213C32625D03E00E3AEA1 /* LoginPasswordViewController.swift in Sources */,
 				EECEF1752627D91100CF9394 /* JoinNameViewController.swift in Sources */,
+				B08CEB592662252900FF77BD /* TokenManager.swift in Sources */,
 				B08CEB352662117300FF77BD /* SplashViewModel.swift in Sources */,
 				B06B5EF625ECD0140045A491 /* SubThreeViewController.swift in Sources */,
 				B082F2C426594EC200A7AB6B /* CreateImageCell.swift in Sources */,
@@ -1411,7 +1412,6 @@
 				B075238125EF5AF70016DC3A /* BucketListAPIRequest.swift in Sources */,
 				EE77F57D265B20EF002C4782 /* BucketStatusFlagView.swift in Sources */,
 				B0D0218226021A2100F25329 /* NadamProperties.swift in Sources */,
-				EE87F8672662152200DED70E /* KeychainManager.swift in Sources */,
 				B075230925EF1A0E0016DC3A /* BaseAPIRequest.swift in Sources */,
 				EEC801F72659051700777B43 /* FriendPageProfileView.swift in Sources */,
 				EEB9EF8C26269762001AF65F /* UserServiceButton.swift in Sources */,
