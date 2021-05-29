@@ -71,19 +71,19 @@ public class HeroRequest: HeroRequestConvertible, CustomStringConvertible {
 		urlRequest.httpMethod = httpMethod.rawValue
 		urlRequest.cachePolicy = .reloadIgnoringLocalCacheData
 
-		let newHeaders = [HeroHeader.token, HeroHeader.accept]
+//		let newHeaders = [HeroHeader.token, HeroHeader.accept]
+//
+//        newHeaders.forEach { newHeader in
+//            if !requestHeaders.contains(where: { $0.key == newHeader.key }) {
+//                requestHeaders.append(newHeader)
+//            }
+//        }
 
-        newHeaders.forEach { newHeader in
-            if !requestHeaders.contains(where: { $0.key == newHeader.key }) {
-                requestHeaders.append(newHeader)
-            }
-        }
-
-        mandatoryHeaders.forEach { newHeader in
-            if !requestHeaders.contains(where: { $0.key == newHeader.key }) {
-                requestHeaders.append(newHeader)
-            }
-        }
+//        mandatoryHeaders.forEach { newHeader in
+//            if !requestHeaders.contains(where: { $0.key == newHeader.key }) {
+//                requestHeaders.append(newHeader)
+//            }
+//        }
 
         requestHeaders.forEach {
             urlRequest.setValue($0.value, forHTTPHeaderField: $0.key)
