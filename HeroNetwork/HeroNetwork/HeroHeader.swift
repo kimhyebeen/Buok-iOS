@@ -8,9 +8,10 @@
 import Foundation
 
 public enum HeroHeader {
-	case token
+	case token(String)
 	case accept
 	case contentType
+    case custom(String)
 	
 	var key: String {
 		switch self {
@@ -20,17 +21,21 @@ public enum HeroHeader {
 			return "accept"
 		case .contentType:
 			return "Content-Type"
+        case .custom(let key):
+            return key
 		}
 	}
 	
 	public var value: String {
 		switch self {
-		case .token:
-			return HeroConstants.token
+		case .token(let value):
+			return value
 		case .accept:
 			return "*/*"
 		case .contentType:
 			return "application/json"
+        case .custom(let value):
+            return value
 		}
 	}
 }

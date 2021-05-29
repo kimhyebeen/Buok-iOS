@@ -81,18 +81,21 @@ struct BookmarkListServerModel: Codable {
 
 public struct UserAPIRequest {
 	enum UserRequestType: APIRequestType {
+        case user
 		case users
 		case usersme
 		
 		var requestURL: URL {
 			switch self {
+            case .user:
+                return URL(string: HeroConstants.user)!
 			case .users:
 				return URL(string: HeroConstants.user)!
 			case .usersme:
 				return URL(string: HeroConstants.user + HeroConstants.me)!
 			}
 		}
-		
+        
 		var requestParameter: [String: Any]? {
 			nil
 		}
@@ -106,6 +109,27 @@ public struct UserAPIRequest {
 		}
 	}
 	
+    static func getUserInfo(responseHandler: @escaping (Result<UserData, HeroAPIError>) -> ()) {
+        BaseAPIRequest.requestJSONResponse(requestType: UserRequestType.users).then { responseData in
+            do {
+                if let dictData = responseData as? NSDictionary {
+                    let jsonData = try JSONSerialization.data(withJSONObject: dictData, options: .prettyPrinted)
+                    let getData = try JSONDecoder().decode(UserListServerModel.self, from: jsonData)
+                    let userData = getData.data
+//                    DebugLog("getData: \(getData.status), \(getData.message)")
+//                    DebugLog("getData: \(getData.data.nickname), \(getData.data.intro), \(getData.data.profileUrl ?? "")")
+                    if getData.status < 300 {
+                        responseHandler(.success(userData))
+                    } else {
+                        responseHandler(.failure(HeroAPIError(errorCode: ErrorCode(rawValue: getData.status)!, statusCode: getData.status)))
+                    }
+                }
+            } catch {
+                ErrorLog("UserAPIRequest ERROR")
+            }
+        }
+    }
+    
 	static func usersListRequest() {
 		BaseAPIRequest.requestJSONResponse(requestType: UserRequestType.users).then { responseData in
 			do {

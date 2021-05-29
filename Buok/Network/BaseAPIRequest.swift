@@ -22,7 +22,7 @@ protocol APIRequestType {
 
 extension APIRequestType {
 	var requestHeaders: [HeroHeader]? {
-		nil
+        [.token(TokenManager.shared.getAccessToken() ?? ""), .accept, .contentType]
 	}
 }
 
@@ -33,6 +33,7 @@ public class BaseAPIRequest {
         Promise { fulfill, reject in
             let url = requestType.requestURL
             let heroRequest = HeroRequest(path: url.path, httpMethod: requestType.httpMethod, encoding: requestType.encoding, parameter: requestType.requestParameter)
+            
             if let requestHeaders = requestType.requestHeaders {
                 heroRequest.requestHeaders = requestHeaders
             }
