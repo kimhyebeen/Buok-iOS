@@ -12,6 +12,9 @@
 		B041754A25E2384300D990A2 /* HeroCommonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B041754925E2384300D990A2 /* HeroCommonTests.swift */; };
 		B041754C25E2384300D990A2 /* HeroCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = B041753E25E2384300D990A2 /* HeroCommon.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B041761825E23C8800D990A2 /* LogConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B041761725E23C8800D990A2 /* LogConfig.swift */; };
+		B08CEB392662156B00FF77BD /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08CEB382662156B00FF77BD /* String+Extension.swift */; };
+		B08CEB572662208500FF77BD /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08CEB562662208500FF77BD /* KeychainManager.swift */; };
+		B08CEB5D26622D2600FF77BD /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08CEB5C26622D2600FF77BD /* Date+Extension.swift */; };
 		B0B4870B2609F6FB00DDD9B9 /* Dynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B4870A2609F6FB00DDD9B9 /* Dynamic.swift */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +42,9 @@
 		B041754925E2384300D990A2 /* HeroCommonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroCommonTests.swift; sourceTree = "<group>"; };
 		B041754B25E2384300D990A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B041761725E23C8800D990A2 /* LogConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogConfig.swift; sourceTree = "<group>"; };
+		B08CEB382662156B00FF77BD /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		B08CEB562662208500FF77BD /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
+		B08CEB5C26622D2600FF77BD /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		B0B4870A2609F6FB00DDD9B9 /* Dynamic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dynamic.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,6 +116,9 @@
 				B041753F25E2384300D990A2 /* Info.plist */,
 				B041761725E23C8800D990A2 /* LogConfig.swift */,
 				B0B4870A2609F6FB00DDD9B9 /* Dynamic.swift */,
+				B08CEB382662156B00FF77BD /* String+Extension.swift */,
+				B08CEB562662208500FF77BD /* KeychainManager.swift */,
+				B08CEB5C26622D2600FF77BD /* Date+Extension.swift */,
 			);
 			path = HeroCommon;
 			sourceTree = "<group>";
@@ -259,8 +268,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B08CEB5D26622D2600FF77BD /* Date+Extension.swift in Sources */,
 				B041761825E23C8800D990A2 /* LogConfig.swift in Sources */,
+				B08CEB392662156B00FF77BD /* String+Extension.swift in Sources */,
 				B0B4870B2609F6FB00DDD9B9 /* Dynamic.swift in Sources */,
+				B08CEB572662208500FF77BD /* KeychainManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

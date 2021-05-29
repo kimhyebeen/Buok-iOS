@@ -27,11 +27,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.registerForRemoteNotifications()
         
         let window = UIWindow(frame: UIScreen.main.bounds)
-        let navigationVC = HeroNavigationController(navigationBarClass: HeroUINavigationBar.self, toolbarClass: nil)
-        navigationVC.viewControllers = [MainTabBarViewController()]
-        navigationVC.isNavigationBarHidden = true
+//        let navigationVC = HeroNavigationController(navigationBarClass: HeroUINavigationBar.self, toolbarClass: nil)
+//        navigationVC.viewControllers = [MainTabBarViewController()]
+//        navigationVC.isNavigationBarHidden = true
         
-        window.rootViewController = navigationVC
+        let startDIContainer = StartDIContainer()
+        let startCoordinator = StartCoordinator(startDIContainer: startDIContainer)
+        let splashViewModel = SplashViewModel(coordinator: startCoordinator)
+        let splashVC = SplashViewController(viewModel: splashViewModel)
+        
+        window.rootViewController = splashVC
         window.makeKeyAndVisible()
         self.window = window
         
