@@ -5,10 +5,12 @@
 //  Created by 김혜빈 on 2021/05/22.
 //
 
+import HeroCommon
 import Promise
 
 class MypageViewModel {
     var buokmarks: [BuokmarkFlag] = []
+    var userData: Dynamic<UserData>?
     
     func fetchFriends() {
         
@@ -37,5 +39,17 @@ class MypageViewModel {
             
             return flags
         }())
+    }
+    
+    func fetchUserInfo() {
+        UserAPIRequest.getUserInfo(responseHandler: { result in
+            switch result {
+            case .success(let userData):
+                DebugLog("사용자 정보: \(userData.nickname)\n\(userData.intro)\n\(userData.profileUrl ?? "")")
+                self.userData?.value = userData
+            case .failure(let error):
+                ErrorLog("API Error : \(error.statusCode) / \(error.localizedDescription)")
+            }
+        })
     }
 }

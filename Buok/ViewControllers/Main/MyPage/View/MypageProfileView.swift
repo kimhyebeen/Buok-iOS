@@ -46,8 +46,20 @@ class MypageProfileView: UIView {
         setupDateLabel()
     }
     
-    func setProfile() {
+    func setProfile(user: UserData) {
         // todo - Profile 객체를 받아 뷰 업데이트
+        nameLabel.text = user.nickname
+        emailLabel.text = user.email
+        introduceLabel.text = user.intro
+        
+        if let createdDate = user.createdDate {
+            let date = createdDate.convertToDate()
+            let components = date.get(.month, .year)
+            if let month = components.month, let year = components.year {
+                let monthString = month < 10 ? "0\(month)" : "\(month)"
+                dateLabel.text = "\(year)년 \(monthString)월에 가입함"
+            }
+        }
     }
     
     @objc

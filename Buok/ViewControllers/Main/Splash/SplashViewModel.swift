@@ -64,10 +64,34 @@ final class SplashViewModel {
     }
     
     func goToLoginVC() {
+        testFunction()
         coordinator.setRootVCtoLoginVC()
     }
     
     func goToHomeVC() {
         coordinator.setRootVCtoHomeVC()
+    }
+    
+    // MARK: Test 지워야 함
+    private func testFunction() {
+        let accessResult = TokenManager.shared.setAccessToken(token: "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzMiIsImV4cCI6MTYyNDA2NjE2NX0.s3udBmY0_NGz1d2P_HR0OedOzaDoCNuuF16OEyuRjng")
+        let refreshResult = TokenManager.shared.setRefreshToken(token: "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzMiIsImV4cCI6MTYyNDg1ODE2NX0.XKbMinwkmo7MeJId5FVawo8qiS4Csk1LoCQBd0N5-yk")
+        
+        let accessExpiredAtResult = TokenManager.shared.setAccessTokenExpiredDate(expiredAt: "2021-06-19 10:29:25".convertToDate())
+        let refreshExpiredAtResult = TokenManager.shared.setRefreshTokenExpiredDate(expiredAt: "2021-06-28 14:29:25".convertToDate())
+        
+        DebugLog("Set Access Token Result : \(accessResult)")
+        DebugLog("Set Refresh Token Result : \(refreshResult)")
+        DebugLog("--------")
+        
+        DebugLog("Set Access Token ExpiredAt Result : \(accessExpiredAtResult)")
+        DebugLog("Set Refresh Token ExpiredAt Result : \(refreshExpiredAtResult)")
+        DebugLog("--------")
+        
+        DebugLog("Get Access Token Result : \(TokenManager.shared.getAccessToken() ?? "nil")")
+        DebugLog("Get Refresh Token Result : \(TokenManager.shared.getRefreshToken() ?? "nil")")
+        
+        DebugLog("AccessToken Expired : \(TokenManager.shared.checkAccessTokenExpired())")
+        DebugLog("RefreshToken Expired : \(TokenManager.shared.checkRefreshTokenExpired())")
     }
 }

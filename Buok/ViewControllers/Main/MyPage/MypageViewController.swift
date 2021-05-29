@@ -26,6 +26,7 @@ class MypageViewController: HeroBaseViewController {
         
         setupView()
         bindingViewModel()
+        viewModel.fetchUserInfo()
     }
     
     private func setupView() {
@@ -53,6 +54,10 @@ class MypageViewController: HeroBaseViewController {
             self?.buokmarkHeader.count = values.count
             self?.collectionView.reloadSections(IndexSet(0...0))
         }
+        
+        viewModel.userData?.bind({ [weak self] user in
+            self?.profileView.setProfile(user: user)
+        })
     }
 
     @objc
