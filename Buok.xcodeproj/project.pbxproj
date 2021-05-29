@@ -51,6 +51,11 @@
 		B082F2D026595AB700A7AB6B /* CreateTagAddCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B082F2CF26595AB700A7AB6B /* CreateTagAddCell.swift */; };
 		B082F2D226595ABD00A7AB6B /* CreateTagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B082F2D126595ABD00A7AB6B /* CreateTagCell.swift */; };
 		B082F2D626595EB500A7AB6B /* AlignedCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B082F2D526595EB500A7AB6B /* AlignedCollectionViewFlowLayout.swift */; };
+		B08CEB2A2662098600FF77BD /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08CEB292662098600FF77BD /* SplashViewController.swift */; };
+		B08CEB352662117300FF77BD /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08CEB342662117300FF77BD /* SplashViewModel.swift */; };
+		B08CEB37266212BF00FF77BD /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08CEB36266212BF00FF77BD /* AppConfiguration.swift */; };
+		B08CEB3C2662162A00FF77BD /* StartCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08CEB3B2662162A00FF77BD /* StartCoordinator.swift */; };
+		B08CEB3E2662163E00FF77BD /* StartDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08CEB3D2662163E00FF77BD /* StartDIContainer.swift */; };
 		B0B0339026219FE200D65204 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B0338F26219FE200D65204 /* Profile.swift */; };
 		B0B033C12621C97300D65204 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B033C02621C97300D65204 /* SettingViewController.swift */; };
 		B0B033C92621CDA700D65204 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B033C82621CDA700D65204 /* SettingCell.swift */; };
@@ -303,6 +308,11 @@
 		B082F2CF26595AB700A7AB6B /* CreateTagAddCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTagAddCell.swift; sourceTree = "<group>"; };
 		B082F2D126595ABD00A7AB6B /* CreateTagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTagCell.swift; sourceTree = "<group>"; };
 		B082F2D526595EB500A7AB6B /* AlignedCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlignedCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
+		B08CEB292662098600FF77BD /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		B08CEB342662117300FF77BD /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
+		B08CEB36266212BF00FF77BD /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
+		B08CEB3B2662162A00FF77BD /* StartCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartCoordinator.swift; sourceTree = "<group>"; };
+		B08CEB3D2662163E00FF77BD /* StartDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartDIContainer.swift; sourceTree = "<group>"; };
 		B0B0338F26219FE200D65204 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		B0B033C02621C97300D65204 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		B0B033C82621CDA700D65204 /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
@@ -525,7 +535,7 @@
 			children = (
 				B082F28E2658D59800A7AB6B /* GoogleService-Info.plist */,
 				B02D1869263D3E1700FE7FC9 /* Buok.entitlements */,
-				B0D0218D26021EDE00F25329 /* Global */,
+				B0D0218D26021EDE00F25329 /* Application */,
 				B0D0218626021A3C00F25329 /* Resources */,
 				B075225225ED06E50016DC3A /* Model */,
 				B07520E125ED003A0016DC3A /* Network */,
@@ -620,6 +630,7 @@
 		B06B5CB225ECA3EE0045A491 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				B08CEB3A2662161700FF77BD /* Start */,
 				B04C15E626015FBA0084BAEC /* User */,
 				B06B5EE725ECCEB80045A491 /* Base */,
 				B06B5EE625ECCEB00045A491 /* Main */,
@@ -637,6 +648,7 @@
 				EEC801EB2659047300777B43 /* FriendPage */,
 				B0B033B72621C95B00D65204 /* Setting */,
 				B0D021702602195B00F25329 /* MultiLevelVC */,
+				B08CEB332662115100FF77BD /* Splash */,
 				B06B5CB325ECA4070045A491 /* MainTabBarViewController.swift */,
 			);
 			path = Main;
@@ -698,6 +710,24 @@
 				B07C0CF625FDB1DC000AE1B0 /* HeroSharedAssetsTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		B08CEB332662115100FF77BD /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				B08CEB292662098600FF77BD /* SplashViewController.swift */,
+				B08CEB342662117300FF77BD /* SplashViewModel.swift */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		B08CEB3A2662161700FF77BD /* Start */ = {
+			isa = PBXGroup;
+			children = (
+				B08CEB3B2662162A00FF77BD /* StartCoordinator.swift */,
+				B08CEB3D2662163E00FF77BD /* StartDIContainer.swift */,
+			);
+			path = Start;
 			sourceTree = "<group>";
 		};
 		B0B033B72621C95B00D65204 /* Setting */ = {
@@ -768,13 +798,14 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		B0D0218D26021EDE00F25329 /* Global */ = {
+		B0D0218D26021EDE00F25329 /* Application */ = {
 			isa = PBXGroup;
 			children = (
 				B041747125E2366E00D990A2 /* AppDelegate.swift */,
 				B0D0218126021A2100F25329 /* NadamProperties.swift */,
+				B08CEB36266212BF00FF77BD /* AppConfiguration.swift */,
 			);
-			path = Global;
+			path = Application;
 			sourceTree = "<group>";
 		};
 		B0D43A562600DA99003420CA /* NadamWidget */ = {
@@ -1290,7 +1321,9 @@
 				B082F2CE26594F3900A7AB6B /* CreateAddCell.swift in Sources */,
 				B06B5EEF25ECCEE10045A491 /* SubTwoViewController.swift in Sources */,
 				B0D43A5E2600DA9B003420CA /* NadamWidget.intentdefinition in Sources */,
+				B08CEB37266212BF00FF77BD /* AppConfiguration.swift in Sources */,
 				B082F2D626595EB500A7AB6B /* AlignedCollectionViewFlowLayout.swift in Sources */,
+				B08CEB3E2662163E00FF77BD /* StartDIContainer.swift in Sources */,
 				B075231325EF1E6F0016DC3A /* BaseAPIError.swift in Sources */,
 				B01D43B526039D6C00F2D28C /* CreateViewModel.swift in Sources */,
 				B075226925ED08780016DC3A /* UserAuthModel.swift in Sources */,
@@ -1325,6 +1358,7 @@
 				EE4940842647659700CB0B71 /* ForgetViewModel.swift in Sources */,
 				EECEF18C2627DFEA00CF9394 /* JoinIntroduceViewController+UI.swift in Sources */,
 				EEA213D32625DAEA00E3AEA1 /* LoginPasswordViewController+UI.swift in Sources */,
+				B08CEB3C2662162A00FF77BD /* StartCoordinator.swift in Sources */,
 				EE49406726475A5D00CB0B71 /* ForgetViewController.swift in Sources */,
 				B082F2D026595AB700A7AB6B /* CreateTagAddCell.swift in Sources */,
 				EE49408C2647670D00CB0B71 /* VerifyViewController.swift in Sources */,
@@ -1336,6 +1370,7 @@
 				29773EFB2647FAB900FB7AA8 /* LoginViewController+AppleID.swift in Sources */,
 				EEA213C32625D03E00E3AEA1 /* LoginPasswordViewController.swift in Sources */,
 				EECEF1752627D91100CF9394 /* JoinNameViewController.swift in Sources */,
+				B08CEB352662117300FF77BD /* SplashViewModel.swift in Sources */,
 				B06B5EF625ECD0140045A491 /* SubThreeViewController.swift in Sources */,
 				B082F2C426594EC200A7AB6B /* CreateImageCell.swift in Sources */,
 				EE4C015C26588245002C5018 /* MypageViewModel.swift in Sources */,
@@ -1346,6 +1381,7 @@
 				B0B033C92621CDA700D65204 /* SettingCell.swift in Sources */,
 				B04C15E826015FCF0084BAEC /* LoginViewController.swift in Sources */,
 				B01D43B026039D5700F2D28C /* HomeViewModel.swift in Sources */,
+				B08CEB2A2662098600FF77BD /* SplashViewController.swift in Sources */,
 				B0B035ED2622B33800D65204 /* SettingConstants.swift in Sources */,
 				EE61F70726457CA3004DF51B /* UserViewModel.swift in Sources */,
 				EE4C016026588821002C5018 /* EditProfileViewController+UI.swift in Sources */,
