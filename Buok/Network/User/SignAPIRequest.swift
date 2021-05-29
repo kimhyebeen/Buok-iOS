@@ -12,10 +12,9 @@ import Promise
 
 struct SignInData: Codable {
     var accessToken: String
-    
-    enum CodingKeys: String, CodingKey {
-        case accessToken
-    }
+	var refreshToken: String
+	var accessExpiredAt: String
+	var refreshExpiredAt: String
 }
 
 // MARK: - ServerModel
@@ -63,14 +62,13 @@ public struct SignAPIRequest {
         }
     }
     
-    static func signInRequest(email: String, password: String) {
+    static func signInRequest(email: String, password: String, _ completion: @escaping (SignInData) -> Void) {
         BaseAPIRequest.requestJSONResponse(requestType: SignRequestType.signIn(email: email, password: password)).then { responseData in
             do {
                 if let dictData = responseData as? NSDictionary {
                     let jsonData = try JSONSerialization.data(withJSONObject: dictData, options: .prettyPrinted)
                     let getData = try JSONDecoder().decode(SignInServerModel.self, from: jsonData)
-                    DebugLog(">>>> SignAPIRequest - getData: \(getData.status), \(getData.message)")
-                    DebugLog(">>>> SignAPIRequest - getData: \(getData.data.accessToken)")
+					completion(getData.data)
                 }
             } catch {
                 DebugLog(">>>> SignAPIRequest ERROR")
@@ -78,13 +76,13 @@ public struct SignAPIRequest {
         }
     }
     
-    static func signUpRequest(email: String, intro: String, nickname: String, password: String) {
+    static func signUpRequest(email: String, intro: String, nickname: String, password: String, _ completion: @escaping (Int) -> Void) {
         BaseAPIRequest.requestJSONResponse(requestType: SignRequestType.signUp(email: email, intro: intro, nickname: nickname, password: password)).then { responseData in
             do {
                 if let dictData = responseData as? NSDictionary {
                     let jsonData = try JSONSerialization.data(withJSONObject: dictData, options: .prettyPrinted)
                     let getData = try JSONDecoder().decode(SignUpServerModel.self, from: jsonData)
-                    DebugLog(">>>> SignAPIRequest - getData: \(getData.status), \(getData.message)")
+					completion(getData.status)
                 }
             } catch {
                 DebugLog(">>>> SignAPIRequest ERROR")
