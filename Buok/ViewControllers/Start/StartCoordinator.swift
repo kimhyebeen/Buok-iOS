@@ -18,16 +18,18 @@ final class StartCoordinator {
     
     func setRootVCtoLoginVC() {
         let loginVC = dependencies.createLoginVC()
-        let window = UIWindow(frame: UIScreen.main.bounds)
-        window.rootViewController = loginVC
-        window.makeKeyAndVisible()
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            appDelegate.window?.rootViewController = loginVC
+            appDelegate.window?.makeKeyAndVisible()
+        }
     }
     
     func setRootVCtoHomeVC() {
         let mainVC = dependencies.createMainNavVC()
         
-        let window = UIWindow(frame: UIScreen.main.bounds)
-        window.rootViewController = mainVC
-        window.makeKeyAndVisible()
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            appDelegate.window?.rootViewController = mainVC
+            appDelegate.window?.makeKeyAndVisible()
+        }
     }
 }

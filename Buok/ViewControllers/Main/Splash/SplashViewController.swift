@@ -27,6 +27,11 @@ final class SplashViewController: HeroBaseViewController {
         super.viewDidLoad()
         setupViewLayout()
         setObservable()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
+            DebugLog("Check RefreshToken")
+            self.viewModel?.checkRefreshToken()
+        })
     }
     
     private func setupViewLayout() {
@@ -36,6 +41,7 @@ final class SplashViewController: HeroBaseViewController {
         logoView.snp.makeConstraints { make in
             make.width.equalTo(208)
             make.height.equalTo(80)
+            make.center.equalToSuperview()
         }
         
         logoImageView.snp.makeConstraints { make in
@@ -44,6 +50,7 @@ final class SplashViewController: HeroBaseViewController {
     
         view.backgroundColor = .heroGrayF2EDE8
         logoView.backgroundColor = .heroWhite100s
+        logoView.layer.cornerRadius = 10
         logoImageView.image = UIImage(heroSharedNamed: "ic_logo_hori")
     }
     

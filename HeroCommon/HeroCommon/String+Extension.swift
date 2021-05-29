@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension String {
+public extension String {
     var asDefaultKey: String {
         #if REAL || INHOUSE
         return self

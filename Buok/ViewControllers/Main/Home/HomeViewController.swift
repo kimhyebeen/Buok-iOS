@@ -58,10 +58,6 @@ public class HomeViewController: HeroBaseViewController {
                 }, execute: { text in
                     DebugLog(text)
                 })
-                
-//                DispatchQueue.main.async {
-//                    DebugLog(helloText)
-//                }
             })
         }
     }
