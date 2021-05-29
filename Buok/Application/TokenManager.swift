@@ -47,6 +47,15 @@ final class TokenManager {
         return KeychainManager.shared.getString(TokenManager.refreshTokenExpiredKey)?.convertToDate()
     }
     
+    public func deleteAllTokenData() -> Bool {
+        let atResult = KeychainManager.shared.delete(TokenManager.accessTokenKey)
+        let ateResult = KeychainManager.shared.delete(TokenManager.accessTokenExpiredKey)
+        let rtResult = KeychainManager.shared.delete(TokenManager.refreshTokenKey)
+        let rteResult = KeychainManager.shared.delete(TokenManager.refreshTokenExpiredKey)
+        
+        return atResult && ateResult && rtResult && rteResult
+    }
+    
     public func checkAccessTokenExpired() -> Bool {
         if let expiredAt = getAccessTokenExpiredDate() {
             return expiredAt < Date()

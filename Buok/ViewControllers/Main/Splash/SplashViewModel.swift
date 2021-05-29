@@ -14,31 +14,39 @@ final class SplashViewModel {
     private let coordinator: StartCoordinator
     
     init(coordinator: StartCoordinator) {
-      self.coordinator = coordinator
+        self.coordinator = coordinator
     }
     
     func checkRefreshToken() {
         // RefreshToken으로 AccessToken 갱신 후 로그인으로 이동
-        // TEMP
-        if let accessToken = TokenManager.shared.getAccessToken(),
-           let refreshToken = TokenManager.shared.getRefreshToken() {
-            if TokenManager.shared.checkAccessTokenExpired() {
-                if TokenManager.shared.checkRefreshTokenExpired() {
-                    // RefreshToken 만료 : 로그인 화면으로 이동
-                    isValidToken.value = false
+        if AppConfiguration.shared.isInitialLaunch {
+            let result = TokenManager.shared.deleteAllTokenData()
+            DebugLog("Delete All Token Result : \(result)")
+            AppConfiguration.shared.isInitialLaunch = false
+            self.isValidToken.value = false
+        } else {
+            if let accessToken = TokenManager.shared.getAccessToken(),
+               let refreshToken = TokenManager.shared.getRefreshToken() {
+                if TokenManager.shared.checkAccessTokenExpired() {
+                    if TokenManager.shared.checkRefreshTokenExpired() {
+                        // RefreshToken 만료 : 로그인 화면으로 이동
+                        isValidToken.value = false
+                    } else {
+                        refreshAccessToken(refreshToken: refreshToken)
+                    }
                 } else {
-                    refreshAccessToken(refreshToken: refreshToken)
+                    // AccessToken으로 자동 로그인
+                    fetchUserInfo(accessToken: accessToken)
                 }
             } else {
-                // AccessToken으로 자동 로그인
-                fetchUserInfo(accessToken: accessToken)
+                isValidToken.value = false
             }
         }
     }
     
     // MARK: RefreshToken으로 AccessToken 재발급
     func refreshAccessToken(refreshToken: String) {
-        
+        self.isValidToken.value = false
     }
     
     // MARK: AccessToken으로 사용자 정보 갱신
@@ -50,12 +58,13 @@ final class SplashViewModel {
                 self.isValidToken.value = true
             case .failure(let error):
                 ErrorLog("API Error : \(error.statusCode) / \(error.localizedDescription)")
+                self.isValidToken.value = false
             }
         })
     }
     
     func goToLoginVC() {
-        coordinator.setRootVCtoHomeVC()
+        coordinator.setRootVCtoLoginVC()
     }
     
     func goToHomeVC() {

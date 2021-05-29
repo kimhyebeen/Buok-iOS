@@ -21,6 +21,16 @@ final class AppConfiguration {
         }
     }
     
+    var isInitialLaunch: Bool {
+        get {
+            return (UserDefaults.standard.value(forKey: "isInitialLaunch".asDefaultKey) as? Bool) ?? true
+        }
+        
+        set {
+            return UserDefaults.standard.setValue(newValue, forKey: "isInitialLaunch".asDefaultKey)
+        }
+    }
+    
 //    func getAccessToken(resultHandler: @escaping (String) -> ()) {
 //        KeychainManager.shared.getAccessToken(handler: { (result, token) in
 //            resultHandler(token ?? "")
