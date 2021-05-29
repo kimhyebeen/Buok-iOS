@@ -27,7 +27,5 @@ public class SubOneViewController: HeroBaseViewController {
         oneLabel.font = .font15PBold
         oneLabel.textColor = .white
         oneLabel.text = "111. One View Controller"
-        
-        BucketListAPIRequest.homeNoticeListRequest()
     }
 }

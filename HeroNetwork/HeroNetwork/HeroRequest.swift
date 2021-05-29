@@ -9,91 +9,91 @@ import Alamofire
 import Foundation
 
 public class HeroRequest: HeroRequestConvertible, CustomStringConvertible {
-    public enum Method {
-        case get
-        case post
-        case delete
-        case put
-        case patch
-        
-        var httpMethod: HTTPMethod {
-            switch self {
-            case .get:
-                return .get
-            case .post:
-                return .post
-            case .delete:
-                return .delete
-            case .put:
-                return .put
-            case .patch:
-                return .patch
-            }
-        }
-    }
-    
-    public enum RequestEncoding {
-        case url
-        case urlQuery
-        case json
-        
-        var parameterEncoding: ParameterEncoding {
-            switch self {
-            case .url:
-                return URLEncoding.default
-            case .urlQuery:
-                return URLEncoding.queryString
-            case .json:
-                return JSONEncoding.default
-            }
-        }
-    }
-    
-    public var requestedHeaders: [String: String]?
-    public var requestParameters: [String: Any]?
-    public var path: String
-    public var httpMethod: HTTPMethod
-    public let encoding: ParameterEncoding
-    
-    open var requestHeaders: [HeroHeader] = []
-    
-    required public init(path: String, httpMethod: Method = .get, encoding: RequestEncoding, parameter: [String: Any]? = nil) {
-        self.path = path
-        self.httpMethod = httpMethod.httpMethod
-        self.requestParameters = parameter
-        self.encoding = encoding.parameterEncoding
-    }
-    
-    public func asURLRequest() throws -> URLRequest {
-        let url = try "https://\(fullAPIPath)".asURL()
-        
-        var urlRequest = URLRequest(url: url)
-        urlRequest.httpMethod = httpMethod.rawValue
-        urlRequest.cachePolicy = .reloadIgnoringLocalCacheData
+	public enum Method {
+		case get
+		case post
+		case delete
+		case put
+		case patch
+		
+		var httpMethod: HTTPMethod {
+			switch self {
+			case .get:
+				return .get
+			case .post:
+				return .post
+			case .delete:
+				return .delete
+			case .put:
+				return .put
+			case .patch:
+				return .patch
+			}
+		}
+	}
+	
+	public enum RequestEncoding {
+		case url
+		case urlQuery
+		case json
+		
+		var parameterEncoding: ParameterEncoding {
+			switch self {
+			case .url:
+				return URLEncoding.default
+			case .urlQuery:
+				return URLEncoding.queryString
+			case .json:
+				return JSONEncoding.default
+			}
+		}
+	}
+	
+	public var requestedHeaders: [String: String]?
+	public var requestParameters: [String: Any]?
+	public var path: String
+	public var httpMethod: HTTPMethod
+	public let encoding: ParameterEncoding
+	
+	open var requestHeaders: [HeroHeader] = []
+	
+	required public init(path: String, httpMethod: Method = .get, encoding: RequestEncoding, parameter: [String: Any]? = nil) {
+		self.path = path
+		self.httpMethod = httpMethod.httpMethod
+		self.requestParameters = parameter
+		self.encoding = encoding.parameterEncoding
+	}
+	
+	public func asURLRequest() throws -> URLRequest {
+		let url = try "\(fullAPIPath)\(path)".asURL()
+		
+		var urlRequest = URLRequest(url: url)
+		urlRequest.httpMethod = httpMethod.rawValue
+		urlRequest.cachePolicy = .reloadIgnoringLocalCacheData
 
-        let newHeaders = [HeroHeader.accept(value: "application/json"),
-                          HeroHeader.contentType(value: "application/json")]
+		let newHeaders = [HeroHeader.token, HeroHeader.accept]
 
         newHeaders.forEach { newHeader in
             if !requestHeaders.contains(where: { $0.key == newHeader.key }) {
                 requestHeaders.append(newHeader)
             }
         }
-        
+
         mandatoryHeaders.forEach { newHeader in
             if !requestHeaders.contains(where: { $0.key == newHeader.key }) {
                 requestHeaders.append(newHeader)
             }
         }
-        
+
         requestHeaders.forEach {
             urlRequest.setValue($0.value, forHTTPHeaderField: $0.key)
         }
-        requestedHeaders = urlRequest.allHTTPHeaderFields
-        urlRequest.timeoutInterval = 60
-        return try encoding.encode(urlRequest, with: requestParameters)
-    }
-    
+		
+		requestedHeaders = urlRequest.allHTTPHeaderFields
+		urlRequest.timeoutInterval = 60
+		return try encoding.encode(urlRequest, with: requestParameters)
+	}
+	
     var requestHeaderDictionary: [String: Any] {
         return requestHeaders.reduce([String: Any]()) {
             var dict = $0
@@ -101,7 +101,7 @@ public class HeroRequest: HeroRequestConvertible, CustomStringConvertible {
             return dict
         }
     }
-    
+
     public var debugParameterDesc: String {
         if let paramString = requestParameters?.description, paramString.count > 2000 {
             return String(paramString.prefix(2000)) + "..."
@@ -109,7 +109,7 @@ public class HeroRequest: HeroRequestConvertible, CustomStringConvertible {
             return requestParameters?.description ?? ""
         }
     }
-    
+
     public var description: String {
         var desc = " [Path] \(fullAPIPath)\n[Method] \(httpMethod)"
         if let headers = requestedHeaders {
@@ -117,9 +117,9 @@ public class HeroRequest: HeroRequestConvertible, CustomStringConvertible {
         } else {
             desc += "\n> Headers: nil"
         }
-        
+
         desc += "\n> Parameters: \(debugParameterDesc)"
         return desc
-        
+
     }
 }
