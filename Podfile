@@ -22,6 +22,8 @@ target 'Buok' do
   pod 'SwiftyJSON'
   pod 'SwiftLint'
   pod 'Promises'
+  pod 'Pageboy'
+  pod 'lottie-ios'
 
   target 'BuokTests' do
     inherit! :search_paths
@@ -31,12 +33,6 @@ target 'Buok' do
   target 'BuokUITests' do
     # Pods for testing
   end
-
-end
-
-target 'BuokWidgetExtension' do
-  inherit! :search_paths
-  use_frameworks!
 
 end
 

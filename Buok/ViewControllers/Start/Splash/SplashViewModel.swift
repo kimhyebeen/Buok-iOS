@@ -17,6 +17,15 @@ final class SplashViewModel {
         self.coordinator = coordinator
     }
     
+    func checkInitialLaunch() {
+        if AppConfiguration.shared.isInitialLaunch {
+            coordinator.setRootVCtoWorkThruVC()
+        } else {
+            DebugLog("Check Initial Launch")
+            checkRefreshToken()
+        }
+    }
+    
     func checkRefreshToken() {
         // RefreshToken으로 AccessToken 갱신 후 로그인으로 이동
         if AppConfiguration.shared.isInitialLaunch {

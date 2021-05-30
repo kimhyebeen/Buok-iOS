@@ -32,4 +32,12 @@ final class StartCoordinator {
             appDelegate.window?.makeKeyAndVisible()
         }
     }
+    
+    func setRootVCtoWorkThruVC() {
+        let workThruVC = dependencies.createWorkThruVC()
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            appDelegate.window?.rootViewController = workThruVC
+            appDelegate.window?.makeKeyAndVisible()
+        }
+    }
 }

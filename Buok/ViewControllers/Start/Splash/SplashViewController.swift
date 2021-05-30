@@ -29,8 +29,8 @@ final class SplashViewController: HeroBaseViewController {
         setObservable()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
-            DebugLog("Check RefreshToken")
-            self.viewModel?.checkRefreshToken()
+            DebugLog("Check Initial Launch")
+            self.viewModel?.checkInitialLaunch()
         })
     }
     
