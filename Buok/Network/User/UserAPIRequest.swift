@@ -11,21 +11,12 @@ import HeroNetwork
 import Promise
 
 struct UserData: Codable {
-	var id: Int?
-	var email: String?
+	var id: Int
+	var email: String
 	var nickname: String
 	var intro: String
 	var profileUrl: String?
 	var createdDate: String?
-	
-	enum CodingKeys: String, CodingKey {
-		case id
-		case email
-		case nickname
-		case intro
-		case profileUrl
-		case createdDate
-	}
 }
 
 struct UsermeData: Codable {
@@ -33,47 +24,28 @@ struct UsermeData: Codable {
 	var friendCount: Int
 	var bucketCount: Int
 	var bookmark: BookmarkData
-	
-	enum CodingKeys: String, CodingKey {
-		case user
-		case friendCount
-		case bucketCount
-		case bookmark
-	}
+	var isFriend: Bool?
 }
 
 struct BookmarkData: Codable {
 	var bookmarkList: [BookmarkListData]?
 	var bookMarkCount: Int
-	
-	enum CodingKeys: String, CodingKey {
-		case bookmarkList
-		case bookMarkCount
-	}
 }
 
 struct BookmarkListData: Codable {
 	var id: Int
 	var bucketName: String
 	var endDate: String
-	var categoryName: String
-	
-	enum CodingKeys: String, CodingKey {
-		case id
-		case bucketName
-		case endDate
-		case categoryName
-	}
+	var categoryId: Int
 }
 
-// MARK: - ServerModel
-struct UserListServerModel: Codable {
+struct UserProfileServerModel: Codable {
 	var status: Int
 	var message: String
 	var data: UserData
 }
 
-struct BookmarkListServerModel: Codable {
+struct UserPageServerModel: Codable {
 	var status: Int
 	var message: String
 	var data: UsermeData
@@ -81,18 +53,18 @@ struct BookmarkListServerModel: Codable {
 
 public struct UserAPIRequest {
 	enum UserRequestType: APIRequestType {
-        case user
-		case users
-		case usersme
+		case getUserPage(userId: Int)
+		case getUserprofile
+		case getMyPage
 		
 		var requestURL: URL {
 			switch self {
-            case .user:
-                return URL(string: HeroConstants.user)!
-			case .users:
+            case let .getUserPage(userId):
+                return URL(string: HeroConstants.user + "/\(userId)")!
+			case .getUserprofile:
 				return URL(string: HeroConstants.user)!
-			case .usersme:
-				return URL(string: HeroConstants.user + HeroConstants.me)!
+			case .getMyPage:
+				return URL(string: HeroConstants.user + "me")!
 			}
 		}
         
@@ -105,7 +77,12 @@ public struct UserAPIRequest {
 		}
 		
 		var encoding: HeroRequest.RequestEncoding {
-			.json
+			switch self {
+			case .getUserPage:
+				return .url
+			case .getUserprofile, .getMyPage:
+				return .json
+			}
 		}
 		
 		var requestBody: [String: Any]? {
@@ -114,11 +91,11 @@ public struct UserAPIRequest {
 	}
 	
     static func getUserInfo(responseHandler: @escaping (Result<UserData, HeroAPIError>) -> ()) {
-        BaseAPIRequest.requestJSONResponse(requestType: UserRequestType.users).then { responseData in
+        BaseAPIRequest.requestJSONResponse(requestType: UserRequestType.getUserprofile).then { responseData in
             do {
                 if let dictData = responseData as? NSDictionary {
                     let jsonData = try JSONSerialization.data(withJSONObject: dictData, options: .prettyPrinted)
-                    let getData = try JSONDecoder().decode(UserListServerModel.self, from: jsonData)
+                    let getData = try JSONDecoder().decode(UserProfileServerModel.self, from: jsonData)
                     let userData = getData.data
                     if getData.status < 300 {
                         responseHandler(.success(userData))
@@ -131,35 +108,41 @@ public struct UserAPIRequest {
             }
         }
     }
-    
-	static func usersListRequest() {
-		BaseAPIRequest.requestJSONResponse(requestType: UserRequestType.users).then { responseData in
+	
+	static func getUserPageInfo(userId: Int, responseHandler: @escaping (Result<UsermeData, HeroAPIError>) -> ()) {
+		BaseAPIRequest.requestJSONResponse(requestType: UserRequestType.getUserPage(userId: userId)).then { responseData in
 			do {
 				if let dictData = responseData as? NSDictionary {
 					let jsonData = try JSONSerialization.data(withJSONObject: dictData, options: .prettyPrinted)
-					let getData = try JSONDecoder().decode(UserListServerModel.self, from: jsonData)
-					DebugLog(">>>> UserAPIRequest - usersListRequest getData: \(getData.status), \(getData.message)")
-					DebugLog(">>>> UserAPIRequest - usersListRequest getData: \(getData.data.nickname), \(getData.data.intro), \(getData.data.profileUrl ?? "")")
+					let getData = try JSONDecoder().decode(UserPageServerModel.self, from: jsonData)
+					let usermeData = getData.data
+					if getData.status < 300 {
+						responseHandler(.success(usermeData))
+					} else {
+						responseHandler(.failure(HeroAPIError(errorCode: ErrorCode(rawValue: getData.status)!, statusCode: getData.status, errorMessage: getData.message)))
+					}
 				}
 			} catch {
-				DebugLog(">>>> UserAPIRequest ERROR")
+				ErrorLog("UserAPIRequest ERROR")
 			}
 		}
 	}
 	
-	static func usersmeListRequest() {
-		BaseAPIRequest.requestJSONResponse(requestType: UserRequestType.usersme).then { responseData in
+	static func getMyPageIngo(responseHandler: @escaping (Result<UsermeData, HeroAPIError>) -> ()) {
+		BaseAPIRequest.requestJSONResponse(requestType: UserRequestType.getMyPage).then { responseData in
 			do {
 				if let dictData = responseData as? NSDictionary {
 					let jsonData = try JSONSerialization.data(withJSONObject: dictData, options: .prettyPrinted)
-					let getData = try JSONDecoder().decode(BookmarkListServerModel.self, from: jsonData)
-					DebugLog(">>>> UserAPIRequest - getData: \(getData.status), \(getData.message)")
-					DebugLog(">>>> UserAPIRequest - getData: \(getData.data.user.nickname)")
-					DebugLog(">>>> UserAPIRequest - getData: \(getData.data.friendCount), \(getData.data.bucketCount)")
-                    DebugLog(">>>> UserAPIRequest - getData: \(getData.data.bookmark.bookMarkCount), \(getData.data.bookmark.bookmarkList?.first?.bucketName ?? "")")
+					let getData = try JSONDecoder().decode(UserPageServerModel.self, from: jsonData)
+					let usermeData = getData.data
+					if getData.status < 300 {
+						responseHandler(.success(usermeData))
+					} else {
+						responseHandler(.failure(HeroAPIError(errorCode: ErrorCode(rawValue: getData.status)!, statusCode: getData.status, errorMessage: getData.message)))
+					}
 				}
 			} catch {
-				DebugLog(">>>> UserAPIRequest ERROR")
+				ErrorLog("UserAPIRequest ERROR")
 			}
 		}
 	}
