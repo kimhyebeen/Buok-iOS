@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		20578AFA9B716592135E4D20 /* Pods_BuokTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA30482BA20B7DD44EA69D7 /* Pods_BuokTests.framework */; };
 		29773EFB2647FAB900FB7AA8 /* LoginViewController+AppleID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29773EFA2647FAB900FB7AA8 /* LoginViewController+AppleID.swift */; };
+		298561AD2663F5C600830084 /* InfoCheckAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298561AC2663F5C600830084 /* InfoCheckAPIRequest.swift */; };
 		29CA50B5265AEE7B00533ED6 /* UserAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CA50B4265AEE7B00533ED6 /* UserAPIRequest.swift */; };
 		528E6F27265BB53A00F9013D /* SignAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528E6F26265BB53A00F9013D /* SignAPIRequest.swift */; };
 		7A23F5D60945D5051A7AF8BA /* Pods_Buok_BuokUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19D64A49C31935ACEF072549 /* Pods_Buok_BuokUITests.framework */; };
@@ -219,6 +220,7 @@
 		1F612B424FD0728306E3799D /* Pods-YappHero-YappHeroUITests.sandbox(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHero-YappHeroUITests.sandbox(debug).xcconfig"; path = "Target Support Files/Pods-YappHero-YappHeroUITests/Pods-YappHero-YappHeroUITests.sandbox(debug).xcconfig"; sourceTree = "<group>"; };
 		218B8F72E8EDC19D3A336452 /* Pods-BucketList-BucketListUITests.inhouse(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BucketList-BucketListUITests.inhouse(debug).xcconfig"; path = "Target Support Files/Pods-BucketList-BucketListUITests/Pods-BucketList-BucketListUITests.inhouse(debug).xcconfig"; sourceTree = "<group>"; };
 		29773EFA2647FAB900FB7AA8 /* LoginViewController+AppleID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "LoginViewController+AppleID.swift"; path = "Buok/ViewControllers/User/SignIn/LoginViewController+AppleID.swift"; sourceTree = SOURCE_ROOT; };
+		298561AC2663F5C600830084 /* InfoCheckAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCheckAPIRequest.swift; sourceTree = "<group>"; };
 		29CA50B4265AEE7B00533ED6 /* UserAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPIRequest.swift; sourceTree = "<group>"; };
 		2BB0B5F8CB1111CB6C492273 /* Pods-Buok.sandbox(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Buok.sandbox(debug).xcconfig"; path = "Target Support Files/Pods-Buok/Pods-Buok.sandbox(debug).xcconfig"; sourceTree = "<group>"; };
 		2ED6AAF01C650FDE03D6831F /* Pods-Buok-BuokUITests.real.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Buok-BuokUITests.real.xcconfig"; path = "Target Support Files/Pods-Buok-BuokUITests/Pods-Buok-BuokUITests.real.xcconfig"; sourceTree = "<group>"; };
@@ -409,6 +411,7 @@
 		29CA50B3265AEE6600533ED6 /* User */ = {
 			isa = PBXGroup;
 			children = (
+				298561AC2663F5C600830084 /* InfoCheckAPIRequest.swift */,
 				29CA50B4265AEE7B00533ED6 /* UserAPIRequest.swift */,
 				528E6F26265BB53A00F9013D /* SignAPIRequest.swift */,
 			);
@@ -1331,6 +1334,7 @@
 				528E6F27265BB53A00F9013D /* SignAPIRequest.swift in Sources */,
 				B075238125EF5AF70016DC3A /* BucketListAPIRequest.swift in Sources */,
 				EE77F57D265B20EF002C4782 /* BucketStatusFlagView.swift in Sources */,
+				298561AD2663F5C600830084 /* InfoCheckAPIRequest.swift in Sources */,
 				B0D0218226021A2100F25329 /* NadamProperties.swift in Sources */,
 				B075230925EF1A0E0016DC3A /* BaseAPIRequest.swift in Sources */,
 				EEC801F72659051700777B43 /* FriendPageProfileView.swift in Sources */,
