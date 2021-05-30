@@ -11,7 +11,7 @@ import HeroUI
 
 final class WorkThruViewModel {
     func goToLoginVC() {
-        AppConfiguration.shared.isInitialLaunch = true
+        AppConfiguration.shared.isInitialLaunch = false
         
         let loginVC = LoginViewController()
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
