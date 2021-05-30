@@ -10,10 +10,12 @@ import HeroCommon
 import HeroNetwork
 import Promise
 
+// MARK: - Data
 struct NickName: Codable {
 	var nickName: String
 }
 
+// MARK: - ServerModel
 struct InfoCheckServerModel: Codable {
 	var status: Int
 	var message: String

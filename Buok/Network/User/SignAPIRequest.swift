@@ -10,6 +10,7 @@ import HeroCommon
 import HeroNetwork
 import Promise
 
+// MARK: - Data
 struct SignInData: Codable {
     var accessToken: String
 	var refreshToken: String
@@ -17,12 +18,7 @@ struct SignInData: Codable {
 	var refreshExpiredAt: String
 }
 
-struct SignUpServerModel: Codable {
-    var status: Int
-    var message: String
-    var data: Data?
-}
-
+// MARK: - ServerModel
 struct SignInServerModel: Codable {
     var status: Int
     var message: String
@@ -89,7 +85,7 @@ public struct SignAPIRequest {
 			do {
 				if let dictData = responseData as? NSDictionary {
 					let jsonData = try JSONSerialization.data(withJSONObject: dictData, options: .prettyPrinted)
-					let getData = try JSONDecoder().decode(SignUpServerModel.self, from: jsonData)
+					let getData = try JSONDecoder().decode(BaseServerModel.self, from: jsonData)
 					if getData.status < 300 {
 						responseHandler(.success(true))
 					} else {

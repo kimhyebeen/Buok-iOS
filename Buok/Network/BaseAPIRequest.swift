@@ -12,6 +12,12 @@ import HeroNetwork
 import Promise
 import SwiftyJSON
 
+struct BaseServerModel: Codable {
+	var status: Int
+	var message: String
+	var data: Data?
+}
+
 protocol APIRequestType {
 	var requestURL: URL { get }
 	var requestParameter: [String: Any]? { get }
@@ -23,8 +29,7 @@ protocol APIRequestType {
 
 extension APIRequestType {
 	var requestHeaders: [HeroHeader]? {
-//        [.token(TokenManager.shared.getAccessToken() ?? ""), .accept, .contentType]
-		[.token("eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzNyIsImV4cCI6MTYyNDE2OTk3Mn0.q93SST4PVGbiec-wKfiX8yJgT1NH_0nV6mE73IQXVmI"), .accept]
+        [.token(TokenManager.shared.getAccessToken() ?? ""), .accept, .contentType]
 	}
 }
 

@@ -77,21 +77,7 @@ public class HeroRequest: HeroRequestConvertible, CustomStringConvertible {
 			let httpBody = try? JSONSerialization.data(withJSONObject: requestBody, options: .prettyPrinted)
 			urlRequest.httpBody = httpBody
 		}
-		
-//		let newHeaders = [HeroHeader.token, HeroHeader.accept]
-//
-//        newHeaders.forEach { newHeader in
-//            if !requestHeaders.contains(where: { $0.key == newHeader.key }) {
-//                requestHeaders.append(newHeader)
-//            }
-//        }
-
-//        mandatoryHeaders.forEach { newHeader in
-//            if !requestHeaders.contains(where: { $0.key == newHeader.key }) {
-//                requestHeaders.append(newHeader)
-//            }
-//        }
-
+	
         requestHeaders.forEach {
             urlRequest.setValue($0.value, forHTTPHeaderField: $0.key)
         }
