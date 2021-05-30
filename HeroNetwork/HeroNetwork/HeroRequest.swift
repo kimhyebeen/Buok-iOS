@@ -53,15 +53,17 @@ public class HeroRequest: HeroRequestConvertible, CustomStringConvertible {
 	public var requestParameters: [String: Any]?
 	public var path: String
 	public var httpMethod: HTTPMethod
-	public let encoding: ParameterEncoding
+	public var encoding: ParameterEncoding
+	public var requestBody: [String: Any]?
 	
 	open var requestHeaders: [HeroHeader] = []
 	
-	required public init(path: String, httpMethod: Method = .get, encoding: RequestEncoding, parameter: [String: Any]? = nil) {
+	required public init(path: String, httpMethod: Method = .get, encoding: RequestEncoding, parameter: [String: Any]? = nil, requestBody: [String: Any]? = nil) {
 		self.path = path
 		self.httpMethod = httpMethod.httpMethod
 		self.requestParameters = parameter
 		self.encoding = encoding.parameterEncoding
+		self.requestBody = requestBody
 	}
 	
 	public func asURLRequest() throws -> URLRequest {
@@ -70,7 +72,11 @@ public class HeroRequest: HeroRequestConvertible, CustomStringConvertible {
 		var urlRequest = URLRequest(url: url)
 		urlRequest.httpMethod = httpMethod.rawValue
 		urlRequest.cachePolicy = .reloadIgnoringLocalCacheData
-
+		if let requestBody = requestBody {
+			let httpBody = try? JSONSerialization.data(withJSONObject: requestBody, options: [])
+			urlRequest.httpBody = httpBody
+		}
+		
 //		let newHeaders = [HeroHeader.token, HeroHeader.accept]
 //
 //        newHeaders.forEach { newHeader in

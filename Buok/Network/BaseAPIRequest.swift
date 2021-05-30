@@ -18,11 +18,13 @@ protocol APIRequestType {
 	var httpMethod: HeroRequest.Method { get }
 	var encoding: HeroRequest.RequestEncoding { get }
 	var requestHeaders: [HeroHeader]? { get }
+	var requestBody: [String: Any]? { get }
 }
 
 extension APIRequestType {
 	var requestHeaders: [HeroHeader]? {
-        [.token(TokenManager.shared.getAccessToken() ?? ""), .accept, .contentType]
+//        [.token(TokenManager.shared.getAccessToken() ?? ""), .accept, .contentType]
+		[.token("eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzNyIsImV4cCI6MTYyNDE2OTk3Mn0.q93SST4PVGbiec-wKfiX8yJgT1NH_0nV6mE73IQXVmI"), .accept]
 	}
 }
 
@@ -37,7 +39,11 @@ public class BaseAPIRequest {
             if let requestHeaders = requestType.requestHeaders {
                 heroRequest.requestHeaders = requestHeaders
             }
-
+			
+			if let requestBodyBucket = requestType.requestBody {
+				heroRequest.requestBody = requestBodyBucket
+			}
+			
             Alamofire.request(heroRequest).responseJSON { response in
                 if response.result.isSuccess, let value = response.result.value {
                     fulfill(value)

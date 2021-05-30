@@ -17,7 +17,6 @@ struct SignInData: Codable {
 	var refreshExpiredAt: String
 }
 
-// MARK: - ServerModel
 struct SignUpServerModel: Codable {
     var status: Int
     var message: String
@@ -60,34 +59,46 @@ public struct SignAPIRequest {
         var encoding: HeroRequest.RequestEncoding {
             .json
         }
+		
+		var requestBody: [String: Any]? {
+			nil
+		}
     }
     
-    static func signInRequest(email: String, password: String, _ completion: @escaping (SignInData) -> Void) {
-        BaseAPIRequest.requestJSONResponse(requestType: SignRequestType.signIn(email: email, password: password)).then { responseData in
-            do {
-                if let dictData = responseData as? NSDictionary {
-                    let jsonData = try JSONSerialization.data(withJSONObject: dictData, options: .prettyPrinted)
-                    let getData = try JSONDecoder().decode(SignInServerModel.self, from: jsonData)
-					completion(getData.data)
-                }
-            } catch {
-                DebugLog(">>>> SignAPIRequest ERROR")
-            }
-        }
-    }
+	static func signInRequest(email: String, password: String, responseHandler: @escaping (Result<SignInData, HeroAPIError>) -> ()) {
+		BaseAPIRequest.requestJSONResponse(requestType: SignRequestType.signIn(email: email, password: password)).then { responseData in
+			do {
+				if let dictData = responseData as? NSDictionary {
+					let jsonData = try JSONSerialization.data(withJSONObject: dictData, options: .prettyPrinted)
+					let getData = try JSONDecoder().decode(SignInServerModel.self, from: jsonData)
+					let signInData = getData.data
+					if getData.status < 300 {
+						responseHandler(.success(signInData))
+					} else {
+						responseHandler(.failure(HeroAPIError(errorCode: ErrorCode(rawValue: getData.status)!, statusCode: getData.status, errorMessage: getData.message)))
+					}
+				}
+			} catch {
+				ErrorLog("SignAPIRequest ERROR")
+			}
+		}
+	}
     
-    static func signUpRequest(email: String, intro: String, nickname: String, password: String, _ completion: @escaping (Int) -> Void) {
-        BaseAPIRequest.requestJSONResponse(requestType: SignRequestType.signUp(email: email, intro: intro, nickname: nickname, password: password)).then { responseData in
-            do {
-                if let dictData = responseData as? NSDictionary {
-                    let jsonData = try JSONSerialization.data(withJSONObject: dictData, options: .prettyPrinted)
-                    let getData = try JSONDecoder().decode(SignUpServerModel.self, from: jsonData)
-					completion(getData.status)
-                }
-            } catch {
-                DebugLog(">>>> SignAPIRequest ERROR")
-            }
-        }
-    }
-    
+	static func signUpRequest(email: String, intro: String, nickname: String, password: String, responseHandler: @escaping (Result<Bool, HeroAPIError>) -> ()) {
+		BaseAPIRequest.requestJSONResponse(requestType: SignRequestType.signUp(email: email, intro: intro, nickname: nickname, password: password)).then { responseData in
+			do {
+				if let dictData = responseData as? NSDictionary {
+					let jsonData = try JSONSerialization.data(withJSONObject: dictData, options: .prettyPrinted)
+					let getData = try JSONDecoder().decode(SignUpServerModel.self, from: jsonData)
+					if getData.status < 300 {
+						responseHandler(.success(true))
+					} else {
+						responseHandler(.failure(HeroAPIError(errorCode: ErrorCode(rawValue: getData.status)!, statusCode: getData.status, errorMessage: getData.message)))
+					}
+				}
+			} catch {
+				ErrorLog("SignAPIRequest ERROR")
+			}
+		}
+	}
 }

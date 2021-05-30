@@ -107,6 +107,10 @@ public struct UserAPIRequest {
 		var encoding: HeroRequest.RequestEncoding {
 			.json
 		}
+		
+		var requestBody: [String: Any]? {
+			nil
+		}
 	}
 	
     static func getUserInfo(responseHandler: @escaping (Result<UserData, HeroAPIError>) -> ()) {
@@ -116,12 +120,10 @@ public struct UserAPIRequest {
                     let jsonData = try JSONSerialization.data(withJSONObject: dictData, options: .prettyPrinted)
                     let getData = try JSONDecoder().decode(UserListServerModel.self, from: jsonData)
                     let userData = getData.data
-//                    DebugLog("getData: \(getData.status), \(getData.message)")
-//                    DebugLog("getData: \(getData.data.nickname), \(getData.data.intro), \(getData.data.profileUrl ?? "")")
                     if getData.status < 300 {
                         responseHandler(.success(userData))
                     } else {
-                        responseHandler(.failure(HeroAPIError(errorCode: ErrorCode(rawValue: getData.status)!, statusCode: getData.status)))
+						responseHandler(.failure(HeroAPIError(errorCode: ErrorCode(rawValue: getData.status)!, statusCode: getData.status, errorMessage: getData.message)))
                     }
                 }
             } catch {
