@@ -29,10 +29,10 @@ struct Bucket: Codable {
 	var categoryId: Int
 	var content: String
 	var endDate: String
-	var imageList: [String]
+	var imageList: [String]?
 	var startDate: String
 	var state: Int
-	var tagList: [String]
+	var tagList: [String]?
 }
 
 struct BucketListServerModel: Codable {
@@ -131,7 +131,6 @@ public struct BucketListAPIRequest {
 						responseHandler(.success(true))
 					} else {
 						responseHandler(.failure(HeroAPIError(errorCode: ErrorCode(rawValue: getData.status)!, statusCode: getData.status, errorMessage: getData.message)))
-						
 					}
 				}
 			} catch {

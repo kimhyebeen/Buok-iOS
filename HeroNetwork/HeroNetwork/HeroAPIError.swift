@@ -22,6 +22,7 @@ public enum ErrorCode: Int {
     case unauthorized = 401
     case forbidden = 403
     case notfound = 404
+	case unsupportedMediaType = 415
 	case server = 500
 }
 

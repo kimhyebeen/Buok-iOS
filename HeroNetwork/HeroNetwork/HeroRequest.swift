@@ -72,8 +72,9 @@ public class HeroRequest: HeroRequestConvertible, CustomStringConvertible {
 		var urlRequest = URLRequest(url: url)
 		urlRequest.httpMethod = httpMethod.rawValue
 		urlRequest.cachePolicy = .reloadIgnoringLocalCacheData
+		
 		if let requestBody = requestBody {
-			let httpBody = try? JSONSerialization.data(withJSONObject: requestBody, options: [])
+			let httpBody = try? JSONSerialization.data(withJSONObject: requestBody, options: .prettyPrinted)
 			urlRequest.httpBody = httpBody
 		}
 		
