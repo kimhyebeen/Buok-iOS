@@ -26,4 +26,10 @@ final class StartDIContainer {
         navigationVC.isNavigationBarHidden = true
         return navigationVC
     }
+    
+    func createWorkThruVC() -> WorkThruViewController {
+        let workThruViewModel = WorkThruViewModel()
+        let workThruVC = WorkThruViewController(viewModel: workThruViewModel)
+        return workThruVC
+    }
 }

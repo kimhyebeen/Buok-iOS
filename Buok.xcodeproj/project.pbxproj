@@ -58,6 +58,10 @@
 		B08CEB3C2662162A00FF77BD /* StartCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08CEB3B2662162A00FF77BD /* StartCoordinator.swift */; };
 		B08CEB3E2662163E00FF77BD /* StartDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08CEB3D2662163E00FF77BD /* StartDIContainer.swift */; };
 		B08CEB592662252900FF77BD /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08CEB582662252900FF77BD /* TokenManager.swift */; };
+		B08CEB882663930A00FF77BD /* WorkThruViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08CEB872663930A00FF77BD /* WorkThruViewController.swift */; };
+		B08CEB8A2663931F00FF77BD /* WorkThruPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08CEB892663931F00FF77BD /* WorkThruPageViewController.swift */; };
+		B08CEB8C2663934E00FF77BD /* WorkThruPageContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08CEB8B2663934E00FF77BD /* WorkThruPageContentViewController.swift */; };
+		B08CEB8E2663987900FF77BD /* WorkThruViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08CEB8D2663987900FF77BD /* WorkThruViewModel.swift */; };
 		B0B0339026219FE200D65204 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B0338F26219FE200D65204 /* Profile.swift */; };
 		B0B033C12621C97300D65204 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B033C02621C97300D65204 /* SettingViewController.swift */; };
 		B0B033C92621CDA700D65204 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B033C82621CDA700D65204 /* SettingCell.swift */; };
@@ -304,6 +308,10 @@
 		B08CEB3B2662162A00FF77BD /* StartCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartCoordinator.swift; sourceTree = "<group>"; };
 		B08CEB3D2662163E00FF77BD /* StartDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartDIContainer.swift; sourceTree = "<group>"; };
 		B08CEB582662252900FF77BD /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
+		B08CEB872663930A00FF77BD /* WorkThruViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkThruViewController.swift; sourceTree = "<group>"; };
+		B08CEB892663931F00FF77BD /* WorkThruPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkThruPageViewController.swift; sourceTree = "<group>"; };
+		B08CEB8B2663934E00FF77BD /* WorkThruPageContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkThruPageContentViewController.swift; sourceTree = "<group>"; };
+		B08CEB8D2663987900FF77BD /* WorkThruViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkThruViewModel.swift; sourceTree = "<group>"; };
 		B0B0338F26219FE200D65204 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		B0B033C02621C97300D65204 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		B0B033C82621CDA700D65204 /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
@@ -636,7 +644,6 @@
 				EEC801EB2659047300777B43 /* FriendPage */,
 				B0B033B72621C95B00D65204 /* Setting */,
 				B0D021702602195B00F25329 /* MultiLevelVC */,
-				B08CEB332662115100FF77BD /* Splash */,
 				B06B5CB325ECA4070045A491 /* MainTabBarViewController.swift */,
 			);
 			path = Main;
@@ -713,10 +720,23 @@
 		B08CEB3A2662161700FF77BD /* Start */ = {
 			isa = PBXGroup;
 			children = (
+				B08CEB862663921400FF77BD /* Tutorial */,
 				B08CEB3B2662162A00FF77BD /* StartCoordinator.swift */,
 				B08CEB3D2662163E00FF77BD /* StartDIContainer.swift */,
+				B08CEB332662115100FF77BD /* Splash */,
 			);
 			path = Start;
+			sourceTree = "<group>";
+		};
+		B08CEB862663921400FF77BD /* Tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				B08CEB872663930A00FF77BD /* WorkThruViewController.swift */,
+				B08CEB892663931F00FF77BD /* WorkThruPageViewController.swift */,
+				B08CEB8B2663934E00FF77BD /* WorkThruPageContentViewController.swift */,
+				B08CEB8D2663987900FF77BD /* WorkThruViewModel.swift */,
+			);
+			path = Tutorial;
 			sourceTree = "<group>";
 		};
 		B0B033B72621C95B00D65204 /* Setting */ = {
@@ -1251,6 +1271,7 @@
 			files = (
 				EE4C015E2658866F002C5018 /* EditProfileViewController.swift in Sources */,
 				B0635ADA260390E100046E88 /* CreateViewController.swift in Sources */,
+				B08CEB8A2663931F00FF77BD /* WorkThruPageViewController.swift in Sources */,
 				B01D43A826039D2500F2D28C /* DetailViewController.swift in Sources */,
 				EEC802032659293700777B43 /* FriendPageViewModel.swift in Sources */,
 				EE77F556265AA80E002C4782 /* FriendListCollectionCell.swift in Sources */,
@@ -1267,10 +1288,12 @@
 				EE77F560265AA900002C4782 /* FriendButton.swift in Sources */,
 				B0635AC52603897600046E88 /* HomeViewController.swift in Sources */,
 				EE4C015A26587912002C5018 /* BuokmarkEmptyCollectionCell.swift in Sources */,
+				B08CEB882663930A00FF77BD /* WorkThruViewController.swift in Sources */,
 				B075226D25ED089F0016DC3A /* AuthTokenModel.swift in Sources */,
 				EE4C017326589743002C5018 /* EditProfileViewModel.swift in Sources */,
 				B06B5EDF25ECCD550045A491 /* HeroNavigationController.swift in Sources */,
 				EE23DF74264EB2F500AB31D1 /* BuokmarkCollectionCell.swift in Sources */,
+				B08CEB8C2663934E00FF77BD /* WorkThruPageContentViewController.swift in Sources */,
 				B0D0217D2602199600F25329 /* JoinViewController.swift in Sources */,
 				EE79C440264ACE4200E83B6A /* MypageProfileView.swift in Sources */,
 				B041747625E2366E00D990A2 /* MultiLevelViewController.swift in Sources */,
@@ -1314,6 +1337,7 @@
 				B082F2C426594EC200A7AB6B /* CreateImageCell.swift in Sources */,
 				EE4C015C26588245002C5018 /* MypageViewModel.swift in Sources */,
 				EEC801F9265910FF00777B43 /* FriendPageBuokmarkHeaderView.swift in Sources */,
+				B08CEB8E2663987900FF77BD /* WorkThruViewModel.swift in Sources */,
 				EE49409126476D5400CB0B71 /* ResetPasswordViewController.swift in Sources */,
 				B075225425ED06ED0016DC3A /* UserModel.swift in Sources */,
 				B0B035E82622B2B900D65204 /* SettingSectionHeaderView.swift in Sources */,
