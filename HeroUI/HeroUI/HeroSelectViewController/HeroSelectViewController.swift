@@ -81,6 +81,8 @@ public class HeroSelectViewCell: UITableViewCell {
         
         titleLabel.font = .font16P
         titleLabel.textColor = .heroGray5B
+        
+        iconView.contentMode = .scaleAspectFit
     }
 }
 

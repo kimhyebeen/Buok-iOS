@@ -7,6 +7,7 @@
 
 import Foundation
 import HeroCommon
+import HeroUI
 
 public enum HomeFilter {
     case now
@@ -18,6 +19,17 @@ public enum HomeFilter {
 public class HomeViewModel {
     var currentFilter: Dynamic<HomeFilter> = Dynamic(.now)
     var bucketCount: Dynamic<Int> = Dynamic(2)
+    var bucketCategory: Dynamic<BucketCategory> = Dynamic(.noCategory)
+    
+    public let categoryItemList: [HeroSelectItem] = [HeroSelectItem(iconImage: UIImage(heroSharedNamed: "ic_category_travel")!, title: "여행"),
+                                            HeroSelectItem(iconImage: UIImage(heroSharedNamed: "ic_category_hobby")!, title: "취미"),
+                                            HeroSelectItem(iconImage: UIImage(heroSharedNamed: "ic_category_want")!, title: "소유"),
+                                            HeroSelectItem(iconImage: UIImage(heroSharedNamed: "ic_category_finance")!, title: "재정"),
+                                            HeroSelectItem(iconImage: UIImage(heroSharedNamed: "ic_category_health")!, title: "건강"),
+                                            HeroSelectItem(iconImage: UIImage(heroSharedNamed: "ic_category_goal")!, title: "목표"),
+                                            HeroSelectItem(iconImage: UIImage(heroSharedNamed: "ic_category_community")!, title: "조직"),
+                                            HeroSelectItem(iconImage: UIImage(heroSharedNamed: "ic_category_volunteer")!, title: "봉사"),
+                                            HeroSelectItem(iconImage: UIImage(heroSharedNamed: "ic_category_etc")!, title: "기타")]
     
     public init() {
         

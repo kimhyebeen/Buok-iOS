@@ -39,6 +39,7 @@ public enum BucketCategory: Int {
     case organization
     case volunteer
     case other
+    case noCategory
     
     public func getTitle() -> String {
         switch self {
@@ -60,6 +61,8 @@ public enum BucketCategory: Int {
             return "Hero_Add_Category_Volunteer".localized
         case .other:
             return "Hero_Add_Category_Others".localized
+        case .noCategory:
+            return ""
         }
     }
 }
