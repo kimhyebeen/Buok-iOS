@@ -20,6 +20,17 @@ class JoinNameViewController: HeroBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        viewModel?.isNicknameExist.bind({ [weak self] isExist in
+            if isExist {
+                self?.subGuideLabel.text = "중복된 별칭입니다"
+                self?.subGuideLabel.textColor = .heroServiceSubPink
+            } else {
+                let introduceVC = JoinIntroduceViewController()
+                introduceVC.viewModel = self?.viewModel
+                self?.navigationController?.pushViewController(introduceVC, animated: true)
+            }
+        })
+        
         setupView()
     }
     
@@ -39,14 +50,8 @@ class JoinNameViewController: HeroBaseViewController {
     
     @objc
     func clickNextButton(_ sender: UIButton) {
-        guard let viewmodel = viewModel else { return }
-        if viewmodel.isExistNickname(nameField.text!) {
-            subGuideLabel.text = "중복된 별칭입니다"
-            subGuideLabel.textColor = .heroServiceSubPink
-        } else {
-            let introduceVC = JoinIntroduceViewController()
-            introduceVC.viewModel = viewModel
-            self.navigationController?.pushViewController(introduceVC, animated: true)
+        if let nickname = nameField.text {
+            viewModel?.checkNicknameExist(nickname)
         }
     }
 }

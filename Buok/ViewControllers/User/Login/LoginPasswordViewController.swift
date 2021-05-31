@@ -3,6 +3,7 @@
 //  Buok
 //
 //  Created by 김혜빈 on 2021/04/13.
+//  Modified by Taein Kim on 2021/05/31.
 //
 
 import HeroUI
@@ -21,6 +22,16 @@ class LoginPasswordViewController: HeroBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        viewModel?.isLoginSuccess.bind({ [weak self] isSuccess in
+            if isSuccess {
+                self?.wrongPasswordLabel.isHidden = true
+                // Go To Home
+                self?.viewModel?.setRootVCToHomeVC()
+            } else {
+                self?.wrongPasswordLabel.isHidden = false
+            }
+        })
+        
         setupView()
     }
     
@@ -53,15 +64,17 @@ class LoginPasswordViewController: HeroBaseViewController {
     
     @objc
     func clickLoginButton(_ sender: UIButton) {
-        guard let viewmodel = viewModel else { return }
-        viewmodel.password = passwordField.text ?? ""
+        viewModel?.password = passwordField.text ?? ""
+        viewModel?.requestLogin()
+        
+        
         // todo - 로그인 요청 성공 시 메인 화면으로 넘기기
         // todo - 로그인 요청 실패 시 실패라벨 처리
-        guard let token = viewmodel.requestLogin() else {
-            wrongPasswordLabel.isHidden = false
-            return
-        }
-        wrongPasswordLabel.isHidden = true
+//        guard let token = viewmodel.requestLogin() else {
+//            wrongPasswordLabel.isHidden = false
+//            return
+//        }
+//        wrongPasswordLabel.isHidden = true
         // todo - token 저장
         // todo - main 화면 이동
     }

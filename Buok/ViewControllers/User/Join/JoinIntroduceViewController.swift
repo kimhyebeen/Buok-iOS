@@ -21,6 +21,10 @@ class JoinIntroduceViewController: HeroBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        viewModel?.isSignUpSuccess.bind({ [weak self] value in
+            self?.navigationController?.popToRootViewController(animated: true)
+        })
+        
         setupView()
     }
     

@@ -3,17 +3,26 @@
 //  Buok
 //
 //  Created by 김혜빈 on 2021/05/07.
+//  Edited by Taein Kim on 2021/05/31.
 //
 
+import HeroCommon
+import HeroUI
 import Promise
 
 class UserViewModel {
     var email: String = ""
     var password: String = ""
     var nickname: String = ""
-    var introduce: String? = nil
+    var introduce: String?
     var isSelectedEyeButton: Bool = false
 	var appleLoginMode: Bool = false
+    
+    var isLoginSuccess: Dynamic<Bool> = Dynamic(false)
+    
+    var isEmailExist: Dynamic<Bool> = Dynamic(false)
+    var isNicknameExist: Dynamic<Bool> = Dynamic(false)
+    var isSignUpSuccess: Dynamic<Bool> = Dynamic(false)
     
     func validateEmail(_ email: String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
@@ -29,27 +38,79 @@ class UserViewModel {
         return nicknameTest.evaluate(with: nickname)
     }
     
-    func isExistEmail(_ email: String) -> Bool {
+    func checkEmailExist(_ email: String) {
         self.email = email
-        // todo - email이 존재하는 계정인지 아닌지 확인 요청
-        return false
+        InfoCheckAPIRequest.checkEmail(email: self.email, responseHandler: { result in
+            switch result {
+            case .success(let resultString):
+                DebugLog("Result String : \(resultString)")
+                self.isEmailExist.value = true
+            case .failure(_):
+                self.isEmailExist.value = false
+                ErrorLog("Error")
+            }
+        })
     }
     
-    func isExistNickname(_ nickname: String) -> Bool {
+    func checkNicknameExist(_ nickname: String) {
         self.nickname = nickname
         // todo - nickname이 존재하는 별칭인지 아닌지 확인 요청
-        return false
+        InfoCheckAPIRequest.checkNickname(nickname: nickname, responseHandler: { result in
+            switch result {
+            case .success(let resultString):
+                DebugLog("Result String : \(resultString)")
+                self.isNicknameExist.value = true
+            case .failure(_):
+                self.isNicknameExist.value = false
+                ErrorLog("Error")
+            }
+        })
     }
     
-    func requestLogin() -> String? {
-        // todo - email, password를 사용해서 로그인 요청
-        print("email: \(email), password: \(password)")
-        return nil
+    func requestLogin() {
+        SignAPIRequest.signInRequest(email: email, password: password, responseHandler: { result in
+            switch result {
+            case .success(let signInData):
+                DebugLog("Login SUCCESS ---> Set Token Data To Keychain")
+                if TokenManager.shared.deleteAllTokenData() {
+                    let sat = TokenManager.shared.setAccessToken(token: signInData.accessToken)
+                    let srt = TokenManager.shared.setRefreshToken(token: signInData.accessToken)
+                    let sated = TokenManager.shared.setAccessTokenExpiredDate(expiredAt: signInData.accessExpiredAt.convertToDate())
+                    let srted = TokenManager.shared.setRefreshTokenExpiredDate(expiredAt: signInData.refreshExpiredAt.convertToDate())
+                    DebugLog("sat : \(sat), srt : \(srt), sated : \(sated), srted : \(srted)")
+                    self.isLoginSuccess.value = sat && srt && sated && srted
+                } else {
+                    ErrorLog("Token Delete ERROR")
+                    self.isLoginSuccess.value = false
+                }
+            case .failure(let error):
+                ErrorLog("Error : \(error.localizedDescription)")
+            }
+        })
     }
     
     func requestJoin() -> String? {
-        // todo - email, password, nickname, introduce를 사용해서 회원가입 요청
-        print("email: \(email), password: \(password), nickname: \(nickname), introduce: \(introduce ?? "nil")")
+        SignAPIRequest.signUpRequest(email: email, intro: introduce ?? "", nickname: nickname, password: password, responseHandler: { result in
+            switch result {
+            case .success(let isSuccess):
+                DebugLog("Is Success : \(isSuccess)")
+                self.isSignUpSuccess.value = true
+            case.failure(_):
+                ErrorLog("API Error")
+                // Alert 이나 Toast 띄우기
+            }
+        })
         return nil
+    }
+    
+    func setRootVCToHomeVC() {
+        let navigationVC = HeroNavigationController(navigationBarClass: HeroUINavigationBar.self, toolbarClass: nil)
+        navigationVC.viewControllers = [MainTabBarViewController()]
+        navigationVC.isNavigationBarHidden = true
+        
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            appDelegate.window?.rootViewController = navigationVC
+            appDelegate.window?.makeKeyAndVisible()
+        }
     }
 }

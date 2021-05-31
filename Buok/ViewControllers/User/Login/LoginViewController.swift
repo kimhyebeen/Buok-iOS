@@ -30,6 +30,17 @@ public class LoginViewController: HeroBaseViewController {
     public override func viewDidLoad() {
 		super.viewDidLoad()
 		
+        viewModel.isEmailExist.bind({ isExist in
+            if isExist {
+                let loginPasswordVC = LoginPasswordViewController()
+                loginPasswordVC.viewModel = self.viewModel
+                self.navigationController?.pushViewController(loginPasswordVC, animated: true)
+            } else {
+                let joinVC = JoinViewController()
+                joinVC.viewModel = self.viewModel
+                self.navigationController?.pushViewController(joinVC, animated: true)
+            }
+        })
 		setupView()
 	}
     
@@ -70,15 +81,7 @@ public class LoginViewController: HeroBaseViewController {
     @objc
     func clickNextButton(_ sender: UIButton) {
         guard let email = emailField.text else { return }
-        if viewModel.isExistEmail(email) {
-            let loginPasswordVC = LoginPasswordViewController()
-            loginPasswordVC.viewModel = viewModel
-            self.navigationController?.pushViewController(loginPasswordVC, animated: true)
-        } else {
-            let joinVC = JoinViewController()
-            joinVC.viewModel = viewModel
-            self.navigationController?.pushViewController(joinVC, animated: true)
-        }
+        viewModel.checkEmailExist(email)
     }
 }
 
