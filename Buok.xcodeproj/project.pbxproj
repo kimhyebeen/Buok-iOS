@@ -14,6 +14,7 @@
 		528E6F27265BB53A00F9013D /* SignAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528E6F26265BB53A00F9013D /* SignAPIRequest.swift */; };
 		7A23F5D60945D5051A7AF8BA /* Pods_Buok_BuokUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19D64A49C31935ACEF072549 /* Pods_Buok_BuokUITests.framework */; };
 		B01A28B52665054D00BE9DB3 /* TokenAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01A28B42665054D00BE9DB3 /* TokenAPIRequest.swift */; };
+		B01A28B9266526F000BE9DB3 /* HomeViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01A28B8266526F000BE9DB3 /* HomeViewController+UI.swift */; };
 		B01D43A826039D2500F2D28C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01D43A726039D2500F2D28C /* DetailViewController.swift */; };
 		B01D43B026039D5700F2D28C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01D43AF26039D5700F2D28C /* HomeViewModel.swift */; };
 		B01D43B526039D6C00F2D28C /* CreateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01D43B426039D6C00F2D28C /* CreateViewModel.swift */; };
@@ -262,6 +263,7 @@
 		AA5970ABF9321C40A1373EEA /* Pods-Nadam-NadamUITests.sandbox(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nadam-NadamUITests.sandbox(debug).xcconfig"; path = "Target Support Files/Pods-Nadam-NadamUITests/Pods-Nadam-NadamUITests.sandbox(debug).xcconfig"; sourceTree = "<group>"; };
 		AECABF2E7CD3020025E0B60D /* Pods_Buok.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Buok.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B01A28B42665054D00BE9DB3 /* TokenAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenAPIRequest.swift; sourceTree = "<group>"; };
+		B01A28B8266526F000BE9DB3 /* HomeViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+UI.swift"; sourceTree = "<group>"; };
 		B01D43A726039D2500F2D28C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		B01D43AF26039D5700F2D28C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		B01D43B426039D6C00F2D28C /* CreateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewModel.swift; sourceTree = "<group>"; };
@@ -629,6 +631,7 @@
 				B01D43B92604231800F2D28C /* CategoryFilterView.swift */,
 				EE77F586265B2497002C4782 /* BucketCollectionCell.swift */,
 				EE77F57C265B20EF002C4782 /* BucketStatusFlagView.swift */,
+				B01A28B8266526F000BE9DB3 /* HomeViewController+UI.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1333,6 +1336,7 @@
 				B0B033D32622AA0900D65204 /* SettingNavigator.swift in Sources */,
 				EE23DF77264EB36900AB31D1 /* BuokmarkFlagView.swift in Sources */,
 				EE77F563265AAE28002C4782 /* FriendListViewController.swift in Sources */,
+				B01A28B9266526F000BE9DB3 /* HomeViewController+UI.swift in Sources */,
 				EE77F565265AB39E002C4782 /* FriendListViewModel.swift in Sources */,
 				EE4C015026587401002C5018 /* BuokmarkFlag.swift in Sources */,
 				B0B033C12621C97300D65204 /* SettingViewController.swift in Sources */,
