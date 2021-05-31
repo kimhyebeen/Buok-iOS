@@ -10,7 +10,7 @@ import HeroCommon
 import SnapKit
 import UIKit
 
-public protocol HeroTabBarViewDelegate: class {
+public protocol HeroTabBarViewDelegate: AnyObject {
     func tabBarItem(at index: Int)
 }
 

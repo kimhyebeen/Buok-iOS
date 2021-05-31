@@ -6,8 +6,8 @@
 //
 
 import Foundation
+import HeroUI
 import Pageboy
-import UIKit
 import SnapKit
 
 final class WorkThruPageViewController: PageboyViewController {

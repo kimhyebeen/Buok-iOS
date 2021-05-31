@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import UIKit
+import HeroUI
 import SnapKit
 
 public class AccessibleUIPageControl: UIPageControl {

@@ -66,17 +66,6 @@ class LoginPasswordViewController: HeroBaseViewController {
     func clickLoginButton(_ sender: UIButton) {
         viewModel?.password = passwordField.text ?? ""
         viewModel?.requestLogin()
-        
-        
-        // todo - 로그인 요청 성공 시 메인 화면으로 넘기기
-        // todo - 로그인 요청 실패 시 실패라벨 처리
-//        guard let token = viewmodel.requestLogin() else {
-//            wrongPasswordLabel.isHidden = false
-//            return
-//        }
-//        wrongPasswordLabel.isHidden = true
-        // todo - token 저장
-        // todo - main 화면 이동
     }
     
     @objc

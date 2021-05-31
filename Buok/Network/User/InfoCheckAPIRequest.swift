@@ -58,7 +58,7 @@ public struct InfoCheckAPIRequest {
 		}
 	}
 	
-	static func checkEmail(email: String, responseHandler: @escaping (Result<String, HeroAPIError>) -> ()) {
+	static func checkEmail(email: String, responseHandler: @escaping (Result<String, HeroAPIError>) -> Void) {
 		BaseAPIRequest.requestJSONResponse(requestType: InfoCheckRequestType.emailCheck(email: email)).then { responseData in
 			do {
 				if let dictData = responseData as? NSDictionary {
@@ -76,7 +76,7 @@ public struct InfoCheckAPIRequest {
 		}
 	}
 	
-	static func checkNickname(nickname: String, responseHandler: @escaping (Result<Bool, HeroAPIError>) -> ()) {
+	static func checkNickname(nickname: String, responseHandler: @escaping (Result<Bool, HeroAPIError>) -> Void) {
 		BaseAPIRequest.requestJSONResponse(requestType: InfoCheckRequestType.nicknameCheck(nickname: nickname)).then { responseData in
 			do {
 				if let dictData = responseData as? NSDictionary {

@@ -7,8 +7,6 @@
 
 import HeroUI
 
-
-
 public class LoginButton: UIButton {
     public enum LoginButtonType {
         case none

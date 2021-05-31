@@ -10,7 +10,7 @@ import HeroCommon
 import HeroSharedAssets
 import HeroUI
 
-protocol BucketFilterDelegate: class {
+protocol BucketFilterDelegate: AnyObject {
     func filterChanged(filter to: HomeFilter)
 }
 

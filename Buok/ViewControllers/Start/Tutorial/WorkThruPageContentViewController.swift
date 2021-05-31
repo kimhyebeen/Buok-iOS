@@ -89,7 +89,6 @@ final class WorkThruPageContentViewController: UIViewController {
         case .fourth:
             titleLabel.text = "이렇게 저희와 함께하다 보면\n당신의 꿈이 이뤄져 있을거에요.\n이제 북을 만들어볼까요?"
             imageContentView.image = UIImage(heroSharedNamed: "ic_stage_4")
-            break
         }
     }
     

@@ -65,7 +65,7 @@ class VerifyViewController: HeroBaseViewController {
 // MARK: Delegate
 extension VerifyViewController: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
-        guard let viewmodel = viewModel else { return }
+        guard viewModel != nil else { return }
         nextButton.setHeroEnable(!(textField.text?.isEmpty ?? true))
     }
     

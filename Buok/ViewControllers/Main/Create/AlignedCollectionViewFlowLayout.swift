@@ -10,7 +10,6 @@ import HeroUI
 
 import UIKit
 
-
 // MARK: - 🦆 Type definitions
 /// An abstract protocol that defines an alignment.
 protocol Alignment {}
@@ -50,8 +49,6 @@ private struct AlignmentAxis<A: Alignment> {
     /// * If the `Alignment` is vertical, the alignment axis is horizontal and this is the position on the `y` axis.
     let position: CGFloat
 }
-
-
 
 // MARK: - Flow Layout
 /// A `UICollectionViewFlowLayout` subclass that gives you control
@@ -136,7 +133,6 @@ open class AlignedCollectionViewFlowLayout: UICollectionViewFlowLayout {
         return collectionViewWidth - sectionInset.left - sectionInset.right
     }
     
-    
     // MARK: - 👶 Initialization
     
     /// The designated initializer.
@@ -155,7 +151,6 @@ open class AlignedCollectionViewFlowLayout: UICollectionViewFlowLayout {
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    
     
     // MARK: - 🅾️ Overrides
     
@@ -206,12 +201,11 @@ open class AlignedCollectionViewFlowLayout: UICollectionViewFlowLayout {
     override open func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         // We may not change the original layout attributes or UICollectionViewFlowLayout might complain.
         let layoutAttributesObjects = copy(super.layoutAttributesForElements(in: rect))
-        layoutAttributesObjects?.forEach({ (layoutAttributes) in
+        layoutAttributesObjects?.forEach({ layoutAttributes in
             setFrame(forLayoutAttributes: layoutAttributes)
         })
         return layoutAttributesObjects
     }
-    
     
     // MARK: - 👷 Private layout helpers
     
@@ -311,12 +305,10 @@ open class AlignedCollectionViewFlowLayout: UICollectionViewFlowLayout {
     /// - Parameter layoutAttributesArray: The array to be copied.
     /// - Returns: A deep copy of the passed array.
     private func copy(_ layoutAttributesArray: [UICollectionViewLayoutAttributes]?) -> [UICollectionViewLayoutAttributes]? {
-        return layoutAttributesArray?.map{ $0.copy() } as? [UICollectionViewLayoutAttributes]
+        return layoutAttributesArray?.map { $0.copy() } as? [UICollectionViewLayoutAttributes]
     }
     
 }
-
-
 
 // MARK: - 👷 Layout attributes helpers
 fileprivate extension UICollectionViewLayoutAttributes {
@@ -346,12 +338,10 @@ fileprivate extension UICollectionViewLayoutAttributes {
     func isRepresentingFirstItemInLine(collectionViewLayout: AlignedCollectionViewFlowLayout) -> Bool {
         if currentItem <= 0 {
             return true
-        }
-        else {
+        } else {
             if let layoutAttributesForPrecedingItem = collectionViewLayout.originalLayoutAttribute(forItemAt: precedingIndexPath) {
                 return !collectionViewLayout.isFrame(for: self, inSameLineAsFrameFor: layoutAttributesForPrecedingItem)
-            }
-            else {
+            } else {
                 return true
             }
         }
@@ -368,12 +358,10 @@ fileprivate extension UICollectionViewLayoutAttributes {
         
         if currentItem >= itemCount - 1 {
             return true
-        }
-        else {
+        } else {
             if let layoutAttributesForFollowingItem = collectionViewLayout.originalLayoutAttribute(forItemAt: followingIndexPath) {
                 return !collectionViewLayout.isFrame(for: self, inSameLineAsFrameFor: layoutAttributesForFollowingItem)
-            }
-            else {
+            } else {
                 return true
             }
         }

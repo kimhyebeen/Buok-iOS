@@ -111,12 +111,12 @@ extension EditProfileViewController: UITextFieldDelegate, UITextViewDelegate {
 }
 
 extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         guard let selectedImage = info[.originalImage] as? UIImage else {
             fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
         }
         self.profileImageView.image = selectedImage
-        let imageData = selectedImage.jpegData(compressionQuality: 0.5) // 추후 서버에 저장할 때 필요
+        let _ = selectedImage.jpegData(compressionQuality: 0.5) // 추후 서버에 저장할 때 필요
         
         self.dismiss(animated: true, completion: nil)
     }

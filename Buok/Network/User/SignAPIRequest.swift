@@ -61,7 +61,7 @@ public struct SignAPIRequest {
 		}
     }
     
-	static func signInRequest(email: String, password: String, responseHandler: @escaping (Result<SignInData, HeroAPIError>) -> ()) {
+	static func signInRequest(email: String, password: String, responseHandler: @escaping (Result<SignInData, HeroAPIError>) -> Void) {
 		BaseAPIRequest.requestJSONResponse(requestType: SignRequestType.signIn(email: email, password: password)).then { responseData in
 			do {
 				if let dictData = responseData as? NSDictionary {
@@ -80,7 +80,7 @@ public struct SignAPIRequest {
 		}
 	}
     
-	static func signUpRequest(email: String, intro: String, nickname: String, password: String, responseHandler: @escaping (Result<Bool, HeroAPIError>) -> ()) {
+	static func signUpRequest(email: String, intro: String, nickname: String, password: String, responseHandler: @escaping (Result<Bool, HeroAPIError>) -> Void) {
 		BaseAPIRequest.requestJSONResponse(requestType: SignRequestType.signUp(email: email, intro: intro, nickname: nickname, password: password)).then { responseData in
 			do {
 				if let dictData = responseData as? NSDictionary {

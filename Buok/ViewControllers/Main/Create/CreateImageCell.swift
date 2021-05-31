@@ -10,7 +10,7 @@ import HeroCommon
 import HeroSharedAssets
 import HeroUI
 
-public protocol CreateImageCellDelegate: NSObject {
+public protocol CreateImageCellDelegate: AnyObject {
     func didSelectDeleteButton(index: Int)
 }
 

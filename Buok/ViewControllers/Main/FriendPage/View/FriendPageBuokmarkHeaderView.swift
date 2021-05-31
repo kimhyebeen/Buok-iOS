@@ -16,10 +16,10 @@ class FriendPageBuokmarkHeaderView: UIView {
     private let bucketBookButton = BucketBookHeaderButton()
     
     var isSelectBuokmarkButton: Bool {
-        get { buokmarkButton.isSelected }
+        self.buokmarkButton.isSelected
     }
     var isSelectBucketBookButton: Bool {
-        get { bucketBookButton.isSelected }
+        self.bucketBookButton.isSelected
     }
     
     var countOfBuokmark: Int = 0 {

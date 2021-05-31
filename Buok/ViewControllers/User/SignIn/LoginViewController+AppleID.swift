@@ -48,15 +48,15 @@ extension LoginViewController: ASAuthorizationControllerDelegate, ASAuthorizatio
 			let userId: String = appleIDCredential.user
 			let userFirstName: String = appleIDCredential.fullName?.givenName ?? ""
 			let userLastName: String = appleIDCredential.fullName?.familyName ?? ""
-			let userEmail: String = appleIDCredential.email ?? ""
-			let userName: String = userLastName + userFirstName
+			let _: String = appleIDCredential.email ?? ""
+			let _: String = userLastName + userFirstName
 
 			let provider = ASAuthorizationAppleIDProvider()
-			provider.getCredentialState(forUserID: userId) { (credentialState, error) in
+			provider.getCredentialState(forUserID: userId) { credentialState, error in
 				switch credentialState {
 				case .authorized:
 					DebugLog("Apple ID Login Authorized")
-					//서버 연결 코드 추가 예정
+					// 서버 연결 코드 추가 예정
 					self.viewModel.appleLoginMode = true
 				case .notFound:
 					DebugLog("Apple ID Login Not Found")

@@ -104,7 +104,7 @@ public struct BucketListAPIRequest {
 		}
 	}
 	
-	static func bucketListRequest(state: Int, category: Int, sort: Int, responseHandler: @escaping (Result<BucketsData, HeroAPIError>) -> ()) {
+	static func bucketListRequest(state: Int, category: Int, sort: Int, responseHandler: @escaping (Result<BucketsData, HeroAPIError>) -> Void) {
 		BaseAPIRequest.requestJSONResponse(requestType: BucketRequestType.bucketsList(state: state, category: category, sort: sort)).then { responseData in
 			do {
 				if let dictData = responseData as? NSDictionary {
@@ -123,7 +123,7 @@ public struct BucketListAPIRequest {
 		}
 	}
 	
-	static func bucketPostRequest(bucket: Bucket, responseHandler: @escaping (Result<Bool, HeroAPIError>) -> ()) {
+	static func bucketPostRequest(bucket: Bucket, responseHandler: @escaping (Result<Bool, HeroAPIError>) -> Void) {
 		var bucketArray = [String: Any]()
 		bucketArray["bucketName"] = bucket.bucketName
 		bucketArray["categoryId"] = bucket.categoryId
@@ -150,7 +150,7 @@ public struct BucketListAPIRequest {
 		}
 	}
 	
-	static func editBucketInfo(bucketId: Int, bucket: Bucket, responseHandler: @escaping (Result<Bool, HeroAPIError>) -> ()) {
+	static func editBucketInfo(bucketId: Int, bucket: Bucket, responseHandler: @escaping (Result<Bool, HeroAPIError>) -> Void) {
 		var bucketArray = [String: Any]()
 		bucketArray["bucketName"] = bucket.bucketName
 		bucketArray["categoryId"] = bucket.categoryId
@@ -177,7 +177,7 @@ public struct BucketListAPIRequest {
 		}
 	}
 	
-	static func completeEditBucket(bucketId: Int, responseHandler: @escaping (Result<Bool, HeroAPIError>) -> ()) {
+	static func completeEditBucket(bucketId: Int, responseHandler: @escaping (Result<Bool, HeroAPIError>) -> Void) {
 		BaseAPIRequest.requestJSONResponse(requestType: BucketRequestType.bucketEditComplete(bucketId: bucketId)).then { responseData in
 			do {
 				if let dictData = responseData as? NSDictionary {

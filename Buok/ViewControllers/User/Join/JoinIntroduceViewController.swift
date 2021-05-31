@@ -21,7 +21,7 @@ class JoinIntroduceViewController: HeroBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        viewModel?.isSignUpSuccess.bind({ [weak self] value in
+        viewModel?.isSignUpSuccess.bind({ [weak self] _ in
             self?.navigationController?.popToRootViewController(animated: true)
         })
         
@@ -48,7 +48,7 @@ class JoinIntroduceViewController: HeroBaseViewController {
         guard let viewmodel = viewModel else { return }
         viewmodel.introduce = enterField.text
         
-        guard let token = viewmodel.requestJoin() else {
+        guard let _ = viewmodel.requestJoin() else {
             // todo - 로그인 실패 처리
             return
         }
@@ -60,7 +60,7 @@ class JoinIntroduceViewController: HeroBaseViewController {
         guard let viewmodel = viewModel else { return }
         viewmodel.introduce = nil
         
-        guard let token = viewmodel.requestJoin() else {
+        guard let _ = viewmodel.requestJoin() else {
             // todo - 로그인 실패 처리
             return
         }

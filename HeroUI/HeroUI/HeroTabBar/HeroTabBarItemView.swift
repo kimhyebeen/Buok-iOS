@@ -9,7 +9,7 @@ import Foundation
 import HeroCommon
 import UIKit
 
-public protocol HeroTabBarItemViewDelegate: class {
+public protocol HeroTabBarItemViewDelegate: AnyObject {
     func tabBarItemView(clicked index: Int)
 }
 

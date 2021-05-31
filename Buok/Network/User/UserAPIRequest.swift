@@ -131,7 +131,7 @@ public struct UserAPIRequest {
         }
     }
 	
-	static func getUserPageInfo(userId: Int, responseHandler: @escaping (Result<UsermeData, HeroAPIError>) -> ()) {
+	static func getUserPageInfo(userId: Int, responseHandler: @escaping (Result<UsermeData, HeroAPIError>) -> Void) {
 		BaseAPIRequest.requestJSONResponse(requestType: UserRequestType.getUserPage(userId: userId)).then { responseData in
 			do {
 				if let dictData = responseData as? NSDictionary {
@@ -151,7 +151,7 @@ public struct UserAPIRequest {
 		}
 	}
 	
-	static func getMyPageIngo(responseHandler: @escaping (Result<UsermeData, HeroAPIError>) -> ()) {
+	static func getMyPageIngo(responseHandler: @escaping (Result<UsermeData, HeroAPIError>) -> Void) {
 		BaseAPIRequest.requestJSONResponse(requestType: UserRequestType.getMyPage).then { responseData in
 			do {
 				if let dictData = responseData as? NSDictionary {
@@ -171,7 +171,7 @@ public struct UserAPIRequest {
 		}
 	}
 	
-	static func changeProfileInfo(profile: ProfileData, responseHandler: @escaping (Result<Bool, HeroAPIError>) -> ()) {
+	static func changeProfileInfo(profile: ProfileData, responseHandler: @escaping (Result<Bool, HeroAPIError>) -> Void) {
 		var profileArray = [String: Any]()
 		profileArray["intro"] = profile.intro
 		profileArray["nickname"] = profile.nickname
