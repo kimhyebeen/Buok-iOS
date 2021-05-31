@@ -8,6 +8,8 @@
 
 import HeroCommon
 import HeroUI
+import KakaoSDKAuth
+import KakaoSDKUser
 import Promise
 
 class UserViewModel {
@@ -16,7 +18,7 @@ class UserViewModel {
     var nickname: String = ""
     var introduce: String?
     var isSelectedEyeButton: Bool = false
-	var appleLoginMode: Bool = false
+    var appleLoginMode: Bool = false
     
     var isLoginSuccess: Dynamic<Bool> = Dynamic(false)
     
@@ -97,7 +99,7 @@ class UserViewModel {
                 self.isSignUpSuccess.value = true
             case.failure(_):
                 ErrorLog("API Error")
-                // Alert 이나 Toast 띄우기
+            // Alert 이나 Toast 띄우기
             }
         })
         return nil
@@ -112,5 +114,53 @@ class UserViewModel {
             appDelegate.window?.rootViewController = navigationVC
             appDelegate.window?.makeKeyAndVisible()
         }
+    }
+    
+    func requestKakaoTalkLogin() {
+        if UserApi.isKakaoTalkLoginAvailable() {
+            UserApi.shared.loginWithKakaoTalk { oauthToken, error in
+                if let error = error {
+                    ErrorLog(error.localizedDescription)
+                } else {
+                    DebugLog("loginWithKakaoTalk() success ===> \(String(describing: oauthToken))")
+                    // Kakao Login Success
+//                    _ = oauthToken
+                    self.getKakaoUserInfo()
+                }
+            }
+        } else {
+            requestKakaoAccountLogin()
+        }
+    }
+    
+    private func requestKakaoAccountLogin() {
+        UserApi.shared.loginWithKakaoAccount { oauthToken, error in
+            if let error = error {
+                ErrorLog(error.localizedDescription)
+            } else {
+                DebugLog("loginWithKakaoAccount() success ===> \(String(describing: oauthToken))")
+//                let _ = oauthToken
+                self.getKakaoUserInfo()
+            }
+        }
+    }
+    
+    private func getKakaoUserInfo() {
+        UserApi.shared.me(completion: { user, error in
+            if let error = error {
+                ErrorLog(error.localizedDescription)
+            } else {
+                DebugLog("me() success.")
+                
+                if let kakaoUser = user {
+                    DebugLog("[로그인된 사용자 정보]\nnickname: \(kakaoUser.kakaoAccount?.profile?.nickname ?? "nil")\nuserId: \(String(describing: kakaoUser.id))")
+                    
+                    UserApi.shared.logout(completion: { error in
+                        // Do Nothing
+                        DebugLog("Kakao Logout Result Error : \(error?.localizedDescription ?? "nil")")
+                    })
+                }
+            }
+        })
     }
 }

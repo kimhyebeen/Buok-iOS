@@ -1,6 +1,6 @@
 # Uncomment the next line to define a global platform for your project
 
-platform :ios, '13.0'
+platform :ios, '11.0'
 workspace 'Buok'
 
 project 'Buok/HeroUI.xcodeproj'
@@ -17,13 +17,14 @@ target 'Buok' do
   pod 'SnapKit'
   pod 'Firebase/Analytics'
   pod 'Firebase/Messaging'
-  pod 'Alamofire'
-  pod 'Alamofire-SwiftyJSON'
+#  pod 'Alamofire'
+#  pod 'Alamofire-SwiftyJSON'
   pod 'SwiftyJSON'
   pod 'SwiftLint'
   pod 'Promises'
   pod 'Pageboy'
   pod 'lottie-ios'
+  pod 'KakaoSDK'
 
   target 'BuokTests' do
     inherit! :search_paths
@@ -50,6 +51,6 @@ end
 target 'HeroNetwork' do
   project 'HeroNetwork/HeroNetwork'
   pod 'Alamofire'
-  pod 'Alamofire-SwiftyJSON'
+#  pod 'Alamofire-SwiftyJSON'
   pod 'SwiftLint'
 end

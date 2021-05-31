@@ -10,6 +10,7 @@ import Firebase
 import FirebaseMessaging
 import HeroCommon
 import HeroUI
+import KakaoSDKCommon
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,6 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
         Messaging.messaging().delegate = self
+        
+        KakaoSDKCommon.initSDK(appKey: "e562ad6efc1a2a2c2ecc7e71cc3f8e3b")
         
         UNUserNotificationCenter.current().delegate = self
         let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]

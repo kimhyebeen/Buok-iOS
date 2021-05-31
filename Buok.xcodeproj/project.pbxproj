@@ -1410,68 +1410,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		B041749925E2366F00D990A2 /* Inhouse(Debug) */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-			};
-			name = "Inhouse(Debug)";
-		};
 		B041749A25E2366F00D990A2 /* Real */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1528,32 +1466,6 @@
 			};
 			name = Real;
 		};
-		B041749C25E2366F00D990A2 /* Inhouse(Debug) */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 37F621F8B5B86FEACA0C4C02 /* Pods-Buok.inhouse(debug).xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Buok/Buok.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = M79H9K226Y;
-				INFOPLIST_FILE = Buok/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yiteam.inhouse.BucketList;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "YAPP iOS 1 BucketList Inhouse Provision";
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = INHOUSE;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = "Inhouse(Debug)";
-		};
 		B041749D25E2366F00D990A2 /* Real */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EE64EE50EB3512280D8E7B47 /* Pods-Buok.real.xcconfig */;
@@ -1580,29 +1492,6 @@
 			};
 			name = Real;
 		};
-		B041749F25E2366F00D990A2 /* Inhouse(Debug) */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4ED130FF7235F27FE2025A97 /* Pods-BuokTests.inhouse(debug).xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = M79H9K226Y;
-				INFOPLIST_FILE = YappHeroTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yiteam.YappHeroTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Buok.app/Buok";
-			};
-			name = "Inhouse(Debug)";
-		};
 		B04174A025E2366F00D990A2 /* Real */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 78B2470DF033E14DFCA4AB62 /* Pods-BuokTests.real.xcconfig */;
@@ -1626,27 +1515,6 @@
 			};
 			name = Real;
 		};
-		B04174A225E2366F00D990A2 /* Inhouse(Debug) */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 80259888864004FA2F953251 /* Pods-Buok-BuokUITests.inhouse(debug).xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = M79H9K226Y;
-				INFOPLIST_FILE = YappHeroUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yiteam.YappHeroUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = YappHero;
-			};
-			name = "Inhouse(Debug)";
-		};
 		B04174A325E2366F00D990A2 /* Real */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2ED6AAF01C650FDE03D6831F /* Pods-Buok-BuokUITests.real.xcconfig */;
@@ -1668,146 +1536,12 @@
 			};
 			name = Real;
 		};
-		B04174B525E236D700D990A2 /* Sandbox(Debug) */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-			};
-			name = "Sandbox(Debug)";
-		};
-		B04174B625E236D700D990A2 /* Sandbox(Debug) */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2BB0B5F8CB1111CB6C492273 /* Pods-Buok.sandbox(debug).xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Buok/Buok.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = M79H9K226Y;
-				INFOPLIST_FILE = Buok/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yiteam.sandbox.BucketList;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "YAPP iOS 1 BucketList Sandbox Provision";
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = SANDBOX;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = "Sandbox(Debug)";
-		};
-		B04174B725E236D700D990A2 /* Sandbox(Debug) */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A12B5EAF099E93EA0771F5FE /* Pods-BuokTests.sandbox(debug).xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = M79H9K226Y;
-				INFOPLIST_FILE = YappHeroTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yiteam.YappHeroTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Buok.app/Buok";
-			};
-			name = "Sandbox(Debug)";
-		};
-		B04174B825E236D700D990A2 /* Sandbox(Debug) */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 30B041E2F4C7530B3BA87AF6 /* Pods-Buok-BuokUITests.sandbox(debug).xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = M79H9K226Y;
-				INFOPLIST_FILE = YappHeroUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yiteam.YappHeroUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = YappHero;
-			};
-			name = "Sandbox(Debug)";
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
 		B041746925E2366E00D990A2 /* Build configuration list for PBXProject "Buok" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B041749925E2366F00D990A2 /* Inhouse(Debug) */,
-				B04174B525E236D700D990A2 /* Sandbox(Debug) */,
 				B041749A25E2366F00D990A2 /* Real */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1816,8 +1550,6 @@
 		B041749B25E2366F00D990A2 /* Build configuration list for PBXNativeTarget "Buok" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B041749C25E2366F00D990A2 /* Inhouse(Debug) */,
-				B04174B625E236D700D990A2 /* Sandbox(Debug) */,
 				B041749D25E2366F00D990A2 /* Real */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1826,8 +1558,6 @@
 		B041749E25E2366F00D990A2 /* Build configuration list for PBXNativeTarget "BuokTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B041749F25E2366F00D990A2 /* Inhouse(Debug) */,
-				B04174B725E236D700D990A2 /* Sandbox(Debug) */,
 				B04174A025E2366F00D990A2 /* Real */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1836,8 +1566,6 @@
 		B04174A125E2366F00D990A2 /* Build configuration list for PBXNativeTarget "BuokUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B04174A225E2366F00D990A2 /* Inhouse(Debug) */,
-				B04174B825E236D700D990A2 /* Sandbox(Debug) */,
 				B04174A325E2366F00D990A2 /* Real */,
 			);
 			defaultConfigurationIsVisible = 0;

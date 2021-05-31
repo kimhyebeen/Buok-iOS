@@ -1,8 +1,5 @@
 PODS:
-  - Alamofire (4.9.1)
-  - Alamofire-SwiftyJSON (3.0.0):
-    - Alamofire (~> 4.5)
-    - SwiftyJSON (~> 4.0.0)
+  - Alamofire (5.4.3)
   - Firebase/Analytics (8.0.0):
     - Firebase/Core
   - Firebase/Core (8.0.0):
@@ -97,6 +94,38 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (7.4.1):
     - GoogleUtilities/Logger
+  - KakaoSDK (2.5.3):
+    - KakaoSDKAuth (= 2.5.3)
+    - KakaoSDKCommon (= 2.5.3)
+    - KakaoSDKLink (= 2.5.3)
+    - KakaoSDKNavi (= 2.5.3)
+    - KakaoSDKStory (= 2.5.3)
+    - KakaoSDKTalk (= 2.5.3)
+    - KakaoSDKTemplate (= 2.5.3)
+    - KakaoSDKUser (= 2.5.3)
+  - KakaoSDKAuth (2.5.3):
+    - KakaoSDKCommon (= 2.5.3)
+  - KakaoSDKCommon (2.5.3):
+    - KakaoSDKCommon/Common (= 2.5.3)
+    - KakaoSDKCommon/Network (= 2.5.3)
+  - KakaoSDKCommon/Common (2.5.3)
+  - KakaoSDKCommon/Network (2.5.3):
+    - Alamofire (~> 5.1)
+    - KakaoSDKCommon/Common (= 2.5.3)
+  - KakaoSDKLink (2.5.3):
+    - KakaoSDKCommon (= 2.5.3)
+    - KakaoSDKTemplate (= 2.5.3)
+  - KakaoSDKNavi (2.5.3):
+    - KakaoSDKCommon/Common (= 2.5.3)
+  - KakaoSDKStory (2.5.3):
+    - KakaoSDKUser (= 2.5.3)
+  - KakaoSDKTalk (2.5.3):
+    - KakaoSDKTemplate (= 2.5.3)
+    - KakaoSDKUser (= 2.5.3)
+  - KakaoSDKTemplate (2.5.3):
+    - KakaoSDKCommon/Common (= 2.5.3)
+  - KakaoSDKUser (2.5.3):
+    - KakaoSDKAuth (= 2.5.3)
   - lottie-ios (3.2.3)
   - nanopb (2.30908.0):
     - nanopb/decode (= 2.30908.0)
@@ -107,14 +136,14 @@ PODS:
   - Promises (2.0.4)
   - PromisesObjC (1.2.12)
   - SnapKit (5.0.1)
-  - SwiftLint (0.42.0)
-  - SwiftyJSON (4.0.0)
+  - SwiftLint (0.43.1)
+  - SwiftyJSON (5.0.1)
 
 DEPENDENCIES:
   - Alamofire
-  - Alamofire-SwiftyJSON
   - Firebase/Analytics
   - Firebase/Messaging
+  - KakaoSDK
   - lottie-ios
   - Pageboy
   - Promises
@@ -125,7 +154,6 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
-    - Alamofire-SwiftyJSON
     - Firebase
     - FirebaseAnalytics
     - FirebaseCore
@@ -135,6 +163,15 @@ SPEC REPOS:
     - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleUtilities
+    - KakaoSDK
+    - KakaoSDKAuth
+    - KakaoSDKCommon
+    - KakaoSDKLink
+    - KakaoSDKNavi
+    - KakaoSDKStory
+    - KakaoSDKTalk
+    - KakaoSDKTemplate
+    - KakaoSDKUser
     - lottie-ios
     - nanopb
     - Pageboy
@@ -145,8 +182,7 @@ SPEC REPOS:
     - SwiftyJSON
 
 SPEC CHECKSUMS:
-  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
-  Alamofire-SwiftyJSON: 2b3649d57dc7bb2880fb8b86f8bb969397666916
+  Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
   Firebase: 73c3e3b216ec1ecbc54d2ffdd4670c65c749edb1
   FirebaseAnalytics: dcb92c7c9ef4fa7ffac276e8f87bd4fc8c97f1b8
   FirebaseCore: 3f09591d51292843e2a46f18358d60bf4e996255
@@ -156,15 +192,24 @@ SPEC CHECKSUMS:
   GoogleAppMeasurement: c6bbc9753d046b5456dd4f940057fbad2c28419e
   GoogleDataTransport: 11e3a5f2c190327df1a4a5d7e7ae3d4d5b9c9e4c
   GoogleUtilities: f8a43108b38a68eebe8b3540e1f4f2d28843ce20
+  KakaoSDK: 61f5d72d4c90188bf3d6567ffeef42d2827e9f77
+  KakaoSDKAuth: b1a0b9a84c21c967c4139d221edce83a7f15cdfe
+  KakaoSDKCommon: 08548932f6f570215ea038241a98157c0b3f7a8b
+  KakaoSDKLink: 4d35879b0abd90fbd0bc0de56dbb06097e9b31d3
+  KakaoSDKNavi: 31fd6ad030cf7200d546202cbe22f7a8b38eb983
+  KakaoSDKStory: 6d666f665fbe4b8453ce19959b9bb9e3bf38a5df
+  KakaoSDKTalk: 58cf9c530cc8024ae2ed3839d40acd992ecaf909
+  KakaoSDKTemplate: 5939681de6c24fd81e93bf824982e979e794f87e
+  KakaoSDKUser: 5d2de71fe070455bbaaad6a37af3eb500fbc8972
   lottie-ios: c058aeafa76daa4cf64d773554bccc8385d0150e
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   Pageboy: cf121b9dd48c63f3f281b2a9ec93d02e0f23879b
   Promises: fcb83dc6be43294a8d30c343636ed1a45a8d2e0a
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
-  SwiftLint: 4fa9579c63416865179bc416f0a92d55f009600d
-  SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
+  SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
+  SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
-PODFILE CHECKSUM: bb240838237a56fda25c240e84e2118c710e31a2
+PODFILE CHECKSUM: 51dadd34da4ac5d06cf1ebb793878a5f37b50ae2
 
 COCOAPODS: 1.10.1

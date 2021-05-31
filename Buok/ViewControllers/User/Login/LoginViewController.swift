@@ -75,7 +75,7 @@ public class LoginViewController: HeroBaseViewController {
     
     @objc
     func onClickKakaoLogin(_ sender: UIButton) {
-        
+        viewModel.requestKakaoTalkLogin()
     }
     
     @objc
