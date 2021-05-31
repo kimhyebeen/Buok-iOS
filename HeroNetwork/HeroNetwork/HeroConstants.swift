@@ -29,8 +29,4 @@ public struct HeroConstants {
 	public static var bucket: String {
 		return "/buckets"
 	}
-	
-	public static var me: String {
-		return "/me"
-	}
 }

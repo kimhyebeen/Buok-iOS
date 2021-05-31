@@ -66,7 +66,7 @@ final class SplashViewModel {
                 DebugLog("사용자 정보: \(userData.nickname)\n\(userData.intro)\n\(userData.profileUrl ?? "")")
                 self.isValidToken.value = true
             case .failure(let error):
-                ErrorLog("API Error : \(error.statusCode) / \(error.localizedDescription)")
+                ErrorLog("API Error : \(error.statusCode) / \(error.errorMessage) / \(error.localizedDescription)")
                 self.isValidToken.value = false
             }
         })
@@ -83,7 +83,7 @@ final class SplashViewModel {
     
     // MARK: Test 지워야 함
     private func testFunction() {
-        let accessResult = TokenManager.shared.setAccessToken(token: "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzMiIsImV4cCI6MTYyNDA2NjE2NX0.s3udBmY0_NGz1d2P_HR0OedOzaDoCNuuF16OEyuRjng")
+		let accessResult = TokenManager.shared.setAccessToken(token: "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzMiIsImV4cCI6MTYyNDA2NjE2NX0.s3udBmY0_NGz1d2P_HR0OedOzaDoCNuuF16OEyuRjng")
         let refreshResult = TokenManager.shared.setRefreshToken(token: "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzMiIsImV4cCI6MTYyNDg1ODE2NX0.XKbMinwkmo7MeJId5FVawo8qiS4Csk1LoCQBd0N5-yk")
         
         let accessExpiredAtResult = TokenManager.shared.setAccessTokenExpiredDate(expiredAt: "2021-06-19 10:29:25".convertToDate())

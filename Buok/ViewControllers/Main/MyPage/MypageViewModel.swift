@@ -48,7 +48,7 @@ class MypageViewModel {
                 DebugLog("사용자 정보: \(userData.nickname)\n\(userData.intro)\n\(userData.profileUrl ?? "")")
                 self.userData?.value = userData
             case .failure(let error):
-                ErrorLog("API Error : \(error.statusCode) / \(error.localizedDescription)")
+                ErrorLog("API Error : \(error.statusCode) / \(error.errorMessage) / \(error.localizedDescription)")
             }
         })
     }
