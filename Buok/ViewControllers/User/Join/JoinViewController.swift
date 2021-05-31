@@ -16,7 +16,7 @@ public class JoinViewController: HeroBaseViewController {
     let guideLabel = UILabel()
     let passwordField = UserTextField()
     let eyeButton = UIButton()
-    let nextButton = UserServiceButton()
+    let nextButton = LoginButton()
     
     weak var viewModel: UserViewModel?
     
@@ -130,6 +130,7 @@ extension JoinViewController {
     
     // MARK: NextButton
     func setupNextButton() {
+        nextButton.loginButtonType = .none
         nextButton.setHeroTitle("계속하기")
         nextButton.setHeroEnable(false)
         nextButton.addTarget(self, action: #selector(clickNextButton(_:)), for: .touchUpInside)

@@ -101,6 +101,7 @@ extension LoginPasswordViewController {
     func setupLoginButton() {
         loginButton.setHeroTitle("로그인")
         loginButton.setHeroEnable(false)
+        loginButton.loginButtonType = .none
         loginButton.addTarget(self, action: #selector(clickLoginButton(_:)), for: .touchUpInside)
         self.view.addSubview(loginButton)
         

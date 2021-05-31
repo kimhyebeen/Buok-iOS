@@ -81,6 +81,7 @@ extension JoinIntroduceViewController {
     func setupFinishButton() {
         finishButton.setHeroTitle("완료")
         finishButton.setHeroEnable(false)
+        finishButton.loginButtonType = .none
         finishButton.addTarget(self, action: #selector(clickFinishButton(_:)), for: .touchUpInside)
         self.view.addSubview(finishButton)
         

@@ -1,11 +1,11 @@
 # Uncomment the next line to define a global platform for your project
 
-platform :ios, '12.0'
+platform :ios, '13.0'
 workspace 'Buok'
 
-xcodeproj 'Buok/HeroUI.xcodeproj'
-xcodeproj 'Buok/HeroCommon.xcodeproj'
-xcodeproj 'Buok/HeroNetwork.xcodeproj'
+project 'Buok/HeroUI.xcodeproj'
+project 'Buok/HeroCommon.xcodeproj'
+project 'Buok/HeroNetwork.xcodeproj'
 
 project 'Buok' , 'Inhouse(Debug)' => :debug, 'Sandbox(Debug)' => :debug
 

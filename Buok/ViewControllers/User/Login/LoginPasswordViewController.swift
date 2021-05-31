@@ -14,7 +14,7 @@ class LoginPasswordViewController: HeroBaseViewController {
     let eyeButton = UIButton()
     let wrongPasswordLabel = UILabel()
     let forgetButton = UIButton()
-    let loginButton = UserServiceButton()
+    let loginButton = LoginButton()
     
     weak var viewModel: UserViewModel?
     

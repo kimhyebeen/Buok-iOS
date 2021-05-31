@@ -13,7 +13,7 @@ class JoinNameViewController: HeroBaseViewController {
     let nameField = UserTextField()
     let subGuideLabel = UILabel()
     let countLabel = UILabel()
-    let nextButton = UserServiceButton()
+    let nextButton = LoginButton()
     
     weak var viewModel: UserViewModel?
 
@@ -135,6 +135,7 @@ extension JoinNameViewController {
     func setupNextButton() {
         nextButton.setHeroTitle("계속하기")
         nextButton.setHeroEnable(false)
+        nextButton.loginButtonType = .none
         nextButton.addTarget(self, action: #selector(clickNextButton(_:)), for: .touchUpInside)
         self.view.addSubview(nextButton)
         

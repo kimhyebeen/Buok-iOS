@@ -12,15 +12,17 @@ import HeroUI
 import SnapKit
 
 public class LoginViewController: HeroBaseViewController {
-    let scrollView = UIScrollView()
-    let contentsView = UIView()
+    let scrollView: UIScrollView = UIScrollView()
+    let contentsView: UIView = UIView()
+    let loginButtonStackView: UIStackView = UIStackView()
     
     let guideLabel = UILabel()
     let emailField = UserTextField()
-    let nextButton = UserServiceButton()
+    let nextButton = LoginButton()
     let orLabel = UILabel()
-    let googleSignInButton = UserServiceButton()
-    let kakaoSignInButton = UserServiceButton()
+    let appleSignInButton = LoginButton()
+    let googleSignInButton = LoginButton()
+    let kakaoSignInButton = LoginButton()
     let servicePolicyButton = UIButton()
     
     var viewModel = UserViewModel()
@@ -37,20 +39,32 @@ public class LoginViewController: HeroBaseViewController {
         setupEmailField()
         setupNextButton()
         setupOrLabel()
-        setupGoogleSignInButton()
-        setupKakaoSignInButton()
-        setupServicePolicyButton()
+        setupLoginButtonStackView()
+//        setupAppleSignInButton()
+//        setupGoogleSignInButton()
+//        setupKakaoSignInButton()
+//        setupServicePolicyButton()
         
         setupTapGesture()
-		if #available(iOS 13.0, *) {
-			configureAppleSignButton()
-		}
+//		if #available(iOS 13.0, *) {
+//			configureAppleSignButton()
+//		}
     }
     
     private func setupTapGesture() {
         let tap = UITapGestureRecognizer()
         tap.delegate = self
         scrollView.addGestureRecognizer(tap)
+    }
+    
+    @objc
+    func onClickGoogleLogin(_ sender: UIButton) {
+        
+    }
+    
+    @objc
+    func onClickKakaoLogin(_ sender: UIButton) {
+        
     }
     
     @objc

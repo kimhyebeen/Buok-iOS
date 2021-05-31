@@ -16,8 +16,11 @@ final class StartDIContainer {
         return splashVC
     }
     
-    func createLoginVC() -> LoginViewController {
-        return LoginViewController()
+    func createLoginNavVC() -> HeroNavigationController {
+        let navController = HeroNavigationController(navigationBarClass: HeroUINavigationBar.self, toolbarClass: nil)
+        navController.viewControllers = [LoginViewController()]
+        navController.isNavigationBarHidden = true
+        return navController
     }
     
     func createMainNavVC() -> HeroNavigationController {

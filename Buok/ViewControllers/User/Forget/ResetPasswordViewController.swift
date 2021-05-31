@@ -13,7 +13,7 @@ class ResetPasswordViewController: HeroBaseViewController {
     let guideLabel = UILabel()
     let passwordField = UserTextField()
     let eyeButton = UIButton()
-    let finishButton = UserServiceButton()
+    let finishButton = LoginButton()
     
     weak var viewModel: ForgetViewModel?
 
@@ -147,6 +147,7 @@ extension ResetPasswordViewController {
     func setupFinishButton() {
         finishButton.setHeroEnable(false)
         finishButton.setHeroTitle("완료")
+        finishButton.loginButtonType = .none
         finishButton.addTarget(self, action: #selector(clickFinishButton(_:)), for: .touchUpInside)
         self.view.addSubview(finishButton)
         

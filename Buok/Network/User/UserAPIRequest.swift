@@ -109,11 +109,13 @@ public struct UserAPIRequest {
 		}
 	}
 	
-    static func getUserInfo(responseHandler: @escaping (Result<UserData, HeroAPIError>) -> ()) {
+    static func getUserInfo(responseHandler: @escaping (Result<UserData, HeroAPIError>) -> Void) {
         BaseAPIRequest.requestJSONResponse(requestType: UserRequestType.getUserprofile).then { responseData in
             do {
                 if let dictData = responseData as? NSDictionary {
                     let jsonData = try JSONSerialization.data(withJSONObject: dictData, options: .prettyPrinted)
+                    DebugLog("responseData : \(dictData)")
+                    DebugLog("Json Data : \n\(String(data: jsonData, encoding: .utf8) ?? "nil")")
                     let getData = try JSONDecoder().decode(UserProfileServerModel.self, from: jsonData)
                     let userData = getData.data
                     if getData.status < 300 {
@@ -123,7 +125,8 @@ public struct UserAPIRequest {
                     }
                 }
             } catch {
-                ErrorLog("UserAPIRequest ERROR")
+                ErrorLog("ERROR Detected")
+                responseHandler(.failure(HeroAPIError(errorCode: .unknown, statusCode: -1, errorMessage: "알 수 없는 오류")))
             }
         }
     }
@@ -142,7 +145,8 @@ public struct UserAPIRequest {
 					}
 				}
 			} catch {
-				ErrorLog("UserAPIRequest ERROR")
+                ErrorLog("ERROR Detected")
+                responseHandler(.failure(HeroAPIError(errorCode: .unknown, statusCode: -1, errorMessage: "알 수 없는 오류")))
 			}
 		}
 	}
@@ -161,7 +165,8 @@ public struct UserAPIRequest {
 					}
 				}
 			} catch {
-				ErrorLog("UserAPIRequest ERROR")
+                ErrorLog("ERROR Detected")
+                responseHandler(.failure(HeroAPIError(errorCode: .unknown, statusCode: -1, errorMessage: "알 수 없는 오류")))
 			}
 		}
 	}
@@ -183,7 +188,8 @@ public struct UserAPIRequest {
 					}
 				}
 			} catch {
-				ErrorLog("UserAPIRequest ERROR")
+				ErrorLog("ERROR Detected")
+                responseHandler(.failure(HeroAPIError(errorCode: .unknown, statusCode: -1, errorMessage: "알 수 없는 오류")))
 			}
 		}
 	}

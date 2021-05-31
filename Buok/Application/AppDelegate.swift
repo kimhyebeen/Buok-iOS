@@ -27,9 +27,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.registerForRemoteNotifications()
         
         let window = UIWindow(frame: UIScreen.main.bounds)
-//        let navigationVC = HeroNavigationController(navigationBarClass: HeroUINavigationBar.self, toolbarClass: nil)
-//        navigationVC.viewControllers = [MainTabBarViewController()]
-//        navigationVC.isNavigationBarHidden = true
         
         let startDIContainer = StartDIContainer()
         let startCoordinator = StartCoordinator(startDIContainer: startDIContainer)
@@ -38,6 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window.rootViewController = splashVC
         window.makeKeyAndVisible()
+        window.overrideUserInterfaceStyle = .light
         self.window = window
         
         return true

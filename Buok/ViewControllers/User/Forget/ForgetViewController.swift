@@ -12,7 +12,7 @@ class ForgetViewController: HeroBaseViewController {
     let guideLabel = UILabel()
     let emailField = UserTextField()
     let wrongLabel = UILabel()
-    let nextButton = UserServiceButton()
+    let nextButton = LoginButton()
     
     let viewModel = ForgetViewModel()
     var nextButtonTopAnchor: NSLayoutConstraint?
@@ -124,6 +124,7 @@ extension ForgetViewController {
     func setupNextButton() {
         nextButton.setHeroEnable(false)
         nextButton.setHeroTitle("계속하기")
+        nextButton.loginButtonType = .none
         nextButton.addTarget(self, action: #selector(clickNextButton(_:)), for: .touchUpInside)
         self.view.addSubview(nextButton)
         

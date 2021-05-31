@@ -13,7 +13,7 @@ class JoinIntroduceViewController: HeroBaseViewController {
     let enterField = IntroduceTextView()
     let placeholder = UILabel()
     let countLabel = UILabel()
-    let finishButton = UserServiceButton()
+    let finishButton = LoginButton()
     let passButton = UIButton()
     
     weak var viewModel: UserViewModel?
@@ -81,6 +81,7 @@ extension JoinIntroduceViewController: UITextViewDelegate {
             let beforeEnd = textView.text.index(before: textView.text.endIndex)
             textView.text = String(textView.text[start..<beforeEnd])
         }
+        finishButton.loginButtonType = .none
         finishButton.setHeroEnable(!textView.text.isEmpty)
     }
 }

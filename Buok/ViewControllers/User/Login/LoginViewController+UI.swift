@@ -57,6 +57,7 @@ extension LoginViewController {
         nextButton.addTarget(self, action: #selector(clickNextButton(_:)), for: .touchUpInside)
         nextButton.setHeroTitle("계속하기")
         nextButton.setHeroEnable(false)
+        nextButton.loginButtonType = .none
         contentsView.addSubview(nextButton)
         
         nextButton.snp.makeConstraints { make in
@@ -81,42 +82,87 @@ extension LoginViewController {
         }
     }
     
+    func setupLoginButtonStackView() {
+        contentsView.addSubview(loginButtonStackView)
+        loginButtonStackView.axis = .vertical
+        loginButtonStackView.spacing = 16
+        
+        loginButtonStackView.snp.makeConstraints { make in
+            make.top.equalTo(orLabel.snp.bottom).offset(24)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+            make.bottom.equalToSuperview()
+        }
+        
+        setupAppleSignInButton()
+        setupGoogleSignInButton()
+        setupKakaoSignInButton()
+        setupServicePolicyButton()
+        
+        if #available(iOS 13.0, *) {
+            appleSignInButton.isHidden = false
+        }
+    }
+    
+    // MARK: AppleSignInButton
+    func setupAppleSignInButton() {
+        appleSignInButton.setTitle("애플 아이디로 시작하기", for: .normal)
+//        appleSignInButton.setHeroTitle("애플 아이디로 시작하기")
+        appleSignInButton.loginButtonType = .apple
+        loginButtonStackView.addArrangedSubview(appleSignInButton)
+        appleSignInButton.addTarget(self, action: #selector(appleSignIn), for: .touchUpInside)
+        
+        appleSignInButton.snp.makeConstraints { make in
+            make.height.equalTo(48)
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
+        }
+        
+        appleSignInButton.isHidden = true
+    }
+    
     // MARK: GoogleSignInButton
     func setupGoogleSignInButton() {
-        googleSignInButton.setHeroTitle("구글아이디로 시작하기")
-        contentsView.addSubview(googleSignInButton)
+        googleSignInButton.setTitle("구글 아이디로 시작하기", for: .normal)
+//        googleSignInButton.setHeroTitle("구글 아이디로 시작하기")
+        googleSignInButton.loginButtonType = .google
+        loginButtonStackView.addArrangedSubview(googleSignInButton)
+        googleSignInButton.addTarget(self, action: #selector(onClickGoogleLogin(_:)), for: .touchUpInside)
         
         googleSignInButton.snp.makeConstraints { make in
             make.height.equalTo(48)
-			make.top.equalTo(orLabel.snp.bottom).offset(88)
-            make.leading.equalToSuperview().offset(20)
-            make.trailing.equalToSuperview().offset(-20)
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
         }
     }
     
     // MARK: KakaoSignInButton
     func setupKakaoSignInButton() {
-        kakaoSignInButton.setHeroTitle("카카오톡으로 시작하기")
-        contentsView.addSubview(kakaoSignInButton)
+//        kakaoSignInButton.setHeroTitle("카카오톡 아이디로 시작하기")
+        kakaoSignInButton.setTitle("카카오톡 아이디로 시작하기", for: .normal)
+        kakaoSignInButton.loginButtonType = .kakao
+        kakaoSignInButton.addTarget(self, action: #selector(onClickKakaoLogin(_:)), for: .touchUpInside)
+        loginButtonStackView.addArrangedSubview(kakaoSignInButton)
         
         kakaoSignInButton.snp.makeConstraints { make in
             make.height.equalTo(48)
-            make.top.equalTo(googleSignInButton.snp.bottom).offset(16)
-            make.leading.equalToSuperview().offset(20)
-            make.trailing.equalToSuperview().offset(-20)
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
         }
     }
     
     // MARK: ServicePolicyButton
     func setupServicePolicyButton() {
         servicePolicyButton.setAttributedTitle(NSAttributedString(string: "서비스 이용 약관/개인정보 보호 정책", attributes: [.foregroundColor: UIColor.heroGray7A, .font: UIFont.font13P]), for: .normal)
-        contentsView.addSubview(servicePolicyButton)
+        loginButtonStackView.addArrangedSubview(servicePolicyButton)
         
         servicePolicyButton.snp.makeConstraints { make in
             make.height.equalTo(45)
-            make.centerX.equalToSuperview()
-            make.top.equalTo(kakaoSignInButton.snp.bottom).offset(8)
-            make.bottom.lessThanOrEqualToSuperview().offset(-75)
+//            make.centerX.equalToSuperview()
+//            make.top.equalTo(kakaoSignInButton.snp.bottom).offset(8)
+//            make.bottom.lessThanOrEqualToSuperview().offset(-75)
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
         }
     }
 }

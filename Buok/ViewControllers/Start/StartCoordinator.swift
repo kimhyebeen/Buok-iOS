@@ -17,7 +17,7 @@ final class StartCoordinator {
     }
     
     func setRootVCtoLoginVC() {
-        let loginVC = dependencies.createLoginVC()
+        let loginVC = dependencies.createLoginNavVC()
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
             appDelegate.window?.rootViewController = loginVC
             appDelegate.window?.makeKeyAndVisible()

@@ -23,6 +23,7 @@ public enum ErrorCode: Int {
     case notfound = 404
 	case unsupportedMediaType = 415
 	case server = 500
+    case unknown = -1
 }
 
 public struct HeroAPIError: Error {
