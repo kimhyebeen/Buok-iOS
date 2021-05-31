@@ -13,6 +13,7 @@
 		29CA50B5265AEE7B00533ED6 /* UserAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CA50B4265AEE7B00533ED6 /* UserAPIRequest.swift */; };
 		528E6F27265BB53A00F9013D /* SignAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528E6F26265BB53A00F9013D /* SignAPIRequest.swift */; };
 		7A23F5D60945D5051A7AF8BA /* Pods_Buok_BuokUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19D64A49C31935ACEF072549 /* Pods_Buok_BuokUITests.framework */; };
+		B01A28B52665054D00BE9DB3 /* TokenAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01A28B42665054D00BE9DB3 /* TokenAPIRequest.swift */; };
 		B01D43A826039D2500F2D28C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01D43A726039D2500F2D28C /* DetailViewController.swift */; };
 		B01D43B026039D5700F2D28C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01D43AF26039D5700F2D28C /* HomeViewModel.swift */; };
 		B01D43B526039D6C00F2D28C /* CreateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01D43B426039D6C00F2D28C /* CreateViewModel.swift */; };
@@ -260,6 +261,7 @@
 		A146B5D5016257787821A4FE /* Pods-BucketListTests.sandbox(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BucketListTests.sandbox(debug).xcconfig"; path = "Target Support Files/Pods-BucketListTests/Pods-BucketListTests.sandbox(debug).xcconfig"; sourceTree = "<group>"; };
 		AA5970ABF9321C40A1373EEA /* Pods-Nadam-NadamUITests.sandbox(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nadam-NadamUITests.sandbox(debug).xcconfig"; path = "Target Support Files/Pods-Nadam-NadamUITests/Pods-Nadam-NadamUITests.sandbox(debug).xcconfig"; sourceTree = "<group>"; };
 		AECABF2E7CD3020025E0B60D /* Pods_Buok.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Buok.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B01A28B42665054D00BE9DB3 /* TokenAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenAPIRequest.swift; sourceTree = "<group>"; };
 		B01D43A726039D2500F2D28C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		B01D43AF26039D5700F2D28C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		B01D43B426039D6C00F2D28C /* CreateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewModel.swift; sourceTree = "<group>"; };
@@ -494,6 +496,24 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		B01A28B62665057300BE9DB3 /* Token */ = {
+			isa = PBXGroup;
+			children = (
+				B01A28B42665054D00BE9DB3 /* TokenAPIRequest.swift */,
+			);
+			path = Token;
+			sourceTree = "<group>";
+		};
+		B01A28B72665113E00BE9DB3 /* CommonViews */ = {
+			isa = PBXGroup;
+			children = (
+				EE23DF76264EB36900AB31D1 /* BuokmarkFlagView.swift */,
+				EE23DF73264EB2F500AB31D1 /* BuokmarkCollectionCell.swift */,
+				EE4C015926587912002C5018 /* BuokmarkEmptyCollectionCell.swift */,
+			);
+			path = CommonViews;
+			sourceTree = "<group>";
+		};
 		B01D439E26039D1C00F2D28C /* Detail */ = {
 			isa = PBXGroup;
 			children = (
@@ -538,6 +558,7 @@
 				B0D0218626021A3C00F25329 /* Resources */,
 				B075225225ED06E50016DC3A /* Model */,
 				B07520E125ED003A0016DC3A /* Network */,
+				B01A28B72665113E00BE9DB3 /* CommonViews */,
 				B06B5CB225ECA3EE0045A491 /* ViewControllers */,
 			);
 			path = Buok;
@@ -674,6 +695,7 @@
 		B07520E125ED003A0016DC3A /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				B01A28B62665057300BE9DB3 /* Token */,
 				B075237B25EF5AEC0016DC3A /* Bucket */,
 				29CA50B3265AEE6600533ED6 /* User */,
 				B075230825EF1A0E0016DC3A /* BaseAPIRequest.swift */,
@@ -847,9 +869,6 @@
 				EE79C43A264AC78600E83B6A /* MypageCountingStackView.swift */,
 				EE79C435264AC57800E83B6A /* MypageCountingButton.swift */,
 				EE79C444264AD72600E83B6A /* MypageBuokmarkHeaderView.swift */,
-				EE23DF76264EB36900AB31D1 /* BuokmarkFlagView.swift */,
-				EE23DF73264EB2F500AB31D1 /* BuokmarkCollectionCell.swift */,
-				EE4C015926587912002C5018 /* BuokmarkEmptyCollectionCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1336,6 +1355,7 @@
 				EECEF1752627D91100CF9394 /* JoinNameViewController.swift in Sources */,
 				B08CEB592662252900FF77BD /* TokenManager.swift in Sources */,
 				B08CEB352662117300FF77BD /* SplashViewModel.swift in Sources */,
+				B01A28B52665054D00BE9DB3 /* TokenAPIRequest.swift in Sources */,
 				B06B5EF625ECD0140045A491 /* SubThreeViewController.swift in Sources */,
 				B082F2C426594EC200A7AB6B /* CreateImageCell.swift in Sources */,
 				EE4C015C26588245002C5018 /* MypageViewModel.swift in Sources */,

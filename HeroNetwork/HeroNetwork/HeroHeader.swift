@@ -11,7 +11,7 @@ public enum HeroHeader {
 	case token(String)
 	case accept
 	case contentType
-    case custom(String)
+    case custom(String, String)
 	
 	var key: String {
 		switch self {
@@ -21,7 +21,7 @@ public enum HeroHeader {
 			return "accept"
 		case .contentType:
 			return "Content-Type"
-        case .custom(let key):
+        case .custom(let key, _):
             return key
 		}
 	}
@@ -34,7 +34,7 @@ public enum HeroHeader {
 			return "*/*"
 		case .contentType:
 			return "application/json"
-        case .custom(let value):
+        case .custom(_, let value):
             return value
 		}
 	}

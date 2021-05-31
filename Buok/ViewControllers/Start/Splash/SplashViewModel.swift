@@ -36,6 +36,12 @@ final class SplashViewModel {
         } else {
             if let accessToken = TokenManager.shared.getAccessToken(),
                let refreshToken = TokenManager.shared.getRefreshToken() {
+                DebugLog("AccessToken : \(accessToken)")
+                DebugLog("RefreshToken : \(refreshToken)")
+                
+                DebugLog("AccessToken Expired : \(TokenManager.shared.checkAccessTokenExpired())")
+                DebugLog("RefreshToken Expired : \(TokenManager.shared.checkRefreshTokenExpired())")
+                
                 if TokenManager.shared.checkAccessTokenExpired() {
                     if TokenManager.shared.checkRefreshTokenExpired() {
                         // RefreshToken 만료 : 로그인 화면으로 이동
@@ -55,7 +61,29 @@ final class SplashViewModel {
     
     // MARK: RefreshToken으로 AccessToken 재발급
     func refreshAccessToken(refreshToken: String) {
-        self.isValidToken.value = false
+        TokenAPIRequest.refreshTokenRequest(responseHandler: { result in
+            switch result {
+            case .success(let tokenData):
+                if TokenManager.shared.deleteAllTokenData() {
+                    let sat = TokenManager.shared.setAccessToken(token: tokenData.accessToken)
+                    let srt = TokenManager.shared.setRefreshToken(token: tokenData.accessToken)
+                    let sated = TokenManager.shared.setAccessTokenExpiredDate(expiredAt: tokenData.accessExpiredAt.convertToDate())
+                    let srted = TokenManager.shared.setRefreshTokenExpiredDate(expiredAt: tokenData.refreshExpiredAt.convertToDate())
+                    DebugLog("sat : \(sat), srt : \(srt), sated : \(sated), srted : \(srted)")
+                    
+                    if sat && srt && sated && srted {
+                        self.fetchUserInfo(accessToken: tokenData.accessToken)
+                    } else {
+                        self.isValidToken.value = false
+                    }
+                } else {
+                    self.isValidToken.value = false
+                }
+            case .failure(let error):
+                ErrorLog("API Error : \(error.statusCode) / \(error.errorMessage) / \(error.localizedDescription)")
+                self.isValidToken.value = false
+            }
+        })
     }
     
     // MARK: AccessToken으로 사용자 정보 갱신
@@ -64,7 +92,7 @@ final class SplashViewModel {
             switch result {
             case .success(let userData):
                 DebugLog("사용자 정보: \(userData.nickname)\n\(userData.intro)\n\(userData.profileUrl ?? "")")
-//                DebugLog("사용자 정보: \(userData.user.nickname)\n\(userData.user.intro)\n\(userData.user.profileUrl ?? "")")
+                //                DebugLog("사용자 정보: \(userData.user.nickname)\n\(userData.user.intro)\n\(userData.user.profileUrl ?? "")")
                 self.isValidToken.value = true
             case .failure(let error):
                 ErrorLog("API Error : \(error.statusCode) / \(error.errorMessage) / \(error.localizedDescription)")

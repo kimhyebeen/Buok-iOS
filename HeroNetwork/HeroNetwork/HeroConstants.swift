@@ -19,7 +19,7 @@ public struct HeroConstants {
     #endif
 	
 	public static var token: String {
-		return ""
+		return "/token"
 	}
 	
 	public static var user: String {

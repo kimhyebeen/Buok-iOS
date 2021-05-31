@@ -16,15 +16,26 @@ public enum HomeFilter {
 }
 
 public class HomeViewModel {
-    var helloText = Dynamic("")
+    var currentFilter: Dynamic<HomeFilter> = Dynamic(.now)
+    var bucketCount: Dynamic<Int> = Dynamic(2)
     
     public init() {
         
     }
     
     public func filterChanged(filter: HomeFilter) {
-        // Setting the value of the Dynamic variable
-        // will trigger the closure we defined in the View
-        helloText.value = "\(filter)"
+        currentFilter.value = filter
+    }
+    
+    func refreshToken() {
+        TokenAPIRequest.refreshTokenRequest(responseHandler: { result in
+            switch result {
+            case .success(let tokenData):
+                DebugLog("갱신 된 토큰 정보\nAccessToken: \(tokenData.accessToken)\nRefreshToken: \(tokenData.accessToken)")
+                DebugLog("AccessToken ExpiredAt : \(tokenData.accessToken)\nRefreshToken ExpiredAt : \(tokenData.accessToken)")
+            case .failure(let error):
+                DebugLog("refreshToken ERROR : \(error.localizedDescription)")
+            }
+        })
     }
 }
