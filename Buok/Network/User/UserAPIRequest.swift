@@ -18,6 +18,8 @@ struct UserData: Codable {
 	var intro: String
 	var profileUrl: String?
 	var createdDate: String?
+    var socialType: Int?
+    var socialId: Int?
 }
 
 struct UsermeData: Codable {
@@ -62,17 +64,17 @@ struct UserPageServerModel: Codable {
 public struct UserAPIRequest {
 	enum UserRequestType: APIRequestType {
 		case getUserPage(userId: Int)
-		case getUserprofile
-		case getMyPage
-		case changeUserprofile(profile: [String: Any])
+		case getProfile
+		case getMyPageInfo
+		case changeProfile(profile: [String: Any])
 		
 		var requestURL: URL {
 			switch self {
             case let .getUserPage(userId):
                 return URL(string: HeroConstants.user + "/\(userId)")!
-			case .getUserprofile, .changeUserprofile:
+			case .getProfile, .changeProfile:
 				return URL(string: HeroConstants.user)!
-			case .getMyPage:
+			case .getMyPageInfo:
 				return URL(string: HeroConstants.user + "/me")!
 			}
 		}
@@ -83,9 +85,9 @@ public struct UserAPIRequest {
 		
 		var httpMethod: HeroRequest.Method {
 			switch self {
-			case .getUserPage, .getUserprofile, .getMyPage:
+			case .getUserPage, .getProfile, .getMyPageInfo:
 				return .get
-			case .changeUserprofile:
+			case .changeProfile:
 				return .put
 			}
 		}
@@ -94,23 +96,23 @@ public struct UserAPIRequest {
 			switch self {
 			case .getUserPage:
 				return .url
-			case .getUserprofile, .getMyPage, .changeUserprofile:
+			case .getProfile, .getMyPageInfo, .changeProfile:
 				return .json
 			}
 		}
 		
 		var requestBody: [String: Any]? {
 			switch self {
-			case .getUserPage, .getUserprofile, .getMyPage:
+			case .getUserPage, .getProfile, .getMyPageInfo:
 				return nil
-			case let .changeUserprofile(profile):
+			case let .changeProfile(profile):
 				return profile
 			}
 		}
 	}
 	
     static func getUserInfo(responseHandler: @escaping (Result<UserData, HeroAPIError>) -> Void) {
-        BaseAPIRequest.requestJSONResponse(requestType: UserRequestType.getUserprofile).then { responseData in
+        BaseAPIRequest.requestJSONResponse(requestType: UserRequestType.getProfile).then { responseData in
             do {
                 if let dictData = responseData as? NSDictionary {
                     let jsonData = try JSONSerialization.data(withJSONObject: dictData, options: .prettyPrinted)
@@ -152,7 +154,7 @@ public struct UserAPIRequest {
 	}
 	
 	static func getMyPageIngo(responseHandler: @escaping (Result<UsermeData, HeroAPIError>) -> Void) {
-		BaseAPIRequest.requestJSONResponse(requestType: UserRequestType.getMyPage).then { responseData in
+		BaseAPIRequest.requestJSONResponse(requestType: UserRequestType.getMyPageInfo).then { responseData in
 			do {
 				if let dictData = responseData as? NSDictionary {
 					let jsonData = try JSONSerialization.data(withJSONObject: dictData, options: .prettyPrinted)
@@ -176,7 +178,7 @@ public struct UserAPIRequest {
 		profileArray["intro"] = profile.intro
 		profileArray["nickname"] = profile.nickname
 		profileArray["profileUrl"] = profile.profileUrl
-		BaseAPIRequest.requestJSONResponse(requestType: UserRequestType.changeUserprofile(profile: profileArray)).then { responseData in
+		BaseAPIRequest.requestJSONResponse(requestType: UserRequestType.changeProfile(profile: profileArray)).then { responseData in
 			do {
 				if let dictData = responseData as? NSDictionary {
 					let jsonData = try JSONSerialization.data(withJSONObject: dictData, options: .prettyPrinted)

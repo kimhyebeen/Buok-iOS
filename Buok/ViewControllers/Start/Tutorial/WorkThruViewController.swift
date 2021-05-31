@@ -59,12 +59,6 @@ public class WorkThruViewController: UIViewController {
     
     @objc
     private func didChangePage() {
-//        if pageViewController.currentIndex == 2 {
-//            nextButton.setTitleColor(.heroGray600s, for: .normal)
-//        } else {
-//            nextButton.setTitleColor(.heroGray600s, for: .normal)
-//        }
-        
         if pageViewController.currentIndex ?? 0 < pageIndicator.currentPage {
             pageViewController.nextPage()
         } else if pageViewController.currentIndex ?? 0 > pageIndicator.currentPage {
@@ -83,7 +77,6 @@ public class WorkThruViewController: UIViewController {
         nextButton.snp.makeConstraints { make in
             make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(16)
             make.right.equalToSuperview().offset(-20)
-//            make.width.height.equalTo(44)
         }
         
         startButton.snp.makeConstraints { make in
@@ -133,7 +126,6 @@ public class WorkThruViewController: UIViewController {
     
     @objc
     private func nextButtonTouched() {
-//        pageViewController.nextPage()
         viewModel?.goToLoginVC()
     }
     

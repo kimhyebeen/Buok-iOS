@@ -13,9 +13,12 @@ final class WorkThruViewModel {
     func goToLoginVC() {
         AppConfiguration.shared.isInitialLaunch = false
         
-        let loginVC = LoginViewController()
+        let navController = HeroNavigationController(navigationBarClass: HeroUINavigationBar.self, toolbarClass: nil)
+        navController.viewControllers = [LoginViewController()]
+        navController.isNavigationBarHidden = true
+        
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
-            appDelegate.window?.rootViewController = loginVC
+            appDelegate.window?.rootViewController = navController
             appDelegate.window?.makeKeyAndVisible()
         }
     }
