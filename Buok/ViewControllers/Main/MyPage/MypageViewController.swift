@@ -56,10 +56,10 @@ class MypageViewController: HeroBaseViewController {
     }
     
     private func bindingViewModel() {
-        viewModel.fetchBuokmarks().then { [weak self] values in
-            self?.buokmarkHeader.count = values.count
-            self?.collectionView.reloadSections(IndexSet(0...0))
-        }
+//        viewModel.fetchBuokmarks().then { [weak self] values in
+//            self?.buokmarkHeader.count = values.count
+//            self?.collectionView.reloadSections(IndexSet(0...0))
+//        }
         
         viewModel.userData.bind({ [weak self] user in
             if let strongUser = user {
@@ -84,11 +84,11 @@ class MypageViewController: HeroBaseViewController {
 extension MypageViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.buokmarks.count > 0 ? viewModel.buokmarks.count : 3
+        return viewModel.bookmarkCount.value > 0 ? viewModel.bookmarkCount.value : 3
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if viewModel.buokmarks.count > 0 {
+        if viewModel.bookmarkCount.value > 0 {
             return settingBuokmarkCell(collectionView, indexPath)
         } else { return settingEmptyCell(collectionView, indexPath) }
     }
@@ -98,7 +98,7 @@ extension MypageViewController: UICollectionViewDelegate, UICollectionViewDataSo
             return BuokmarkCollectionCell()
         }
         
-        cell.setInformation(to: viewModel.buokmarks[indexPath.row], color: MypageViewController.buokmarkColors[indexPath.row % 3])
+        cell.setInformation(to: viewModel.bookmarkData.value[indexPath.row], color: MypageViewController.buokmarkColors[indexPath.row % 3])
         
         return cell
     }
@@ -117,7 +117,7 @@ extension MypageViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let heightForSettingButton: CGFloat = 44
-        let heightForProfileView: CGFloat = 284
+        let heightForProfileView: CGFloat = profileView.frame.height // 284
         let heightForHeader: CGFloat = 40
         
         let totalOffset = scrollView.contentOffset.y + heightForSettingButton + heightForProfileView + heightForHeader + 20
@@ -132,7 +132,7 @@ extension MypageViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        if viewModel.buokmarks.count > 0 || indexPath.row > 0 { return false }
+        if viewModel.bookmarkCount.value > 0 || indexPath.row > 0 { return false }
         DebugLog("MypageViewController - shouldSelectItemAt - home의 완료로 이동")
         return true
     }

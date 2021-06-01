@@ -5,10 +5,13 @@
 //  Created by 김혜빈 on 2021/05/22.
 //
 
+import HeroCommon
+import HeroUI
 import Promise
 
 struct FriendProfile {
     var type: FriendButtonType = .friend
+    
     var buokmarks: [BuokmarkFlag] = [
         BuokmarkFlag(date: "2021.03", title: "나홀로 북유럽\n배낭여행 떠나기", category: "ic_fill_travel"),
         BuokmarkFlag(date: "2021.01", title: "취뽀 성공하기", category: "ic_fill_goal"),
@@ -31,6 +34,9 @@ class FriendPageViewModel {
     private(set) var friendType: FriendButtonType = .friend
     private(set) var buokmarks: [BuokmarkFlag] = []
     private(set) var bucketBooks: [String] = []
+    
+    var bookmarkData: Dynamic<[BookmarkListData]> = Dynamic([BookmarkListData]())
+    var bookmarkCount: Dynamic<Int> = Dynamic(0)
     
     func fetchFriendProfile() -> Promise<FriendProfile> {
         // todo - 친구 api로 수정

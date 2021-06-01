@@ -33,14 +33,16 @@ class BuokmarkCollectionCell: UICollectionViewCell {
         setupBuokLabel()
     }
     
-    func setInformation(to model: BuokmarkFlag, color: UIColor) {
+    func setInformation(to model: BookmarkListData, color: UIColor) {
         // todo - 나중에 model 구조체로 생성해서 설정하도록 구현
-        dateLabel.text = model.date
-        buokLabel.text = model.title
-        if #available(iOS 13.0, *) {
-            iconImageView.image = UIImage(heroSharedNamed: model.category)!.withTintColor(color)
-        } else {
-            iconImageView.image = UIImage(heroSharedNamed: model.category)!
+        dateLabel.text = model.endDate
+        buokLabel.text = model.bucketName
+        if let icon = BucketCategory(rawValue: model.categoryId)?.getIcon() {
+            if #available(iOS 13.0, *) {
+                iconImageView.image = icon.withTintColor(color)
+            } else {
+                iconImageView.image = icon
+            }
         }
         flagView.flagView.layer.backgroundColor = color.cgColor
     }

@@ -106,7 +106,7 @@ extension FriendPageViewController: UICollectionViewDelegate, UICollectionViewDa
             return BuokmarkCollectionCell()
         }
         
-        cell.setInformation(to: viewModel.buokmarks[indexPath.row], color: MypageViewController.buokmarkColors[indexPath.row % 3])
+        cell.setInformation(to: viewModel.bookmarkData.value[indexPath.row], color: MypageViewController.buokmarkColors[indexPath.row % 3])
         
         return cell
     }

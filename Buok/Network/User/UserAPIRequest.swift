@@ -37,7 +37,7 @@ struct MyPageUserData: Codable {
 
         message += "FriendCount : \(friendCount), BucketCount : \(bucketCount)\n"
         message += "isFriend : \(String(describing: isFriend))\n"
-        message += "[BookmarkData]\nBookmarkCount : \(bookmark.bookmarkCount)\n"
+        message += "[BookmarkData]\nBookmarkCount : \(bookmark.bookMarkCount)\n"
         if let list = bookmark.bookmarkList {
             for item in list {
                 message += "BucketName : \(item.bucketName)\nId : \(item.id)\nEndDate : \(item.endDate)\nCategoryId : \(item.categoryId)\n"
@@ -50,7 +50,7 @@ struct MyPageUserData: Codable {
 
 struct BookmarkData: Codable {
 	var bookmarkList: [BookmarkListData]?
-	var bookmarkCount: Int
+	var bookMarkCount: Int
 }
 
 struct BookmarkListData: Codable {
@@ -176,6 +176,9 @@ public struct UserAPIRequest {
 			do {
 				if let dictData = responseData as? NSDictionary {
 					let jsonData = try JSONSerialization.data(withJSONObject: dictData, options: .prettyPrinted)
+                    DebugLog("responseData : \(dictData)")
+                    DebugLog("Json Data : \n\(String(data: jsonData, encoding: .utf8) ?? "nil")")
+                    
 					let getData = try JSONDecoder().decode(MyPageUserServerModel.self, from: jsonData)
 					let myPageUserData = getData.data
 					if getData.status < 300 {

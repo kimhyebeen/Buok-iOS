@@ -65,6 +65,31 @@ public enum BucketCategory: Int {
             return ""
         }
     }
+    
+    public func getIcon() -> UIImage? {
+        switch self {
+        case .travel:
+            return UIImage(heroSharedNamed: "ic_fill_travel")
+        case .hobby:
+            return UIImage(heroSharedNamed: "ic_fill_hobby")
+        case .own:
+            return UIImage(heroSharedNamed: "ic_fill_want")
+        case .financial:
+            return UIImage(heroSharedNamed: "ic_fill_finance")
+        case .health:
+            return UIImage(heroSharedNamed: "ic_fill_health")
+        case .goal:
+            return UIImage(heroSharedNamed: "ic_fill_goal")
+        case .organization:
+            return UIImage(heroSharedNamed: "ic_fill_community")
+        case .volunteer:
+            return UIImage(heroSharedNamed: "ic_fill_volunteer")
+        case .other:
+            return UIImage(heroSharedNamed: "ic_fill_etc")
+        case .noCategory:
+            return nil
+        }
+    }
 }
 
 public enum NadamUserStatus: Int {

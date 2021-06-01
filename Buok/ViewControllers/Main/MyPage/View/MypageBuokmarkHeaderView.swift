@@ -15,9 +15,9 @@ class MypageBuokmarkHeaderView: UIView {
         didSet {
             if count > 99 {
                 buokmarkCountLabel.text = "99+"
-            } else if count < 10 {
-                buokmarkCountLabel.text = "0\(count)"
-            } else { buokmarkCountLabel.text = "\(count)" }
+            } else {
+                buokmarkCountLabel.text = "\(count < 10 ? "0" : "")\(count)"
+            }
         }
     }
 
