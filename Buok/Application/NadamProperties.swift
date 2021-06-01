@@ -30,16 +30,41 @@ public enum BucketStatus: Int {
 }
 
 public enum BucketCategory: Int {
-    case travel = 2
-    case hobby = 3
-    case own = 4
-    case financial = 5
-    case health = 6
-    case goal = 7
-    case organization = 8
-    case volunteer = 9
-    case other = 10
-    case noCategory = 1
+    case travel = 0
+    case hobby = 1
+    case own = 2
+    case financial = 3
+    case health = 4
+    case goal = 5
+    case organization = 6
+    case volunteer = 7
+    case other = 8
+    case noCategory = 9
+    
+    public func getCategoryIndex() -> Int {
+        switch self {
+        case .travel:
+            return 2
+        case .hobby:
+            return 3
+        case .own:
+            return 4
+        case .financial:
+            return 5
+        case .health:
+            return 6
+        case .goal:
+            return 7
+        case .organization:
+            return 8
+        case .volunteer:
+            return 9
+        case .other:
+            return 10
+        case .noCategory:
+            return 1
+        }
+    }
     
     public func getTitle() -> String {
         switch self {

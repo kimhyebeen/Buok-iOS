@@ -68,7 +68,7 @@ public class HomeViewModel {
     }
     
     func fetchBookmarkList() {
-        BucketListAPIRequest.getBucketListData(state: currentFilter.value.rawValue, category: bucketCategory.value.rawValue, sort: bucketSort.value.rawValue, responseHandler: { result in
+        BucketListAPIRequest.getBucketListData(state: currentFilter.value.rawValue, category: bucketCategory.value.getCategoryIndex(), sort: bucketSort.value.rawValue, responseHandler: { result in
             switch result {
             case .success(let listData):
                 DebugLog(listData.debugDescription())
