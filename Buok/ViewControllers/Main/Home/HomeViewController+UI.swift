@@ -155,6 +155,8 @@ extension HomeViewController {
         sortLabel.textColor = .heroGray82
         sortLabel.font = UIFont.systemFont(ofSize: 17, weight: .regular)
         sortImageView.image = UIImage(heroSharedNamed: "ic_narrow_12")
+        
+        sortButton.addTarget(self, action: #selector(onClickSortButton(_:)), for: .touchUpInside)
     }
     
     func setupTotalViewLayout() {
@@ -188,6 +190,10 @@ extension HomeViewController {
             make.centerY.equalToSuperview()
             make.leading.equalToSuperview()
             make.trailing.equalTo(sortImageView.snp.leading).offset(-3)
+        }
+        
+        sortButton.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
         }
     }
 }

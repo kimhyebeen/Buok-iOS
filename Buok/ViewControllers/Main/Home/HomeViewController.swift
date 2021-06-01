@@ -129,6 +129,8 @@ public class HomeViewController: HeroBaseViewController {
         
         let category = viewModel?.bucketCategory.value ?? .noCategory
         messageContainerView.isHidden = (filter == .all) || (category != BucketCategory.noCategory)
+        totalContainerView.isHidden = !(filter == .all)
+        
         bubbleTriangleView.snp.updateConstraints { make in
             make.leading.equalToSuperview().offset(leadingOffset)
         }
@@ -151,6 +153,12 @@ public class HomeViewController: HeroBaseViewController {
     }
     
     @objc
+    func onClickSortButton(_ sender: Any?) {
+        DebugLog("Sort Button Clicked")
+        showSortAlert()
+    }
+    
+    @objc
     func onClickNotification(_ sender: Any?) {
         navigationController?.pushViewController(MultiLevelViewController(), animated: true)
     }
@@ -158,6 +166,26 @@ public class HomeViewController: HeroBaseViewController {
     @objc
     func onClickSearch(_ sender: Any?) {
         navigationController?.pushViewController(MultiLevelViewController(), animated: true)
+    }
+    
+    private func showSortAlert() {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let byCreatedAt = UIAlertAction(title: "작성순", style: .default, handler: { _ in
+            self.viewModel?.bucketSort.value = .created
+        })
+        
+        let byCharacter = UIAlertAction(title: "가나다순", style: .default, handler: { _ in
+            self.viewModel?.bucketSort.value = .character
+        })
+        
+        let cancel = UIAlertAction(title: "취소", style: .cancel, handler: { _ in
+            // Do Nothing
+        })
+        
+        alert.addAction(byCreatedAt)
+        alert.addAction(byCharacter)
+        alert.addAction(cancel)
+        self.present(alert, animated: true, completion: nil)
     }
 }
 
