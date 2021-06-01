@@ -50,6 +50,11 @@
 		B075238125EF5AF70016DC3A /* BucketListAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B075238025EF5AF70016DC3A /* BucketListAPIRequest.swift */; };
 		B07C0CFE25FDB267000AE1B0 /* HeroSharedAssets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07C0CF425FDB1DC000AE1B0 /* HeroSharedAssets.framework */; };
 		B07C0CFF25FDB268000AE1B0 /* HeroSharedAssets.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B07C0CF425FDB1DC000AE1B0 /* HeroSharedAssets.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B07CD19C2666751F0031B106 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07CD19B2666751F0031B106 /* NotificationViewController.swift */; };
+		B07CD19E266675280031B106 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07CD19D266675280031B106 /* SearchViewController.swift */; };
+		B07CD1A0266675530031B106 /* NotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07CD19F266675530031B106 /* NotificationViewModel.swift */; };
+		B07CD1A22666756E0031B106 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07CD1A12666756E0031B106 /* SearchViewModel.swift */; };
+		B07CD1A5266676700031B106 /* SearchAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07CD1A4266676700031B106 /* SearchAPIRequest.swift */; };
 		B082F2972658D59800A7AB6B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B082F28E2658D59800A7AB6B /* GoogleService-Info.plist */; };
 		B082F2C426594EC200A7AB6B /* CreateImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B082F2C326594EC200A7AB6B /* CreateImageCell.swift */; };
 		B082F2CE26594F3900A7AB6B /* CreateAddCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B082F2CD26594F3900A7AB6B /* CreateAddCell.swift */; };
@@ -304,6 +309,11 @@
 		B075238025EF5AF70016DC3A /* BucketListAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketListAPIRequest.swift; sourceTree = "<group>"; };
 		B07C0C8C25FDB146000AE1B0 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		B07C0CEE25FDB1D9000AE1B0 /* HeroSharedAssets.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = HeroSharedAssets.xcodeproj; path = HeroSharedAssets/HeroSharedAssets.xcodeproj; sourceTree = "<group>"; };
+		B07CD19B2666751F0031B106 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		B07CD19D266675280031B106 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		B07CD19F266675530031B106 /* NotificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewModel.swift; sourceTree = "<group>"; };
+		B07CD1A12666756E0031B106 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		B07CD1A4266676700031B106 /* SearchAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAPIRequest.swift; sourceTree = "<group>"; };
 		B082F28E2658D59800A7AB6B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B082F2C326594EC200A7AB6B /* CreateImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateImageCell.swift; sourceTree = "<group>"; };
 		B082F2CD26594F3900A7AB6B /* CreateAddCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAddCell.swift; sourceTree = "<group>"; };
@@ -667,6 +677,8 @@
 		B06B5EE625ECCEB00045A491 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				B07CD19A266675140031B106 /* Notification */,
+				B07CD1912666750F0031B106 /* Search */,
 				B01D439E26039D1C00F2D28C /* Detail */,
 				B0635AD8260390D200046E88 /* Create */,
 				B0635AC32603896D00046E88 /* Home */,
@@ -701,6 +713,7 @@
 		B07520E125ED003A0016DC3A /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				B07CD1A3266676670031B106 /* Search */,
 				B01A28B62665057300BE9DB3 /* Token */,
 				B075237B25EF5AEC0016DC3A /* Bucket */,
 				29CA50B3265AEE6600533ED6 /* User */,
@@ -737,6 +750,32 @@
 				B07C0CF625FDB1DC000AE1B0 /* HeroSharedAssetsTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		B07CD1912666750F0031B106 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				B07CD19D266675280031B106 /* SearchViewController.swift */,
+				B07CD1A12666756E0031B106 /* SearchViewModel.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		B07CD19A266675140031B106 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				B07CD19B2666751F0031B106 /* NotificationViewController.swift */,
+				B07CD19F266675530031B106 /* NotificationViewModel.swift */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
+		B07CD1A3266676670031B106 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				B07CD1A4266676700031B106 /* SearchAPIRequest.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 		B08CEB332662115100FF77BD /* Splash */ = {
@@ -1333,12 +1372,15 @@
 				B01D43BA2604231800F2D28C /* CategoryFilterView.swift in Sources */,
 				B041747C25E2366E00D990A2 /* BucketList.xcdatamodeld in Sources */,
 				EE79C43B264AC78600E83B6A /* MypageCountingStackView.swift in Sources */,
+				B07CD1A22666756E0031B106 /* SearchViewModel.swift in Sources */,
 				EEB9EF9826269768001AF65F /* UserTextField.swift in Sources */,
 				EE79C445264AD72600E83B6A /* MypageBuokmarkHeaderView.swift in Sources */,
 				EE4940E02648332C00CB0B71 /* UITextView+.swift in Sources */,
+				B07CD1A5266676700031B106 /* SearchAPIRequest.swift in Sources */,
 				B0B033D32622AA0900D65204 /* SettingNavigator.swift in Sources */,
 				EE23DF77264EB36900AB31D1 /* BuokmarkFlagView.swift in Sources */,
 				EE77F563265AAE28002C4782 /* FriendListViewController.swift in Sources */,
+				B07CD19E266675280031B106 /* SearchViewController.swift in Sources */,
 				B01A28B9266526F000BE9DB3 /* HomeViewController+UI.swift in Sources */,
 				EE77F565265AB39E002C4782 /* FriendListViewModel.swift in Sources */,
 				EE4C015026587401002C5018 /* BuokmarkFlag.swift in Sources */,
@@ -1347,6 +1389,7 @@
 				EE4940842647659700CB0B71 /* ForgetViewModel.swift in Sources */,
 				EECEF18C2627DFEA00CF9394 /* JoinIntroduceViewController+UI.swift in Sources */,
 				EEA213D32625DAEA00E3AEA1 /* LoginPasswordViewController+UI.swift in Sources */,
+				B07CD19C2666751F0031B106 /* NotificationViewController.swift in Sources */,
 				B08CEB3C2662162A00FF77BD /* StartCoordinator.swift in Sources */,
 				EE49406726475A5D00CB0B71 /* ForgetViewController.swift in Sources */,
 				29CA50B5265AEE7B00533ED6 /* UserAPIRequest.swift in Sources */,
@@ -1384,6 +1427,7 @@
 				B06B5CB425ECA4070045A491 /* MainTabBarViewController.swift in Sources */,
 				EE79C436264AC57800E83B6A /* MypageCountingButton.swift in Sources */,
 				528E6F27265BB53A00F9013D /* SignAPIRequest.swift in Sources */,
+				B07CD1A0266675530031B106 /* NotificationViewModel.swift in Sources */,
 				B075238125EF5AF70016DC3A /* BucketListAPIRequest.swift in Sources */,
 				EE77F57D265B20EF002C4782 /* BucketStatusFlagView.swift in Sources */,
 				298561AD2663F5C600830084 /* InfoCheckAPIRequest.swift in Sources */,

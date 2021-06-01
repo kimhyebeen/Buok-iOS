@@ -29,4 +29,8 @@ public struct HeroConstants {
 	public static var bucket: String {
 		return "/buckets"
 	}
+    
+    public static var search: String {
+        return "/search"
+    }
 }
