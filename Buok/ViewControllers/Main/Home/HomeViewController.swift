@@ -36,6 +36,14 @@ public class HomeViewController: HeroBaseViewController {
     let bubbleTriangleView: UIImageView = UIImageView()
     let countDescLabel: UILabel = UILabel()
     
+    // MARK: Total Info & Sort View
+    let totalContainerView: UIView = UIView()
+    let totalLabel: UILabel = UILabel()
+    let sortContainerView: UIView = UIView()
+    let sortLabel: UILabel = UILabel()
+    let sortImageView: UIImageView = UIImageView()
+    let sortButton: UIButton = UIButton()
+    
     // MARK: Category
     let categoryContainerView: UIView = UIView()
     let categoryButton: HeroButton = HeroButton()
@@ -55,9 +63,15 @@ public class HomeViewController: HeroBaseViewController {
 		notiButton.addTarget(self, action: #selector(onClickNotification(_:)), for: .touchUpInside)
         
         viewModel?.bucketCategory.value = .noCategory
+        viewModel?.bucketSort.value = .created
+        
         viewModel?.filterChanged(filter: .now)
         messageContainerView.isHidden = false
-//        viewModel?.refreshToken()
+    }
+    
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel?.fetchBookmarkList()
     }
     
     func bindViewModel() {
@@ -68,6 +82,13 @@ public class HomeViewController: HeroBaseViewController {
             
             viewModel.bucketCount.bind({ [weak self] count in
                 self?.applyAttributedBubbleText(count: count, filter: viewModel.currentFilter.value)
+                self?.applyAttributedTotalText(count: count)
+            })
+            
+            viewModel.bucketSort.bind({ [weak self] sort in
+                // MARK: Sort 변경 시 처리하는 부분입니다.
+                self?.sortLabel.text = sort.getTitle()
+                self?.viewModel?.fetchBookmarkList()
             })
             
             viewModel.bucketCategory.bind({ [weak self] category in
@@ -82,6 +103,7 @@ public class HomeViewController: HeroBaseViewController {
                     self?.categoryTitleLabel.text = "카테고리"
                     self?.categoryImageView.image = UIImage(heroSharedNamed: "ic_narrow_12")
                 }
+                self?.viewModel?.fetchBookmarkList()
             })
         }
     }
@@ -109,37 +131,6 @@ public class HomeViewController: HeroBaseViewController {
         messageContainerView.isHidden = (filter == .all) || (category != BucketCategory.noCategory)
         bubbleTriangleView.snp.updateConstraints { make in
             make.leading.equalToSuperview().offset(leadingOffset)
-        }
-    }
-    
-    func applyAttributedBubbleText(count: Int, filter: HomeFilter) {
-        countDescLabel.attributedText = generateAttributedText(count: count, filter: filter)
-    }
-    
-    func generateAttributedText(count: Int, filter: HomeFilter) -> NSMutableAttributedString? {
-        let countText = count < 10 ? "0\(count)" : "\(count)"
-        
-        switch filter {
-        case .now:
-            let text = "\(countText)" + "개의 버킷북을 가지고 있어요!"
-            let attributedStr = NSMutableAttributedString(string: text)
-            attributedStr.addAttribute(.font, value: UIFont.systemFont(ofSize: 20, weight: .bold), range: (text as NSString).range(of: "02"))
-            attributedStr.addAttribute(.foregroundColor, value: UIColor.heroPrimaryPink, range: (text as NSString).range(of: "02"))
-            return attributedStr
-        case .expect:
-            let text = "\(countText)" + "개의 버킷북을 계획 중이에요"
-            let attributedStr = NSMutableAttributedString(string: text)
-            attributedStr.addAttribute(.font, value: UIFont.systemFont(ofSize: 20, weight: .bold), range: (text as NSString).range(of: "02"))
-            attributedStr.addAttribute(.foregroundColor, value: UIColor.heroPrimaryPink, range: (text as NSString).range(of: "02"))
-            return attributedStr
-        case .done:
-            let text = "\(countText)" + "개의 버킷북 완료했어요"
-            let attributedStr = NSMutableAttributedString(string: text)
-            attributedStr.addAttribute(.font, value: UIFont.systemFont(ofSize: 20, weight: .bold), range: (text as NSString).range(of: "02"))
-            attributedStr.addAttribute(.foregroundColor, value: UIColor.heroPrimaryPink, range: (text as NSString).range(of: "02"))
-            return attributedStr
-        case .all:
-            return nil
         }
     }
     

@@ -15,6 +15,7 @@
 		7A23F5D60945D5051A7AF8BA /* Pods_Buok_BuokUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19D64A49C31935ACEF072549 /* Pods_Buok_BuokUITests.framework */; };
 		B01A28B52665054D00BE9DB3 /* TokenAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01A28B42665054D00BE9DB3 /* TokenAPIRequest.swift */; };
 		B01A28B9266526F000BE9DB3 /* HomeViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01A28B8266526F000BE9DB3 /* HomeViewController+UI.swift */; };
+		B01A28BB2665D52D00BE9DB3 /* HomeViewController+AttributedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01A28BA2665D52D00BE9DB3 /* HomeViewController+AttributedText.swift */; };
 		B01D43A826039D2500F2D28C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01D43A726039D2500F2D28C /* DetailViewController.swift */; };
 		B01D43B026039D5700F2D28C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01D43AF26039D5700F2D28C /* HomeViewModel.swift */; };
 		B01D43B526039D6C00F2D28C /* CreateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01D43B426039D6C00F2D28C /* CreateViewModel.swift */; };
@@ -264,6 +265,7 @@
 		AECABF2E7CD3020025E0B60D /* Pods_Buok.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Buok.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B01A28B42665054D00BE9DB3 /* TokenAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenAPIRequest.swift; sourceTree = "<group>"; };
 		B01A28B8266526F000BE9DB3 /* HomeViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+UI.swift"; sourceTree = "<group>"; };
+		B01A28BA2665D52D00BE9DB3 /* HomeViewController+AttributedText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+AttributedText.swift"; sourceTree = "<group>"; };
 		B01D43A726039D2500F2D28C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		B01D43AF26039D5700F2D28C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		B01D43B426039D6C00F2D28C /* CreateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewModel.swift; sourceTree = "<group>"; };
@@ -627,11 +629,12 @@
 			isa = PBXGroup;
 			children = (
 				B0635AC42603897600046E88 /* HomeViewController.swift */,
+				B01A28B8266526F000BE9DB3 /* HomeViewController+UI.swift */,
+				B01A28BA2665D52D00BE9DB3 /* HomeViewController+AttributedText.swift */,
 				B01D43AF26039D5700F2D28C /* HomeViewModel.swift */,
 				B01D43B92604231800F2D28C /* CategoryFilterView.swift */,
 				EE77F586265B2497002C4782 /* BucketCollectionCell.swift */,
 				EE77F57C265B20EF002C4782 /* BucketStatusFlagView.swift */,
-				B01A28B8266526F000BE9DB3 /* HomeViewController+UI.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1364,6 +1367,7 @@
 				B082F2C426594EC200A7AB6B /* CreateImageCell.swift in Sources */,
 				EE4C015C26588245002C5018 /* MypageViewModel.swift in Sources */,
 				EEC801F9265910FF00777B43 /* FriendPageBuokmarkHeaderView.swift in Sources */,
+				B01A28BB2665D52D00BE9DB3 /* HomeViewController+AttributedText.swift in Sources */,
 				B08CEB8E2663987900FF77BD /* WorkThruViewModel.swift in Sources */,
 				EE49409126476D5400CB0B71 /* ResetPasswordViewController.swift in Sources */,
 				B075225425ED06ED0016DC3A /* UserModel.swift in Sources */,

@@ -20,9 +20,20 @@ struct BucketsListData: Codable {
 	var categoryId: Int
 }
 
-struct BucketsData: Codable {
+struct BucketListData: Codable {
 	var buckets: [BucketsListData]
 	var bucketCount: Int
+    
+    func debugDescription() -> String {
+        var message: String = ""
+        message += "[BucketListData]\nBucketCount : \(bucketCount)"
+        
+        for item in buckets {
+            message += "BucketName : \(item.bucketName)\nId : \(item.id)\nEndDate : \(item.endDate)\nCategoryId : \(item.categoryId)\n"
+        }
+        
+        return message
+    }
 }
 
 struct Bucket: Codable {
@@ -40,7 +51,7 @@ struct Bucket: Codable {
 struct BucketListServerModel: Codable {
 	var status: Int
 	var message: String
-	var data: BucketsData
+	var data: BucketListData
 }
 
 public struct BucketListAPIRequest {
@@ -104,7 +115,7 @@ public struct BucketListAPIRequest {
 		}
 	}
 	
-	static func bucketListRequest(state: Int, category: Int, sort: Int, responseHandler: @escaping (Result<BucketsData, HeroAPIError>) -> Void) {
+	static func getBucketListData(state: Int, category: Int, sort: Int, responseHandler: @escaping (Result<BucketListData, HeroAPIError>) -> Void) {
 		BaseAPIRequest.requestJSONResponse(requestType: BucketRequestType.bucketsList(state: state, category: category, sort: sort)).then { responseData in
 			do {
 				if let dictData = responseData as? NSDictionary {

@@ -19,6 +19,7 @@ extension HomeViewController {
         // Top Filter Section
         topSectionView.addArrangedSubview(filterContainerView)
         topSectionView.addArrangedSubview(messageContainerView)
+        topSectionView.addArrangedSubview(totalContainerView)
         filterContainerView.addSubview(bucketFilterView)
         filterContainerView.addSubview(categoryContainerView)
         
@@ -99,6 +100,7 @@ extension HomeViewController {
         }
         
         setupBubbleLayout()
+        setupTotalViewLayout()
     }
     
     func setupBubbleLayout() {
@@ -145,5 +147,47 @@ extension HomeViewController {
         
         categoryDeleteButton.isEnabled = false
         categoryDeleteButton.addTarget(self, action: #selector(onClickCategoryDeleteButton(_:)), for: .touchUpInside)
+        
+        totalLabel.font = UIFont.systemFont(ofSize: 15, weight: .bold)
+        totalLabel.textColor = .heroGray82
+        
+        sortLabel.text = "작성순"
+        sortLabel.textColor = .heroGray82
+        sortLabel.font = UIFont.systemFont(ofSize: 17, weight: .regular)
+        sortImageView.image = UIImage(heroSharedNamed: "ic_narrow_12")
+    }
+    
+    func setupTotalViewLayout() {
+        totalContainerView.addSubview(totalLabel)
+        totalContainerView.addSubview(sortContainerView)
+        
+        sortContainerView.addSubview(sortLabel)
+        sortContainerView.addSubview(sortImageView)
+        sortContainerView.addSubview(sortButton)
+        
+        totalContainerView.snp.makeConstraints { make in
+            make.height.equalTo(32)
+        }
+        
+        totalLabel.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.leading.equalToSuperview()
+        }
+        
+        sortContainerView.snp.makeConstraints { make in
+            make.top.bottom.equalToSuperview()
+            make.trailing.equalToSuperview()
+        }
+        
+        sortImageView.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.trailing.equalToSuperview()
+        }
+        
+        sortLabel.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.leading.equalToSuperview()
+            make.trailing.equalTo(sortImageView.snp.leading).offset(-3)
+        }
     }
 }
