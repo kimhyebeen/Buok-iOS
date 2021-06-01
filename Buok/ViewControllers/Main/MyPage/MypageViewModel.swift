@@ -10,6 +10,9 @@ import Promise
 
 class MypageViewModel {
     var buokmarks: [BuokmarkFlag] = []
+    
+    var bookmarkData: Dynamic<[BookmarkListData]> = Dynamic([BookmarkListData]())
+    var bookmarkCount: Dynamic<Int> = Dynamic(0)
     var userData: Dynamic<MyPageUserData?> = Dynamic(nil)
     
     func fetchFriends() {
@@ -45,8 +48,10 @@ class MypageViewModel {
         UserAPIRequest.getMyPageIngo(responseHandler: { result in
             switch result {
             case .success(let myPageUserData):
-                DebugLog("사용자 정보: \(myPageUserData.user.nickname)\n\(myPageUserData.user.intro)\n\(myPageUserData.user.profileUrl ?? "")")
+                DebugLog(myPageUserData.debugDescription())
                 self.userData.value = myPageUserData
+                self.bookmarkCount.value = myPageUserData.bookmark.bookmarkCount
+                self.bookmarkData.value = myPageUserData.bookmark.bookmarkList ?? [BookmarkListData]()
             case .failure(let error):
                 ErrorLog("API Error : \(error.statusCode) / \(error.errorMessage) / \(error.localizedDescription)")
             }

@@ -28,11 +28,29 @@ struct MyPageUserData: Codable {
 	var bucketCount: Int
 	var bookmark: BookmarkData
 	var isFriend: Bool?
+    
+    func debugDescription() -> String {
+        var message: String = ""
+        message += "[UserData]\nEmail : \(user.email)\nNickname : \(user.nickname)\n"
+        message += "Intro : \(user.intro)\nId : \(user.id)\nProfileURL : \(String(describing: user.profileUrl))\nCreatedDate : \(String(describing: user.createdDate))\n"
+        message += "SocialType : \(String(describing: user.socialType))\nSocialId : \(String(describing: user.socialId))\n"
+
+        message += "FriendCount : \(friendCount), BucketCount : \(bucketCount)\n"
+        message += "isFriend : \(String(describing: isFriend))\n"
+        message += "[BookmarkData]\nBookmarkCount : \(bookmark.bookmarkCount)\n"
+        if let list = bookmark.bookmarkList {
+            for item in list {
+                message += "BucketName : \(item.bucketName)\nId : \(item.id)\nEndDate : \(item.endDate)\nCategoryId : \(item.categoryId)\n"
+            }
+        }
+        
+        return message
+    }
 }
 
 struct BookmarkData: Codable {
 	var bookmarkList: [BookmarkListData]?
-	var bookMarkCount: Int
+	var bookmarkCount: Int
 }
 
 struct BookmarkListData: Codable {

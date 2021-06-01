@@ -66,6 +66,11 @@ class MypageViewController: HeroBaseViewController {
                 self?.profileView.setProfile(myPageData: strongUser)
             }
         })
+        
+        viewModel.bookmarkData.bind({ [weak self] bookmark in
+            self?.buokmarkHeader.count = bookmark.count
+            self?.collectionView.reloadSections(IndexSet(0...0))
+        })
     }
 
     @objc
