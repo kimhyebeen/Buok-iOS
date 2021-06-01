@@ -10,6 +10,17 @@ import UIKit
 class MypageCountingStackView: UIStackView {
     let friendButton = MypageCountingButton()
     let bucketButton = MypageCountingButton()
+    
+    var friendCount: Int = 0 {
+        didSet {
+            friendButton.count = friendCount
+        }
+    }
+    var bucketCount: Int = 0 {
+        didSet {
+            bucketButton.count = bucketCount
+        }
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)

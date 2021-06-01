@@ -46,13 +46,13 @@ class MypageProfileView: UIView {
         setupDateLabel()
     }
     
-    func setProfile(user: UserData) {
+    func setProfile(myPageData: MyPageUserData) {
         // todo - Profile 객체를 받아 뷰 업데이트
-        nameLabel.text = user.nickname
-        emailLabel.text = user.email
-        introduceLabel.text = user.intro
+        nameLabel.text = myPageData.user.nickname
+        emailLabel.text = myPageData.user.email
+        introduceLabel.text = myPageData.user.intro
         
-        if let createdDate = user.createdDate {
+        if let createdDate = myPageData.user.createdDate {
             let date = createdDate.convertToDate()
             let components = date.get(.month, .year)
             if let month = components.month, let year = components.year {
@@ -60,6 +60,9 @@ class MypageProfileView: UIView {
                 dateLabel.text = "\(year)년 \(monthString)월에 가입함"
             }
         }
+        
+        countingButtonStack.friendCount = myPageData.friendCount
+        countingButtonStack.bucketCount = myPageData.bucketCount
     }
     
     @objc
@@ -97,7 +100,7 @@ extension MypageProfileView {
     
     // MARK: NameLabel
     private func setupNameLabel() {
-        nameLabel.text = "홍길동"
+        nameLabel.text = ""
         nameLabel.textColor = .heroGray5B
         nameLabel.font = .font20PBold // todo - 폰트 수정 필요
         self.addSubview(nameLabel)
@@ -110,7 +113,7 @@ extension MypageProfileView {
     
     // MARK: EmailLabel
     private func setupEmailLabel() {
-        emailLabel.text = "gildong@naver.com"
+        emailLabel.text = ""
         emailLabel.textColor = .heroGray82
         emailLabel.font = .font13P
         self.addSubview(emailLabel)
@@ -154,7 +157,7 @@ extension MypageProfileView {
     
     // MARK: IntroduceLabel
     private func setupIntroduceLabel() {
-        introduceLabel.text = "안녕하세요.\n사용자 홍길동의 버킷 페이지입니다.\n75자까지 입력 가능, 3줄까지만 보여짐"
+        introduceLabel.text = ""
         introduceLabel.numberOfLines = 0
         introduceLabel.textColor = .heroGray82
         introduceLabel.font = .font13P
@@ -186,7 +189,7 @@ extension MypageProfileView {
     
     // MARK: DateLabel
     private func setupDateLabel() {
-        dateLabel.text = "2021년 06월에 가입함"
+        dateLabel.text = ""
         dateLabel.textColor = .heroGray82
         dateLabel.font = .font13P
         self.addSubview(dateLabel)

@@ -22,7 +22,7 @@ struct UserData: Codable {
     var socialId: Int?
 }
 
-struct UsermeData: Codable {
+struct MyPageUserData: Codable {
 	var user: UserData
 	var friendCount: Int
 	var bucketCount: Int
@@ -55,10 +55,10 @@ struct UserProfileServerModel: Codable {
 	var data: UserData
 }
 
-struct UserPageServerModel: Codable {
+struct MyPageUserServerModel: Codable {
 	var status: Int
 	var message: String
-	var data: UsermeData
+	var data: MyPageUserData
 }
 
 public struct UserAPIRequest {
@@ -133,15 +133,15 @@ public struct UserAPIRequest {
         }
     }
 	
-	static func getUserPageInfo(userId: Int, responseHandler: @escaping (Result<UsermeData, HeroAPIError>) -> Void) {
+	static func getUserPageInfo(userId: Int, responseHandler: @escaping (Result<MyPageUserData, HeroAPIError>) -> Void) {
 		BaseAPIRequest.requestJSONResponse(requestType: UserRequestType.getUserPage(userId: userId)).then { responseData in
 			do {
 				if let dictData = responseData as? NSDictionary {
 					let jsonData = try JSONSerialization.data(withJSONObject: dictData, options: .prettyPrinted)
-					let getData = try JSONDecoder().decode(UserPageServerModel.self, from: jsonData)
-					let usermeData = getData.data
+					let getData = try JSONDecoder().decode(MyPageUserServerModel.self, from: jsonData)
+					let myPageUserData = getData.data
 					if getData.status < 300 {
-						responseHandler(.success(usermeData))
+						responseHandler(.success(myPageUserData))
 					} else {
 						responseHandler(.failure(HeroAPIError(errorCode: ErrorCode(rawValue: getData.status)!, statusCode: getData.status, errorMessage: getData.message)))
 					}
@@ -153,15 +153,15 @@ public struct UserAPIRequest {
 		}
 	}
 	
-	static func getMyPageIngo(responseHandler: @escaping (Result<UsermeData, HeroAPIError>) -> Void) {
+	static func getMyPageIngo(responseHandler: @escaping (Result<MyPageUserData, HeroAPIError>) -> Void) {
 		BaseAPIRequest.requestJSONResponse(requestType: UserRequestType.getMyPageInfo).then { responseData in
 			do {
 				if let dictData = responseData as? NSDictionary {
 					let jsonData = try JSONSerialization.data(withJSONObject: dictData, options: .prettyPrinted)
-					let getData = try JSONDecoder().decode(UserPageServerModel.self, from: jsonData)
-					let usermeData = getData.data
+					let getData = try JSONDecoder().decode(MyPageUserServerModel.self, from: jsonData)
+					let myPageUserData = getData.data
 					if getData.status < 300 {
-						responseHandler(.success(usermeData))
+						responseHandler(.success(myPageUserData))
 					} else {
 						responseHandler(.failure(HeroAPIError(errorCode: ErrorCode(rawValue: getData.status)!, statusCode: getData.status, errorMessage: getData.message)))
 					}

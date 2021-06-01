@@ -34,7 +34,7 @@ public enum BaseAPIError: Error {
 		if let error = error as? HeroAPIError {
 			self = .heroAPIError(error)
 		} else {
-			self = .unknown
+            self = .heroAPIError(HeroAPIError(errorCode: .server, statusCode: -1004, errorMessage: error?.localizedDescription ?? "unknown"))
 		}
 	}
 	

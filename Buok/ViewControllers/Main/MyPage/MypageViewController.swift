@@ -3,8 +3,10 @@
 //  Buok
 //
 //  Created by 김혜빈 on 2021/05/11.
+//  Modified by Taein Kim on 2021/06/01.
 //
 
+import HeroCommon
 import HeroUI
 
 class MypageViewController: HeroBaseViewController {
@@ -26,6 +28,10 @@ class MypageViewController: HeroBaseViewController {
         
         setupView()
         bindingViewModel()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         viewModel.fetchUserInfo()
     }
     
@@ -55,8 +61,10 @@ class MypageViewController: HeroBaseViewController {
             self?.collectionView.reloadSections(IndexSet(0...0))
         }
         
-        viewModel.userData?.bind({ [weak self] user in
-            self?.profileView.setProfile(user: user)
+        viewModel.userData.bind({ [weak self] user in
+            if let strongUser = user {
+                self?.profileView.setProfile(myPageData: strongUser)
+            }
         })
     }
 
@@ -120,8 +128,7 @@ extension MypageViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
         if viewModel.buokmarks.count > 0 || indexPath.row > 0 { return false }
-        // todo - home > 완료 이동
-        print("MypageViewController - shouldSelectItemAt - home의 완료로 이동")
+        DebugLog("MypageViewController - shouldSelectItemAt - home의 완료로 이동")
         return true
     }
     
