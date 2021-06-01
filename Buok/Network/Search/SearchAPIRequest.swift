@@ -11,13 +11,13 @@ import HeroNetwork
 import Promise
 
 public enum SearchType {
-    case my
+    case myBucket
     case user
     case mark
     
     public func getString() -> String {
         switch self {
-        case .my:
+        case .myBucket:
             return "my"
         case .user:
             return "user"
@@ -90,7 +90,7 @@ public struct SearchAPIRequest {
         var requestParameter: [String: Any]? {
             switch self {
             case let .searchMyBucket(keyword):
-                return ["type": SearchType.my.getString(), "keyword": keyword]
+                return ["type": SearchType.myBucket.getString(), "keyword": keyword]
             case let .searchUser(keyword):
                 return ["type": SearchType.user.getString(), "keyword": keyword]
             case let .searchBookmark(keyword):
