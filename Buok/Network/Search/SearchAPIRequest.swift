@@ -10,10 +10,10 @@ import HeroCommon
 import HeroNetwork
 import Promise
 
-public enum SearchType {
-    case myBucket
-    case user
-    case mark
+public enum SearchType: Int {
+    case myBucket = 0
+    case user = 1
+    case mark = 2
     
     public func getString() -> String {
         switch self {

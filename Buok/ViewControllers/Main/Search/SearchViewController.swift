@@ -16,9 +16,36 @@ final class SearchViewController: HeroBaseViewController {
     private let closeButton: UIButton = UIButton()
     private let searchBar: UISearchBar = UISearchBar()
     
+    private let filterContainerView: UIView = UIView()
+    private let filterStackView: UIStackView = UIStackView()
+    
+    private let filterMyBookButton: UIButton = UIButton()
+    private let filterAccountButton: UIButton = UIButton()
+    private let filterBookmarkButton: UIButton = UIButton()
+    
+    private let filterMyBookBar: UIView = UIView()
+    private let filterAccountBar: UIView = UIView()
+    private let filterBookmarkBar: UIView = UIView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewLayout()
+        bindViewModel()
+        viewModel?.currentSearchType.value = .myBucket
+    }
+    
+    private func bindViewModel() {
+        viewModel?.currentSearchType.bind({ [weak self] type in
+            self?.filterMyBookBar.isHidden = !(type == .myBucket)
+            self?.filterAccountBar.isHidden = !(type == .user)
+            self?.filterBookmarkBar.isHidden = !(type == .mark)
+            
+            self?.filterMyBookButton.setTitleColor((type == .myBucket ? .heroGray5B : .heroGray82), for: .normal)
+            self?.filterAccountButton.setTitleColor((type == .user ? .heroGray5B : .heroGray82), for: .normal)
+            self?.filterBookmarkButton.setTitleColor((type == .mark ? .heroGray5B : .heroGray82), for: .normal)
+            
+            self?.viewModel?.fetchSearchResult(type: type, keyword: self?.viewModel?.searchKeyword.value ?? "")
+        })
     }
     
     private func setupViewLayout() {
@@ -27,6 +54,16 @@ final class SearchViewController: HeroBaseViewController {
         view.addSubview(searchContainerView)
         searchContainerView.addSubview(closeButton)
         searchContainerView.addSubview(searchBar)
+        
+        view.addSubview(filterContainerView)
+        filterContainerView.addSubview(filterStackView)
+        filterStackView.addArrangedSubview(filterMyBookButton)
+        filterStackView.addArrangedSubview(filterAccountButton)
+        filterStackView.addArrangedSubview(filterBookmarkButton)
+        
+        filterMyBookButton.addSubview(filterMyBookBar)
+        filterAccountButton.addSubview(filterAccountBar)
+        filterBookmarkButton.addSubview(filterBookmarkBar)
         
         statusBarBackgroundView.snp.makeConstraints { make in
             make.top.equalToSuperview()
@@ -46,8 +83,38 @@ final class SearchViewController: HeroBaseViewController {
         
         searchBar.snp.makeConstraints { make in
             make.top.bottom.equalToSuperview()
-            make.leading.equalToSuperview()
+            make.leading.equalToSuperview().offset(12)
             make.trailing.equalTo(closeButton.snp.leading).offset(-16)
+        }
+        
+        filterContainerView.snp.makeConstraints { make in
+            make.top.equalTo(searchContainerView.snp.bottom)
+            make.leading.trailing.equalToSuperview()
+            make.height.equalTo(44)
+        }
+        
+        filterStackView.snp.makeConstraints { make in
+            make.top.bottom.equalToSuperview()
+            make.leading.equalToSuperview().offset(41)
+            make.trailing.equalToSuperview().offset(-41)
+        }
+        
+        filterMyBookBar.snp.makeConstraints { make in
+            make.leading.trailing.bottom.equalToSuperview()
+            make.height.equalTo(2)
+            make.width.equalTo(72)
+        }
+        
+        filterAccountBar.snp.makeConstraints { make in
+            make.leading.trailing.bottom.equalToSuperview()
+            make.height.equalTo(2)
+            make.width.equalTo(72)
+        }
+        
+        filterBookmarkBar.snp.makeConstraints { make in
+            make.leading.trailing.bottom.equalToSuperview()
+            make.height.equalTo(2)
+            make.width.equalTo(72)
         }
         
         statusBarBackgroundView.backgroundColor = .heroWhite100s
@@ -58,6 +125,41 @@ final class SearchViewController: HeroBaseViewController {
         closeButton.setTitleColor(.heroGray82, for: .normal)
         closeButton.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .regular)
         closeButton.addTarget(self, action: #selector(onClickClose(_:)), for: .touchUpInside)
+        
+        filterStackView.axis = .horizontal
+        filterStackView.distribution = .equalSpacing
+        filterMyBookButton.setTitle("마이북", for: .normal)
+        filterAccountButton.setTitle("계정", for: .normal)
+        filterBookmarkButton.setTitle("북마크", for: .normal)
+        
+        filterMyBookButton.titleLabel?.font = UIFont.systemFont(ofSize: 13, weight: .regular)
+        filterAccountButton.titleLabel?.font = UIFont.systemFont(ofSize: 13, weight: .regular)
+        filterBookmarkButton.titleLabel?.font = UIFont.systemFont(ofSize: 13, weight: .regular)
+        
+        filterContainerView.backgroundColor = .heroWhite100s
+        
+        filterMyBookBar.backgroundColor = .heroGray5B
+        filterAccountBar.backgroundColor = .heroGray5B
+        filterBookmarkBar.backgroundColor = .heroGray5B
+        
+        filterMyBookButton.addTarget(self, action: #selector(onClickMyBook(_:)), for: .touchUpInside)
+        filterAccountButton.addTarget(self, action: #selector(onClickAccount(_:)), for: .touchUpInside)
+        filterBookmarkButton.addTarget(self, action: #selector(onClickBookmark(_:)), for: .touchUpInside)
+    }
+    
+    @objc
+    private func onClickMyBook(_ sender: UIButton) {
+        viewModel?.currentSearchType.value = .myBucket
+    }
+    
+    @objc
+    private func onClickAccount(_ sender: UIButton) {
+        viewModel?.currentSearchType.value = .user
+    }
+    
+    @objc
+    private func onClickBookmark(_ sender: UIButton) {
+        viewModel?.currentSearchType.value = .mark
     }
     
     @objc
