@@ -170,6 +170,7 @@ extension MypageViewController {
     // MARK: CollectionView
     private func setupCollectionView() {
         view.addSubview(collectionView)
+        view.bringSubviewToFront(profileView)
         collectionView.snp.makeConstraints { make in
             make.edges.equalTo(view.safeAreaLayoutGuide.snp.edges)
         }
