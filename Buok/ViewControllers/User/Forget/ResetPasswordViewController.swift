@@ -3,6 +3,7 @@
 //  Buok
 //
 //  Created by 김혜빈 on 2021/05/09.
+//  Fully Modified by Taein Kim on 2021/06/02.
 //
 
 import HeroUI
@@ -21,6 +22,14 @@ class ResetPasswordViewController: HeroBaseViewController {
         super.viewDidLoad()
 
         setupView()
+        viewModel?.isResetSuccess.bind({ isSuccess in
+            if isSuccess {
+                // 성공 토스트 띄우기
+                self.navigationController?.dismiss(animated: true, completion: nil)
+            } else {
+                // 에러 얼럿 등 띄우기
+            }
+        })
     }
     
     private func setupView() {
@@ -53,7 +62,7 @@ class ResetPasswordViewController: HeroBaseViewController {
     @objc
     func clickFinishButton(_ sender: UIButton) {
         // todo - 비밀번호 재설정 요청
-        self.dismiss(animated: true, completion: nil)
+        viewModel?.resetPassword(newPassword: passwordField.text ?? "")
     }
     
 }

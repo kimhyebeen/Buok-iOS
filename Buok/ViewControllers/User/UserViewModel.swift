@@ -74,17 +74,13 @@ class UserViewModel {
             switch result {
             case .success(let signInData):
                 DebugLog("Login SUCCESS ---> Set Token Data To Keychain")
-                if TokenManager.shared.deleteAllTokenData() {
-                    let sat = TokenManager.shared.setAccessToken(token: signInData.accessToken)
-                    let srt = TokenManager.shared.setRefreshToken(token: signInData.accessToken)
-                    let sated = TokenManager.shared.setAccessTokenExpiredDate(expiredAt: signInData.accessExpiredAt.convertToDate())
-                    let srted = TokenManager.shared.setRefreshTokenExpiredDate(expiredAt: signInData.refreshExpiredAt.convertToDate())
-                    DebugLog("sat : \(sat), srt : \(srt), sated : \(sated), srted : \(srted)")
-                    self.isLoginSuccess.value = sat && srt && sated && srted
-                } else {
-                    ErrorLog("Token Delete ERROR")
-                    self.isLoginSuccess.value = false
-                }
+                _ = TokenManager.shared.deleteAllTokenData()
+                let sat = TokenManager.shared.setAccessToken(token: signInData.accessToken)
+                let srt = TokenManager.shared.setRefreshToken(token: signInData.accessToken)
+                let sated = TokenManager.shared.setAccessTokenExpiredDate(expiredAt: signInData.accessExpiredAt.convertToDate())
+                let srted = TokenManager.shared.setRefreshTokenExpiredDate(expiredAt: signInData.refreshExpiredAt.convertToDate())
+                DebugLog("sat : \(sat), srt : \(srt), sated : \(sated), srted : \(srted)")
+                self.isLoginSuccess.value = sat && srt && sated && srted
             case .failure(let error):
                 ErrorLog("Error : \(error.localizedDescription) / Status Code : \(error.statusCode)")
                 self.isLoginSuccess.value = false

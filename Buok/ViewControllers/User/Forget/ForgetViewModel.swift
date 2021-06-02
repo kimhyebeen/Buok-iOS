@@ -12,6 +12,7 @@ import HeroCommon
 class ForgetViewModel {
     var isEmailExist: Dynamic<Bool> = Dynamic(false)
     var isValidCode: Dynamic<Bool> = Dynamic(false)
+    var isResetSuccess: Dynamic<Bool> = Dynamic(false)
     var isSelectedEyeButton: Bool = false
     
     func validateEmail(_ email: String) -> Bool {
@@ -24,11 +25,9 @@ class ForgetViewModel {
         EmailAuthAPIRequest.validateAuthCode(code: code, responseHandler: { result in
             switch result {
             case .success(let token):
-                if TokenManager.shared.setPasswordResetToken(token: token) {
-                    self.isValidCode.value = true
-                } else {
-                    self.isValidCode.value = false
-                }
+                _ = TokenManager.shared.deleteAllTokenData()
+                _ = TokenManager.shared.setPasswordResetToken(token: token)
+                self.isValidCode.value = true
             case .failure(_):
                 self.isValidCode.value = false
             }
@@ -57,6 +56,19 @@ class ForgetViewModel {
                 DebugLog("Validation Code Sent.")
             case .failure(_):
                 ErrorLog("Validation Code Send Error")
+            }
+        })
+    }
+    
+    func resetPassword(newPassword: String) {
+        UserAPIRequest.resetPassword(newPassword: newPassword, responseHandler: { result in
+            switch result {
+            case .success(_):
+                DebugLog("Reset Password Success")
+                self.isResetSuccess.value = true
+            case .failure(_):
+                ErrorLog("Reset Password Failure")
+                self.isResetSuccess.value = false
             }
         })
     }

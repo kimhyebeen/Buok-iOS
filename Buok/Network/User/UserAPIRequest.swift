@@ -85,6 +85,7 @@ public struct UserAPIRequest {
 		case getProfile
 		case getMyPageInfo
 		case changeProfile(profile: [String: Any])
+        case resetPassword(newPassword: String)
 		
 		var requestURL: URL {
 			switch self {
@@ -94,18 +95,34 @@ public struct UserAPIRequest {
 				return URL(string: HeroConstants.user)!
 			case .getMyPageInfo:
 				return URL(string: HeroConstants.user + "/me")!
+            case .resetPassword:
+                return URL(string: HeroConstants.user + "/password")!
 			}
 		}
         
+        var requestHeaders: [HeroHeader]? {
+            switch self {
+            case .resetPassword:
+                return [.token(TokenManager.shared.getPasswordResetToken() ?? ""), .contentType]
+            default:
+                return [.token(TokenManager.shared.getAccessToken() ?? ""), .contentType]
+            }
+        }
+        
 		var requestParameter: [String: Any]? {
-			nil
+            switch self {
+            case let .resetPassword(password):
+                return ["password": password]
+            default:
+                return nil
+            }
 		}
 		
 		var httpMethod: HeroRequest.Method {
 			switch self {
 			case .getUserPage, .getProfile, .getMyPageInfo:
 				return .get
-			case .changeProfile:
+            case .changeProfile, .resetPassword:
 				return .put
 			}
 		}
@@ -114,20 +131,41 @@ public struct UserAPIRequest {
 			switch self {
 			case .getUserPage:
 				return .url
-			case .getProfile, .getMyPageInfo, .changeProfile:
+            case .getProfile, .getMyPageInfo, .changeProfile, .resetPassword:
 				return .json
 			}
 		}
 		
 		var requestBody: [String: Any]? {
 			switch self {
-			case .getUserPage, .getProfile, .getMyPageInfo:
+            case .getUserPage, .getProfile, .getMyPageInfo, .resetPassword:
 				return nil
 			case let .changeProfile(profile):
 				return profile
 			}
 		}
 	}
+    
+    static func resetPassword(newPassword: String, responseHandler: @escaping (Result<Bool, HeroAPIError>) -> Void) {
+        BaseAPIRequest.requestJSONResponse(requestType: UserRequestType.resetPassword(newPassword: newPassword)).then { responseData in
+            do {
+                if let dictData = responseData as? NSDictionary {
+                    let jsonData = try JSONSerialization.data(withJSONObject: dictData, options: .prettyPrinted)
+                    DebugLog("responseData : \(dictData)")
+                    DebugLog("Json Data : \n\(String(data: jsonData, encoding: .utf8) ?? "nil")")
+                    let getData = try JSONDecoder().decode(BaseServerModel.self, from: jsonData)
+                    if getData.status < 300 {
+                        responseHandler(.success(true))
+                    } else {
+                        responseHandler(.failure(HeroAPIError(errorCode: ErrorCode(rawValue: getData.status)!, statusCode: getData.status, errorMessage: getData.message)))
+                    }
+                }
+            } catch {
+                ErrorLog("ERROR Detected")
+                responseHandler(.failure(HeroAPIError(errorCode: .unknown, statusCode: -1, errorMessage: "알 수 없는 오류")))
+            }
+        }
+    }
 	
     static func getUserInfo(responseHandler: @escaping (Result<UserData, HeroAPIError>) -> Void) {
         BaseAPIRequest.requestJSONResponse(requestType: UserRequestType.getProfile).then { responseData in
