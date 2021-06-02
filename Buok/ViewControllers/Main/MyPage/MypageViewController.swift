@@ -210,10 +210,12 @@ extension MypageViewController {
     
     override func viewWillLayoutSubviews() {
         DebugLog("Profile View Frame Height : \(profileView.frame.height)")
+        collectionView.contentInset = UIEdgeInsets(top: 108 + profileView.frame.height, left: 20, bottom: 0, right: 20)
     }
     
     override func viewDidLayoutSubviews() {
         DebugLog("Profile View Frame Height : \(profileView.frame.height)")
+        collectionView.contentInset = UIEdgeInsets(top: 108 + profileView.frame.height, left: 20, bottom: 0, right: 20)
     }
     
     // MARK: ProfileView
@@ -225,9 +227,6 @@ extension MypageViewController {
             make.top.equalTo(topNavBar.snp.bottom)
             make.leading.trailing.equalToSuperview()
         }
-        
-        DebugLog("Profile View Frame Height : \(profileView.frame.height)")
-        collectionView.contentInset = UIEdgeInsets(top: 108 + profileView.frame.height, left: 20, bottom: 0, right: 20)
     }
     
     // MARK: BuokmarkHeader
