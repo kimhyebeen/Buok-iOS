@@ -48,6 +48,7 @@
 		B075230925EF1A0E0016DC3A /* BaseAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B075230825EF1A0E0016DC3A /* BaseAPIRequest.swift */; };
 		B075231325EF1E6F0016DC3A /* BaseAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B075231225EF1E6F0016DC3A /* BaseAPIError.swift */; };
 		B075238125EF5AF70016DC3A /* BucketListAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B075238025EF5AF70016DC3A /* BucketListAPIRequest.swift */; };
+		B07AD1392667C3A6000CCDAC /* EmailAuthAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07AD1382667C3A6000CCDAC /* EmailAuthAPIRequest.swift */; };
 		B07C0CFE25FDB267000AE1B0 /* HeroSharedAssets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07C0CF425FDB1DC000AE1B0 /* HeroSharedAssets.framework */; };
 		B07C0CFF25FDB268000AE1B0 /* HeroSharedAssets.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B07C0CF425FDB1DC000AE1B0 /* HeroSharedAssets.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B07CD19C2666751F0031B106 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07CD19B2666751F0031B106 /* NotificationViewController.swift */; };
@@ -307,6 +308,7 @@
 		B075230825EF1A0E0016DC3A /* BaseAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAPIRequest.swift; sourceTree = "<group>"; };
 		B075231225EF1E6F0016DC3A /* BaseAPIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAPIError.swift; sourceTree = "<group>"; };
 		B075238025EF5AF70016DC3A /* BucketListAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketListAPIRequest.swift; sourceTree = "<group>"; };
+		B07AD1382667C3A6000CCDAC /* EmailAuthAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailAuthAPIRequest.swift; sourceTree = "<group>"; };
 		B07C0C8C25FDB146000AE1B0 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		B07C0CEE25FDB1D9000AE1B0 /* HeroSharedAssets.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = HeroSharedAssets.xcodeproj; path = HeroSharedAssets/HeroSharedAssets.xcodeproj; sourceTree = "<group>"; };
 		B07CD19B2666751F0031B106 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
@@ -438,6 +440,7 @@
 				298561AC2663F5C600830084 /* InfoCheckAPIRequest.swift */,
 				29CA50B4265AEE7B00533ED6 /* UserAPIRequest.swift */,
 				528E6F26265BB53A00F9013D /* SignAPIRequest.swift */,
+				B07AD1382667C3A6000CCDAC /* EmailAuthAPIRequest.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -1389,6 +1392,7 @@
 				EE4940842647659700CB0B71 /* ForgetViewModel.swift in Sources */,
 				EECEF18C2627DFEA00CF9394 /* JoinIntroduceViewController+UI.swift in Sources */,
 				EEA213D32625DAEA00E3AEA1 /* LoginPasswordViewController+UI.swift in Sources */,
+				B07AD1392667C3A6000CCDAC /* EmailAuthAPIRequest.swift in Sources */,
 				B07CD19C2666751F0031B106 /* NotificationViewController.swift in Sources */,
 				B08CEB3C2662162A00FF77BD /* StartCoordinator.swift in Sources */,
 				EE49406726475A5D00CB0B71 /* ForgetViewController.swift in Sources */,

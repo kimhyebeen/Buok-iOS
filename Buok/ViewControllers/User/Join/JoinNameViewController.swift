@@ -62,7 +62,7 @@ extension JoinNameViewController: UITextFieldDelegate {
         guard let viewmodel = viewModel else { return }
         guard let text = textField.text else { return }
         guard let count = textField.text?.count else { return }
-        textField.text = text.trimmingCharacters(in: .whitespaces)
+//        textField.text = text.trimmingCharacters(in: .whitespaces)
         nextButton.setHeroEnable(viewmodel.validateNickName(textField.text ?? ""))
         countLabel.text = "\(count)/12"
     }

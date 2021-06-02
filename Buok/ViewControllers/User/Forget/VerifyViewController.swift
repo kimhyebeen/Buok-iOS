@@ -15,6 +15,7 @@ class VerifyViewController: HeroBaseViewController {
     let wrongLabel = UILabel()
     let nextButton = LoginButton()
     
+    var email: String = ""
     weak var viewModel: ForgetViewModel?
     var nextButtonTopAnchor: NSLayoutConstraint?
 
@@ -22,6 +23,7 @@ class VerifyViewController: HeroBaseViewController {
         super.viewDidLoad()
 
         setupView()
+        bindViewModel()
     }
     
     private func setupView() {
@@ -31,6 +33,19 @@ class VerifyViewController: HeroBaseViewController {
         setupVerifyField()
         setupWrongLabel()
         setupNextButton()
+        viewModel?.requestVerifyCode(email)
+    }
+    
+    private func bindViewModel() {
+        viewModel?.isValidCode.bind({ valid in
+            if valid {
+                let resetVC = ResetPasswordViewController()
+                resetVC.viewModel = self.viewModel
+                self.navigationController?.pushViewController(resetVC, animated: true)
+            } else {
+                self.activeWrongLabel()
+            }
+        })
     }
     
     @objc
@@ -45,12 +60,7 @@ class VerifyViewController: HeroBaseViewController {
     
     @objc
     func clickNextButton(_ sender: UIButton) {
-        guard let viewmodel = viewModel else { return }
-        if viewmodel.requestVerifyCode(verifyField.text!) {
-            let resetVC = ResetPasswordViewController()
-            resetVC.viewModel = viewModel
-            self.navigationController?.pushViewController(resetVC, animated: true)
-        } else { activeWrongLabel() }
+        viewModel?.validateVerifyCode(verifyField.text ?? "")
     }
     
     private func activeWrongLabel() {

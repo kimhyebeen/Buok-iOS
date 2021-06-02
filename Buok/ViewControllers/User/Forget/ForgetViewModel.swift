@@ -3,11 +3,15 @@
 //  Buok
 //
 //  Created by 김혜빈 on 2021/05/09.
+//  Fully Modified by Taein Kim on 2021/06/02.
 //
 
 import Foundation
+import HeroCommon
 
 class ForgetViewModel {
+    var isEmailExist: Dynamic<Bool> = Dynamic(false)
+    var isValidCode: Dynamic<Bool> = Dynamic(false)
     var isSelectedEyeButton: Bool = false
     
     func validateEmail(_ email: String) -> Bool {
@@ -16,18 +20,45 @@ class ForgetViewModel {
         return emailTest.evaluate(with: email)
     }
     
-    func validateVerifyCode(_ code: String) -> Bool {
-        return !code.isEmpty
+    func validateVerifyCode(_ code: String) {
+        EmailAuthAPIRequest.validateAuthCode(code: code, responseHandler: { result in
+            switch result {
+            case .success(let token):
+                if TokenManager.shared.setPasswordResetToken(token: token) {
+                    self.isValidCode.value = true
+                } else {
+                    self.isValidCode.value = false
+                }
+            case .failure(_):
+                self.isValidCode.value = false
+            }
+        })
     }
     
-    func requestCheckingEmail(_ email: String) -> Bool {
+    func requestCheckingEmail(_ email: String) {
         // 이메일 존재 여부 요청
-        return true
+        InfoCheckAPIRequest.checkEmail(email: email, responseHandler: { [weak self] result in
+            switch result {
+            case .success(_):
+                // 존재합니다.
+                self?.isEmailExist.value = true
+            case .failure(_):
+                // 존재하지 않습니다.
+                self?.isEmailExist.value = false
+            }
+        })
     }
     
-    func requestVerifyCode(_ code: String) -> Bool {
+    func requestVerifyCode(_ email: String) {
         // 인증번호 확인 요청
-        return true
+        EmailAuthAPIRequest.requestAuthCode(email: email, responseHandler: { result in
+            switch result {
+            case .success(_):
+                DebugLog("Validation Code Sent.")
+            case .failure(_):
+                ErrorLog("Validation Code Send Error")
+            }
+        })
     }
     
     func validatePassword(_ password: String) -> Bool { password.count >= 6 }

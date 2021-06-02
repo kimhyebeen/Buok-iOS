@@ -86,7 +86,8 @@ class UserViewModel {
                     self.isLoginSuccess.value = false
                 }
             case .failure(let error):
-                ErrorLog("Error : \(error.localizedDescription)")
+                ErrorLog("Error : \(error.localizedDescription) / Status Code : \(error.statusCode)")
+                self.isLoginSuccess.value = false
             }
         })
     }

@@ -67,6 +67,9 @@ public struct InfoCheckAPIRequest {
                 do {
                     if let dictData = responseData as? NSDictionary {
                         let jsonData = try JSONSerialization.data(withJSONObject: dictData, options: .prettyPrinted)
+                        DebugLog("responseData : \(dictData)")
+                        DebugLog("Json Data : \n\(String(data: jsonData, encoding: .utf8) ?? "nil")")
+                        
                         let getData = try JSONDecoder().decode(InfoCheckServerModel.self, from: jsonData)
                         if getData.status < 300 {
                             responseHandler(.success(getData.data ?? ""))
@@ -85,6 +88,9 @@ public struct InfoCheckAPIRequest {
             do {
                 if let dictData = responseData as? NSDictionary {
                     let jsonData = try JSONSerialization.data(withJSONObject: dictData, options: .prettyPrinted)
+                    DebugLog("responseData : \(dictData)")
+                    DebugLog("Json Data : \n\(String(data: jsonData, encoding: .utf8) ?? "nil")")
+                    
                     let getData = try JSONDecoder().decode(InfoCheckServerModel.self, from: jsonData)
                     if getData.status < 300 {
                         responseHandler(.success(true))

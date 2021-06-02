@@ -47,9 +47,9 @@ class MypageViewController: HeroBaseViewController {
         }
         
         setupSettingButton()
-        setupCollectionView()
         setupProfileView()
         setupBuokmarkHeader()
+        setupCollectionView()
         
         view.bringSubviewToFront(safeAreaFillView)
         view.bringSubviewToFront(topNavBar)
@@ -178,7 +178,7 @@ extension MypageViewController {
         collectionView.dataSource = self
         collectionView.backgroundColor = .clear
         collectionView.showsVerticalScrollIndicator = false
-        collectionView.contentInset = UIEdgeInsets(top: 368 + 20, left: 20, bottom: 0, right: 20)
+        collectionView.contentInset = UIEdgeInsets(top: 108 + profileView.frame.height, left: 20, bottom: 0, right: 20)
         collectionView.register(BuokmarkCollectionCell.self, forCellWithReuseIdentifier: BuokmarkCollectionCell.identifier)
         collectionView.register(BuokmarkEmptyCollectionCell.self, forCellWithReuseIdentifier: BuokmarkEmptyCollectionCell.identifier)
     }
@@ -208,6 +208,14 @@ extension MypageViewController {
         }
     }
     
+    override func viewWillLayoutSubviews() {
+        DebugLog("Profile View Frame Height : \(profileView.frame.height)")
+    }
+    
+    override func viewDidLayoutSubviews() {
+        DebugLog("Profile View Frame Height : \(profileView.frame.height)")
+    }
+    
     // MARK: ProfileView
     private func setupProfileView() {
         profileView.delegate = self
@@ -217,6 +225,9 @@ extension MypageViewController {
             make.top.equalTo(topNavBar.snp.bottom)
             make.leading.trailing.equalToSuperview()
         }
+        
+        DebugLog("Profile View Frame Height : \(profileView.frame.height)")
+        collectionView.contentInset = UIEdgeInsets(top: 108 + profileView.frame.height, left: 20, bottom: 0, right: 20)
     }
     
     // MARK: BuokmarkHeader

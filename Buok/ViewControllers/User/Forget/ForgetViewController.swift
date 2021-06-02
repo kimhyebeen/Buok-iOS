@@ -21,6 +21,7 @@ class ForgetViewController: HeroBaseViewController {
         super.viewDidLoad()
 
         setupView()
+        bindViewModel()
     }
     
     private func setupView() {
@@ -31,6 +32,20 @@ class ForgetViewController: HeroBaseViewController {
         setupNextButton()
     }
     
+    private func bindViewModel() {
+        viewModel.isEmailExist.bind({ [weak self] exist in
+            if exist {
+                let verifyVC = VerifyViewController()
+                verifyVC.viewModel = self?.viewModel
+                verifyVC.email = self?.emailField.text ?? ""
+                self?.navigationController?.pushViewController(verifyVC, animated: true)
+            } else {
+                self?.activeWrongLabel()
+            }
+            self?.wrongLabel.isHidden = exist
+        })
+    }
+    
     @objc
     func clickCloseButton(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
@@ -38,11 +53,7 @@ class ForgetViewController: HeroBaseViewController {
     
     @objc
     func clickNextButton(_ sender: UIButton) {
-        if viewModel.requestCheckingEmail(emailField.text!) {
-            let verifyVC = VerifyViewController()
-            verifyVC.viewModel = viewModel
-            self.navigationController?.pushViewController(verifyVC, animated: true)
-        } else { activeWrongLabel() }
+        viewModel.requestCheckingEmail(emailField.text ?? "")
     }
     
     private func activeWrongLabel() {

@@ -10,10 +10,20 @@ import HeroCommon
 
 final class TokenManager {
     public static let shared: TokenManager = TokenManager()
+    
+    public static let passwordResetTokenKey: String = "PasswordResetToken"
     public static let accessTokenKey: String = "AccessToken"
     public static let refreshTokenKey: String = "RefreshToken"
     public static let accessTokenExpiredKey: String = "AccessTokenExpiredAt"
     public static let refreshTokenExpiredKey: String = "RefreshTokenExpiredAt"
+    
+    public func getPasswordResetToken() -> String? {
+        return KeychainManager.shared.getString(TokenManager.passwordResetTokenKey)
+    }
+    
+    public func setPasswordResetToken(token: String) -> Bool {
+        return KeychainManager.shared.set(token, forKey: TokenManager.passwordResetTokenKey)
+    }
     
     public func getAccessToken() -> String? {
         return KeychainManager.shared.getString(TokenManager.accessTokenKey)
@@ -52,8 +62,9 @@ final class TokenManager {
         let ateResult = KeychainManager.shared.delete(TokenManager.accessTokenExpiredKey)
         let rtResult = KeychainManager.shared.delete(TokenManager.refreshTokenKey)
         let rteResult = KeychainManager.shared.delete(TokenManager.refreshTokenExpiredKey)
+        let prtResult = KeychainManager.shared.delete(TokenManager.passwordResetTokenKey)
         
-        return atResult && ateResult && rtResult && rteResult
+        return atResult && ateResult && rtResult && rteResult && prtResult
     }
     
     public func checkAccessTokenExpired() -> Bool {

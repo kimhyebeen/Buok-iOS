@@ -22,7 +22,7 @@ struct SignInData: Codable {
 struct SignInServerModel: Codable {
     var status: Int
     var message: String
-    var data: SignInData
+    var data: SignInData?
 }
 
 public struct SignAPIRequest {
@@ -66,9 +66,11 @@ public struct SignAPIRequest {
 			do {
 				if let dictData = responseData as? NSDictionary {
 					let jsonData = try JSONSerialization.data(withJSONObject: dictData, options: .prettyPrinted)
+                    DebugLog("responseData : \(dictData)")
+                    DebugLog("Json Data : \n\(String(data: jsonData, encoding: .utf8) ?? "nil")")
+                    
 					let getData = try JSONDecoder().decode(SignInServerModel.self, from: jsonData)
-					let signInData = getData.data
-					if getData.status < 300 {
+					if getData.status < 300, let signInData = getData.data {
 						responseHandler(.success(signInData))
 					} else {
 						responseHandler(.failure(HeroAPIError(errorCode: ErrorCode(rawValue: getData.status)!, statusCode: getData.status, errorMessage: getData.message)))
@@ -85,6 +87,9 @@ public struct SignAPIRequest {
 			do {
 				if let dictData = responseData as? NSDictionary {
 					let jsonData = try JSONSerialization.data(withJSONObject: dictData, options: .prettyPrinted)
+                    DebugLog("responseData : \(dictData)")
+                    DebugLog("Json Data : \n\(String(data: jsonData, encoding: .utf8) ?? "nil")")
+                    
 					let getData = try JSONDecoder().decode(BaseServerModel.self, from: jsonData)
 					if getData.status < 300 {
 						responseHandler(.success(true))
