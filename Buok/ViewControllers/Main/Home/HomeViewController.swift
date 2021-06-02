@@ -165,7 +165,10 @@ public class HomeViewController: HeroBaseViewController {
     
     @objc
     func onClickSearch(_ sender: Any?) {
-        navigationController?.pushViewController(MultiLevelViewController(), animated: true)
+        let vc = SearchViewController()
+        vc.viewModel = SearchViewModel()
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true)
     }
     
     private func showSortAlert() {
