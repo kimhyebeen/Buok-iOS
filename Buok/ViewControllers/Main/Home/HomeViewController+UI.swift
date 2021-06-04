@@ -232,9 +232,11 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         return cell
     }
     
-    public func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        // todo - 클릭 처리
-        return true
+    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let bucket = viewModel?.bucketList.value[indexPath.row]
+        let vc = DetailViewController()
+        vc.bucketItem = bucket
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

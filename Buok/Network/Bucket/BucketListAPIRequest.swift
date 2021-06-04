@@ -11,17 +11,16 @@ import HeroNetwork
 import Promise
 
 // MARK: - Data
-struct BucketModel: Codable {
+public struct BucketModel: Codable {
 	var id: Int
 	var bucketName: String
-//	var startDate: String
     var createdDate: String
     var endDate: String
 	var bucketState: Int
 	var categoryId: Int
 }
 
-struct BucketListData: Codable {
+public struct BucketListData: Codable {
 	var buckets: [BucketModel]
 	var bucketCount: Int
     
@@ -37,7 +36,7 @@ struct BucketListData: Codable {
     }
 }
 
-struct Bucket: Codable {
+public struct BucketRequestModel: Codable {
 	var bucketName: String
 	var categoryId: Int
 	var content: String
@@ -142,7 +141,7 @@ public struct BucketListAPIRequest {
 		}
 	}
 	
-	static func bucketPostRequest(bucket: Bucket, responseHandler: @escaping (Result<Bool, HeroAPIError>) -> Void) {
+	static func bucketPostRequest(bucket: BucketRequestModel, responseHandler: @escaping (Result<Bool, HeroAPIError>) -> Void) {
 		var bucketArray = [String: Any]()
 		bucketArray["bucketName"] = bucket.bucketName
 		bucketArray["categoryId"] = bucket.categoryId
@@ -172,7 +171,7 @@ public struct BucketListAPIRequest {
 		}
 	}
 	
-	static func editBucketInfo(bucketId: Int, bucket: Bucket, responseHandler: @escaping (Result<Bool, HeroAPIError>) -> Void) {
+	static func editBucketInfo(bucketId: Int, bucket: BucketRequestModel, responseHandler: @escaping (Result<Bool, HeroAPIError>) -> Void) {
 		var bucketArray = [String: Any]()
 		bucketArray["bucketName"] = bucket.bucketName
 		bucketArray["categoryId"] = bucket.categoryId

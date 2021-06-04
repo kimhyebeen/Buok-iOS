@@ -70,7 +70,7 @@ public class CreateViewModel {
     }
     
     public func requestCreatePost(urlList: [String]?) {
-        let bucket = Bucket(bucketName: bucketTitle.value,
+        let bucket = BucketRequestModel(bucketName: bucketTitle.value,
                             categoryId: bucketCategory.value.getCategoryIndex(),
                             content: bucketContent.value,
                             endDate: finishDate.value.convertToSmallString(),

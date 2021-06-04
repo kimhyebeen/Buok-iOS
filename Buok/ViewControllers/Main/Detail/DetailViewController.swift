@@ -13,7 +13,19 @@ import HeroUI
 public class DetailViewController: HeroBaseViewController {
     private let topContentView: UIView = UIView()
     private let backButton: HeroImageButton = HeroImageButton()
-    private let doneButton: HeroImageButton = HeroImageButton()
+    private let optionButton: HeroImageButton = HeroImageButton()
+    private let menuButton: HeroImageButton = HeroImageButton()
+    
+    public var bucketItem: BucketModel? {
+        didSet {
+            let state = BucketState(rawValue: bucketItem?.bucketState ?? 0)
+            if state == .done || state == .failure {
+                optionButton.heroImage = UIImage(heroSharedNamed: "ic_mark")
+            } else {
+                optionButton.heroImage = UIImage(heroSharedNamed: "ic_pin")
+            }
+        }
+    }
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +36,8 @@ public class DetailViewController: HeroBaseViewController {
     private func setupMainLayout() {
         view.addSubview(topContentView)
         topContentView.addSubview(backButton)
-        topContentView.addSubview(doneButton)
+        topContentView.addSubview(optionButton)
+        topContentView.addSubview(menuButton)
 
         topContentView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
@@ -39,18 +52,32 @@ public class DetailViewController: HeroBaseViewController {
             make.height.equalTo(44)
         }
 
-        doneButton.snp.makeConstraints { make in
+        menuButton.snp.makeConstraints { make in
             make.top.trailing.bottom.equalToSuperview()
+            make.width.equalTo(44)
+            make.height.equalTo(44)
+        }
+        
+        optionButton.snp.makeConstraints { make in
+            make.top.bottom.equalToSuperview()
+            make.trailing.equalTo(menuButton.snp.leading)
             make.width.equalTo(44)
             make.height.equalTo(44)
         }
     }
     
     private func setupViewProperties() {
-        view.backgroundColor = .heroGraySample100s
+        view.backgroundColor = .heroGrayF2EDE8
         backButton.imageInset = 8
-        backButton.heroImage = UIImage(heroSharedNamed: "tab_home.png")
+        backButton.heroImage = UIImage(heroSharedNamed: "ic_back")
         backButton.addTarget(self, action: #selector(onClickBackButton(_:)), for: .touchUpInside)
+        
+        optionButton.imageInset = 8
+        optionButton.heroImage = UIImage(heroSharedNamed: "ic_pin")
+//        ic_mark / ic_pin
+        
+        menuButton.imageInset = 8
+        menuButton.heroImage = UIImage(heroSharedNamed: "ic_menu_ver")
     }
     
     @objc
