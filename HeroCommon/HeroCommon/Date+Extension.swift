@@ -8,6 +8,16 @@
 import Foundation
 
 public extension Date {
+    func convertToSmallString() -> String {
+        let date: Date = Date()
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        
+        let dateString = dateFormatter.string(from: date)
+        return dateString
+    }
+    
     func convertToString() -> String {
         let date: Date = Date()
         

@@ -14,9 +14,10 @@ import Promise
 struct BucketModel: Codable {
 	var id: Int
 	var bucketName: String
-	var startDate: String
-	var endDate: String
-	var bucketState: String
+//	var startDate: String
+    var createdDate: String
+    var endDate: String
+	var bucketState: Int
 	var categoryId: Int
 }
 
@@ -43,7 +44,7 @@ struct Bucket: Codable {
 	var endDate: String
 	var imageList: [String]?
 	var startDate: String
-	var state: Int
+	var bucketState: Int
 	var tagList: [String]?
 }
 
@@ -124,6 +125,9 @@ public struct BucketListAPIRequest {
 			do {
 				if let dictData = responseData as? NSDictionary {
 					let jsonData = try JSONSerialization.data(withJSONObject: dictData, options: .prettyPrinted)
+                    DebugLog("responseData : \(dictData)")
+                    DebugLog("Json Data : \n\(String(data: jsonData, encoding: .utf8) ?? "nil")")
+                    
 					let getData = try JSONDecoder().decode(BucketListServerModel.self, from: jsonData)
 					let bucketsData = getData.data
 					if getData.status < 300 {
@@ -146,12 +150,15 @@ public struct BucketListAPIRequest {
 		bucketArray["endDate"] = bucket.endDate
 		bucketArray["imageList"] = bucket.imageList
 		bucketArray["startDate"] = bucket.startDate
-		bucketArray["state"] = bucket.state
+		bucketArray["bucketState"] = bucket.bucketState
 		bucketArray["tagList"] = bucket.tagList
 		BaseAPIRequest.requestJSONResponse(requestType: BucketRequestType.bucketsPost(bucket: bucketArray)).then { responseData in
 			do {
 				if let dictData = responseData as? NSDictionary {
 					let jsonData = try JSONSerialization.data(withJSONObject: dictData, options: .prettyPrinted)
+                    DebugLog("responseData : \(dictData)")
+                    DebugLog("Json Data : \n\(String(data: jsonData, encoding: .utf8) ?? "nil")")
+                    
 					let getData = try JSONDecoder().decode(BaseServerModel.self, from: jsonData)
 					if getData.status < 300 {
 						responseHandler(.success(true))
@@ -173,7 +180,7 @@ public struct BucketListAPIRequest {
 		bucketArray["endDate"] = bucket.endDate
 		bucketArray["imageList"] = bucket.imageList
 		bucketArray["startDate"] = bucket.startDate
-		bucketArray["state"] = bucket.state
+		bucketArray["state"] = bucket.bucketState
 		bucketArray["tagList"] = bucket.tagList
 		BaseAPIRequest.requestJSONResponse(requestType: BucketRequestType.bucketsEdit(bucketId: bucketId, bucket: bucketArray)).then { responseData in
 			do {

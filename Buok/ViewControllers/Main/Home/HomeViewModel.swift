@@ -32,7 +32,7 @@ public enum BucketSort: Int {
 
 public class HomeViewModel {
     var currentFilter: Dynamic<BucketState> = Dynamic(.now)
-    var bucketCount: Dynamic<Int> = Dynamic(2)
+    var bucketCount: Dynamic<Int> = Dynamic(0)
     var bucketCategory: Dynamic<BucketCategory> = Dynamic(.noCategory)
     
     var bucketSort: Dynamic<BucketSort> = Dynamic(.created) // 추후 구현
@@ -67,29 +67,15 @@ public class HomeViewModel {
         })
     }
     
-    func fetchBookmarkList() {
+    func fetchBucketList() {
         BucketListAPIRequest.getBucketListData(state: currentFilter.value.rawValue, category: bucketCategory.value.getCategoryIndex(), sort: bucketSort.value.rawValue, responseHandler: { result in
             switch result {
             case .success(let listData):
+                DebugLog("Fetch Bucket List")
                 DebugLog(listData.debugDescription())
                 self.bucketCount.value = listData.bucketCount
             case .failure(let error):
                 DebugLog("fetchBookmarkList ERROR : \(error.localizedDescription)")
-            }
-        })
-    }
-    
-    // MARK: TEST
-    func uploadSampleUIImage() {
-        let images = [UIImage(heroSharedNamed: "ic_google")!, UIImage(heroSharedNamed: "ic_kakao")!, UIImage(heroSharedNamed: "ic_apple")!]
-        ImageUploadAPIRequest.imageUploadRequest(images: images, responseHandler: { result in
-            switch result {
-            case .success(let imageUrls):
-                imageUrls.forEach { urlStr in
-                    DebugLog("Image URL : \(urlStr)")
-                }
-            case .failure(let error):
-                ErrorLog(error.localizedDescription)
             }
         })
     }

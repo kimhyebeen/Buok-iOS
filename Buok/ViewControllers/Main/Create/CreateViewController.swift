@@ -345,6 +345,16 @@ final class CreateViewController: HeroBaseViewController, UINavigationController
         viewModel.tagList.bind({ _ in
             self.tagCollectionView?.reloadData()
         })
+        
+        viewModel.isPostSuccess.bind({ isPostSuccess in
+            if isPostSuccess {
+                DebugLog("Create Post SUCCESS")
+                self.navigationController?.popViewController(animated: true)
+            } else {
+                ErrorLog("Create Post ERROR")
+                self.showPostErrorAlert()
+            }
+        })
     }
     
     private func setupViewProperties() {
@@ -373,6 +383,7 @@ final class CreateViewController: HeroBaseViewController, UINavigationController
         
         titleField.font = .font20PMedium
         titleField.textColor = .heroGray5B
+        titleField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         titleField.attributedPlaceholder = NSAttributedString(string: "Hero_Add_Title_Placeholder".localized, attributes: [NSAttributedString.Key.foregroundColor: UIColor.heroGrayA6A4A1])
         divisionBar.backgroundColor = .heroGrayE7E1DC
         
@@ -410,6 +421,7 @@ final class CreateViewController: HeroBaseViewController, UINavigationController
     @objc
     private func onClickDoneButton(_ sender: Any?) {
         DebugLog("Done Button Clicked")
+        viewModel.uploadImageList()
     }
     
     @objc
@@ -452,6 +464,14 @@ extension CreateViewController: UIImagePickerControllerDelegate {
         viewModel.imageList.value.append(selectedImage)
         //        let _ = selectedImage.jpegData(compressionQuality: 0.5)
         self.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension CreateViewController {
+    @objc
+    func textFieldDidChange() {
+        DebugLog("BucketTitle : \(titleField.text ?? "")")
+        viewModel.bucketTitle.value = titleField.text ?? ""
     }
 }
 
@@ -560,6 +580,8 @@ extension CreateViewController: UITextViewDelegate {
         if textView.text.isEmpty {
             textView.text = "메모할 내용을 기입해보세요.\n혹은 버킷리스트와 관련해서 상세 내용을 입력해봅시다!"
             textView.textColor = .heroGrayDA
+        } else {
+            viewModel.bucketContent.value = textView.text
         }
     }
     
@@ -605,6 +627,16 @@ extension CreateViewController: TagAddCellDelegate, TagCellDelegate {
     
     private func showErrorAlert() {
         let alert = UIAlertController(title: "태그 개수 초과", message: "태그는 5개까지 추가가능합니다.", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "확인", style: .default) { _ in
+            // Nothing
+        }
+        
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    private func showPostErrorAlert() {
+        let alert = UIAlertController(title: "오류", message: "버킷 등록 중 오류가 발생하였습니다.", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "확인", style: .default) { _ in
             // Nothing
         }

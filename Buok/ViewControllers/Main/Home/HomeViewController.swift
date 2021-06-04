@@ -71,16 +71,14 @@ public class HomeViewController: HeroBaseViewController {
     
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        viewModel?.fetchBookmarkList()
-        
-        // MARK: Iamge Upload TEST
-        viewModel?.uploadSampleUIImage()
+        viewModel?.fetchBucketList()
     }
     
     func bindViewModel() {
         if let viewModel = viewModel {
             viewModel.currentFilter.bind({ [weak self] filter in
                 self?.applyCurrentFilter(filter: filter)
+                self?.viewModel?.fetchBucketList()
             })
             
             viewModel.bucketCount.bind({ [weak self] count in
@@ -91,7 +89,7 @@ public class HomeViewController: HeroBaseViewController {
             viewModel.bucketSort.bind({ [weak self] sort in
                 // MARK: Sort 변경 시 처리하는 부분입니다.
                 self?.sortLabel.text = sort.getTitle()
-                self?.viewModel?.fetchBookmarkList()
+                self?.viewModel?.fetchBucketList()
             })
             
             viewModel.bucketCategory.bind({ [weak self] category in
@@ -106,7 +104,7 @@ public class HomeViewController: HeroBaseViewController {
                     self?.categoryTitleLabel.text = "카테고리"
                     self?.categoryImageView.image = UIImage(heroSharedNamed: "ic_narrow_12")
                 }
-                self?.viewModel?.fetchBookmarkList()
+                self?.viewModel?.fetchBucketList()
             })
         }
     }
