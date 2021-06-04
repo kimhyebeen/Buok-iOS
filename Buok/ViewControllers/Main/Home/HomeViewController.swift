@@ -51,6 +51,8 @@ public class HomeViewController: HeroBaseViewController {
     let categoryImageView: UIImageView = UIImageView()
     let categoryDeleteButton: UIButton = UIButton()
     
+    let bucketCollectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    
     var currentFilter: BucketState = .now
     public var viewModel: HomeViewModel?
     
@@ -92,6 +94,10 @@ public class HomeViewController: HeroBaseViewController {
                 self?.viewModel?.fetchBucketList()
             })
             
+            viewModel.bucketList.bind({ [weak self] _ in
+                self?.bucketCollectionView.reloadData()
+            })
+            
             viewModel.bucketCategory.bind({ [weak self] category in
                 if category != .noCategory {
                     self?.categoryDeleteButton.isEnabled = true
@@ -120,6 +126,8 @@ public class HomeViewController: HeroBaseViewController {
             leadingOffset = 63
         case .done:
             leadingOffset = 113
+        case.failure:
+            break
         case .all:
             break
         }

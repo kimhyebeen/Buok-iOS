@@ -14,6 +14,22 @@ public enum BucketState: Int {
     case expect = 2
     case done = 4
     case all = 1
+    case failure = 5
+    
+    public func getTitle() -> String {
+        switch self {
+        case .now:
+            return "Hero_Home_Filter_Now".localized
+        case .expect:
+            return "Hero_Home_Filter_Expect".localized
+        case .done:
+            return "Hero_Home_Filter_Done".localized
+        case .all:
+            return "Hero_Home_Filter_All".localized
+        case .failure:
+            return "실패"
+        }
+    }
 }
 
 public enum BucketSort: Int {
@@ -35,6 +51,7 @@ public class HomeViewModel {
     var bucketCount: Dynamic<Int> = Dynamic(0)
     var bucketCategory: Dynamic<BucketCategory> = Dynamic(.noCategory)
     
+    var bucketList: Dynamic<[BucketModel]> = Dynamic([BucketModel]())
     var bucketSort: Dynamic<BucketSort> = Dynamic(.created) // 추후 구현
     
     public let categoryItemList: [HeroSelectItem] = [HeroSelectItem(iconImage: UIImage(heroSharedNamed: "ic_category_travel")!, title: "여행"),
@@ -74,6 +91,7 @@ public class HomeViewModel {
                 DebugLog("Fetch Bucket List")
                 DebugLog(listData.debugDescription())
                 self.bucketCount.value = listData.bucketCount
+                self.bucketList.value = listData.buckets
             case .failure(let error):
                 DebugLog("fetchBookmarkList ERROR : \(error.localizedDescription)")
             }

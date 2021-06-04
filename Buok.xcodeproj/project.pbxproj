@@ -530,7 +530,7 @@
 		B01A28B72665113E00BE9DB3 /* CommonViews */ = {
 			isa = PBXGroup;
 			children = (
-				B023B143266A0C050060F625 /* Bookmark */,
+				B023B143266A0C050060F625 /* Bucket */,
 				EE23DF76264EB36900AB31D1 /* BuokmarkFlagView.swift */,
 				EE23DF73264EB2F500AB31D1 /* BuokmarkCollectionCell.swift */,
 				EE4C015926587912002C5018 /* BuokmarkEmptyCollectionCell.swift */,
@@ -546,13 +546,13 @@
 			path = Detail;
 			sourceTree = "<group>";
 		};
-		B023B143266A0C050060F625 /* Bookmark */ = {
+		B023B143266A0C050060F625 /* Bucket */ = {
 			isa = PBXGroup;
 			children = (
 				B023B139266A0BFF0060F625 /* BucketStateView.swift */,
 				B023B144266A0ECB0060F625 /* BucketItemCell.swift */,
 			);
-			path = Bookmark;
+			path = Bucket;
 			sourceTree = "<group>";
 		};
 		B023B14C266A13030060F625 /* Image */ = {

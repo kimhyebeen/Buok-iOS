@@ -46,6 +46,8 @@ extension HomeViewController {
             attributedStr.addAttribute(.font, value: UIFont.systemFont(ofSize: 20, weight: .bold), range: (text as NSString).range(of: countText))
             attributedStr.addAttribute(.foregroundColor, value: UIColor.heroPrimaryPink, range: (text as NSString).range(of: countText))
             return attributedStr
+        case.failure:
+            return nil
         case .all:
             return nil
         }

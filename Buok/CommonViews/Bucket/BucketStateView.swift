@@ -9,15 +9,8 @@ import Foundation
 import HeroCommon
 import HeroUI
 
-public enum BucketItemState {
-    case now
-    case expect
-    case done
-    case failure
-}
-
 final class BucketStateView: UIView {
-    public var state: BucketItemState = .now {
+    public var state: BucketState = .now {
         didSet {
             updateProperty(state: state)
         }
@@ -65,7 +58,7 @@ final class BucketStateView: UIView {
         stateBottomView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
     }
     
-    private func updateProperty(state: BucketItemState) {
+    private func updateProperty(state: BucketState) {
         var bgColor: UIColor?
         switch state {
         case .now:
@@ -80,6 +73,8 @@ final class BucketStateView: UIView {
         case .failure:
             bgColor = .heroPrimaryPink
             stateLabel.text = "실패"
+        case .all:
+            break
         }
         
         stateTopView.backgroundColor = bgColor

@@ -24,7 +24,8 @@ public class CreateViewModel {
     
     public let statusItemList: [HeroSelectItem] = [HeroSelectItem(title: "예정"),
                                                    HeroSelectItem(title: "진행"),
-                                                   HeroSelectItem(title: "완료")]
+                                                   HeroSelectItem(title: "완료"),
+                                                   HeroSelectItem(title: "실패")]
     
     public let categoryItemList: [HeroSelectItem] = [HeroSelectItem(title: "여행"),
                                                      HeroSelectItem(title: "취미"),

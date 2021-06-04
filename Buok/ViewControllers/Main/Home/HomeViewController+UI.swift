@@ -13,6 +13,8 @@ extension HomeViewController {
     func setupMainLayout() {
         view.addSubview(topContentView)
         view.addSubview(topSectionView)
+        view.addSubview(bucketCollectionView)
+        
         topContentView.addSubview(notiButton)
         topContentView.addSubview(searchButton)
         
@@ -99,6 +101,14 @@ extension HomeViewController {
             make.edges.equalToSuperview()
         }
         
+        // CollectionView
+        bucketCollectionView.snp.makeConstraints { make in
+            make.top.equalTo(topSectionView.snp.bottom).offset(16)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().offset(-16)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+        }
+        
         setupBubbleLayout()
         setupTotalViewLayout()
     }
@@ -157,6 +167,12 @@ extension HomeViewController {
         sortImageView.image = UIImage(heroSharedNamed: "ic_narrow_12")
         
         sortButton.addTarget(self, action: #selector(onClickSortButton(_:)), for: .touchUpInside)
+        
+        bucketCollectionView.delegate = self
+        bucketCollectionView.dataSource = self
+        bucketCollectionView.backgroundColor = .clear
+        bucketCollectionView.showsVerticalScrollIndicator = false
+        bucketCollectionView.register(BucketItemCell.self, forCellWithReuseIdentifier: BucketItemCell.identifier)
     }
     
     func setupTotalViewLayout() {
@@ -195,5 +211,42 @@ extension HomeViewController {
         sortButton.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+    }
+}
+
+extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    public func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewModel?.bucketCount.value ?? 0
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BucketItemCell.identifier, for: indexPath) as? BucketItemCell else {
+            return BucketItemCell()
+        }
+        
+        cell.bucket = viewModel?.bucketList.value[indexPath.row]
+        return cell
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        // todo - 클릭 처리
+        return true
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = collectionView.frame.width - 40
+        return CGSize(width: width / 2 - 9, height: width / 2 - 9 + 16 + 2)
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 15
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 18
     }
 }
