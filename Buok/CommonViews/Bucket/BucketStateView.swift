@@ -74,7 +74,7 @@ final class BucketStateView: UIView {
         case .failure:
             bgColor = .heroPrimaryPink
             stateLabel.text = "실패"
-        case .all:
+        default:
             break
         }
         
