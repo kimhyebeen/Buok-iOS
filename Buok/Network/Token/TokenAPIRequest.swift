@@ -36,6 +36,10 @@ public struct TokenAPIRequest {
             }
         }
         
+        var imagesToUpload: [UIImage]? {
+            nil
+        }
+        
         var requestHeaders: [HeroHeader]? {
             [.custom("refreshToken", TokenManager.shared.getRefreshToken() ?? "")]
         }

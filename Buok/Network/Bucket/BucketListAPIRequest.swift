@@ -51,7 +51,7 @@ struct Bucket: Codable {
 struct BucketListServerModel: Codable {
 	var status: Int
 	var message: String
-	var data: BucketModel
+	var data: BucketListData
 }
 
 public struct BucketListAPIRequest {
@@ -113,9 +113,13 @@ public struct BucketListAPIRequest {
 				return bucket
 			}
 		}
+        
+        var imagesToUpload: [UIImage]? {
+            nil
+        }
 	}
 	
-	static func getBucketListData(state: Int, category: Int, sort: Int, responseHandler: @escaping (Result<BucketModel, HeroAPIError>) -> Void) {
+	static func getBucketListData(state: Int, category: Int, sort: Int, responseHandler: @escaping (Result<BucketListData, HeroAPIError>) -> Void) {
 		BaseAPIRequest.requestJSONResponse(requestType: BucketRequestType.bucketsList(state: state, category: category, sort: sort)).then { responseData in
 			do {
 				if let dictData = responseData as? NSDictionary {

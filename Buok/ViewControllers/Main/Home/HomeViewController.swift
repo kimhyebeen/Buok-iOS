@@ -72,6 +72,9 @@ public class HomeViewController: HeroBaseViewController {
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel?.fetchBookmarkList()
+        
+        // MARK: Iamge Upload TEST
+        viewModel?.uploadSampleUIImage()
     }
     
     func bindViewModel() {

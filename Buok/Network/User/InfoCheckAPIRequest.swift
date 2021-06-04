@@ -56,6 +56,10 @@ public struct InfoCheckAPIRequest {
                 return ["nickname": nickname]
             }
         }
+        
+        var imagesToUpload: [UIImage]? {
+            nil
+        }
     }
     
     static func checkEmail(email: String, responseHandler: @escaping (Result<String, HeroAPIError>) -> Void) {

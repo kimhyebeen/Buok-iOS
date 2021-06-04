@@ -109,6 +109,10 @@ public struct UserAPIRequest {
             }
         }
         
+        var imagesToUpload: [UIImage]? {
+            nil
+        }
+        
 		var requestParameter: [String: Any]? {
             switch self {
             case let .resetPassword(password):

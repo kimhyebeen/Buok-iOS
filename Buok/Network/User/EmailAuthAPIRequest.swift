@@ -61,6 +61,10 @@ public struct EmailAuthAPIRequest {
         var requestBody: [String: Any]? {
             nil
         }
+        
+        var imagesToUpload: [UIImage]? {
+            nil
+        }
     }
     
     static func requestAuthCode(email: String, responseHandler: @escaping (Result<Bool, HeroAPIError>) -> Void) {

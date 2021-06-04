@@ -123,6 +123,10 @@ public struct SearchAPIRequest {
         var requestBody: [String: Any]? {
             nil
         }
+        
+        var imagesToUpload: [UIImage]? {
+            nil
+        }
     }
     
     static func searchMyBucketData(keyword: String, responseHandler: @escaping (Result<[SearchBucketModel], HeroAPIError>) -> Void) {

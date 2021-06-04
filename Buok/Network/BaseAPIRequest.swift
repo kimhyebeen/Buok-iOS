@@ -9,6 +9,7 @@ import Alamofire
 import Foundation
 import HeroCommon
 import HeroNetwork
+import HeroUI
 import Promise
 import SwiftyJSON
 
@@ -25,6 +26,7 @@ protocol APIRequestType {
     var encoding: HeroRequest.RequestEncoding { get }
     var requestHeaders: [HeroHeader]? { get }
     var requestBody: [String: Any]? { get }
+    var imagesToUpload: [UIImage]? { get }
 }
 
 extension APIRequestType {
@@ -35,6 +37,39 @@ extension APIRequestType {
 
 public class BaseAPIRequest {
     //	typealias RequestType = APIRequestType
+    
+    static func multipartJSONResponse(requestType: APIRequestType) -> Promise<Any?> {
+        Promise { fulfill, reject in
+            let url = requestType.requestURL
+            var headers: HTTPHeaders = []
+            requestType.requestHeaders?.forEach {
+                headers[$0.key] = $0.value
+            }
+            
+            DebugLog("HTTP Headers : \(headers.description)")
+            DebugLog("Request URL : \(requestType.requestURL.absoluteString)")
+            
+            if let images = requestType.imagesToUpload {
+                AF.upload(multipartFormData: { multipartFormData in
+                    images.forEach { image in
+                        if let imageData = image.jpegData(compressionQuality: 1.0) {
+                            multipartFormData.append(imageData, withName: "image", fileName: "a.jpg", mimeType: "image/jpg")
+                        }
+                    }
+                }, to: url, method: .post, headers: headers)
+                .responseJSON(completionHandler: { response in
+                    switch response.result {
+                    case .success(let value):
+                        fulfill(value)
+                    case .failure(let error):
+                        reject(BaseAPIError(error: error))
+                    }
+                })
+            } else {
+                reject(BaseAPIError.unknown)
+            }
+        }
+    }
     
     static func requestJSONResponse(requestType: APIRequestType) -> Promise<Any?> {
         Promise { fulfill, reject in

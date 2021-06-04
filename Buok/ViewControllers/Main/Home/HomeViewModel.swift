@@ -78,4 +78,19 @@ public class HomeViewModel {
             }
         })
     }
+    
+    // MARK: TEST
+    func uploadSampleUIImage() {
+        let images = [UIImage(heroSharedNamed: "ic_google")!, UIImage(heroSharedNamed: "ic_kakao")!, UIImage(heroSharedNamed: "ic_apple")!]
+        ImageUploadAPIRequest.imageUploadRequest(images: images, responseHandler: { result in
+            switch result {
+            case .success(let imageUrls):
+                imageUrls.forEach { urlStr in
+                    DebugLog("Image URL : \(urlStr)")
+                }
+            case .failure(let error):
+                ErrorLog(error.localizedDescription)
+            }
+        })
+    }
 }

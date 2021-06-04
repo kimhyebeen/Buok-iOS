@@ -13,7 +13,7 @@ public enum HeroHeader {
 	case contentType
     case custom(String, String)
 	
-	var key: String {
+	public var key: String {
 		switch self {
 		case .token:
 			return "token"

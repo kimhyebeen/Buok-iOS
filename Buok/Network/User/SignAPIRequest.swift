@@ -59,6 +59,10 @@ public struct SignAPIRequest {
 		var requestBody: [String: Any]? {
 			nil
 		}
+        
+        var imagesToUpload: [UIImage]? {
+            nil
+        }
     }
     
 	static func signInRequest(email: String, password: String, responseHandler: @escaping (Result<SignInData, HeroAPIError>) -> Void) {
