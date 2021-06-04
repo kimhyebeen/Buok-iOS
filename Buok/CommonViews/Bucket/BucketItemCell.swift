@@ -83,6 +83,7 @@ final class BucketItemCell: UICollectionViewCell {
         iconContainerView.layer.cornerRadius = 18
         
         titleLabel.numberOfLines = 2
+        titleLabel.textAlignment = .center
         titleLabel.textColor = .heroGray5B
         titleLabel.font = UIFont.systemFont(ofSize: 17, weight: .regular)
     }
@@ -141,7 +142,7 @@ final class BucketItemCell: UICollectionViewCell {
     
     private func setDateToLabel(state: BucketState) {
         if state == .failure || state == .done {
-            dateLabel.text = bucket?.endDate.convertToSmallDate().convertToSmallString()
+            dateLabel.text = bucket?.endDate.convertToDate().convertToSmallString()
         } else {
             if let endDate = bucket?.endDate.convertToDate() {
                 if Calendar.current.dateComponents([.day], from: endDate, to: Date()).day == 0 {
