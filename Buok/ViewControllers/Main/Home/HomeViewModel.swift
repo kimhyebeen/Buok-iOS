@@ -9,14 +9,14 @@ import Foundation
 import HeroCommon
 import HeroUI
 
-public enum HomeFilter: Int {
+public enum BucketState: Int {
     case now = 3
     case expect = 2
     case done = 4
     case all = 1
 }
 
-public enum HomeSort: Int {
+public enum BucketSort: Int {
     case created = 1
     case character = 2
     
@@ -31,11 +31,11 @@ public enum HomeSort: Int {
 }
 
 public class HomeViewModel {
-    var currentFilter: Dynamic<HomeFilter> = Dynamic(.now)
+    var currentFilter: Dynamic<BucketState> = Dynamic(.now)
     var bucketCount: Dynamic<Int> = Dynamic(2)
     var bucketCategory: Dynamic<BucketCategory> = Dynamic(.noCategory)
     
-    var bucketSort: Dynamic<HomeSort> = Dynamic(.created) // 추후 구현
+    var bucketSort: Dynamic<BucketSort> = Dynamic(.created) // 추후 구현
     
     public let categoryItemList: [HeroSelectItem] = [HeroSelectItem(iconImage: UIImage(heroSharedNamed: "ic_category_travel")!, title: "여행"),
                                             HeroSelectItem(iconImage: UIImage(heroSharedNamed: "ic_category_hobby")!, title: "취미"),
@@ -51,7 +51,7 @@ public class HomeViewModel {
         
     }
     
-    public func filterChanged(filter: HomeFilter) {
+    public func filterChanged(filter: BucketState) {
         currentFilter.value = filter
     }
     

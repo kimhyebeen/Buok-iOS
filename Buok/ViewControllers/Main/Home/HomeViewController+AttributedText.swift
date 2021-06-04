@@ -10,7 +10,7 @@ import HeroCommon
 import HeroUI
 
 extension HomeViewController {
-    func applyAttributedBubbleText(count: Int, filter: HomeFilter) {
+    func applyAttributedBubbleText(count: Int, filter: BucketState) {
         countDescLabel.attributedText = generateAttributedText(count: count, filter: filter)
     }
     
@@ -24,7 +24,7 @@ extension HomeViewController {
         totalLabel.attributedText = attributedStr
     }
     
-    func generateAttributedText(count: Int, filter: HomeFilter) -> NSMutableAttributedString? {
+    func generateAttributedText(count: Int, filter: BucketState) -> NSMutableAttributedString? {
         let countText = count < 10 ? "0\(count)" : "\(count)"
         
         switch filter {

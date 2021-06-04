@@ -20,6 +20,8 @@
 		B01D43B026039D5700F2D28C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01D43AF26039D5700F2D28C /* HomeViewModel.swift */; };
 		B01D43B526039D6C00F2D28C /* CreateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01D43B426039D6C00F2D28C /* CreateViewModel.swift */; };
 		B01D43BA2604231800F2D28C /* CategoryFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01D43B92604231800F2D28C /* CategoryFilterView.swift */; };
+		B023B13A266A0BFF0060F625 /* BucketStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B023B139266A0BFF0060F625 /* BucketStateView.swift */; };
+		B023B145266A0ECB0060F625 /* BucketItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B023B144266A0ECB0060F625 /* BucketItemCell.swift */; };
 		B041747225E2366E00D990A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B041747125E2366E00D990A2 /* AppDelegate.swift */; };
 		B041747625E2366E00D990A2 /* MultiLevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B041747525E2366E00D990A2 /* MultiLevelViewController.swift */; };
 		B041747C25E2366E00D990A2 /* BucketList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B041747A25E2366E00D990A2 /* BucketList.xcdatamodeld */; };
@@ -276,6 +278,8 @@
 		B01D43AF26039D5700F2D28C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		B01D43B426039D6C00F2D28C /* CreateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewModel.swift; sourceTree = "<group>"; };
 		B01D43B92604231800F2D28C /* CategoryFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryFilterView.swift; sourceTree = "<group>"; };
+		B023B139266A0BFF0060F625 /* BucketStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketStateView.swift; sourceTree = "<group>"; };
+		B023B144266A0ECB0060F625 /* BucketItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketItemCell.swift; sourceTree = "<group>"; };
 		B02D1869263D3E1700FE7FC9 /* Buok.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Buok.entitlements; sourceTree = "<group>"; };
 		B041746E25E2366E00D990A2 /* Buok.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Buok.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B041747125E2366E00D990A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -524,6 +528,7 @@
 		B01A28B72665113E00BE9DB3 /* CommonViews */ = {
 			isa = PBXGroup;
 			children = (
+				B023B143266A0C050060F625 /* Bookmark */,
 				EE23DF76264EB36900AB31D1 /* BuokmarkFlagView.swift */,
 				EE23DF73264EB2F500AB31D1 /* BuokmarkCollectionCell.swift */,
 				EE4C015926587912002C5018 /* BuokmarkEmptyCollectionCell.swift */,
@@ -537,6 +542,15 @@
 				B01D43A726039D2500F2D28C /* DetailViewController.swift */,
 			);
 			path = Detail;
+			sourceTree = "<group>";
+		};
+		B023B143266A0C050060F625 /* Bookmark */ = {
+			isa = PBXGroup;
+			children = (
+				B023B139266A0BFF0060F625 /* BucketStateView.swift */,
+				B023B144266A0ECB0060F625 /* BucketItemCell.swift */,
+			);
+			path = Bookmark;
 			sourceTree = "<group>";
 		};
 		B041746525E2366E00D990A2 = {
@@ -1410,6 +1424,7 @@
 				B08CEB592662252900FF77BD /* TokenManager.swift in Sources */,
 				B08CEB352662117300FF77BD /* SplashViewModel.swift in Sources */,
 				B01A28B52665054D00BE9DB3 /* TokenAPIRequest.swift in Sources */,
+				B023B13A266A0BFF0060F625 /* BucketStateView.swift in Sources */,
 				B06B5EF625ECD0140045A491 /* SubThreeViewController.swift in Sources */,
 				B082F2C426594EC200A7AB6B /* CreateImageCell.swift in Sources */,
 				EE4C015C26588245002C5018 /* MypageViewModel.swift in Sources */,
@@ -1434,6 +1449,7 @@
 				B07CD1A0266675530031B106 /* NotificationViewModel.swift in Sources */,
 				B075238125EF5AF70016DC3A /* BucketListAPIRequest.swift in Sources */,
 				EE77F57D265B20EF002C4782 /* BucketStatusFlagView.swift in Sources */,
+				B023B145266A0ECB0060F625 /* BucketItemCell.swift in Sources */,
 				298561AD2663F5C600830084 /* InfoCheckAPIRequest.swift in Sources */,
 				B0D0218226021A2100F25329 /* NadamProperties.swift in Sources */,
 				B075230925EF1A0E0016DC3A /* BaseAPIRequest.swift in Sources */,

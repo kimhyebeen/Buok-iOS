@@ -11,7 +11,7 @@ import HeroNetwork
 import Promise
 
 // MARK: - Data
-struct BucketsListData: Codable {
+struct BucketModel: Codable {
 	var id: Int
 	var bucketName: String
 	var startDate: String
@@ -21,7 +21,7 @@ struct BucketsListData: Codable {
 }
 
 struct BucketListData: Codable {
-	var buckets: [BucketsListData]
+	var buckets: [BucketModel]
 	var bucketCount: Int
     
     func debugDescription() -> String {
@@ -51,7 +51,7 @@ struct Bucket: Codable {
 struct BucketListServerModel: Codable {
 	var status: Int
 	var message: String
-	var data: BucketListData
+	var data: BucketModel
 }
 
 public struct BucketListAPIRequest {
@@ -115,7 +115,7 @@ public struct BucketListAPIRequest {
 		}
 	}
 	
-	static func getBucketListData(state: Int, category: Int, sort: Int, responseHandler: @escaping (Result<BucketListData, HeroAPIError>) -> Void) {
+	static func getBucketListData(state: Int, category: Int, sort: Int, responseHandler: @escaping (Result<BucketModel, HeroAPIError>) -> Void) {
 		BaseAPIRequest.requestJSONResponse(requestType: BucketRequestType.bucketsList(state: state, category: category, sort: sort)).then { responseData in
 			do {
 				if let dictData = responseData as? NSDictionary {

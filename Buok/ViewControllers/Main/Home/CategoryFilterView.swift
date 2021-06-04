@@ -11,7 +11,7 @@ import HeroSharedAssets
 import HeroUI
 
 protocol BucketFilterDelegate: AnyObject {
-    func filterChanged(filter to: HomeFilter)
+    func filterChanged(filter to: BucketState)
 }
 
 class BucketFilterView: UIView {
@@ -21,7 +21,7 @@ class BucketFilterView: UIView {
     private let doneButton: HeroButton = HeroButton()
     private let allButton: HeroButton = HeroButton()
     
-    private var homeFilter: HomeFilter = .now {
+    private var homeFilter: BucketState = .now {
         didSet {
             updateButtonTextStyle()
             delegate?.filterChanged(filter: homeFilter)

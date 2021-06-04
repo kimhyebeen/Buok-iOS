@@ -51,7 +51,7 @@ public class HomeViewController: HeroBaseViewController {
     let categoryImageView: UIImageView = UIImageView()
     let categoryDeleteButton: UIButton = UIButton()
     
-    var currentFilter: HomeFilter = .now
+    var currentFilter: BucketState = .now
     public var viewModel: HomeViewModel?
     
     public override func viewDidLoad() {
@@ -108,7 +108,7 @@ public class HomeViewController: HeroBaseViewController {
         }
     }
     
-    func applyCurrentFilter(filter: HomeFilter) {
+    func applyCurrentFilter(filter: BucketState) {
         var leadingOffset = 0
         applyAttributedBubbleText(count: viewModel?.bucketCount.value ?? 0, filter: filter)
         
@@ -204,7 +204,7 @@ extension HomeViewController: HeroSelectViewDelegate {
 }
 
 extension HomeViewController: BucketFilterDelegate {
-    func filterChanged(filter to: HomeFilter) {
+    func filterChanged(filter to: BucketState) {
         if currentFilter != to {
             currentFilter = to
             viewModel?.filterChanged(filter: to)
