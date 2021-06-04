@@ -7,7 +7,7 @@ project 'Buok/HeroUI.xcodeproj'
 project 'Buok/HeroCommon.xcodeproj'
 project 'Buok/HeroNetwork.xcodeproj'
 
-project 'Buok' , 'Inhouse(Debug)' => :debug, 'Sandbox(Debug)' => :debug
+project 'Buok'
 
 target 'Buok' do
   inhibit_all_warnings!

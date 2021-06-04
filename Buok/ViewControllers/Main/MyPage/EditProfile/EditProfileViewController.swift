@@ -31,6 +31,22 @@ class EditProfileViewController: HeroBaseViewController {
         super.viewDidLoad()
         
         setupView()
+        bindViewModel()
+        viewModel.fetchUserInfo()
+    }
+    
+    private func bindViewModel() {
+        viewModel.nickname.bind({ nickname in
+            self.nicknameTextField.text = nickname
+        })
+        
+        viewModel.introduce.bind({ introduce in
+            self.introduceTextView.text = introduce
+        })
+        
+        viewModel.profileImage.bind({ image in
+            self.profileImageView.image = image
+        })
     }
     
     private func setupView() {
@@ -60,14 +76,14 @@ class EditProfileViewController: HeroBaseViewController {
     @objc
     func clickFinishButton(_ sender: UIButton) {
         // todo - requestSaveProfile의 파라미터로 프로필 정보를 넘겨줘야 함
-        viewModel.requestSaveProfile().then { [weak self] isSuccess in
-            if isSuccess {
-                self?.dismiss(animated: true, completion: nil)
-            } else {
-                // todo - 실패 처리
-                self?.nicknameSubLabel.isHidden = false
-            }
-        }
+//        viewModel.requestSaveProfile().then { [weak self] isSuccess in
+//            if isSuccess {
+//                self?.dismiss(animated: true, completion: nil)
+//            } else {
+//                // todo - 실패 처리
+//                self?.nicknameSubLabel.isHidden = false
+//            }
+//        }
     }
     
     @objc

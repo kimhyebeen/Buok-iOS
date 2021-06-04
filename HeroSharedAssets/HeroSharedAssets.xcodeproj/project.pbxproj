@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B00FD49F266A846200A48B72 /* ColorSet.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B00FD49E266A846200A48B72 /* ColorSet.xcassets */; };
 		B07C0CDE25FDB1D9000AE1B0 /* HeroSharedAssets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07C0CD425FDB1D9000AE1B0 /* HeroSharedAssets.framework */; };
 		B07C0CE325FDB1D9000AE1B0 /* HeroSharedAssetsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07C0CE225FDB1D9000AE1B0 /* HeroSharedAssetsTests.swift */; };
 		B07C0CE525FDB1D9000AE1B0 /* HeroSharedAssets.h in Headers */ = {isa = PBXBuildFile; fileRef = B07C0CD725FDB1D9000AE1B0 /* HeroSharedAssets.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B07C0D0525FDB2A0000AE1B0 /* HeroSharedAssetsBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07C0D0425FDB2A0000AE1B0 /* HeroSharedAssetsBundle.swift */; };
 		B07C0D1325FDC37A000AE1B0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B07C0D1525FDC37A000AE1B0 /* Localizable.strings */; };
 		B07C0D4B25FDC52A000AE1B0 /* HeroLocalizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07C0D4A25FDC52A000AE1B0 /* HeroLocalizable.swift */; };
-		B0FCC7AD25FDC7B2002D3AA2 /* HeroColorSet.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0FCC7AC25FDC7B2002D3AA2 /* HeroColorSet.xcassets */; };
 		B0FCC7B625FDC7E3002D3AA2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0FCC7B525FDC7E3002D3AA2 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B00FD49E266A846200A48B72 /* ColorSet.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ColorSet.xcassets; sourceTree = "<group>"; };
 		B07C0CD425FDB1D9000AE1B0 /* HeroSharedAssets.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HeroSharedAssets.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B07C0CD725FDB1D9000AE1B0 /* HeroSharedAssets.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeroSharedAssets.h; sourceTree = "<group>"; };
 		B07C0CD825FDB1D9000AE1B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -38,7 +39,6 @@
 		B07C0D1425FDC37A000AE1B0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B07C0D1825FDC37E000AE1B0 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B07C0D4A25FDC52A000AE1B0 /* HeroLocalizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroLocalizable.swift; sourceTree = "<group>"; };
-		B0FCC7AC25FDC7B2002D3AA2 /* HeroColorSet.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = HeroColorSet.xcassets; sourceTree = "<group>"; };
 		B0FCC7B525FDC7E3002D3AA2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -113,7 +113,7 @@
 		B0FCC7B225FDC7C4002D3AA2 /* Colors */ = {
 			isa = PBXGroup;
 			children = (
-				B0FCC7AC25FDC7B2002D3AA2 /* HeroColorSet.xcassets */,
+				B00FD49E266A846200A48B72 /* ColorSet.xcassets */,
 			);
 			path = Colors;
 			sourceTree = "<group>";
@@ -227,8 +227,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B00FD49F266A846200A48B72 /* ColorSet.xcassets in Resources */,
 				B0FCC7B625FDC7E3002D3AA2 /* Images.xcassets in Resources */,
-				B0FCC7AD25FDC7B2002D3AA2 /* HeroColorSet.xcassets in Resources */,
 				B07C0D1325FDC37A000AE1B0 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
