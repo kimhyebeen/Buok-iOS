@@ -221,6 +221,7 @@ public class DetailViewController: HeroBaseViewController {
             make.top.equalTo(clockImageView.snp.bottom).offset(15)
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-20)
+            make.height.equalTo(200)
         }
         
         contentTextView.snp.makeConstraints { make in
@@ -278,6 +279,7 @@ public class DetailViewController: HeroBaseViewController {
         contentBackgroundView.backgroundColor = .heroGrayF2EDE8
         contentTextView.isEditable = false
         contentTextView.textColor = .heroGray5B
+        contentTextView.backgroundColor = .clear
         contentTextView.font = UIFont.systemFont(ofSize: 13, weight: .regular)
     }
     
