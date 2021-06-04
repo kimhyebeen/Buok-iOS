@@ -89,7 +89,7 @@ final class BucketItemCell: UICollectionViewCell {
     }
     
     private func setupCategoryIcon() {
-        iconImageView.image = BucketCategory(rawValue: bucket?.categoryId ?? 2)?.getIcon()?.withRenderingMode(.alwaysTemplate)
+        iconImageView.image = BucketCategory(rawValue: (bucket?.categoryId ?? 2) - 2)?.getIcon()?.withRenderingMode(.alwaysTemplate)
         iconImageView.tintColor = .heroGrayA6A4A1
     }
     

@@ -7,6 +7,7 @@
 
 import Foundation
 import HeroCommon
+import HeroSharedAssets
 import HeroUI
 
 public enum BucketStatus: Int {

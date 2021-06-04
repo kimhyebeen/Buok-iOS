@@ -36,6 +36,7 @@ final class BucketStateView: UIView {
         
         stateTopView.snp.makeConstraints { make in
             make.top.leading.trailing.equalToSuperview()
+            make.height.equalTo(20)
         }
         
         stateBottomView.snp.makeConstraints { make in
@@ -55,7 +56,7 @@ final class BucketStateView: UIView {
         stateTopView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         
         stateBottomView.layer.cornerRadius = 6
-        stateBottomView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
+        stateBottomView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
     }
     
     private func updateProperty(state: BucketState) {
