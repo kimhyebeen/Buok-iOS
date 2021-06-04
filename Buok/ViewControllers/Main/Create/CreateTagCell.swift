@@ -10,6 +10,10 @@ import HeroCommon
 import HeroSharedAssets
 import HeroUI
 
+public protocol TagCellDelegate: AnyObject {
+    func onClickDeleteButton(index: Int)
+}
+
 public class CreateTagCell: UICollectionViewCell {
     static let identifier: String = "CreateTagCell"
     private let cellBackgroundView: UIView = UIView()
@@ -17,6 +21,9 @@ public class CreateTagCell: UICollectionViewCell {
     
     private let deleteButton: UIButton = UIButton()
     private let deleteImageView: UIImageView = UIImageView()
+    
+    public var itemIndex: Int = 0
+    public weak var delegate: TagCellDelegate?
     
     public var itemTitle: String? {
         didSet {
@@ -68,5 +75,11 @@ public class CreateTagCell: UICollectionViewCell {
         
         deleteImageView.image = UIImage(heroSharedNamed: "ic_x")?.withRenderingMode(.alwaysTemplate)
         deleteImageView.tintColor = .heroGrayF2EDE8
+        deleteButton.addTarget(self, action: #selector(onClickDelete(_:)), for: .touchUpInside)
+    }
+    
+    @objc
+    private func onClickDelete(_ sender: UIButton) {
+        delegate?.onClickDeleteButton(index: itemIndex)
     }
 }

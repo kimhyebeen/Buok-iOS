@@ -257,8 +257,8 @@ final class CreateViewController: HeroBaseViewController, UINavigationController
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         layout.estimatedItemSize = CGSize(width: 140, height: 32)
         
-//        let layout = TagFlowLayout()
-//        layout.estimatedItemSize = CGSize(width: 140, height: 40)
+        //        let layout = TagFlowLayout()
+        //        layout.estimatedItemSize = CGSize(width: 140, height: 40)
         
         tagCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         tagCollectionView?.dataSource = self
@@ -340,6 +340,10 @@ final class CreateViewController: HeroBaseViewController, UINavigationController
         
         viewModel.imageList.bind({ _ in
             self.imageCollectionView?.reloadData()
+        })
+        
+        viewModel.tagList.bind({ _ in
+            self.tagCollectionView?.reloadData()
         })
     }
     
@@ -444,9 +448,9 @@ extension CreateViewController: UIImagePickerControllerDelegate {
         guard let selectedImage = info[.originalImage] as? UIImage else {
             fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
         }
-//        self.profileImageView.image = selectedImage
+        //        self.profileImageView.image = selectedImage
         viewModel.imageList.value.append(selectedImage)
-//        let _ = selectedImage.jpegData(compressionQuality: 0.5)
+        //        let _ = selectedImage.jpegData(compressionQuality: 0.5)
         self.dismiss(animated: true, completion: nil)
     }
 }
@@ -513,11 +517,14 @@ extension CreateViewController: UICollectionViewDataSource, UICollectionViewDele
             
             if indexPath.row == 0 {
                 if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CreateTagAddCell.identifier, for: indexPath) as? CreateTagAddCell {
+                    cell.delegate = self
                     return cell
                 }
             } else {
                 if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CreateTagCell.identifier, for: indexPath) as? CreateTagCell {
                     cell.itemTitle = viewModel.tagList.value[indexPath.row - 1]
+                    cell.itemIndex = indexPath.row - 1
+                    cell.delegate = self
                     return cell
                 }
             }
@@ -562,5 +569,47 @@ extension CreateViewController: UITextViewDelegate {
         } else {
             detailLengthLabel.text = "\(textView.text.count)/1500"
         }
+    }
+}
+
+extension CreateViewController: TagAddCellDelegate, TagCellDelegate {
+    func onClickDeleteButton(index: Int) {
+        viewModel.tagList.value.remove(at: index)
+    }
+    
+    func onClickAddButton() {
+        if viewModel.tagList.value.count > 4 {
+            showErrorAlert()
+        } else {
+            showAddTagAlert()
+        }
+    }
+    
+    private func showAddTagAlert() {
+        let alert = UIAlertController(title: "태그 입력", message: "태그를 입력해주세요.", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "확인", style: .default) { _ in
+            if let newTag = alert.textFields?.first?.text {
+                self.viewModel.tagList.value.append(newTag)
+            }
+        }
+        
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel) { _ in
+            DebugLog("Cancelled.")
+        }
+        
+        alert.addTextField()
+        alert.addAction(cancelAction)
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    private func showErrorAlert() {
+        let alert = UIAlertController(title: "태그 개수 초과", message: "태그는 5개까지 추가가능합니다.", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "확인", style: .default) { _ in
+            // Nothing
+        }
+        
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
     }
 }

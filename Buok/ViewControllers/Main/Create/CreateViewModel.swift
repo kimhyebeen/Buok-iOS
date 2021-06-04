@@ -43,8 +43,7 @@ public class CreateViewModel {
         finishDate = Dynamic(Date())
         imageList = Dynamic([UIImage]())
         imageURLStringList = Dynamic([String]())
-//        tagList = Dynamic([String]())
-        tagList = Dynamic(["샘플태그1", "샘플태그2", "샘플태그33", "샘플태그4444444444", "샘플태그5", "샘플태그666"])
+        tagList = Dynamic([String]())
     }
     
     public func setBucketFinishDate(date: Date) {
