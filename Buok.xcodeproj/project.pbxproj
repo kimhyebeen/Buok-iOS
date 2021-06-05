@@ -87,7 +87,6 @@
 		B0B035ED2622B33800D65204 /* SettingConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B035EC2622B33800D65204 /* SettingConstants.swift */; };
 		B0D0217D2602199600F25329 /* JoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D0217C2602199600F25329 /* JoinViewController.swift */; };
 		B0D0218226021A2100F25329 /* NadamProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D0218126021A2100F25329 /* NadamProperties.swift */; };
-		B0D43A5E2600DA9B003420CA /* NadamWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = B0D43A592600DA99003420CA /* NadamWidget.intentdefinition */; };
 		EE23DF74264EB2F500AB31D1 /* BuokmarkCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE23DF73264EB2F500AB31D1 /* BuokmarkCollectionCell.swift */; };
 		EE23DF77264EB36900AB31D1 /* BuokmarkFlagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE23DF76264EB36900AB31D1 /* BuokmarkFlagView.swift */; };
 		EE49406726475A5D00CB0B71 /* ForgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE49406626475A5D00CB0B71 /* ForgetViewController.swift */; };
@@ -97,7 +96,6 @@
 		EE4940E02648332C00CB0B71 /* UITextView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4940DF2648332C00CB0B71 /* UITextView+.swift */; };
 		EE4C015026587401002C5018 /* BuokmarkFlag.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4C014F26587401002C5018 /* BuokmarkFlag.swift */; };
 		EE4C015A26587912002C5018 /* BuokmarkEmptyCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4C015926587912002C5018 /* BuokmarkEmptyCollectionCell.swift */; };
-		EE4C015C26588245002C5018 /* MypageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4C015B26588245002C5018 /* MypageViewModel.swift */; };
 		EE4C015E2658866F002C5018 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4C015D2658866F002C5018 /* EditProfileViewController.swift */; };
 		EE4C016026588821002C5018 /* EditProfileViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4C015F26588821002C5018 /* EditProfileViewController+UI.swift */; };
 		EE4C017326589743002C5018 /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4C017226589743002C5018 /* EditProfileViewModel.swift */; };
@@ -108,10 +106,8 @@
 		EE77F565265AB39E002C4782 /* FriendListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE77F564265AB39E002C4782 /* FriendListViewModel.swift */; };
 		EE77F57D265B20EF002C4782 /* BucketStatusFlagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE77F57C265B20EF002C4782 /* BucketStatusFlagView.swift */; };
 		EE77F587265B2497002C4782 /* BucketCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE77F586265B2497002C4782 /* BucketCollectionCell.swift */; };
-		EE79C431264AC43000E83B6A /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE79C430264AC43000E83B6A /* MypageViewController.swift */; };
 		EE79C436264AC57800E83B6A /* CountingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE79C435264AC57800E83B6A /* CountingButton.swift */; };
 		EE79C43B264AC78600E83B6A /* CountingStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE79C43A264AC78600E83B6A /* CountingStackView.swift */; };
-		EE79C440264ACE4200E83B6A /* MypageProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE79C43F264ACE4200E83B6A /* MypageProfileView.swift */; };
 		EE79C445264AD72600E83B6A /* MypageBuokmarkHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE79C444264AD72600E83B6A /* MypageBuokmarkHeaderView.swift */; };
 		EEA213C32625D03E00E3AEA1 /* LoginPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA213C22625D03E00E3AEA1 /* LoginPasswordViewController.swift */; };
 		EEA213CB2625D59900E3AEA1 /* LoginViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA213CA2625D59900E3AEA1 /* LoginViewController+UI.swift */; };
@@ -358,10 +354,6 @@
 		B0D0218126021A2100F25329 /* NadamProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NadamProperties.swift; sourceTree = "<group>"; };
 		B0D43A522600DA99003420CA /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		B0D43A542600DA99003420CA /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		B0D43A572600DA99003420CA /* NadamWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NadamWidget.swift; sourceTree = "<group>"; };
-		B0D43A592600DA99003420CA /* NadamWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = NadamWidget.intentdefinition; sourceTree = "<group>"; };
-		B0D43A5A2600DA9B003420CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		B0D43A5C2600DA9B003420CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B321063553FBFA5630D0602E /* Pods-BucketList.sandbox(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BucketList.sandbox(debug).xcconfig"; path = "Target Support Files/Pods-BucketList/Pods-BucketList.sandbox(debug).xcconfig"; sourceTree = "<group>"; };
 		BAB43DE7565F4FF21B86D8E5 /* Pods-Buok.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Buok.release.xcconfig"; path = "Target Support Files/Pods-Buok/Pods-Buok.release.xcconfig"; sourceTree = "<group>"; };
 		C13A17A6BFB98F90C56EED8D /* Pods-Buok.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Buok.debug.xcconfig"; path = "Target Support Files/Pods-Buok/Pods-Buok.debug.xcconfig"; sourceTree = "<group>"; };
@@ -383,7 +375,6 @@
 		EE4940DF2648332C00CB0B71 /* UITextView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+.swift"; sourceTree = "<group>"; };
 		EE4C014F26587401002C5018 /* BuokmarkFlag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuokmarkFlag.swift; sourceTree = "<group>"; };
 		EE4C015926587912002C5018 /* BuokmarkEmptyCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuokmarkEmptyCollectionCell.swift; sourceTree = "<group>"; };
-		EE4C015B26588245002C5018 /* MypageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewModel.swift; sourceTree = "<group>"; };
 		EE4C015D2658866F002C5018 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		EE4C015F26588821002C5018 /* EditProfileViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditProfileViewController+UI.swift"; sourceTree = "<group>"; };
 		EE4C017226589743002C5018 /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
@@ -395,10 +386,8 @@
 		EE77F564265AB39E002C4782 /* FriendListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListViewModel.swift; sourceTree = "<group>"; };
 		EE77F57C265B20EF002C4782 /* BucketStatusFlagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketStatusFlagView.swift; sourceTree = "<group>"; };
 		EE77F586265B2497002C4782 /* BucketCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketCollectionCell.swift; sourceTree = "<group>"; };
-		EE79C430264AC43000E83B6A /* MypageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
 		EE79C435264AC57800E83B6A /* CountingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountingButton.swift; sourceTree = "<group>"; };
 		EE79C43A264AC78600E83B6A /* CountingStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountingStackView.swift; sourceTree = "<group>"; };
-		EE79C43F264ACE4200E83B6A /* MypageProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageProfileView.swift; sourceTree = "<group>"; };
 		EE79C444264AD72600E83B6A /* MypageBuokmarkHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageBuokmarkHeaderView.swift; sourceTree = "<group>"; };
 		EEA213C22625D03E00E3AEA1 /* LoginPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPasswordViewController.swift; sourceTree = "<group>"; };
 		EEA213CA2625D59900E3AEA1 /* LoginViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+UI.swift"; sourceTree = "<group>"; };
@@ -601,7 +590,6 @@
 				B041747025E2366E00D990A2 /* Buok */,
 				B041748A25E2366F00D990A2 /* BuokTests */,
 				B041749525E2366F00D990A2 /* BuokUITests */,
-				B0D43A6A2600DAA8003420CA /* App Extensions */,
 				B041746F25E2366E00D990A2 /* Products */,
 				A4F2BB761D83362580259525 /* Pods */,
 				69EBCC9DA8CF7A7AC4E9B152 /* Frameworks */,
@@ -737,7 +725,6 @@
 				B01D439E26039D1C00F2D28C /* Detail */,
 				B0635AD8260390D200046E88 /* Create */,
 				B0635AC32603896D00046E88 /* Home */,
-				B0D021792602196500F25329 /* MyPage(Deprecated) */,
 				EEC801EB2659047300777B43 /* Profile */,
 				B0B033B72621C95B00D65204 /* Setting */,
 				B0D021702602195B00F25329 /* MultiLevelVC */,
@@ -888,16 +875,6 @@
 			path = MultiLevelVC;
 			sourceTree = "<group>";
 		};
-		B0D021792602196500F25329 /* MyPage(Deprecated) */ = {
-			isa = PBXGroup;
-			children = (
-				EE23DF75264EB2FB00AB31D1 /* View */,
-				EE79C430264AC43000E83B6A /* MypageViewController.swift */,
-				EE4C015B26588245002C5018 /* MypageViewModel.swift */,
-			);
-			path = "MyPage(Deprecated)";
-			sourceTree = "<group>";
-		};
 		B0D0217A2602198100F25329 /* Join */ = {
 			isa = PBXGroup;
 			children = (
@@ -941,33 +918,6 @@
 				B08CEB582662252900FF77BD /* TokenManager.swift */,
 			);
 			path = Application;
-			sourceTree = "<group>";
-		};
-		B0D43A562600DA99003420CA /* NadamWidget */ = {
-			isa = PBXGroup;
-			children = (
-				B0D43A572600DA99003420CA /* NadamWidget.swift */,
-				B0D43A592600DA99003420CA /* NadamWidget.intentdefinition */,
-				B0D43A5A2600DA9B003420CA /* Assets.xcassets */,
-				B0D43A5C2600DA9B003420CA /* Info.plist */,
-			);
-			path = NadamWidget;
-			sourceTree = "<group>";
-		};
-		B0D43A6A2600DAA8003420CA /* App Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				B0D43A562600DA99003420CA /* NadamWidget */,
-			);
-			path = "App Extensions";
-			sourceTree = "<group>";
-		};
-		EE23DF75264EB2FB00AB31D1 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				EE79C43F264ACE4200E83B6A /* MypageProfileView.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		EE49406526475A3700CB0B71 /* Forget */ = {
@@ -1112,6 +1062,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 1230;
+				ORGANIZATIONNAME = Buok;
 				TargetAttributes = {
 					B041746D25E2366E00D990A2 = {
 						CreatedOnToolsVersion = 12.3;
@@ -1399,10 +1350,8 @@
 				B01D43A826039D2500F2D28C /* DetailViewController.swift in Sources */,
 				EEC802032659293700777B43 /* ProfileViewModel.swift in Sources */,
 				EE77F556265AA80E002C4782 /* FriendListCollectionCell.swift in Sources */,
-				EE79C431264AC43000E83B6A /* MypageViewController.swift in Sources */,
 				B082F2CE26594F3900A7AB6B /* CreateAddCell.swift in Sources */,
 				B06B5EEF25ECCEE10045A491 /* SubTwoViewController.swift in Sources */,
-				B0D43A5E2600DA9B003420CA /* NadamWidget.intentdefinition in Sources */,
 				B08CEB37266212BF00FF77BD /* AppConfiguration.swift in Sources */,
 				B082F2D626595EB500A7AB6B /* AlignedCollectionViewFlowLayout.swift in Sources */,
 				B08CEB3E2662163E00FF77BD /* StartDIContainer.swift in Sources */,
@@ -1419,7 +1368,6 @@
 				EE23DF74264EB2F500AB31D1 /* BuokmarkCollectionCell.swift in Sources */,
 				B08CEB8C2663934E00FF77BD /* WorkThruPageContentViewController.swift in Sources */,
 				B0D0217D2602199600F25329 /* JoinViewController.swift in Sources */,
-				EE79C440264ACE4200E83B6A /* MypageProfileView.swift in Sources */,
 				B041747625E2366E00D990A2 /* MultiLevelViewController.swift in Sources */,
 				B023B156266A130D0060F625 /* ImageUploadAPIRequest.swift in Sources */,
 				EEA213CB2625D59900E3AEA1 /* LoginViewController+UI.swift in Sources */,
@@ -1469,7 +1417,6 @@
 				B023B13A266A0BFF0060F625 /* BucketStateView.swift in Sources */,
 				B06B5EF625ECD0140045A491 /* SubThreeViewController.swift in Sources */,
 				B082F2C426594EC200A7AB6B /* CreateImageCell.swift in Sources */,
-				EE4C015C26588245002C5018 /* MypageViewModel.swift in Sources */,
 				B00FD52D266B7F8400A48B72 /* DetailViewModel.swift in Sources */,
 				EEC801F9265910FF00777B43 /* ProfileBuokmarkHeaderView.swift in Sources */,
 				B01A28BB2665D52D00BE9DB3 /* HomeViewController+AttributedText.swift in Sources */,

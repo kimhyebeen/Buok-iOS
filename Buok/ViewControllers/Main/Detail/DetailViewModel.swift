@@ -2,7 +2,7 @@
 //  DetailViewModel.swift
 //  Buok
 //
-//  Created by denny on 2021/06/05.
+//  Copyright © 2021 Buok. All rights reserved.
 //
 
 import Foundation

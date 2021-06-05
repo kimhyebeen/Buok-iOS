@@ -2,8 +2,7 @@
 //  HeroFloatingButton.swift
 //  HeroUI
 //
-//  Created by 김혜빈 on 2021/03/11.
-//  Edited by Taein Kim on 2021/03/16.
+//  Copyright © 2021 Buok. All rights reserved.
 //
 
 import UIKit

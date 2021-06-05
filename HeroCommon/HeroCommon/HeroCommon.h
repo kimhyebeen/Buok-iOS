@@ -2,7 +2,7 @@
 //  HeroCommon.h
 //  HeroCommon
 //
-//  Created by Taein Kim on 2021/02/21.
+//  Copyright © 2021 Buok. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

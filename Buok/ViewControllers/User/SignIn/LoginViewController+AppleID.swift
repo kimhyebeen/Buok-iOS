@@ -2,7 +2,7 @@
 //  LoginViewController+AppleID.swift
 //  Buok
 //
-//  Created by 김보민 on 2021/05/09.
+//  Copyright © 2021 Buok. All rights reserved.
 //
 
 import AuthenticationServices
