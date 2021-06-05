@@ -11,18 +11,16 @@ enum SettingCellType: Int {
     case normal = 0
     case info
     case button
+    case buttonWithNoImage
 }
 
 enum SettingType: Int {
     case mail = 0
     case connectedAccount
     case appVersion
-    case lock
-    case language
-    case notification
-    case dataManagement
-    case backup
-    case contact
+    case logout
+    case withDrawal
+    case policy
     
     func getTitle() -> String {
         switch self {
@@ -32,18 +30,12 @@ enum SettingType: Int {
             return "연결된 계정"
         case .appVersion:
             return "앱 버전"
-        case .lock:
-            return "잠금"
-        case .language:
-            return "언어"
-        case .notification:
-            return "알림"
-        case .dataManagement:
-            return "저장 데이터 관리"
-        case .backup:
-            return "백업"
-        case .contact:
-            return "연락처"
+        case .logout:
+            return "로그아웃"
+        case .withDrawal:
+            return "탈퇴"
+        case .policy:
+            return "개인정보보호정책"
         }
     }
 }

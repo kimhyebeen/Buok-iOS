@@ -1,30 +1,40 @@
 //
-//  MypageContentsView.swift
+//  ProfileView.swift
 //  Buok
 //
-//  Created by 김혜빈 on 2021/05/11.
+//  Created by 김혜빈 on 2021/05/22.
 //
 
 import HeroUI
-import Kingfisher
 
-protocol MypageProfileViewDelegate: AnyObject {
+protocol ProfileViewDelegate: AnyObject {
+    func onClickFriendButton()
     func onClickEditButton()
     func onClickFriendCountingButton()
     func onClickBucketCountingButton()
 }
 
-class MypageProfileView: UIView {
+class ProfileView: UIView {
     private let profileImageView = UIImageView()
     private let nameLabel = UILabel()
     private let emailLabel = UILabel()
-    let editButton = UIButton()
-    let countingButtonStack = MypageCountingStackView()
+    private let friendButton = FriendButton()
+    private let editProfileButton = UIButton()
+    let countingButtonStack = CountingStackView()
     private let introduceLabel = UILabel()
     private let dateImageView = UIImageView()
     private let dateLabel = UILabel()
     
-    weak var delegate: MypageProfileViewDelegate?
+    private var widthOfFriendButton: NSLayoutConstraint?
+    
+    var isMyPage: Bool = false {
+        didSet {
+            editProfileButton.isHidden = !isMyPage
+            friendButton.isHidden = isMyPage
+        }
+    }
+    
+    weak var delegate: ProfileViewDelegate?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -37,10 +47,13 @@ class MypageProfileView: UIView {
     }
     
     private func setupView() {
+        self.backgroundColor = .heroServiceSkin
+        
         setupProfileImageView()
         setupNameLabel()
         setupEmailLabel()
         setupEditButton()
+        setupFriendButton()
         setupCountingButtonStack()
         setupIntroduceLabel()
         setupDateImageView()
@@ -48,7 +61,6 @@ class MypageProfileView: UIView {
     }
     
     func setProfile(myPageData: MyPageUserData) {
-        // todo - Profile 객체를 받아 뷰 업데이트
         nameLabel.text = myPageData.user.nickname
         emailLabel.text = myPageData.user.email
         introduceLabel.text = myPageData.user.intro
@@ -70,9 +82,37 @@ class MypageProfileView: UIView {
         countingButtonStack.bucketCount = myPageData.bucketCount
     }
     
-    @objc
-    func clickEditButton(_ sender: UIButton) {
-        delegate?.onClickEditButton()
+    func setProfile(userData: ProfileUserData) {
+        nameLabel.text = userData.user.nickname
+        emailLabel.text = userData.user.email
+        introduceLabel.text = userData.user.intro
+        
+        if let createdDate = userData.user.createdDate {
+            let date = createdDate.convertToDate()
+            let components = date.get(.month, .year)
+            if let month = components.month, let year = components.year {
+                let monthString = month < 10 ? "0\(month)" : "\(month)"
+                dateLabel.text = "\(year)년 \(monthString)월에 가입함"
+            }
+        }
+        
+        if let profileURL = URL(string: userData.user.profileUrl ?? "") {
+            self.profileImageView.kf.setImage(with: profileURL)
+        }
+        
+        countingButtonStack.friendCount = userData.friendCount
+        countingButtonStack.bucketCount = userData.bucketCount
+    }
+    
+    func settingFriendButtonType(for type: FriendButtonType) {
+        friendButton.settingFriendButtonType(for: type)
+        if type == .friend {
+            widthOfFriendButton?.constant = 48
+        } else if type == .request {
+            widthOfFriendButton?.constant = 72
+        } else {
+            widthOfFriendButton?.constant = 48
+        }
     }
     
     @objc
@@ -85,16 +125,34 @@ class MypageProfileView: UIView {
         delegate?.onClickBucketCountingButton()
     }
     
+    @objc
+    func clickFriendButton(_ sender: UIButton) {
+        delegate?.onClickFriendButton()
+    }
+
+    @objc
+    func clickEditButton(_ sender: UIButton) {
+        delegate?.onClickEditButton()
+    }
 }
 
-extension MypageProfileView {
+extension ProfileView: CountingStackViewDelegate {
+    func onClickStackItem(type: CountingType) {
+        if type == .friend {
+            delegate?.onClickFriendCountingButton()
+        } else if type == .bucket {
+            delegate?.onClickBucketCountingButton()
+        }
+    }
+}
+
+extension ProfileView {
     // MARK: ProfileImageView
     private func setupProfileImageView() {
         profileImageView.image = UIImage(heroSharedNamed: "ic_profile_48")
         profileImageView.contentMode = .scaleAspectFill
         profileImageView.layer.cornerRadius = 32
         profileImageView.clipsToBounds = true
-        profileImageView.layer.backgroundColor = UIColor.white.cgColor
         self.addSubview(profileImageView)
         
         profileImageView.snp.makeConstraints { make in
@@ -130,30 +188,44 @@ extension MypageProfileView {
         }
     }
     
-    // MARK: EditButton
+    // MARK: FriendButton
     private func setupEditButton() {
-        editButton.setAttributedTitle(NSAttributedString(string: "프로필 수정", attributes: [.font: UIFont.font15P, .foregroundColor: UIColor.heroGray82]), for: .normal)
-        editButton.titleEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        editButton.layer.cornerRadius = 8
-        editButton.layer.borderWidth = 1
-        editButton.layer.borderColor = UIColor.heroGray82.cgColor
-        editButton.addTarget(self, action: #selector(clickEditButton(_:)), for: .touchUpInside)
-        self.addSubview(editButton)
+        editProfileButton.addTarget(self, action: #selector(clickEditButton(_:)), for: .touchUpInside)
+        self.addSubview(editProfileButton)
         
-        editButton.snp.makeConstraints { make in
+        editProfileButton.snp.makeConstraints { make in
+            make.height.equalTo(32)
             make.width.equalTo(90)
-            make.height.equalTo(36)
             make.centerY.equalTo(profileImageView.snp.centerY)
             make.trailing.equalToSuperview().offset(-20)
         }
+        
+        editProfileButton.setAttributedTitle(NSAttributedString(string: "프로필 수정", attributes: [.font: UIFont.font15P, .foregroundColor: UIColor.heroGray82]), for: .normal)
+        editProfileButton.titleEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        editProfileButton.layer.cornerRadius = 8
+        editProfileButton.layer.borderWidth = 1
+        editProfileButton.layer.borderColor = UIColor.heroGray82.cgColor
+    }
+    
+    private func setupFriendButton() {
+        friendButton.addTarget(self, action: #selector(clickFriendButton(_:)), for: .touchUpInside)
+        self.addSubview(friendButton)
+        
+        friendButton.snp.makeConstraints { make in
+            make.height.equalTo(32)
+            make.centerY.equalTo(profileImageView.snp.centerY)
+            make.trailing.equalToSuperview().offset(-20)
+        }
+        
+        widthOfFriendButton = friendButton.widthAnchor.constraint(equalToConstant: 0)
+        widthOfFriendButton?.constant = 48
+        widthOfFriendButton?.isActive = true
     }
     
     // MARK: CountingButtonStack
     private func setupCountingButtonStack() {
-        countingButtonStack.friendButton.addTarget(self, action: #selector(clickFriendCountingButton(_:)), for: .touchUpInside)
-        countingButtonStack.bucketButton.addTarget(self, action: #selector(clickBucketCountingButton(_:)), for: .touchUpInside)
         self.addSubview(countingButtonStack)
-        
+        countingButtonStack.delegate = self
         countingButtonStack.snp.makeConstraints { make in
             make.top.equalTo(profileImageView.snp.bottom).offset(16)
             make.leading.equalToSuperview().offset(20)
@@ -195,7 +267,7 @@ extension MypageProfileView {
     
     // MARK: DateLabel
     private func setupDateLabel() {
-        dateLabel.text = ""
+        dateLabel.text = "Hero_Profile_Register_Date".localized
         dateLabel.textColor = .heroGray82
         dateLabel.font = .font13P
         self.addSubview(dateLabel)

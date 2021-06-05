@@ -16,7 +16,7 @@ public enum HeroHeader {
 	public var key: String {
 		switch self {
 		case .token:
-			return "token"
+			return "accessToken"
 		case .accept:
 			return "accept"
 		case .contentType:

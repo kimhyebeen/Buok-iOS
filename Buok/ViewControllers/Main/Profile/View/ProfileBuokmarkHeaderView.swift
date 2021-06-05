@@ -1,17 +1,18 @@
 //
-//  FriendPageHeaderView.swift
+//  ProfileBuokmarkHeaderView.swift
 //  Buok
 //
-//  Created by 김혜빈 on 2021/05/22.
+//  Created by Taein Kim on 2021/06/05.
 //
 
 import UIKit
 
-protocol FriendPageBuokmarkHeaderViewDelegate: AnyObject {
+protocol ProfileBuokmarkHeaderViewDelegate: AnyObject {
     func reloadCollectionView()
 }
 
-class FriendPageBuokmarkHeaderView: UIView {
+class ProfileBuokmarkHeaderView: UIView {
+    private let myPageHeaderView = MypageBuokmarkHeaderView()
     private let buokmarkButton = BuokmarkHeaderButton()
     private let bucketBookButton = BucketBookHeaderButton()
     
@@ -25,10 +26,22 @@ class FriendPageBuokmarkHeaderView: UIView {
     var countOfBuokmark: Int = 0 {
         didSet {
             buokmarkButton.count = countOfBuokmark
+            myPageHeaderView.count = countOfBuokmark
         }
     }
     
-    weak var delegate: FriendPageBuokmarkHeaderViewDelegate?
+    var countOfBucket: Int = 0 {
+        didSet {
+            bucketBookButton.count = countOfBucket
+        }
+    }
+    
+    var isMyPage: Bool = false {
+        didSet {
+            myPageHeaderView.isHidden = !isMyPage
+        }
+    }
+    weak var delegate: ProfileBuokmarkHeaderViewDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -45,6 +58,7 @@ class FriendPageBuokmarkHeaderView: UIView {
         
         setupBuokmarkButton()
         setupBucketBookButton()
+        setupMyPageHeaderView()
     }
     
     @objc
@@ -64,7 +78,13 @@ class FriendPageBuokmarkHeaderView: UIView {
     }
 }
 
-extension FriendPageBuokmarkHeaderView {
+extension ProfileBuokmarkHeaderView {
+    private func setupMyPageHeaderView() {
+        self.addSubview(myPageHeaderView)
+        myPageHeaderView.snp.makeConstraints { make in
+            make.top.bottom.leading.trailing.equalToSuperview()
+        }
+    }
     // MARK: BuokmarkButton
     private func setupBuokmarkButton() {
         buokmarkButton.isSelected = true

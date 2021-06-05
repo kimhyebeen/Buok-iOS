@@ -33,6 +33,7 @@ class MypageBuokmarkHeaderView: UIView {
     }
     
     private func setupView() {
+        backgroundColor = .heroGrayF2EDE8
         setupBuokmarkLabel()
         setupBuokmarkCountLabel()
     }

@@ -55,7 +55,10 @@ public class MainTabBarViewController: UITabBarController, UITabBarControllerDel
         let homeVC = HomeViewController()
         homeVC.viewModel = HomeViewModel()
         
-        let mypageVC = MypageViewController()
+        let profileVC = ProfileViewController()
+        let profileViewModel = ProfileViewModel()
+        profileVC.viewModel = profileViewModel
+        profileVC.isMyPage = true
         
         let homeNC = createNavController(for: homeVC,
                                          normalImage: UIImage(heroSharedNamed: "tab_home_un.png"),
@@ -65,13 +68,13 @@ public class MainTabBarViewController: UITabBarController, UITabBarControllerDel
                                         normalImage: nil,
                                         selectedImage: nil)
         
-        let mypageNC = createNavController(for: mypageVC,
-                                           normalImage: UIImage(heroSharedNamed: "tab_mypage_un.png"), selectedImage: UIImage(heroSharedNamed: "tab_mypage.png"))
+        let profileNC = createNavController(for: profileVC,
+                                            normalImage: UIImage(heroSharedNamed: "tab_mypage_un.png"), selectedImage: UIImage(heroSharedNamed: "tab_mypage.png"))
         
         tabViewControllers.removeAll()
         tabViewControllers.append(homeNC)
         tabViewControllers.append(addNC)
-        tabViewControllers.append(mypageNC)
+        tabViewControllers.append(profileNC)
         
         tabBar.barTintColor = .heroGrayE7E1DC
         tabBar.tintColor = .heroGray600s

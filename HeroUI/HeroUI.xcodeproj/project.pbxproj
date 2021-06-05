@@ -18,14 +18,12 @@
 		B041759B25E2398300D990A2 /* HeroButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B041759A25E2398300D990A2 /* HeroButton.swift */; };
 		B041761425E23C0600D990A2 /* Bundle+Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = B041761325E23C0600D990A2 /* Bundle+Hero.swift */; };
 		B041763125E23DAA00D990A2 /* HeroFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = B041763025E23DAA00D990A2 /* HeroFont.swift */; };
-		B04CF73125FCDBE600FBAB10 /* HeroAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04CF73025FCDBE600FBAB10 /* HeroAlertController.swift */; };
 		B0635ACE260389EF00046E88 /* HeroImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0635ACD260389EF00046E88 /* HeroImageButton.swift */; };
 		B06B5ED325ECCC100045A491 /* HeroNavigationBarUpdatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06B5ED225ECCC100045A491 /* HeroNavigationBarUpdatable.swift */; };
 		B06B5ED725ECCC270045A491 /* HeroUINavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06B5ED625ECCC270045A491 /* HeroUINavigationBar.swift */; };
 		B06B5EDB25ECCC6E0045A491 /* UIImage+Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06B5EDA25ECCC6E0045A491 /* UIImage+Hero.swift */; };
 		B07CDC1225F4B7A100D18589 /* MainTabBarConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07CDC1125F4B7A100D18589 /* MainTabBarConstants.swift */; };
 		B07CDC2B25F4BE5A00D18589 /* HeroAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07CDC2A25F4BE5A00D18589 /* HeroAlertViewController.swift */; };
-		B07CDC3A25F4C1B400D18589 /* HeroAlertButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07CDC3925F4C1B400D18589 /* HeroAlertButton.swift */; };
 		B082F2BA2658F3CF00A7AB6B /* HeroSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B082F2B92658F3CF00A7AB6B /* HeroSelectViewController.swift */; };
 		B94199A7340AA091D7EFED1D /* libPods-HeroUI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67AFB3E0E117A8D4DF3E3098 /* libPods-HeroUI.a */; };
 		EEBCE3C925FA1F2200BA6749 /* HeroTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBCE3C825FA1F2200BA6749 /* HeroTagView.swift */; };
@@ -60,7 +58,6 @@
 		B041759A25E2398300D990A2 /* HeroButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroButton.swift; sourceTree = "<group>"; };
 		B041761325E23C0600D990A2 /* Bundle+Hero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Hero.swift"; sourceTree = "<group>"; };
 		B041763025E23DAA00D990A2 /* HeroFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroFont.swift; sourceTree = "<group>"; };
-		B04CF73025FCDBE600FBAB10 /* HeroAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroAlertController.swift; sourceTree = "<group>"; };
 		B0635ACD260389EF00046E88 /* HeroImageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroImageButton.swift; sourceTree = "<group>"; };
 		B06B5E3A25ECB9A70045A491 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B06B5ED225ECCC100045A491 /* HeroNavigationBarUpdatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroNavigationBarUpdatable.swift; sourceTree = "<group>"; };
@@ -68,7 +65,6 @@
 		B06B5EDA25ECCC6E0045A491 /* UIImage+Hero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Hero.swift"; sourceTree = "<group>"; };
 		B07CDC1125F4B7A100D18589 /* MainTabBarConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarConstants.swift; sourceTree = "<group>"; };
 		B07CDC2A25F4BE5A00D18589 /* HeroAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroAlertViewController.swift; sourceTree = "<group>"; };
-		B07CDC3925F4C1B400D18589 /* HeroAlertButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroAlertButton.swift; sourceTree = "<group>"; };
 		B082F2B92658F3CF00A7AB6B /* HeroSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroSelectViewController.swift; sourceTree = "<group>"; };
 		C33565CC9EFC666DA4E1F6C1 /* Pods-HeroUI.inhouse(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroUI.inhouse(debug).xcconfig"; path = "Target Support Files/Pods-HeroUI/Pods-HeroUI.inhouse(debug).xcconfig"; sourceTree = "<group>"; };
 		C39B8CF93D09A1C653D8841D /* Pods-HeroUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroUI.debug.xcconfig"; path = "Target Support Files/Pods-HeroUI/Pods-HeroUI.debug.xcconfig"; sourceTree = "<group>"; };
@@ -193,8 +189,6 @@
 			isa = PBXGroup;
 			children = (
 				B07CDC2A25F4BE5A00D18589 /* HeroAlertViewController.swift */,
-				B07CDC3925F4C1B400D18589 /* HeroAlertButton.swift */,
-				B04CF73025FCDBE600FBAB10 /* HeroAlertController.swift */,
 			);
 			path = HeroAlertController;
 			sourceTree = "<group>";
@@ -360,10 +354,8 @@
 				B07CDC1225F4B7A100D18589 /* MainTabBarConstants.swift in Sources */,
 				B041759725E2394800D990A2 /* UIColor+Hero.swift in Sources */,
 				B0376FFE25F49462003D7750 /* HeroTabBarItemView.swift in Sources */,
-				B07CDC3A25F4C1B400D18589 /* HeroAlertButton.swift in Sources */,
 				B06B5ED725ECCC270045A491 /* HeroUINavigationBar.swift in Sources */,
 				EEBCE3C925FA1F2200BA6749 /* HeroTagView.swift in Sources */,
-				B04CF73125FCDBE600FBAB10 /* HeroAlertController.swift in Sources */,
 				EEBCE3D225FA21CD00BA6749 /* HeroFloatingButton.swift in Sources */,
 				B0376FF925F4893F003D7750 /* HeroTabBarView.swift in Sources */,
 				B041761425E23C0600D990A2 /* Bundle+Hero.swift in Sources */,

@@ -1,55 +1,106 @@
 //
-//  FriendPageViewController.swift
+//  ProfileViewController.swift
 //  Buok
 //
-//  Created by 김혜빈 on 2021/05/22.
+//  Created by Taein Kim on 2021/06/05.
 //
 
+import HeroCommon
 import HeroUI
 
-class FriendPageViewController: HeroBaseViewController {
+class ProfileViewController: HeroBaseViewController {
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
-    let safeAreaView = UIView()
     let topView = UIView()
     let backButton = UIButton()
+    let settingButton = UIButton()
     
-    let profileView = FriendPageProfileView()
-    let headerView = FriendPageBuokmarkHeaderView()
+    let profileView = ProfileView()
+    let headerView = ProfileBuokmarkHeaderView()
     let emptyBucketStackView = UIStackView()
+    let safeAreaFillView: UIView = UIView()
     
-    private var viewModel = FriendPageViewModel()
+    static let buokmarkColors: [UIColor] = [.heroPrimaryPinkLight, .heroPrimaryNavyLight, .heroPrimaryBlueLight]
+    
+    var viewModel: ProfileViewModel?
+    
+    var isMyPage: Bool = false {
+        didSet {
+            viewModel?.isMe.value = isMyPage
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupView()
         bindingViewModel()
+        
+        if isMyPage {
+            viewModel?.fetchMyPageInfo()
+        } else {
+            viewModel?.fetchProfileUserInfo()
+        }
     }
     
     private func setupView() {
-        self.view.backgroundColor = .heroPrimaryBeigeLighter
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        self.view.backgroundColor = isMyPage ? .heroGrayF2EDE8 : .heroPrimaryBeigeLighter
         
-        setupSafeAreaView()
+        setupSafeAreaFillView()
         setupTopView()
         setupBackButton()
-        
         setupCollectionView()
         setupProfileView()
         setupHeaderView()
         setupDisabledBucketView()
-        
-        self.view.bringSubviewToFront(safeAreaView)
         self.view.bringSubviewToFront(topView)
+        self.view.bringSubviewToFront(safeAreaFillView)
     }
     
     private func bindingViewModel() {
-        viewModel.fetchFriendProfile().then { [weak self] profile in
-            // todo - profileView에 적용
-            self?.headerView.countOfBuokmark = profile.buokmarks.count
-            self?.profileView.settingFriendButtonType(for: profile.type)
+//        viewModel.().then { [weak self] profile in
+//            // todo - profileView에 적용
+//            self?.headerView.countOfBuokmark = profile.buokmarks.count
+//            self?.profileView.settingFriendButtonType(for: profile.type)
+//            self?.collectionView.reloadData()
+//        }
+        
+        viewModel?.bookmarkCount.bind({ [weak self] count in
+            self?.headerView.countOfBuokmark = count
             self?.collectionView.reloadData()
-        }
+        })
+        
+        viewModel?.bookmarkData.bind({ [weak self] _ in
+            self?.collectionView.reloadData()
+        })
+        
+        viewModel?.bucketBookCount.bind({ [weak self] count in
+            self?.collectionView.reloadData()
+            self?.headerView.countOfBucket = count
+        })
+        
+        viewModel?.bucketBookData.bind({ [weak self] _ in
+            self?.collectionView.reloadData()
+        })
+        
+        viewModel?.myUserData.bind({ [weak self] user in
+            if let strongUser = user {
+                self?.profileView.setProfile(myPageData: strongUser)
+            }
+        })
+        
+        viewModel?.userData.bind({ [weak self] user in
+            if let strongUser = user {
+                self?.profileView.setProfile(userData: strongUser)
+            }
+        })
+        
+        viewModel?.isMe.bind({ [weak self] isMe in
+            self?.profileView.isMyPage = isMe
+            self?.backButton.isHidden = isMe
+            self?.settingButton.isHidden = !isMe
+        })
     }
     
     @objc
@@ -61,32 +112,48 @@ class FriendPageViewController: HeroBaseViewController {
     func clickFriendButton(_ sender: UIButton) {
         // todo - 친구 요청 버튼 기능
     }
+    
+    @objc
+    func clickSettingButton(_ sender: UIButton) {
+        // todo - 설정 버튼 기능
+        let settingVC = SettingViewController()
+        self.navigationController?.pushViewController(settingVC, animated: true)
+    }
 }
 
 // MARK: +Delegate
 
-extension FriendPageViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2
+        return isMyPage ? 1 : 2
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if headerView.isSelectBuokmarkButton {
-            return countOfBuokmarkMode(for: section)
+        if isMyPage {
+            emptyBucketStackView.isHidden = true
+            if let count = viewModel?.bookmarkCount.value {
+                return count > 0 ? count : 3
+            } else {
+                return 0
+            }
         } else {
-            return countOfBucketBookMode(for: section)
+            if headerView.isSelectBuokmarkButton {
+                return countOfBuokmarkMode(for: section)
+            } else {
+                return countOfBucketBookMode(for: section)
+            }
         }
     }
     
     private func countOfBuokmarkMode(for section: Int) -> Int {
         emptyBucketStackView.isHidden = true
-        return section == 0 ? viewModel.buokmarks.count : 0
+        return section == 0 ? viewModel?.bookmarkData.value.count ?? 0 : 0
     }
     
     private func countOfBucketBookMode(for section: Int) -> Int {
-        if viewModel.friendType == .friend {
+        if viewModel?.friendType == .friend {
             emptyBucketStackView.isHidden = true
-            return section == 0 ? 0 : viewModel.bucketBooks.count
+            return section == 0 ? 0 : viewModel?.bucketBookData.value.count ?? 0
         } else {
             emptyBucketStackView.isHidden = false
             return section == 0 ? 0 : 0
@@ -94,11 +161,31 @@ extension FriendPageViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if indexPath.section == 0 {
-            return settingBuokmarkCell(collectionView, indexPath)
+        if isMyPage {
+            if viewModel?.bookmarkCount.value ?? 0 < 1 {
+                return settingEmptyCell(collectionView, indexPath)
+            } else {
+                return settingBuokmarkCell(collectionView, indexPath)
+            }
         } else {
-            return settingBucketBookCell(collectionView, indexPath)
+            if indexPath.section == 0 {
+                return settingBuokmarkCell(collectionView, indexPath)
+            } else {
+                return settingBucketBookCell(collectionView, indexPath)
+            }
         }
+    }
+    
+    private func settingEmptyCell(_ collectionView: UICollectionView, _ indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BuokmarkEmptyCollectionCell.identifier, for: indexPath) as? BuokmarkEmptyCollectionCell else {
+            return BuokmarkEmptyCollectionCell()
+        }
+        
+        if indexPath.row == 0 {
+            cell.isFirst = true
+        } else { cell.isFirst = false }
+        
+        return cell
     }
     
     private func settingBuokmarkCell(_ collectionView: UICollectionView, _ indexPath: IndexPath) -> UICollectionViewCell {
@@ -106,7 +193,11 @@ extension FriendPageViewController: UICollectionViewDelegate, UICollectionViewDa
             return BuokmarkCollectionCell()
         }
         
-        cell.setInformation(to: viewModel.bookmarkData.value[indexPath.row], color: MypageViewController.buokmarkColors[indexPath.row % 3])
+        if viewModel?.bookmarkData.value.count ?? 0 > indexPath.row {
+            if let strongViewModel = viewModel {
+                cell.setInformation(to: strongViewModel.bookmarkData.value[indexPath.row], color: ProfileViewController.buokmarkColors[indexPath.row % 3])
+            }
+        }
         
         return cell
     }
@@ -117,14 +208,16 @@ extension FriendPageViewController: UICollectionViewDelegate, UICollectionViewDa
         }
         
         let types: [BucketStatusType] = [.inProgress, .expected, .fail, .done]
-        cell.setInformation(viewModel.bucketBooks[indexPath.row], types[indexPath.row % 4])
+        if let strongViewModel = viewModel {
+            cell.setInformation(strongViewModel.bucketBooks[indexPath.row], types[indexPath.row % 4])
+        }
         
         return cell
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let heightForSettingButton: CGFloat = 44
-        let heightForProfileView: CGFloat = 284
+        let heightForProfileView: CGFloat = profileView.frame.height // 284
         let heightForHeader: CGFloat = 40
         let heightForBackgroundHeaderBottomView: CGFloat = 20
         
@@ -161,27 +254,41 @@ extension FriendPageViewController: UICollectionViewDelegate, UICollectionViewDa
     }
 }
 
-extension FriendPageViewController: FriendPageBuokmarkHeaderViewDelegate {
+extension ProfileViewController: ProfileBuokmarkHeaderViewDelegate {
     func reloadCollectionView() {
         self.collectionView.reloadData()
     }
 }
 
-extension FriendPageViewController: FriendPageProfileViewDelegate {
+extension ProfileViewController: ProfileViewDelegate {
+    func onClickEditButton() {
+        let editVC = EditProfileViewController()
+        editVC.modalPresentationStyle = .fullScreen
+        self.present(editVC, animated: true, completion: nil)
+    }
+    
+    func onClickFriendCountingButton() {
+        // 친구 수 클릭
+        self.navigationController?.pushViewController(FriendListViewController(), animated: true)
+    }
+    
+    func onClickBucketCountingButton() {
+        // 버킷 수 클릭
+    }
+    
     func onClickFriendButton() {
-        // todo - 친구버튼 구현
+        // 친구버튼 구현
     }
 }
 
-extension FriendPageViewController {
-    // MARK: SafeAreaView
-    func setupSafeAreaView() {
-        safeAreaView.backgroundColor = .heroServiceSkin
-        self.view.addSubview(safeAreaView)
-        
-        safeAreaView.snp.makeConstraints { make in
-            make.top.leading.trailing.equalToSuperview()
-            make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.top)
+extension ProfileViewController {
+    func setupSafeAreaFillView() {
+        view.addSubview(safeAreaFillView)
+        safeAreaFillView.backgroundColor = .heroServiceSkin
+        safeAreaFillView.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.top)
+            make.leading.trailing.equalToSuperview()
         }
     }
     
@@ -192,9 +299,24 @@ extension FriendPageViewController {
         
         topView.snp.makeConstraints { make in
             make.height.equalTo(44)
-            make.top.equalTo(safeAreaView.snp.bottom)
+            make.top.equalTo(safeAreaFillView.snp.bottom)
             make.leading.trailing.equalToSuperview()
         }
+        
+        topView.addSubview(settingButton)
+        if #available(iOS 13.0, *) {
+            settingButton.setImage(UIImage(heroSharedNamed: "ic_setting")!.withTintColor(.heroGray82), for: .normal)
+        } else {
+            settingButton.setImage(UIImage(heroSharedNamed: "ic_setting")!, for: .normal)
+        }
+        settingButton.addTarget(self, action: #selector(clickSettingButton(_:)), for: .touchUpInside)
+        settingButton.snp.makeConstraints { make in
+            make.width.height.equalTo(44)
+            make.centerY.equalToSuperview()
+            make.trailing.equalToSuperview().offset(-8)
+        }
+        
+        settingButton.isHidden = !isMyPage
     }
     
     // MARK: BackButton
@@ -211,6 +333,8 @@ extension FriendPageViewController {
             make.width.height.equalTo(44)
             make.bottom.leading.equalToSuperview()
         }
+        
+        backButton.isHidden = isMyPage
     }
     
     // MARK: CollectionView
@@ -227,11 +351,13 @@ extension FriendPageViewController {
         collectionView.contentInset = UIEdgeInsets(top: 368 + 20, left: 20, bottom: 0, right: 20)
         collectionView.register(BuokmarkCollectionCell.self, forCellWithReuseIdentifier: BuokmarkCollectionCell.identifier)
         collectionView.register(BucketCollectionCell.self, forCellWithReuseIdentifier: BucketCollectionCell.identifier)
+        collectionView.register(BuokmarkEmptyCollectionCell.self, forCellWithReuseIdentifier: BuokmarkEmptyCollectionCell.identifier)
     }
     
     // MARK: ProfileView
     func setupProfileView() {
         profileView.delegate = self
+        profileView.isMyPage = isMyPage
         self.view.addSubview(profileView)
         
         profileView.snp.makeConstraints { make in
@@ -243,6 +369,7 @@ extension FriendPageViewController {
     // MARK: HeaderView
     func setupHeaderView() {
         headerView.delegate = self
+        headerView.isMyPage = isMyPage
         self.view.addSubview(headerView)
         
         headerView.snp.makeConstraints { make in
@@ -277,5 +404,15 @@ extension FriendPageViewController {
             make.top.equalTo(headerView.snp.bottom).offset((heightOfBottom - 143) / 2)
             make.centerX.equalToSuperview()
         }
+    }
+    
+    override func viewWillLayoutSubviews() {
+        DebugLog("Profile View Frame Height : \(profileView.frame.height)")
+        collectionView.contentInset = UIEdgeInsets(top: 108 + profileView.frame.height, left: 20, bottom: 0, right: 20)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        DebugLog("Profile View Frame Height : \(profileView.frame.height)")
+        collectionView.contentInset = UIEdgeInsets(top: 108 + profileView.frame.height, left: 20, bottom: 0, right: 20)
     }
 }

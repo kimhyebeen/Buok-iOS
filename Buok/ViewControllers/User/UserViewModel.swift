@@ -23,8 +23,8 @@ class UserViewModel {
     
     var isLoginSuccess: Dynamic<Bool> = Dynamic(false)
     
-    var isEmailExist: Dynamic<Bool> = Dynamic(false)
-    var isNicknameExist: Dynamic<Bool> = Dynamic(false)
+    var isEmailExist: Dynamic<Bool?> = Dynamic(false)
+    var isNicknameExist: Dynamic<Bool?> = Dynamic(false)
     var isSignUpSuccess: Dynamic<Bool> = Dynamic(false)
     
     func validateEmail(_ email: String) -> Bool {
@@ -45,11 +45,15 @@ class UserViewModel {
         self.email = email
         InfoCheckAPIRequest.checkEmail(email: self.email, responseHandler: { result in
             switch result {
-            case .success(let resultString):
-                DebugLog("Result String : \(resultString)")
-                self.isEmailExist.value = true
+            case .success(let code):
+                if code == 400 {
+                    self.isEmailExist.value = true
+                } else {
+                    DebugLog("Result code : \(code)")
+                    self.isEmailExist.value = false
+                }
             case .failure(_):
-                self.isEmailExist.value = false
+                self.isEmailExist.value = nil
                 ErrorLog("Error")
             }
         })
@@ -60,11 +64,15 @@ class UserViewModel {
         // todo - nickname이 존재하는 별칭인지 아닌지 확인 요청
         InfoCheckAPIRequest.checkNickname(nickname: nickname, responseHandler: { result in
             switch result {
-            case .success(let resultString):
-                DebugLog("Result String : \(resultString)")
-                self.isNicknameExist.value = true
+            case .success(let code):
+                if code == 400 {
+                    self.isNicknameExist.value = true
+                } else {
+                    DebugLog("Result code : \(code)")
+                    self.isNicknameExist.value = false
+                }
             case .failure(_):
-                self.isNicknameExist.value = false
+                self.isNicknameExist.value = nil
                 ErrorLog("Error")
             }
         })

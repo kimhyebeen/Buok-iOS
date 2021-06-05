@@ -21,6 +21,11 @@ class JoinNameViewController: HeroBaseViewController {
         super.viewDidLoad()
 
         viewModel?.isNicknameExist.bind({ [weak self] isExist in
+            guard let isExist = isExist else {
+                // todo - 그냥 오류
+                return
+            }
+            
             if isExist {
                 self?.subGuideLabel.text = "중복된 별칭입니다"
                 self?.subGuideLabel.textColor = .heroServiceSubPink
