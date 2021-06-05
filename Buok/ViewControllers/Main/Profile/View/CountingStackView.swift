@@ -1,5 +1,5 @@
 //
-//  MypageCountingStackView.swift
+//  CountingStackView.swift
 //  Buok
 //
 //  Created by 김혜빈 on 2021/05/11.
@@ -7,9 +7,9 @@
 
 import UIKit
 
-class MypageCountingStackView: UIStackView {
-    let friendButton = MypageCountingButton()
-    let bucketButton = MypageCountingButton()
+class CountingStackView: UIStackView {
+    let friendButton = CountingButton()
+    let bucketButton = CountingButton()
     
     var friendCount: Int = 0 {
         didSet {
@@ -45,7 +45,7 @@ class MypageCountingStackView: UIStackView {
 
 }
 
-extension MypageCountingStackView {
+extension CountingStackView {
     // MARK: FriendButton
     func setupFriendButton() {
         friendButton.count = 0

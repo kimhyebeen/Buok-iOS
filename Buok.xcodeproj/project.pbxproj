@@ -106,8 +106,8 @@
 		EE77F57D265B20EF002C4782 /* BucketStatusFlagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE77F57C265B20EF002C4782 /* BucketStatusFlagView.swift */; };
 		EE77F587265B2497002C4782 /* BucketCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE77F586265B2497002C4782 /* BucketCollectionCell.swift */; };
 		EE79C431264AC43000E83B6A /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE79C430264AC43000E83B6A /* MypageViewController.swift */; };
-		EE79C436264AC57800E83B6A /* MypageCountingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE79C435264AC57800E83B6A /* MypageCountingButton.swift */; };
-		EE79C43B264AC78600E83B6A /* MypageCountingStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE79C43A264AC78600E83B6A /* MypageCountingStackView.swift */; };
+		EE79C436264AC57800E83B6A /* CountingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE79C435264AC57800E83B6A /* CountingButton.swift */; };
+		EE79C43B264AC78600E83B6A /* CountingStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE79C43A264AC78600E83B6A /* CountingStackView.swift */; };
 		EE79C440264ACE4200E83B6A /* MypageProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE79C43F264ACE4200E83B6A /* MypageProfileView.swift */; };
 		EE79C445264AD72600E83B6A /* MypageBuokmarkHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE79C444264AD72600E83B6A /* MypageBuokmarkHeaderView.swift */; };
 		EEA213C32625D03E00E3AEA1 /* LoginPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA213C22625D03E00E3AEA1 /* LoginPasswordViewController.swift */; };
@@ -390,8 +390,8 @@
 		EE77F57C265B20EF002C4782 /* BucketStatusFlagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketStatusFlagView.swift; sourceTree = "<group>"; };
 		EE77F586265B2497002C4782 /* BucketCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketCollectionCell.swift; sourceTree = "<group>"; };
 		EE79C430264AC43000E83B6A /* MypageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
-		EE79C435264AC57800E83B6A /* MypageCountingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageCountingButton.swift; sourceTree = "<group>"; };
-		EE79C43A264AC78600E83B6A /* MypageCountingStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageCountingStackView.swift; sourceTree = "<group>"; };
+		EE79C435264AC57800E83B6A /* CountingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountingButton.swift; sourceTree = "<group>"; };
+		EE79C43A264AC78600E83B6A /* CountingStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountingStackView.swift; sourceTree = "<group>"; };
 		EE79C43F264ACE4200E83B6A /* MypageProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageProfileView.swift; sourceTree = "<group>"; };
 		EE79C444264AD72600E83B6A /* MypageBuokmarkHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageBuokmarkHeaderView.swift; sourceTree = "<group>"; };
 		EEA213C22625D03E00E3AEA1 /* LoginPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPasswordViewController.swift; sourceTree = "<group>"; };
@@ -875,8 +875,6 @@
 			isa = PBXGroup;
 			children = (
 				EE23DF75264EB2FB00AB31D1 /* View */,
-				EE4C016926589730002C5018 /* EditProfile */,
-				EE77F561265AAE13002C4782 /* FriendList */,
 				EE79C430264AC43000E83B6A /* MypageViewController.swift */,
 				EE4C015B26588245002C5018 /* MypageViewModel.swift */,
 			);
@@ -951,8 +949,6 @@
 			isa = PBXGroup;
 			children = (
 				EE79C43F264ACE4200E83B6A /* MypageProfileView.swift */,
-				EE79C43A264AC78600E83B6A /* MypageCountingStackView.swift */,
-				EE79C435264AC57800E83B6A /* MypageCountingButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1002,6 +998,8 @@
 		EEC801EB2659047300777B43 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				EE77F561265AAE13002C4782 /* FriendList */,
+				EE4C016926589730002C5018 /* EditProfile */,
 				EEC8020C26592F9200777B43 /* View */,
 				EEC801F42659048500777B43 /* ProfileViewController.swift */,
 				EEC802022659293700777B43 /* ProfileViewModel.swift */,
@@ -1012,6 +1010,8 @@
 		EEC8020C26592F9200777B43 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				EE79C435264AC57800E83B6A /* CountingButton.swift */,
+				EE79C43A264AC78600E83B6A /* CountingStackView.swift */,
 				EE79C444264AD72600E83B6A /* MypageBuokmarkHeaderView.swift */,
 				EEC801F62659051700777B43 /* ProfileView.swift */,
 				EEC801F8265910FF00777B43 /* ProfileBuokmarkHeaderView.swift */,
@@ -1412,7 +1412,7 @@
 				EE77F587265B2497002C4782 /* BucketCollectionCell.swift in Sources */,
 				B01D43BA2604231800F2D28C /* CategoryFilterView.swift in Sources */,
 				B041747C25E2366E00D990A2 /* BucketList.xcdatamodeld in Sources */,
-				EE79C43B264AC78600E83B6A /* MypageCountingStackView.swift in Sources */,
+				EE79C43B264AC78600E83B6A /* CountingStackView.swift in Sources */,
 				B07CD1A22666756E0031B106 /* SearchViewModel.swift in Sources */,
 				EEB9EF9826269768001AF65F /* UserTextField.swift in Sources */,
 				EE79C445264AD72600E83B6A /* MypageBuokmarkHeaderView.swift in Sources */,
@@ -1468,7 +1468,7 @@
 				EEC801FD2659171D00777B43 /* BucketBookHeaderButton.swift in Sources */,
 				EEC801F52659048500777B43 /* ProfileViewController.swift in Sources */,
 				B06B5CB425ECA4070045A491 /* MainTabBarViewController.swift in Sources */,
-				EE79C436264AC57800E83B6A /* MypageCountingButton.swift in Sources */,
+				EE79C436264AC57800E83B6A /* CountingButton.swift in Sources */,
 				528E6F27265BB53A00F9013D /* SignAPIRequest.swift in Sources */,
 				B07CD1A0266675530031B106 /* NotificationViewModel.swift in Sources */,
 				B075238125EF5AF70016DC3A /* BucketListAPIRequest.swift in Sources */,

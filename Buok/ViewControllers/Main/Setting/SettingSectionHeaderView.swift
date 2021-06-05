@@ -11,7 +11,7 @@ import HeroUI
 
 final class SettingSectionHeaderView: UIView {
     private let contentView: UIView = {
-        $0.backgroundColor = .heroWhite100s
+        $0.backgroundColor = .heroGrayE7E1DC
         return $0
     }(UIView())
     

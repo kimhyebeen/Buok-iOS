@@ -1,5 +1,5 @@
 //
-//  MypageCountingButton.swift
+//  CountingButton.swift
 //  Buok
 //
 //  Created by 김혜빈 on 2021/05/11.
@@ -7,7 +7,7 @@
 
 import HeroUI
 
-class MypageCountingButton: UIButton {
+class CountingButton: UIButton {
     private let countLabel = UILabel()
     private let mainLabel = UILabel()
     
@@ -39,7 +39,7 @@ class MypageCountingButton: UIButton {
 
 }
 
-extension MypageCountingButton {
+extension CountingButton {
     // MARK: CountLabel
     private func setupCountLabel() {
         countLabel.text = "0"

@@ -10,21 +10,33 @@ import HeroCommon
 import HeroUI
 
 final class SettingViewController: HeroBaseViewController {
+    private let topContentView: UIView = UIView()
+    private let titleLabel: UILabel = UILabel()
+    private let backButton: HeroImageButton = HeroImageButton()
     private let tableView: UITableView = UITableView()
+    private let safeAreaFillView: UIView = UIView()
+    
+    private var email: String = ""
+    private var connectedAccount: String = ""
     
     private enum SectionType: Int {
         case account = 0
         case appVersion = 1
-        case security = 2
-        case data = 3
+        case logoutWithDrawal = 2
+        case policy = 3
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewLayout()
+        fetchMyPageInfo()
     }
     
     private func setupViewLayout() {
+        view.addSubview(topContentView)
+        setupSafeAreaFillView()
+        setupNavigationView()
+        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorInset = .zero
@@ -34,18 +46,103 @@ final class SettingViewController: HeroBaseViewController {
         
         tableView.register(SettingCell.self, forCellReuseIdentifier: SettingCell.identifier)
         tableView.register(SettingInfoCell.self, forCellReuseIdentifier: SettingInfoCell.identifier)
-        view.backgroundColor = .heroGraySample100s
+        view.backgroundColor = .heroGrayF2EDE8
         
-        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.heroGray600s]
-        navigationController?.navigationBar.titleTextAttributes = textAttributes
-        navigationItem.title = "설정"
+//        navigationController?.setNavigationBarHidden(false, animated: false)
+//        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.heroGray82]
+//        navigationController?.navigationBar.titleTextAttributes = textAttributes
+//        navigationController?.navigationBar.backgroundColor = .heroGrayF2EDE8
+//        navigationItem.title = "설정"
         
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            make.top.equalTo(topContentView.snp.bottom)
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
             make.left.right.equalToSuperview()
         }
+    }
+    
+    private func setupSafeAreaFillView() {
+        view.addSubview(safeAreaFillView)
+        safeAreaFillView.backgroundColor = .heroGrayF2EDE8
+        safeAreaFillView.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.top)
+            make.leading.trailing.equalToSuperview()
+        }
+    }
+    
+    private func setupNavigationView() {
+        topContentView.addSubview(titleLabel)
+        topContentView.addSubview(backButton)
+        topContentView.backgroundColor = .heroGrayF2EDE8
+        topContentView.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
+            make.height.equalTo(48)
+        }
+        
+        titleLabel.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+        }
+        
+        backButton.snp.makeConstraints { make in
+            make.leading.equalToSuperview()
+            make.centerY.equalToSuperview()
+            make.width.equalTo(48)
+            make.height.equalTo(48)
+        }
+        
+        titleLabel.font = .font17PBold
+        
+        titleLabel.textColor = .heroGray82
+        titleLabel.text = "설정"
+        
+        backButton.setImage(UIImage(heroSharedNamed: "ic_back"), for: .normal)
+        backButton.addTarget(self, action: #selector(onClickBackButton(_:)), for: .touchUpInside)
+    }
+    
+    @objc
+    private func onClickBackButton(_ sender: Any?) {
+        navigationController?.popViewController(animated: true)
+    }
+}
+
+extension SettingViewController: HeroAlertViewDelegate {
+    func selectViewCloseClicked(viewController: HeroAlertViewController) {
+        viewController.dismiss(animated: false, completion: nil)
+    }
+    
+    func selectViewItemSelected(viewController: HeroAlertViewController, selected type: HeroAlertButtonType) {
+        if type == .positive {
+            viewController.dismiss(animated: false, completion: nil)
+            
+            let navController = HeroNavigationController(navigationBarClass: HeroUINavigationBar.self, toolbarClass: nil)
+            navController.viewControllers = [LoginViewController()]
+            navController.isNavigationBarHidden = true
+            
+            if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+                appDelegate.window?.rootViewController = navController
+                appDelegate.window?.makeKeyAndVisible()
+            }
+        } else {
+            viewController.dismiss(animated: false, completion: nil)
+        }
+    }
+    
+    func doLogout() {
+        let alert = HeroAlertViewController()
+        alert.titleContent = "로그아웃"
+        alert.negativeButtonTitle = "취소"
+        alert.positiveButtonTitle = "로그아웃"
+        
+        alert.descContent = "아래 계정으로 다시 로그인 하실 수 있습니다."
+        alert.subDescContent = "\(email)\n\(connectedAccount)"
+        alert.delegate = self
+        
+        alert.modalPresentationStyle = .overCurrentContext
+        self.present(alert, animated: false, completion: nil)
     }
 }
 
@@ -64,8 +161,14 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let settingType = getSettingType(by: indexPath)
-        if let vc = SettingNavigator.getDestViewController(type: settingType) {
-            navigationController?.pushViewController(vc, animated: true)
+        if settingType == .logout {
+            doLogout()
+        } else if settingType == .withDrawal {
+            // 탈퇴
+        } else {
+            if let vc = SettingNavigator.getDestViewController(type: settingType) {
+                navigationController?.pushViewController(vc, animated: true)
+            }
         }
     }
     
@@ -75,7 +178,7 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
             if let cell = tableView.dequeueReusableCell(withIdentifier: SettingInfoCell.identifier, for: indexPath) as? SettingInfoCell {
                 cell.selectionStyle = .none
                 cell.type = .appVersion
-                cell.backgroundColor = .heroGraySample100s
+                cell.backgroundColor = .heroGrayF2EDE8
                 return cell
             }
         } else {
@@ -83,10 +186,12 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
                 cell.selectionStyle = .none
                 cell.type = getSettingType(by: indexPath)
                 cell.cellType = getSettingCellType(by: indexPath)
-                cell.backgroundColor = .heroGraySample100s
+                cell.backgroundColor = .heroGrayF2EDE8
                 
                 if settingType == .mail {
-                    cell.content = "test@gmail.com"
+                    cell.content = email
+                } else if settingType == .connectedAccount {
+                    cell.content = connectedAccount
                 }
                 
                 return cell
@@ -102,10 +207,10 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
             return 2
         case SectionType.appVersion.rawValue:
             return 1
-        case SectionType.security.rawValue:
-            return 3
-        case SectionType.data.rawValue:
-            return 3
+        case SectionType.logoutWithDrawal.rawValue:
+            return 2
+        case SectionType.policy.rawValue:
+            return 1
         default:
             return 0
         }
@@ -118,16 +223,18 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
     private func getSettingCellType(by indexPath: IndexPath) -> SettingCellType {
         if let type = SettingType(rawValue: getRowCount(indexPath)) {
             switch type {
-            case .mail:
+            case .mail, .connectedAccount:
                 return .normal
             case .appVersion:
                 return .info
-            default:
+            case .policy:
                 return .button
+            default:
+                return .buttonWithNoImage
             }
         }
         
-        return .button
+        return .buttonWithNoImage
     }
     
     fileprivate func getRowCount(_ indexPath: IndexPath) -> Int {
@@ -137,5 +244,19 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
         }
         rowCount += indexPath.row
         return rowCount
+    }
+    
+    func fetchMyPageInfo() {
+        UserAPIRequest.getMyPageIngo(responseHandler: { result in
+            switch result {
+            case .success(let myPageUserData):
+                DebugLog(myPageUserData.debugDescription())
+                self.email = myPageUserData.user.email
+                self.connectedAccount = "\(myPageUserData.user.socialType)"
+                self.tableView.reloadData()
+            case .failure(let error):
+                ErrorLog("API Error : \(error.statusCode) / \(error.errorMessage) / \(error.localizedDescription)")
+            }
+        })
     }
 }

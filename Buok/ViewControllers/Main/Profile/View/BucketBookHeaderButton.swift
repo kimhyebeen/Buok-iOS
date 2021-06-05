@@ -15,6 +15,7 @@ class BucketBookHeaderButton: UIButton {
     var count: Int = 0 {
         didSet {
             if count < 10 {
+                bucketCountLabel.isHidden = (count < 1)
                 bucketCountLabel.text = "0\(count)"
             } else if count < 100 {
                 bucketCountLabel.text = "\(count)"
