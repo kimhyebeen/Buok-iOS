@@ -164,7 +164,10 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
         if settingType == .logout {
             doLogout()
         } else if settingType == .withDrawal {
-            // 탈퇴
+            let vc = WithDrawalViewController()
+            let viewModel = WithDrawalViewModel()
+            vc.viewModel = viewModel
+            navigationController?.pushViewController(vc, animated: true)
         } else {
             if let vc = SettingNavigator.getDestViewController(type: settingType) {
                 navigationController?.pushViewController(vc, animated: true)
