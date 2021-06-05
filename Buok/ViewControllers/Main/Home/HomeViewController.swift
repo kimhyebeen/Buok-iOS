@@ -62,7 +62,6 @@ public class HomeViewController: HeroBaseViewController {
         bindViewModel()
         setupMainLayout()
         setupViewProperties()
-		notiButton.addTarget(self, action: #selector(onClickNotification(_:)), for: .touchUpInside)
         
         viewModel?.bucketCategory.value = .noCategory
         viewModel?.bucketSort.value = .created

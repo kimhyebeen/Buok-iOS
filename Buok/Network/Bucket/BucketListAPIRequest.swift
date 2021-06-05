@@ -241,22 +241,4 @@ public struct BucketListAPIRequest {
 			}
 		}
 	}
-	
-	static func bookmarkBucket(bucketId: Int, state: Bool, responseHandler: @escaping (Result<Bool, HeroAPIError>) -> Void) {
-		BaseAPIRequest.requestJSONResponse(requestType: BucketRequestType.bucketBookMark(bucketId: bucketId, state: state)).then { responseData in
-			do {
-				if let dictData = responseData as? NSDictionary {
-					let jsonData = try JSONSerialization.data(withJSONObject: dictData, options: .prettyPrinted)
-					let getData = try JSONDecoder().decode(BaseServerModel.self, from: jsonData)
-					if getData.status < 300 {
-						responseHandler(.success(true))
-					} else {
-						responseHandler(.failure(HeroAPIError(errorCode: ErrorCode(rawValue: getData.status)!, statusCode: getData.status, errorMessage: getData.message)))
-					}
-				}
-			} catch {
-				ErrorLog("BucketListAPIRequest ERROR")
-			}
-		}
-	}
 }

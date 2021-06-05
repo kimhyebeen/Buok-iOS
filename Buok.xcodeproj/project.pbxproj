@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		20578AFA9B716592135E4D20 /* Pods_BuokTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA30482BA20B7DD44EA69D7 /* Pods_BuokTests.framework */; };
+		293857E1266BA66500E8DB65 /* AlarmAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293857E0266BA66500E8DB65 /* AlarmAPIRequest.swift */; };
 		29773EFB2647FAB900FB7AA8 /* LoginViewController+AppleID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29773EFA2647FAB900FB7AA8 /* LoginViewController+AppleID.swift */; };
 		298561AD2663F5C600830084 /* InfoCheckAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298561AC2663F5C600830084 /* InfoCheckAPIRequest.swift */; };
 		29CA50B5265AEE7B00533ED6 /* UserAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CA50B4265AEE7B00533ED6 /* UserAPIRequest.swift */; };
@@ -236,6 +237,7 @@
 		1E3CD949DEF35CB15541C248 /* Pods-BuokTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuokTests.release.xcconfig"; path = "Target Support Files/Pods-BuokTests/Pods-BuokTests.release.xcconfig"; sourceTree = "<group>"; };
 		1F612B424FD0728306E3799D /* Pods-YappHero-YappHeroUITests.sandbox(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHero-YappHeroUITests.sandbox(debug).xcconfig"; path = "Target Support Files/Pods-YappHero-YappHeroUITests/Pods-YappHero-YappHeroUITests.sandbox(debug).xcconfig"; sourceTree = "<group>"; };
 		218B8F72E8EDC19D3A336452 /* Pods-BucketList-BucketListUITests.inhouse(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BucketList-BucketListUITests.inhouse(debug).xcconfig"; path = "Target Support Files/Pods-BucketList-BucketListUITests/Pods-BucketList-BucketListUITests.inhouse(debug).xcconfig"; sourceTree = "<group>"; };
+		293857E0266BA66500E8DB65 /* AlarmAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmAPIRequest.swift; sourceTree = "<group>"; };
 		29773EFA2647FAB900FB7AA8 /* LoginViewController+AppleID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "LoginViewController+AppleID.swift"; path = "Buok/ViewControllers/User/SignIn/LoginViewController+AppleID.swift"; sourceTree = SOURCE_ROOT; };
 		298561AC2663F5C600830084 /* InfoCheckAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCheckAPIRequest.swift; sourceTree = "<group>"; };
 		29CA50B4265AEE7B00533ED6 /* UserAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPIRequest.swift; sourceTree = "<group>"; };
@@ -441,6 +443,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		293857D7266BA64100E8DB65 /* Alarm  */ = {
+			isa = PBXGroup;
+			children = (
+				293857E0266BA66500E8DB65 /* AlarmAPIRequest.swift */,
+			);
+			path = "Alarm ";
+			sourceTree = "<group>";
+		};
 		29CA50B3265AEE6600533ED6 /* User */ = {
 			isa = PBXGroup;
 			children = (
@@ -755,6 +765,7 @@
 		B07520E125ED003A0016DC3A /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				293857D7266BA64100E8DB65 /* Alarm  */,
 				B023B14C266A13030060F625 /* Image */,
 				B07CD1A3266676670031B106 /* Search */,
 				B01A28B62665057300BE9DB3 /* Token */,
@@ -1359,6 +1370,7 @@
 				B01D43B526039D6C00F2D28C /* CreateViewModel.swift in Sources */,
 				B075226925ED08780016DC3A /* UserAuthModel.swift in Sources */,
 				EE77F560265AA900002C4782 /* FriendButton.swift in Sources */,
+				293857E1266BA66500E8DB65 /* AlarmAPIRequest.swift in Sources */,
 				B0635AC52603897600046E88 /* HomeViewController.swift in Sources */,
 				EE4C015A26587912002C5018 /* BuokmarkEmptyCollectionCell.swift in Sources */,
 				B08CEB882663930A00FF77BD /* WorkThruViewController.swift in Sources */,
