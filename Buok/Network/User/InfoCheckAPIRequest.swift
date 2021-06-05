@@ -88,7 +88,7 @@ public struct InfoCheckAPIRequest {
             }
     }
     
-    static func checkNickname(nickname: String, responseHandler: @escaping (Result<Bool, HeroAPIError>) -> Void) {
+    static func checkNickname(nickname: String, responseHandler: @escaping (Result<Int, HeroAPIError>) -> Void) {
         BaseAPIRequest.requestJSONResponse(requestType: InfoCheckRequestType.nicknameCheck(nickname: nickname)).then { responseData in
             do {
                 if let dictData = responseData as? NSDictionary {
@@ -97,8 +97,9 @@ public struct InfoCheckAPIRequest {
                     DebugLog("Json Data : \n\(String(data: jsonData, encoding: .utf8) ?? "nil")")
                     
                     let getData = try JSONDecoder().decode(InfoCheckServerModel.self, from: jsonData)
-                    if getData.status < 300 {
-                        responseHandler(.success(true))
+                    if getData.status < 300 || getData.status == 400 {
+                        responseHandler(.success(getData.status))
+                        DebugLog(getData.data ?? "")
                     } else {
                         responseHandler(.failure(HeroAPIError(errorCode: ErrorCode(rawValue: getData.status) ?? .unknown, statusCode: getData.status, errorMessage: getData.message)))
                     }
