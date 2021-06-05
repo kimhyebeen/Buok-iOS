@@ -20,6 +20,8 @@ class ProfileViewController: HeroBaseViewController {
     let emptyBucketStackView = UIStackView()
     let safeAreaFillView: UIView = UIView()
     
+    static let buokmarkColors: [UIColor] = [.heroPrimaryPinkLight, .heroPrimaryNavyLight, .heroPrimaryBlueLight]
+    
     var viewModel: ProfileViewModel?
     
     var isMyPage: Bool = false {
@@ -53,6 +55,7 @@ class ProfileViewController: HeroBaseViewController {
         setupHeaderView()
         setupDisabledBucketView()
         self.view.bringSubviewToFront(topView)
+        self.view.bringSubviewToFront(safeAreaFillView)
     }
     
     private func bindingViewModel() {
@@ -113,6 +116,8 @@ class ProfileViewController: HeroBaseViewController {
     @objc
     func clickSettingButton(_ sender: UIButton) {
         // todo - 설정 버튼 기능
+        let settingVC = SettingViewController()
+        self.navigationController?.pushViewController(settingVC, animated: true)
     }
 }
 
@@ -190,7 +195,7 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
         
         if viewModel?.bookmarkData.value.count ?? 0 > indexPath.row {
             if let strongViewModel = viewModel {
-                cell.setInformation(to: strongViewModel.bookmarkData.value[indexPath.row], color: MypageViewController.buokmarkColors[indexPath.row % 3])
+                cell.setInformation(to: strongViewModel.bookmarkData.value[indexPath.row], color: ProfileViewController.buokmarkColors[indexPath.row % 3])
             }
         }
         

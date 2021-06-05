@@ -20,7 +20,7 @@ class ProfileView: UIView {
     private let emailLabel = UILabel()
     private let friendButton = FriendButton()
     private let editProfileButton = UIButton()
-    let countingButtonStack = MypageCountingStackView()
+    let countingButtonStack = CountingStackView()
     private let introduceLabel = UILabel()
     private let dateImageView = UIImageView()
     private let dateLabel = UILabel()

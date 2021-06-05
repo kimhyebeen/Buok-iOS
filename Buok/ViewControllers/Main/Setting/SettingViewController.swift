@@ -10,7 +10,11 @@ import HeroCommon
 import HeroUI
 
 final class SettingViewController: HeroBaseViewController {
+    private let topContentView: UIView = UIView()
+    private let titleLabel: UILabel = UILabel()
+    private let backButton: HeroImageButton = HeroImageButton()
     private let tableView: UITableView = UITableView()
+    private let safeAreaFillView: UIView = UIView()
     
     private enum SectionType: Int {
         case account = 0
@@ -25,27 +29,79 @@ final class SettingViewController: HeroBaseViewController {
     }
     
     private func setupViewLayout() {
+        view.addSubview(topContentView)
+        setupSafeAreaFillView()
+        setupNavigationView()
+        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorInset = .zero
         tableView.separatorStyle = .none
-        tableView.backgroundColor = .clear
+        tableView.backgroundColor = .heroGrayE7E1DC
         tableView.tableFooterView = UIView()
         
         tableView.register(SettingCell.self, forCellReuseIdentifier: SettingCell.identifier)
         tableView.register(SettingInfoCell.self, forCellReuseIdentifier: SettingInfoCell.identifier)
-        view.backgroundColor = .heroGraySample100s
+        view.backgroundColor = .heroGrayE7E1DC
         
-        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.heroGray600s]
-        navigationController?.navigationBar.titleTextAttributes = textAttributes
-        navigationItem.title = "설정"
+//        navigationController?.setNavigationBarHidden(false, animated: false)
+//        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.heroGray82]
+//        navigationController?.navigationBar.titleTextAttributes = textAttributes
+//        navigationController?.navigationBar.backgroundColor = .heroGrayF2EDE8
+//        navigationItem.title = "설정"
         
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            make.top.equalTo(topContentView.snp.bottom)
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
             make.left.right.equalToSuperview()
         }
+    }
+    
+    private func setupSafeAreaFillView() {
+        view.addSubview(safeAreaFillView)
+        safeAreaFillView.backgroundColor = .heroGrayF2EDE8
+        safeAreaFillView.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.top)
+            make.leading.trailing.equalToSuperview()
+        }
+    }
+    
+    private func setupNavigationView() {
+        topContentView.addSubview(titleLabel)
+        topContentView.addSubview(backButton)
+        topContentView.backgroundColor = .heroGrayF2EDE8
+        topContentView.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
+            make.height.equalTo(48)
+        }
+        
+        titleLabel.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+        }
+        
+        backButton.snp.makeConstraints { make in
+            make.leading.equalToSuperview()
+            make.centerY.equalToSuperview()
+            make.width.equalTo(24)
+            make.height.equalTo(24)
+        }
+        
+        titleLabel.font = .font17PBold
+        
+        titleLabel.textColor = .heroGray82
+        titleLabel.text = "설정"
+        
+        backButton.setImage(UIImage(heroSharedNamed: "ic_back"), for: .normal)
+        backButton.addTarget(self, action: #selector(onClickBackButton(_:)), for: .touchUpInside)
+    }
+    
+    @objc
+    private func onClickBackButton(_ sender: Any?) {
+        navigationController?.popViewController(animated: true)
     }
 }
 
@@ -75,7 +131,7 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
             if let cell = tableView.dequeueReusableCell(withIdentifier: SettingInfoCell.identifier, for: indexPath) as? SettingInfoCell {
                 cell.selectionStyle = .none
                 cell.type = .appVersion
-                cell.backgroundColor = .heroGraySample100s
+                cell.backgroundColor = .heroGrayF2EDE8
                 return cell
             }
         } else {
@@ -83,7 +139,7 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
                 cell.selectionStyle = .none
                 cell.type = getSettingType(by: indexPath)
                 cell.cellType = getSettingCellType(by: indexPath)
-                cell.backgroundColor = .heroGraySample100s
+                cell.backgroundColor = .heroGrayF2EDE8
                 
                 if settingType == .mail {
                     cell.content = "test@gmail.com"
