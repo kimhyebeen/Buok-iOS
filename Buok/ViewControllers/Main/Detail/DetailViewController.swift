@@ -287,4 +287,15 @@ public class DetailViewController: HeroBaseViewController {
     private func onClickBackButton(_ sender: Any?) {
         navigationController?.popViewController(animated: true)
     }
+	
+	func changeBookmarkStatus(bucketId: Int, state: Bool) {
+		BucketListAPIRequest.bookmarkBucket(bucketId: bucketId, state: state, responseHandler: { result in
+			switch result {
+			case .success:
+				DebugLog("북마크 설정 완료 여부: \(result)")
+			case .failure(let error):
+				ErrorLog("Change BookMark Status Error : \(error.statusCode) / \(error.errorMessage)")
+			}
+		})
+	}
 }
