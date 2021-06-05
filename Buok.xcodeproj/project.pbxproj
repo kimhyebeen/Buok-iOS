@@ -721,7 +721,7 @@
 				B01D439E26039D1C00F2D28C /* Detail */,
 				B0635AD8260390D200046E88 /* Create */,
 				B0635AC32603896D00046E88 /* Home */,
-				B0D021792602196500F25329 /* MyPage */,
+				B0D021792602196500F25329 /* MyPage(Deprecated) */,
 				EEC801EB2659047300777B43 /* Profile */,
 				B0B033B72621C95B00D65204 /* Setting */,
 				B0D021702602195B00F25329 /* MultiLevelVC */,
@@ -871,7 +871,7 @@
 			path = MultiLevelVC;
 			sourceTree = "<group>";
 		};
-		B0D021792602196500F25329 /* MyPage */ = {
+		B0D021792602196500F25329 /* MyPage(Deprecated) */ = {
 			isa = PBXGroup;
 			children = (
 				EE23DF75264EB2FB00AB31D1 /* View */,
@@ -880,7 +880,7 @@
 				EE79C430264AC43000E83B6A /* MypageViewController.swift */,
 				EE4C015B26588245002C5018 /* MypageViewModel.swift */,
 			);
-			path = MyPage;
+			path = "MyPage(Deprecated)";
 			sourceTree = "<group>";
 		};
 		B0D0217A2602198100F25329 /* Join */ = {

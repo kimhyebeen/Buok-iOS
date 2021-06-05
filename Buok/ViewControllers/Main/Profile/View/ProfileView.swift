@@ -142,6 +142,7 @@ extension ProfileView {
         profileImageView.image = UIImage(heroSharedNamed: "ic_profile_48")
         profileImageView.contentMode = .scaleAspectFill
         profileImageView.layer.cornerRadius = 32
+        profileImageView.clipsToBounds = true
         self.addSubview(profileImageView)
         
         profileImageView.snp.makeConstraints { make in

@@ -26,6 +26,13 @@ class ProfileBuokmarkHeaderView: UIView {
     var countOfBuokmark: Int = 0 {
         didSet {
             buokmarkButton.count = countOfBuokmark
+            myPageHeaderView.count = countOfBuokmark
+        }
+    }
+    
+    var countOfBucket: Int = 0 {
+        didSet {
+            bucketBookButton.count = countOfBucket
         }
     }
     

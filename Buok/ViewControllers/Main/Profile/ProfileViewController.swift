@@ -64,19 +64,21 @@ class ProfileViewController: HeroBaseViewController {
 //        }
         
         viewModel?.bookmarkCount.bind({ [weak self] count in
-            
+            self?.headerView.countOfBuokmark = count
+            self?.collectionView.reloadData()
         })
         
-        viewModel?.bookmarkData.bind({ [weak self] bookmarkData in
-            
+        viewModel?.bookmarkData.bind({ [weak self] _ in
+            self?.collectionView.reloadData()
         })
         
         viewModel?.bucketBookCount.bind({ [weak self] count in
-            
+            self?.collectionView.reloadData()
+            self?.headerView.countOfBucket = count
         })
         
-        viewModel?.bucketBookData.bind({ [weak self] bucketData in
-            
+        viewModel?.bucketBookData.bind({ [weak self] _ in
+            self?.collectionView.reloadData()
         })
         
         viewModel?.myUserData.bind({ [weak self] user in
@@ -118,26 +120,35 @@ class ProfileViewController: HeroBaseViewController {
 
 extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2
+        return isMyPage ? 1 : 2
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if headerView.isSelectBuokmarkButton {
-            return countOfBuokmarkMode(for: section)
+        if isMyPage {
+            emptyBucketStackView.isHidden = true
+            if let count = viewModel?.bookmarkCount.value {
+                return count > 0 ? count : 3
+            } else {
+                return 0
+            }
         } else {
-            return countOfBucketBookMode(for: section)
+            if headerView.isSelectBuokmarkButton {
+                return countOfBuokmarkMode(for: section)
+            } else {
+                return countOfBucketBookMode(for: section)
+            }
         }
     }
     
     private func countOfBuokmarkMode(for section: Int) -> Int {
         emptyBucketStackView.isHidden = true
-        return section == 0 ? viewModel?.buokmarks.count ?? 0 : 0
+        return section == 0 ? viewModel?.bookmarkData.value.count ?? 0 : 0
     }
     
     private func countOfBucketBookMode(for section: Int) -> Int {
         if viewModel?.friendType == .friend {
             emptyBucketStackView.isHidden = true
-            return section == 0 ? 0 : viewModel?.bucketBooks.count ?? 0
+            return section == 0 ? 0 : viewModel?.bucketBookData.value.count ?? 0
         } else {
             emptyBucketStackView.isHidden = false
             return section == 0 ? 0 : 0
@@ -145,11 +156,31 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if indexPath.section == 0 {
-            return settingBuokmarkCell(collectionView, indexPath)
+        if isMyPage {
+            if viewModel?.bookmarkCount.value ?? 0 < 1 {
+                return settingEmptyCell(collectionView, indexPath)
+            } else {
+                return settingBuokmarkCell(collectionView, indexPath)
+            }
         } else {
-            return settingBucketBookCell(collectionView, indexPath)
+            if indexPath.section == 0 {
+                return settingBuokmarkCell(collectionView, indexPath)
+            } else {
+                return settingBucketBookCell(collectionView, indexPath)
+            }
         }
+    }
+    
+    private func settingEmptyCell(_ collectionView: UICollectionView, _ indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BuokmarkEmptyCollectionCell.identifier, for: indexPath) as? BuokmarkEmptyCollectionCell else {
+            return BuokmarkEmptyCollectionCell()
+        }
+        
+        if indexPath.row == 0 {
+            cell.isFirst = true
+        } else { cell.isFirst = false }
+        
+        return cell
     }
     
     private func settingBuokmarkCell(_ collectionView: UICollectionView, _ indexPath: IndexPath) -> UICollectionViewCell {
@@ -315,6 +346,7 @@ extension ProfileViewController {
         collectionView.contentInset = UIEdgeInsets(top: 368 + 20, left: 20, bottom: 0, right: 20)
         collectionView.register(BuokmarkCollectionCell.self, forCellWithReuseIdentifier: BuokmarkCollectionCell.identifier)
         collectionView.register(BucketCollectionCell.self, forCellWithReuseIdentifier: BucketCollectionCell.identifier)
+        collectionView.register(BuokmarkEmptyCollectionCell.self, forCellWithReuseIdentifier: BuokmarkEmptyCollectionCell.identifier)
     }
     
     // MARK: ProfileView
