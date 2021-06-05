@@ -2,7 +2,7 @@
 //  NadamProperties.swift
 //  Nadam
 //
-//  Created by Taein Kim on 2021/03/17.
+//  Copyright © 2021 Buok. All rights reserved.
 //
 
 import Foundation

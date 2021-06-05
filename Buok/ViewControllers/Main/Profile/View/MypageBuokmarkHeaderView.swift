@@ -2,8 +2,7 @@
 //  MypageBuokmarkHeaderView.swift
 //  Buok
 //
-//  Created by 김혜빈 on 2021/05/12.
-//  Modified by Taein Kim on 2021/06/01.
+//  Copyright © 2021 Buok. All rights reserved.
 //
 
 import UIKit

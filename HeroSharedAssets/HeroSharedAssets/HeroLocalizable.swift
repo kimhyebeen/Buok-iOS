@@ -2,7 +2,7 @@
 //  HeroLocalizable.swift
 //  HeroSharedAssets
 //
-//  Created by Taein Kim on 2021/03/14.
+//  Copyright © 2021 Buok. All rights reserved.
 //
 
 import Foundation

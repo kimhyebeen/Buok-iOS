@@ -2,7 +2,7 @@
 //  ImageUploadAPIRequest.swift
 //  Buok
 //
-//  Created by denny on 2021/06/04.
+//  Copyright © 2021 Buok. All rights reserved.
 //
 
 import Foundation

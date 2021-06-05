@@ -2,7 +2,7 @@
 //  CreateViewController.swift
 //  Buok
 //
-//  Created by Taein Kim on 2021/03/18.
+//  Copyright © 2021 Buok. All rights reserved.
 //
 
 import Foundation
@@ -299,7 +299,7 @@ final class CreateViewController: HeroBaseViewController, UINavigationController
         }
         
         dateChooserAlert.addAction(UIAlertAction(title: "선택완료", style: .default, handler: { _ in
-            self.viewModel.finishDate.value = self.datePicker.date
+            self.viewModel.setBucketFinishDate(date: self.datePicker.date)
         }))
     }
     

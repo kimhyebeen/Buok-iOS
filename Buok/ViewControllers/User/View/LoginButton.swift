@@ -2,7 +2,7 @@
 //  LoginButton.swift
 //  Buok
 //
-//  Created by Taein Kim on 2021/05/31.
+//  Copyright © 2021 Buok. All rights reserved.
 //
 
 import HeroUI

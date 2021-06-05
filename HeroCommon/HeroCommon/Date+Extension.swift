@@ -2,39 +2,33 @@
 //  Date+Extension.swift
 //  HeroCommon
 //
-//  Created by Taein Kim on 2021/05/29.
+//  Copyright © 2021 Buok. All rights reserved.
 //
 
 import Foundation
 
 public extension Date {
     func convertToSmallString() -> String {
-        let date: Date = Date()
-        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         
-        let dateString = dateFormatter.string(from: date)
+        let dateString = dateFormatter.string(from: self)
         return dateString
     }
     
     func convertToString() -> String {
-        let date: Date = Date()
-        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         
-        let dateString = dateFormatter.string(from: date)
+        let dateString = dateFormatter.string(from: self)
         return dateString
     }
     
     func convertToKoreanString() -> String {
-        let date: Date = Date()
-        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy년 MM월 dd일"
         
-        let dateString = dateFormatter.string(from: date)
+        let dateString = dateFormatter.string(from: self)
         return dateString
     }
     

@@ -2,7 +2,7 @@
 //  DetailViewController.swift
 //  Nadam
 //
-//  Created by Taein Kim on 2021/03/18.
+//  Copyright © 2021 Buok. All rights reserved.
 //
 
 import Foundation
@@ -37,15 +37,11 @@ public class DetailViewController: HeroBaseViewController {
     private let contentBackgroundView: UIView = UIView()
     private let contentTextView: UITextView = UITextView()
     
+    private let viewModel: DetailViewModel = DetailViewModel()
+    
     public var bucketItem: BucketModel? {
         didSet {
-            let state = BucketState(rawValue: bucketItem?.bucketState ?? 0)
-            if state == .done || state == .failure {
-                optionButton.heroImage = UIImage(heroSharedNamed: "ic_mark")
-            } else {
-                optionButton.heroImage = UIImage(heroSharedNamed: "ic_pin")
-            }
-            
+            updateContent()
             setContentData()
         }
     }
@@ -54,6 +50,32 @@ public class DetailViewController: HeroBaseViewController {
         super.viewDidLoad()
         setupMainLayout()
         setupViewProperties()
+        bindViewModel()
+    }
+    
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateContent()
+        setContentData()
+    }
+    
+    private func updateContent() {
+        if viewModel.state.value == .done || viewModel.state.value == .failure {
+            optionButton.heroImage = UIImage(heroSharedNamed: "ic_mark")
+        } else {
+            optionButton.heroImage = UIImage(heroSharedNamed: "ic_pin")
+        }
+    }
+    
+    private func bindViewModel() {
+        viewModel.state.bind({ state in
+            self.updateContent()
+        })
+        
+        viewModel.bucketItem.bind({ bucketItem in
+            self.viewModel.state.value = BucketState(rawValue: bucketItem?.bucketState ?? 0) ?? .now
+            self.setContentData()
+        })
     }
     
     private func setContentData() {
@@ -61,7 +83,7 @@ public class DetailViewController: HeroBaseViewController {
         let category = BucketCategory(rawValue: (bucketItem?.categoryId ?? 2) - 2)
         var bgColor: UIColor?
         
-        stateLabel.text = state?.getTitle()
+        stateLabel.text = viewModel.state.value.getTitle()
         categoryLabel.text = category?.getTitle()
         
         switch state {
@@ -287,15 +309,13 @@ public class DetailViewController: HeroBaseViewController {
     private func onClickBackButton(_ sender: Any?) {
         navigationController?.popViewController(animated: true)
     }
-	
-	func changeBookmarkStatus(bucketId: Int, state: Bool) {
-		BucketListAPIRequest.bookmarkBucket(bucketId: bucketId, state: state, responseHandler: { result in
-			switch result {
-			case .success:
-				DebugLog("북마크 설정 완료 여부: \(result)")
-			case .failure(let error):
-				ErrorLog("Change BookMark Status Error : \(error.statusCode) / \(error.errorMessage)")
-			}
-		})
-	}
+    
+    @objc
+    private func onClickOptionButton(_ sender: Any?) {
+        if viewModel.state.value == .done || viewModel.state.value == .failure {
+            // Add Bookmark
+        } else {
+            // Pin
+        }
+    }
 }

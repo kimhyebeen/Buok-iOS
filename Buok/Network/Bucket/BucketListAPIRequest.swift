@@ -2,7 +2,7 @@
 //  BucketListHomeAPIRequest.swift
 //  Nadam
 //
-//  Created by Taein Kim on 2021/03/03.
+//  Copyright © 2021 Buok. All rights reserved.
 //
 
 import Foundation
@@ -60,7 +60,7 @@ public struct BucketListAPIRequest {
 		case bucketsPost(bucket: [String: Any])
 		case bucketsEdit(bucketId: Int, bucket: [String: Any])
 		case bucketEditComplete(bucketId: Int)
-		case bucketBookMark(bucketId: Int, state: Bool)
+        case addBucketToBookmark(state: Bool, bucketId: Int)
 		
 		var requestURL: URL {
 			switch self {
@@ -70,8 +70,8 @@ public struct BucketListAPIRequest {
 				return URL(string: HeroConstants.bucket + "/\(bucketId)")!
 			case let .bucketEditComplete(bucketId):
 				return URL(string: HeroConstants.bucket + "/\(bucketId)/complete")!
-			case let.bucketBookMark(bucketId, _):
-				return URL(string: HeroConstants.bucket + "/\(bucketId)/bookmark")!
+            case let .addBucketToBookmark(_, bucketId):
+                return URL(string: HeroConstants.bucket + "/\(bucketId)/bookmark")!
 			}
 		}
 		
@@ -81,8 +81,8 @@ public struct BucketListAPIRequest {
 				return ["state": state, "category": category, "sort": sort]
 			case let .bucketEditComplete(bucketId):
 				return ["bucketId": bucketId]
-			case let .bucketBookMark(_, state):
-				return ["state": state]
+            case let.addBucketToBookmark(state, _):
+                return ["state": state]
 			case .bucketsPost, .bucketsEdit:
 				return nil
 			}
@@ -94,14 +94,14 @@ public struct BucketListAPIRequest {
 				return .get
 			case .bucketsPost:
 				return .post
-			case .bucketsEdit, .bucketEditComplete, .bucketBookMark:
+			case .bucketsEdit, .bucketEditComplete, .addBucketToBookmark:
 				return .put
 			}
 		}
 		
 		var encoding: HeroRequest.RequestEncoding {
 			switch self {
-			case .bucketsList, .bucketBookMark:
+			case .bucketsList, .addBucketToBookmark:
 				return .urlQuery
 			case .bucketsPost:
 				return .json
@@ -112,7 +112,7 @@ public struct BucketListAPIRequest {
 		
 		var requestBody: [String: Any]? {
 			switch self {
-			case .bucketsList, .bucketEditComplete, .bucketBookMark:
+			case .bucketsList, .bucketEditComplete, .addBucketToBookmark:
 				return nil
 			case let .bucketsPost(bucket), let .bucketsEdit(_, bucket):
 				return bucket
@@ -123,6 +123,27 @@ public struct BucketListAPIRequest {
             nil
         }
 	}
+    
+    static func addBucketToBookmark(state: Bool, bucketId: Int, responseHandler: @escaping (Result<Bool, HeroAPIError>) -> Void) {
+        BaseAPIRequest.requestJSONResponse(requestType: BucketRequestType.addBucketToBookmark(state: state, bucketId: bucketId)).then { responseData in
+            do {
+                if let dictData = responseData as? NSDictionary {
+                    let jsonData = try JSONSerialization.data(withJSONObject: dictData, options: .prettyPrinted)
+                    DebugLog("responseData : \(dictData)")
+                    DebugLog("Json Data : \n\(String(data: jsonData, encoding: .utf8) ?? "nil")")
+                    
+                    let getData = try JSONDecoder().decode(BaseServerModel.self, from: jsonData)
+                    if getData.status < 300 {
+                        responseHandler(.success(true))
+                    } else {
+                        responseHandler(.failure(HeroAPIError(errorCode: ErrorCode(rawValue: getData.status)!, statusCode: getData.status, errorMessage: getData.message)))
+                    }
+                }
+            } catch {
+                ErrorLog("BucketListAPIRequest ERROR")
+            }
+        }
+    }
 	
 	static func getBucketListData(state: Int, category: Int, sort: Int, responseHandler: @escaping (Result<BucketListData, HeroAPIError>) -> Void) {
 		BaseAPIRequest.requestJSONResponse(requestType: BucketRequestType.bucketsList(state: state, category: category, sort: sort)).then { responseData in

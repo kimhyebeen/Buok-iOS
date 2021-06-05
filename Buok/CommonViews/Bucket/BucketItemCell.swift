@@ -2,7 +2,7 @@
 //  BucketItemCell.swift
 //  Buok
 //
-//  Created by Taein Kim on 2021/06/04.
+//  Copyright © 2021 Buok. All rights reserved.
 //
 
 import Foundation
@@ -148,7 +148,7 @@ final class BucketItemCell: UICollectionViewCell {
                 if Calendar.current.dateComponents([.day], from: endDate, to: Date()).day == 0 {
                     dateLabel.text = "D - Day"
                 } else {
-                    dateLabel.text = "D - \(Calendar.current.dateComponents([.day], from: endDate, to: Date()).day ?? 0)"
+                    dateLabel.text = "D - \(Calendar.current.dateComponents([.day], from: Date(), to: endDate).day ?? 0)"
                 }
             }
         }

@@ -2,7 +2,7 @@
 //  BucketCollectionCell.swift
 //  Buok
 //
-//  Created by 김혜빈 on 2021/05/24.
+//  Copyright © 2021 Buok. All rights reserved.
 //
 
 import HeroUI
@@ -29,6 +29,7 @@ class BucketCollectionCell: UICollectionViewCell {
     func setInformation(_ text: String, _ type: BucketStatusType) {
         // todo - 추후 수정 필요
         bucketLabel.text = text
+        
         flagView.settingBucketType(to: type)
         if type == .done || type == .fail {
             dateLabel.textColor = .heroPrimaryPinkLight

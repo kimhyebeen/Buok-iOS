@@ -2,7 +2,7 @@
 //  VerifyViewController.swift
 //  Buok
 //
-//  Created by 김혜빈 on 2021/05/09.
+//  Copyright © 2021 Buok. All rights reserved.
 //
 
 import HeroUI

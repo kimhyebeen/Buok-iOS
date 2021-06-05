@@ -2,7 +2,7 @@
 //  YappHeroTests.swift
 //  YappHeroTests
 //
-//  Created by denny on 2021/02/21.
+//  Copyright © 2021 Buok. All rights reserved.
 //
 
 @testable import BucketList
