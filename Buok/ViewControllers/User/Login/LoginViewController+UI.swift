@@ -56,8 +56,8 @@ extension LoginViewController {
     func setupNextButton() {
         nextButton.addTarget(self, action: #selector(clickNextButton(_:)), for: .touchUpInside)
         nextButton.setHeroTitle("계속하기")
-        nextButton.setHeroEnable(false)
         nextButton.loginButtonType = .none
+        nextButton.setHeroEnable(false)
         contentsView.addSubview(nextButton)
         
         nextButton.snp.makeConstraints { make in
