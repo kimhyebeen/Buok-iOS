@@ -48,6 +48,38 @@ struct MyPageUserData: Codable {
     }
 }
 
+struct ProfileUserData: Codable {
+    var user: UserData
+    var friendCount: Int
+    var bucketCount: Int
+    var bookmark: BookmarkData
+    var isFriend: Bool?
+    var bucket: [BucketModel]
+    
+    func debugDescription() -> String {
+        var message: String = ""
+        message += "[UserData]\nEmail : \(user.email)\nNickname : \(user.nickname)\n"
+        message += "Intro : \(user.intro)\nId : \(user.id)\nProfileURL : \(String(describing: user.profileUrl))\nCreatedDate : \(String(describing: user.createdDate))\n"
+        message += "SocialType : \(String(describing: user.socialType))\nSocialId : \(String(describing: user.socialId))\n"
+
+        message += "FriendCount : \(friendCount), BucketCount : \(bucketCount)\n"
+        message += "isFriend : \(String(describing: isFriend))\n"
+        message += "[BookmarkData]\nBookmarkCount : \(bookmark.bookMarkCount)\n"
+        if let list = bookmark.bookmarkList {
+            for item in list {
+                message += "BucketName : \(item.bucketName)\nId : \(item.id)\nEndDate : \(item.endDate)\nCategoryId : \(item.categoryId)\n"
+            }
+        }
+        
+        message += "[BucketData]\nBucketCount : \(bucket.count)\n"
+        for bucketItem in bucket {
+            message += "BucketName : \(bucketItem.bucketName)\nId : \(bucketItem.id)\nEndDate : \(bucketItem.endDate)\nCategoryId : \(bucketItem.categoryId)\n"
+        }
+        
+        return message
+    }
+}
+
 struct BookmarkData: Codable {
 	var bookmarkList: [BookmarkListData]?
 	var bookMarkCount: Int
@@ -77,6 +109,12 @@ struct MyPageUserServerModel: Codable {
 	var status: Int
 	var message: String
 	var data: MyPageUserData
+}
+
+struct ProfileUserServerModel: Codable {
+    var status: Int
+    var message: String
+    var data: ProfileUserData
 }
 
 public struct UserAPIRequest {
@@ -193,15 +231,15 @@ public struct UserAPIRequest {
         }
     }
 	
-	static func getUserPageInfo(userId: Int, responseHandler: @escaping (Result<MyPageUserData, HeroAPIError>) -> Void) {
+	static func getUserPageInfo(userId: Int, responseHandler: @escaping (Result<ProfileUserData, HeroAPIError>) -> Void) {
 		BaseAPIRequest.requestJSONResponse(requestType: UserRequestType.getUserPage(userId: userId)).then { responseData in
 			do {
 				if let dictData = responseData as? NSDictionary {
 					let jsonData = try JSONSerialization.data(withJSONObject: dictData, options: .prettyPrinted)
-					let getData = try JSONDecoder().decode(MyPageUserServerModel.self, from: jsonData)
-					let myPageUserData = getData.data
+					let getData = try JSONDecoder().decode(ProfileUserServerModel.self, from: jsonData)
+					let userData = getData.data
 					if getData.status < 300 {
-						responseHandler(.success(myPageUserData))
+						responseHandler(.success(userData))
 					} else {
 						responseHandler(.failure(HeroAPIError(errorCode: ErrorCode(rawValue: getData.status)!, statusCode: getData.status, errorMessage: getData.message)))
 					}

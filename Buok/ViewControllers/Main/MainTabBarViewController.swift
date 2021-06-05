@@ -56,6 +56,8 @@ public class MainTabBarViewController: UITabBarController, UITabBarControllerDel
         homeVC.viewModel = HomeViewModel()
         
         let profileVC = ProfileViewController()
+        let profileViewModel = ProfileViewModel()
+        profileVC.viewModel = profileViewModel
         profileVC.isMyPage = true
         
         let homeNC = createNavController(for: homeVC,
@@ -67,7 +69,7 @@ public class MainTabBarViewController: UITabBarController, UITabBarControllerDel
                                         selectedImage: nil)
         
         let profileNC = createNavController(for: profileVC,
-                                           normalImage: UIImage(heroSharedNamed: "tab_mypage_un.png"), selectedImage: UIImage(heroSharedNamed: "tab_mypage.png"))
+                                            normalImage: UIImage(heroSharedNamed: "tab_mypage_un.png"), selectedImage: UIImage(heroSharedNamed: "tab_mypage.png"))
         
         tabViewControllers.removeAll()
         tabViewControllers.append(homeNC)

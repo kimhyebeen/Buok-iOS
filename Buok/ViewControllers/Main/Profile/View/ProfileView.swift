@@ -53,6 +53,7 @@ class ProfileView: UIView {
         setupNameLabel()
         setupEmailLabel()
         setupEditButton()
+        setupFriendButton()
         setupCountingButtonStack()
         setupIntroduceLabel()
         setupDateImageView()
@@ -79,6 +80,28 @@ class ProfileView: UIView {
         
         countingButtonStack.friendCount = myPageData.friendCount
         countingButtonStack.bucketCount = myPageData.bucketCount
+    }
+    
+    func setProfile(userData: ProfileUserData) {
+        nameLabel.text = userData.user.nickname
+        emailLabel.text = userData.user.email
+        introduceLabel.text = userData.user.intro
+        
+        if let createdDate = userData.user.createdDate {
+            let date = createdDate.convertToDate()
+            let components = date.get(.month, .year)
+            if let month = components.month, let year = components.year {
+                let monthString = month < 10 ? "0\(month)" : "\(month)"
+                dateLabel.text = "\(year)년 \(monthString)월에 가입함"
+            }
+        }
+        
+        if let profileURL = URL(string: userData.user.profileUrl ?? "") {
+            self.profileImageView.kf.setImage(with: profileURL)
+        }
+        
+        countingButtonStack.friendCount = userData.friendCount
+        countingButtonStack.bucketCount = userData.bucketCount
     }
     
     func settingFriendButtonType(for type: FriendButtonType) {
@@ -130,7 +153,7 @@ extension ProfileView {
     
     // MARK: NameLabel
     private func setupNameLabel() {
-        nameLabel.text = "Hero_Profile_Name_Sample".localized
+        nameLabel.text = ""
         nameLabel.textColor = .heroGray5B
         nameLabel.font = .font20PBold // todo - 폰트 수정 필요
         self.addSubview(nameLabel)
@@ -143,7 +166,7 @@ extension ProfileView {
     
     // MARK: EmailLabel
     private func setupEmailLabel() {
-        emailLabel.text = "Hero_Profile_Email_Sample".localized
+        emailLabel.text = ""
         emailLabel.textColor = .heroGray82
         emailLabel.font = .font13P
         self.addSubview(emailLabel)
@@ -156,6 +179,24 @@ extension ProfileView {
     
     // MARK: FriendButton
     private func setupEditButton() {
+        editProfileButton.addTarget(self, action: #selector(clickEditButton(_:)), for: .touchUpInside)
+        self.addSubview(editProfileButton)
+        
+        editProfileButton.snp.makeConstraints { make in
+            make.height.equalTo(32)
+            make.width.equalTo(90)
+            make.centerY.equalTo(profileImageView.snp.centerY)
+            make.trailing.equalToSuperview().offset(-20)
+        }
+        
+        editProfileButton.setAttributedTitle(NSAttributedString(string: "프로필 수정", attributes: [.font: UIFont.font15P, .foregroundColor: UIColor.heroGray82]), for: .normal)
+        editProfileButton.titleEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        editProfileButton.layer.cornerRadius = 8
+        editProfileButton.layer.borderWidth = 1
+        editProfileButton.layer.borderColor = UIColor.heroGray82.cgColor
+    }
+    
+    private func setupFriendButton() {
         friendButton.addTarget(self, action: #selector(clickFriendButton(_:)), for: .touchUpInside)
         self.addSubview(friendButton)
         
@@ -183,7 +224,7 @@ extension ProfileView {
     
     // MARK: IntroduceLabel
     private func setupIntroduceLabel() {
-        introduceLabel.text = "Hero_Profile_Introduce_Sample".localized
+        introduceLabel.text = ""
         introduceLabel.numberOfLines = 0
         introduceLabel.textColor = .heroGray82
         introduceLabel.font = .font13P

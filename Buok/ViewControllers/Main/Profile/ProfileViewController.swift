@@ -5,24 +5,25 @@
 //  Created by Taein Kim on 2021/06/05.
 //
 
+import HeroCommon
 import HeroUI
 
 class ProfileViewController: HeroBaseViewController {
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
-    let safeAreaView = UIView()
     let topView = UIView()
     let backButton = UIButton()
     
     let profileView = ProfileView()
     let headerView = ProfileBuokmarkHeaderView()
     let emptyBucketStackView = UIStackView()
+    let safeAreaFillView: UIView = UIView()
     
-    private var viewModel = ProfileViewModel()
+    var viewModel: ProfileViewModel?
     
     var isMyPage: Bool = false {
         didSet {
-            viewModel.isMe.value = isMyPage
+            viewModel?.isMe.value = isMyPage
         }
     }
 
@@ -31,33 +32,65 @@ class ProfileViewController: HeroBaseViewController {
         
         setupView()
         bindingViewModel()
+        
+        if isMyPage {
+            viewModel?.fetchMyPageInfo()
+        } else {
+            viewModel?.fetchProfileUserInfo()
+        }
     }
     
     private func setupView() {
-        self.view.backgroundColor = .heroPrimaryBeigeLighter
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        self.view.backgroundColor = isMyPage ? .heroGrayF2EDE8 : .heroPrimaryBeigeLighter
         
-        setupSafeAreaView()
+        setupSafeAreaFillView()
         setupTopView()
         setupBackButton()
-        
         setupCollectionView()
         setupProfileView()
         setupHeaderView()
         setupDisabledBucketView()
-        
-        self.view.bringSubviewToFront(safeAreaView)
         self.view.bringSubviewToFront(topView)
     }
     
     private func bindingViewModel() {
-        viewModel.fetchFriendProfile().then { [weak self] profile in
-            // todo - profileView에 적용
-            self?.headerView.countOfBuokmark = profile.buokmarks.count
-            self?.profileView.settingFriendButtonType(for: profile.type)
-            self?.collectionView.reloadData()
-        }
+//        viewModel.().then { [weak self] profile in
+//            // todo - profileView에 적용
+//            self?.headerView.countOfBuokmark = profile.buokmarks.count
+//            self?.profileView.settingFriendButtonType(for: profile.type)
+//            self?.collectionView.reloadData()
+//        }
         
-        viewModel.isMe.bind({ [weak self] isMe in
+        viewModel?.bookmarkCount.bind({ [weak self] count in
+            
+        })
+        
+        viewModel?.bookmarkData.bind({ [weak self] bookmarkData in
+            
+        })
+        
+        viewModel?.bucketBookCount.bind({ [weak self] count in
+            
+        })
+        
+        viewModel?.bucketBookData.bind({ [weak self] bucketData in
+            
+        })
+        
+        viewModel?.myUserData.bind({ [weak self] user in
+            if let strongUser = user {
+                self?.profileView.setProfile(myPageData: strongUser)
+            }
+        })
+        
+        viewModel?.userData.bind({ [weak self] user in
+            if let strongUser = user {
+                self?.profileView.setProfile(userData: strongUser)
+            }
+        })
+        
+        viewModel?.isMe.bind({ [weak self] isMe in
             self?.profileView.isMyPage = isMe
         })
     }
@@ -90,13 +123,13 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
     
     private func countOfBuokmarkMode(for section: Int) -> Int {
         emptyBucketStackView.isHidden = true
-        return section == 0 ? viewModel.buokmarks.count : 0
+        return section == 0 ? viewModel?.buokmarks.count ?? 0 : 0
     }
     
     private func countOfBucketBookMode(for section: Int) -> Int {
-        if viewModel.friendType == .friend {
+        if viewModel?.friendType == .friend {
             emptyBucketStackView.isHidden = true
-            return section == 0 ? 0 : viewModel.bucketBooks.count
+            return section == 0 ? 0 : viewModel?.bucketBooks.count ?? 0
         } else {
             emptyBucketStackView.isHidden = false
             return section == 0 ? 0 : 0
@@ -116,8 +149,10 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
             return BuokmarkCollectionCell()
         }
         
-        if viewModel.bookmarkData.value.count > indexPath.row {
-            cell.setInformation(to: viewModel.bookmarkData.value[indexPath.row], color: MypageViewController.buokmarkColors[indexPath.row % 3])
+        if viewModel?.bookmarkData.value.count ?? 0 > indexPath.row {
+            if let strongViewModel = viewModel {
+                cell.setInformation(to: strongViewModel.bookmarkData.value[indexPath.row], color: MypageViewController.buokmarkColors[indexPath.row % 3])
+            }
         }
         
         return cell
@@ -129,14 +164,16 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
         }
         
         let types: [BucketStatusType] = [.inProgress, .expected, .fail, .done]
-        cell.setInformation(viewModel.bucketBooks[indexPath.row], types[indexPath.row % 4])
+        if let strongViewModel = viewModel {
+            cell.setInformation(strongViewModel.bucketBooks[indexPath.row], types[indexPath.row % 4])
+        }
         
         return cell
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let heightForSettingButton: CGFloat = 44
-        let heightForProfileView: CGFloat = 284
+        let heightForProfileView: CGFloat = profileView.frame.height // 284
         let heightForHeader: CGFloat = 40
         let heightForBackgroundHeaderBottomView: CGFloat = 20
         
@@ -201,14 +238,13 @@ extension ProfileViewController: ProfileViewDelegate {
 }
 
 extension ProfileViewController {
-    // MARK: SafeAreaView
-    func setupSafeAreaView() {
-        safeAreaView.backgroundColor = .heroServiceSkin
-        self.view.addSubview(safeAreaView)
-        
-        safeAreaView.snp.makeConstraints { make in
-            make.top.leading.trailing.equalToSuperview()
-            make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.top)
+    func setupSafeAreaFillView() {
+        view.addSubview(safeAreaFillView)
+        safeAreaFillView.backgroundColor = .heroServiceSkin
+        safeAreaFillView.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.top)
+            make.leading.trailing.equalToSuperview()
         }
     }
     
@@ -219,7 +255,7 @@ extension ProfileViewController {
         
         topView.snp.makeConstraints { make in
             make.height.equalTo(44)
-            make.top.equalTo(safeAreaView.snp.bottom)
+            make.top.equalTo(safeAreaFillView.snp.bottom)
             make.leading.trailing.equalToSuperview()
         }
     }
@@ -259,6 +295,7 @@ extension ProfileViewController {
     // MARK: ProfileView
     func setupProfileView() {
         profileView.delegate = self
+        profileView.isMyPage = isMyPage
         self.view.addSubview(profileView)
         
         profileView.snp.makeConstraints { make in
@@ -305,5 +342,15 @@ extension ProfileViewController {
             make.top.equalTo(headerView.snp.bottom).offset((heightOfBottom - 143) / 2)
             make.centerX.equalToSuperview()
         }
+    }
+    
+    override func viewWillLayoutSubviews() {
+        DebugLog("Profile View Frame Height : \(profileView.frame.height)")
+        collectionView.contentInset = UIEdgeInsets(top: 108 + profileView.frame.height, left: 20, bottom: 0, right: 20)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        DebugLog("Profile View Frame Height : \(profileView.frame.height)")
+        collectionView.contentInset = UIEdgeInsets(top: 108 + profileView.frame.height, left: 20, bottom: 0, right: 20)
     }
 }

@@ -35,17 +35,45 @@ class ProfileViewModel {
     private(set) var buokmarks: [BuokmarkFlag] = []
     private(set) var bucketBooks: [String] = []
     
+    var userId: Int = 0
     var isMe: Dynamic<Bool> = Dynamic(false)
+    
+    var bucketBookData: Dynamic<[BucketModel]> = Dynamic([BucketModel]())
+    var bucketBookCount: Dynamic<Int> = Dynamic(0)
     
     var bookmarkData: Dynamic<[BookmarkListData]> = Dynamic([BookmarkListData]())
     var bookmarkCount: Dynamic<Int> = Dynamic(0)
     
-    func fetchFriendProfile() -> Promise<FriendProfile> {
-        // todo - 친구 api로 수정
-        let fetchedProfile = FriendProfile()
-        self.friendType = fetchedProfile.type
-        self.buokmarks = fetchedProfile.buokmarks
-        self.bucketBooks = fetchedProfile.bucketBooks
-        return Promise(value: FriendProfile())
+    var myUserData: Dynamic<MyPageUserData?> = Dynamic(nil)
+    var userData: Dynamic<ProfileUserData?> = Dynamic(nil)
+    
+    func fetchProfileUserInfo() {
+        UserAPIRequest.getUserPageInfo(userId: userId, responseHandler: { result in
+            switch result {
+            case .success(let userData):
+                DebugLog(userData.debugDescription())
+                self.userData.value = userData
+                self.bucketBookCount.value = userData.bucketCount
+                self.bucketBookData.value = userData.bucket
+                self.bookmarkCount.value = userData.bookmark.bookMarkCount
+                self.bookmarkData.value = userData.bookmark.bookmarkList ?? [BookmarkListData]()
+            case.failure(let error):
+                ErrorLog("API Error : \(error.statusCode) / \(error.errorMessage) / \(error.localizedDescription)")
+            }
+        })
+    }
+    
+    func fetchMyPageInfo() {
+        UserAPIRequest.getMyPageIngo(responseHandler: { result in
+            switch result {
+            case .success(let myPageUserData):
+                DebugLog(myPageUserData.debugDescription())
+                self.myUserData.value = myPageUserData
+                self.bookmarkCount.value = myPageUserData.bookmark.bookMarkCount
+                self.bookmarkData.value = myPageUserData.bookmark.bookmarkList ?? [BookmarkListData]()
+            case .failure(let error):
+                ErrorLog("API Error : \(error.statusCode) / \(error.errorMessage) / \(error.localizedDescription)")
+            }
+        })
     }
 }
