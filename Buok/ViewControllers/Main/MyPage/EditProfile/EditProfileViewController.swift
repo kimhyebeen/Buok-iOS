@@ -5,6 +5,7 @@
 //  Created by 김혜빈 on 2021/05/22.
 //
 
+import HeroCommon
 import HeroUI
 
 class EditProfileViewController: HeroBaseViewController {
@@ -42,10 +43,21 @@ class EditProfileViewController: HeroBaseViewController {
         
         viewModel.introduce.bind({ introduce in
             self.introduceTextView.text = introduce
+            self.introducePlaceholder.isHidden = (introduce.count > 0)
         })
         
         viewModel.profileImage.bind({ image in
             self.profileImageView.image = image
+        })
+        
+        viewModel.changeProfileSuccess.bind({ isSuccess in
+            if isSuccess {
+                self.dismiss(animated: true, completion: nil)
+            }
+        })
+        
+        viewModel.nicknameErrorMessage.bind({ errorMessage in
+            self.nicknameSubLabel.text = errorMessage
         })
     }
     
@@ -75,15 +87,13 @@ class EditProfileViewController: HeroBaseViewController {
     
     @objc
     func clickFinishButton(_ sender: UIButton) {
-        // todo - requestSaveProfile의 파라미터로 프로필 정보를 넘겨줘야 함
-//        viewModel.requestSaveProfile().then { [weak self] isSuccess in
-//            if isSuccess {
-//                self?.dismiss(animated: true, completion: nil)
-//            } else {
-//                // todo - 실패 처리
-//                self?.nicknameSubLabel.isHidden = false
-//            }
-//        }
+        if viewModel.profileImage.value != nil {
+            DebugLog("[Edit Profile] Image Upload")
+            viewModel.uploadProfileImage()
+        } else {
+            DebugLog("[Edit Profile] Request Edit Profile")
+            viewModel.requestSaveProfile(profileURL: nil)
+        }
     }
     
     @objc
@@ -131,9 +141,7 @@ extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigati
         guard let selectedImage = info[.originalImage] as? UIImage else {
             fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
         }
-        self.profileImageView.image = selectedImage
-        let _ = selectedImage.jpegData(compressionQuality: 0.5) // 추후 서버에 저장할 때 필요
-        
+        self.viewModel.profileImage.value = selectedImage
         self.dismiss(animated: true, completion: nil)
     }
 }
