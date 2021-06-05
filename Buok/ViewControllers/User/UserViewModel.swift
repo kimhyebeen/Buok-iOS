@@ -13,7 +13,7 @@ import KakaoSDKUser
 import Promise
 
 class UserViewModel {
-	var deviceToken: String = "dGZELRmc9E2llCkArhSYrH:APA91bGiazwdr-o2VddVJw5rJUEEyfPjNrhKKRpqtLeIBvvHv4Tpv3ykf743KSWZhRe8tyvvTc89eFtcst1KoUuDBcCCROT9WkihK44zvflF2c4_AUTnmYhRLTqelIibOnZVXtUUpyEq"
+	var deviceToken: String = TokenManager.shared.getFCMToken() ?? ""
     var email: String = ""
     var password: String = ""
     var nickname: String = ""

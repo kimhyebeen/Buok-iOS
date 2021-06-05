@@ -16,6 +16,7 @@ final class TokenManager {
     public static let refreshTokenKey: String = "RefreshToken"
     public static let accessTokenExpiredKey: String = "AccessTokenExpiredAt"
     public static let refreshTokenExpiredKey: String = "RefreshTokenExpiredAt"
+	public static let deviceFCMTokenKey: String = "DeviceFCMTokenKey"
     
     public func getPasswordResetToken() -> String? {
         return KeychainManager.shared.getString(TokenManager.passwordResetTokenKey)
@@ -82,4 +83,12 @@ final class TokenManager {
             return false
         }
     }
+	
+	public func getFCMToken() -> String? {
+		return KeychainManager.shared.getString(TokenManager.deviceFCMTokenKey)
+	}
+	
+	public func setFCMToken(token: String) -> Bool {
+		return KeychainManager.shared.set(token, forKey: TokenManager.deviceFCMTokenKey)
+	}
 }
