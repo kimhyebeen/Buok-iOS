@@ -13,6 +13,7 @@ import KakaoSDKUser
 import Promise
 
 class UserViewModel {
+	var deviceToken: String = TokenManager.shared.getFCMToken() ?? ""
     var email: String = ""
     var password: String = ""
     var nickname: String = ""
@@ -97,7 +98,7 @@ class UserViewModel {
     }
     
     func requestJoin() -> String? {
-        SignAPIRequest.signUpRequest(email: email, intro: introduce ?? "", nickname: nickname, password: password, responseHandler: { result in
+		SignAPIRequest.signUpRequest(deviceToken: deviceToken, email: email, intro: introduce ?? "", nickname: nickname, password: password, responseHandler: { result in
             switch result {
             case .success(let isSuccess):
                 DebugLog("Is Success : \(isSuccess)")
