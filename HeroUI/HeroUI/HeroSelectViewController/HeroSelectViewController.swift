@@ -2,7 +2,7 @@
 //  HeroSelectViewController.swift
 //  HeroUI
 //
-//  Created by denny on 2021/05/22.
+//  Created by Taein Kim on 2021/05/22.
 //
 
 import Foundation

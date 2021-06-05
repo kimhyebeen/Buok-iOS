@@ -2,7 +2,7 @@
 //  ImageUploadAPIRequest.swift
 //  Buok
 //
-//  Created by denny on 2021/06/04.
+//  Created by Taein Kim on 2021/06/04.
 //
 
 import Foundation

@@ -13,6 +13,8 @@
 		29CA50B5265AEE7B00533ED6 /* UserAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CA50B4265AEE7B00533ED6 /* UserAPIRequest.swift */; };
 		528E6F27265BB53A00F9013D /* SignAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528E6F26265BB53A00F9013D /* SignAPIRequest.swift */; };
 		7A23F5D60945D5051A7AF8BA /* Pods_Buok_BuokUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19D64A49C31935ACEF072549 /* Pods_Buok_BuokUITests.framework */; };
+		B00FD521266B6FD700A48B72 /* WithDrawalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00FD520266B6FD700A48B72 /* WithDrawalViewController.swift */; };
+		B00FD523266B6FF400A48B72 /* WithDrawalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00FD522266B6FF400A48B72 /* WithDrawalViewModel.swift */; };
 		B01A28B52665054D00BE9DB3 /* TokenAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01A28B42665054D00BE9DB3 /* TokenAPIRequest.swift */; };
 		B01A28B9266526F000BE9DB3 /* HomeViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01A28B8266526F000BE9DB3 /* HomeViewController+UI.swift */; };
 		B01A28BB2665D52D00BE9DB3 /* HomeViewController+AttributedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01A28BA2665D52D00BE9DB3 /* HomeViewController+AttributedText.swift */; };
@@ -275,6 +277,8 @@
 		A146B5D5016257787821A4FE /* Pods-BucketListTests.sandbox(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BucketListTests.sandbox(debug).xcconfig"; path = "Target Support Files/Pods-BucketListTests/Pods-BucketListTests.sandbox(debug).xcconfig"; sourceTree = "<group>"; };
 		AA5970ABF9321C40A1373EEA /* Pods-Nadam-NadamUITests.sandbox(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nadam-NadamUITests.sandbox(debug).xcconfig"; path = "Target Support Files/Pods-Nadam-NadamUITests/Pods-Nadam-NadamUITests.sandbox(debug).xcconfig"; sourceTree = "<group>"; };
 		AECABF2E7CD3020025E0B60D /* Pods_Buok.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Buok.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B00FD520266B6FD700A48B72 /* WithDrawalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithDrawalViewController.swift; sourceTree = "<group>"; };
+		B00FD522266B6FF400A48B72 /* WithDrawalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithDrawalViewModel.swift; sourceTree = "<group>"; };
 		B01A28B42665054D00BE9DB3 /* TokenAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenAPIRequest.swift; sourceTree = "<group>"; };
 		B01A28B8266526F000BE9DB3 /* HomeViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+UI.swift"; sourceTree = "<group>"; };
 		B01A28BA2665D52D00BE9DB3 /* HomeViewController+AttributedText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+AttributedText.swift"; sourceTree = "<group>"; };
@@ -529,6 +533,15 @@
 				CA7C01436221A4671BDD148E /* Pods-BuokTests.debug.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		B00FD517266B6FCD00A48B72 /* WithDrawal */ = {
+			isa = PBXGroup;
+			children = (
+				B00FD520266B6FD700A48B72 /* WithDrawalViewController.swift */,
+				B00FD522266B6FF400A48B72 /* WithDrawalViewModel.swift */,
+			);
+			path = WithDrawal;
 			sourceTree = "<group>";
 		};
 		B01A28B62665057300BE9DB3 /* Token */ = {
@@ -852,6 +865,7 @@
 		B0B033B72621C95B00D65204 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				B00FD517266B6FCD00A48B72 /* WithDrawal */,
 				B0B033C02621C97300D65204 /* SettingViewController.swift */,
 				B0B033C82621CDA700D65204 /* SettingCell.swift */,
 				B0B033CD2621CDBC00D65204 /* SettingInfoCell.swift */,
@@ -1433,6 +1447,7 @@
 				B07AD1392667C3A6000CCDAC /* EmailAuthAPIRequest.swift in Sources */,
 				B07CD19C2666751F0031B106 /* NotificationViewController.swift in Sources */,
 				B08CEB3C2662162A00FF77BD /* StartCoordinator.swift in Sources */,
+				B00FD523266B6FF400A48B72 /* WithDrawalViewModel.swift in Sources */,
 				EE49406726475A5D00CB0B71 /* ForgetViewController.swift in Sources */,
 				29CA50B5265AEE7B00533ED6 /* UserAPIRequest.swift in Sources */,
 				B082F2D026595AB700A7AB6B /* CreateTagAddCell.swift in Sources */,
@@ -1471,6 +1486,7 @@
 				EE79C436264AC57800E83B6A /* CountingButton.swift in Sources */,
 				528E6F27265BB53A00F9013D /* SignAPIRequest.swift in Sources */,
 				B07CD1A0266675530031B106 /* NotificationViewModel.swift in Sources */,
+				B00FD521266B6FD700A48B72 /* WithDrawalViewController.swift in Sources */,
 				B075238125EF5AF70016DC3A /* BucketListAPIRequest.swift in Sources */,
 				EE77F57D265B20EF002C4782 /* BucketStatusFlagView.swift in Sources */,
 				B023B145266A0ECB0060F625 /* BucketItemCell.swift in Sources */,

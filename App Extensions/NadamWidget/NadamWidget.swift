@@ -2,7 +2,7 @@
 //  NadamWidget.swift
 //  NadamWidget
 //
-//  Created by denny on 2021/03/16.
+//  Created by Taein Kim on 2021/03/16.
 //
 
 import Intents
