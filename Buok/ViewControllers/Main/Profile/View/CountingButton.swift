@@ -44,7 +44,7 @@ extension CountingButton {
     private func setupCountLabel() {
         countLabel.text = "0"
         countLabel.textColor = .heroGray5B
-        countLabel.font = .font17P // todo - 폰트 수정 필요
+        countLabel.font = .font17PBold
         self.addSubview(countLabel)
         
         countLabel.snp.makeConstraints { make in

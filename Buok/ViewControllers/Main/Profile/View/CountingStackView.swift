@@ -7,6 +7,15 @@
 
 import UIKit
 
+protocol CountingStackViewDelegate: AnyObject {
+    func onClickStackItem(type: CountingType)
+}
+
+enum CountingType: Int {
+    case friend = 0
+    case bucket = 1
+}
+
 class CountingStackView: UIStackView {
     let friendButton = CountingButton()
     let bucketButton = CountingButton()
@@ -22,6 +31,8 @@ class CountingStackView: UIStackView {
         }
     }
 
+    weak var delegate: CountingStackViewDelegate?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -42,7 +53,16 @@ class CountingStackView: UIStackView {
         setupBucketButton()
         setupDivider()
     }
+    
+    @objc
+    private func onClickFriendButton(_ sender: UIButton) {
+        delegate?.onClickStackItem(type: .friend)
+    }
 
+    @objc
+    private func onClickBucketButton(_ sender: UIButton) {
+        delegate?.onClickStackItem(type: .bucket)
+    }
 }
 
 extension CountingStackView {
@@ -50,6 +70,7 @@ extension CountingStackView {
     func setupFriendButton() {
         friendButton.count = 0
         friendButton.mainText = "친구"
+        friendButton.addTarget(self, action: #selector(onClickFriendButton(_:)), for: .touchUpInside)
         self.addArrangedSubview(friendButton)
     }
     
@@ -71,6 +92,7 @@ extension CountingStackView {
     func setupBucketButton() {
         bucketButton.count = 0
         bucketButton.mainText = "버킷"
+        bucketButton.addTarget(self, action: #selector(onClickBucketButton(_:)), for: .touchUpInside)
         self.addArrangedSubview(bucketButton)
     }
 }

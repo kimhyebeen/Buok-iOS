@@ -136,6 +136,16 @@ class ProfileView: UIView {
     }
 }
 
+extension ProfileView: CountingStackViewDelegate {
+    func onClickStackItem(type: CountingType) {
+        if type == .friend {
+            delegate?.onClickFriendCountingButton()
+        } else if type == .bucket {
+            delegate?.onClickBucketCountingButton()
+        }
+    }
+}
+
 extension ProfileView {
     // MARK: ProfileImageView
     private func setupProfileImageView() {
@@ -215,7 +225,7 @@ extension ProfileView {
     // MARK: CountingButtonStack
     private func setupCountingButtonStack() {
         self.addSubview(countingButtonStack)
-        
+        countingButtonStack.delegate = self
         countingButtonStack.snp.makeConstraints { make in
             make.top.equalTo(profileImageView.snp.bottom).offset(16)
             make.leading.equalToSuperview().offset(20)
