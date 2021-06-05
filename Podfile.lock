@@ -126,6 +126,7 @@ PODS:
     - KakaoSDKCommon/Common (= 2.5.3)
   - KakaoSDKUser (2.5.3):
     - KakaoSDKAuth (= 2.5.3)
+  - Kingfisher (6.3.0)
   - lottie-ios (3.2.3)
   - nanopb (2.30908.0):
     - nanopb/decode (= 2.30908.0)
@@ -144,6 +145,7 @@ DEPENDENCIES:
   - Firebase/Analytics
   - Firebase/Messaging
   - KakaoSDK
+  - Kingfisher
   - lottie-ios
   - Pageboy
   - Promises
@@ -172,6 +174,7 @@ SPEC REPOS:
     - KakaoSDKTalk
     - KakaoSDKTemplate
     - KakaoSDKUser
+    - Kingfisher
     - lottie-ios
     - nanopb
     - Pageboy
@@ -201,6 +204,7 @@ SPEC CHECKSUMS:
   KakaoSDKTalk: 58cf9c530cc8024ae2ed3839d40acd992ecaf909
   KakaoSDKTemplate: 5939681de6c24fd81e93bf824982e979e794f87e
   KakaoSDKUser: 5d2de71fe070455bbaaad6a37af3eb500fbc8972
+  Kingfisher: 6c3df386db71d82c0817a429d2c9421a77396529
   lottie-ios: c058aeafa76daa4cf64d773554bccc8385d0150e
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   Pageboy: cf121b9dd48c63f3f281b2a9ec93d02e0f23879b
@@ -210,6 +214,6 @@ SPEC CHECKSUMS:
   SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
-PODFILE CHECKSUM: 5fd4b2efd08992664e8776adb85672db06cd4ba6
+PODFILE CHECKSUM: b1f62c490b2b5fc5b69ecda9c4d9b74bd8845b38
 
 COCOAPODS: 1.10.1

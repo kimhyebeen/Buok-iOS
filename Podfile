@@ -25,6 +25,7 @@ target 'Buok' do
   pod 'Pageboy'
   pod 'lottie-ios'
   pod 'KakaoSDK'
+  pod 'Kingfisher'
 
   target 'BuokTests' do
     inherit! :search_paths
