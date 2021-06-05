@@ -13,6 +13,7 @@ class ProfileViewController: HeroBaseViewController {
     
     let topView = UIView()
     let backButton = UIButton()
+    let settingButton = UIButton()
     
     let profileView = ProfileView()
     let headerView = ProfileBuokmarkHeaderView()
@@ -92,6 +93,8 @@ class ProfileViewController: HeroBaseViewController {
         
         viewModel?.isMe.bind({ [weak self] isMe in
             self?.profileView.isMyPage = isMe
+            self?.backButton.isHidden = isMe
+            self?.settingButton.isHidden = !isMe
         })
     }
     
@@ -103,6 +106,11 @@ class ProfileViewController: HeroBaseViewController {
     @objc
     func clickFriendButton(_ sender: UIButton) {
         // todo - 친구 요청 버튼 기능
+    }
+    
+    @objc
+    func clickSettingButton(_ sender: UIButton) {
+        // todo - 설정 버튼 기능
     }
 }
 
@@ -258,6 +266,21 @@ extension ProfileViewController {
             make.top.equalTo(safeAreaFillView.snp.bottom)
             make.leading.trailing.equalToSuperview()
         }
+        
+        topView.addSubview(settingButton)
+        if #available(iOS 13.0, *) {
+            settingButton.setImage(UIImage(heroSharedNamed: "ic_setting")!.withTintColor(.heroGray82), for: .normal)
+        } else {
+            settingButton.setImage(UIImage(heroSharedNamed: "ic_setting")!, for: .normal)
+        }
+        settingButton.addTarget(self, action: #selector(clickSettingButton(_:)), for: .touchUpInside)
+        settingButton.snp.makeConstraints { make in
+            make.width.height.equalTo(44)
+            make.centerY.equalToSuperview()
+            make.trailing.equalToSuperview().offset(-8)
+        }
+        
+        settingButton.isHidden = !isMyPage
     }
     
     // MARK: BackButton
@@ -274,6 +297,8 @@ extension ProfileViewController {
             make.width.height.equalTo(44)
             make.bottom.leading.equalToSuperview()
         }
+        
+        backButton.isHidden = isMyPage
     }
     
     // MARK: CollectionView

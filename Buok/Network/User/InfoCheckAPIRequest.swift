@@ -75,7 +75,7 @@ public struct InfoCheckAPIRequest {
                         DebugLog("Json Data : \n\(String(data: jsonData, encoding: .utf8) ?? "nil")")
                         
                         let getData = try JSONDecoder().decode(InfoCheckServerModel.self, from: jsonData)
-                        if getData.status < 300 || getData.status == 404 {
+                        if getData.status < 300 || getData.status == 400 {
                             responseHandler(.success(getData.status))
                             DebugLog(getData.data ?? "")
                         } else {
