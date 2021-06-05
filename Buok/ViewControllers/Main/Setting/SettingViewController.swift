@@ -16,6 +16,9 @@ final class SettingViewController: HeroBaseViewController {
     private let tableView: UITableView = UITableView()
     private let safeAreaFillView: UIView = UIView()
     
+    private var email: String = ""
+    private var connectedAccount: String = ""
+    
     private enum SectionType: Int {
         case account = 0
         case appVersion = 1
@@ -26,6 +29,7 @@ final class SettingViewController: HeroBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewLayout()
+        fetchMyPageInfo()
     }
     
     private func setupViewLayout() {
@@ -142,9 +146,9 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
                 cell.backgroundColor = .heroGrayF2EDE8
                 
                 if settingType == .mail {
-                    cell.content = "test@gmail.com"
+                    cell.content = email
                 } else if settingType == .connectedAccount {
-                    cell.content = "카카오톡"
+                    cell.content = connectedAccount
                 }
                 
                 return cell
@@ -197,5 +201,19 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
         }
         rowCount += indexPath.row
         return rowCount
+    }
+    
+    func fetchMyPageInfo() {
+        UserAPIRequest.getMyPageIngo(responseHandler: { result in
+            switch result {
+            case .success(let myPageUserData):
+                DebugLog(myPageUserData.debugDescription())
+                self.email = myPageUserData.user.email
+                self.connectedAccount = "\(myPageUserData.user.socialType)"
+                self.tableView.reloadData()
+            case .failure(let error):
+                ErrorLog("API Error : \(error.statusCode) / \(error.errorMessage) / \(error.localizedDescription)")
+            }
+        })
     }
 }
