@@ -9,32 +9,26 @@ import Foundation
 
 public extension Date {
     func convertToSmallString() -> String {
-        let date: Date = Date()
-        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         
-        let dateString = dateFormatter.string(from: date)
+        let dateString = dateFormatter.string(from: self)
         return dateString
     }
     
     func convertToString() -> String {
-        let date: Date = Date()
-        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         
-        let dateString = dateFormatter.string(from: date)
+        let dateString = dateFormatter.string(from: self)
         return dateString
     }
     
     func convertToKoreanString() -> String {
-        let date: Date = Date()
-        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy년 MM월 dd일"
         
-        let dateString = dateFormatter.string(from: date)
+        let dateString = dateFormatter.string(from: self)
         return dateString
     }
     

@@ -299,7 +299,7 @@ final class CreateViewController: HeroBaseViewController, UINavigationController
         }
         
         dateChooserAlert.addAction(UIAlertAction(title: "선택완료", style: .default, handler: { _ in
-            self.viewModel.finishDate.value = self.datePicker.date
+            self.viewModel.setBucketFinishDate(date: self.datePicker.date)
         }))
     }
     
