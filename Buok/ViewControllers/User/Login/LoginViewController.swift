@@ -33,6 +33,10 @@ public class LoginViewController: HeroBaseViewController {
         TokenManager.shared.deleteAllTokenData()
         
         viewModel.isEmailExist.bind({ isExist in
+            guard let isExist = isExist else {
+                // todo - 로그인 성공도 아니고, not found도 아님
+                return
+            }
             if isExist {
                 let loginPasswordVC = LoginPasswordViewController()
                 loginPasswordVC.viewModel = self.viewModel

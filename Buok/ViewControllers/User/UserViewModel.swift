@@ -22,7 +22,7 @@ class UserViewModel {
     
     var isLoginSuccess: Dynamic<Bool> = Dynamic(false)
     
-    var isEmailExist: Dynamic<Bool> = Dynamic(false)
+    var isEmailExist: Dynamic<Bool?> = Dynamic(false)
     var isNicknameExist: Dynamic<Bool> = Dynamic(false)
     var isSignUpSuccess: Dynamic<Bool> = Dynamic(false)
     
@@ -44,13 +44,15 @@ class UserViewModel {
         self.email = email
         InfoCheckAPIRequest.checkEmail(email: self.email, responseHandler: { result in
             switch result {
-            case .success(let resultString):
-                DebugLog("Result String : \(resultString)")
-                self.isEmailExist.value = false
-//                self.isEmailExist.value = true
+            case .success(let code):
+                if code == 404 {
+                    self.isEmailExist.value = false
+                } else {
+                    DebugLog("Result code : \(code)")
+                    self.isEmailExist.value = true
+                }
             case .failure(_):
-//                self.isEmailExist.value = false
-                self.isEmailExist.value = true
+                self.isEmailExist.value = nil
                 ErrorLog("Error")
             }
         })

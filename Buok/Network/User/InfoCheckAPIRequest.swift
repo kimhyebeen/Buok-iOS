@@ -62,7 +62,7 @@ public struct InfoCheckAPIRequest {
         }
     }
     
-    static func checkEmail(email: String, responseHandler: @escaping (Result<String, HeroAPIError>) -> Void) {
+    static func checkEmail(email: String, responseHandler: @escaping (Result<Int, HeroAPIError>) -> Void) {
         BaseAPIRequest.requestJSONResponse(requestType: InfoCheckRequestType.emailCheck(email: email))
             .catch(type: BaseAPIError.self, { error in
                 ErrorLog("ERROR가 발생하였습니다. ==> \(error)")
@@ -75,8 +75,9 @@ public struct InfoCheckAPIRequest {
                         DebugLog("Json Data : \n\(String(data: jsonData, encoding: .utf8) ?? "nil")")
                         
                         let getData = try JSONDecoder().decode(InfoCheckServerModel.self, from: jsonData)
-                        if getData.status < 300 {
-                            responseHandler(.success(getData.data ?? ""))
+                        if getData.status < 300 || getData.status == 404 {
+                            responseHandler(.success(getData.status))
+                            DebugLog(getData.data ?? "")
                         } else {
                             responseHandler(.failure(HeroAPIError(errorCode: ErrorCode(rawValue: getData.status) ?? .unknown, statusCode: getData.status, errorMessage: getData.message)))
                         }
