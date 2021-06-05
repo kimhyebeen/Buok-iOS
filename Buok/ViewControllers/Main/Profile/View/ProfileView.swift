@@ -1,5 +1,5 @@
 //
-//  FriendPageProfileView.swift
+//  ProfileView.swift
 //  Buok
 //
 //  Created by 김혜빈 on 2021/05/22.
@@ -7,22 +7,34 @@
 
 import HeroUI
 
-protocol FriendPageProfileViewDelegate: AnyObject {
+protocol ProfileViewDelegate: AnyObject {
     func onClickFriendButton()
+    func onClickEditButton()
+    func onClickFriendCountingButton()
+    func onClickBucketCountingButton()
 }
 
-class FriendPageProfileView: UIView {
+class ProfileView: UIView {
     private let profileImageView = UIImageView()
     private let nameLabel = UILabel()
     private let emailLabel = UILabel()
     private let friendButton = FriendButton()
+    private let editProfileButton = UIButton()
     let countingButtonStack = MypageCountingStackView()
     private let introduceLabel = UILabel()
     private let dateImageView = UIImageView()
     private let dateLabel = UILabel()
     
     private var widthOfFriendButton: NSLayoutConstraint?
-    weak var delegate: FriendPageProfileViewDelegate?
+    
+    var isMyPage: Bool = false {
+        didSet {
+            editProfileButton.isHidden = !isMyPage
+            friendButton.isHidden = isMyPage
+        }
+    }
+    
+    weak var delegate: ProfileViewDelegate?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -47,8 +59,26 @@ class FriendPageProfileView: UIView {
         setupDateLabel()
     }
     
-    func setProfile() {
-        // todo - Profile 객체를 받아 뷰 업데이트
+    func setProfile(myPageData: MyPageUserData) {
+        nameLabel.text = myPageData.user.nickname
+        emailLabel.text = myPageData.user.email
+        introduceLabel.text = myPageData.user.intro
+        
+        if let createdDate = myPageData.user.createdDate {
+            let date = createdDate.convertToDate()
+            let components = date.get(.month, .year)
+            if let month = components.month, let year = components.year {
+                let monthString = month < 10 ? "0\(month)" : "\(month)"
+                dateLabel.text = "\(year)년 \(monthString)월에 가입함"
+            }
+        }
+        
+        if let profileURL = URL(string: myPageData.user.profileUrl ?? "") {
+            self.profileImageView.kf.setImage(with: profileURL)
+        }
+        
+        countingButtonStack.friendCount = myPageData.friendCount
+        countingButtonStack.bucketCount = myPageData.bucketCount
     }
     
     func settingFriendButtonType(for type: FriendButtonType) {
@@ -63,13 +93,27 @@ class FriendPageProfileView: UIView {
     }
     
     @objc
+    func clickFriendCountingButton(_ sender: UIButton) {
+        delegate?.onClickFriendCountingButton()
+    }
+    
+    @objc
+    func clickBucketCountingButton(_ sender: UIButton) {
+        delegate?.onClickBucketCountingButton()
+    }
+    
+    @objc
     func clickFriendButton(_ sender: UIButton) {
         delegate?.onClickFriendButton()
     }
 
+    @objc
+    func clickEditButton(_ sender: UIButton) {
+        delegate?.onClickEditButton()
+    }
 }
 
-extension FriendPageProfileView {
+extension ProfileView {
     // MARK: ProfileImageView
     private func setupProfileImageView() {
         profileImageView.image = UIImage(heroSharedNamed: "ic_profile_48")

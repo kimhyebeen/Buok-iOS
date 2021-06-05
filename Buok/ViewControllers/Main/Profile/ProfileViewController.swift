@@ -1,24 +1,30 @@
 //
-//  FriendPageViewController.swift
+//  ProfileViewController.swift
 //  Buok
 //
-//  Created by 김혜빈 on 2021/05/22.
+//  Created by Taein Kim on 2021/06/05.
 //
 
 import HeroUI
 
-class FriendPageViewController: HeroBaseViewController {
+class ProfileViewController: HeroBaseViewController {
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
     let safeAreaView = UIView()
     let topView = UIView()
     let backButton = UIButton()
     
-    let profileView = FriendPageProfileView()
-    let headerView = FriendPageBuokmarkHeaderView()
+    let profileView = ProfileView()
+    let headerView = ProfileBuokmarkHeaderView()
     let emptyBucketStackView = UIStackView()
     
-    private var viewModel = FriendPageViewModel()
+    private var viewModel = ProfileViewModel()
+    
+    var isMyPage: Bool = false {
+        didSet {
+            viewModel.isMe.value = isMyPage
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +56,10 @@ class FriendPageViewController: HeroBaseViewController {
             self?.profileView.settingFriendButtonType(for: profile.type)
             self?.collectionView.reloadData()
         }
+        
+        viewModel.isMe.bind({ [weak self] isMe in
+            self?.profileView.isMyPage = isMe
+        })
     }
     
     @objc
@@ -65,7 +75,7 @@ class FriendPageViewController: HeroBaseViewController {
 
 // MARK: +Delegate
 
-extension FriendPageViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 2
     }
@@ -106,7 +116,9 @@ extension FriendPageViewController: UICollectionViewDelegate, UICollectionViewDa
             return BuokmarkCollectionCell()
         }
         
-        cell.setInformation(to: viewModel.bookmarkData.value[indexPath.row], color: MypageViewController.buokmarkColors[indexPath.row % 3])
+        if viewModel.bookmarkData.value.count > indexPath.row {
+            cell.setInformation(to: viewModel.bookmarkData.value[indexPath.row], color: MypageViewController.buokmarkColors[indexPath.row % 3])
+        }
         
         return cell
     }
@@ -161,19 +173,34 @@ extension FriendPageViewController: UICollectionViewDelegate, UICollectionViewDa
     }
 }
 
-extension FriendPageViewController: FriendPageBuokmarkHeaderViewDelegate {
+extension ProfileViewController: ProfileBuokmarkHeaderViewDelegate {
     func reloadCollectionView() {
         self.collectionView.reloadData()
     }
 }
 
-extension FriendPageViewController: FriendPageProfileViewDelegate {
+extension ProfileViewController: ProfileViewDelegate {
+    func onClickEditButton() {
+        let editVC = EditProfileViewController()
+        editVC.modalPresentationStyle = .fullScreen
+        self.present(editVC, animated: true, completion: nil)
+    }
+    
+    func onClickFriendCountingButton() {
+        // 친구 수 클릭
+        self.navigationController?.pushViewController(FriendListViewController(), animated: true)
+    }
+    
+    func onClickBucketCountingButton() {
+        // 버킷 수 클릭
+    }
+    
     func onClickFriendButton() {
-        // todo - 친구버튼 구현
+        // 친구버튼 구현
     }
 }
 
-extension FriendPageViewController {
+extension ProfileViewController {
     // MARK: SafeAreaView
     func setupSafeAreaView() {
         safeAreaView.backgroundColor = .heroServiceSkin
@@ -243,6 +270,7 @@ extension FriendPageViewController {
     // MARK: HeaderView
     func setupHeaderView() {
         headerView.delegate = self
+        headerView.isMyPage = isMyPage
         self.view.addSubview(headerView)
         
         headerView.snp.makeConstraints { make in

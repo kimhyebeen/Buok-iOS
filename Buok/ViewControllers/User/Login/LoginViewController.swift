@@ -30,6 +30,8 @@ public class LoginViewController: HeroBaseViewController {
     public override func viewDidLoad() {
 		super.viewDidLoad()
 		
+        TokenManager.shared.deleteAllTokenData()
+        
         viewModel.isEmailExist.bind({ isExist in
             if isExist {
                 let loginPasswordVC = LoginPasswordViewController()

@@ -78,6 +78,7 @@ public class BaseAPIRequest {
             
             if let requestHeaders = requestType.requestHeaders {
                 heroRequest.requestHeaders = requestHeaders
+                DebugLog("HTTP Headers : \(requestHeaders.description)")
             }
             
             if let requestBodyBucket = requestType.requestBody {
@@ -103,6 +104,7 @@ public class BaseAPIRequest {
             let heroRequest = HeroRequest(path: url.path, httpMethod: requestType.httpMethod, encoding: requestType.encoding, parameter: requestType.requestParameter)
             if let requestHeaders = requestType.requestHeaders {
                 heroRequest.requestHeaders = requestHeaders
+                DebugLog("HTTP Headers : \(requestHeaders.description)")
             }
             
             AF.request(heroRequest).responseString { response in

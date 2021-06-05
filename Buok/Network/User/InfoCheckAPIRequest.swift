@@ -37,24 +37,24 @@ public struct InfoCheckAPIRequest {
         }
         
         var requestParameter: [String: Any]? {
-            nil
-        }
-        
-        var httpMethod: HeroRequest.Method {
-            .post
-        }
-        
-        var encoding: HeroRequest.RequestEncoding {
-            .json
-        }
-        
-        var requestBody: [String: Any]? {
             switch self {
             case let .emailCheck(email):
                 return ["email": email]
             case let .nicknameCheck(nickname):
                 return ["nickname": nickname]
             }
+        }
+        
+        var httpMethod: HeroRequest.Method {
+            .get
+        }
+        
+        var encoding: HeroRequest.RequestEncoding {
+            .urlQuery
+        }
+        
+        var requestBody: [String: Any]? {
+            nil
         }
         
         var imagesToUpload: [UIImage]? {
@@ -78,7 +78,7 @@ public struct InfoCheckAPIRequest {
                         if getData.status < 300 {
                             responseHandler(.success(getData.data ?? ""))
                         } else {
-                            responseHandler(.failure(HeroAPIError(errorCode: ErrorCode(rawValue: getData.status)!, statusCode: getData.status, errorMessage: getData.message)))
+                            responseHandler(.failure(HeroAPIError(errorCode: ErrorCode(rawValue: getData.status) ?? .unknown, statusCode: getData.status, errorMessage: getData.message)))
                         }
                     }
                 } catch {
@@ -99,7 +99,7 @@ public struct InfoCheckAPIRequest {
                     if getData.status < 300 {
                         responseHandler(.success(true))
                     } else {
-                        responseHandler(.failure(HeroAPIError(errorCode: ErrorCode(rawValue: getData.status)!, statusCode: getData.status, errorMessage: getData.message)))
+                        responseHandler(.failure(HeroAPIError(errorCode: ErrorCode(rawValue: getData.status) ?? .unknown, statusCode: getData.status, errorMessage: getData.message)))
                     }
                 }
             } catch {

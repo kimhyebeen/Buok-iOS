@@ -46,9 +46,11 @@ class UserViewModel {
             switch result {
             case .success(let resultString):
                 DebugLog("Result String : \(resultString)")
-                self.isEmailExist.value = true
-            case .failure(_):
                 self.isEmailExist.value = false
+//                self.isEmailExist.value = true
+            case .failure(_):
+//                self.isEmailExist.value = false
+                self.isEmailExist.value = true
                 ErrorLog("Error")
             }
         })

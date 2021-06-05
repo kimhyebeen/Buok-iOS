@@ -30,10 +30,12 @@ struct FriendProfile {
                                  "버킷리스트", "버킷리스트", "버킷리스트", "버킷리스트", "버킷리스트", "버킷리스트"]
 }
 
-class FriendPageViewModel {
+class ProfileViewModel {
     private(set) var friendType: FriendButtonType = .friend
     private(set) var buokmarks: [BuokmarkFlag] = []
     private(set) var bucketBooks: [String] = []
+    
+    var isMe: Dynamic<Bool> = Dynamic(false)
     
     var bookmarkData: Dynamic<[BookmarkListData]> = Dynamic([BookmarkListData]())
     var bookmarkCount: Dynamic<Int> = Dynamic(0)
