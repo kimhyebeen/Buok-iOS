@@ -20,6 +20,10 @@ public struct HeroConstants {
 		return "/users"
 	}
     
+	public static var social: String {
+		return "/social"
+	}
+	
     public static var email: String {
         return "/email"
     }

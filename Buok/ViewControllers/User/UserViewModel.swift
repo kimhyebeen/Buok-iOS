@@ -13,6 +13,7 @@ import KakaoSDKUser
 import Promise
 
 class UserViewModel {
+	var deviceToken: String = "dGZELRmc9E2llCkArhSYrH:APA91bGiazwdr-o2VddVJw5rJUEEyfPjNrhKKRpqtLeIBvvHv4Tpv3ykf743KSWZhRe8tyvvTc89eFtcst1KoUuDBcCCROT9WkihK44zvflF2c4_AUTnmYhRLTqelIibOnZVXtUUpyEq"
     var email: String = ""
     var password: String = ""
     var nickname: String = ""
@@ -89,7 +90,7 @@ class UserViewModel {
     }
     
     func requestJoin() -> String? {
-        SignAPIRequest.signUpRequest(email: email, intro: introduce ?? "", nickname: nickname, password: password, responseHandler: { result in
+		SignAPIRequest.signUpRequest(deviceToken: deviceToken, email: email, intro: introduce ?? "", nickname: nickname, password: password, responseHandler: { result in
             switch result {
             case .success(let isSuccess):
                 DebugLog("Is Success : \(isSuccess)")
