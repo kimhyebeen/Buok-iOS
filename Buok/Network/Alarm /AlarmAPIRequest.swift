@@ -11,22 +11,27 @@ import HeroCommon
 import HeroNetwork
 import HeroUI
 
+public struct NotificationModel: Codable {
+	var title: String
+	var content: String
+}
+
 struct AlarmLogServerModel: Codable {
 	var status: Int
 	var message: String
-	var data: [String]?
+	var data: [NotificationModel]?
 }
 
 public struct AlarmAPIRequest {
 	enum AlarmRequestType: APIRequestType {
-		case getAlarmList
-		case deleteAlarmLog(alarmId: Int)
+		case getNotificationList
+		case deleteNotification(alarmId: Int)
 		
 		var requestURL: URL {
 			switch self {
-			case .getAlarmList:
+			case .getNotificationList:
 				return URL(string: HeroConstants.alarm)!
-			case let .deleteAlarmLog(alarmId):
+			case let .deleteNotification(alarmId):
 				return URL(string: HeroConstants.alarm + "/\(alarmId)")!
 			}
 		}
@@ -37,9 +42,9 @@ public struct AlarmAPIRequest {
 		
 		var httpMethod: HeroRequest.Method {
 			switch self {
-			case .getAlarmList:
+			case .getNotificationList:
 				return .get
-			case .deleteAlarmLog:
+			case .deleteNotification:
 				return .delete
 			}
 		}
@@ -57,8 +62,8 @@ public struct AlarmAPIRequest {
 		}
 	}
 	
-	static func alarmListRequest(responseHandler: @escaping (Result<[String], HeroAPIError>) -> Void) {
-		BaseAPIRequest.requestJSONResponse(requestType: AlarmRequestType.getAlarmList).then { responseData in
+	static func alarmListRequest(responseHandler: @escaping (Result<[NotificationModel], HeroAPIError>) -> Void) {
+		BaseAPIRequest.requestJSONResponse(requestType: AlarmRequestType.getNotificationList).then { responseData in
 			do {
 				if let dictData = responseData as? NSDictionary {
 					let jsonData = try JSONSerialization.data(withJSONObject: dictData, options: .prettyPrinted)
@@ -79,7 +84,7 @@ public struct AlarmAPIRequest {
 	}
 	
 	static func deleteAlarmLog(alarmId: Int, responseHandler: @escaping (Result<Bool, HeroAPIError>) -> Void) {
-		BaseAPIRequest.requestJSONResponse(requestType: AlarmRequestType.deleteAlarmLog(alarmId: alarmId)).then { responseData in
+		BaseAPIRequest.requestJSONResponse(requestType: AlarmRequestType.deleteNotification(alarmId: alarmId)).then { responseData in
 			do {
 				if let dictData = responseData as? NSDictionary {
 					let jsonData = try JSONSerialization.data(withJSONObject: dictData, options: .prettyPrinted)

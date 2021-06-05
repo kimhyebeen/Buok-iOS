@@ -168,7 +168,10 @@ public class HomeViewController: HeroBaseViewController {
     
     @objc
     func onClickNotification(_ sender: Any?) {
-        navigationController?.pushViewController(MultiLevelViewController(), animated: true)
+		let vc = NotificationViewController()
+		let viewModel = NotificationViewModel()
+		vc.viewModel = viewModel
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc

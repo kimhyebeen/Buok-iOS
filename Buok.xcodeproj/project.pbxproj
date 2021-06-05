@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		20578AFA9B716592135E4D20 /* Pods_BuokTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA30482BA20B7DD44EA69D7 /* Pods_BuokTests.framework */; };
 		293857E1266BA66500E8DB65 /* AlarmAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293857E0266BA66500E8DB65 /* AlarmAPIRequest.swift */; };
+		293857F0266BE0A500E8DB65 /* NotificationCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293857EF266BE0A500E8DB65 /* NotificationCollectionCell.swift */; };
 		29773EFB2647FAB900FB7AA8 /* LoginViewController+AppleID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29773EFA2647FAB900FB7AA8 /* LoginViewController+AppleID.swift */; };
 		298561AD2663F5C600830084 /* InfoCheckAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298561AC2663F5C600830084 /* InfoCheckAPIRequest.swift */; };
 		29CA50B5265AEE7B00533ED6 /* UserAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CA50B4265AEE7B00533ED6 /* UserAPIRequest.swift */; };
@@ -238,6 +239,7 @@
 		1F612B424FD0728306E3799D /* Pods-YappHero-YappHeroUITests.sandbox(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHero-YappHeroUITests.sandbox(debug).xcconfig"; path = "Target Support Files/Pods-YappHero-YappHeroUITests/Pods-YappHero-YappHeroUITests.sandbox(debug).xcconfig"; sourceTree = "<group>"; };
 		218B8F72E8EDC19D3A336452 /* Pods-BucketList-BucketListUITests.inhouse(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BucketList-BucketListUITests.inhouse(debug).xcconfig"; path = "Target Support Files/Pods-BucketList-BucketListUITests/Pods-BucketList-BucketListUITests.inhouse(debug).xcconfig"; sourceTree = "<group>"; };
 		293857E0266BA66500E8DB65 /* AlarmAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmAPIRequest.swift; sourceTree = "<group>"; };
+		293857EF266BE0A500E8DB65 /* NotificationCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCollectionCell.swift; sourceTree = "<group>"; };
 		29773EFA2647FAB900FB7AA8 /* LoginViewController+AppleID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "LoginViewController+AppleID.swift"; path = "Buok/ViewControllers/User/SignIn/LoginViewController+AppleID.swift"; sourceTree = SOURCE_ROOT; };
 		298561AC2663F5C600830084 /* InfoCheckAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCheckAPIRequest.swift; sourceTree = "<group>"; };
 		29CA50B4265AEE7B00533ED6 /* UserAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPIRequest.swift; sourceTree = "<group>"; };
@@ -818,6 +820,7 @@
 		B07CD19A266675140031B106 /* Notification */ = {
 			isa = PBXGroup;
 			children = (
+				293857EF266BE0A500E8DB65 /* NotificationCollectionCell.swift */,
 				B07CD19B2666751F0031B106 /* NotificationViewController.swift */,
 				B07CD19F266675530031B106 /* NotificationViewModel.swift */,
 			);
@@ -1439,6 +1442,7 @@
 				B0B033C92621CDA700D65204 /* SettingCell.swift in Sources */,
 				B04C15E826015FCF0084BAEC /* LoginViewController.swift in Sources */,
 				B01D43B026039D5700F2D28C /* HomeViewModel.swift in Sources */,
+				293857F0266BE0A500E8DB65 /* NotificationCollectionCell.swift in Sources */,
 				B08CEB2A2662098600FF77BD /* SplashViewController.swift in Sources */,
 				B0B035ED2622B33800D65204 /* SettingConstants.swift in Sources */,
 				EE61F70726457CA3004DF51B /* UserViewModel.swift in Sources */,
