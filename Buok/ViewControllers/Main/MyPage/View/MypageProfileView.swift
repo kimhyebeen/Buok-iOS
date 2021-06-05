@@ -6,6 +6,7 @@
 //
 
 import HeroUI
+import Kingfisher
 
 protocol MypageProfileViewDelegate: AnyObject {
     func onClickEditButton()
@@ -61,6 +62,10 @@ class MypageProfileView: UIView {
             }
         }
         
+        if let profileURL = URL(string: myPageData.user.profileUrl ?? "") {
+            self.profileImageView.kf.setImage(with: profileURL)
+        }
+        
         countingButtonStack.friendCount = myPageData.friendCount
         countingButtonStack.bucketCount = myPageData.bucketCount
     }
@@ -88,6 +93,7 @@ extension MypageProfileView {
         profileImageView.image = UIImage(heroSharedNamed: "ic_profile_48")
         profileImageView.contentMode = .scaleAspectFill
         profileImageView.layer.cornerRadius = 32
+        profileImageView.clipsToBounds = true
         profileImageView.layer.backgroundColor = UIColor.white.cgColor
         self.addSubview(profileImageView)
         

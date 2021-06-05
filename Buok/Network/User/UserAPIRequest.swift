@@ -63,7 +63,7 @@ struct BookmarkListData: Codable {
 struct ProfileData: Codable {
 	var intro: String
 	var nickname: String
-	var profileUrl: String
+	var profileUrl: String?
 }
 
 // MARK: - ServerModel
