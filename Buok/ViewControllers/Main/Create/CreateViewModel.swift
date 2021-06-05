@@ -71,14 +71,15 @@ public class CreateViewModel {
     
     public func requestCreatePost(urlList: [String]?) {
         let bucket = BucketRequestModel(bucketName: bucketTitle.value,
-                            categoryId: bucketCategory.value.getCategoryIndex(),
-                            content: bucketContent.value,
-                            endDate: finishDate.value.convertToSmallString(),
-                            imageList: urlList,
-                            startDate: Date().convertToSmallString(),
-                            bucketState: bucketStatus.value.rawValue + 2,
-                            tagList: tagList.value)
+                                        categoryId: bucketCategory.value.getCategoryIndex(),
+                                        content: bucketContent.value,
+                                        endDate: finishDate.value.convertToSmallString(),
+                                        imageList: urlList,
+                                        startDate: Date().convertToSmallString(),
+                                        bucketState: bucketStatus.value.rawValue + 2,
+                                        tagList: tagList.value)
         
+        DebugLog("Create Bucket End Date : \(finishDate.value.convertToString())")
         BucketListAPIRequest.bucketPostRequest(bucket: bucket, responseHandler: { result in
             switch result {
             case .success(let isSuccess):

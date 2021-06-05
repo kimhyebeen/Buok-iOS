@@ -29,6 +29,7 @@ class BucketCollectionCell: UICollectionViewCell {
     func setInformation(_ text: String, _ type: BucketStatusType) {
         // todo - 추후 수정 필요
         bucketLabel.text = text
+        
         flagView.settingBucketType(to: type)
         if type == .done || type == .fail {
             dateLabel.textColor = .heroPrimaryPinkLight
