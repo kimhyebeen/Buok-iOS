@@ -109,6 +109,43 @@ final class SettingViewController: HeroBaseViewController {
     }
 }
 
+extension SettingViewController: HeroAlertViewDelegate {
+    func selectViewCloseClicked(viewController: HeroAlertViewController) {
+        viewController.dismiss(animated: false, completion: nil)
+    }
+    
+    func selectViewItemSelected(viewController: HeroAlertViewController, selected type: HeroAlertButtonType) {
+        if type == .positive {
+            viewController.dismiss(animated: false, completion: nil)
+            
+            let navController = HeroNavigationController(navigationBarClass: HeroUINavigationBar.self, toolbarClass: nil)
+            navController.viewControllers = [LoginViewController()]
+            navController.isNavigationBarHidden = true
+            
+            if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+                appDelegate.window?.rootViewController = navController
+                appDelegate.window?.makeKeyAndVisible()
+            }
+        } else {
+            viewController.dismiss(animated: false, completion: nil)
+        }
+    }
+    
+    func doLogout() {
+        let alert = HeroAlertViewController()
+        alert.titleContent = "로그아웃"
+        alert.negativeButtonTitle = "취소"
+        alert.positiveButtonTitle = "로그아웃"
+        
+        alert.descContent = "아래 계정으로 다시 로그인 하실 수 있습니다."
+        alert.subDescContent = "\(email)\n\(connectedAccount)"
+        alert.delegate = self
+        
+        alert.modalPresentationStyle = .overCurrentContext
+        self.present(alert, animated: false, completion: nil)
+    }
+}
+
 extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 4
@@ -124,8 +161,14 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let settingType = getSettingType(by: indexPath)
-        if let vc = SettingNavigator.getDestViewController(type: settingType) {
-            navigationController?.pushViewController(vc, animated: true)
+        if settingType == .logout {
+            doLogout()
+        } else if settingType == .withDrawal {
+            // 탈퇴
+        } else {
+            if let vc = SettingNavigator.getDestViewController(type: settingType) {
+                navigationController?.pushViewController(vc, animated: true)
+            }
         }
     }
     

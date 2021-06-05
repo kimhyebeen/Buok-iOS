@@ -10,144 +10,198 @@ import HeroCommon
 import SnapKit
 import UIKit
 
+public enum HeroAlertButtonType: Int {
+    case negative = 0
+    case positive = 1
+}
+
+public protocol HeroAlertViewDelegate: AnyObject {
+    func selectViewCloseClicked(viewController: HeroAlertViewController)
+    
+    func selectViewItemSelected(viewController: HeroAlertViewController, selected type: HeroAlertButtonType)
+}
+
 public class HeroAlertViewController: UIViewController {
     private let overLayWindow: UIWindow = UIWindow(frame: UIScreen.main.bounds)
     private let contentView: UIView = UIView()
-    private let alertContentView: UIView = UIView()
-    private let contentStackView: UIStackView = UIStackView()
-    private let topButton: HeroAlertButton = HeroAlertButton()
-    private let bottomButton: HeroAlertButton = HeroAlertButton()
+    private let selectContentView: UIView = UIView()
     
+    private let titleView: UIView = UIView()
     private let titleLabel: UILabel = UILabel()
-    private let descLabel: UILabel = UILabel()
+    private let closeButton: UIButton = UIButton()
+    private let separator: UIView = UIView()
     
-    public var positiveHandler: (() -> Void)?
-    public var negativeHandler: (() -> Void)?
+    private let contentStackView: UIStackView = UIStackView()
+    private let contentLabel: UILabel = UILabel()
+    private let subContentLabel: UILabel = UILabel()
     
-    public var buttonType: AlertButtonSetType = .okCancel
+    private let buttonStackView: UIStackView = UIStackView()
+    private let negativeButton: UIButton = UIButton()
+    private let positiveButton: UIButton = UIButton()
+    
+    public weak var delegate: HeroAlertViewDelegate?
+    
+    public var titleContent: String = "" {
+        didSet {
+            titleLabel.text = titleContent
+        }
+    }
+    
+    public var descContent: String = "" {
+        didSet {
+            contentLabel.text = descContent
+        }
+    }
+    
+    public var subDescContent: String = "" {
+        didSet {
+            subContentLabel.text = subDescContent
+        }
+    }
+    
+    public var negativeButtonTitle: String = "" {
+        didSet {
+            negativeButton.setTitle(negativeButtonTitle, for: .normal)
+        }
+    }
+    
+    public var positiveButtonTitle: String = "" {
+        didSet {
+            positiveButton.setTitle(positiveButtonTitle, for: .normal)
+        }
+    }
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupViewLayout()
+    }
+    
+    private func setupViewLayout() {
         overLayWindow.backgroundColor = .clear
         overLayWindow.windowLevel = .normal + 25
         overLayWindow.makeKeyAndVisible()
         overLayWindow.isHidden = false
         
-        setupMainLayout()
-        setupViewProperties()
-        updateButtonTitle()
-    }
-    
-    private func updateButtonTitle() {
-        switch buttonType {
-        case .okCancel:
-            topButton.title = "확인"
-            bottomButton.title = "취소"
-        case .yesNo:
-            topButton.title = "예"
-            bottomButton.title = "아니오"
-        }
-    }
-    
-    private func setupMainLayout() {
         overLayWindow.addSubview(contentView)
-        contentView.addSubview(alertContentView)
+        contentView.addSubview(selectContentView)
+        
+        contentView.backgroundColor = .heroGray333333700
         
         contentView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
         
-        alertContentView.snp.makeConstraints { make in
+        selectContentView.snp.makeConstraints { make in
             make.center.equalToSuperview()
-            make.leading.equalToSuperview().offset(24)
-            make.trailing.equalToSuperview().offset(-24)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
         }
         
-        alertContentView.addSubview(contentStackView)
+        selectContentView.layer.cornerRadius = 8
+        selectContentView.layer.masksToBounds = true
+        selectContentView.backgroundColor = .heroWhite100s
+        
+        selectContentView.addSubview(titleView)
+        selectContentView.addSubview(contentStackView)
+        selectContentView.addSubview(buttonStackView)
+        
+        contentStackView.addArrangedSubview(contentLabel)
+        contentStackView.addArrangedSubview(subContentLabel)
+        
+        buttonStackView.addArrangedSubview(negativeButton)
+        buttonStackView.addArrangedSubview(positiveButton)
+        
+        titleView.snp.makeConstraints { make in
+            make.top.leading.trailing.equalToSuperview()
+            make.height.equalTo(48)
+        }
+        
         contentStackView.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(12)
-            make.trailing.equalToSuperview().offset(-12)
-            make.top.equalToSuperview().offset(20)
-            make.bottom.equalToSuperview().offset(-12)
+            make.top.equalTo(titleView.snp.bottom).offset(24)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().offset(-16)
         }
         
-        contentStackView.addArrangedSubview(titleLabel)
-        contentStackView.addArrangedSubview(descLabel)
-        contentStackView.addArrangedSubview(topButton)
-        contentStackView.addArrangedSubview(bottomButton)
+        buttonStackView.snp.makeConstraints { make in
+            make.top.equalTo(contentStackView.snp.bottom).offset(24)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().offset(-16)
+            make.bottom.equalToSuperview().offset(-16)
+            make.height.equalTo(40)
+        }
         
-        contentStackView.setCustomSpacing(8, after: titleLabel)
-        contentStackView.setCustomSpacing(20, after: descLabel)
-    }
-    
-    private func setupViewProperties() {
-        contentView.backgroundColor = .clear
-        contentView.alpha = 0
+        titleView.addSubview(titleLabel)
+        titleView.addSubview(closeButton)
+        titleView.addSubview(separator)
         
-        UIView.animate(withDuration: 0.3, animations: {
-            self.contentView.backgroundColor = .heroGray100a
-            self.contentView.alpha = 1
-        })
+        titleLabel.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+        }
+        
+        separator.snp.makeConstraints { make in
+            make.bottom.leading.trailing.equalToSuperview()
+            make.height.equalTo(1.5)
+        }
+        
+        closeButton.snp.makeConstraints { make in
+            make.top.bottom.trailing.equalToSuperview()
+            make.width.equalTo(closeButton.snp.height)
+        }
+        
+        titleLabel.font = .font17PMedium
+        titleLabel.textColor = .heroGray5B
+        closeButton.setImage(UIImage(heroSharedNamed: "ic_x_bold"), for: .normal)
+        closeButton.addTarget(self, action: #selector(onClickClose(_:)), for: .touchUpInside)
+        separator.backgroundColor = .heroGrayF1F1F1
         
         contentStackView.axis = .vertical
-        contentStackView.spacing = 0
+        contentStackView.spacing = 8
         
-        titleLabel.font = .font26PBold
-        descLabel.font = .font16P
+        buttonStackView.axis = .horizontal
+        buttonStackView.distribution = .fillEqually
+        buttonStackView.spacing = 15
         
-        titleLabel.textColor = .heroBlack100s
-        descLabel.textColor = .heroGray600s
+        contentLabel.textAlignment = .center
+        subContentLabel.textAlignment = .center
         
-        titleLabel.textAlignment = .center
-        descLabel.textAlignment = .center
-        descLabel.numberOfLines = 0
+        contentLabel.textColor = .heroGray5B
+        contentLabel.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         
-        topButton.alertButtonType = .okay
-        bottomButton.alertButtonType = .cancel
+        subContentLabel.numberOfLines = 0
+        subContentLabel.textColor = .heroGray5B
+        subContentLabel.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         
-        topButton.addTarget(self, action: #selector(onClickPositiveButton(_:)), for: .touchUpInside)
-        bottomButton.addTarget(self, action: #selector(onClickNegativeButton(_:)), for: .touchUpInside)
-
-        alertContentView.backgroundColor = .heroWhite100s
-        alertContentView.layer.shadowOpacity = 0.3
-        alertContentView.layer.cornerRadius = 24
-        alertContentView.layer.shadowRadius = 24
-        alertContentView.layer.shadowColor = UIColor.heroBlack100s.cgColor
-    }
-    
-    public func setTitle(title: String) {
-        titleLabel.isHidden = true
-        titleLabel.text = title
-        titleLabel.isHidden = false
-    }
-    
-    public func setDescription(description: String) {
-        descLabel.isHidden = true
-        descLabel.text = description
-        descLabel.isHidden = false
-    }
-    
-    @objc
-    private func onClickPositiveButton(_ sender: UIButton) {
-        positiveHandler?()
-        clearAndDismiss()
+//        negativeButton.snp.makeConstraints { make in
+//            make.width.equalTo(selectContentView.bounds.width - 32 - 15)
+//        }
+        
+        negativeButton.backgroundColor = .heroGrayE7E1DC
+        negativeButton.setTitleColor(.heroGray82, for: .normal)
+        
+        positiveButton.backgroundColor = .heroPrimaryNavyLight
+        positiveButton.setTitleColor(.heroWhite100s, for: .normal)
+        
+        [negativeButton, positiveButton].forEach {
+            $0.layer.cornerRadius = 6
+            $0.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
+        }
+        
+        negativeButton.addTarget(self, action: #selector(onClickNegative(_:)), for: .touchUpInside)
+        positiveButton.addTarget(self, action: #selector(onClickPositive(_:)), for: .touchUpInside)
     }
     
     @objc
-    private func onClickNegativeButton(_ sender: UIButton) {
-        negativeHandler?()
-        clearAndDismiss()
+    private func onClickClose(_ sender: UIButton) {
+        delegate?.selectViewCloseClicked(viewController: self)
     }
     
-    private func clearAndDismiss() {
-        UIView.animate(withDuration: 0.3, animations: {
-            self.contentView.alpha = 0
-        })
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
-            self.overLayWindow.isHidden = true
-            self.dismiss(animated: false, completion: nil)
-        })
+    @objc
+    private func onClickNegative(_ sender: UIButton) {
+        delegate?.selectViewItemSelected(viewController: self, selected: .negative)
+    }
+    
+    @objc
+    private func onClickPositive(_ sender: UIButton) {
+        delegate?.selectViewItemSelected(viewController: self, selected: .positive)
     }
 }
