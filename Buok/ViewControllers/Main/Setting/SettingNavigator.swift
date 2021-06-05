@@ -22,18 +22,12 @@ final class SettingNavigator {
             DebugLog("Connected Account Clicked")
         case .appVersion:
             DebugLog("App Version Clicked")
-        case .lock:
-            DebugLog("Lock Clicked")
-        case .language:
-            DebugLog("Language Clicked")
-        case .notification:
-            DebugLog("Notification Clicked")
-        case .dataManagement:
-            DebugLog("Data Management Clicked")
-        case .backup:
-            DebugLog("Backup Clicked")
-        case .contact:
-            DebugLog("Contact Clicked")
+        case .logout:
+            DebugLog("Logout Clicked")
+        case .withDrawal:
+            DebugLog("WithDrawal Clicked")
+        case .policy:
+            DebugLog("Policy Clicked")
         }
         return destinationVC
     }

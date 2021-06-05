@@ -32,13 +32,13 @@ final class SettingCell: UITableViewCell {
     
     private let titleLabel: UILabel = {
         $0.font = .font14P
-        $0.textColor = .heroGraySample300s
+        $0.textColor = .heroGray82
         return $0
     }(UILabel())
     
     private let contentLabel: UILabel = {
         $0.font = .font14P
-        $0.textColor = .heroGray600s
+        $0.textColor = .heroGray5B
         return $0
     }(UILabel())
     

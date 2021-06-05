@@ -19,8 +19,8 @@ final class SettingViewController: HeroBaseViewController {
     private enum SectionType: Int {
         case account = 0
         case appVersion = 1
-        case security = 2
-        case data = 3
+        case logoutWithDrawal = 2
+        case policy = 3
     }
     
     override func viewDidLoad() {
@@ -37,12 +37,12 @@ final class SettingViewController: HeroBaseViewController {
         tableView.dataSource = self
         tableView.separatorInset = .zero
         tableView.separatorStyle = .none
-        tableView.backgroundColor = .heroGrayE7E1DC
+        tableView.backgroundColor = .clear
         tableView.tableFooterView = UIView()
         
         tableView.register(SettingCell.self, forCellReuseIdentifier: SettingCell.identifier)
         tableView.register(SettingInfoCell.self, forCellReuseIdentifier: SettingInfoCell.identifier)
-        view.backgroundColor = .heroGrayE7E1DC
+        view.backgroundColor = .heroGrayF2EDE8
         
 //        navigationController?.setNavigationBarHidden(false, animated: false)
 //        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.heroGray82]
@@ -86,8 +86,8 @@ final class SettingViewController: HeroBaseViewController {
         backButton.snp.makeConstraints { make in
             make.leading.equalToSuperview()
             make.centerY.equalToSuperview()
-            make.width.equalTo(24)
-            make.height.equalTo(24)
+            make.width.equalTo(48)
+            make.height.equalTo(48)
         }
         
         titleLabel.font = .font17PBold
@@ -143,6 +143,8 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
                 
                 if settingType == .mail {
                     cell.content = "test@gmail.com"
+                } else if settingType == .connectedAccount {
+                    cell.content = "카카오톡"
                 }
                 
                 return cell
@@ -158,10 +160,10 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
             return 2
         case SectionType.appVersion.rawValue:
             return 1
-        case SectionType.security.rawValue:
-            return 3
-        case SectionType.data.rawValue:
-            return 3
+        case SectionType.logoutWithDrawal.rawValue:
+            return 2
+        case SectionType.policy.rawValue:
+            return 1
         default:
             return 0
         }
@@ -174,16 +176,18 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
     private func getSettingCellType(by indexPath: IndexPath) -> SettingCellType {
         if let type = SettingType(rawValue: getRowCount(indexPath)) {
             switch type {
-            case .mail:
+            case .mail, .connectedAccount:
                 return .normal
             case .appVersion:
                 return .info
-            default:
+            case .policy:
                 return .button
+            default:
+                return .buttonWithNoImage
             }
         }
         
-        return .button
+        return .buttonWithNoImage
     }
     
     fileprivate func getRowCount(_ indexPath: IndexPath) -> Int {
