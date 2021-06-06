@@ -14,6 +14,7 @@ public class DetailViewModel {
     public var historyList: Dynamic<[BucketHistoryModel]?> = Dynamic(nil)
     public var tagList: Dynamic<[String]?> = Dynamic(nil)
     public var imageUrlList: Dynamic<[String]?> = Dynamic(nil)
+    public var bucketContent: Dynamic<String> = Dynamic("")
     
     public var state: Dynamic<BucketState> = Dynamic(.now)
     public var isBookmark: Dynamic<Bool> = Dynamic(false)
@@ -57,6 +58,9 @@ public class DetailViewModel {
                     self.tagList.value = bucketDetailModel.tags?.map({ $0.tagName })
                     self.imageUrlList.value = bucketDetailModel.images?.map({ $0.imageUrl })
                     self.historyList.value = bucketDetailModel.bucketTimelines
+                    self.isBookmark.value = bucketDetailModel.bucket.bookmark
+                    self.isPinned.value = bucketDetailModel.bucket.fin
+                    self.bucketContent.value = bucketDetailModel.bucket.content ?? ""
                 case .failure(let error):
                     ErrorLog("ERROR: \(error.statusCode) / \(error.localizedDescription)")
                 }

@@ -14,7 +14,6 @@ public struct BucketHistoryModel: Codable {
 }
 
 public struct TagModel: Codable {
-    var id: Int
     var tagName: String
 }
 
@@ -45,6 +44,9 @@ public struct BucketModel: Codable {
     var endDate: String
     var bucketState: Int
     var categoryId: Int
+    var fin: Bool
+    var bookmark: Bool
+    var content: String?
 }
 
 public struct BucketListData: Codable {

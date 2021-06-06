@@ -82,6 +82,10 @@ public class DetailViewController: HeroBaseViewController {
             self.updateContent()
         })
         
+        viewModel?.bucketContent.bind({ content in
+            self.contentTextView.text = content
+        })
+        
         viewModel?.bucketItem.bind({ bucketItem in
             self.viewModel?.state.value = BucketState(rawValue: bucketItem?.bucketState ?? 0) ?? .now
             self.setContentData()
