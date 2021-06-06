@@ -22,6 +22,10 @@ public class DetailViewController: HeroBaseViewController {
     private let contentContainerView: UIView = UIView()
     private let historyContainerView: UIView = UIView()
     
+    private let historyTitleLabel: UILabel = UILabel()
+    private let historyDescLabel: UILabel = UILabel()
+    private let historyTableView: UITableView = UITableView()
+    
     private let stateView: UIView = UIView()
     private let stateLabel: UILabel = UILabel()
     
@@ -37,14 +41,11 @@ public class DetailViewController: HeroBaseViewController {
     private let contentBackgroundView: UIView = UIView()
     private let contentTextView: UITextView = UITextView()
     
-    private let viewModel: DetailViewModel = DetailViewModel()
+    private var collectionStackView: UIStackView = UIStackView()
+    private var imageCollectionView: UICollectionView?
+    private var tagCollectionView: UICollectionView?
     
-    public var bucketItem: BucketModel? {
-        didSet {
-            updateContent()
-            setContentData()
-        }
-    }
+    public var viewModel: DetailViewModel?
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,33 +58,69 @@ public class DetailViewController: HeroBaseViewController {
         super.viewWillAppear(animated)
         updateContent()
         setContentData()
+        viewModel?.getBucketDetailInfo()
     }
     
     private func updateContent() {
-        if viewModel.state.value == .done || viewModel.state.value == .failure {
-            optionButton.heroImage = UIImage(heroSharedNamed: "ic_mark")
+        if viewModel?.state.value == .done || viewModel?.state.value == .failure {
+            optionButton.heroImage = (viewModel?.isBookmark.value ?? false) ? UIImage(heroSharedNamed: "ic_mark_fill") : UIImage(heroSharedNamed: "ic_mark")
         } else {
-            optionButton.heroImage = UIImage(heroSharedNamed: "ic_pin")
+            optionButton.heroImage = (viewModel?.isPinned.value ?? false) ? UIImage(heroSharedNamed: "ic_pin_fill") : UIImage(heroSharedNamed: "ic_pin")
         }
     }
     
     private func bindViewModel() {
-        viewModel.state.bind({ state in
+        viewModel?.state.bind({ _ in
             self.updateContent()
         })
         
-        viewModel.bucketItem.bind({ bucketItem in
-            self.viewModel.state.value = BucketState(rawValue: bucketItem?.bucketState ?? 0) ?? .now
+        viewModel?.isBookmark.bind({ _ in
+            self.updateContent()
+        })
+        
+        viewModel?.isPinned.bind({ _ in
+            self.updateContent()
+        })
+        
+        viewModel?.bucketItem.bind({ bucketItem in
+            self.viewModel?.state.value = BucketState(rawValue: bucketItem?.bucketState ?? 0) ?? .now
             self.setContentData()
+        })
+        
+        viewModel?.historyList.bind({ historyList in
+            if historyList?.count ?? 0 < 1 {
+                self.historyContainerView.isHidden = true
+            } else {
+                self.historyContainerView.isHidden = false
+                self.historyTableView.reloadData()
+            }
+        })
+        
+        viewModel?.tagList.bind({ tagList in
+            if tagList?.count ?? 0 < 1 {
+                self.tagCollectionView?.isHidden = true
+            } else {
+                self.tagCollectionView?.isHidden = false
+                self.tagCollectionView?.reloadData()
+            }
+        })
+        
+        viewModel?.imageUrlList.bind({ imageList in
+            if imageList?.count ?? 0 < 1 {
+                self.imageCollectionView?.isHidden = true
+            } else {
+                self.imageCollectionView?.isHidden = false
+                self.imageCollectionView?.reloadData()
+            }
         })
     }
     
     private func setContentData() {
-        let state = BucketState(rawValue: bucketItem?.bucketState ?? 0)
-        let category = BucketCategory(rawValue: (bucketItem?.categoryId ?? 2) - 2)
+        let state = BucketState(rawValue: viewModel?.bucketItem.value?.bucketState ?? 0)
+        let category = BucketCategory(rawValue: (viewModel?.bucketItem.value?.categoryId ?? 2) - 2)
         var bgColor: UIColor?
         
-        stateLabel.text = viewModel.state.value.getTitle()
+        stateLabel.text = viewModel?.state.value.getTitle()
         categoryLabel.text = category?.getTitle()
         
         switch state {
@@ -102,10 +139,10 @@ public class DetailViewController: HeroBaseViewController {
         stateView.backgroundColor = bgColor
         categoryView.backgroundColor = .heroGray5B
         
-        titleLabel.text = bucketItem?.bucketName ?? ""
-        dateLabel.text = bucketItem?.endDate.convertToDate().convertToKoreanString()
+        titleLabel.text = viewModel?.bucketItem.value?.bucketName ?? ""
+        dateLabel.text = viewModel?.bucketItem.value?.endDate.convertToDate().convertToKoreanString()
         
-        contentTextView.text = "서버 연동 필요"
+        contentTextView.text = "API좀 만들어줘라"
     }
     
     private func setupMainLayout() {
@@ -168,14 +205,22 @@ public class DetailViewController: HeroBaseViewController {
         contentStackView.addArrangedSubview(contentContainerView)
         contentStackView.addArrangedSubview(historyContainerView)
         
-        contentContainerView.snp.makeConstraints { make in
-            make.height.equalTo(500)
-        }
+//        contentContainerView.snp.makeConstraints { make in
+//            make.height.equalTo(500)
+//        }
         
-        historyContainerView.snp.makeConstraints { make in
-            make.height.equalTo(250)
-        }
+//        historyContainerView.snp.makeConstraints { make in
+//            make.height.equalTo(250)
+//        }
         
+        setupContentLayout()
+        setupCollectionStackView()
+        setupImageCollectionView()
+        setupTagCollectionView()
+        setupHistoryLayout()
+    }
+    
+    private func setupContentLayout() {
         // MARK: Content Layout
         contentContainerView.addSubview(stateView)
         stateView.addSubview(stateLabel)
@@ -254,6 +299,80 @@ public class DetailViewController: HeroBaseViewController {
         }
     }
     
+    private func setupHistoryLayout() {
+        historyContainerView.addSubview(historyTitleLabel)
+        historyContainerView.addSubview(historyDescLabel)
+        historyContainerView.addSubview(historyTableView)
+        
+        historyTitleLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(24)
+            make.leading.equalToSuperview().offset(20)
+        }
+        
+        historyDescLabel.snp.makeConstraints { make in
+            make.centerY.equalTo(historyTitleLabel.snp.centerY)
+            make.trailing.equalToSuperview().offset(-20)
+        }
+        
+        historyTableView.snp.makeConstraints { make in
+            make.top.equalTo(historyTitleLabel.snp.bottom).offset(16)
+            make.leading.equalToSuperview().offset(24)
+            make.trailing.equalToSuperview().offset(-24)
+            make.bottom.equalToSuperview().offset(-24)
+        }
+    }
+    
+    private func setupCollectionStackView() {
+        contentContainerView.addSubview(collectionStackView)
+        collectionStackView.spacing = 16
+        collectionStackView.axis = .vertical
+        
+        collectionStackView.snp.makeConstraints { make in
+            make.top.equalTo(contentBackgroundView.snp.bottom).offset(20)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+            make.bottom.equalToSuperview().offset(-32)
+        }
+    }
+    
+    private func setupImageCollectionView() {
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        layout.itemSize = CGSize(width: 76, height: 64)
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
+        layout.scrollDirection = .horizontal
+        
+        imageCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        imageCollectionView?.dataSource = self
+        imageCollectionView?.delegate = self
+        imageCollectionView?.register(ImageCell.self, forCellWithReuseIdentifier: ImageCell.identifier)
+        imageCollectionView?.backgroundColor = .clear
+        
+        collectionStackView.addArrangedSubview(imageCollectionView!)
+        
+        imageCollectionView?.snp.makeConstraints { make in
+            make.height.equalTo(64)
+        }
+    }
+    
+    private func setupTagCollectionView() {
+        let layout = AlignedCollectionViewFlowLayout(horizontalAlignment: .left, verticalAlignment: .top)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        layout.estimatedItemSize = CGSize(width: 140, height: 32)
+        
+        tagCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        tagCollectionView?.dataSource = self
+        tagCollectionView?.delegate = self
+        tagCollectionView?.register(TagCell.self, forCellWithReuseIdentifier: TagCell.identifier)
+        tagCollectionView?.backgroundColor = .clear
+        
+        collectionStackView.addArrangedSubview(tagCollectionView!)
+        tagCollectionView?.snp.makeConstraints { make in
+            make.height.equalTo(32)
+        }
+    }
+    
     private func setupViewProperties() {
         view.backgroundColor = .heroGrayF2EDE8
         backButton.imageInset = 8
@@ -262,6 +381,7 @@ public class DetailViewController: HeroBaseViewController {
         
         optionButton.imageInset = 8
         optionButton.heroImage = UIImage(heroSharedNamed: "ic_pin")
+        optionButton.addTarget(self, action: #selector(onClickOptionButton(_:)), for: .touchUpInside)
 //        ic_mark / ic_pin
         
         menuButton.imageInset = 8
@@ -303,6 +423,20 @@ public class DetailViewController: HeroBaseViewController {
         contentTextView.textColor = .heroGray5B
         contentTextView.backgroundColor = .clear
         contentTextView.font = UIFont.systemFont(ofSize: 13, weight: .regular)
+        
+        historyTitleLabel.font = UIFont.systemFont(ofSize: 17, weight: .bold)
+        historyTitleLabel.textColor = .heroGray5B
+        historyTitleLabel.text = "수정 타임라인"
+        
+        historyDescLabel.font = UIFont.systemFont(ofSize: 12, weight: .regular)
+        historyDescLabel.textColor = .heroGrayDA
+        historyDescLabel.text = "2021. 03. 24에 최종적으로 변경됨"
+        
+        historyTableView.delegate = self
+        historyTableView.dataSource = self
+        historyTableView.register(DetailHistoryCell.self, forCellReuseIdentifier: DetailHistoryCell.identifier)
+        historyTableView.isScrollEnabled = false
+        historyTableView.separatorStyle = .none
     }
     
     @objc
@@ -312,10 +446,52 @@ public class DetailViewController: HeroBaseViewController {
     
     @objc
     private func onClickOptionButton(_ sender: Any?) {
-        if viewModel.state.value == .done || viewModel.state.value == .failure {
+        if viewModel?.state.value == .done || viewModel?.state.value == .failure {
             // Add Bookmark
+            viewModel?.addBucketToBookmark()
         } else {
             // Pin
         }
+    }
+}
+
+extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel?.historyList.value?.count ?? 0
+    }
+    
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: DetailHistoryCell.identifier, for: indexPath) as? DetailHistoryCell {
+            cell.historyItem = viewModel?.historyList.value?[indexPath.row]
+        }
+        return UITableViewCell()
+    }
+}
+
+extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if collectionView == imageCollectionView {
+            return viewModel?.imageUrlList.value?.count ?? 0
+        } else {
+            return viewModel?.tagList.value?.count ?? 0
+        }
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if collectionView == imageCollectionView {
+            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageCell.identifier, for: indexPath) as? ImageCell {
+                cell.itemImage = viewModel?.imageUrlList.value?[indexPath.row]
+                cell.index = indexPath.row - 1
+                return cell
+            }
+        } else {
+            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TagCell.identifier, for: indexPath) as? TagCell {
+                cell.itemTitle = viewModel?.tagList.value?[indexPath.row]
+                cell.itemIndex = indexPath.row - 1
+                return cell
+            }
+        }
+        
+        return UICollectionViewCell()
     }
 }

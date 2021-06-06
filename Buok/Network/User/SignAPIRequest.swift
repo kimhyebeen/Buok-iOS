@@ -109,7 +109,7 @@ public struct SignAPIRequest {
                     DebugLog("responseData : \(dictData)")
                     DebugLog("Json Data : \n\(String(data: jsonData, encoding: .utf8) ?? "nil")")
                     
-					let getData = try JSONDecoder().decode(BaseServerModel.self, from: jsonData)
+					let getData = try JSONDecoder().decode(SignInServerModel.self, from: jsonData)
 					if getData.status < 300 {
 						responseHandler(.success(true))
 					} else {

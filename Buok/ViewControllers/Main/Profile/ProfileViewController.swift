@@ -35,6 +35,10 @@ class ProfileViewController: HeroBaseViewController {
         
         setupView()
         bindingViewModel()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         if isMyPage {
             viewModel?.fetchMyPageInfo()
