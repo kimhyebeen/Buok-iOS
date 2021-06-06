@@ -13,8 +13,7 @@ final class NotificationViewController: HeroBaseViewController {
 	private let topContentView: UIView = UIView()
 	private let titleLabel: UILabel = UILabel()
 	private let backButton: HeroImageButton = HeroImageButton()
-	
-	let notificationCollectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+	private let tableView: UITableView = UITableView()
 	
     public var viewModel: NotificationViewModel?
     
@@ -32,14 +31,14 @@ final class NotificationViewController: HeroBaseViewController {
 	func bindViewModel() {
 		if let viewModel = viewModel {
 			viewModel.notificationList.bind({ [weak self] _ in
-				self?.notificationCollectionView.reloadData()
+				self?.tableView.reloadData()
 			})
 		}
 	}
 	
 	private func setupViewLayout() {
 		view.addSubview(topContentView)
-		view.addSubview(notificationCollectionView)
+		view.addSubview(tableView)
 		setupNavigationView()
 		setupContentLayout()
 		setupViewProperties()
@@ -77,7 +76,7 @@ final class NotificationViewController: HeroBaseViewController {
 	}
 	
 	private func setupContentLayout() {
-		notificationCollectionView.snp.makeConstraints { make in
+		tableView.snp.makeConstraints { make in
 			make.top.equalTo(topContentView.snp.bottom).offset(8)
 			make.leading.equalToSuperview().offset(20)
 			make.trailing.equalToSuperview().offset(-20)
@@ -86,61 +85,70 @@ final class NotificationViewController: HeroBaseViewController {
 	}
 	
 	private func setupViewProperties() {
-		notificationCollectionView.delegate = self
-		notificationCollectionView.dataSource = self
-		notificationCollectionView.backgroundColor = .clear
-		notificationCollectionView.showsVerticalScrollIndicator = false
-		notificationCollectionView.register(NotificationCollectionCell.self, forCellWithReuseIdentifier: NotificationCollectionCell.identifier)
-		notificationCollectionView.register(NotificationFriendCollectionCell.self, forCellWithReuseIdentifier: NotificationFriendCollectionCell.identifier)
+		tableView.delegate = self
+		tableView.dataSource = self
+		tableView.separatorInset = .zero
+		tableView.separatorStyle = .none
+		tableView.backgroundColor = .clear
+		tableView.showsVerticalScrollIndicator = false
+		
+		tableView.register(NotificationTableCell.self, forCellReuseIdentifier: NotificationTableCell.identifier)
+		tableView.register(NotificationFriendTableCell.self, forCellReuseIdentifier: NotificationFriendTableCell.identifier)
 	}
 	
 	@objc
 	private func onClickBackButton(_ sender: UIButton) {
-		self.navigationController?.popViewController(animated: true)
+		self.dismiss(animated: true, completion: nil)
 	}
 }
 
-extension NotificationViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-	public func numberOfSections(in collectionView: UICollectionView) -> Int {
+extension NotificationViewController: UITableViewDataSource, UITableViewDelegate {
+	func numberOfSections(in tableView: UITableView) -> Int {
 		return 1
 	}
 	
-	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return viewModel?.notificationCount.value ?? 0
 	}
 	
-	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		if viewModel?.notificationList.value[indexPath.row].type == "normal" {
-			guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NotificationCollectionCell.identifier, for: indexPath) as? NotificationCollectionCell else {
-				return NotificationCollectionCell()
+			if let cell = tableView.dequeueReusableCell(withIdentifier: NotificationTableCell.identifier, for: indexPath) as? NotificationTableCell {
+				
+				cell.notificationTitle = viewModel?.notificationList.value[indexPath.row].title
+				cell.notificationContent = viewModel?.notificationList.value[indexPath.row].content
+				cell.selectionStyle = .none
+				
+				return cell
 			}
-	
-			cell.notificationTitle = viewModel?.notificationList.value[indexPath.row].title
-			cell.notificationContent = viewModel?.notificationList.value[indexPath.row].content
-			
-			return cell
 		} else {
-			guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NotificationFriendCollectionCell.identifier, for: indexPath) as? NotificationFriendCollectionCell else {
-				return NotificationFriendCollectionCell()
+			if let cell = tableView.dequeueReusableCell(withIdentifier: NotificationFriendTableCell.identifier, for: indexPath) as? NotificationFriendTableCell {
+				
+				cell.applyAttributedNicknameText(nickname: viewModel?.notificationList.value[indexPath.row].nickname ?? "")
+				cell.selectionStyle = .none
+				
+				return cell
 			}
-			
-			cell.applyAttributedNicknameText(nickname: viewModel?.notificationList.value[indexPath.row].nickname ?? "")
-			
-			return cell
 		}
+		return UITableViewCell()
 	}
 	
-	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-		return 12
-	}
-	
-	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		var height: CGFloat = 0
 		if viewModel?.notificationList.value[indexPath.row].type == "normal" {
-			height = 88
+			height = 100
 		} else {
-			height = 103
+			height = 115
 		}
-		return CGSize(width: self.view.frame.width - 40, height: height)
+		return height
+	}
+	
+	func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+		let shareAction = UIContextualAction(style: .normal, title: "삭제") { _, _, completion  in
+			completion(true)
+		}
+		shareAction.backgroundColor = .heroServiceSkin
+		let configuration = UISwipeActionsConfiguration(actions: [shareAction])
+		return configuration
 	}
 }

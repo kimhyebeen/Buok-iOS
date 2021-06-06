@@ -169,9 +169,9 @@ public class HomeViewController: HeroBaseViewController {
     @objc
     func onClickNotification(_ sender: Any?) {
 		let vc = NotificationViewController()
-		let viewModel = NotificationViewModel()
-		vc.viewModel = viewModel
-        navigationController?.pushViewController(vc, animated: true)
+		vc.viewModel = NotificationViewModel()
+		vc.modalPresentationStyle = .fullScreen
+		self.present(vc, animated: false)
     }
     
     @objc

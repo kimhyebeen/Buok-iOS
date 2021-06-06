@@ -1,5 +1,5 @@
 //
-//  NotificationFriendCollectionCell.swift
+//  NotificationFriendTableCell.swift
 //  Buok
 //
 //  Created by 김보민 on 2021/06/06.
@@ -8,9 +8,18 @@
 
 import HeroUI
 
-class NotificationFriendCollectionCell: UICollectionViewCell {
+class NotificationFriendTableCell: UITableViewCell {
 	static let identifier = "NotificationFriendCollectionCell"
 	private let profileImageView = UIImageView()
+	private let mainContentView: UIView = {
+		$0.backgroundColor = .white
+		$0.layer.cornerRadius = 8
+		return $0
+	}(UIView())
+	private let bottomView: UIView = {
+		$0.backgroundColor = .heroServiceSkin
+		return $0
+	}(UIView())
 	private let contentLabel: UILabel = {
 		$0.font = .font15P
 		$0.textColor = .heroGray5B
@@ -34,21 +43,18 @@ class NotificationFriendCollectionCell: UICollectionViewCell {
 		return $0
 	}(UIButton())
 	
-	override init(frame: CGRect) {
-		super.init(frame: frame)
-		
+	override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+		super.init(style: style, reuseIdentifier: reuseIdentifier)
 		setupView()
 		setupContentLayout()
 	}
 	
 	required init?(coder: NSCoder) {
-		super.init(coder: coder)
+		fatalError("init(coder:) has not been implemented")
 	}
-		
+	
 	private func setupView() {
-		self.layer.cornerRadius = 8
-		self.layer.backgroundColor = UIColor.white.cgColor
-		
+		self.backgroundColor = .heroServiceSkin
 		profileImageView.image = UIImage(heroSharedNamed: "ic_profile_48")
 		profileImageView.contentMode = .scaleAspectFill
 		profileImageView.layer.cornerRadius = 28
@@ -56,27 +62,39 @@ class NotificationFriendCollectionCell: UICollectionViewCell {
 	}
 	
 	private func setupContentLayout() {
-		contentView.addSubview(profileImageView)
-		contentView.addSubview(contentLabel)
-		contentView.addSubview(acceptButton)
-		contentView.addSubview(rejectButton)
+		contentView.addSubview(mainContentView)
+		contentView.addSubview(bottomView)
+		mainContentView.addSubview(profileImageView)
+		mainContentView.addSubview(contentLabel)
+		mainContentView.addSubview(acceptButton)
+		mainContentView.addSubview(rejectButton)
+		
+		mainContentView.snp.makeConstraints { make in
+			make.top.leading.trailing.equalToSuperview()
+		}
+		
+		bottomView.snp.makeConstraints { make in
+			make.top.equalTo(mainContentView.snp.bottom)
+			make.leading.trailing.bottom.equalToSuperview()
+			make.height.equalTo(12)
+		}
 		
 		profileImageView.snp.makeConstraints { make in
 			make.width.height.equalTo(56)
-			make.top.equalToSuperview().offset(14)
-			make.leading.equalToSuperview().offset(16)
+			make.top.equalTo(mainContentView.snp.top).offset(14)
+			make.leading.equalTo(mainContentView.snp.leading).offset(16)
 		}
 		
 		contentLabel.snp.makeConstraints { make in
-			make.top.equalToSuperview().offset(12)
+			make.top.equalTo(mainContentView.snp.top).offset(12)
 			make.leading.equalTo(profileImageView.snp.trailing).offset(16)
-			make.trailing.equalToSuperview().inset(16)
+			make.trailing.equalTo(mainContentView.snp.trailing).inset(16)
 		}
 		
 		acceptButton.snp.makeConstraints { make in
 			make.top.equalTo(contentLabel.snp.bottom).offset(7)
 			make.leading.equalTo(contentLabel.snp.leading)
-			make.bottom.equalToSuperview().inset(12)
+			make.bottom.equalTo(mainContentView.snp.bottom).inset(12)
 			make.width.equalTo(112)
 			make.height.equalTo(32)
 		}
@@ -85,7 +103,7 @@ class NotificationFriendCollectionCell: UICollectionViewCell {
 			make.top.equalTo(contentLabel.snp.bottom).offset(7)
 			make.leading.equalTo(acceptButton.snp.trailing).offset(8)
 			make.trailing.equalTo(contentLabel.snp.trailing)
-			make.bottom.equalToSuperview().inset(12)
+			make.bottom.equalTo(mainContentView.snp.bottom).inset(12)
 			make.width.equalTo(112)
 			make.height.equalTo(32)
 		}
