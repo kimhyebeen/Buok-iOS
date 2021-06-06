@@ -38,7 +38,7 @@ public struct SignAPIRequest {
             case .signUp:
                 return URL(string: HeroConstants.user + "/signup")!
 			case let .snsSignUp(socialType, _, _):
-				return URL(string: HeroConstants.social + "\(socialType)")!
+				return URL(string: HeroConstants.social + "/\(socialType)")!
             }
         }
         
@@ -122,7 +122,7 @@ public struct SignAPIRequest {
 		}
 	}
 	
-	static func snsSignUpRequest(socialType: String, email: String, socialId: String, responseHandler: @escaping (Result<SignInServerModel, HeroAPIError>) -> Void) {
+	static func snsSignUpRequest(socialType: String, email: String, socialId: String, responseHandler: @escaping (Result<SignInData, HeroAPIError>) -> Void) {
 		BaseAPIRequest.requestJSONResponse(requestType: SignRequestType.snsSignUp(socialType: socialType, email: email, socialId: socialId) ).then { responseData in
 			do {
 				if let dictData = responseData as? NSDictionary {
@@ -131,8 +131,8 @@ public struct SignAPIRequest {
 					DebugLog("Json Data : \n\(String(data: jsonData, encoding: .utf8) ?? "nil")")
 					
 					let getData = try JSONDecoder().decode(SignInServerModel.self, from: jsonData)
-					if getData.status < 300 {
-						responseHandler(.success(getData))
+					if getData.status < 300, let signInData = getData.data {
+						responseHandler(.success(signInData))
 					} else {
 						responseHandler(.failure(HeroAPIError(errorCode: ErrorCode(rawValue: getData.status)!, statusCode: getData.status, errorMessage: getData.message)))
 					}

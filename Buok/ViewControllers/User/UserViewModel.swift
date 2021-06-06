@@ -21,6 +21,7 @@ class UserViewModel {
     var appleLoginMode: Bool = false
     
     var isLoginSuccess: Dynamic<Bool> = Dynamic(false)
+	var isSNSLoginSuccess: Dynamic<Bool> = Dynamic(false)
     
     var isEmailExist: Dynamic<Bool?> = Dynamic(false)
     var isNicknameExist: Dynamic<Bool?> = Dynamic(false)
@@ -102,7 +103,7 @@ class UserViewModel {
             case .success(let isSuccess):
                 DebugLog("Is Success : \(isSuccess)")
                 self.isSignUpSuccess.value = true
-            case.failure(_):
+			case.failure(_):
                 ErrorLog("API Error")
             // Alert 이나 Toast 띄우기
             }
@@ -120,6 +121,10 @@ class UserViewModel {
             appDelegate.window?.makeKeyAndVisible()
         }
     }
+	
+	func goToJoinNickname() {
+		
+	}
     
     func requestKakaoTalkLogin() {
         if UserApi.isKakaoTalkLoginAvailable() {
@@ -159,13 +164,35 @@ class UserViewModel {
                 
                 if let kakaoUser = user {
                     DebugLog("[로그인된 사용자 정보]\nnickname: \(kakaoUser.kakaoAccount?.profile?.nickname ?? "nil")\nuserId: \(String(describing: kakaoUser.id))")
-                    
-                    UserApi.shared.logout(completion: { error in
-                        // Do Nothing
-                        DebugLog("Kakao Logout Result Error : \(error?.localizedDescription ?? "nil")")
-                    })
+					if let kakaoUserId = kakaoUser.id {
+						self.requestSNSJoinandLogin(socialType: "kakao", email: "", socialId: "\(kakaoUserId)")
+					}
+//                    UserApi.shared.logout(completion: { error in
+//                        // Do Nothing
+//                        DebugLog("Kakao Logout Result Error : \(error?.localizedDescription ?? "nil")")
+//                    })
                 }
             }
         })
     }
+	
+	func requestSNSJoinandLogin(socialType: String, email: String, socialId: String) {
+		SignAPIRequest.snsSignUpRequest(socialType: socialType, email: email, socialId: socialId, responseHandler: { result in
+			switch result {
+			case .success(let signInData):
+				DebugLog("Is Success : \(signInData)")
+				self.isSignUpSuccess.value = true
+				_ = TokenManager.shared.deleteAllTokenData()
+				let sat = TokenManager.shared.setAccessToken(token: signInData.accessToken)
+				let srt = TokenManager.shared.setRefreshToken(token: signInData.accessToken)
+				let sated = TokenManager.shared.setAccessTokenExpiredDate(expiredAt: signInData.accessExpiredAt.convertToDate())
+				let srted = TokenManager.shared.setRefreshTokenExpiredDate(expiredAt: signInData.refreshExpiredAt.convertToDate())
+				DebugLog("sat : \(sat), srt : \(srt), sated : \(sated), srted : \(srted)")
+				self.isSNSLoginSuccess.value = sat && srt && sated && srted
+			case.failure:
+				ErrorLog("API Error")
+			// Alert 이나 Toast 띄우기
+			}
+		})
+	}
 }
