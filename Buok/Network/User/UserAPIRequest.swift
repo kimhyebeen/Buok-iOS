@@ -124,6 +124,7 @@ public struct UserAPIRequest {
 		case getMyPageInfo
 		case changeProfile(profile: [String: Any])
         case resetPassword(newPassword: String)
+        case deleteUser
 		
 		var requestURL: URL {
 			switch self {
@@ -135,6 +136,8 @@ public struct UserAPIRequest {
 				return URL(string: HeroConstants.user + "/me")!
             case .resetPassword:
                 return URL(string: HeroConstants.user + "/password")!
+            case .deleteUser:
+                return URL(string: HeroConstants.user)!
 			}
 		}
         
@@ -166,12 +169,14 @@ public struct UserAPIRequest {
 				return .get
             case .changeProfile, .resetPassword:
 				return .put
+            case .deleteUser:
+                return .delete
 			}
 		}
 		
 		var encoding: HeroRequest.RequestEncoding {
 			switch self {
-			case .getUserPage:
+            case .getUserPage, .deleteUser:
 				return .url
             case .getProfile, .getMyPageInfo, .changeProfile, .resetPassword:
 				return .json
@@ -180,13 +185,34 @@ public struct UserAPIRequest {
 		
 		var requestBody: [String: Any]? {
 			switch self {
-            case .getUserPage, .getProfile, .getMyPageInfo, .resetPassword:
+            case .getUserPage, .getProfile, .getMyPageInfo, .resetPassword, .deleteUser:
 				return nil
 			case let .changeProfile(profile):
 				return profile
 			}
 		}
 	}
+    
+    static func deleteUser(responseHandler: @escaping (Result<Bool, HeroAPIError>) -> Void) {
+        BaseAPIRequest.requestJSONResponse(requestType: UserRequestType.deleteUser).then { responseData in
+            do {
+                if let dictData = responseData as? NSDictionary {
+                    let jsonData = try JSONSerialization.data(withJSONObject: dictData, options: .prettyPrinted)
+                    DebugLog("responseData : \(dictData)")
+                    DebugLog("Json Data : \n\(String(data: jsonData, encoding: .utf8) ?? "nil")")
+                    let getData = try JSONDecoder().decode(BaseServerModel.self, from: jsonData)
+                    if getData.status < 300 {
+                        responseHandler(.success(true))
+                    } else {
+                        responseHandler(.failure(HeroAPIError(errorCode: ErrorCode(rawValue: getData.status)!, statusCode: getData.status, errorMessage: getData.message)))
+                    }
+                }
+            } catch {
+                ErrorLog("ERROR Detected")
+                responseHandler(.failure(HeroAPIError(errorCode: .unknown, statusCode: -1, errorMessage: "알 수 없는 오류")))
+            }
+        }
+    }
     
     static func resetPassword(newPassword: String, responseHandler: @escaping (Result<Bool, HeroAPIError>) -> Void) {
         BaseAPIRequest.requestJSONResponse(requestType: UserRequestType.resetPassword(newPassword: newPassword)).then { responseData in

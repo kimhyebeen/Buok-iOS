@@ -119,6 +119,12 @@ final class WithDrawalViewController: HeroBaseViewController {
         
         backButton.setImage(UIImage(heroSharedNamed: "ic_back"), for: .normal)
         backButton.addTarget(self, action: #selector(onClickBackButton(_:)), for: .touchUpInside)
+        withDrawalButton.addTarget(self, action: #selector(onClickWithDrawalButton(_:)), for: .touchUpInside)
+    }
+    
+    @objc
+    private func onClickWithDrawalButton(_ sender: UIButton) {
+        viewModel?.requestWithDrawal()
     }
     
     @objc
