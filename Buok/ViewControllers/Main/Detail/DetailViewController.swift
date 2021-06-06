@@ -81,9 +81,9 @@ public class DetailViewController: HeroBaseViewController {
         
         viewModel?.historyList.bind({ historyList in
             if historyList?.count ?? 0 < 1 {
-                self.historyTableView.isHidden = true
+                self.historyContainerView.isHidden = true
             } else {
-                self.historyTableView.isHidden = false
+                self.historyContainerView.isHidden = false
                 self.historyTableView.reloadData()
             }
         })
