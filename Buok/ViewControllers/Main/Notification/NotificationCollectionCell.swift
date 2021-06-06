@@ -47,11 +47,6 @@ class NotificationCollectionCell: UICollectionViewCell {
 		super.init(coder: coder)
 	}
 	
-	func setInformation(title: String, content: String) {
-		titleLabel.text = title
-		contentLabel.text = content
-	}
-	
 	private func setupView() {
 		self.layer.cornerRadius = 8
 		self.layer.backgroundColor = UIColor.white.cgColor
@@ -75,4 +70,3 @@ class NotificationCollectionCell: UICollectionViewCell {
 		}
 	}
 }
-

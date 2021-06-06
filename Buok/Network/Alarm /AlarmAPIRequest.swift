@@ -12,8 +12,10 @@ import HeroNetwork
 import HeroUI
 
 public struct NotificationModel: Codable {
-	var title: String
-	var content: String
+	var title: String?
+	var content: String?
+	var nickname: String?
+	var type: String
 }
 
 struct AlarmLogServerModel: Codable {

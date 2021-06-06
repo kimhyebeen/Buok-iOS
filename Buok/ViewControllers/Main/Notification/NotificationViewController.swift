@@ -91,6 +91,7 @@ final class NotificationViewController: HeroBaseViewController {
 		notificationCollectionView.backgroundColor = .clear
 		notificationCollectionView.showsVerticalScrollIndicator = false
 		notificationCollectionView.register(NotificationCollectionCell.self, forCellWithReuseIdentifier: NotificationCollectionCell.identifier)
+		notificationCollectionView.register(NotificationFriendCollectionCell.self, forCellWithReuseIdentifier: NotificationFriendCollectionCell.identifier)
 	}
 	
 	@objc
@@ -109,13 +110,24 @@ extension NotificationViewController: UICollectionViewDelegate, UICollectionView
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NotificationCollectionCell.identifier, for: indexPath) as? NotificationCollectionCell else {
-			return NotificationCollectionCell()
+		if viewModel?.notificationList.value[indexPath.row].type == "normal" {
+			guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NotificationCollectionCell.identifier, for: indexPath) as? NotificationCollectionCell else {
+				return NotificationCollectionCell()
+			}
+	
+			cell.notificationTitle = viewModel?.notificationList.value[indexPath.row].title
+			cell.notificationContent = viewModel?.notificationList.value[indexPath.row].content
+			
+			return cell
+		} else {
+			guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NotificationFriendCollectionCell.identifier, for: indexPath) as? NotificationFriendCollectionCell else {
+				return NotificationFriendCollectionCell()
+			}
+			
+			cell.applyAttributedNicknameText(nickname: viewModel?.notificationList.value[indexPath.row].nickname ?? "")
+			
+			return cell
 		}
-		
-		cell.notificationTitle = viewModel?.notificationList.value[indexPath.row].title
-		cell.notificationContent = viewModel?.notificationList.value[indexPath.row].content
-		return cell
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -123,6 +135,12 @@ extension NotificationViewController: UICollectionViewDelegate, UICollectionView
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-		return CGSize(width: self.view.frame.width - 40, height: 88)
+		var height: CGFloat = 0
+		if viewModel?.notificationList.value[indexPath.row].type == "normal" {
+			height = 88
+		} else {
+			height = 103
+		}
+		return CGSize(width: self.view.frame.width - 40, height: height)
 	}
 }
