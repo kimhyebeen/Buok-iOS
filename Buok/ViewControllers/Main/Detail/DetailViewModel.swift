@@ -20,7 +20,17 @@ public class DetailViewModel {
     public var isPinned: Dynamic<Bool> = Dynamic(false)
     
     func setPinBucket() {
-        
+        if let itemId = bucketItem.value?.id {
+            BucketListAPIRequest.setBucketPin(isPinned: !isPinned.value, bucketId: itemId, responseHandler: { [weak self] result in
+                switch result {
+                case .success(let isSuccess):
+                    DebugLog("Set Pin Success : \(isSuccess)")
+                    self?.isPinned.value = !(self?.isPinned.value ?? false)
+                case .failure(let error):
+                    ErrorLog("ERROR : \(error.statusCode) / \(error.localizedDescription)")
+                }
+            })
+        }
     }
     
     func addBucketToBookmark() {

@@ -451,6 +451,7 @@ public class DetailViewController: HeroBaseViewController {
             viewModel?.addBucketToBookmark()
         } else {
             // Pin
+            viewModel?.setPinBucket()
         }
     }
 }
