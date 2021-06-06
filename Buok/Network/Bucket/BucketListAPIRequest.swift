@@ -10,50 +10,6 @@ import HeroCommon
 import HeroNetwork
 import Promise
 
-// MARK: - Data
-public struct BucketModel: Codable {
-	var id: Int
-	var bucketName: String
-    var createdDate: String
-    var endDate: String
-	var bucketState: Int
-	var categoryId: Int
-}
-
-public struct BucketListData: Codable {
-	var buckets: [BucketModel]
-	var bucketCount: Int
-    
-    func debugDescription() -> String {
-        var message: String = ""
-        message += "[BucketListData]\nBucketCount : \(bucketCount)"
-        
-        for item in buckets {
-            message += "BucketName : \(item.bucketName)\nId : \(item.id)\nEndDate : \(item.endDate)\nCategoryId : \(item.categoryId)\n"
-        }
-        
-        return message
-    }
-}
-
-public struct BucketRequestModel: Codable {
-	var bucketName: String
-	var categoryId: Int
-	var content: String
-	var endDate: String
-	var imageList: [String]?
-	var startDate: String
-	var bucketState: Int
-	var tagList: [String]?
-}
-
-// MARK: - ServerModel
-struct BucketListServerModel: Codable {
-	var status: Int
-	var message: String
-	var data: BucketListData
-}
-
 public struct BucketListAPIRequest {
 	enum BucketRequestType: APIRequestType {
 		case bucketsList(state: Int, category: Int, sort: Int)

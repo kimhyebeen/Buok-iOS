@@ -9,7 +9,7 @@ import Foundation
 import HeroCommon
 import HeroNetwork
 
-final class DetailViewModel {
+public class DetailViewModel {
     public var bucketItem: Dynamic<BucketModel?> = Dynamic(nil)
     public var state: Dynamic<BucketState> = Dynamic(.now)
     public var isBookmark: Dynamic<Bool> = Dynamic(false)
@@ -19,7 +19,18 @@ final class DetailViewModel {
     }
     
     func getBucketDetailInfo() {
-        
+        if let bucketId = bucketItem.value?.id {
+            BucketAPIRequest.requestBucketDetail(bucketId: bucketId, responseHandler: { result in
+                switch result {
+                case .success(let bucketDetailModel):
+                    DebugLog("Bucket Detail : \(bucketDetailModel.bucket.bucketName)")
+                case .failure(let error):
+                    ErrorLog("ERROR: \(error.statusCode) / \(error.localizedDescription)")
+                }
+            })
+        } else {
+            ErrorLog("Bucket Id is nil.")
+        }
     }
     
     func addBucketToBookmark() {

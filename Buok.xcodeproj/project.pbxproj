@@ -16,6 +16,8 @@
 		B00FD521266B6FD700A48B72 /* WithDrawalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00FD520266B6FD700A48B72 /* WithDrawalViewController.swift */; };
 		B00FD523266B6FF400A48B72 /* WithDrawalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00FD522266B6FF400A48B72 /* WithDrawalViewModel.swift */; };
 		B00FD52D266B7F8400A48B72 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00FD52C266B7F8400A48B72 /* DetailViewModel.swift */; };
+		B00FD539266C8C2900A48B72 /* BucketAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00FD538266C8C2900A48B72 /* BucketAPIRequest.swift */; };
+		B00FD53B266C8D0300A48B72 /* BucketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00FD53A266C8D0300A48B72 /* BucketModel.swift */; };
 		B01A28B52665054D00BE9DB3 /* TokenAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01A28B42665054D00BE9DB3 /* TokenAPIRequest.swift */; };
 		B01A28B9266526F000BE9DB3 /* HomeViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01A28B8266526F000BE9DB3 /* HomeViewController+UI.swift */; };
 		B01A28BB2665D52D00BE9DB3 /* HomeViewController+AttributedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01A28BA2665D52D00BE9DB3 /* HomeViewController+AttributedText.swift */; };
@@ -277,6 +279,8 @@
 		B00FD520266B6FD700A48B72 /* WithDrawalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithDrawalViewController.swift; sourceTree = "<group>"; };
 		B00FD522266B6FF400A48B72 /* WithDrawalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithDrawalViewModel.swift; sourceTree = "<group>"; };
 		B00FD52C266B7F8400A48B72 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		B00FD538266C8C2900A48B72 /* BucketAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketAPIRequest.swift; sourceTree = "<group>"; };
+		B00FD53A266C8D0300A48B72 /* BucketModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketModel.swift; sourceTree = "<group>"; };
 		B01A28B42665054D00BE9DB3 /* TokenAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenAPIRequest.swift; sourceTree = "<group>"; };
 		B01A28B8266526F000BE9DB3 /* HomeViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+UI.swift"; sourceTree = "<group>"; };
 		B01A28BA2665D52D00BE9DB3 /* HomeViewController+AttributedText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+AttributedText.swift"; sourceTree = "<group>"; };
@@ -774,6 +778,7 @@
 				B075226825ED08780016DC3A /* UserAuthModel.swift */,
 				B0B0338F26219FE200D65204 /* Profile.swift */,
 				EE4C014F26587401002C5018 /* BuokmarkFlag.swift */,
+				B00FD53A266C8D0300A48B72 /* BucketModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -782,6 +787,7 @@
 			isa = PBXGroup;
 			children = (
 				B075238025EF5AF70016DC3A /* BucketListAPIRequest.swift */,
+				B00FD538266C8C2900A48B72 /* BucketAPIRequest.swift */,
 			);
 			path = Bucket;
 			sourceTree = "<group>";
@@ -1387,6 +1393,7 @@
 				EE23DF77264EB36900AB31D1 /* BuokmarkFlagView.swift in Sources */,
 				EE77F563265AAE28002C4782 /* FriendListViewController.swift in Sources */,
 				B07CD19E266675280031B106 /* SearchViewController.swift in Sources */,
+				B00FD53B266C8D0300A48B72 /* BucketModel.swift in Sources */,
 				B01A28B9266526F000BE9DB3 /* HomeViewController+UI.swift in Sources */,
 				EE77F565265AB39E002C4782 /* FriendListViewModel.swift in Sources */,
 				EE4C015026587401002C5018 /* BuokmarkFlag.swift in Sources */,
@@ -1437,6 +1444,7 @@
 				EE79C436264AC57800E83B6A /* CountingButton.swift in Sources */,
 				528E6F27265BB53A00F9013D /* SignAPIRequest.swift in Sources */,
 				B07CD1A0266675530031B106 /* NotificationViewModel.swift in Sources */,
+				B00FD539266C8C2900A48B72 /* BucketAPIRequest.swift in Sources */,
 				B00FD521266B6FD700A48B72 /* WithDrawalViewController.swift in Sources */,
 				B075238125EF5AF70016DC3A /* BucketListAPIRequest.swift in Sources */,
 				EE77F57D265B20EF002C4782 /* BucketStatusFlagView.swift in Sources */,

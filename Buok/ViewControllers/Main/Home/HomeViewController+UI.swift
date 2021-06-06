@@ -235,7 +235,9 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let bucket = viewModel?.bucketList.value[indexPath.row]
         let vc = DetailViewController()
-        vc.bucketItem = bucket
+        let viewModel = DetailViewModel()
+        viewModel.bucketItem.value = bucket
+        vc.viewModel = viewModel
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

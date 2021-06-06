@@ -37,14 +37,7 @@ public class DetailViewController: HeroBaseViewController {
     private let contentBackgroundView: UIView = UIView()
     private let contentTextView: UITextView = UITextView()
     
-    private let viewModel: DetailViewModel = DetailViewModel()
-    
-    public var bucketItem: BucketModel? {
-        didSet {
-            updateContent()
-            setContentData()
-        }
-    }
+    public var viewModel: DetailViewModel?
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,10 +50,11 @@ public class DetailViewController: HeroBaseViewController {
         super.viewWillAppear(animated)
         updateContent()
         setContentData()
+        viewModel?.getBucketDetailInfo()
     }
     
     private func updateContent() {
-        if viewModel.state.value == .done || viewModel.state.value == .failure {
+        if viewModel?.state.value == .done || viewModel?.state.value == .failure {
             optionButton.heroImage = UIImage(heroSharedNamed: "ic_mark")
         } else {
             optionButton.heroImage = UIImage(heroSharedNamed: "ic_pin")
@@ -68,22 +62,22 @@ public class DetailViewController: HeroBaseViewController {
     }
     
     private func bindViewModel() {
-        viewModel.state.bind({ state in
+        viewModel?.state.bind({ _ in
             self.updateContent()
         })
         
-        viewModel.bucketItem.bind({ bucketItem in
-            self.viewModel.state.value = BucketState(rawValue: bucketItem?.bucketState ?? 0) ?? .now
+        viewModel?.bucketItem.bind({ bucketItem in
+            self.viewModel?.state.value = BucketState(rawValue: bucketItem?.bucketState ?? 0) ?? .now
             self.setContentData()
         })
     }
     
     private func setContentData() {
-        let state = BucketState(rawValue: bucketItem?.bucketState ?? 0)
-        let category = BucketCategory(rawValue: (bucketItem?.categoryId ?? 2) - 2)
+        let state = BucketState(rawValue: viewModel?.bucketItem.value?.bucketState ?? 0)
+        let category = BucketCategory(rawValue: (viewModel?.bucketItem.value?.categoryId ?? 2) - 2)
         var bgColor: UIColor?
         
-        stateLabel.text = viewModel.state.value.getTitle()
+        stateLabel.text = viewModel?.state.value.getTitle()
         categoryLabel.text = category?.getTitle()
         
         switch state {
@@ -102,8 +96,8 @@ public class DetailViewController: HeroBaseViewController {
         stateView.backgroundColor = bgColor
         categoryView.backgroundColor = .heroGray5B
         
-        titleLabel.text = bucketItem?.bucketName ?? ""
-        dateLabel.text = bucketItem?.endDate.convertToDate().convertToKoreanString()
+        titleLabel.text = viewModel?.bucketItem.value?.bucketName ?? ""
+        dateLabel.text = viewModel?.bucketItem.value?.endDate.convertToDate().convertToKoreanString()
         
         contentTextView.text = "서버 연동 필요"
     }
@@ -312,7 +306,7 @@ public class DetailViewController: HeroBaseViewController {
     
     @objc
     private func onClickOptionButton(_ sender: Any?) {
-        if viewModel.state.value == .done || viewModel.state.value == .failure {
+        if viewModel?.state.value == .done || viewModel?.state.value == .failure {
             // Add Bookmark
         } else {
             // Pin
