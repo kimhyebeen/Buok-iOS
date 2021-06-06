@@ -63,14 +63,22 @@ public class DetailViewController: HeroBaseViewController {
     
     private func updateContent() {
         if viewModel?.state.value == .done || viewModel?.state.value == .failure {
-            optionButton.heroImage = UIImage(heroSharedNamed: "ic_mark")
+            optionButton.heroImage = (viewModel?.isBookmark.value ?? false) ? UIImage(heroSharedNamed: "ic_mark_fill") : UIImage(heroSharedNamed: "ic_mark")
         } else {
-            optionButton.heroImage = UIImage(heroSharedNamed: "ic_pin")
+            optionButton.heroImage = (viewModel?.isPinned.value ?? false) ? UIImage(heroSharedNamed: "ic_pin_fill") : UIImage(heroSharedNamed: "ic_pin")
         }
     }
     
     private func bindViewModel() {
         viewModel?.state.bind({ _ in
+            self.updateContent()
+        })
+        
+        viewModel?.isBookmark.bind({ _ in
+            self.updateContent()
+        })
+        
+        viewModel?.isPinned.bind({ _ in
             self.updateContent()
         })
         
@@ -373,6 +381,7 @@ public class DetailViewController: HeroBaseViewController {
         
         optionButton.imageInset = 8
         optionButton.heroImage = UIImage(heroSharedNamed: "ic_pin")
+        optionButton.addTarget(self, action: #selector(onClickOptionButton(_:)), for: .touchUpInside)
 //        ic_mark / ic_pin
         
         menuButton.imageInset = 8
@@ -439,6 +448,7 @@ public class DetailViewController: HeroBaseViewController {
     private func onClickOptionButton(_ sender: Any?) {
         if viewModel?.state.value == .done || viewModel?.state.value == .failure {
             // Add Bookmark
+            viewModel?.addBucketToBookmark()
         } else {
             // Pin
         }

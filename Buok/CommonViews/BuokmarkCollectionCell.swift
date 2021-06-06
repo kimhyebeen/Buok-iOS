@@ -35,7 +35,7 @@ class BuokmarkCollectionCell: UICollectionViewCell {
     
     func setInformation(to model: BookmarkListData, color: UIColor) {
         // todo - 나중에 model 구조체로 생성해서 설정하도록 구현
-        dateLabel.text = model.endDate
+        dateLabel.text = model.endDate.convertToDate().convertToCustomString(format: "yyyy-MM")
         buokLabel.text = model.bucketName
         if let icon = BucketCategory(rawValue: model.categoryId)?.getIcon() {
             if #available(iOS 13.0, *) {

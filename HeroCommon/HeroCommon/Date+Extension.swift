@@ -8,6 +8,14 @@
 import Foundation
 
 public extension Date {
+    func convertToCustomString(format: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        
+        let dateString = dateFormatter.string(from: self)
+        return dateString
+    }
+    
     func convertToSmallString() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
