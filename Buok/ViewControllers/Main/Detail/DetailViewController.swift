@@ -22,6 +22,10 @@ public class DetailViewController: HeroBaseViewController {
     private let contentContainerView: UIView = UIView()
     private let historyContainerView: UIView = UIView()
     
+    private let historyTitleLabel: UILabel = UILabel()
+    private let historyDescLabel: UILabel = UILabel()
+    private let historyTableView: UITableView = UITableView()
+    
     private let stateView: UIView = UIView()
     private let stateLabel: UILabel = UILabel()
     
@@ -70,6 +74,14 @@ public class DetailViewController: HeroBaseViewController {
             self.viewModel?.state.value = BucketState(rawValue: bucketItem?.bucketState ?? 0) ?? .now
             self.setContentData()
         })
+        
+        viewModel?.tagList.bind({ _ in
+            
+        })
+        
+        viewModel?.imageUrlList.bind({ _ in
+            
+        })
     }
     
     private func setContentData() {
@@ -99,7 +111,7 @@ public class DetailViewController: HeroBaseViewController {
         titleLabel.text = viewModel?.bucketItem.value?.bucketName ?? ""
         dateLabel.text = viewModel?.bucketItem.value?.endDate.convertToDate().convertToKoreanString()
         
-        contentTextView.text = "서버 연동 필요"
+        contentTextView.text = "API좀 만들어줘라"
     }
     
     private func setupMainLayout() {
@@ -246,6 +258,27 @@ public class DetailViewController: HeroBaseViewController {
             make.trailing.equalToSuperview().offset(-16)
             make.bottom.equalToSuperview().offset(-16)
         }
+        
+        historyContainerView.addSubview(historyTitleLabel)
+        historyContainerView.addSubview(historyDescLabel)
+        historyContainerView.addSubview(historyTableView)
+        
+        historyTitleLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(24)
+            make.leading.equalToSuperview().offset(20)
+        }
+        
+        historyDescLabel.snp.makeConstraints { make in
+            make.centerY.equalTo(historyTitleLabel.snp.centerY)
+            make.trailing.equalToSuperview().offset(-20)
+        }
+        
+        historyTableView.snp.makeConstraints { make in
+            make.top.equalTo(historyTitleLabel.snp.bottom).offset(16)
+            make.leading.equalToSuperview().offset(24)
+            make.trailing.equalToSuperview().offset(-24)
+            make.bottom.equalToSuperview().offset(-24)
+        }
     }
     
     private func setupViewProperties() {
@@ -297,6 +330,19 @@ public class DetailViewController: HeroBaseViewController {
         contentTextView.textColor = .heroGray5B
         contentTextView.backgroundColor = .clear
         contentTextView.font = UIFont.systemFont(ofSize: 13, weight: .regular)
+        
+        historyTitleLabel.font = UIFont.systemFont(ofSize: 17, weight: .bold)
+        historyTitleLabel.textColor = .heroGray5B
+        historyTitleLabel.text = "수정 타임라인"
+        
+        historyDescLabel.font = UIFont.systemFont(ofSize: 12, weight: .regular)
+        historyDescLabel.textColor = .heroGrayDA
+        historyDescLabel.text = "2021. 03. 24에 최종적으로 변경됨"
+        
+        historyTableView.delegate = self
+        historyTableView.dataSource = self
+        historyTableView.register(DetailHistoryCell.self, forCellReuseIdentifier: DetailHistoryCell.identifier)
+        historyTableView.isScrollEnabled = false
     }
     
     @objc
@@ -311,5 +357,18 @@ public class DetailViewController: HeroBaseViewController {
         } else {
             // Pin
         }
+    }
+}
+
+extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel?.historyList.value?.count ?? 0
+    }
+    
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: DetailHistoryCell.identifier, for: indexPath) as? DetailHistoryCell {
+            cell.historyItem = viewModel?.historyList.value?[indexPath.row]
+        }
+        return UITableViewCell()
     }
 }

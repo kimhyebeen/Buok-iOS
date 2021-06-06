@@ -18,6 +18,7 @@
 		B00FD52D266B7F8400A48B72 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00FD52C266B7F8400A48B72 /* DetailViewModel.swift */; };
 		B00FD539266C8C2900A48B72 /* BucketAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00FD538266C8C2900A48B72 /* BucketAPIRequest.swift */; };
 		B00FD53B266C8D0300A48B72 /* BucketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00FD53A266C8D0300A48B72 /* BucketModel.swift */; };
+		B00FD53D266C96ED00A48B72 /* DetailHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00FD53C266C96ED00A48B72 /* DetailHistoryCell.swift */; };
 		B01A28B52665054D00BE9DB3 /* TokenAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01A28B42665054D00BE9DB3 /* TokenAPIRequest.swift */; };
 		B01A28B9266526F000BE9DB3 /* HomeViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01A28B8266526F000BE9DB3 /* HomeViewController+UI.swift */; };
 		B01A28BB2665D52D00BE9DB3 /* HomeViewController+AttributedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01A28BA2665D52D00BE9DB3 /* HomeViewController+AttributedText.swift */; };
@@ -281,6 +282,7 @@
 		B00FD52C266B7F8400A48B72 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		B00FD538266C8C2900A48B72 /* BucketAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketAPIRequest.swift; sourceTree = "<group>"; };
 		B00FD53A266C8D0300A48B72 /* BucketModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketModel.swift; sourceTree = "<group>"; };
+		B00FD53C266C96ED00A48B72 /* DetailHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHistoryCell.swift; sourceTree = "<group>"; };
 		B01A28B42665054D00BE9DB3 /* TokenAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenAPIRequest.swift; sourceTree = "<group>"; };
 		B01A28B8266526F000BE9DB3 /* HomeViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+UI.swift"; sourceTree = "<group>"; };
 		B01A28BA2665D52D00BE9DB3 /* HomeViewController+AttributedText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+AttributedText.swift"; sourceTree = "<group>"; };
@@ -563,6 +565,7 @@
 			children = (
 				B01D43A726039D2500F2D28C /* DetailViewController.swift */,
 				B00FD52C266B7F8400A48B72 /* DetailViewModel.swift */,
+				B00FD53C266C96ED00A48B72 /* DetailHistoryCell.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -1449,6 +1452,7 @@
 				B075238125EF5AF70016DC3A /* BucketListAPIRequest.swift in Sources */,
 				EE77F57D265B20EF002C4782 /* BucketStatusFlagView.swift in Sources */,
 				B023B145266A0ECB0060F625 /* BucketItemCell.swift in Sources */,
+				B00FD53D266C96ED00A48B72 /* DetailHistoryCell.swift in Sources */,
 				298561AD2663F5C600830084 /* InfoCheckAPIRequest.swift in Sources */,
 				B0D0218226021A2100F25329 /* NadamProperties.swift in Sources */,
 				B075230925EF1A0E0016DC3A /* BaseAPIRequest.swift in Sources */,
