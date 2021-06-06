@@ -12,6 +12,8 @@ final class SearchViewModel {
     var currentSearchType: Dynamic<SearchType> = Dynamic(.myBucket)
     var searchKeyword: Dynamic<String> = Dynamic("")
     
+    var bucketList: Dynamic<[BucketModel]> = Dynamic([BucketModel]())
+    
     func fetchSearchResult(type: SearchType, keyword: String) {
         switch type {
         case .myBucket:

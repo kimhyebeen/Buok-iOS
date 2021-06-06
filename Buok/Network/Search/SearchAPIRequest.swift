@@ -134,6 +134,9 @@ public struct SearchAPIRequest {
             do {
                 if let dictData = responseData as? NSDictionary {
                     let jsonData = try JSONSerialization.data(withJSONObject: dictData, options: .prettyPrinted)
+                    DebugLog("responseData : \(dictData)")
+                    DebugLog("Json Data : \n\(String(data: jsonData, encoding: .utf8) ?? "nil")")
+                    
                     let getData = try JSONDecoder().decode(SearchBucketServerModel.self, from: jsonData)
                     let bucketsData = getData.data
                     
@@ -154,6 +157,9 @@ public struct SearchAPIRequest {
             do {
                 if let dictData = responseData as? NSDictionary {
                     let jsonData = try JSONSerialization.data(withJSONObject: dictData, options: .prettyPrinted)
+                    DebugLog("responseData : \(dictData)")
+                    DebugLog("Json Data : \n\(String(data: jsonData, encoding: .utf8) ?? "nil")")
+                    
                     let getData = try JSONDecoder().decode(SearchUserServerModel.self, from: jsonData)
                     let usersData = getData.data
                     
@@ -174,6 +180,9 @@ public struct SearchAPIRequest {
             do {
                 if let dictData = responseData as? NSDictionary {
                     let jsonData = try JSONSerialization.data(withJSONObject: dictData, options: .prettyPrinted)
+                    DebugLog("responseData : \(dictData)")
+                    DebugLog("Json Data : \n\(String(data: jsonData, encoding: .utf8) ?? "nil")")
+                    
                     let getData = try JSONDecoder().decode(SearchBookmarkServerModel.self, from: jsonData)
                     let bookmarksData = getData.data
                     

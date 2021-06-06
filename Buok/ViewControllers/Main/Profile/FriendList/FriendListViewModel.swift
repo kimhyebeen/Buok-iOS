@@ -5,6 +5,7 @@
 //  Copyright © 2021 Buok. All rights reserved.
 //
 
+import HeroCommon
 import Promise
 
 class FriendListViewModel {

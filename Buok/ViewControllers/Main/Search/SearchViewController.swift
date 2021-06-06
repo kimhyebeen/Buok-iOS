@@ -10,7 +10,6 @@ import HeroCommon
 import HeroUI
 
 final class SearchViewController: HeroBaseViewController {
-    public var viewModel: SearchViewModel?
     private let statusBarBackgroundView: UIView = UIView()
     private let searchContainerView: UIView = UIView()
     private let closeButton: UIButton = UIButton()
@@ -26,6 +25,11 @@ final class SearchViewController: HeroBaseViewController {
     private let filterMyBookBar: UIView = UIView()
     private let filterAccountBar: UIView = UIView()
     private let filterBookmarkBar: UIView = UIView()
+    
+    private let bucketCollectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    private let friendCollectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    
+    public var viewModel: SearchViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,8 +48,26 @@ final class SearchViewController: HeroBaseViewController {
             self?.filterAccountButton.setTitleColor((type == .user ? .heroGray5B : .heroGray82), for: .normal)
             self?.filterBookmarkButton.setTitleColor((type == .mark ? .heroGray5B : .heroGray82), for: .normal)
             
+            self?.bucketCollectionView.isHidden = !(type == .mark || type == .myBucket)
+            self?.friendCollectionView.isHidden = !(type == .user)
             self?.viewModel?.fetchSearchResult(type: type, keyword: self?.viewModel?.searchKeyword.value ?? "")
         })
+    }
+    
+    private func setupBucketCollectionView() {
+        view.addSubview(bucketCollectionView)
+        bucketCollectionView.snp.makeConstraints { make in
+            make.top.equalTo(filterContainerView.snp.bottom)
+            make.leading.trailing.bottom.equalToSuperview()
+        }
+    }
+    
+    private func setupFriendCollectionView() {
+        view.addSubview(friendCollectionView)
+        friendCollectionView.snp.makeConstraints { make in
+            make.top.equalTo(filterContainerView.snp.bottom)
+            make.leading.trailing.bottom.equalToSuperview()
+        }
     }
     
     private func setupViewLayout() {
@@ -117,9 +139,13 @@ final class SearchViewController: HeroBaseViewController {
             make.width.equalTo(72)
         }
         
+        setupBucketCollectionView()
+        setupFriendCollectionView()
+        
         statusBarBackgroundView.backgroundColor = .heroWhite100s
         searchContainerView.backgroundColor = .heroWhite100s
         searchBar.backgroundImage = UIImage()
+        searchBar.delegate = self
         
         closeButton.setTitle("닫기", for: .normal)
         closeButton.setTitleColor(.heroGray82, for: .normal)
@@ -165,5 +191,13 @@ final class SearchViewController: HeroBaseViewController {
     @objc
     private func onClickClose(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension SearchViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if let type = viewModel?.currentSearchType.value, let keyword = searchBar.text {
+            viewModel?.fetchSearchResult(type: type, keyword: keyword)
+        }
     }
 }
