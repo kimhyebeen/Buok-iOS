@@ -171,7 +171,7 @@ public class HomeViewController: HeroBaseViewController {
 		let vc = NotificationViewController()
 		vc.viewModel = NotificationViewModel()
 		vc.modalPresentationStyle = .fullScreen
-		self.present(vc, animated: false)
+		self.present(vc, animated: true)
     }
     
     @objc
