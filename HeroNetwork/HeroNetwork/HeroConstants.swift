@@ -39,4 +39,8 @@ public struct HeroConstants {
     public static var images: String {
         return "/images"
     }
+	
+	public static var alarm: String {
+		return "/alarm"
+	}
 }

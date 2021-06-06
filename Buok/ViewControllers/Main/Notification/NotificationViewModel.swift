@@ -8,6 +8,24 @@
 import Foundation
 import HeroCommon
 
-final class NotificationViewModel {
-    
+public class NotificationViewModel {
+	var notificationCount: Dynamic<Int> = Dynamic(0)
+	var notificationList: Dynamic<[NotificationModel]> = Dynamic([NotificationModel]())
+	
+	public init() {
+		
+	}
+	
+	func fetchNotificationList() {
+		AlarmAPIRequest.alarmListRequest(responseHandler: { result in
+			switch result {
+			case .success(let listData):
+				DebugLog("Fetch Notification List")
+				self.notificationCount.value = listData.count
+				self.notificationList.value = listData
+			case .failure(let error):
+				ErrorLog("fetchNotificationList ERROR : \(error.localizedDescription)")
+			}
+		})
+	}
 }

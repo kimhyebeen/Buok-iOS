@@ -62,7 +62,6 @@ public class HomeViewController: HeroBaseViewController {
         bindViewModel()
         setupMainLayout()
         setupViewProperties()
-		notiButton.addTarget(self, action: #selector(onClickNotification(_:)), for: .touchUpInside)
         
         viewModel?.bucketCategory.value = .noCategory
         viewModel?.bucketSort.value = .created
@@ -169,7 +168,10 @@ public class HomeViewController: HeroBaseViewController {
     
     @objc
     func onClickNotification(_ sender: Any?) {
-        navigationController?.pushViewController(MultiLevelViewController(), animated: true)
+		let vc = NotificationViewController()
+		vc.viewModel = NotificationViewModel()
+		vc.modalPresentationStyle = .fullScreen
+		self.present(vc, animated: false)
     }
     
     @objc
