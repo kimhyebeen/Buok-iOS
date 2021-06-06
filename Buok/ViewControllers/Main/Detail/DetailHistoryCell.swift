@@ -50,5 +50,6 @@ final class DetailHistoryCell: UITableViewCell {
         
         dateLabel.textColor = .heroGrayA6A4A1
         contentLabel.textColor = .heroGray5B
+        contentLabel.numberOfLines = 0
     }
 }

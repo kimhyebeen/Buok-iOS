@@ -75,6 +75,10 @@ public class DetailViewController: HeroBaseViewController {
             self.setContentData()
         })
         
+        viewModel?.historyList.bind({ _ in
+            self.historyTableView.reloadData()
+        })
+        
         viewModel?.tagList.bind({ _ in
             
         })
@@ -343,6 +347,7 @@ public class DetailViewController: HeroBaseViewController {
         historyTableView.dataSource = self
         historyTableView.register(DetailHistoryCell.self, forCellReuseIdentifier: DetailHistoryCell.identifier)
         historyTableView.isScrollEnabled = false
+        historyTableView.separatorStyle = .none
     }
     
     @objc
