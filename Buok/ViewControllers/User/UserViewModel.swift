@@ -195,4 +195,18 @@ class UserViewModel {
 			}
 		})
 	}
+	
+	func requestSaveProfile() -> String? {
+		let profile = ProfileData(intro: introduce ?? "", nickname: nickname, profileUrl: "")
+		UserAPIRequest.changeProfileInfo(profile: profile, responseHandler: { [weak self] result in
+			switch result {
+			case .success(let isSuccess):
+				self?.isSignUpSuccess.value = isSuccess
+			case .failure(let error):
+				ErrorLog("ERROR : \(error.statusCode) / \(error.localizedDescription)")
+				self?.isSignUpSuccess.value = false
+			}
+		})
+		return nil
+	}
 }

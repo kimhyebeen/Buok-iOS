@@ -48,7 +48,7 @@ extension LoginViewController: ASAuthorizationControllerDelegate, ASAuthorizatio
 			let userId: String = appleIDCredential.user
 			let userFirstName: String = appleIDCredential.fullName?.givenName ?? ""
 			let userLastName: String = appleIDCredential.fullName?.familyName ?? ""
-			let _: String = appleIDCredential.email ?? ""
+			let email : String = appleIDCredential.email ?? ""
 			let _: String = userLastName + userFirstName
 
 			let provider = ASAuthorizationAppleIDProvider()
@@ -56,7 +56,7 @@ extension LoginViewController: ASAuthorizationControllerDelegate, ASAuthorizatio
 				switch credentialState {
 				case .authorized:
 					DebugLog("Apple ID Login Authorized")
-					// 서버 연결 코드 추가 예정
+//					self.viewModel.requestSNSJoinandLogin(socialType: "apple", email: email, socialId: userId)
 					self.viewModel.appleLoginMode = true
 				case .notFound:
 					DebugLog("Apple ID Login Not Found")

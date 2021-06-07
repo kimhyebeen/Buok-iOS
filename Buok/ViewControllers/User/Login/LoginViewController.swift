@@ -52,6 +52,7 @@ public class LoginViewController: HeroBaseViewController {
 			if isSuccess {
 				let joinNameVC = JoinNameViewController()
 				joinNameVC.viewModel = self?.viewModel
+				joinNameVC.isSNSLogin = true
 				self?.navigationController?.pushViewController(joinNameVC, animated: true)
 			}
 		})
