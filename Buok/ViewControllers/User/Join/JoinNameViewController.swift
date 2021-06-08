@@ -33,7 +33,9 @@ class JoinNameViewController: HeroBaseViewController {
             } else {
                 let introduceVC = JoinIntroduceViewController()
                 introduceVC.viewModel = self?.viewModel
-				introduceVC.isSNSLogin = true
+				if self?.isSNSLogin == true {
+					introduceVC.isSNSLogin = true
+				}
                 self?.navigationController?.pushViewController(introduceVC, animated: true)
             }
         })

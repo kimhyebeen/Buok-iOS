@@ -112,11 +112,11 @@ extension NotificationViewController: UITableViewDataSource, UITableViewDelegate
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		if viewModel?.notificationList.value[indexPath.row].type == "normal" {
+		if viewModel?.notificationList.value[indexPath.row].alarmStatus == 1 {
 			if let cell = tableView.dequeueReusableCell(withIdentifier: NotificationTableCell.identifier, for: indexPath) as? NotificationTableCell {
 				
 				cell.notificationTitle = viewModel?.notificationList.value[indexPath.row].title
-				cell.notificationContent = viewModel?.notificationList.value[indexPath.row].content
+				cell.notificationContent = viewModel?.notificationList.value[indexPath.row].message
 				cell.selectionStyle = .none
 				
 				return cell
@@ -124,7 +124,7 @@ extension NotificationViewController: UITableViewDataSource, UITableViewDelegate
 		} else {
 			if let cell = tableView.dequeueReusableCell(withIdentifier: NotificationFriendTableCell.identifier, for: indexPath) as? NotificationFriendTableCell {
 				
-				cell.applyAttributedNicknameText(nickname: viewModel?.notificationList.value[indexPath.row].nickname ?? "")
+				cell.applyAttributedNicknameText(nickname: String(describing: viewModel?.notificationList.value[indexPath.row].friendId))
 				cell.selectionStyle = .none
 				
 				return cell
@@ -135,7 +135,7 @@ extension NotificationViewController: UITableViewDataSource, UITableViewDelegate
 	
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		var height: CGFloat = 0
-		if viewModel?.notificationList.value[indexPath.row].type == "normal" {
+		if viewModel?.notificationList.value[indexPath.row].alarmStatus == 1 {
 			height = 100
 		} else {
 			height = 115
@@ -144,11 +144,15 @@ extension NotificationViewController: UITableViewDataSource, UITableViewDelegate
 	}
 	
 	func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-		let shareAction = UIContextualAction(style: .normal, title: "삭제") { _, _, completion  in
+		let deleteAction = UIContextualAction(style: .destructive, title: "삭제") { _, _, completion  in
+			if let alarmId = self.viewModel?.notificationList.value[indexPath.row].alarmId,
+			   let status = self.viewModel?.notificationList.value[indexPath.row].alarmStatus {
+				self.viewModel?.deleteNotificationLog(alarmId: alarmId, status: status, indexPath: indexPath.row)
+			}
 			completion(true)
 		}
-		shareAction.backgroundColor = .heroServiceSkin
-		let configuration = UISwipeActionsConfiguration(actions: [shareAction])
+		deleteAction.backgroundColor = .heroServiceSkin
+		let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
 		return configuration
 	}
 }

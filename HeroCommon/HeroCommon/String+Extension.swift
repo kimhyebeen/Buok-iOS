@@ -25,6 +25,16 @@ public extension String {
         let date: Date = dateFormatter.date(from: self)!
         return date
     }
+	
+	func convertToOnlyDate() -> Date {
+		let dateFormatter = DateFormatter()
+
+		dateFormatter.dateFormat = "yyyy-MM-dd"
+		dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone?
+
+		let date: Date = dateFormatter.date(from: self)!
+		return date
+	}
     
 //    func convertToSmallDate() -> Date {
 //        let dateFormatter = DateFormatter()

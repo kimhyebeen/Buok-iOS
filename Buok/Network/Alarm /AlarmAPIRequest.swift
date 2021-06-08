@@ -12,10 +12,15 @@ import HeroNetwork
 import HeroUI
 
 public struct NotificationModel: Codable {
+	var alarmId: Int
+	var myUserId: Int?
+	var friendId: Int?
 	var title: String?
-	var content: String?
-	var nickname: String?
-	var type: String
+	var message: String
+	var profileUrl: String?
+	var friendStatus: Int
+	var alarmStatus: Int
+	var createdAt: String
 }
 
 struct AlarmLogServerModel: Codable {
@@ -27,19 +32,24 @@ struct AlarmLogServerModel: Codable {
 public struct AlarmAPIRequest {
 	enum AlarmRequestType: APIRequestType {
 		case getNotificationList
-		case deleteNotification(alarmId: Int)
+		case deleteNotification(alarmId: Int, status: Int)
 		
 		var requestURL: URL {
 			switch self {
 			case .getNotificationList:
 				return URL(string: HeroConstants.alarm)!
-			case let .deleteNotification(alarmId):
+			case let .deleteNotification(alarmId, _):
 				return URL(string: HeroConstants.alarm + "/\(alarmId)")!
 			}
 		}
 		
 		var requestParameter: [String: Any]? {
-			nil
+			switch self {
+			case .getNotificationList:
+				return nil
+			case let .deleteNotification(_, status):
+				return ["alarm_status": status]
+			}
 		}
 		
 		var httpMethod: HeroRequest.Method {
@@ -52,7 +62,12 @@ public struct AlarmAPIRequest {
 		}
 		
 		var encoding: HeroRequest.RequestEncoding {
-			.json
+			switch self {
+			case .getNotificationList:
+				return .json
+			case .deleteNotification:
+				return .urlQuery
+			}
 		}
 		
 		var requestBody: [String: Any]? {
@@ -85,8 +100,8 @@ public struct AlarmAPIRequest {
 		}
 	}
 	
-	static func deleteAlarmLog(alarmId: Int, responseHandler: @escaping (Result<Bool, HeroAPIError>) -> Void) {
-		BaseAPIRequest.requestJSONResponse(requestType: AlarmRequestType.deleteNotification(alarmId: alarmId)).then { responseData in
+	static func deleteAlarmLog(alarmId: Int, status: Int, responseHandler: @escaping (Result<Bool, HeroAPIError>) -> Void) {
+		BaseAPIRequest.requestJSONResponse(requestType: AlarmRequestType.deleteNotification(alarmId: alarmId, status: status)).then { responseData in
 			do {
 				if let dictData = responseData as? NSDictionary {
 					let jsonData = try JSONSerialization.data(withJSONObject: dictData, options: .prettyPrinted)
