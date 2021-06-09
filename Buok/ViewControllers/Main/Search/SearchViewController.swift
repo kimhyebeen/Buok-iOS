@@ -50,11 +50,12 @@ final class SearchViewController: HeroBaseViewController {
             
             self?.bucketCollectionView.isHidden = !(type == .mark || type == .myBucket)
             self?.friendCollectionView.isHidden = !(type == .user)
-            self?.viewModel?.fetchSearchResult(type: type, keyword: self?.viewModel?.searchKeyword.value ?? "")
+//            self?.viewModel?.fetchSearchResult(type: type, keyword: self?.viewModel?.searchKeyword.value ?? "")
         })
     }
     
     private func setupBucketCollectionView() {
+        bucketCollectionView.backgroundColor = .heroServiceSkin
         view.addSubview(bucketCollectionView)
         bucketCollectionView.snp.makeConstraints { make in
             make.top.equalTo(filterContainerView.snp.bottom)

@@ -145,7 +145,7 @@ final class BucketItemCell: UICollectionViewCell {
             dateLabel.text = bucket?.endDate.convertToDate().convertToSmallString()
         } else {
 //            if let endDate = bucket?.endDate.convertToDate() {
-			if let endDate = bucket?.endDate.convertToOnlyDate() {
+			if let endDate = bucket?.endDate.convertToSmallDate() {
                 if Calendar.current.dateComponents([.day], from: endDate, to: Date()).day == 0 {
                     dateLabel.text = "D - Day"
                 } else {

@@ -26,23 +26,13 @@ public extension String {
         return date
     }
 	
-	func convertToOnlyDate() -> Date {
-		let dateFormatter = DateFormatter()
+    func convertToSmallDate() -> Date {
+        let dateFormatter = DateFormatter()
 
-		dateFormatter.dateFormat = "yyyy-MM-dd"
-		dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone?
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone?
 
-		let date: Date = dateFormatter.date(from: self)!
-		return date
-	}
-    
-//    func convertToSmallDate() -> Date {
-//        let dateFormatter = DateFormatter()
-//
-//        dateFormatter.dateFormat = "yyyy-MM-dd"
-//        dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone?
-//
-//        let date: Date = dateFormatter.date(from: self)!
-//        return date
-//    }
+        let date: Date = dateFormatter.date(from: self)!
+        return date
+    }
 }
