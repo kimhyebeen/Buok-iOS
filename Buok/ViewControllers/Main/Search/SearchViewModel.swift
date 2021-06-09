@@ -12,15 +12,18 @@ final class SearchViewModel {
     var currentSearchType: Dynamic<SearchType> = Dynamic(.myBucket)
     var searchKeyword: Dynamic<String> = Dynamic("")
     
-    var bucketList: Dynamic<[BucketModel]> = Dynamic([BucketModel]())
+    var bucketSearchCount: Dynamic<Int> = Dynamic(0)
+    var bucketSearchList: Dynamic<[SearchBucketModel]> = Dynamic([SearchBucketModel]())
     
     func fetchSearchResult(type: SearchType, keyword: String) {
         switch type {
         case .myBucket:
             SearchAPIRequest.searchMyBucketData(keyword: keyword, responseHandler: { result in
                 switch result {
-                case .success(let bucketList):
-                    DebugLog("BucketList Count : \(bucketList.count)")
+                case .success(let bucketSearchList):
+                    DebugLog("BucketList Count : \(bucketSearchList.count)")
+                    self.bucketSearchCount.value = bucketSearchList.count
+                    self.bucketSearchList.value = bucketSearchList
                 case .failure(let error):
                     ErrorLog("MyBucket Search Error : \(error.statusCode) / \(error.errorMessage)")
                 }

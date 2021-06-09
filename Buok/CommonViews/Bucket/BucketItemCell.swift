@@ -28,6 +28,14 @@ final class BucketItemCell: UICollectionViewCell {
         }
     }
     
+    public var bucketSearch: SearchBucketModel? {
+        didSet {
+            titleLabel.text = bucket?.bucketName
+//            self.updateContentBgView()
+//            self.setupCategoryIcon()
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViewLayout()

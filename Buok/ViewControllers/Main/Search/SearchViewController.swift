@@ -26,6 +26,8 @@ final class SearchViewController: HeroBaseViewController {
     private let filterAccountBar: UIView = UIView()
     private let filterBookmarkBar: UIView = UIView()
     
+    private let noSearchResults: UILabel = UILabel()
+
     private let bucketCollectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     private let friendCollectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
@@ -35,6 +37,7 @@ final class SearchViewController: HeroBaseViewController {
         super.viewDidLoad()
         setupViewLayout()
         bindViewModel()
+        setupViewProperties()
         viewModel?.currentSearchType.value = .myBucket
     }
     
@@ -52,6 +55,10 @@ final class SearchViewController: HeroBaseViewController {
             self?.friendCollectionView.isHidden = !(type == .user)
 //            self?.viewModel?.fetchSearchResult(type: type, keyword: self?.viewModel?.searchKeyword.value ?? "")
         })
+        
+        viewModel?.bucketSearchList.bind({ [weak self] _ in
+            self?.bucketCollectionView.reloadData()
+        })
     }
     
     private func setupBucketCollectionView() {
@@ -64,6 +71,7 @@ final class SearchViewController: HeroBaseViewController {
     }
     
     private func setupFriendCollectionView() {
+        friendCollectionView.backgroundColor = .heroServiceSkin
         view.addSubview(friendCollectionView)
         friendCollectionView.snp.makeConstraints { make in
             make.top.equalTo(filterContainerView.snp.bottom)
@@ -87,6 +95,10 @@ final class SearchViewController: HeroBaseViewController {
         filterMyBookButton.addSubview(filterMyBookBar)
         filterAccountButton.addSubview(filterAccountBar)
         filterBookmarkButton.addSubview(filterBookmarkBar)
+        
+        setupBucketCollectionView()
+        setupFriendCollectionView()
+        view.addSubview(noSearchResults)
         
         statusBarBackgroundView.snp.makeConstraints { make in
             make.top.equalToSuperview()
@@ -140,8 +152,9 @@ final class SearchViewController: HeroBaseViewController {
             make.width.equalTo(72)
         }
         
-        setupBucketCollectionView()
-        setupFriendCollectionView()
+        noSearchResults.snp.makeConstraints { make in
+            make.centerX.centerY.equalToSuperview()
+        }
         
         statusBarBackgroundView.backgroundColor = .heroWhite100s
         searchContainerView.backgroundColor = .heroWhite100s
@@ -172,21 +185,36 @@ final class SearchViewController: HeroBaseViewController {
         filterMyBookButton.addTarget(self, action: #selector(onClickMyBook(_:)), for: .touchUpInside)
         filterAccountButton.addTarget(self, action: #selector(onClickAccount(_:)), for: .touchUpInside)
         filterBookmarkButton.addTarget(self, action: #selector(onClickBookmark(_:)), for: .touchUpInside)
+        
+        noSearchResults.text = "검색 결과가 없습니다."
+        noSearchResults.font = .font17P
+        noSearchResults.textColor = .heroGray5B
+    }
+    
+    private func setupViewProperties() {
+        bucketCollectionView.delegate = self
+        bucketCollectionView.dataSource = self
+        bucketCollectionView.backgroundColor = .clear
+        bucketCollectionView.showsVerticalScrollIndicator = false
+        bucketCollectionView.register(BucketItemCell.self, forCellWithReuseIdentifier: BucketItemCell.identifier)
     }
     
     @objc
     private func onClickMyBook(_ sender: UIButton) {
         viewModel?.currentSearchType.value = .myBucket
+        viewModel?.fetchSearchResult(type: .myBucket, keyword: viewModel?.searchKeyword.value ?? "")
     }
     
     @objc
     private func onClickAccount(_ sender: UIButton) {
         viewModel?.currentSearchType.value = .user
+        viewModel?.fetchSearchResult(type: .user, keyword: viewModel?.searchKeyword.value ?? "")
     }
     
     @objc
     private func onClickBookmark(_ sender: UIButton) {
         viewModel?.currentSearchType.value = .mark
+        viewModel?.fetchSearchResult(type: .mark, keyword: viewModel?.searchKeyword.value ?? "")
     }
     
     @objc
@@ -199,6 +227,49 @@ extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if let type = viewModel?.currentSearchType.value, let keyword = searchBar.text {
             viewModel?.fetchSearchResult(type: type, keyword: keyword)
+            noSearchResults.isHidden = true
         }
+    }
+}
+
+extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    public func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewModel?.bucketSearchCount.value ?? 0
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BucketItemCell.identifier, for: indexPath) as? BucketItemCell else {
+            return BucketItemCell()
+        }
+        
+//        cell.bucket = viewModel?.bucketSearchList.value[indexPath.row]
+        return cell
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let bucket = viewModel?.bucketSearchList.value[indexPath.row]
+        let vc = DetailViewController()
+        let viewModel = DetailViewModel()
+//        viewModel.bucketItem.value = bucket
+        vc.viewModel = viewModel
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        // Before : Collection View Frame Width
+        let width = UIScreen.main.bounds.width - 40
+        return CGSize(width: width / 2 - 9, height: width / 2 - 9 + 16 + 2)
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 15
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 18
     }
 }

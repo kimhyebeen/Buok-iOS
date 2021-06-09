@@ -55,10 +55,16 @@ struct SearchUserModel: Codable {
 
 struct SearchBucketModel: Codable {
     var id: Int
+    var userId: Int?
     var bucketName: String
-    var startDate: String
+    var content: String
+    var createdDate: String
     var endDate: String
-    var bucketState: String
+    var bucketState: Int
+    var categoryId: Int?
+    var userProfileUrl: String?
+    var fin: Bool
+    var bookmark: Bool
 }
 
 struct SearchBookmarkModel: Codable {
