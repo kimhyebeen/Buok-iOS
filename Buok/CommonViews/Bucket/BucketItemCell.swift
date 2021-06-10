@@ -129,7 +129,7 @@ final class BucketItemCell: UICollectionViewCell {
     }
     
     private func updateContentBgViewInSearch() {
-        let state = BucketState(rawValue: 1) ?? .all
+		let state = BucketState(rawValue: bucketSearch?.bucketState ?? 1) ?? .all
         stateView.state = state
         
         if state == .failure {

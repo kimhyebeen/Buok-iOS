@@ -166,27 +166,4 @@ public struct SearchAPIRequest {
             }
         }
     }
-    
-    static func searchBookmarkData(keyword: String, responseHandler: @escaping (Result<[SearchBucketModel], HeroAPIError>) -> Void) {
-        BaseAPIRequest.requestJSONResponse(requestType: SearchRequestType.searchMyBucket(keyword: keyword)).then { responseData in
-            do {
-                if let dictData = responseData as? NSDictionary {
-                    let jsonData = try JSONSerialization.data(withJSONObject: dictData, options: .prettyPrinted)
-                    DebugLog("responseData : \(dictData)")
-                    DebugLog("Json Data : \n\(String(data: jsonData, encoding: .utf8) ?? "nil")")
-                    
-                    let getData = try JSONDecoder().decode(SearchBucketServerModel.self, from: jsonData)
-                    let bookmarksData = getData.data
-                    
-                    if getData.status < 300 {
-                        responseHandler(.success(bookmarksData))
-                    } else {
-                        responseHandler(.failure(HeroAPIError(errorCode: ErrorCode(rawValue: getData.status)!, statusCode: getData.status, errorMessage: getData.message)))
-                    }
-                }
-            } catch {
-                ErrorLog("BucketListAPIRequest ERROR")
-            }
-        }
-    }
 }

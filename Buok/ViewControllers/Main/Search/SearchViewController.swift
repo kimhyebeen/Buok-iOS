@@ -35,9 +35,9 @@ final class SearchViewController: HeroBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+		setupViewProperties()
         setupViewLayout()
         bindViewModel()
-        setupViewProperties()
         viewModel?.currentSearchType.value = .myBucket
     }
     
@@ -53,23 +53,35 @@ final class SearchViewController: HeroBaseViewController {
             
             self?.bucketCollectionView.isHidden = !(type == .mark || type == .myBucket)
             self?.friendCollectionView.isHidden = !(type == .user)
-            self?.bucketCollectionView.reloadData()
-//            self?.viewModel?.fetchSearchResult(type: type, keyword: self?.viewModel?.searchKeyword.value ?? "")
+			
+//			self?.bucketCollectionView.reloadData()
+//			self?.friendCollectionView.reloadData()
         })
         
         viewModel?.bucketSearchList.bind({ [weak self] _ in
             self?.bucketCollectionView.reloadData()
         })
+		
+		viewModel?.bucketSearchCount.bind({ [weak self] _ in
+			self?.bucketCollectionView.reloadData()
+		})
+		
+//		viewModel?.isSearchedKeyword.bind({ [weak self] _ in
+//			self?.viewModel?.fetchSearchResult(type: type, keyword: self?.viewModel?.searchKeyword.value ?? "")
+//			self?.bucketCollectionView.reloadData()
+//		})
     }
     
     private func setupBucketCollectionView() {
         bucketCollectionView.backgroundColor = .heroServiceSkin
         view.addSubview(bucketCollectionView)
         bucketCollectionView.snp.makeConstraints { make in
-            make.top.equalTo(filterContainerView.snp.bottom).offset(22)
-            make.leading.equalToSuperview().offset(16)
-            make.trailing.equalToSuperview().offset(-16)
-            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+//            make.top.equalTo(filterContainerView.snp.bottom).offset(22)
+//            make.leading.equalToSuperview().offset(16)
+//            make.trailing.equalToSuperview().offset(-16)
+//            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+			make.top.equalTo(filterContainerView.snp.bottom)
+			make.leading.trailing.bottom.equalToSuperview()
         }
     }
     
@@ -205,19 +217,28 @@ final class SearchViewController: HeroBaseViewController {
     @objc
     private func onClickMyBook(_ sender: UIButton) {
         viewModel?.currentSearchType.value = .myBucket
-        viewModel?.fetchSearchResult(type: .myBucket, keyword: viewModel?.searchKeyword.value ?? "")
+		if viewModel?.isSearchedKeyword == true {
+			viewModel?.fetchSearchResult(type: .myBucket, keyword: viewModel?.searchKeyword.value ?? "")
+			self.bucketCollectionView.reloadData()
+		}
     }
     
     @objc
     private func onClickAccount(_ sender: UIButton) {
         viewModel?.currentSearchType.value = .user
-        viewModel?.fetchSearchResult(type: .user, keyword: viewModel?.searchKeyword.value ?? "")
+		if viewModel?.isSearchedKeyword == true {
+			viewModel?.fetchSearchResult(type: .user, keyword: viewModel?.searchKeyword.value ?? "")
+			self.friendCollectionView.reloadData()
+		}
     }
     
     @objc
     private func onClickBookmark(_ sender: UIButton) {
         viewModel?.currentSearchType.value = .mark
-        viewModel?.fetchSearchResult(type: .mark, keyword: viewModel?.searchKeyword.value ?? "")
+		if viewModel?.isSearchedKeyword == true {
+			viewModel?.fetchSearchResult(type: .mark, keyword: viewModel?.searchKeyword.value ?? "")
+			self.bucketCollectionView.reloadData()
+		}
     }
     
     @objc
@@ -229,8 +250,12 @@ final class SearchViewController: HeroBaseViewController {
 extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if let type = viewModel?.currentSearchType.value, let keyword = searchBar.text {
-            viewModel?.fetchSearchResult(type: type, keyword: keyword)
+			if let viewModel = viewModel {
+            viewModel.fetchSearchResult(type: type, keyword: keyword)
             noSearchResults.isHidden = true
+			
+			viewModel.isSearchedKeyword = true
+			}
         }
     }
 }
@@ -248,19 +273,12 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BucketItemCell.identifier, for: indexPath) as? BucketItemCell else {
             return BucketItemCell()
         }
-        
-        if viewModel?.currentSearchType.value == .mark {
-            if viewModel?.bucketSearchList.value[indexPath.row].bookmark == true {
-                cell.bucketSearch = viewModel?.bucketSearchList.value[indexPath.row]
-                return cell
-            }
-        }
-        
-        cell.bucketSearch = viewModel?.bucketSearchList.value[indexPath.row]
-        
-        return cell
-    }
-    
+		
+		cell.bucketSearch = viewModel?.bucketSearchList.value[indexPath.row]
+		
+		return cell
+	}
+	
 //    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 //        let bucket = viewModel?.bucketSearchList.value[indexPath.row]
 //        let vc = DetailViewController()

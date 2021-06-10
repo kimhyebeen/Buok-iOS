@@ -14,6 +14,7 @@ final class SearchViewModel {
     
     var bucketSearchCount: Dynamic<Int> = Dynamic(0)
     var bucketSearchList: Dynamic<[SearchBucketModel]> = Dynamic([SearchBucketModel]())
+	var isSearchedKeyword: Bool = false
     
     func fetchSearchResult(type: SearchType, keyword: String) {
         switch type {
@@ -38,10 +39,12 @@ final class SearchViewModel {
                 }
             })
         case .mark:
-            SearchAPIRequest.searchBookmarkData(keyword: keyword, responseHandler: { result in
+            SearchAPIRequest.searchMyBucketData(keyword: keyword, responseHandler: { result in
                 switch result {
                 case .success(let bookmarkList):
                     DebugLog("BookmarkList Count : \(bookmarkList.count)")
+					self.bucketSearchCount.value = bookmarkList.count
+					self.bucketSearchList.value = bookmarkList
                 case .failure(let error):
                     ErrorLog("MyBucket Search Error : \(error.statusCode) / \(error.errorMessage)")
                 }
