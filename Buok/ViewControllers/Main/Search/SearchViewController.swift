@@ -53,6 +53,7 @@ final class SearchViewController: HeroBaseViewController {
             
             self?.bucketCollectionView.isHidden = !(type == .mark || type == .myBucket)
             self?.friendCollectionView.isHidden = !(type == .user)
+            self?.bucketCollectionView.reloadData()
 //            self?.viewModel?.fetchSearchResult(type: type, keyword: self?.viewModel?.searchKeyword.value ?? "")
         })
         
@@ -65,8 +66,10 @@ final class SearchViewController: HeroBaseViewController {
         bucketCollectionView.backgroundColor = .heroServiceSkin
         view.addSubview(bucketCollectionView)
         bucketCollectionView.snp.makeConstraints { make in
-            make.top.equalTo(filterContainerView.snp.bottom)
-            make.leading.trailing.bottom.equalToSuperview()
+            make.top.equalTo(filterContainerView.snp.bottom).offset(22)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().offset(-16)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
     }
     
@@ -246,18 +249,26 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
             return BucketItemCell()
         }
         
-//        cell.bucket = viewModel?.bucketSearchList.value[indexPath.row]
+        if viewModel?.currentSearchType.value == .mark {
+            if viewModel?.bucketSearchList.value[indexPath.row].bookmark == true {
+                cell.bucketSearch = viewModel?.bucketSearchList.value[indexPath.row]
+                return cell
+            }
+        }
+        
+        cell.bucketSearch = viewModel?.bucketSearchList.value[indexPath.row]
+        
         return cell
     }
     
-    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let bucket = viewModel?.bucketSearchList.value[indexPath.row]
-        let vc = DetailViewController()
-        let viewModel = DetailViewModel()
+//    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        let bucket = viewModel?.bucketSearchList.value[indexPath.row]
+//        let vc = DetailViewController()
+//        let viewModel = DetailViewModel()
 //        viewModel.bucketItem.value = bucket
-        vc.viewModel = viewModel
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
+//        vc.viewModel = viewModel
+//        self.navigationController?.pushViewController(vc, animated: true)
+//    }
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         // Before : Collection View Frame Width

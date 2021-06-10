@@ -39,16 +39,11 @@ struct SearchBucketServerModel: Codable {
     var data: [SearchBucketModel]
 }
 
-struct SearchBookmarkServerModel: Codable {
-    var status: Int
-    var message: String
-    var data: [SearchBookmarkModel]
-}
-
 struct SearchUserModel: Codable {
     var userId: Int
+    var email: String?
     var nickName: String
-    var intro: String
+    var intro: String?
     var profileUrl: String?
     var friendStatus: Int
 }
@@ -65,15 +60,6 @@ struct SearchBucketModel: Codable {
     var userProfileUrl: String?
     var fin: Bool
     var bookmark: Bool
-}
-
-struct SearchBookmarkModel: Codable {
-    var bucketId: Int
-    var userId: Int
-    var bucketName: String
-    var bucketState: String
-    var endDate: String
-    var userProfileUrl: String
 }
 
 public struct SearchAPIRequest {
@@ -181,7 +167,7 @@ public struct SearchAPIRequest {
         }
     }
     
-    static func searchBookmarkData(keyword: String, responseHandler: @escaping (Result<[SearchBookmarkModel], HeroAPIError>) -> Void) {
+    static func searchBookmarkData(keyword: String, responseHandler: @escaping (Result<[SearchBucketModel], HeroAPIError>) -> Void) {
         BaseAPIRequest.requestJSONResponse(requestType: SearchRequestType.searchMyBucket(keyword: keyword)).then { responseData in
             do {
                 if let dictData = responseData as? NSDictionary {
@@ -189,7 +175,7 @@ public struct SearchAPIRequest {
                     DebugLog("responseData : \(dictData)")
                     DebugLog("Json Data : \n\(String(data: jsonData, encoding: .utf8) ?? "nil")")
                     
-                    let getData = try JSONDecoder().decode(SearchBookmarkServerModel.self, from: jsonData)
+                    let getData = try JSONDecoder().decode(SearchBucketServerModel.self, from: jsonData)
                     let bookmarksData = getData.data
                     
                     if getData.status < 300 {
