@@ -9,10 +9,26 @@ import HeroCommon
 import Promise
 
 class FriendListViewModel {
-    var friends: [Any] = []
+    private var userId: Int
+    var friendList: Dynamic<[FriendUser]?> = Dynamic(nil)
     
-    func fetchFriendList() {
-        // todo - 친구 목록 api 불러오기
-        
+    public init(userId: Int) {
+        self.userId = userId
+    }
+    
+    func getFriendList() {
+        UserAPIRequest.getFriendList(userId: userId, responseHandler: { [weak self] result in
+            switch result {
+            case .success(let list):
+                if let slist = list {
+                    DebugLog("Friend List : \(slist)")
+                    self?.friendList.value = slist
+                } else {
+                    DebugLog("Friend List is nil.")
+                }
+            case .failure(let error):
+                ErrorLog(error.localizedDescription)
+            }
+        })
     }
 }
