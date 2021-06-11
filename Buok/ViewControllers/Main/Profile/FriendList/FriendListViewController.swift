@@ -7,17 +7,22 @@
 
 import HeroUI
 
-class FriendListViewController: HeroBaseViewController {
+final class FriendListViewController: HeroBaseViewController {
     private let backButton = UIButton()
     private let titleLabel = UILabel()
     private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
-    private let viewModel = FriendListViewModel()
+    var viewModel: FriendListViewModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupView()
+        viewModel?.friendList.bind({ [weak self] _ in
+            self?.collectionView.reloadData()
+        })
+        
+        viewModel?.getFriendList()
     }
     
     private func setupView() {
@@ -39,13 +44,15 @@ extension FriendListViewController: UICollectionViewDelegate, UICollectionViewDa
             return FriendListCollectionCell()
         }
         
-        // todo - cell 정보 적용
-        cell.settingInformation(indexPath.row % 2 == 0 ? nil : "자기소개입니다.")
+        if let user = viewModel?.friendList.value?[indexPath.row] {
+            cell.setFriendUser(user: user)
+        }
+//        cell.settingInformation(indexPath.row % 2 == 0 ? nil : "자기소개입니다.")
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.friends.count
+        return viewModel?.friendList.value?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {

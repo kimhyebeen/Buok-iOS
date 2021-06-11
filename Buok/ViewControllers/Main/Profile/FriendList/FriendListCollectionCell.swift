@@ -33,16 +33,21 @@ class FriendListCollectionCell: UICollectionViewCell {
         setupFriendButton()
     }
     
-    func settingInformation(_ intro: String? = nil) {
-        // todo - 친구 프로필, 계정이름, 자기소개 전달받기
-        if let introduce = intro {
-            introLabel.isHidden = false
+    func setFriendUser(user: FriendUser) {
+        if let introduce = user.intro {
             introLabel.text = introduce
             topOfUserLabel?.constant = 6
+            introLabel.isHidden = false
         } else {
             introLabel.isHidden = true
             topOfUserLabel?.constant = 16
         }
+        
+        if let profileUrl = URL(string: user.profileUrl ?? "") {
+            profileImageView.kf.setImage(with: profileUrl)
+        }
+        
+        userLabel.text = user.nickname ?? ""
     }
     
     @objc

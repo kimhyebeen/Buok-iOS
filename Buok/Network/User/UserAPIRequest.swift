@@ -117,11 +117,27 @@ struct ProfileUserServerModel: Codable {
     var data: ProfileUserData
 }
 
+struct FriendUser: Codable {
+    var id: Int
+    var email: String
+    var nickname: String?
+    var intro: String?
+    var profileUrl: String?
+    var friendStatus: Int
+}
+
+struct FriendUserServerModel: Codable {
+    var status: Int
+    var message: String
+    var data: [FriendUser]?
+}
+
 public struct UserAPIRequest {
 	enum UserRequestType: APIRequestType {
 		case getUserPage(userId: Int)
 		case getProfile
 		case getMyPageInfo
+        case getFriendList(userId: Int)
 		case changeProfile(profile: [String: Any])
         case resetPassword(newPassword: String)
         case deleteUser
@@ -130,6 +146,8 @@ public struct UserAPIRequest {
 			switch self {
             case let .getUserPage(userId):
                 return URL(string: HeroConstants.user + "/\(userId)")!
+            case let .getFriendList(userId):
+                return URL(string: HeroConstants.user + "/\(userId)/friends")!
 			case .getProfile, .changeProfile:
 				return URL(string: HeroConstants.user)!
 			case .getMyPageInfo:
@@ -165,7 +183,7 @@ public struct UserAPIRequest {
 		
 		var httpMethod: HeroRequest.Method {
 			switch self {
-			case .getUserPage, .getProfile, .getMyPageInfo:
+            case .getUserPage, .getProfile, .getMyPageInfo, .getFriendList:
 				return .get
             case .changeProfile, .resetPassword:
 				return .put
@@ -176,7 +194,7 @@ public struct UserAPIRequest {
 		
 		var encoding: HeroRequest.RequestEncoding {
 			switch self {
-            case .getUserPage, .deleteUser:
+            case .getUserPage, .deleteUser, .getFriendList:
 				return .url
             case .getProfile, .getMyPageInfo, .changeProfile, .resetPassword:
 				return .json
@@ -185,13 +203,35 @@ public struct UserAPIRequest {
 		
 		var requestBody: [String: Any]? {
 			switch self {
-            case .getUserPage, .getProfile, .getMyPageInfo, .resetPassword, .deleteUser:
+            case .getUserPage, .getProfile, .getMyPageInfo, .resetPassword, .deleteUser, .getFriendList:
 				return nil
 			case let .changeProfile(profile):
 				return profile
 			}
 		}
 	}
+    
+    static func getFriendList(userId: Int, responseHandler: @escaping (Result<[FriendUser]?, HeroAPIError>) -> Void) {
+        BaseAPIRequest.requestJSONResponse(requestType: UserRequestType.getFriendList(userId: userId)).then { responseData in
+            do {
+                if let dictData = responseData as? NSDictionary {
+                    let jsonData = try JSONSerialization.data(withJSONObject: dictData, options: .prettyPrinted)
+                    DebugLog("responseData : \(dictData)")
+                    DebugLog("Json Data : \n\(String(data: jsonData, encoding: .utf8) ?? "nil")")
+                    let getData = try JSONDecoder().decode(FriendUserServerModel.self, from: jsonData)
+                    let userData = getData.data
+                    if getData.status < 300 {
+                        responseHandler(.success(userData))
+                    } else {
+                        responseHandler(.failure(HeroAPIError(errorCode: ErrorCode(rawValue: getData.status)!, statusCode: getData.status, errorMessage: getData.message)))
+                    }
+                }
+            } catch {
+                ErrorLog("ERROR Detected")
+                responseHandler(.failure(HeroAPIError(errorCode: .unknown, statusCode: -1, errorMessage: "알 수 없는 오류")))
+            }
+        }
+    }
     
     static func deleteUser(responseHandler: @escaping (Result<Bool, HeroAPIError>) -> Void) {
         BaseAPIRequest.requestJSONResponse(requestType: UserRequestType.deleteUser).then { responseData in
