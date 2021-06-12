@@ -273,7 +273,7 @@ extension ProfileViewController: ProfileViewDelegate {
     
     func onClickFriendCountingButton() {
         let vc = FriendListViewController()
-        let viewModel = FriendListViewModel(userId: viewModel?.userId ?? 0)
+		let viewModel = FriendListViewModel(userId: self.viewModel?.userId ?? 0)
         vc.viewModel = viewModel
         
         self.navigationController?.pushViewController(vc, animated: true)

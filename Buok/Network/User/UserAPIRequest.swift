@@ -27,7 +27,6 @@ struct MyPageUserData: Codable {
 	var friendCount: Int
 	var bucketCount: Int
 	var bookmark: BookmarkData
-	var isFriend: Bool?
     
     func debugDescription() -> String {
         var message: String = ""
@@ -36,7 +35,6 @@ struct MyPageUserData: Codable {
         message += "SocialType : \(String(describing: user.socialType))\nSocialId : \(String(describing: user.socialId))\n"
 
         message += "FriendCount : \(friendCount), BucketCount : \(bucketCount)\n"
-        message += "isFriend : \(String(describing: isFriend))\n"
         message += "[BookmarkData]\nBookmarkCount : \(bookmark.bookMarkCount)\n"
         if let list = bookmark.bookmarkList {
             for item in list {
@@ -149,7 +147,7 @@ public struct UserAPIRequest {
             case let .getFriendList(userId):
                 return URL(string: HeroConstants.user + "/\(userId)/friends")!
 			case .getProfile, .changeProfile:
-				return URL(string: HeroConstants.user)!
+				return URL(string: "/profile")!
 			case .getMyPageInfo:
 				return URL(string: HeroConstants.user + "/me")!
             case .resetPassword:
