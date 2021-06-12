@@ -6,8 +6,6 @@
 
 ### iOS Deployment Target Version
 Minimum : iOS 12.0  
-SwiftUI 2.0 : iOS 14.0
-WidgetKit : iOS 14.0
 
 ## Built With
 
@@ -27,11 +25,9 @@ JIRA : [YAPP iOS 1 JIRA](https://yappios1.atlassian.net/jira/software/projects/Y
 
 - Git Flow : (iteration) - develop - feature
 - Multi Module (Main - [UI / Common / etc.])
-- Deployment Target: iOS 12.0(14.0) / iPad OS 13.0
+- Deployment Target: iOS 12.0
 - Network Module : PromiseKit + Alamofire
-- Protocol Oriented Programming, Clean Architecture
-- Design Patten: MVVM (Model - View - ViewModel)
-- Dependency Injection (Preferred)
+- Clean Architecture
 - UIView Custom Transition & Presentation with custom Context Configuration
 - Widget Supported : WidgetKit, SwiftUI
 - Strict Code Convension Management (feat. Swift Lint)
