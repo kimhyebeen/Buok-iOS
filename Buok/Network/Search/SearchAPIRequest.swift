@@ -42,7 +42,7 @@ struct SearchBucketServerModel: Codable {
 struct SearchUserModel: Codable {
     var userId: Int
     var email: String?
-    var nickName: String
+    var nickname: String
     var intro: String?
     var profileUrl: String?
     var friendStatus: Int
@@ -145,7 +145,7 @@ public struct SearchAPIRequest {
     }
     
     static func searchUserData(keyword: String, responseHandler: @escaping (Result<[SearchUserModel], HeroAPIError>) -> Void) {
-        BaseAPIRequest.requestJSONResponse(requestType: SearchRequestType.searchMyBucket(keyword: keyword)).then { responseData in
+        BaseAPIRequest.requestJSONResponse(requestType: SearchRequestType.searchUser(keyword: keyword)).then { responseData in
             do {
                 if let dictData = responseData as? NSDictionary {
                     let jsonData = try JSONSerialization.data(withJSONObject: dictData, options: .prettyPrinted)
@@ -153,10 +153,10 @@ public struct SearchAPIRequest {
                     DebugLog("Json Data : \n\(String(data: jsonData, encoding: .utf8) ?? "nil")")
                     
                     let getData = try JSONDecoder().decode(SearchUserServerModel.self, from: jsonData)
-                    let usersData = getData.data
-                    
+					let usersData = getData.data
+					
                     if getData.status < 300 {
-                        responseHandler(.success(usersData))
+						responseHandler(.success(usersData))
                     } else {
                         responseHandler(.failure(HeroAPIError(errorCode: ErrorCode(rawValue: getData.status)!, statusCode: getData.status, errorMessage: getData.message)))
                     }

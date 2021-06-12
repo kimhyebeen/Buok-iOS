@@ -14,6 +14,7 @@ final class SearchViewModel {
     
     var bucketSearchCount: Dynamic<Int> = Dynamic(0)
     var bucketSearchList: Dynamic<[SearchBucketModel]> = Dynamic([SearchBucketModel]())
+	var friendList: Dynamic<[SearchUserModel]> = Dynamic([SearchUserModel]())
 	var isSearchedKeyword: Bool = false
     
     func fetchSearchResult(type: SearchType, keyword: String) {
@@ -34,6 +35,7 @@ final class SearchViewModel {
                 switch result {
                 case .success(let userList):
                     DebugLog("UserList Count : \(userList.count)")
+					self.friendList.value = userList
                 case .failure(let error):
                     ErrorLog("MyBucket Search Error : \(error.statusCode) / \(error.errorMessage)")
                 }

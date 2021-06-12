@@ -49,6 +49,27 @@ class FriendListCollectionCell: UICollectionViewCell {
         
         userLabel.text = user.nickname ?? ""
     }
+	
+	func setSearchUser(user: SearchUserModel) {
+		if let introduce = user.intro {
+			introLabel.text = introduce
+			topOfUserLabel?.constant = 6
+			introLabel.isHidden = false
+		} else {
+			introLabel.isHidden = true
+			topOfUserLabel?.constant = 16
+		}
+		
+		if let profileUrl = URL(string: user.profileUrl ?? "") {
+			if !(user.profileUrl?.contains("http") ?? false) {
+				profileImageView.image = UIImage(heroSharedNamed: "ic_profile_48")
+			} else {
+				profileImageView.kf.setImage(with: profileUrl)
+			}
+		}
+		
+		userLabel.text = user.nickname 
+	}
     
     @objc
     func clickFriendButton(_ sender: UIButton) {

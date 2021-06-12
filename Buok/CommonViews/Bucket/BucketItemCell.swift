@@ -193,7 +193,7 @@ final class BucketItemCell: UICollectionViewCell {
         if state == .failure || state == .done {
             dateLabel.text = bucketSearch?.endDate.convertToDate().convertToSmallString()
         } else {
-            if let endDate = bucket?.endDate.convertToDate() {
+            if let endDate = bucketSearch?.endDate.convertToDate() {
                 if Calendar.current.dateComponents([.day], from: endDate, to: Date()).day == 0 {
                     dateLabel.text = "D - Day"
                 } else {

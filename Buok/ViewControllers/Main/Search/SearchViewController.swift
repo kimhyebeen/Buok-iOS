@@ -28,15 +28,15 @@ final class SearchViewController: HeroBaseViewController {
     
     private let noSearchResults: UILabel = UILabel()
 
-    private let bucketCollectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    private let mybuokCollectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     private let friendCollectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
     public var viewModel: SearchViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-		setupViewProperties()
         setupViewLayout()
+		setupViewProperties()
         bindViewModel()
         viewModel?.currentSearchType.value = .myBucket
     }
@@ -51,37 +51,27 @@ final class SearchViewController: HeroBaseViewController {
             self?.filterAccountButton.setTitleColor((type == .user ? .heroGray5B : .heroGray82), for: .normal)
             self?.filterBookmarkButton.setTitleColor((type == .mark ? .heroGray5B : .heroGray82), for: .normal)
             
-            self?.bucketCollectionView.isHidden = !(type == .mark || type == .myBucket)
+            self?.mybuokCollectionView.isHidden = !(type == .mark || type == .myBucket)
             self?.friendCollectionView.isHidden = !(type == .user)
-			
-//			self?.bucketCollectionView.reloadData()
-//			self?.friendCollectionView.reloadData()
         })
         
         viewModel?.bucketSearchList.bind({ [weak self] _ in
-            self?.bucketCollectionView.reloadData()
+            self?.mybuokCollectionView.reloadData()
         })
 		
-		viewModel?.bucketSearchCount.bind({ [weak self] _ in
-			self?.bucketCollectionView.reloadData()
+		viewModel?.friendList.bind({ [weak self] _ in
+			self?.friendCollectionView.reloadData()
 		})
-		
-//		viewModel?.isSearchedKeyword.bind({ [weak self] _ in
-//			self?.viewModel?.fetchSearchResult(type: type, keyword: self?.viewModel?.searchKeyword.value ?? "")
-//			self?.bucketCollectionView.reloadData()
-//		})
     }
     
     private func setupBucketCollectionView() {
-        bucketCollectionView.backgroundColor = .heroServiceSkin
-        view.addSubview(bucketCollectionView)
-        bucketCollectionView.snp.makeConstraints { make in
-//            make.top.equalTo(filterContainerView.snp.bottom).offset(22)
-//            make.leading.equalToSuperview().offset(16)
-//            make.trailing.equalToSuperview().offset(-16)
-//            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
-			make.top.equalTo(filterContainerView.snp.bottom)
-			make.leading.trailing.bottom.equalToSuperview()
+        mybuokCollectionView.backgroundColor = .heroServiceSkin
+        view.addSubview(mybuokCollectionView)
+        mybuokCollectionView.snp.makeConstraints { make in
+            make.top.equalTo(filterContainerView.snp.bottom).offset(22)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().offset(-16)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
     }
     
@@ -89,7 +79,7 @@ final class SearchViewController: HeroBaseViewController {
         friendCollectionView.backgroundColor = .heroServiceSkin
         view.addSubview(friendCollectionView)
         friendCollectionView.snp.makeConstraints { make in
-            make.top.equalTo(filterContainerView.snp.bottom)
+			make.top.equalTo(filterContainerView.snp.bottom).offset(16)
             make.leading.trailing.bottom.equalToSuperview()
         }
     }
@@ -197,7 +187,7 @@ final class SearchViewController: HeroBaseViewController {
         filterAccountBar.backgroundColor = .heroGray5B
         filterBookmarkBar.backgroundColor = .heroGray5B
         
-        filterMyBookButton.addTarget(self, action: #selector(onClickMyBook(_:)), for: .touchUpInside)
+        filterMyBookButton.addTarget(self, action: #selector(onClickMyBuok(_:)), for: .touchUpInside)
         filterAccountButton.addTarget(self, action: #selector(onClickAccount(_:)), for: .touchUpInside)
         filterBookmarkButton.addTarget(self, action: #selector(onClickBookmark(_:)), for: .touchUpInside)
         
@@ -207,26 +197,32 @@ final class SearchViewController: HeroBaseViewController {
     }
     
     private func setupViewProperties() {
-        bucketCollectionView.delegate = self
-        bucketCollectionView.dataSource = self
-        bucketCollectionView.backgroundColor = .clear
-        bucketCollectionView.showsVerticalScrollIndicator = false
-        bucketCollectionView.register(BucketItemCell.self, forCellWithReuseIdentifier: BucketItemCell.identifier)
+        mybuokCollectionView.delegate = self
+        mybuokCollectionView.dataSource = self
+        mybuokCollectionView.backgroundColor = .clear
+        mybuokCollectionView.showsVerticalScrollIndicator = false
+        mybuokCollectionView.register(BucketItemCell.self, forCellWithReuseIdentifier: BucketItemCell.identifier)
+		
+		friendCollectionView.delegate = self
+		friendCollectionView.dataSource = self
+		friendCollectionView.backgroundColor = .clear
+		friendCollectionView.showsVerticalScrollIndicator = false
+		friendCollectionView.register(FriendListCollectionCell.self, forCellWithReuseIdentifier: FriendListCollectionCell.identifier)
     }
     
     @objc
-    private func onClickMyBook(_ sender: UIButton) {
+    private func onClickMyBuok(_ sender: UIButton) {
         viewModel?.currentSearchType.value = .myBucket
-		if viewModel?.isSearchedKeyword == true {
+		if viewModel?.isSearchedKeyword == true, viewModel?.searchKeyword.value != "" {
 			viewModel?.fetchSearchResult(type: .myBucket, keyword: viewModel?.searchKeyword.value ?? "")
-			self.bucketCollectionView.reloadData()
+			self.mybuokCollectionView.reloadData()
 		}
     }
     
     @objc
     private func onClickAccount(_ sender: UIButton) {
         viewModel?.currentSearchType.value = .user
-		if viewModel?.isSearchedKeyword == true {
+		if viewModel?.isSearchedKeyword == true, viewModel?.searchKeyword.value != "" {
 			viewModel?.fetchSearchResult(type: .user, keyword: viewModel?.searchKeyword.value ?? "")
 			self.friendCollectionView.reloadData()
 		}
@@ -235,9 +231,9 @@ final class SearchViewController: HeroBaseViewController {
     @objc
     private func onClickBookmark(_ sender: UIButton) {
         viewModel?.currentSearchType.value = .mark
-		if viewModel?.isSearchedKeyword == true {
+		if viewModel?.isSearchedKeyword == true, viewModel?.searchKeyword.value != "" {
 			viewModel?.fetchSearchResult(type: .mark, keyword: viewModel?.searchKeyword.value ?? "")
-			self.bucketCollectionView.reloadData()
+			self.mybuokCollectionView.reloadData()
 		}
     }
     
@@ -253,7 +249,7 @@ extension SearchViewController: UISearchBarDelegate {
 			if let viewModel = viewModel {
             viewModel.fetchSearchResult(type: type, keyword: keyword)
             noSearchResults.isHidden = true
-			
+			viewModel.searchKeyword.value = keyword
 			viewModel.isSearchedKeyword = true
 			}
         }
@@ -265,20 +261,54 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
         return 1
     }
     
-    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel?.bucketSearchCount.value ?? 0
-    }
-    
-    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BucketItemCell.identifier, for: indexPath) as? BucketItemCell else {
-            return BucketItemCell()
-        }
+	public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+		let value = viewModel?.currentSearchType.value
+		if value == .user {
+			return viewModel?.friendList.value.count ?? 0
+		} else if value == .mark {
+			return viewModel?.bucketSearchList.value.count
+		} else {
+			return viewModel?.bucketSearchCount.value ?? 0
+		}
+	}
+	
+	public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+		let value = viewModel?.currentSearchType.value
+		if value == .user {
+			return settingUserCell(collectionView, indexPath)
+		} else if value == .mark {
+			if viewModel?.bucketSearchList.value[indexPath.row].bookmark == true {
+				return settingMyBuokCell(collectionView, indexPath)
+			} else {
+				return UICollectionViewCell()
+			}
+		} else {
+			return settingMyBuokCell(collectionView, indexPath)
+		}
+	}
+	
+	private func settingUserCell(_ collectionView: UICollectionView, _ indexPath: IndexPath) -> UICollectionViewCell {
+		guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FriendListCollectionCell.identifier, for: indexPath) as? FriendListCollectionCell else {
+			return FriendListCollectionCell()
+		}
+		
+		if let user = viewModel?.friendList.value[indexPath.row] {
+			cell.setSearchUser(user: user)
+		}
+		
+		return cell
+	}
+	
+	private func settingMyBuokCell(_ collectionView: UICollectionView, _ indexPath: IndexPath) -> UICollectionViewCell {
+		guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BucketItemCell.identifier, for: indexPath) as? BucketItemCell else {
+			return BucketItemCell()
+		}
 		
 		cell.bucketSearch = viewModel?.bucketSearchList.value[indexPath.row]
 		
 		return cell
 	}
-	
+
 //    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 //        let bucket = viewModel?.bucketSearchList.value[indexPath.row]
 //        let vc = DetailViewController()
@@ -289,16 +319,27 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
 //    }
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        // Before : Collection View Frame Width
-        let width = UIScreen.main.bounds.width - 40
-        return CGSize(width: width / 2 - 9, height: width / 2 - 9 + 16 + 2)
+		let width = UIScreen.main.bounds.width - 40
+		if let value = viewModel?.currentSearchType.value, value == .user {
+			return CGSize(width: width, height: 48)
+		} else {
+			return CGSize(width: width / 2 - 9, height: width / 2 - 9 + 16 + 2)
+		}
     }
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 15
+		if let value = viewModel?.currentSearchType.value, value == .user {
+			return 16
+		} else {
+			return 15
+		}
     }
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 18
+		if let value = viewModel?.currentSearchType.value, value == .myBucket || value == .mark {
+			return 18
+		} else {
+			return 0
+		}
     }
 }
