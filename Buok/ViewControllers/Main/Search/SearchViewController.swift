@@ -62,6 +62,10 @@ final class SearchViewController: HeroBaseViewController {
 		viewModel?.friendList.bind({ [weak self] _ in
 			self?.friendCollectionView.reloadData()
 		})
+		
+		viewModel?.bookmarkSearchList.bind({ [weak self] _ in
+			self?.mybuokCollectionView.reloadData()
+		})
     }
     
     private func setupBucketCollectionView() {
@@ -266,7 +270,7 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
 		if value == .user {
 			return viewModel?.friendList.value.count ?? 0
 		} else if value == .mark {
-			return viewModel?.bucketSearchList.value.count
+			return viewModel?.bookmarkSearchCount.value ?? 0
 		} else {
 			return viewModel?.bucketSearchCount.value ?? 0
 		}
@@ -277,11 +281,7 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
 		if value == .user {
 			return settingUserCell(collectionView, indexPath)
 		} else if value == .mark {
-			if viewModel?.bucketSearchList.value[indexPath.row].bookmark == true {
-				return settingMyBuokCell(collectionView, indexPath)
-			} else {
-				return UICollectionViewCell()
-			}
+			return settingBookMarkCell(collectionView, indexPath)
 		} else {
 			return settingMyBuokCell(collectionView, indexPath)
 		}
@@ -305,6 +305,16 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
 		}
 		
 		cell.bucketSearch = viewModel?.bucketSearchList.value[indexPath.row]
+		
+		return cell
+	}
+	
+	private func settingBookMarkCell(_ collectionView: UICollectionView, _ indexPath: IndexPath) -> UICollectionViewCell {
+		guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BucketItemCell.identifier, for: indexPath) as? BucketItemCell else {
+			return BucketItemCell()
+		}
+		
+		cell.bucketSearch = viewModel?.bookmarkSearchList.value[indexPath.row]
 		
 		return cell
 	}
