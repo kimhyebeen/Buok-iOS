@@ -11,6 +11,23 @@ import KakaoSDKAuth
 import KakaoSDKUser
 import Promise
 
+public enum SNSSocialType: Int {
+	case apple = 1
+	case google
+	case kakao
+	
+	public func getType() -> String {
+		switch self {
+		case .apple:
+			return "apple"
+		case .google:
+			return "google"
+		case .kakao:
+			return "kakao"
+		}
+	}
+}
+
 class UserViewModel {
 	var deviceToken: String = TokenManager.shared.getFCMToken() ?? ""
     var email: String = ""
@@ -26,6 +43,7 @@ class UserViewModel {
     var isEmailExist: Dynamic<Bool?> = Dynamic(false)
     var isNicknameExist: Dynamic<Bool?> = Dynamic(false)
     var isSignUpSuccess: Dynamic<Bool> = Dynamic(false)
+	var socialType: Dynamic<SNSSocialType> = Dynamic(.kakao)
     
     func validateEmail(_ email: String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
@@ -121,10 +139,6 @@ class UserViewModel {
             appDelegate.window?.makeKeyAndVisible()
         }
     }
-	
-	func goToJoinNickname() {
-		
-	}
     
     func requestKakaoTalkLogin() {
         if UserApi.isKakaoTalkLoginAvailable() {
@@ -165,7 +179,8 @@ class UserViewModel {
                 if let kakaoUser = user {
                     DebugLog("[로그인된 사용자 정보]\nnickname: \(kakaoUser.kakaoAccount?.profile?.nickname ?? "nil")\nuserId: \(String(describing: kakaoUser.id))")
 					if let kakaoUserId = kakaoUser.id {
-						self.requestSNSJoinandLogin(socialType: "kakao", email: "", socialId: "\(kakaoUserId)")
+						self.socialType.value = .kakao
+						self.requestSNSJoinandLogin(deviceToken: self.deviceToken, email: "", socialId: "\(kakaoUserId)")
 					}
 //                    UserApi.shared.logout(completion: { error in
 //                        // Do Nothing
@@ -176,12 +191,12 @@ class UserViewModel {
         })
     }
 	
-	func requestSNSJoinandLogin(socialType: String, email: String, socialId: String) {
-		SignAPIRequest.snsSignUpRequest(socialType: socialType, email: email, socialId: socialId, responseHandler: { result in
+	func requestSNSJoinandLogin(deviceToken: String, email: String, socialId: String) {
+		SignAPIRequest.snsSignUpRequest(deviceToken: deviceToken, socialType: socialType.value.getType(), email: email, socialId: socialId, responseHandler: { result in
 			switch result {
 			case .success(let signInData):
 				DebugLog("Is Success : \(signInData)")
-				self.isSignUpSuccess.value = true
+//				self.isSignUpSuccess.value = true
 				_ = TokenManager.shared.deleteAllTokenData()
 				let sat = TokenManager.shared.setAccessToken(token: signInData.accessToken)
 				let srt = TokenManager.shared.setRefreshToken(token: signInData.accessToken)

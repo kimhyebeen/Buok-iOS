@@ -49,15 +49,15 @@ extension LoginViewController: ASAuthorizationControllerDelegate, ASAuthorizatio
 			let userFirstName: String = appleIDCredential.fullName?.givenName ?? ""
 			let userLastName: String = appleIDCredential.fullName?.familyName ?? ""
 			let email : String = appleIDCredential.email ?? ""
-			let _: String = userLastName + userFirstName
 
 			let provider = ASAuthorizationAppleIDProvider()
 			provider.getCredentialState(forUserID: userId) { credentialState, error in
 				switch credentialState {
 				case .authorized:
 					DebugLog("Apple ID Login Authorized")
-//					self.viewModel.requestSNSJoinandLogin(socialType: "apple", email: email, socialId: userId)
 					self.viewModel.appleLoginMode = true
+					self.viewModel.socialType.value = .apple
+//					self.viewModel.requestSNSJoinandLogin(deviceToken: self.viewModel.deviceToken, email: email, socialId: "\(userId)")
 				case .notFound:
 					DebugLog("Apple ID Login Not Found")
 				case .revoked:

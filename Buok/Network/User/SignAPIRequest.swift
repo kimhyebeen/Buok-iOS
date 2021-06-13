@@ -29,7 +29,7 @@ public struct SignAPIRequest {
     enum SignRequestType: APIRequestType {
         case signIn(email: String, password: String)
 		case signUp(deviceToken: String, email: String, intro: String, nickname: String, password: String)
-		case snsSignUp(socialType: String, email: String, socialId: String)
+		case snsSignUp(deviceToken: String, socialType: String, email: String, socialId: String)
         
         var requestURL: URL {
             switch self {
@@ -37,7 +37,7 @@ public struct SignAPIRequest {
                 return URL(string: HeroConstants.user + "/signin")!
             case .signUp:
                 return URL(string: HeroConstants.user + "/signup")!
-			case let .snsSignUp(socialType, _, _):
+			case let .snsSignUp(socialType, _, _, _):
 				return URL(string: HeroConstants.social + "/\(socialType)")!
             }
         }
@@ -70,8 +70,8 @@ public struct SignAPIRequest {
 			switch self {
 			case .signIn, .signUp:
 				return nil
-			case let .snsSignUp(_, email, socialId):
-				return ["email": email, "socialId": socialId]
+			case let .snsSignUp(_, email, socialId, deviceToken):
+				return ["deviceToken": deviceToken, "email": email, "socialId": socialId]
 			}
 		}
         
@@ -122,8 +122,8 @@ public struct SignAPIRequest {
 		}
 	}
 	
-	static func snsSignUpRequest(socialType: String, email: String, socialId: String, responseHandler: @escaping (Result<SignInData, HeroAPIError>) -> Void) {
-		BaseAPIRequest.requestJSONResponse(requestType: SignRequestType.snsSignUp(socialType: socialType, email: email, socialId: socialId) ).then { responseData in
+	static func snsSignUpRequest(deviceToken: String, socialType: String, email: String, socialId: String, responseHandler: @escaping (Result<SignInData, HeroAPIError>) -> Void) {
+		BaseAPIRequest.requestJSONResponse(requestType: SignRequestType.snsSignUp(deviceToken: deviceToken, socialType: socialType, email: email, socialId: socialId) ).then { responseData in
 			do {
 				if let dictData = responseData as? NSDictionary {
 					let jsonData = try JSONSerialization.data(withJSONObject: dictData, options: .prettyPrinted)

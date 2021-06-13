@@ -144,7 +144,7 @@ extension NotificationViewController: UITableViewDataSource, UITableViewDelegate
 	}
 	
 	func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-		let deleteAction = UIContextualAction(style: .destructive, title: "삭제") { _, _, completion  in
+		let deleteAction = UIContextualAction(style: .destructive, title: "") { _, _, completion  in
 			if let alarmId = self.viewModel?.notificationList.value[indexPath.row].alarmId,
 			   let status = self.viewModel?.notificationList.value[indexPath.row].alarmStatus {
 				self.viewModel?.deleteNotificationLog(alarmId: alarmId, status: status, indexPath: indexPath.row)
@@ -152,6 +152,8 @@ extension NotificationViewController: UITableViewDataSource, UITableViewDelegate
 			completion(true)
 		}
 		deleteAction.backgroundColor = .heroServiceSkin
+		deleteAction.image =  UIImage(heroSharedNamed: "ic_noti_delete")!
+		
 		let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
 		return configuration
 	}
