@@ -13,9 +13,9 @@ class FriendListCollectionCell: UICollectionViewCell {
     private let userLabel = UILabel()
     private let introLabel = UILabel()
     private let friendButton = FriendButton()
-    
+	
     private var topOfUserLabel: NSLayoutConstraint?
-    
+	
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -49,11 +49,46 @@ class FriendListCollectionCell: UICollectionViewCell {
         
         userLabel.text = user.nickname ?? ""
     }
+	
+	func setSearchUser(user: SearchUserModel) {
+		if let introduce = user.intro {
+			introLabel.text = introduce
+			topOfUserLabel?.constant = 6
+			introLabel.isHidden = false
+		} else {
+			introLabel.isHidden = true
+			topOfUserLabel?.constant = 16
+		}
+		
+		if let profileUrl = URL(string: user.profileUrl ?? "") {
+			if !(user.profileUrl?.contains("http") ?? false) {
+				profileImageView.image = UIImage(heroSharedNamed: "ic_profile_48")
+			} else {
+				profileImageView.kf.setImage(with: profileUrl)
+			}
+		}
+		
+		userLabel.text = user.nickname
+		
+		if user.friendStatus == 1 {
+			friendButton.friendType.value = .friend
+		} else if user.friendStatus == 2 {
+			friendButton.friendType.value = .request
+		} else {
+			friendButton.friendType.value = .none
+		}
+	}
     
     @objc
     func clickFriendButton(_ sender: UIButton) {
         // todo - 친구 취소 성공하면..
-        friendButton.settingFriendButtonType(for: .none)
+		if friendButton.friendType.value == .none {
+			friendButton.settingFriendButtonType(for: .request)
+		} else if friendButton.friendType.value == .friend {
+			friendButton.settingFriendButtonType(for: .none)
+		} else {
+			friendButton.settingFriendButtonType(for: .friend)
+		}
     }
 }
 
@@ -101,14 +136,14 @@ extension FriendListCollectionCell {
     
     // MARK: FriendButton
     private func setupFriendButton() {
-        friendButton.settingFriendButtonType(for: .friend)
+		friendButton.settingFriendButtonType(for: friendButton.friendType.value)
         friendButton.addTarget(self, action: #selector(clickFriendButton(_:)), for: .touchUpInside)
         self.addSubview(friendButton)
-        
-        friendButton.snp.makeConstraints { make in
-            make.width.equalTo(48)
-            make.centerY.equalToSuperview()
-            make.trailing.equalToSuperview().offset(-20)
-        }
+		
+		friendButton.snp.makeConstraints { make in
+			make.width.equalTo(48)
+			make.centerY.equalToSuperview()
+			make.trailing.equalToSuperview().offset(-20)
+		}
     }
 }

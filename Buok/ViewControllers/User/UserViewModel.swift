@@ -11,6 +11,23 @@ import KakaoSDKAuth
 import KakaoSDKUser
 import Promise
 
+public enum SNSSocialType: Int {
+	case apple = 1
+	case google
+	case kakao
+	
+	public func getType() -> String {
+		switch self {
+		case .apple:
+			return "apple"
+		case .google:
+			return "google"
+		case .kakao:
+			return "kakao"
+		}
+	}
+}
+
 class UserViewModel {
 	var deviceToken: String = TokenManager.shared.getFCMToken() ?? ""
     var email: String = ""
@@ -21,10 +38,12 @@ class UserViewModel {
     var appleLoginMode: Bool = false
     
     var isLoginSuccess: Dynamic<Bool> = Dynamic(false)
+	var isSNSLoginSuccess: Dynamic<Bool> = Dynamic(false)
     
     var isEmailExist: Dynamic<Bool?> = Dynamic(false)
     var isNicknameExist: Dynamic<Bool?> = Dynamic(false)
     var isSignUpSuccess: Dynamic<Bool> = Dynamic(false)
+	var socialType: Dynamic<SNSSocialType> = Dynamic(.kakao)
     
     func validateEmail(_ email: String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
@@ -102,7 +121,7 @@ class UserViewModel {
             case .success(let isSuccess):
                 DebugLog("Is Success : \(isSuccess)")
                 self.isSignUpSuccess.value = true
-            case.failure(_):
+			case.failure(_):
                 ErrorLog("API Error")
             // Alert 이나 Toast 띄우기
             }
@@ -159,13 +178,50 @@ class UserViewModel {
                 
                 if let kakaoUser = user {
                     DebugLog("[로그인된 사용자 정보]\nnickname: \(kakaoUser.kakaoAccount?.profile?.nickname ?? "nil")\nuserId: \(String(describing: kakaoUser.id))")
-                    
-                    UserApi.shared.logout(completion: { error in
-                        // Do Nothing
-                        DebugLog("Kakao Logout Result Error : \(error?.localizedDescription ?? "nil")")
-                    })
+					if let kakaoUserId = kakaoUser.id {
+						self.socialType.value = .kakao
+						self.requestSNSJoinandLogin(deviceToken: self.deviceToken, email: "", socialId: "\(kakaoUserId)")
+					}
+//                    UserApi.shared.logout(completion: { error in
+//                        // Do Nothing
+//                        DebugLog("Kakao Logout Result Error : \(error?.localizedDescription ?? "nil")")
+//                    })
                 }
             }
         })
     }
+	
+	func requestSNSJoinandLogin(deviceToken: String, email: String, socialId: String) {
+		SignAPIRequest.snsSignUpRequest(deviceToken: deviceToken, socialType: socialType.value.getType(), email: email, socialId: socialId, responseHandler: { result in
+			switch result {
+			case .success(let signInData):
+				DebugLog("Is Success : \(signInData)")
+//				self.isSignUpSuccess.value = true
+				_ = TokenManager.shared.deleteAllTokenData()
+				let sat = TokenManager.shared.setAccessToken(token: signInData.accessToken)
+				let srt = TokenManager.shared.setRefreshToken(token: signInData.accessToken)
+				let sated = TokenManager.shared.setAccessTokenExpiredDate(expiredAt: signInData.accessExpiredAt.convertToDate())
+				let srted = TokenManager.shared.setRefreshTokenExpiredDate(expiredAt: signInData.refreshExpiredAt.convertToDate())
+				DebugLog("sat : \(sat), srt : \(srt), sated : \(sated), srted : \(srted)")
+				self.isSNSLoginSuccess.value = sat && srt && sated && srted
+			case.failure:
+				ErrorLog("API Error")
+			// Alert 이나 Toast 띄우기
+			}
+		})
+	}
+	
+	func requestSaveProfile() -> String? {
+		let profile = ProfileData(intro: introduce ?? "", nickname: nickname, profileUrl: "")
+		UserAPIRequest.changeProfileInfo(profile: profile, responseHandler: { [weak self] result in
+			switch result {
+			case .success(let isSuccess):
+				self?.isSignUpSuccess.value = isSuccess
+			case .failure(let error):
+				ErrorLog("ERROR : \(error.statusCode) / \(error.localizedDescription)")
+				self?.isSignUpSuccess.value = false
+			}
+		})
+		return nil
+	}
 }

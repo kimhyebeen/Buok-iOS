@@ -39,35 +39,27 @@ struct SearchBucketServerModel: Codable {
     var data: [SearchBucketModel]
 }
 
-struct SearchBookmarkServerModel: Codable {
-    var status: Int
-    var message: String
-    var data: [SearchBookmarkModel]
-}
-
 struct SearchUserModel: Codable {
     var userId: Int
-    var nickName: String
-    var intro: String
+    var email: String?
+    var nickname: String
+    var intro: String?
     var profileUrl: String?
     var friendStatus: Int
 }
 
 struct SearchBucketModel: Codable {
     var id: Int
+    var userId: Int?
     var bucketName: String
-    var startDate: String
+    var content: String
+    var createdDate: String
     var endDate: String
-    var bucketState: String
-}
-
-struct SearchBookmarkModel: Codable {
-    var bucketId: Int
-    var userId: Int
-    var bucketName: String
-    var bucketState: String
-    var endDate: String
-    var userProfileUrl: String
+    var bucketState: Int
+    var categoryId: Int?
+    var userProfileUrl: String?
+    var fin: Bool
+    var bookmark: Bool
 }
 
 public struct SearchAPIRequest {
@@ -153,7 +145,7 @@ public struct SearchAPIRequest {
     }
     
     static func searchUserData(keyword: String, responseHandler: @escaping (Result<[SearchUserModel], HeroAPIError>) -> Void) {
-        BaseAPIRequest.requestJSONResponse(requestType: SearchRequestType.searchMyBucket(keyword: keyword)).then { responseData in
+        BaseAPIRequest.requestJSONResponse(requestType: SearchRequestType.searchUser(keyword: keyword)).then { responseData in
             do {
                 if let dictData = responseData as? NSDictionary {
                     let jsonData = try JSONSerialization.data(withJSONObject: dictData, options: .prettyPrinted)
@@ -161,10 +153,10 @@ public struct SearchAPIRequest {
                     DebugLog("Json Data : \n\(String(data: jsonData, encoding: .utf8) ?? "nil")")
                     
                     let getData = try JSONDecoder().decode(SearchUserServerModel.self, from: jsonData)
-                    let usersData = getData.data
-                    
+					let usersData = getData.data
+					
                     if getData.status < 300 {
-                        responseHandler(.success(usersData))
+						responseHandler(.success(usersData))
                     } else {
                         responseHandler(.failure(HeroAPIError(errorCode: ErrorCode(rawValue: getData.status)!, statusCode: getData.status, errorMessage: getData.message)))
                     }
@@ -174,27 +166,27 @@ public struct SearchAPIRequest {
             }
         }
     }
-    
-    static func searchBookmarkData(keyword: String, responseHandler: @escaping (Result<[SearchBookmarkModel], HeroAPIError>) -> Void) {
-        BaseAPIRequest.requestJSONResponse(requestType: SearchRequestType.searchMyBucket(keyword: keyword)).then { responseData in
-            do {
-                if let dictData = responseData as? NSDictionary {
-                    let jsonData = try JSONSerialization.data(withJSONObject: dictData, options: .prettyPrinted)
-                    DebugLog("responseData : \(dictData)")
-                    DebugLog("Json Data : \n\(String(data: jsonData, encoding: .utf8) ?? "nil")")
-                    
-                    let getData = try JSONDecoder().decode(SearchBookmarkServerModel.self, from: jsonData)
-                    let bookmarksData = getData.data
-                    
-                    if getData.status < 300 {
-                        responseHandler(.success(bookmarksData))
-                    } else {
-                        responseHandler(.failure(HeroAPIError(errorCode: ErrorCode(rawValue: getData.status)!, statusCode: getData.status, errorMessage: getData.message)))
-                    }
-                }
-            } catch {
-                ErrorLog("BucketListAPIRequest ERROR")
-            }
-        }
-    }
+	
+	static func searchBookmarkData(keyword: String, responseHandler: @escaping (Result<[SearchBucketModel], HeroAPIError>) -> Void) {
+		BaseAPIRequest.requestJSONResponse(requestType: SearchRequestType.searchBookmark(keyword: keyword)).then { responseData in
+			do {
+				if let dictData = responseData as? NSDictionary {
+					let jsonData = try JSONSerialization.data(withJSONObject: dictData, options: .prettyPrinted)
+					DebugLog("responseData : \(dictData)")
+					DebugLog("Json Data : \n\(String(data: jsonData, encoding: .utf8) ?? "nil")")
+					
+					let getData = try JSONDecoder().decode(SearchBucketServerModel.self, from: jsonData)
+					let bookmarksData = getData.data
+					
+					if getData.status < 300 {
+						responseHandler(.success(bookmarksData))
+					} else {
+						responseHandler(.failure(HeroAPIError(errorCode: ErrorCode(rawValue: getData.status)!, statusCode: getData.status, errorMessage: getData.message)))
+					}
+				}
+			} catch {
+				ErrorLog("BucketListAPIRequest ERROR")
+			}
+		}
+	}
 }

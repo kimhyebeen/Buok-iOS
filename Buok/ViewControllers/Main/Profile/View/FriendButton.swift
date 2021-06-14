@@ -5,6 +5,7 @@
 //  Copyright © 2021 Buok. All rights reserved.
 //
 
+import HeroCommon
 import UIKit
 
 enum FriendButtonType {
@@ -14,7 +15,9 @@ enum FriendButtonType {
 }
 
 class FriendButton: UIButton {
-    
+	
+	var friendType: Dynamic<FriendButtonType> = Dynamic(.none)
+	
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -34,10 +37,13 @@ class FriendButton: UIButton {
     func settingFriendButtonType(for type: FriendButtonType) {
         if type == .friend {
             settingFriendMode()
+			friendType.value = .friend
         } else if type == .request {
             settingRequestFriendMode()
+			friendType.value = .request
         } else {
             settingNotFriendMode()
+			friendType.value = .none
         }
     }
     

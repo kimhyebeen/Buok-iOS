@@ -28,4 +28,16 @@ public class NotificationViewModel {
 			}
 		})
 	}
+	
+	func deleteNotificationLog(alarmId: Int, status: Int, indexPath: Int) {
+		AlarmAPIRequest.deleteAlarmLog(alarmId: alarmId, status: status, responseHandler: { result in
+			switch result {
+			case .success(let isSuccess):
+				DebugLog("Delete Notification Log Success : \(isSuccess)")
+				self.fetchNotificationList()
+			case .failure(let error):
+				ErrorLog("ERROR: \(error.statusCode) / \(error.localizedDescription)")
+			}
+		})
+	}
 }

@@ -14,6 +14,7 @@ class JoinNameViewController: HeroBaseViewController {
     let subGuideLabel = UILabel()
     let countLabel = UILabel()
     let nextButton = LoginButton()
+	var isSNSLogin: Bool = false
     
     weak var viewModel: UserViewModel?
 
@@ -32,6 +33,9 @@ class JoinNameViewController: HeroBaseViewController {
             } else {
                 let introduceVC = JoinIntroduceViewController()
                 introduceVC.viewModel = self?.viewModel
+				if self?.isSNSLogin == true {
+					introduceVC.isSNSLogin = true
+				}
                 self?.navigationController?.pushViewController(introduceVC, animated: true)
             }
         })

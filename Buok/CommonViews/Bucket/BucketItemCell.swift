@@ -28,6 +28,14 @@ final class BucketItemCell: UICollectionViewCell {
         }
     }
     
+    public var bucketSearch: SearchBucketModel? {
+        didSet {
+            titleLabel.text = bucketSearch?.bucketName
+            self.updateContentBgViewInSearch()
+            self.setupCategoryIconInSearch()
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViewLayout()
@@ -93,6 +101,11 @@ final class BucketItemCell: UICollectionViewCell {
         iconImageView.tintColor = .heroGrayA6A4A1
     }
     
+    private func setupCategoryIconInSearch() {
+        iconImageView.image = BucketCategory(rawValue: (bucketSearch?.categoryId ?? 2) - 2)?.getIcon()?.withRenderingMode(.alwaysTemplate)
+        iconImageView.tintColor = .heroGrayA6A4A1
+    }
+    
     private func updateContentBgView() {
         let state = BucketState(rawValue: bucket?.bucketState ?? 2) ?? .now
         stateView.state = state
@@ -113,6 +126,28 @@ final class BucketItemCell: UICollectionViewCell {
         
         updateLabelProperty(state: state)
         setDateToLabel(state: state)
+    }
+    
+    private func updateContentBgViewInSearch() {
+		let state = BucketState(rawValue: bucketSearch?.bucketState ?? 1) ?? .all
+        stateView.state = state
+        
+        if state == .failure {
+            iconContainerView.backgroundColor = .heroGrayF2EDE8
+            contentBgView.backgroundColor = .heroGrayE7E1DC
+            contentBgView.layer.shadowRadius = 0
+            contentBgView.layer.shadowColor = UIColor.clear.cgColor
+            contentBgView.layer.shadowOffset = CGSize(width: 0, height: 0)
+        } else {
+            iconContainerView.backgroundColor = .heroGrayF1F1F1
+            contentBgView.backgroundColor = .heroWhite100s
+            contentBgView.layer.shadowRadius = 8
+            contentBgView.layer.shadowColor = UIColor.heroGrayC7BFB8.cgColor
+            contentBgView.layer.shadowOffset = CGSize(width: 0, height: 5)
+        }
+        
+        updateLabelProperty(state: state)
+        setDateToLabelInSearch(state: state)
     }
     
     private func updateLabelProperty(state: BucketState) {
@@ -144,7 +179,21 @@ final class BucketItemCell: UICollectionViewCell {
         if state == .failure || state == .done {
             dateLabel.text = bucket?.endDate.convertToDate().convertToSmallString()
         } else {
-            if let endDate = bucket?.endDate.convertToDate() {
+			if let endDate = bucket?.endDate.convertToDate() {
+                if Calendar.current.dateComponents([.day], from: endDate, to: Date()).day == 0 {
+                    dateLabel.text = "D - Day"
+                } else {
+                    dateLabel.text = "D - \(Calendar.current.dateComponents([.day], from: Date(), to: endDate).day ?? 0)"
+                }
+            }
+        }
+    }
+    
+    private func setDateToLabelInSearch(state: BucketState) {
+        if state == .failure || state == .done {
+            dateLabel.text = bucketSearch?.endDate.convertToDate().convertToSmallString()
+        } else {
+            if let endDate = bucketSearch?.endDate.convertToDate() {
                 if Calendar.current.dateComponents([.day], from: endDate, to: Date()).day == 0 {
                     dateLabel.text = "D - Day"
                 } else {
