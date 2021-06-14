@@ -143,6 +143,10 @@ class UserViewModel {
     func requestKakaoTalkLogin() {
         if UserApi.isKakaoTalkLoginAvailable() {
             UserApi.shared.loginWithKakaoTalk { oauthToken, error in
+                DebugLog("[KakaoTalk Login]\n")
+                DebugLog("OAuthToken : \(oauthToken)")
+                DebugLog("Error : \(error?.localizedDescription)")
+                
                 if let error = error {
                     ErrorLog(error.localizedDescription)
                 } else {

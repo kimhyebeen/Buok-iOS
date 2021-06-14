@@ -10,6 +10,7 @@ import Firebase
 import FirebaseMessaging
 import HeroCommon
 import HeroUI
+import KakaoSDKAuth
 import KakaoSDKCommon
 
 @main
@@ -46,7 +47,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
         // App Scheme
-        return true
+        if AuthApi.isKakaoTalkLoginUrl(url) {
+            return AuthController.handleOpenUrl(url: url)
+        }
+        
+        return false
     }
     
     // MARK: - Core Data stack
