@@ -111,6 +111,13 @@ extension NotificationViewController: NotificationCellDelegate {
 		viewModel?.toMakeFriend(friendId: friendId, alarmId: alarmId, accept: true)
 		self.tableView.reloadData()
 	}
+	
+	func onClickRejectButton(index: Int) {
+		let friendId = viewModel?.notificationList.value[index].friendId ?? 0
+		let alarmId = viewModel?.notificationList.value[index].alarmId ?? 0
+		viewModel?.toMakeFriend(friendId: friendId, alarmId: alarmId, accept: false)
+		self.tableView.reloadData()
+	}
 }
 
 extension NotificationViewController: UITableViewDataSource, UITableViewDelegate {

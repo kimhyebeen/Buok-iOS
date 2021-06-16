@@ -10,6 +10,7 @@ import HeroUI
 
 public protocol NotificationCellDelegate: AnyObject {
 	func onClickAcceptButton(index: Int)
+	func onClickRejectButton(index: Int)
 }
 
 class NotificationFriendTableCell: UITableViewCell {
@@ -75,6 +76,7 @@ class NotificationFriendTableCell: UITableViewCell {
 		profileImageView.clipsToBounds = true
         
         acceptButton.addTarget(self, action: #selector(onClickAccept(_:)), for: .touchUpInside)
+		rejectButton.addTarget(self, action: #selector(onClickReject(_:)), for: .touchUpInside)
 	}
 	
 	private func setupContentLayout() {
@@ -138,7 +140,12 @@ class NotificationFriendTableCell: UITableViewCell {
 	}
     
     @objc
-    func onClickAccept(_ sender: UIButton) {
+    private func onClickAccept(_ sender: UIButton) {
 		delegate?.onClickAcceptButton(index: friendListIndex)
     }
+	
+	@objc
+	private func onClickReject(_ sender: UIButton) {
+		delegate?.onClickRejectButton(index: friendListIndex)
+	}
 }
