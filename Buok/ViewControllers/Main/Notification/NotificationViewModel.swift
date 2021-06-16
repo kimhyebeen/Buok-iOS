@@ -41,7 +41,7 @@ public class NotificationViewModel {
 		})
 	}
     
-    func acceptFriendRequest(friendId: Int) {
+    func requestFriend(friendId: Int) {
         FriendAPIRequest.requestFriend(friendId: friendId, responseHandler: { result in
             switch result {
             case .success(let isSuccess):

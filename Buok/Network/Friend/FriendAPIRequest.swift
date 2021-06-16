@@ -44,7 +44,7 @@ public struct FriendAPIRequest {
         }
         
         var requestHeaders: [HeroHeader]? {
-            nil
+			return [.token(TokenManager.shared.getAccessToken() ?? ""), .accept]
         }
         
         var imagesToUpload: [UIImage]? {
@@ -110,7 +110,7 @@ public struct FriendAPIRequest {
                 if let dictData = responseData as? NSDictionary {
                     let jsonData = try JSONSerialization.data(withJSONObject: dictData, options: .prettyPrinted)
                     DebugLog("Json Data : \n\(String(data: jsonData, encoding: .utf8) ?? "nil")")
-                    let getData = try JSONDecoder().decode(FriendUserServerModel.self, from: jsonData)
+                    let getData = try JSONDecoder().decode(BaseServerModel.self, from: jsonData)
                     if getData.status < 300 {
                         responseHandler(.success(true))
                     } else {
@@ -130,7 +130,7 @@ public struct FriendAPIRequest {
                 if let dictData = responseData as? NSDictionary {
                     let jsonData = try JSONSerialization.data(withJSONObject: dictData, options: .prettyPrinted)
                     DebugLog("Json Data : \n\(String(data: jsonData, encoding: .utf8) ?? "nil")")
-                    let getData = try JSONDecoder().decode(FriendUserServerModel.self, from: jsonData)
+                    let getData = try JSONDecoder().decode(BaseServerModel.self, from: jsonData)
                     if getData.status < 300 {
                         responseHandler(.success(true))
                     } else {
