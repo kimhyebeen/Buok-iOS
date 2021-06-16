@@ -11,6 +11,7 @@
 		293857E1266BA66500E8DB65 /* AlarmAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293857E0266BA66500E8DB65 /* AlarmAPIRequest.swift */; };
 		293857F0266BE0A500E8DB65 /* NotificationTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293857EF266BE0A500E8DB65 /* NotificationTableCell.swift */; };
 		293857FC266C7B5A00E8DB65 /* NotificationFriendTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293857FB266C7B5A00E8DB65 /* NotificationFriendTableCell.swift */; };
+		29385BEB267A4F5A00E8DB65 /* NotificationFriendAcceptTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29385BEA267A4F5A00E8DB65 /* NotificationFriendAcceptTableCell.swift */; };
 		29773EFB2647FAB900FB7AA8 /* LoginViewController+AppleID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29773EFA2647FAB900FB7AA8 /* LoginViewController+AppleID.swift */; };
 		298561AD2663F5C600830084 /* InfoCheckAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298561AC2663F5C600830084 /* InfoCheckAPIRequest.swift */; };
 		29CA50B5265AEE7B00533ED6 /* UserAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CA50B4265AEE7B00533ED6 /* UserAPIRequest.swift */; };
@@ -248,6 +249,7 @@
 		293857E0266BA66500E8DB65 /* AlarmAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmAPIRequest.swift; sourceTree = "<group>"; };
 		293857EF266BE0A500E8DB65 /* NotificationTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTableCell.swift; sourceTree = "<group>"; };
 		293857FB266C7B5A00E8DB65 /* NotificationFriendTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationFriendTableCell.swift; sourceTree = "<group>"; };
+		29385BEA267A4F5A00E8DB65 /* NotificationFriendAcceptTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationFriendAcceptTableCell.swift; sourceTree = "<group>"; };
 		29773EFA2647FAB900FB7AA8 /* LoginViewController+AppleID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "LoginViewController+AppleID.swift"; path = "Buok/ViewControllers/User/SignIn/LoginViewController+AppleID.swift"; sourceTree = SOURCE_ROOT; };
 		298561AC2663F5C600830084 /* InfoCheckAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCheckAPIRequest.swift; sourceTree = "<group>"; };
 		29CA50B4265AEE7B00533ED6 /* UserAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPIRequest.swift; sourceTree = "<group>"; };
@@ -850,6 +852,7 @@
 			children = (
 				293857EF266BE0A500E8DB65 /* NotificationTableCell.swift */,
 				293857FB266C7B5A00E8DB65 /* NotificationFriendTableCell.swift */,
+				29385BEA267A4F5A00E8DB65 /* NotificationFriendAcceptTableCell.swift */,
 				B07CD19B2666751F0031B106 /* NotificationViewController.swift */,
 				B07CD19F266675530031B106 /* NotificationViewModel.swift */,
 			);
@@ -1396,6 +1399,7 @@
 				EE77F556265AA80E002C4782 /* FriendListCollectionCell.swift in Sources */,
 				B082F2CE26594F3900A7AB6B /* CreateAddCell.swift in Sources */,
 				B06B5EEF25ECCEE10045A491 /* SubTwoViewController.swift in Sources */,
+				29385BEB267A4F5A00E8DB65 /* NotificationFriendAcceptTableCell.swift in Sources */,
 				B08CEB37266212BF00FF77BD /* AppConfiguration.swift in Sources */,
 				B082F2D626595EB500A7AB6B /* AlignedCollectionViewFlowLayout.swift in Sources */,
 				B08CEB3E2662163E00FF77BD /* StartDIContainer.swift in Sources */,

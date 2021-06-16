@@ -26,6 +26,12 @@ struct FriendUserServerModel: Codable {
     var data: [FriendUser]?
 }
 
+struct MakeFriendServerModel: Codable {
+	var status: Int
+	var message: String
+	var data: Bool
+}
+
 public struct FriendAPIRequest {
     enum FriendRequestType: APIRequestType {
         case getFriendList(userId: Int)
@@ -130,9 +136,10 @@ public struct FriendAPIRequest {
                 if let dictData = responseData as? NSDictionary {
                     let jsonData = try JSONSerialization.data(withJSONObject: dictData, options: .prettyPrinted)
                     DebugLog("Json Data : \n\(String(data: jsonData, encoding: .utf8) ?? "nil")")
-                    let getData = try JSONDecoder().decode(BaseServerModel.self, from: jsonData)
+                    let getData = try JSONDecoder().decode(MakeFriendServerModel.self, from: jsonData)
+					let userData = getData.data
                     if getData.status < 300 {
-                        responseHandler(.success(true))
+                        responseHandler(.success(userData))
                     } else {
                         responseHandler(.failure(HeroAPIError(errorCode: ErrorCode(rawValue: getData.status)!, statusCode: getData.status, errorMessage: getData.message)))
                     }

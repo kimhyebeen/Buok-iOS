@@ -8,6 +8,10 @@
 
 import HeroUI
 
+public protocol NotificationCellDelegate: AnyObject {
+	func onClickAcceptButton(index: Int)
+}
+
 class NotificationFriendTableCell: UITableViewCell {
 	static let identifier = "NotificationFriendCollectionCell"
 	private let profileImageView = UIImageView()
@@ -49,6 +53,9 @@ class NotificationFriendTableCell: UITableViewCell {
         $0.distribution = .fillEqually
         return $0
     }(UIStackView())
+	
+	public var friendListIndex: Int = 0
+	public weak var delegate: NotificationCellDelegate?
     
 	override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
 		super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -132,6 +139,6 @@ class NotificationFriendTableCell: UITableViewCell {
     
     @objc
     func onClickAccept(_ sender: UIButton) {
-       
+		delegate?.onClickAcceptButton(index: friendListIndex)
     }
 }
