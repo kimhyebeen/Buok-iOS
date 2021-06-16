@@ -12,8 +12,8 @@ import HeroNetwork
 import Promise
 
 struct FriendUser: Codable {
-    var id: Int
-    var email: String
+    var userId: Int
+    var email: String?
     var nickname: String?
     var intro: String?
     var profileUrl: String?

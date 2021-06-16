@@ -211,7 +211,7 @@ public struct UserAPIRequest {
             }
         }
     }
-    
+	
     static func resetPassword(newPassword: String, responseHandler: @escaping (Result<Bool, HeroAPIError>) -> Void) {
         BaseAPIRequest.requestJSONResponse(requestType: UserRequestType.resetPassword(newPassword: newPassword)).then { responseData in
             do {
