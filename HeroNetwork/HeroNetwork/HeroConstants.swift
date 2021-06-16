@@ -43,4 +43,8 @@ public struct HeroConstants {
 	public static var alarm: String {
 		return "/alarm"
 	}
+    
+    public static var friend: String {
+        return "/friend"
+    }
 }

@@ -14,6 +14,7 @@
 		29773EFB2647FAB900FB7AA8 /* LoginViewController+AppleID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29773EFA2647FAB900FB7AA8 /* LoginViewController+AppleID.swift */; };
 		298561AD2663F5C600830084 /* InfoCheckAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298561AC2663F5C600830084 /* InfoCheckAPIRequest.swift */; };
 		29CA50B5265AEE7B00533ED6 /* UserAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CA50B4265AEE7B00533ED6 /* UserAPIRequest.swift */; };
+		525A226E2679FD75008C1F2E /* FriendAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525A226D2679FD75008C1F2E /* FriendAPIRequest.swift */; };
 		528E6F27265BB53A00F9013D /* SignAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528E6F26265BB53A00F9013D /* SignAPIRequest.swift */; };
 		7A23F5D60945D5051A7AF8BA /* Pods_Buok_BuokUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19D64A49C31935ACEF072549 /* Pods_Buok_BuokUITests.framework */; };
 		B00FD521266B6FD700A48B72 /* WithDrawalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00FD520266B6FD700A48B72 /* WithDrawalViewController.swift */; };
@@ -264,6 +265,7 @@
 		4BE414CD84DE5C96B36B278E /* Pods-YappHero.real.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHero.real.xcconfig"; path = "Target Support Files/Pods-YappHero/Pods-YappHero.real.xcconfig"; sourceTree = "<group>"; };
 		4ED130FF7235F27FE2025A97 /* Pods-BuokTests.inhouse(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuokTests.inhouse(debug).xcconfig"; path = "Target Support Files/Pods-BuokTests/Pods-BuokTests.inhouse(debug).xcconfig"; sourceTree = "<group>"; };
 		4F93D0621D7E53F338B6AD22 /* Pods-YappHeroTests.sandbox(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHeroTests.sandbox(debug).xcconfig"; path = "Target Support Files/Pods-YappHeroTests/Pods-YappHeroTests.sandbox(debug).xcconfig"; sourceTree = "<group>"; };
+		525A226D2679FD75008C1F2E /* FriendAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendAPIRequest.swift; sourceTree = "<group>"; };
 		528E6F26265BB53A00F9013D /* SignAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignAPIRequest.swift; sourceTree = "<group>"; };
 		54167ECDDAF71780B1B61453 /* Pods-Nadam-NadamUITests.inhouse(debug).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nadam-NadamUITests.inhouse(debug).xcconfig"; path = "Target Support Files/Pods-Nadam-NadamUITests/Pods-Nadam-NadamUITests.inhouse(debug).xcconfig"; sourceTree = "<group>"; };
 		56DD4736D819295D6C88234C /* Pods-YappHero-YappHeroUITests.real.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappHero-YappHeroUITests.real.xcconfig"; path = "Target Support Files/Pods-YappHero-YappHeroUITests/Pods-YappHero-YappHeroUITests.real.xcconfig"; sourceTree = "<group>"; };
@@ -474,6 +476,14 @@
 				B07AD1382667C3A6000CCDAC /* EmailAuthAPIRequest.swift */,
 			);
 			path = User;
+			sourceTree = "<group>";
+		};
+		525A22642679FD46008C1F2E /* Friend */ = {
+			isa = PBXGroup;
+			children = (
+				525A226D2679FD75008C1F2E /* FriendAPIRequest.swift */,
+			);
+			path = Friend;
 			sourceTree = "<group>";
 		};
 		69EBCC9DA8CF7A7AC4E9B152 /* Frameworks */ = {
@@ -783,6 +793,7 @@
 			isa = PBXGroup;
 			children = (
 				293857D7266BA64100E8DB65 /* Alarm  */,
+				525A22642679FD46008C1F2E /* Friend */,
 				B023B14C266A13030060F625 /* Image */,
 				B07CD1A3266676670031B106 /* Search */,
 				B01A28B62665057300BE9DB3 /* Token */,
@@ -1434,6 +1445,7 @@
 				B07AD1392667C3A6000CCDAC /* EmailAuthAPIRequest.swift in Sources */,
 				B07CD19C2666751F0031B106 /* NotificationViewController.swift in Sources */,
 				B08CEB3C2662162A00FF77BD /* StartCoordinator.swift in Sources */,
+				525A226E2679FD75008C1F2E /* FriendAPIRequest.swift in Sources */,
 				B00FD523266B6FF400A48B72 /* WithDrawalViewModel.swift in Sources */,
 				EE49406726475A5D00CB0B71 /* ForgetViewController.swift in Sources */,
 				29CA50B5265AEE7B00533ED6 /* UserAPIRequest.swift in Sources */,
