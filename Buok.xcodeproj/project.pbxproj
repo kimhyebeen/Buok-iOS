@@ -95,6 +95,8 @@
 		B0B033D32622AA0900D65204 /* SettingNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B033D22622AA0900D65204 /* SettingNavigator.swift */; };
 		B0B035E82622B2B900D65204 /* SettingSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B035E72622B2B900D65204 /* SettingSectionHeaderView.swift */; };
 		B0B035ED2622B33800D65204 /* SettingConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B035EC2622B33800D65204 /* SettingConstants.swift */; };
+		B0B1D7B8267CB0F20058CEBB /* EditBucketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B1D7B7267CB0F20058CEBB /* EditBucketViewController.swift */; };
+		B0B1D7BA267CB1080058CEBB /* EditBucketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B1D7B9267CB1080058CEBB /* EditBucketViewModel.swift */; };
 		B0D0217D2602199600F25329 /* JoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D0217C2602199600F25329 /* JoinViewController.swift */; };
 		B0D0218226021A2100F25329 /* NadamProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D0218126021A2100F25329 /* NadamProperties.swift */; };
 		EE23DF74264EB2F500AB31D1 /* BuokmarkCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE23DF73264EB2F500AB31D1 /* BuokmarkCollectionCell.swift */; };
@@ -370,6 +372,8 @@
 		B0B033D22622AA0900D65204 /* SettingNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingNavigator.swift; sourceTree = "<group>"; };
 		B0B035E72622B2B900D65204 /* SettingSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSectionHeaderView.swift; sourceTree = "<group>"; };
 		B0B035EC2622B33800D65204 /* SettingConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingConstants.swift; sourceTree = "<group>"; };
+		B0B1D7B7267CB0F20058CEBB /* EditBucketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBucketViewController.swift; sourceTree = "<group>"; };
+		B0B1D7B9267CB1080058CEBB /* EditBucketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBucketViewModel.swift; sourceTree = "<group>"; };
 		B0D0217C2602199600F25329 /* JoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinViewController.swift; sourceTree = "<group>"; };
 		B0D0218126021A2100F25329 /* NadamProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NadamProperties.swift; sourceTree = "<group>"; };
 		B0D43A522600DA99003420CA /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -759,6 +763,7 @@
 		B06B5EE625ECCEB00045A491 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				B0B1D7AE267CB0E30058CEBB /* EditBucket */,
 				B07CD19A266675140031B106 /* Notification */,
 				B07CD1912666750F0031B106 /* Search */,
 				B01D439E26039D1C00F2D28C /* Detail */,
@@ -910,6 +915,15 @@
 				B0B035EC2622B33800D65204 /* SettingConstants.swift */,
 			);
 			path = Setting;
+			sourceTree = "<group>";
+		};
+		B0B1D7AE267CB0E30058CEBB /* EditBucket */ = {
+			isa = PBXGroup;
+			children = (
+				B0B1D7B7267CB0F20058CEBB /* EditBucketViewController.swift */,
+				B0B1D7B9267CB1080058CEBB /* EditBucketViewModel.swift */,
+			);
+			path = EditBucket;
 			sourceTree = "<group>";
 		};
 		B0D021702602195B00F25329 /* MultiLevelVC */ = {
@@ -1410,6 +1424,7 @@
 				293857E1266BA66500E8DB65 /* AlarmAPIRequest.swift in Sources */,
 				B0635AC52603897600046E88 /* HomeViewController.swift in Sources */,
 				EE4C015A26587912002C5018 /* BuokmarkEmptyCollectionCell.swift in Sources */,
+				B0B1D7BA267CB1080058CEBB /* EditBucketViewModel.swift in Sources */,
 				B08CEB882663930A00FF77BD /* WorkThruViewController.swift in Sources */,
 				B075226D25ED089F0016DC3A /* AuthTokenModel.swift in Sources */,
 				EE4C017326589743002C5018 /* EditProfileViewModel.swift in Sources */,
@@ -1418,6 +1433,7 @@
 				B08CEB8C2663934E00FF77BD /* WorkThruPageContentViewController.swift in Sources */,
 				B0D0217D2602199600F25329 /* JoinViewController.swift in Sources */,
 				B041747625E2366E00D990A2 /* MultiLevelViewController.swift in Sources */,
+				B0B1D7B8267CB0F20058CEBB /* EditBucketViewController.swift in Sources */,
 				B023B156266A130D0060F625 /* ImageUploadAPIRequest.swift in Sources */,
 				EEA213CB2625D59900E3AEA1 /* LoginViewController+UI.swift in Sources */,
 				B082F2D226595ABD00A7AB6B /* CreateTagCell.swift in Sources */,

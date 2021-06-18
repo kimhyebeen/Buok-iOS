@@ -453,7 +453,12 @@ public class DetailViewController: HeroBaseViewController {
     private func onClickMoreButton(_ sender: Any?) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let modifyAction = UIAlertAction(title: "수정하기", style: .default, handler: { _ in
-            self.viewModel?.goToModifyVC()
+            let vc = EditBucketViewController()
+            if let detailItem = self.viewModel?.bucketDetailItem.value {
+                let viewModel = EditBucketViewModel(detailModel: detailItem)
+                vc.viewModel = viewModel
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
         })
         let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
         
