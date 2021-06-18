@@ -327,6 +327,7 @@ final class EditBucketViewController: HeroBaseViewController, UINavigationContro
         
         viewModel?.bucketContent.bindAndFire({ content in
             self.detailTextView.text = content
+            self.detailLengthLabel.text = "\(content.count)/1500"
         })
         
         viewModel?.bucketStatus.bindAndFire({ status in
@@ -376,7 +377,7 @@ final class EditBucketViewController: HeroBaseViewController, UINavigationContro
         doneButton.backgroundColor = .heroGray5B
         doneButton.titleLabel?.font = .font15P
         doneButton.setTitleColor(.heroWhite100s, for: .normal)
-        doneButton.setTitle("Hero_Add_Item_Submit".localized, for: .normal)
+        doneButton.setTitle("수정", for: .normal)
         doneButton.addTarget(self, action: #selector(onClickDoneButton(_:)), for: .touchUpInside)
         
         statusTitleLabel.text = "Hero_Common_Status".localized
@@ -415,8 +416,8 @@ final class EditBucketViewController: HeroBaseViewController, UINavigationContro
         
         detailTextView.delegate = self
         detailTextView.font = .font13P
-        detailTextView.textColor = .heroGrayDA
-        detailTextView.text = "메모할 내용을 기입해보세요.\n혹은 버킷리스트와 관련해서 상세 내용을 입력해봅시다!"
+        detailTextView.textColor = .heroGray5B
+        detailTextView.text = ""
         
         detailLengthLabel.font = .font13P
         detailLengthLabel.textColor = .heroGrayA6A4A1
@@ -519,7 +520,7 @@ extension EditBucketViewController: UICollectionViewDataSource, UICollectionView
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == imageCollectionView {
             // IMAGE Collection View
-            return viewModel?.imageList.value.count ?? 0 + 1
+            return (viewModel?.imageURLStringList.value.count ?? 0) + (viewModel?.imageList.value.count ?? 0) + 1
         } else {
             // TAG Collection View
             return viewModel?.tagList.value.count ?? 0 + 1
@@ -590,13 +591,14 @@ extension EditBucketViewController: HeroSelectViewDelegate {
 extension EditBucketViewController: UITextViewDelegate {
     public func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.textColor == .heroGrayDA {
-            textView.text = nil
+//            textView.text = nil
+            viewModel?.bucketContent.value = ""
             textView.textColor = .heroGray5B
         }
     }
     
     public func textViewDidEndEditing(_ textView: UITextView) {
-        if textView.text.isEmpty {
+        if (viewModel?.bucketContent.value ?? "").isEmpty {
             textView.text = "메모할 내용을 기입해보세요.\n혹은 버킷리스트와 관련해서 상세 내용을 입력해봅시다!"
             textView.textColor = .heroGrayDA
         } else {
