@@ -62,18 +62,22 @@ public class EditBucketViewModel {
     }
     
     public func uploadImageList() {
-        // Image Upload 후 Post
-        ImageUploadAPIRequest.imageUploadRequest(images: imageList.value, responseHandler: { result in
-            switch result {
-            case .success(let urlStrList):
-                urlStrList.forEach {
-                    self.imageURLStringList.value.append($0)
+        if imageList.value.count > 0 {
+            // Image Upload 후 Post
+            ImageUploadAPIRequest.imageUploadRequest(images: imageList.value, responseHandler: { result in
+                switch result {
+                case .success(let urlStrList):
+                    urlStrList.forEach {
+                        self.imageURLStringList.value.append($0)
+                    }
+                    self.requestEditPost(urlList: urlStrList)
+                case .failure(let error):
+                    ErrorLog("Error : \(error.localizedDescription) / \(error.statusCode)")
                 }
-                self.requestEditPost(urlList: urlStrList)
-            case .failure(let error):
-                ErrorLog("Error : \(error.localizedDescription) / \(error.statusCode)")
-            }
-        })
+            })
+        } else {
+            self.requestEditPost(urlList: nil)
+        }
     }
     
     public func requestEditPost(urlList: [String]?) {
