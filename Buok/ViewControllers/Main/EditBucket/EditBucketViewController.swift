@@ -359,10 +359,10 @@ final class EditBucketViewController: HeroBaseViewController, UINavigationContro
         
         viewModel?.isPostSuccess.bind({ isPostSuccess in
             if isPostSuccess {
-                DebugLog("Create Post SUCCESS")
+                DebugLog("Edit Post SUCCESS")
                 self.navigationController?.popViewController(animated: true)
             } else {
-                ErrorLog("Create Post ERROR")
+                ErrorLog("Edit Post ERROR")
                 self.showPostErrorAlert()
             }
         })
@@ -657,7 +657,7 @@ extension EditBucketViewController: TagAddCellDelegate, TagCellDelegate {
     }
     
     private func showPostErrorAlert() {
-        let alert = UIAlertController(title: "오류", message: "버킷 등록 중 오류가 발생하였습니다.", preferredStyle: .alert)
+        let alert = UIAlertController(title: "오류", message: "버킷 수정 중 오류가 발생하였습니다.", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "확인", style: .default) { _ in
             // Nothing
         }
