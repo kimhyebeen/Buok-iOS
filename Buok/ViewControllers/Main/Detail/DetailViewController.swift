@@ -390,6 +390,7 @@ public class DetailViewController: HeroBaseViewController {
         
         menuButton.imageInset = 8
         menuButton.heroImage = UIImage(heroSharedNamed: "ic_menu_ver")
+        menuButton.addTarget(self, action: #selector(onClickMoreButton(_:)), for: .touchUpInside)
         
         scrollView.showsVerticalScrollIndicator = false
         
@@ -446,6 +447,19 @@ public class DetailViewController: HeroBaseViewController {
     @objc
     private func onClickBackButton(_ sender: Any?) {
         navigationController?.popViewController(animated: true)
+    }
+    
+    @objc
+    private func onClickMoreButton(_ sender: Any?) {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let modifyAction = UIAlertAction(title: "수정하기", style: .default, handler: { _ in
+            self.viewModel?.goToModifyVC()
+        })
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        
+        alert.addAction(modifyAction)
+        alert.addAction(cancelAction)
+        self.present(alert, animated: true, completion: nil)
     }
     
     @objc

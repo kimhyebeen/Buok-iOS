@@ -69,4 +69,8 @@ public class DetailViewModel {
             ErrorLog("Bucket Id is nil.")
         }
     }
+    
+    func goToModifyVC() {
+        
+    }
 }
