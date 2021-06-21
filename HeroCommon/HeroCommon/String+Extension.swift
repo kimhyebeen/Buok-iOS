@@ -22,7 +22,7 @@ public extension String {
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone?
 
-        let date: Date = dateFormatter.date(from: self)!
+        let date: Date = dateFormatter.date(from: self) ?? Date()
         return date
     }
 	
