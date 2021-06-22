@@ -39,6 +39,7 @@ class UserViewModel {
     
     var isLoginSuccess: Dynamic<Bool> = Dynamic(false)
 	var isSNSLoginSuccess: Dynamic<Bool> = Dynamic(false)
+    var isSNSJoinSuccess: Dynamic<Bool> = Dynamic(false)
     
     var isEmailExist: Dynamic<Bool?> = Dynamic(false)
     var isNicknameExist: Dynamic<Bool?> = Dynamic(false)
@@ -186,10 +187,6 @@ class UserViewModel {
 						self.socialType.value = .kakao
 						self.requestSNSJoinandLogin(email: "", socialId: "\(kakaoUserId)")
 					}
-//                    UserApi.shared.logout(completion: { error in
-//                        // Do Nothing
-//                        DebugLog("Kakao Logout Result Error : \(error?.localizedDescription ?? "nil")")
-//                    })
                 }
             }
         })
@@ -200,16 +197,22 @@ class UserViewModel {
 			switch result {
 			case .success(let signInData):
 				DebugLog("Is Success : \(signInData)")
-				_ = TokenManager.shared.deleteAllTokenData()
-				let sat = TokenManager.shared.setAccessToken(token: signInData.accessToken)
-				let srt = TokenManager.shared.setRefreshToken(token: signInData.accessToken)
-				let sated = TokenManager.shared.setAccessTokenExpiredDate(expiredAt: signInData.accessExpiredAt.convertToDate())
-				let srted = TokenManager.shared.setRefreshTokenExpiredDate(expiredAt: signInData.refreshExpiredAt.convertToDate())
-				DebugLog("sat : \(sat), srt : \(srt), sated : \(sated), srted : \(srted)")
-				self.isSNSLoginSuccess.value = sat && srt && sated && srted
+                if let data = signInData.data {
+                    _ = TokenManager.shared.deleteAllTokenData()
+                    let sat = TokenManager.shared.setAccessToken(token: data.accessToken)
+                    let srt = TokenManager.shared.setRefreshToken(token: data.accessToken)
+                    let sated = TokenManager.shared.setAccessTokenExpiredDate(expiredAt: data.accessExpiredAt.convertToDate())
+                    let srted = TokenManager.shared.setRefreshTokenExpiredDate(expiredAt: data.refreshExpiredAt.convertToDate())
+                    DebugLog("sat : \(sat), srt : \(srt), sated : \(sated), srted : \(srted)")
+                    if signInData.status == 200 {
+                        self.isSNSLoginSuccess.value = sat && srt && sated && srted
+                    } else {
+                        self.isSNSJoinSuccess.value = sat && srt && sated && srted
+                    }
+                }
 			case.failure:
 				ErrorLog("API Error")
-			// Alert 이나 Toast 띄우기
+                
 			}
 		})
 	}

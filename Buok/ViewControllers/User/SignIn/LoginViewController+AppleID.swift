@@ -46,10 +46,8 @@ extension LoginViewController: ASAuthorizationControllerDelegate, ASAuthorizatio
 	public func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
 		if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
 			let userId: String = appleIDCredential.user
-			let userFirstName: String = appleIDCredential.fullName?.givenName ?? ""
-			let userLastName: String = appleIDCredential.fullName?.familyName ?? ""
-			let email : String = appleIDCredential.email ?? ""
-
+			var email : String = appleIDCredential.email ?? ""
+            
 			let provider = ASAuthorizationAppleIDProvider()
 			provider.getCredentialState(forUserID: userId) { credentialState, error in
 				switch credentialState {
@@ -57,7 +55,7 @@ extension LoginViewController: ASAuthorizationControllerDelegate, ASAuthorizatio
 					DebugLog("Apple ID Login Authorized")
 					self.viewModel.appleLoginMode = true
 					self.viewModel.socialType.value = .apple
-//					self.viewModel.requestSNSJoinandLogin(deviceToken: self.viewModel.deviceToken, email: email, socialId: "\(userId)")
+					self.viewModel.requestSNSJoinandLogin(email: email, socialId: "\(userId)")
 				case .notFound:
 					DebugLog("Apple ID Login Not Found")
 				case .revoked:

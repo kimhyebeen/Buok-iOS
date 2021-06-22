@@ -48,7 +48,7 @@ public class LoginViewController: HeroBaseViewController {
             }
         })
 		
-		viewModel.isSNSLoginSuccess.bind({ [weak self] isSuccess in
+		viewModel.isSNSJoinSuccess.bind({ [weak self] isSuccess in
 			if isSuccess {
 				let joinNameVC = JoinNameViewController()
 				joinNameVC.viewModel = self?.viewModel
@@ -56,6 +56,12 @@ public class LoginViewController: HeroBaseViewController {
 				self?.navigationController?.pushViewController(joinNameVC, animated: true)
 			}
 		})
+        
+        viewModel.isSNSLoginSuccess.bind({ [weak self] isSuccess in
+            if isSuccess {
+                self?.viewModel.setRootVCToHomeVC()
+            }
+        })
 		
 		setupView()
 	}
