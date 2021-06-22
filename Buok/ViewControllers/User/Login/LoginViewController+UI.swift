@@ -107,7 +107,6 @@ extension LoginViewController {
     // MARK: AppleSignInButton
     func setupAppleSignInButton() {
         appleSignInButton.setTitle("애플 아이디로 시작하기", for: .normal)
-//        appleSignInButton.setHeroTitle("애플 아이디로 시작하기")
         appleSignInButton.loginButtonType = .apple
         loginButtonStackView.addArrangedSubview(appleSignInButton)
         appleSignInButton.addTarget(self, action: #selector(appleSignIn), for: .touchUpInside)

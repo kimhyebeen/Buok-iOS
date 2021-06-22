@@ -40,6 +40,7 @@ class UserViewModel {
     var isLoginSuccess: Dynamic<Bool> = Dynamic(false)
 	var isSNSLoginSuccess: Dynamic<Bool> = Dynamic(false)
     var isSNSJoinSuccess: Dynamic<Bool> = Dynamic(false)
+    var isSNSLoginError: Dynamic<Bool> = Dynamic(false)
     
     var isEmailExist: Dynamic<Bool?> = Dynamic(false)
     var isNicknameExist: Dynamic<Bool?> = Dynamic(false)
@@ -210,9 +211,11 @@ class UserViewModel {
                         self.isSNSJoinSuccess.value = sat && srt && sated && srted
                     }
                 }
-			case.failure:
-				ErrorLog("API Error")
-                
+			case.failure(let error):
+				ErrorLog("API ERROR")
+                if error.statusCode == 400 {
+                    self.isSNSLoginError.value = true
+                }
 			}
 		})
 	}
