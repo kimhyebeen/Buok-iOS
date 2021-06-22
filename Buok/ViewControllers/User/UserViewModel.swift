@@ -184,7 +184,7 @@ class UserViewModel {
                     DebugLog("[로그인된 사용자 정보]\nnickname: \(kakaoUser.kakaoAccount?.profile?.nickname ?? "nil")\nuserId: \(String(describing: kakaoUser.id))")
 					if let kakaoUserId = kakaoUser.id {
 						self.socialType.value = .kakao
-						self.requestSNSJoinandLogin(deviceToken: self.deviceToken, email: "", socialId: "\(kakaoUserId)")
+						self.requestSNSJoinandLogin(email: "", socialId: "\(kakaoUserId)")
 					}
 //                    UserApi.shared.logout(completion: { error in
 //                        // Do Nothing
@@ -195,12 +195,11 @@ class UserViewModel {
         })
     }
 	
-	func requestSNSJoinandLogin(deviceToken: String, email: String, socialId: String) {
+	func requestSNSJoinandLogin(email: String, socialId: String) {
 		SignAPIRequest.snsSignUpRequest(deviceToken: deviceToken, socialType: socialType.value.getType(), email: email, socialId: socialId, responseHandler: { result in
 			switch result {
 			case .success(let signInData):
 				DebugLog("Is Success : \(signInData)")
-//				self.isSignUpSuccess.value = true
 				_ = TokenManager.shared.deleteAllTokenData()
 				let sat = TokenManager.shared.setAccessToken(token: signInData.accessToken)
 				let srt = TokenManager.shared.setRefreshToken(token: signInData.accessToken)

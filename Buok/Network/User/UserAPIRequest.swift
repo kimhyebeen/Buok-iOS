@@ -13,13 +13,13 @@ import Promise
 // MARK: - Data
 struct UserData: Codable {
 	var id: Int
-	var email: String
+	var email: String?
 	var nickname: String
 	var intro: String
 	var profileUrl: String?
 	var createdDate: String?
-    var socialType: Int?
-    var socialId: Int?
+    var socialType: String?
+    var socialId: String?
 }
 
 struct MyPageUserData: Codable {

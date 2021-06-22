@@ -37,7 +37,7 @@ public struct SignAPIRequest {
                 return URL(string: HeroConstants.user + "/signin")!
             case .signUp:
                 return URL(string: HeroConstants.user + "/signup")!
-			case let .snsSignUp(socialType, _, _, _):
+			case let .snsSignUp(_, socialType, _, _):
 				return URL(string: HeroConstants.social + "/\(socialType)")!
             }
         }
@@ -70,7 +70,7 @@ public struct SignAPIRequest {
 			switch self {
 			case .signIn, .signUp:
 				return nil
-			case let .snsSignUp(_, email, socialId, deviceToken):
+			case let .snsSignUp(deviceToken, _, email, socialId):
 				return ["deviceToken": deviceToken, "email": email, "socialId": socialId]
 			}
 		}
