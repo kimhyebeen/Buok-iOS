@@ -39,6 +39,8 @@ class UserViewModel {
     
     var isLoginSuccess: Dynamic<Bool> = Dynamic(false)
 	var isSNSLoginSuccess: Dynamic<Bool> = Dynamic(false)
+    var isSNSJoinSuccess: Dynamic<Bool> = Dynamic(false)
+    var isSNSLoginError: Dynamic<Bool> = Dynamic(false)
     
     var isEmailExist: Dynamic<Bool?> = Dynamic(false)
     var isNicknameExist: Dynamic<Bool?> = Dynamic(false)
@@ -184,33 +186,36 @@ class UserViewModel {
                     DebugLog("[로그인된 사용자 정보]\nnickname: \(kakaoUser.kakaoAccount?.profile?.nickname ?? "nil")\nuserId: \(String(describing: kakaoUser.id))")
 					if let kakaoUserId = kakaoUser.id {
 						self.socialType.value = .kakao
-						self.requestSNSJoinandLogin(deviceToken: self.deviceToken, email: "", socialId: "\(kakaoUserId)")
+						self.requestSNSJoinandLogin(email: "", socialId: "\(kakaoUserId)")
 					}
-//                    UserApi.shared.logout(completion: { error in
-//                        // Do Nothing
-//                        DebugLog("Kakao Logout Result Error : \(error?.localizedDescription ?? "nil")")
-//                    })
                 }
             }
         })
     }
 	
-	func requestSNSJoinandLogin(deviceToken: String, email: String, socialId: String) {
+	func requestSNSJoinandLogin(email: String, socialId: String) {
 		SignAPIRequest.snsSignUpRequest(deviceToken: deviceToken, socialType: socialType.value.getType(), email: email, socialId: socialId, responseHandler: { result in
 			switch result {
 			case .success(let signInData):
 				DebugLog("Is Success : \(signInData)")
-//				self.isSignUpSuccess.value = true
-				_ = TokenManager.shared.deleteAllTokenData()
-				let sat = TokenManager.shared.setAccessToken(token: signInData.accessToken)
-				let srt = TokenManager.shared.setRefreshToken(token: signInData.accessToken)
-				let sated = TokenManager.shared.setAccessTokenExpiredDate(expiredAt: signInData.accessExpiredAt.convertToDate())
-				let srted = TokenManager.shared.setRefreshTokenExpiredDate(expiredAt: signInData.refreshExpiredAt.convertToDate())
-				DebugLog("sat : \(sat), srt : \(srt), sated : \(sated), srted : \(srted)")
-				self.isSNSLoginSuccess.value = sat && srt && sated && srted
-			case.failure:
-				ErrorLog("API Error")
-			// Alert 이나 Toast 띄우기
+                if let data = signInData.data {
+                    _ = TokenManager.shared.deleteAllTokenData()
+                    let sat = TokenManager.shared.setAccessToken(token: data.accessToken)
+                    let srt = TokenManager.shared.setRefreshToken(token: data.accessToken)
+                    let sated = TokenManager.shared.setAccessTokenExpiredDate(expiredAt: data.accessExpiredAt.convertToDate())
+                    let srted = TokenManager.shared.setRefreshTokenExpiredDate(expiredAt: data.refreshExpiredAt.convertToDate())
+                    DebugLog("sat : \(sat), srt : \(srt), sated : \(sated), srted : \(srted)")
+                    if signInData.status == 200 {
+                        self.isSNSLoginSuccess.value = sat && srt && sated && srted
+                    } else {
+                        self.isSNSJoinSuccess.value = sat && srt && sated && srted
+                    }
+                }
+			case.failure(let error):
+				ErrorLog("API ERROR")
+                if error.statusCode == 400 {
+                    self.isSNSLoginError.value = true
+                }
 			}
 		})
 	}

@@ -254,7 +254,7 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
             switch result {
             case .success(let myPageUserData):
                 DebugLog(myPageUserData.debugDescription())
-                self.email = myPageUserData.user.email
+                self.email = myPageUserData.user.email ?? ""
                 self.connectedAccount = "\(myPageUserData.user.socialType)"
                 self.tableView.reloadData()
             case .failure(let error):

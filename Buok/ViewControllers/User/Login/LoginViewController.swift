@@ -48,7 +48,7 @@ public class LoginViewController: HeroBaseViewController {
             }
         })
 		
-		viewModel.isSNSLoginSuccess.bind({ [weak self] isSuccess in
+		viewModel.isSNSJoinSuccess.bind({ [weak self] isSuccess in
 			if isSuccess {
 				let joinNameVC = JoinNameViewController()
 				joinNameVC.viewModel = self?.viewModel
@@ -56,6 +56,18 @@ public class LoginViewController: HeroBaseViewController {
 				self?.navigationController?.pushViewController(joinNameVC, animated: true)
 			}
 		})
+        
+        viewModel.isSNSLoginSuccess.bind({ [weak self] isSuccess in
+            if isSuccess {
+                self?.viewModel.setRootVCToHomeVC()
+            }
+        })
+        
+        viewModel.isSNSLoginError.bind({ [weak self] isSuccess in
+            if isSuccess {
+                self?.showSNSLoginErrorAlert()
+            }
+        })
 		
 		setupView()
 	}
@@ -67,15 +79,7 @@ public class LoginViewController: HeroBaseViewController {
         setupNextButton()
         setupOrLabel()
         setupLoginButtonStackView()
-//        setupAppleSignInButton()
-//        setupGoogleSignInButton()
-//        setupKakaoSignInButton()
-//        setupServicePolicyButton()
-        
         setupTapGesture()
-//		if #available(iOS 13.0, *) {
-//			configureAppleSignButton()
-//		}
     }
     
     private func setupTapGesture() {
@@ -98,6 +102,16 @@ public class LoginViewController: HeroBaseViewController {
     func clickNextButton(_ sender: UIButton) {
         guard let email = emailField.text else { return }
         viewModel.checkEmailExist(email)
+    }
+    
+    private func showSNSLoginErrorAlert() {
+        let alert = UIAlertController(title: "SNS 회원가입", message: "아이디가 중복됩니다.", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "확인", style: .default) { _ in
+            // Nothing
+        }
+        
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
     }
 }
 
