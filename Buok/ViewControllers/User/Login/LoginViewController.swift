@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import GoogleSignIn
 import HeroCommon
 import HeroSharedAssets
 import HeroUI
@@ -90,7 +91,8 @@ public class LoginViewController: HeroBaseViewController {
     
     @objc
     func onClickGoogleLogin(_ sender: UIButton) {
-        
+        GIDSignIn.sharedInstance().presentingViewController = self
+        GIDSignIn.sharedInstance().signIn()
     }
     
     @objc
