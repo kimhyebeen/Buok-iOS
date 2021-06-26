@@ -169,6 +169,7 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
             vc.viewModel = viewModel
             navigationController?.pushViewController(vc, animated: true)
         } else {
+            if settingType == .mail && email.isEmpty { return }
             if let vc = SettingNavigator.getDestViewController(type: settingType) {
                 navigationController?.pushViewController(vc, animated: true)
             }
