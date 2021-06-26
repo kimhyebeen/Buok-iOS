@@ -347,15 +347,6 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
 		
 		return cell
 	}
-
-//    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let bucket = viewModel?.bucketSearchList.value[indexPath.row]
-//        let vc = DetailViewController()
-//        let viewModel = DetailViewModel()
-//        viewModel.bucketItem.value = bucket
-//        vc.viewModel = viewModel
-//        self.navigationController?.pushViewController(vc, animated: true)
-//    }
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 		if let value = viewModel?.currentSearchType.value, value == .user {

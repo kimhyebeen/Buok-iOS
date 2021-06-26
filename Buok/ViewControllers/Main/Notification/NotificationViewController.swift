@@ -143,17 +143,18 @@ extension NotificationViewController: UITableViewDataSource, UITableViewDelegate
 			if viewModel?.notificationList.value[indexPath.row].friendStatus == 1 {
 				if let cell = tableView.dequeueReusableCell(withIdentifier: NotificationFriendAcceptTableCell.identifier, for: indexPath) as? NotificationFriendAcceptTableCell {
 					
-					let nickName = viewModel?.notificationList.value[indexPath.row].nickName
-					cell.applyAttributedTitleNicknameText(nickname: nickName ?? "친구")
-					cell.applyAttributedContentNicknameText(nickname: nickName ?? "친구")
+					if let data = viewModel?.notificationList.value[indexPath.row] {
+						cell.settingUserData(user: data)
+					}
 					cell.selectionStyle = .none
 					return cell
 				}
 			} else {
 				if let cell = tableView.dequeueReusableCell(withIdentifier: NotificationFriendTableCell.identifier, for: indexPath) as? NotificationFriendTableCell {
 					
-					let nickName = viewModel?.notificationList.value[indexPath.row].nickName
-					cell.applyAttributedNicknameText(nickname: nickName ?? "친구")
+					if let data = viewModel?.notificationList.value[indexPath.row] {
+						cell.settingUserData(user: data)
+					}
 					cell.selectionStyle = .none
 					cell.friendListIndex = indexPath.row
 					cell.delegate = self

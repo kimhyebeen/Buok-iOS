@@ -130,12 +130,25 @@ class NotificationFriendTableCell: UITableViewCell {
 		}
 	}
 	
-	func applyAttributedNicknameText(nickname: String) {
-		let text = "\(nickname)님이 회원님과 친구가 되고 싶어 합니다."
+//	func applyAttributedNicknameText(nickname: String) {
+//		let text = "\(nickname)님이 회원님과 친구가 되고 싶어 합니다."
+//
+//		let attributedStr = NSMutableAttributedString(string: text)
+//		attributedStr.addAttribute(.font, value: UIFont.systemFont(ofSize: 15, weight: .bold), range: (text as NSString).range(of: nickname))
+//		attributedStr.addAttribute(.foregroundColor, value: UIColor.heroGray5B, range: (text as NSString).range(of: nickname))
+//		contentLabel.attributedText = attributedStr
+//	}
+	
+	func settingUserData(user: NotificationModel) {
+		if let profileUrl = URL(string: user.profileUrl ?? "") {
+			profileImageView.kf.setImage(with: profileUrl)
+		}
 		
+		let nickName = user.nickName ?? "친구"
+		let text = "\(nickName)님이 회원님과 친구가 되고 싶어 합니다."
 		let attributedStr = NSMutableAttributedString(string: text)
-		attributedStr.addAttribute(.font, value: UIFont.systemFont(ofSize: 15, weight: .bold), range: (text as NSString).range(of: nickname))
-		attributedStr.addAttribute(.foregroundColor, value: UIColor.heroGray5B, range: (text as NSString).range(of: nickname))
+		attributedStr.addAttribute(.font, value: UIFont.systemFont(ofSize: 15, weight: .bold), range: (text as NSString).range(of: nickName))
+		attributedStr.addAttribute(.foregroundColor, value: UIColor.heroGray5B, range: (text as NSString).range(of: nickName))
 		contentLabel.attributedText = attributedStr
 	}
     
