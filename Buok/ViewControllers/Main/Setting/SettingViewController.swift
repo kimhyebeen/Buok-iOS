@@ -255,7 +255,7 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
             case .success(let myPageUserData):
                 DebugLog(myPageUserData.debugDescription())
                 self.email = myPageUserData.user.email ?? ""
-                self.connectedAccount = "\(myPageUserData.user.socialType)"
+                self.connectedAccount = "\(myPageUserData.user.socialType ?? "이메일")"
                 self.tableView.reloadData()
             case .failure(let error):
                 ErrorLog("API Error : \(error.statusCode) / \(error.errorMessage) / \(error.localizedDescription)")

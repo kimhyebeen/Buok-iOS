@@ -176,10 +176,16 @@ public class HomeViewController: HeroBaseViewController {
     
     @objc
     func onClickSearch(_ sender: Any?) {
+        let navController = HeroNavigationController(navigationBarClass: HeroUINavigationBar.self, toolbarClass: nil)
+        
         let vc = SearchViewController()
         vc.viewModel = SearchViewModel()
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true)
+        
+        navController.viewControllers = [vc]
+        navController.isNavigationBarHidden = true
+        navController.modalPresentationStyle = .fullScreen
+        
+        self.present(navController, animated: true)
     }
     
     private func showSortAlert() {

@@ -323,6 +323,7 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
 			return BucketItemCell()
 		}
 		
+        cell.profileDelegate = self
         cell.cellType = .search
 		cell.bucketSearch = viewModel?.bookmarkSearchList.value[indexPath.row]
 		
@@ -361,5 +362,11 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
 		} else {
 			return 0
 		}
+    }
+}
+
+extension SearchViewController: BucketItemCellProfileDelegate {
+    func didSelectUserProfile(userId: Int) {
+        viewModel?.gotoProfileDetail(userId: userId, navigation: self.navigationController)
     }
 }
