@@ -39,6 +39,7 @@ final class SearchViewController: HeroBaseViewController {
 		setupViewProperties()
         bindViewModel()
         viewModel?.currentSearchType.value = .myBucket
+        updateSearchBarButtonEnabled()
     }
     
     private func bindViewModel() {
@@ -56,16 +57,33 @@ final class SearchViewController: HeroBaseViewController {
         })
         
         viewModel?.bucketSearchList.bind({ [weak self] _ in
+            self?.updateSearchBarButtonEnabled()
             self?.mybuokCollectionView.reloadData()
         })
 		
-		viewModel?.friendList.bind({ [weak self] _ in
-			self?.friendCollectionView.reloadData()
-		})
-		
-		viewModel?.bookmarkSearchList.bind({ [weak self] _ in
-			self?.mybuokCollectionView.reloadData()
-		})
+        viewModel?.friendList.bind({ [weak self] _ in
+            self?.updateSearchBarButtonEnabled()
+            self?.friendCollectionView.reloadData()
+        })
+        
+        viewModel?.bookmarkSearchList.bind({ [weak self] _ in
+            self?.updateSearchBarButtonEnabled()
+            self?.mybuokCollectionView.reloadData()
+        })
+    }
+    
+    private func updateSearchBarButtonEnabled() {
+        let isEnabled = viewModel?.bucketSearchList.value.count ?? 0 > 0 ||
+            viewModel?.friendList.value.count ?? 0 > 0 ||
+            viewModel?.bookmarkSearchList.value.count ?? 0 > 0
+        
+        filterMyBookButton.isEnabled = isEnabled
+        filterAccountButton.isEnabled = isEnabled
+        filterBookmarkButton.isEnabled = isEnabled
+        
+        filterMyBookBar.isHidden = !(isEnabled && viewModel?.currentSearchType.value == .myBucket)
+        filterAccountBar.isHidden = !(isEnabled && viewModel?.currentSearchType.value == .user)
+        filterBookmarkBar.isHidden = !(isEnabled && viewModel?.currentSearchType.value == .mark)
     }
     
     private func setupBucketCollectionView() {
