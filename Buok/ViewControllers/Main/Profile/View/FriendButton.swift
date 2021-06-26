@@ -29,6 +29,7 @@ class FriendButton: UIButton {
     }
     
     private func setupView() {
+        self.contentEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
         self.setAttributedTitle(NSAttributedString(string: "Hero_Profile_Friend".localized, attributes: [.font: UIFont.font15P, .foregroundColor: UIColor.white]), for: .normal)
         self.layer.cornerRadius = 8
         self.layer.backgroundColor = UIColor.heroGray5B.cgColor

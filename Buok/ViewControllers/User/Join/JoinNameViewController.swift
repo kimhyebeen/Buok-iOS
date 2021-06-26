@@ -148,8 +148,8 @@ extension JoinNameViewController {
     // MARK: Next Button
     func setupNextButton() {
         nextButton.setHeroTitle("계속하기")
-        nextButton.setHeroEnable(false)
         nextButton.loginButtonType = .none
+        nextButton.setHeroEnable(false)
         nextButton.addTarget(self, action: #selector(clickNextButton(_:)), for: .touchUpInside)
         self.view.addSubview(nextButton)
         

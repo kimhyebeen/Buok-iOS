@@ -156,8 +156,8 @@ extension VerifyViewController {
     // MARK: NextButton
     func setupNextButton() {
         nextButton.setHeroEnable(false)
-        nextButton.setHeroTitle("계속하기")
         nextButton.loginButtonType = .none
+        nextButton.setHeroTitle("계속하기")
         nextButton.addTarget(self, action: #selector(clickNextButton(_:)), for: .touchUpInside)
         self.view.addSubview(nextButton)
         
