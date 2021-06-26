@@ -312,6 +312,7 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
 			return BucketItemCell()
 		}
 		
+        cell.cellType = .normal
 		cell.bucketSearch = viewModel?.bucketSearchList.value[indexPath.row]
 		
 		return cell
@@ -322,6 +323,7 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
 			return BucketItemCell()
 		}
 		
+        cell.cellType = .search
 		cell.bucketSearch = viewModel?.bookmarkSearchList.value[indexPath.row]
 		
 		return cell
