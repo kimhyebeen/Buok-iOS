@@ -27,6 +27,12 @@ class ProfileView: UIView {
     
     private var widthOfFriendButton: NSLayoutConstraint?
     
+    var isFriend: Bool = false {
+        didSet {
+            friendButton.settingFriendButtonType(for: isFriend ? .friend : .none)
+        }
+    }
+    
     var isMyPage: Bool = false {
         didSet {
             editProfileButton.isHidden = !isMyPage
