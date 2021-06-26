@@ -5,6 +5,8 @@
 //  Copyright © 2021 Buok. All rights reserved.
 //
 
+import Firebase
+import FirebaseAuth
 import Foundation
 import GoogleSignIn
 import HeroCommon
@@ -91,8 +93,9 @@ public class LoginViewController: HeroBaseViewController {
     
     @objc
     func onClickGoogleLogin(_ sender: UIButton) {
-        GIDSignIn.sharedInstance().presentingViewController = self
-        GIDSignIn.sharedInstance().signIn()
+		GIDSignIn.sharedInstance().presentingViewController = self
+        GIDSignIn.sharedInstance().delegate = self
+		GIDSignIn.sharedInstance().signIn()
     }
     
     @objc
@@ -126,4 +129,22 @@ extension LoginViewController: UITextFieldDelegate {
         self.view.endEditing(true)
         return true
     }
+}
+
+extension LoginViewController: GIDSignInDelegate {
+	public func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+		guard let authentication = user.authentication else { return }
+		
+		let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
+		Auth.auth().signIn(with: credential) { (authResult, error) in
+			if let error = error {
+				ErrorLog("Firebase sign in error : \(error)")
+				return
+			}
+			if let authResult = authResult {
+				self.viewModel.socialType.value = .google
+				self.viewModel.requestSNSJoinandLogin(email: authResult.user.email ?? "", socialId: authResult.user.uid)
+			}
+		}
+	}
 }

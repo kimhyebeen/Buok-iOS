@@ -15,7 +15,7 @@ import KakaoSDKAuth
 import KakaoSDKCommon
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
@@ -27,7 +27,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         KakaoSDKCommon.initSDK(appKey: "e562ad6efc1a2a2c2ecc7e71cc3f8e3b")
         
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
-        GIDSignIn.sharedInstance().delegate = self
         
         UNUserNotificationCenter.current().delegate = self
         let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
@@ -56,16 +55,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         }
         
         return GIDSignIn.sharedInstance().handle(url)
-    }
-    
-    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
-        if let error = error {
-            ErrorLog("\(error)")
-            return
-        }
-        guard let authentication = user.authentication else { return }
-        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
-        DebugLog("\(user.profile.email)")
     }
     
     // MARK: - Core Data stack
