@@ -539,7 +539,7 @@ extension EditBucketViewController: UICollectionViewDataSource, UICollectionView
                     if viewModel?.imageURLStringList.value.count ?? 0 > indexPath.row - 1 {
                         cell.itemImageURL = viewModel?.imageURLStringList.value[indexPath.row - 1]
                     } else {
-                        cell.itemImage = viewModel?.imageList.value[indexPath.row - 1]
+                        cell.itemImage = viewModel?.imageList.value.last
                     }
                     
                     cell.index = indexPath.row - 1
