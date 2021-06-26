@@ -54,7 +54,7 @@ class ProfileViewModel {
                 DebugLog(userData.debugDescription())
                 self.userData.value = userData
                 self.bucketBookCount.value = userData.bucketCount
-                self.bucketBookData.value = userData.bucket
+                self.bucketBookData.value = userData.bucket ?? []
                 self.bookmarkCount.value = userData.bookmark.bookMarkCount
                 self.bookmarkData.value = userData.bookmark.bookmarkList ?? [BookmarkListData]()
             case.failure(let error):
