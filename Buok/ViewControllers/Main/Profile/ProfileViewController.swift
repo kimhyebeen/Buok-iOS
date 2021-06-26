@@ -100,6 +100,10 @@ class ProfileViewController: HeroBaseViewController {
             }
         })
         
+        viewModel?.isFriend.bind({ [weak self] isFriend in
+            self?.profileView.isFriend = isFriend
+        })
+        
         viewModel?.isMe.bind({ [weak self] isMe in
             self?.profileView.isMyPage = isMe
             self?.backButton.isHidden = isMe

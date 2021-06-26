@@ -7,6 +7,7 @@
 
 import Foundation
 import HeroCommon
+import HeroUI
 
 final class SearchViewModel {
     var currentSearchType: Dynamic<SearchType> = Dynamic(.myBucket)
@@ -66,4 +67,14 @@ final class SearchViewModel {
 			}
 		})
 	}
+}
+
+extension SearchViewModel {
+    func gotoProfileDetail(userId: Int, navigation: UINavigationController?) {
+        let vc = ProfileViewController()
+        let viewModel = ProfileViewModel()
+        viewModel.userId = userId
+        vc.viewModel = viewModel
+        navigation?.pushViewController(vc, animated: true)
+    }
 }

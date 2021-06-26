@@ -112,9 +112,9 @@ class FriendListCollectionCell: UICollectionViewCell {
 extension FriendListCollectionCell {
     // MARK: ProfileImageView
     private func setupProfileImageVIew() {
+        profileImageView.clipsToBounds = true
         profileImageView.layer.cornerRadius = 24
         profileImageView.contentMode = .scaleAspectFill
-        profileImageView.clipsToBounds = true
         profileImageView.image = UIImage(heroSharedNamed: "ic_profile_48")
         self.addSubview(profileImageView)
         
@@ -122,6 +122,7 @@ extension FriendListCollectionCell {
             make.width.height.equalTo(48)
             make.centerY.equalToSuperview()
             make.leading.equalToSuperview().offset(20)
+            make.width.height.equalTo(48)
         }
     }
     

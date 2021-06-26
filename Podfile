@@ -17,8 +17,6 @@ target 'Buok' do
   pod 'SnapKit'
   pod 'Firebase/Analytics'
   pod 'Firebase/Messaging'
-#  pod 'Alamofire'
-#  pod 'Alamofire-SwiftyJSON'
   pod 'SwiftyJSON'
   pod 'SwiftLint'
   pod 'Promises'
@@ -52,6 +50,5 @@ end
 target 'HeroNetwork' do
   project 'HeroNetwork/HeroNetwork'
   pod 'Alamofire'
-#  pod 'Alamofire-SwiftyJSON'
   pod 'SwiftLint'
 end

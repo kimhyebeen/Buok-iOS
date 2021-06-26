@@ -52,7 +52,7 @@ struct ProfileUserData: Codable {
     var bucketCount: Int
     var bookmark: BookmarkData
     var isFriend: Bool?
-    var bucket: [BucketModel]
+    var bucket: [BucketModel]?
     
     func debugDescription() -> String {
         var message: String = ""
@@ -69,9 +69,11 @@ struct ProfileUserData: Codable {
             }
         }
         
-        message += "[BucketData]\nBucketCount : \(bucket.count)\n"
-        for bucketItem in bucket {
-            message += "BucketName : \(bucketItem.bucketName)\nId : \(bucketItem.id)\nEndDate : \(bucketItem.endDate)\nCategoryId : \(bucketItem.categoryId)\n"
+        if let bucket = bucket {
+            message += "[BucketData]\nBucketCount : \(bucket.count)\n"
+            for bucketItem in bucket {
+                message += "BucketName : \(bucketItem.bucketName)\nId : \(bucketItem.id)\nEndDate : \(bucketItem.endDate)\nCategoryId : \(bucketItem.categoryId)\n"
+            }
         }
         
         return message
@@ -260,6 +262,9 @@ public struct UserAPIRequest {
 			do {
 				if let dictData = responseData as? NSDictionary {
 					let jsonData = try JSONSerialization.data(withJSONObject: dictData, options: .prettyPrinted)
+                    DebugLog("responseData : \(dictData)")
+                    DebugLog("Json Data : \n\(String(data: jsonData, encoding: .utf8) ?? "nil")")
+                    
 					let getData = try JSONDecoder().decode(ProfileUserServerModel.self, from: jsonData)
 					let userData = getData.data
 					if getData.status < 300 {
