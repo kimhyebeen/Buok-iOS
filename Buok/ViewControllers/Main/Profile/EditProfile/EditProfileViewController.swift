@@ -37,7 +37,7 @@ class EditProfileViewController: HeroBaseViewController {
     }
     
     private func bindViewModel() {
-        viewModel.nickname.bind({ nickname in
+        viewModel.nickname.bindAndFire({ nickname in
             self.nicknameTextField.text = nickname
         })
         
@@ -87,6 +87,7 @@ class EditProfileViewController: HeroBaseViewController {
     
     @objc
     func clickFinishButton(_ sender: UIButton) {
+        viewModel.nickname.value = nicknameTextField.text ?? ""
         if viewModel.profileImage.value != nil {
             DebugLog("[Edit Profile] Image Upload")
             viewModel.uploadProfileImage()
@@ -107,15 +108,15 @@ class EditProfileViewController: HeroBaseViewController {
 extension EditProfileViewController: UITextFieldDelegate, UITextViewDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
         guard var text = textField.text else {
-            self.nicknameCountLabel.text = "0/12"
+            nicknameCountLabel.text = "0/12"
             return
         }
         if text.count > 12 {
             text.removeLast()
-            self.nicknameTextField.text = text
+            nicknameTextField.text = text
+            return
         }
-        self.nicknameCountLabel.text = "\(text.count)/12"
-        self.viewModel.nickname.value = textField.text ?? ""
+        nicknameCountLabel.text = "\(text.count)/12"
     }
     
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
