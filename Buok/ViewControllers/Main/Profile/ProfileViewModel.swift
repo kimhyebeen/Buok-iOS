@@ -39,7 +39,7 @@ class ProfileViewModel {
     var isMe: Dynamic<Bool> = Dynamic(false)
     var isFriend: Dynamic<Bool> = Dynamic(false)
     
-    var bucketBookData: Dynamic<[BucketModel]> = Dynamic([BucketModel]())
+	var bucketBookData: Dynamic<[ProfileBucketModel]> = Dynamic([ProfileBucketModel]())
     var bucketBookCount: Dynamic<Int> = Dynamic(0)
     
     var bookmarkData: Dynamic<[BookmarkListData]> = Dynamic([BookmarkListData]())

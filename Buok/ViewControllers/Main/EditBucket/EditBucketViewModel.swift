@@ -42,7 +42,7 @@ public class EditBucketViewModel {
     public init(detailModel: BucketDetailModel) {
         bucketId = Dynamic(detailModel.bucket.id)
         bucketStatus = Dynamic(BucketStatus(rawValue: detailModel.bucket.bucketState - 2) ?? .pre)
-        bucketCategory = Dynamic(BucketCategory(rawValue: detailModel.bucket.categoryId - 2) ?? .goal)
+		bucketCategory = Dynamic(BucketCategory(rawValue: detailModel.bucket.categoryId - 2) ?? .goal)
         bucketTitle = detailModel.bucket.bucketName
         bucketContent = detailModel.bucket.content ?? ""
         startDate = Dynamic(detailModel.bucket.createdDate.convertToDate())

@@ -357,7 +357,7 @@ extension ProfileViewController {
         
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.backgroundColor = .clear
+        collectionView.backgroundColor = .heroServiceSkin
         collectionView.showsVerticalScrollIndicator = false
         collectionView.contentInset = UIEdgeInsets(top: 368 + 20, left: 20, bottom: 0, right: 20)
         collectionView.register(BuokmarkCollectionCell.self, forCellWithReuseIdentifier: BuokmarkCollectionCell.identifier)
