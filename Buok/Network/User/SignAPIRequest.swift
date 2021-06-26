@@ -101,7 +101,7 @@ public struct SignAPIRequest {
 		}
 	}
     
-	static func signUpRequest(deviceToken: String, email: String, intro: String, nickname: String, password: String, responseHandler: @escaping (Result<Bool, HeroAPIError>) -> Void) {
+	static func signUpRequest(deviceToken: String, email: String, intro: String, nickname: String, password: String, responseHandler: @escaping (Result<SignInData, HeroAPIError>) -> Void) {
 		BaseAPIRequest.requestJSONResponse(requestType: SignRequestType.signUp(deviceToken: deviceToken, email: email, intro: intro, nickname: nickname, password: password)).then { responseData in
 			do {
 				if let dictData = responseData as? NSDictionary {
@@ -110,8 +110,8 @@ public struct SignAPIRequest {
                     DebugLog("Json Data : \n\(String(data: jsonData, encoding: .utf8) ?? "nil")")
                     
 					let getData = try JSONDecoder().decode(SignInServerModel.self, from: jsonData)
-					if getData.status < 300 {
-						responseHandler(.success(true))
+					if getData.status < 300, let signInData = getData.data {
+						responseHandler(.success(signInData))
 					} else {
 						responseHandler(.failure(HeroAPIError(errorCode: ErrorCode(rawValue: getData.status)!, statusCode: getData.status, errorMessage: getData.message)))
 					}

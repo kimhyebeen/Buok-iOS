@@ -51,16 +51,14 @@ class JoinIntroduceViewController: HeroBaseViewController {
         
 		if isSNSLogin {
 			guard let _ = viewmodel.requestSaveProfile() else {
-				// todo - 로그인 실패 처리
 				self.viewModel?.setRootVCToHomeVC()
 				return
 			}
 		} else {
 			guard let _ = viewmodel.requestJoin() else {
-				// todo - 로그인 실패 처리
+				self.viewModel?.setRootVCToHomeVC()
 				return
 			}
-			// todo - 토큰 저장 후, 메인 화면 이동
 		}
     }
     
@@ -69,11 +67,17 @@ class JoinIntroduceViewController: HeroBaseViewController {
         guard let viewmodel = viewModel else { return }
         viewmodel.introduce = nil
         
-        guard let _ = viewmodel.requestJoin() else {
-            // todo - 로그인 실패 처리
-            return
-        }
-        // todo - 토큰 저장 후, 메인 화면 이동
+		if isSNSLogin {
+			guard let _ = viewmodel.requestSaveProfile() else {
+				self.viewModel?.setRootVCToHomeVC()
+				return
+			}
+		} else {
+			guard let _ = viewmodel.requestJoin() else {
+				self.viewModel?.setRootVCToHomeVC()
+				return
+			}
+		}
     }
 }
 

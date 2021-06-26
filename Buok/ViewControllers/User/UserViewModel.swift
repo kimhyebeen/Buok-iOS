@@ -120,9 +120,14 @@ class UserViewModel {
     func requestJoin() -> String? {
 		SignAPIRequest.signUpRequest(deviceToken: deviceToken, email: email, intro: introduce ?? "", nickname: nickname, password: password, responseHandler: { result in
             switch result {
-            case .success(let isSuccess):
-                DebugLog("Is Success : \(isSuccess)")
-                self.isSignUpSuccess.value = true
+            case .success(let signInData):
+				_ = TokenManager.shared.deleteAllTokenData()
+				let sat = TokenManager.shared.setAccessToken(token: signInData.accessToken)
+				let srt = TokenManager.shared.setRefreshToken(token: signInData.accessToken)
+				let sated = TokenManager.shared.setAccessTokenExpiredDate(expiredAt: signInData.accessExpiredAt.convertToDate())
+				let srted = TokenManager.shared.setRefreshTokenExpiredDate(expiredAt: signInData.refreshExpiredAt.convertToDate())
+				DebugLog("sat : \(sat), srt : \(srt), sated : \(sated), srted : \(srted)")
+				self.isSignUpSuccess.value = sat && srt && sated && srted
 			case.failure(_):
                 ErrorLog("API Error")
             // Alert 이나 Toast 띄우기
