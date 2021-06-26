@@ -39,6 +39,7 @@ final class SearchViewController: HeroBaseViewController {
 		setupViewProperties()
         bindViewModel()
         viewModel?.currentSearchType.value = .myBucket
+        updateSearchBarButtonEnabled()
     }
     
     private func bindViewModel() {
@@ -56,16 +57,33 @@ final class SearchViewController: HeroBaseViewController {
         })
         
         viewModel?.bucketSearchList.bind({ [weak self] _ in
+            self?.updateSearchBarButtonEnabled()
             self?.mybuokCollectionView.reloadData()
         })
 		
-		viewModel?.friendList.bind({ [weak self] _ in
-			self?.friendCollectionView.reloadData()
-		})
-		
-		viewModel?.bookmarkSearchList.bind({ [weak self] _ in
-			self?.mybuokCollectionView.reloadData()
-		})
+        viewModel?.friendList.bind({ [weak self] _ in
+            self?.updateSearchBarButtonEnabled()
+            self?.friendCollectionView.reloadData()
+        })
+        
+        viewModel?.bookmarkSearchList.bind({ [weak self] _ in
+            self?.updateSearchBarButtonEnabled()
+            self?.mybuokCollectionView.reloadData()
+        })
+    }
+    
+    private func updateSearchBarButtonEnabled() {
+        let isEnabled = viewModel?.bucketSearchList.value.count ?? 0 > 0 ||
+            viewModel?.friendList.value.count ?? 0 > 0 ||
+            viewModel?.bookmarkSearchList.value.count ?? 0 > 0
+        
+        filterMyBookButton.isEnabled = isEnabled
+        filterAccountButton.isEnabled = isEnabled
+        filterBookmarkButton.isEnabled = isEnabled
+        
+        filterMyBookBar.isHidden = !(isEnabled && viewModel?.currentSearchType.value == .myBucket)
+        filterAccountBar.isHidden = !(isEnabled && viewModel?.currentSearchType.value == .user)
+        filterBookmarkBar.isHidden = !(isEnabled && viewModel?.currentSearchType.value == .mark)
     }
     
     private func setupBucketCollectionView() {
@@ -312,6 +330,7 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
 			return BucketItemCell()
 		}
 		
+        cell.cellType = .normal
 		cell.bucketSearch = viewModel?.bucketSearchList.value[indexPath.row]
 		
 		return cell
@@ -322,6 +341,8 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
 			return BucketItemCell()
 		}
 		
+        cell.profileDelegate = self
+        cell.cellType = .search
 		cell.bucketSearch = viewModel?.bookmarkSearchList.value[indexPath.row]
 		
 		return cell
@@ -337,10 +358,11 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
 //    }
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-		let width = UIScreen.main.bounds.width - 40
 		if let value = viewModel?.currentSearchType.value, value == .user {
+            let width = UIScreen.main.bounds.width
 			return CGSize(width: width, height: 48)
 		} else {
+            let width = UIScreen.main.bounds.width - 40
 			return CGSize(width: width / 2 - 9, height: width / 2 - 9 + 16 + 2)
 		}
     }
@@ -359,5 +381,11 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
 		} else {
 			return 0
 		}
+    }
+}
+
+extension SearchViewController: BucketItemCellProfileDelegate {
+    func didSelectUserProfile(userId: Int) {
+        viewModel?.gotoProfileDetail(userId: userId, navigation: self.navigationController)
     }
 }

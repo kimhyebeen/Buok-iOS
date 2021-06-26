@@ -37,6 +37,7 @@ class ProfileViewModel {
     
     var userId: Int = 0
     var isMe: Dynamic<Bool> = Dynamic(false)
+    var isFriend: Dynamic<Bool> = Dynamic(false)
     
     var bucketBookData: Dynamic<[BucketModel]> = Dynamic([BucketModel]())
     var bucketBookCount: Dynamic<Int> = Dynamic(0)
@@ -54,7 +55,8 @@ class ProfileViewModel {
                 DebugLog(userData.debugDescription())
                 self.userData.value = userData
                 self.bucketBookCount.value = userData.bucketCount
-                self.bucketBookData.value = userData.bucket
+                self.bucketBookData.value = userData.bucket ?? []
+                self.isFriend.value = userData.isFriend ?? false
                 self.bookmarkCount.value = userData.bookmark.bookMarkCount
                 self.bookmarkData.value = userData.bookmark.bookmarkList ?? [BookmarkListData]()
             case.failure(let error):

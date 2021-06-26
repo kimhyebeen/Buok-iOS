@@ -9,6 +9,15 @@ import Foundation
 import HeroCommon
 import HeroUI
 
+public enum BucketItemCellType {
+    case normal
+    case search
+}
+
+protocol BucketItemCellProfileDelegate: AnyObject {
+    func didSelectUserProfile(userId: Int)
+}
+
 final class BucketItemCell: UICollectionViewCell {
     static let identifier: String = "BucketItemCell"
     
@@ -16,9 +25,19 @@ final class BucketItemCell: UICollectionViewCell {
     private let contentBgView: UIView = UIView()
     private let iconContainerView: UIView = UIView()
     private let iconImageView: UIImageView = UIImageView()
+    private let userProfileImageView: UIImageView = UIImageView()
+    private let userProfileButton: UIButton = UIButton()
     
     private let titleLabel: UILabel = UILabel()
     private let dateLabel: UILabel = UILabel()
+    
+    public weak var profileDelegate: BucketItemCellProfileDelegate?
+    
+    public var cellType: BucketItemCellType = .normal {
+        didSet {
+            updateUserIconView()
+        }
+    }
     
     public var bucket: BucketModel? {
         didSet {
@@ -30,7 +49,13 @@ final class BucketItemCell: UICollectionViewCell {
     
     public var bucketSearch: SearchBucketModel? {
         didSet {
-            titleLabel.text = bucketSearch?.bucketName
+            if let urlStr = bucketSearch?.userProfileUrl, !urlStr.isEmpty, let profileUrl = URL(string: urlStr) {
+                self.userProfileImageView.kf.setImage(with: profileUrl)
+            } else {
+                self.userProfileImageView.image = UIImage(heroSharedNamed: "search_user_default")
+            }
+            
+            self.titleLabel.text = bucketSearch?.bucketName
             self.updateContentBgViewInSearch()
             self.setupCategoryIconInSearch()
         }
@@ -39,6 +64,7 @@ final class BucketItemCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViewLayout()
+        updateUserIconView()
     }
     
     required init?(coder: NSCoder) {
@@ -50,6 +76,8 @@ final class BucketItemCell: UICollectionViewCell {
         contentView.addSubview(stateView)
         contentBgView.addSubview(iconContainerView)
         iconContainerView.addSubview(iconImageView)
+        iconContainerView.addSubview(userProfileImageView)
+        iconContainerView.addSubview(userProfileButton)
         
         contentBgView.addSubview(titleLabel)
         contentBgView.addSubview(dateLabel)
@@ -67,6 +95,15 @@ final class BucketItemCell: UICollectionViewCell {
         
         iconImageView.snp.makeConstraints { make in
             make.center.equalToSuperview()
+        }
+        
+        userProfileImageView.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.edges.equalToSuperview()
+        }
+        
+        userProfileButton.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
         }
         
         stateView.snp.makeConstraints { make in
@@ -89,11 +126,28 @@ final class BucketItemCell: UICollectionViewCell {
         
         contentBgView.layer.cornerRadius = 8
         iconContainerView.layer.cornerRadius = 18
+        userProfileImageView.layer.cornerRadius = 18
+        userProfileImageView.clipsToBounds = true
+        userProfileImageView.contentMode = .scaleAspectFill
         
         titleLabel.numberOfLines = 2
         titleLabel.textAlignment = .center
         titleLabel.textColor = .heroGray5B
         titleLabel.font = UIFont.systemFont(ofSize: 17, weight: .regular)
+        
+        userProfileButton.addTarget(self, action: #selector(onClickUserProfile(_:)), for: .touchUpInside)
+    }
+    
+    @objc
+    private func onClickUserProfile(_ sender: UIButton) {
+        if let userId = bucketSearch?.userId {
+            profileDelegate?.didSelectUserProfile(userId: userId)
+        }
+    }
+    
+    private func updateUserIconView() {
+        iconImageView.isHidden = cellType == .search
+        userProfileImageView.isHidden = !(cellType == .search)
     }
     
     private func setupCategoryIcon() {
