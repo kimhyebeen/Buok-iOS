@@ -36,6 +36,7 @@ final class EditBucketViewController: HeroBaseViewController, UINavigationContro
     private let detailTitleLabel: UILabel = UILabel()
     private let detailBackgroundView: UIView = UIView()
     private let detailTextView: UITextView = UITextView()
+    private let detailTextViewPlaceholder: UILabel = UILabel()
     private let detailLengthLabel: UILabel = UILabel()
     
     private var imageCollectionView: UICollectionView?
@@ -197,6 +198,7 @@ final class EditBucketViewController: HeroBaseViewController, UINavigationContro
         }
     }
     
+    // MARK: DetailSection UI
     private func setupDetailSectionView() {
         detailTitleLabel.snp.makeConstraints { make in
             make.top.equalTo(finishDateContainerView.snp.bottom).offset(9)
@@ -215,11 +217,23 @@ final class EditBucketViewController: HeroBaseViewController, UINavigationContro
         detailBackgroundView.addSubview(detailTextView)
         detailBackgroundView.addSubview(detailLengthLabel)
         
+        detailTextView.textColor = .heroGray5B
         detailTextView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(16)
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
             make.bottom.equalToSuperview().offset(-16)
+        }
+        
+        detailTextViewPlaceholder.text = "메모할 내용을 기입해보세요.\n혹은 버킷리스트와 관련해서 상세 내용을 입력해봅시다!"
+        detailTextViewPlaceholder.numberOfLines = 0
+        detailTextViewPlaceholder.textColor = .heroGrayDA
+        detailTextViewPlaceholder.font = .font13P
+        detailTextViewPlaceholder.isHidden = !(viewModel?.bucketContent.isEmpty ?? true)
+        detailBackgroundView.addSubview(detailTextViewPlaceholder)
+        detailTextViewPlaceholder.snp.makeConstraints { make in
+            make.top.equalTo(detailTextView.snp.top).offset(4)
+            make.leading.equalTo(detailTextView.snp.leading).offset(4)
         }
         
         detailLengthLabel.snp.makeConstraints { make in
@@ -286,6 +300,7 @@ final class EditBucketViewController: HeroBaseViewController, UINavigationContro
         datePicker.locale = Locale(identifier: "ko-KR")
         datePicker.timeZone = .autoupdatingCurrent
         datePicker.addTarget(self, action: #selector(handleDatePicker(_:)), for: .valueChanged)
+        datePicker.date = viewModel?.finishDate.value ?? Date()
         
         dateChooserAlert.view.addSubview(datePicker)
         dateChooserAlert.view.snp.makeConstraints { make in
@@ -320,22 +335,17 @@ final class EditBucketViewController: HeroBaseViewController, UINavigationContro
     }
     
     private func bindViewModel() {
-        viewModel?.bucketTitle.bindAndFire({ title in
-            DebugLog("Bucket Title : \(title)")
-            self.titleField.text = title
-        })
-        
-        viewModel?.bucketContent.bindAndFire({ content in
-            self.detailTextView.text = content
-            self.detailLengthLabel.text = "\(content.count)/1500"
-        })
-        
         viewModel?.bucketStatus.bindAndFire({ status in
             DebugLog("BucketStatus Changed : \(status)")
             if status == .success || status == .failure {
                 self.datePicker.minimumDate = nil
             } else {
                 self.datePicker.minimumDate = Date()
+                guard let date = self.viewModel?.finishDate.value else { return }
+                if self.datePicker.date.compare(date) == .orderedDescending {
+                    self.viewModel?.finishDate.value = Date()
+                    self.setDateStringToButton(self.datePicker.date)
+                }
             }
             self.statusTitleLabel.text = status.getTitle()
         })
@@ -385,13 +395,13 @@ final class EditBucketViewController: HeroBaseViewController, UINavigationContro
         doneButton.setTitle("수정", for: .normal)
         doneButton.addTarget(self, action: #selector(onClickDoneButton(_:)), for: .touchUpInside)
         
-        statusTitleLabel.text = "Hero_Common_Status".localized
+        statusTitleLabel.text = viewModel?.bucketStatus.value.getTitle() ?? "Hero_Common_Status".localized
         statusTitleLabel.font = .font15P
         statusTitleLabel.textColor = .heroGray82
         statusButton.addTarget(self, action: #selector(onClickStatusFilterButton(_:)), for: .touchUpInside)
         statusImageView.image = UIImage(heroSharedNamed: "ic_narrow_12")
         
-        categoryTitleLabel.text = "Hero_Common_Category".localized
+        categoryTitleLabel.text = viewModel?.bucketCategory.value.getTitle() ?? "Hero_Common_Category".localized
         categoryTitleLabel.font = .font15P
         categoryTitleLabel.textColor = .heroGray82
         categoryButton.addTarget(self, action: #selector(onClickCategoryFilterButton(_:)), for: .touchUpInside)
@@ -401,6 +411,7 @@ final class EditBucketViewController: HeroBaseViewController, UINavigationContro
         titleField.textColor = .heroGray5B
         titleField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         titleField.attributedPlaceholder = NSAttributedString(string: "Hero_Add_Title_Placeholder".localized, attributes: [NSAttributedString.Key.foregroundColor: UIColor.heroGrayA6A4A1])
+        titleField.text = viewModel?.bucketTitle
         divisionBar.backgroundColor = .heroGrayE7E1DC
         
         finishDateTitleLabel.text = "Hero_Add_FinishDate_Title".localized
@@ -422,11 +433,11 @@ final class EditBucketViewController: HeroBaseViewController, UINavigationContro
         detailTextView.delegate = self
         detailTextView.font = .font13P
         detailTextView.textColor = .heroGray5B
-        detailTextView.text = ""
+        detailTextView.text = viewModel?.bucketContent
         
         detailLengthLabel.font = .font13P
         detailLengthLabel.textColor = .heroGrayA6A4A1
-        detailLengthLabel.text = "0/1500"
+        detailLengthLabel.text = "\(viewModel?.bucketContent.count ?? 0)/1500"
     }
     
     @objc
@@ -487,7 +498,7 @@ extension EditBucketViewController {
     @objc
     func textFieldDidChange() {
         DebugLog("BucketTitle : \(titleField.text ?? "")")
-        viewModel?.bucketTitle.value = titleField.text ?? ""
+        viewModel?.bucketTitle = titleField.text ?? ""
     }
 }
 
@@ -595,28 +606,16 @@ extension EditBucketViewController: HeroSelectViewDelegate {
 
 extension EditBucketViewController: UITextViewDelegate {
     public func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.textColor == .heroGrayDA {
-//            textView.text = nil
-            viewModel?.bucketContent.value = ""
-            textView.textColor = .heroGray5B
-        }
+        detailTextViewPlaceholder.isHidden = true
     }
     
     public func textViewDidEndEditing(_ textView: UITextView) {
-        if (viewModel?.bucketContent.value ?? "").isEmpty {
-            textView.text = "메모할 내용을 기입해보세요.\n혹은 버킷리스트와 관련해서 상세 내용을 입력해봅시다!"
-            textView.textColor = .heroGrayDA
-        } else {
-            viewModel?.bucketContent.value = textView.text
-        }
+        detailTextViewPlaceholder.isHidden = !textView.text.isEmpty
     }
     
     public func textViewDidChange(_ textView: UITextView) {
-        if textView.textColor == .heroGrayDA {
-            detailLengthLabel.text = "0/1500"
-        } else {
-            detailLengthLabel.text = "\(textView.text.count)/1500"
-        }
+        viewModel?.bucketContent = textView.text
+        detailLengthLabel.text = "\(textView.text.count)/1500"
     }
 }
 
