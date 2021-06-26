@@ -133,9 +133,9 @@ extension ForgetViewController {
     
     // MARK: NextButton
     func setupNextButton() {
-        nextButton.setHeroEnable(false)
         nextButton.setHeroTitle("계속하기")
         nextButton.loginButtonType = .none
+        nextButton.setHeroEnable(false)
         nextButton.addTarget(self, action: #selector(clickNextButton(_:)), for: .touchUpInside)
         self.view.addSubview(nextButton)
         
