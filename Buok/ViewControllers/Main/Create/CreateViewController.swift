@@ -326,6 +326,11 @@ final class CreateViewController: HeroBaseViewController, UINavigationController
         
         viewModel.bucketStatus.bind({ status in
             DebugLog("BucketStatus Changed : \(status)")
+            if status == .success || status == .failure {
+                self.datePicker.minimumDate = nil
+            } else {
+                self.datePicker.minimumDate = Date()
+            }
             self.statusTitleLabel.text = status.getTitle()
         })
         
