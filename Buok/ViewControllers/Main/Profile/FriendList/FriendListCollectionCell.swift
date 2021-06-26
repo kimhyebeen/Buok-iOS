@@ -119,6 +119,7 @@ extension FriendListCollectionCell {
         self.addSubview(profileImageView)
         
         profileImageView.snp.makeConstraints { make in
+            make.width.height.equalTo(48)
             make.centerY.equalToSuperview()
             make.leading.equalToSuperview().offset(20)
             make.width.height.equalTo(48)
@@ -161,7 +162,6 @@ extension FriendListCollectionCell {
         self.addSubview(friendButton)
 		
 		friendButton.snp.makeConstraints { make in
-			make.width.equalTo(48)
 			make.centerY.equalToSuperview()
 			make.trailing.equalToSuperview().offset(-20)
 		}

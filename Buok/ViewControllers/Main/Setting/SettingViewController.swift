@@ -168,10 +168,6 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
             let viewModel = WithDrawalViewModel()
             vc.viewModel = viewModel
             navigationController?.pushViewController(vc, animated: true)
-        } else {
-            if let vc = SettingNavigator.getDestViewController(type: settingType) {
-                navigationController?.pushViewController(vc, animated: true)
-            }
         }
     }
     
@@ -255,7 +251,9 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
             case .success(let myPageUserData):
                 DebugLog(myPageUserData.debugDescription())
                 self.email = myPageUserData.user.email ?? ""
-                self.connectedAccount = "\(myPageUserData.user.socialType ?? "이메일")"
+                if let socialType = myPageUserData.user.socialType {
+                    self.connectedAccount = socialType
+                }
                 self.tableView.reloadData()
             case .failure(let error):
                 ErrorLog("API Error : \(error.statusCode) / \(error.errorMessage) / \(error.localizedDescription)")

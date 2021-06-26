@@ -13,8 +13,8 @@ public class EditBucketViewModel {
     public var bucketId: Dynamic<Int>
     public var bucketStatus: Dynamic<BucketStatus>
     public var bucketCategory: Dynamic<BucketCategory>
-    public var bucketTitle: Dynamic<String>
-    public var bucketContent: Dynamic<String>
+    public var bucketTitle: String
+    public var bucketContent: String
     
     public var startDate: Dynamic<Date>
     public var finishDate: Dynamic<Date>
@@ -41,10 +41,10 @@ public class EditBucketViewModel {
     
     public init(detailModel: BucketDetailModel) {
         bucketId = Dynamic(detailModel.bucket.id)
-        bucketStatus = Dynamic(.pre)
-        bucketCategory = Dynamic(.travel)
-        bucketTitle = Dynamic(detailModel.bucket.bucketName)
-        bucketContent = Dynamic(detailModel.bucket.content ?? "")
+        bucketStatus = Dynamic(BucketStatus(rawValue: detailModel.bucket.bucketState - 2) ?? .pre)
+        bucketCategory = Dynamic(BucketCategory(rawValue: detailModel.bucket.categoryId - 2) ?? .goal)
+        bucketTitle = detailModel.bucket.bucketName
+        bucketContent = detailModel.bucket.content ?? ""
         startDate = Dynamic(detailModel.bucket.createdDate.convertToDate())
         finishDate = Dynamic(detailModel.bucket.endDate.convertToDate())
         imageList = Dynamic([UIImage]())
@@ -81,9 +81,9 @@ public class EditBucketViewModel {
     }
     
     public func requestEditPost(urlList: [String]?) {
-        let bucket = BucketRequestModel(bucketName: bucketTitle.value,
+        let bucket = BucketRequestModel(bucketName: bucketTitle,
                                         categoryId: bucketCategory.value.getCategoryIndex(),
-                                        content: bucketContent.value,
+                                        content: bucketContent,
                                         endDate: finishDate.value.convertToSmallString(),
                                         imageList: imageURLStringList.value,
                                         startDate: startDate.value.convertToSmallString(),

@@ -359,8 +359,7 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 		if let value = viewModel?.currentSearchType.value, value == .user {
-            let width = UIScreen.main.bounds.width
-			return CGSize(width: width, height: 48)
+			return CGSize(width: UIScreen.main.bounds.width, height: 48)
 		} else {
             let width = UIScreen.main.bounds.width - 40
 			return CGSize(width: width / 2 - 9, height: width / 2 - 9 + 16 + 2)

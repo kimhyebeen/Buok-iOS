@@ -61,6 +61,7 @@ public class HeroSelectViewCell: UITableViewCell {
         contentView.addSubview(contentStackView)
         contentStackView.addArrangedSubview(iconView)
         contentStackView.addArrangedSubview(titleLabel)
+        backgroundColor = .clear
         
         contentStackView.snp.makeConstraints { make in
             make.top.bottom.trailing.equalToSuperview()
