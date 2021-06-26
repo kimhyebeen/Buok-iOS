@@ -113,10 +113,13 @@ extension FriendListCollectionCell {
     // MARK: ProfileImageView
     private func setupProfileImageVIew() {
         profileImageView.layer.cornerRadius = 24
+        profileImageView.contentMode = .scaleAspectFill
+        profileImageView.clipsToBounds = true
         profileImageView.image = UIImage(heroSharedNamed: "ic_profile_48")
         self.addSubview(profileImageView)
         
         profileImageView.snp.makeConstraints { make in
+            make.width.height.equalTo(48)
             make.centerY.equalToSuperview()
             make.leading.equalToSuperview().offset(20)
         }
