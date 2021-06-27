@@ -98,7 +98,6 @@ class FriendListCollectionCell: UICollectionViewCell {
     
     @objc
     func clickFriendButton(_ sender: UIButton) {
-        // todo - 친구 취소 성공하면..
 		if friendButton.friendType.value == .none {
 			friendButton.settingFriendButtonType(for: .request)
 			delegate?.changeFriendTypeToFriend(index: friendListIndex)
@@ -106,7 +105,7 @@ class FriendListCollectionCell: UICollectionViewCell {
 			friendButton.settingFriendButtonType(for: .none)
 			delegate?.changeFriendTypeToNotFriend(index: friendListIndex)
 		} else {
-			friendButton.settingFriendButtonType(for: .friend)
+			friendButton.settingFriendButtonType(for: .none)
 			delegate?.changeFriendTypeToNotFriend(index: friendListIndex)
 		}
     }

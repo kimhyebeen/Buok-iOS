@@ -288,8 +288,11 @@ extension ProfileViewController: ProfileViewDelegate {
     }
     
     func onClickFriendButton() {
-		if viewModel?.isFriendStatus.value == FriendButtonType.none, let userId = viewModel?.userData.value?.user.id {
+		let userId = viewModel?.userData.value?.user.id ?? 0
+		if viewModel?.isFriendStatus.value == FriendButtonType.none {
 			viewModel?.requestFriend(friendId: userId)
+		} else {
+			viewModel?.deleteFriend(friendId: userId)
 		}
     }
 }

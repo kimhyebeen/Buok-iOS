@@ -99,4 +99,16 @@ class ProfileViewModel {
 			}
 		})
 	}
+	
+	func deleteFriend(friendId: Int) {
+		FriendAPIRequest.deleteFriend(friendId: friendId, responseHandler: { result in
+			switch result {
+			case .success(let isSuccess):
+				DebugLog("Accept Friend's Request Success : \(isSuccess)")
+				self.isFriendStatus.value = .request
+			case .failure(let error):
+				ErrorLog("ERROR: \(error.statusCode) / \(error.localizedDescription)")
+			}
+		})
+	}
 }

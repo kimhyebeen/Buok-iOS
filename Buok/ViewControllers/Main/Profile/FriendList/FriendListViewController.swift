@@ -56,7 +56,6 @@ extension FriendListViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        // todo - 해당친구의 정보를 띄운 친구페이지로 이동
         let profileVC = ProfileViewController()
         let profileViewModel = ProfileViewModel()
 		profileViewModel.userId = viewModel?.friendList.value?[indexPath.row].userId ?? 0

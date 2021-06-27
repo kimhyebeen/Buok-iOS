@@ -134,7 +134,14 @@ class ProfileView: UIView {
     
     @objc
     func clickFriendButton(_ sender: UIButton) {
-        delegate?.onClickFriendButton()
+		if friendButton.friendType.value == .none {
+			friendButton.settingFriendButtonType(for: .request)
+		} else if friendButton.friendType.value == .friend {
+			friendButton.settingFriendButtonType(for: .none)
+		} else if friendButton.friendType.value == .request {
+			friendButton.settingFriendButtonType(for: .none)
+		}
+		delegate?.onClickFriendButton()
     }
 
     @objc
