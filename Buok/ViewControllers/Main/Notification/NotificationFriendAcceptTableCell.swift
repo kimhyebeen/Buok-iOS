@@ -88,18 +88,19 @@ class NotificationFriendAcceptTableCell: UITableViewCell {
 			make.bottom.equalTo(mainContentView.snp.bottom).inset(12)
 		}
 	}
-	
-	func applyAttributedTitleNicknameText(nickname: String) {
-		let text = "\(nickname)님과 친구가 되었습니다."
+
+	func settingUserData(user: NotificationModel) {
+		if let profileUrl = URL(string: user.profileUrl ?? "") {
+			profileImageView.kf.setImage(with: profileUrl)
+		}
 		
+		let nickName = user.nickName ?? "친구"
+		contentLabel.text = "\(nickName)님의 친구 요청을 수락했습니다. 버킷북을 구경해보세요!"
+		
+		let text = "\(nickName)님과 친구가 되었습니다."
 		let attributedStr = NSMutableAttributedString(string: text)
-		attributedStr.addAttribute(.font, value: UIFont.systemFont(ofSize: 15, weight: .bold), range: (text as NSString).range(of: nickname))
-		attributedStr.addAttribute(.foregroundColor, value: UIColor.heroGray5B, range: (text as NSString).range(of: nickname))
+		attributedStr.addAttribute(.font, value: UIFont.systemFont(ofSize: 15, weight: .bold), range: (text as NSString).range(of: nickName))
+		attributedStr.addAttribute(.foregroundColor, value: UIColor.heroGray5B, range: (text as NSString).range(of: nickName))
 		titleLabel.attributedText = attributedStr
-	}
-	
-	func applyAttributedContentNicknameText(nickname: String) {
-		let text = "\(nickname)님의 친구 요청을 수락했습니다. 버킷북을 구경해보세요!"
-		contentLabel.text = text
 	}
 }

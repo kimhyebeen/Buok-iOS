@@ -27,11 +27,12 @@ class ProfileView: UIView {
     
     private var widthOfFriendButton: NSLayoutConstraint?
     
-    var isFriend: Bool = false {
-        didSet {
-            friendButton.settingFriendButtonType(for: isFriend ? .friend : .none)
-        }
-    }
+	var isFriendStatus: FriendButtonType = .none {
+		didSet {
+			friendButton.settingFriendButtonType(for: isFriendStatus)
+			self.settingFriendButtonType(for: isFriendStatus)
+		}
+	}
     
     var isMyPage: Bool = false {
         didSet {
@@ -133,7 +134,14 @@ class ProfileView: UIView {
     
     @objc
     func clickFriendButton(_ sender: UIButton) {
-        delegate?.onClickFriendButton()
+		if friendButton.friendType.value == .none {
+			friendButton.settingFriendButtonType(for: .request)
+		} else if friendButton.friendType.value == .friend {
+			friendButton.settingFriendButtonType(for: .none)
+		} else if friendButton.friendType.value == .request {
+			friendButton.settingFriendButtonType(for: .none)
+		}
+		delegate?.onClickFriendButton()
     }
 
     @objc

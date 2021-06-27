@@ -9,6 +9,7 @@ import HeroUI
 
 public protocol FriendListCollectionCellDelegate: AnyObject {
 	func changeFriendTypeToFriend(index: Int)
+	func changeFriendTypeToNotFriend(index: Int)
 }
 
 class FriendListCollectionCell: UICollectionViewCell {
@@ -97,14 +98,15 @@ class FriendListCollectionCell: UICollectionViewCell {
     
     @objc
     func clickFriendButton(_ sender: UIButton) {
-        // todo - 친구 취소 성공하면..
 		if friendButton.friendType.value == .none {
 			friendButton.settingFriendButtonType(for: .request)
 			delegate?.changeFriendTypeToFriend(index: friendListIndex)
 		} else if friendButton.friendType.value == .friend {
 			friendButton.settingFriendButtonType(for: .none)
+			delegate?.changeFriendTypeToNotFriend(index: friendListIndex)
 		} else {
-			friendButton.settingFriendButtonType(for: .friend)
+			friendButton.settingFriendButtonType(for: .none)
+			delegate?.changeFriendTypeToNotFriend(index: friendListIndex)
 		}
     }
 }

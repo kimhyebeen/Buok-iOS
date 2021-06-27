@@ -17,6 +17,7 @@ public struct NotificationModel: Codable {
 	var friendId: Int?
 	var title: String?
 	var message: String
+	var nickName: String?
 	var profileUrl: String?
 	var friendStatus: Int
 	var alarmStatus: Int

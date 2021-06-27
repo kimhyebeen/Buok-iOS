@@ -50,9 +50,9 @@ struct ProfileUserData: Codable {
     var user: UserData
     var friendCount: Int
     var bucketCount: Int
-    var bookmark: BookmarkData
-    var isFriend: Bool?
-    var bucket: [BucketModel]?
+    var bookmark: BookmarkData?
+    var isFriend: Int?
+    var bucket: [ProfileBucketModel]?
     
     func debugDescription() -> String {
         var message: String = ""
@@ -62,8 +62,8 @@ struct ProfileUserData: Codable {
 
         message += "FriendCount : \(friendCount), BucketCount : \(bucketCount)\n"
         message += "isFriend : \(String(describing: isFriend))\n"
-        message += "[BookmarkData]\nBookmarkCount : \(bookmark.bookMarkCount)\n"
-        if let list = bookmark.bookmarkList {
+		message += "[BookmarkData]\nBookmarkCount : \(bookmark?.bookMarkCount)\n"
+		if let list = bookmark?.bookmarkList {
             for item in list {
                 message += "BucketName : \(item.bucketName)\nId : \(item.id)\nEndDate : \(item.endDate)\nCategoryId : \(item.categoryId)\n"
             }
@@ -96,6 +96,21 @@ struct ProfileData: Codable {
 	var intro: String
 	var nickname: String
 	var profileUrl: String?
+}
+
+struct ProfileBucketModel: Codable {
+	var id: Int
+	var bucketName: String
+	var createdDate: String
+	var endDate: String
+	var bucketState: Int
+	var categoryId: Int?
+	var fin: Bool
+	var bookmark: Bool
+	var content: String?
+	var userProfileUrl: String?
+	var userId: String?
+	var alarmCheck: Bool
 }
 
 // MARK: - ServerModel

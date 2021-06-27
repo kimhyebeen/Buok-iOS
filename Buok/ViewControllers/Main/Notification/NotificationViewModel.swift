@@ -46,6 +46,7 @@ public class NotificationViewModel {
             switch result {
             case .success(let isSuccess):
                 DebugLog("To become Friend Success : \(isSuccess)")
+				self.fetchNotificationList()
             case .failure(let error):
                 ErrorLog("ERROR: \(error.statusCode) / \(error.localizedDescription)")
             }

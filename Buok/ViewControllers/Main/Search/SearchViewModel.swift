@@ -67,6 +67,17 @@ final class SearchViewModel {
 			}
 		})
 	}
+	
+	func deleteFriend(friendId: Int) {
+		FriendAPIRequest.deleteFriend(friendId: friendId, responseHandler: { result in
+			switch result {
+			case .success(let isSuccess):
+				DebugLog("Delete Friend's Request Success : \(isSuccess)")
+			case .failure(let error):
+				ErrorLog("ERROR: \(error.statusCode) / \(error.localizedDescription)")
+			}
+		})
+	}
 }
 
 extension SearchViewModel {

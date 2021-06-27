@@ -269,16 +269,26 @@ extension SearchViewController: FriendListCollectionCellDelegate {
 	func changeFriendTypeToFriend(index: Int) {
 		viewModel?.requestFriend(friendId: viewModel?.friendList.value[index].userId ?? 0)
 	}
+	
+	func changeFriendTypeToNotFriend(index: Int) {
+		viewModel?.deleteFriend(friendId: viewModel?.friendList.value[index].userId ?? 0)
+	}
 }
 
 extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        if let type = viewModel?.currentSearchType.value, let keyword = searchBar.text {
+		if let keyword = searchBar.text, let currentType = viewModel?.currentSearchType.value {
 			if let viewModel = viewModel {
-            viewModel.fetchSearchResult(type: type, keyword: keyword)
-            noSearchResults.isHidden = true
-			viewModel.searchKeyword.value = keyword
-			viewModel.isSearchedKeyword = true
+				if viewModel.isSearchedKeyword == false {
+					viewModel.fetchSearchResult(type: .myBucket, keyword: keyword)
+					viewModel.fetchSearchResult(type: .user, keyword: keyword)
+					viewModel.fetchSearchResult(type: .mark, keyword: keyword)
+				} else {
+					viewModel.fetchSearchResult(type: currentType, keyword: keyword)
+				}
+				noSearchResults.isHidden = true
+				viewModel.searchKeyword.value = keyword
+				viewModel.isSearchedKeyword = true
 			}
         }
     }
@@ -347,15 +357,6 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
 		
 		return cell
 	}
-
-//    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let bucket = viewModel?.bucketSearchList.value[indexPath.row]
-//        let vc = DetailViewController()
-//        let viewModel = DetailViewModel()
-//        viewModel.bucketItem.value = bucket
-//        vc.viewModel = viewModel
-//        self.navigationController?.pushViewController(vc, animated: true)
-//    }
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 		if let value = viewModel?.currentSearchType.value, value == .user {

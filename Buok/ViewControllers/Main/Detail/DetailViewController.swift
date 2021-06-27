@@ -462,6 +462,7 @@ public class DetailViewController: HeroBaseViewController {
         })
         let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
         
+		alert.view.tintColor = .black
         alert.addAction(modifyAction)
         alert.addAction(cancelAction)
         self.present(alert, animated: true, completion: nil)

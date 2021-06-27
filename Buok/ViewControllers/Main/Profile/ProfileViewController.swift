@@ -100,15 +100,15 @@ class ProfileViewController: HeroBaseViewController {
             }
         })
         
-        viewModel?.isFriend.bind({ [weak self] isFriend in
-            self?.profileView.isFriend = isFriend
-        })
-        
         viewModel?.isMe.bind({ [weak self] isMe in
             self?.profileView.isMyPage = isMe
             self?.backButton.isHidden = isMe
             self?.settingButton.isHidden = !isMe
         })
+		
+		viewModel?.isFriendStatus.bind({ [weak self] status in
+			self?.profileView.isFriendStatus = status
+		})
     }
     
     @objc
@@ -288,7 +288,12 @@ extension ProfileViewController: ProfileViewDelegate {
     }
     
     func onClickFriendButton() {
-        // 친구버튼 구현
+		let userId = viewModel?.userData.value?.user.id ?? 0
+		if viewModel?.isFriendStatus.value == FriendButtonType.none {
+			viewModel?.requestFriend(friendId: userId)
+		} else {
+			viewModel?.deleteFriend(friendId: userId)
+		}
     }
 }
 
@@ -357,7 +362,7 @@ extension ProfileViewController {
         
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.backgroundColor = .clear
+        collectionView.backgroundColor = .heroServiceSkin
         collectionView.showsVerticalScrollIndicator = false
         collectionView.contentInset = UIEdgeInsets(top: 368 + 20, left: 20, bottom: 0, right: 20)
         collectionView.register(BuokmarkCollectionCell.self, forCellWithReuseIdentifier: BuokmarkCollectionCell.identifier)
