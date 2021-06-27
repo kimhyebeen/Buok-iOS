@@ -37,6 +37,7 @@ public struct FriendAPIRequest {
         case getFriendList(userId: Int)
         case makingFriend(friendId: Int, alarmId: Int, accept: Bool)
         case requestFriend(friendId: Int)
+		case deleteFriend(friendId: Int)
         
         var requestURL: URL {
             switch self {
@@ -46,6 +47,8 @@ public struct FriendAPIRequest {
                 return URL(string: HeroConstants.friend + "/\(friendId)/\(alarmId)")!
             case let .requestFriend(friendId):
                 return URL(string: HeroConstants.friend + "/\(friendId)/request")!
+			case let .deleteFriend(friendId):
+				return URL(string: HeroConstants.friend + "/\(friendId)")!
             }
         }
         
@@ -70,6 +73,8 @@ public struct FriendAPIRequest {
             switch self {
             case .getFriendList:
                 return .get
+			case .deleteFriend:
+				return .delete
             default:
                 return .post
             }
@@ -150,4 +155,24 @@ public struct FriendAPIRequest {
             }
         }
     }
+	
+	static func deleteFriend(friendId: Int, responseHandler: @escaping (Result<Bool, HeroAPIError>) -> Void) {
+		BaseAPIRequest.requestJSONResponse(requestType: FriendRequestType.deleteFriend(friendId: friendId)).then { responseData in
+			do {
+				if let dictData = responseData as? NSDictionary {
+					let jsonData = try JSONSerialization.data(withJSONObject: dictData, options: .prettyPrinted)
+					DebugLog("Json Data : \n\(String(data: jsonData, encoding: .utf8) ?? "nil")")
+					let getData = try JSONDecoder().decode(BaseServerModel.self, from: jsonData)
+					if getData.status < 300 {
+						responseHandler(.success(true))
+					} else {
+						responseHandler(.failure(HeroAPIError(errorCode: ErrorCode(rawValue: getData.status)!, statusCode: getData.status, errorMessage: getData.message)))
+					}
+				}
+			} catch {
+				ErrorLog("ERROR Detected")
+				responseHandler(.failure(HeroAPIError(errorCode: .unknown, statusCode: -1, errorMessage: "알 수 없는 오류")))
+			}
+		}
+	}
 }

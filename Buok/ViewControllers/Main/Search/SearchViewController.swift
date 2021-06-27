@@ -269,6 +269,10 @@ extension SearchViewController: FriendListCollectionCellDelegate {
 	func changeFriendTypeToFriend(index: Int) {
 		viewModel?.requestFriend(friendId: viewModel?.friendList.value[index].userId ?? 0)
 	}
+	
+	func changeFriendTypeToNotFriend(index: Int) {
+		viewModel?.deleteFriend(friendId: viewModel?.friendList.value[index].userId ?? 0)
+	}
 }
 
 extension SearchViewController: UISearchBarDelegate {
