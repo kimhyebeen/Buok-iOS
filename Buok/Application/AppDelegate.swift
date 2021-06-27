@@ -8,6 +8,7 @@
 import CoreData
 import Firebase
 import FirebaseMessaging
+import GoogleSignIn
 import HeroCommon
 import HeroUI
 import KakaoSDKAuth
@@ -24,6 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Messaging.messaging().delegate = self
         
         KakaoSDKCommon.initSDK(appKey: "e562ad6efc1a2a2c2ecc7e71cc3f8e3b")
+        
+        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         
         UNUserNotificationCenter.current().delegate = self
         let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
@@ -51,7 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return AuthController.handleOpenUrl(url: url)
         }
         
-        return false
+        return GIDSignIn.sharedInstance().handle(url)
     }
     
     // MARK: - Core Data stack
