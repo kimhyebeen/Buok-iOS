@@ -37,7 +37,6 @@ class ProfileViewModel {
     
     var userId: Int = 0
     var isMe: Dynamic<Bool> = Dynamic(false)
-    var isFriend: Dynamic<Bool> = Dynamic(false)
 	var isFriendStatus: Dynamic<FriendButtonType> = Dynamic(.none)
     
 	var bucketBookData: Dynamic<[ProfileBucketModel]> = Dynamic([ProfileBucketModel]())
@@ -57,9 +56,17 @@ class ProfileViewModel {
                 self.userData.value = userData
                 self.bucketBookCount.value = userData.bucketCount
                 self.bucketBookData.value = userData.bucket ?? []
-                self.isFriend.value = userData.isFriend ?? false
 				self.bookmarkCount.value = userData.bookmark?.bookMarkCount ?? 0
 				self.bookmarkData.value = userData.bookmark?.bookmarkList ?? [BookmarkListData]()
+				
+				switch userData.isFriend {
+				case 1:
+					self.isFriendStatus.value = .friend
+				case 2:
+					self.isFriendStatus.value = .request
+				default:
+					self.isFriendStatus.value = .none
+				}
             case.failure(let error):
                 ErrorLog("API Error : \(error.statusCode) / \(error.errorMessage) / \(error.localizedDescription)")
             }

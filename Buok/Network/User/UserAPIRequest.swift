@@ -51,7 +51,7 @@ struct ProfileUserData: Codable {
     var friendCount: Int
     var bucketCount: Int
     var bookmark: BookmarkData?
-    var isFriend: Bool?
+    var isFriend: Int?
     var bucket: [ProfileBucketModel]?
     
     func debugDescription() -> String {

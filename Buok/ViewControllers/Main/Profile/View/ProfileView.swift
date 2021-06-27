@@ -27,12 +27,6 @@ class ProfileView: UIView {
     
     private var widthOfFriendButton: NSLayoutConstraint?
     
-    var isFriend: Bool = false {
-        didSet {
-            friendButton.settingFriendButtonType(for: isFriend ? .friend : .none)
-        }
-    }
-	
 	var isFriendStatus: FriendButtonType = .none {
 		didSet {
 			friendButton.settingFriendButtonType(for: isFriendStatus)

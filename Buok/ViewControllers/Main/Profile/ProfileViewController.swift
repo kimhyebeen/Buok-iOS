@@ -100,10 +100,6 @@ class ProfileViewController: HeroBaseViewController {
             }
         })
         
-        viewModel?.isFriend.bind({ [weak self] isFriend in
-            self?.profileView.isFriend = isFriend
-        })
-        
         viewModel?.isMe.bind({ [weak self] isMe in
             self?.profileView.isMyPage = isMe
             self?.backButton.isHidden = isMe
@@ -292,7 +288,7 @@ extension ProfileViewController: ProfileViewDelegate {
     }
     
     func onClickFriendButton() {
-		if viewModel?.isFriendStatus.value != .friend, let userId = viewModel?.userData.value?.user.id {
+		if viewModel?.isFriendStatus.value == FriendButtonType.none, let userId = viewModel?.userData.value?.user.id {
 			viewModel?.requestFriend(friendId: userId)
 		}
     }
