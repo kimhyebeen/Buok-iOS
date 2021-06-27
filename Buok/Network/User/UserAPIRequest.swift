@@ -50,7 +50,7 @@ struct ProfileUserData: Codable {
     var user: UserData
     var friendCount: Int
     var bucketCount: Int
-    var bookmark: BookmarkData
+    var bookmark: BookmarkData?
     var isFriend: Bool?
     var bucket: [ProfileBucketModel]?
     
@@ -62,8 +62,8 @@ struct ProfileUserData: Codable {
 
         message += "FriendCount : \(friendCount), BucketCount : \(bucketCount)\n"
         message += "isFriend : \(String(describing: isFriend))\n"
-        message += "[BookmarkData]\nBookmarkCount : \(bookmark.bookMarkCount)\n"
-        if let list = bookmark.bookmarkList {
+		message += "[BookmarkData]\nBookmarkCount : \(bookmark?.bookMarkCount)\n"
+		if let list = bookmark?.bookmarkList {
             for item in list {
                 message += "BucketName : \(item.bucketName)\nId : \(item.id)\nEndDate : \(item.endDate)\nCategoryId : \(item.categoryId)\n"
             }

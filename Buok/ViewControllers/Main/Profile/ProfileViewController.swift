@@ -109,6 +109,10 @@ class ProfileViewController: HeroBaseViewController {
             self?.backButton.isHidden = isMe
             self?.settingButton.isHidden = !isMe
         })
+		
+		viewModel?.isFriendStatus.bind({ [weak self] status in
+			self?.profileView.isFriendStatus = status
+		})
     }
     
     @objc
@@ -288,7 +292,9 @@ extension ProfileViewController: ProfileViewDelegate {
     }
     
     func onClickFriendButton() {
-        // 친구버튼 구현
+		if viewModel?.isFriendStatus.value != .friend, let userId = viewModel?.userData.value?.user.id {
+			viewModel?.requestFriend(friendId: userId)
+		}
     }
 }
 

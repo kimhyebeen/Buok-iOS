@@ -32,6 +32,13 @@ class ProfileView: UIView {
             friendButton.settingFriendButtonType(for: isFriend ? .friend : .none)
         }
     }
+	
+	var isFriendStatus: FriendButtonType = .none {
+		didSet {
+			friendButton.settingFriendButtonType(for: isFriendStatus)
+			self.settingFriendButtonType(for: isFriendStatus)
+		}
+	}
     
     var isMyPage: Bool = false {
         didSet {
