@@ -526,7 +526,7 @@ extension EditBucketViewController: UICollectionViewDataSource, UICollectionView
                     self.present(alertController, animated: true, completion: nil)
                 }
             } else {
-                viewModel?.imageList.value.remove(at: indexPath.row - 1)
+                viewModel?.imageURLStringList.value.remove(at: indexPath.row - 1)
             }
         } else {
             // TAG Collection View
