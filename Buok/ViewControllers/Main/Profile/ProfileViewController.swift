@@ -107,9 +107,7 @@ class ProfileViewController: HeroBaseViewController {
         })
 		
 		viewModel?.isFriendStatus.bind({ [weak self] status in
-            guard let `self` = self else { return }
-			self.profileView.isFriendStatus = status
-            self.headerView.isFriend = (status == .friend)
+			self?.profileView.isFriendStatus = status
 		})
     }
     
@@ -394,8 +392,6 @@ extension ProfileViewController {
     func setupHeaderView() {
         headerView.delegate = self
         headerView.isMyPage = isMyPage
-        headerView.isFriend = viewModel?.isFriendStatus.value == .friend
-        
         self.view.addSubview(headerView)
         
         headerView.snp.makeConstraints { make in
