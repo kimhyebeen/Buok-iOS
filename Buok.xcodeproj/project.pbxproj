@@ -101,6 +101,9 @@
 		B0B1D7BA267CB1080058CEBB /* EditBucketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B1D7B9267CB1080058CEBB /* EditBucketViewModel.swift */; };
 		B0BF1946268C5CE300B6DF31 /* ServiceInfoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BF1945268C5CE300B6DF31 /* ServiceInfoData.swift */; };
 		B0BF1950268C5DBB00B6DF31 /* PersonalInfo.txt in Resources */ = {isa = PBXBuildFile; fileRef = B0BF194F268C5DBB00B6DF31 /* PersonalInfo.txt */; };
+		B0BF1954268CA14B00B6DF31 /* ImageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BF1953268CA14B00B6DF31 /* ImageDetailViewController.swift */; };
+		B0BF1956268CA24A00B6DF31 /* ZoomableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BF1955268CA24A00B6DF31 /* ZoomableImageView.swift */; };
+		B0BF1958268CA26400B6DF31 /* ZoomableImageConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BF1957268CA26400B6DF31 /* ZoomableImageConstant.swift */; };
 		B0D0217D2602199600F25329 /* JoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D0217C2602199600F25329 /* JoinViewController.swift */; };
 		B0D0218226021A2100F25329 /* NadamProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D0218126021A2100F25329 /* NadamProperties.swift */; };
 		EE23DF74264EB2F500AB31D1 /* BuokmarkCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE23DF73264EB2F500AB31D1 /* BuokmarkCollectionCell.swift */; };
@@ -382,6 +385,9 @@
 		B0B1D7B9267CB1080058CEBB /* EditBucketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBucketViewModel.swift; sourceTree = "<group>"; };
 		B0BF1945268C5CE300B6DF31 /* ServiceInfoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceInfoData.swift; sourceTree = "<group>"; };
 		B0BF194F268C5DBB00B6DF31 /* PersonalInfo.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = PersonalInfo.txt; sourceTree = "<group>"; };
+		B0BF1953268CA14B00B6DF31 /* ImageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailViewController.swift; sourceTree = "<group>"; };
+		B0BF1955268CA24A00B6DF31 /* ZoomableImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomableImageView.swift; sourceTree = "<group>"; };
+		B0BF1957268CA26400B6DF31 /* ZoomableImageConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomableImageConstant.swift; sourceTree = "<group>"; };
 		B0D0217C2602199600F25329 /* JoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinViewController.swift; sourceTree = "<group>"; };
 		B0D0218126021A2100F25329 /* NadamProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NadamProperties.swift; sourceTree = "<group>"; };
 		B0D43A522600DA99003420CA /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -605,6 +611,7 @@
 		B01D439E26039D1C00F2D28C /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				B0BF1952268CA13900B6DF31 /* ImageDetail */,
 				B01D43A726039D2500F2D28C /* DetailViewController.swift */,
 				B00FD52C266B7F8400A48B72 /* DetailViewModel.swift */,
 				B00FD53C266C96ED00A48B72 /* DetailHistoryCell.swift */,
@@ -943,6 +950,16 @@
 				B0B1D7B9267CB1080058CEBB /* EditBucketViewModel.swift */,
 			);
 			path = EditBucket;
+			sourceTree = "<group>";
+		};
+		B0BF1952268CA13900B6DF31 /* ImageDetail */ = {
+			isa = PBXGroup;
+			children = (
+				B0BF1953268CA14B00B6DF31 /* ImageDetailViewController.swift */,
+				B0BF1955268CA24A00B6DF31 /* ZoomableImageView.swift */,
+				B0BF1957268CA26400B6DF31 /* ZoomableImageConstant.swift */,
+			);
+			path = ImageDetail;
 			sourceTree = "<group>";
 		};
 		B0D021702602195B00F25329 /* MultiLevelVC */ = {
@@ -1490,6 +1507,7 @@
 				EE23DF74264EB2F500AB31D1 /* BuokmarkCollectionCell.swift in Sources */,
 				B08CEB8C2663934E00FF77BD /* WorkThruPageContentViewController.swift in Sources */,
 				B0D0217D2602199600F25329 /* JoinViewController.swift in Sources */,
+				B0BF1954268CA14B00B6DF31 /* ImageDetailViewController.swift in Sources */,
 				B041747625E2366E00D990A2 /* MultiLevelViewController.swift in Sources */,
 				B0B1D7B8267CB0F20058CEBB /* EditBucketViewController.swift in Sources */,
 				B023B156266A130D0060F625 /* ImageUploadAPIRequest.swift in Sources */,
@@ -1506,6 +1524,7 @@
 				EEB9EF9826269768001AF65F /* UserTextField.swift in Sources */,
 				EE79C445264AD72600E83B6A /* MypageBuokmarkHeaderView.swift in Sources */,
 				EE4940E02648332C00CB0B71 /* UITextView+.swift in Sources */,
+				B0BF1956268CA24A00B6DF31 /* ZoomableImageView.swift in Sources */,
 				B07CD1A5266676700031B106 /* SearchAPIRequest.swift in Sources */,
 				B0B033D32622AA0900D65204 /* SettingNavigator.swift in Sources */,
 				EE23DF77264EB36900AB31D1 /* BuokmarkFlagView.swift in Sources */,
@@ -1519,6 +1538,7 @@
 				EECEF1922627E08300CF9394 /* IntroduceTextView.swift in Sources */,
 				EE4940842647659700CB0B71 /* ForgetViewModel.swift in Sources */,
 				EECEF18C2627DFEA00CF9394 /* JoinIntroduceViewController+UI.swift in Sources */,
+				B0BF1958268CA26400B6DF31 /* ZoomableImageConstant.swift in Sources */,
 				EEA213D32625DAEA00E3AEA1 /* LoginPasswordViewController+UI.swift in Sources */,
 				B07AD1392667C3A6000CCDAC /* EmailAuthAPIRequest.swift in Sources */,
 				B07CD19C2666751F0031B106 /* NotificationViewController.swift in Sources */,
