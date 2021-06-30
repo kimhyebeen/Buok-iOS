@@ -26,7 +26,10 @@ final class ImageDetailViewController: HeroBaseViewController {
 
     var currentPage: Int = 0 {
         didSet {
-            scrollToPage(page: currentPage, animated: false)
+            setPageTitle(title: "\(currentPage + 1) / \(attachments?.count ?? 0)", boldTitle: "\(attachments?.count ?? 0)")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
+                self.scrollToPage(page: self.currentPage, animated: false)
+            })
         }
     }
 
@@ -109,23 +112,6 @@ final class ImageDetailViewController: HeroBaseViewController {
     @objc
     private func onClickClose(_: UIButton) {
         dismiss(animated: true, completion: nil)
-    }
-
-    @objc
-    private func onClickSave(_: UIButton) {
-        let page = Int(currentPage)
-
-        guard let attachments = attachments else {
-            return
-        }
-
-        let urlString = attachments[page]
-
-        if let url = URL(string: urlString),
-           let data = try? Data(contentsOf: url),
-           let image = UIImage(data: data) {
-            UIImageWriteToSavedPhotosAlbum(image, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
-        }
     }
 
     @objc

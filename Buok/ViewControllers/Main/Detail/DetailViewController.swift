@@ -526,7 +526,7 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
             detailVC.currentPage = indexPath.row
             detailVC.attachments = viewModel?.imageUrlList.value
             detailVC.modalPresentationStyle = .overFullScreen
-            present(detailVC, animated: true)
+            self.present(detailVC, animated: true)
         }
     }
 }

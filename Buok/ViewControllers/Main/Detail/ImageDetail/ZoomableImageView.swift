@@ -71,7 +71,8 @@ public class ZoomableImageView: UIScrollView {
         NotificationCenter.default.addObserver(self, selector: #selector(changeOrientationNotification), name: UIDevice.orientationDidChangeNotification, object: nil)
     }
 
-    @objc public func adjustFrameToCenter() {
+    @objc
+    public func adjustFrameToCenter() {
         guard let unwrappedZoomView = zoomView else {
             return
         }
@@ -146,8 +147,8 @@ public class ZoomableImageView: UIScrollView {
     }
 
     // MARK: - Display image
-
-    @objc open func display(imageUrl: URL) {
+    @objc
+    open func display(imageUrl: URL) {
         if let zoomView = zoomView {
             zoomView.removeFromSuperview()
         }
@@ -170,7 +171,8 @@ public class ZoomableImageView: UIScrollView {
         })
     }
 
-    @objc open func display(image: UIImage) {
+    @objc
+    open func display(image: UIImage) {
         if let zoomView = zoomView {
             zoomView.removeFromSuperview()
         }
@@ -240,8 +242,8 @@ public class ZoomableImageView: UIScrollView {
     }
 
     // MARK: - Gesture
-
-    @objc func doubleTapGestureRecognizer(_ gestureRecognizer: UIGestureRecognizer) {
+    @objc
+    func doubleTapGestureRecognizer(_ gestureRecognizer: UIGestureRecognizer) {
         if zoomScale >= maximumZoomScale / 2.0 {
             setZoomScale(minimumZoomScale, animated: true)
         } else {
@@ -270,8 +272,8 @@ public class ZoomableImageView: UIScrollView {
     }
 
     // MARK: - Actions
-
-    @objc func changeOrientationNotification() {
+    @objc
+    func changeOrientationNotification() {
         DispatchQueue.main.async {
             self.configureImageForSize(self.imageSize)
             self.zoomableImageViewDelegate?.zoomableImageViewDidChangeOrientation(imageView: self)
