@@ -15,7 +15,7 @@ struct UserData: Codable {
 	var id: Int
 	var email: String?
 	var nickname: String
-	var intro: String
+	var intro: String?
 	var profileUrl: String?
 	var createdDate: String?
     var socialType: String?
@@ -51,7 +51,7 @@ struct ProfileUserData: Codable {
     var friendCount: Int
     var bucketCount: Int
     var bookmark: BookmarkData?
-    var isFriend: Int?
+    var isFriend: Int
     var bucket: [ProfileBucketModel]?
     
     func debugDescription() -> String {

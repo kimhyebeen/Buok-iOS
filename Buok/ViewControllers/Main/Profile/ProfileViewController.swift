@@ -50,7 +50,7 @@ class ProfileViewController: HeroBaseViewController {
     private func setupView() {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         self.view.backgroundColor = isMyPage ? .heroGrayF2EDE8 : .heroPrimaryBeigeLighter
-        
+		
         setupSafeAreaFillView()
         setupTopView()
         setupBackButton()
@@ -161,7 +161,7 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
     
     private func countOfBucketBookMode(for section: Int) -> Int {
-        if viewModel?.friendType == .friend {
+        if viewModel?.isFriendStatus.value == .friend {
             emptyBucketStackView.isHidden = true
             return section == 0 ? 0 : viewModel?.bucketBookData.value.count ?? 0
         } else {
@@ -213,14 +213,13 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
     
     private func settingBucketBookCell(_ collectionView: UICollectionView, _ indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BucketCollectionCell.identifier, for: indexPath) as? BucketCollectionCell else {
-            return BucketCollectionCell()
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BucketItemCell.identifier, for: indexPath) as? BucketItemCell else {
+            return BucketItemCell()
         }
         
-        let types: [BucketStatusType] = [.inProgress, .expected, .fail, .done]
-        if let strongViewModel = viewModel {
-            cell.setInformation(strongViewModel.bucketBooks[indexPath.row], types[indexPath.row % 4])
-        }
+        cell.cellType = .friendProfile
+        cell.bucketFriendProfile = viewModel?.bucketBookData.value[indexPath.row]
+		cell.backgroundColor = .heroPrimaryBeigeLighter
         
         return cell
     }
@@ -242,8 +241,15 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        // todo - 클릭 처리
-        return true
+        if isMyPage {
+            if viewModel?.bookmarkCount.value ?? 0 < 1 {
+				viewModel?.setRootVCToHomeVC()
+                return true
+            } else {
+                return false
+            }
+        }
+        return false
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -364,11 +370,11 @@ extension ProfileViewController {
         
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.backgroundColor = .heroServiceSkin
+        collectionView.backgroundColor = isMyPage ? .heroGrayF2EDE8 : .heroPrimaryBeigeLighter
         collectionView.showsVerticalScrollIndicator = false
         collectionView.contentInset = UIEdgeInsets(top: 368 + 20, left: 20, bottom: 0, right: 20)
         collectionView.register(BuokmarkCollectionCell.self, forCellWithReuseIdentifier: BuokmarkCollectionCell.identifier)
-        collectionView.register(BucketCollectionCell.self, forCellWithReuseIdentifier: BucketCollectionCell.identifier)
+        collectionView.register(BucketItemCell.self, forCellWithReuseIdentifier: BucketItemCell.identifier)
         collectionView.register(BuokmarkEmptyCollectionCell.self, forCellWithReuseIdentifier: BuokmarkEmptyCollectionCell.identifier)
     }
     

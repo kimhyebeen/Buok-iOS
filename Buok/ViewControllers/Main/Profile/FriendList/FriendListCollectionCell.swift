@@ -51,7 +51,11 @@ class FriendListCollectionCell: UICollectionViewCell {
         }
         
         if let profileUrl = URL(string: user.profileUrl ?? "") {
-            profileImageView.kf.setImage(with: profileUrl)
+			if !(user.profileUrl?.contains("http") ?? false) || user.profileUrl == "" || user.profileUrl == nil {
+				profileImageView.image = UIImage(heroSharedNamed: "ic_profile_48")
+			} else {
+				profileImageView.kf.setImage(with: profileUrl)
+			}
         }
         
         userLabel.text = user.nickname ?? ""
@@ -77,7 +81,7 @@ class FriendListCollectionCell: UICollectionViewCell {
 		}
 		
 		if let profileUrl = URL(string: user.profileUrl ?? "") {
-			if !(user.profileUrl?.contains("http") ?? false) {
+            if !(user.profileUrl?.contains("http") ?? false) || user.profileUrl == "" || user.profileUrl == nil {
 				profileImageView.image = UIImage(heroSharedNamed: "ic_profile_48")
 			} else {
 				profileImageView.kf.setImage(with: profileUrl)

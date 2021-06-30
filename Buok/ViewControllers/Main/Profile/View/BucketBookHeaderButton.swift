@@ -54,11 +54,13 @@ class BucketBookHeaderButton: UIButton {
     private func selectedMode() {
         self.layer.backgroundColor = UIColor.heroPrimaryBeigeLighter.cgColor
         bucketBookLabel.font = .font20PBold
+		bucketCountLabel.isHidden = false
     }
     
     private func nonSelectedMode() {
         self.layer.backgroundColor = UIColor.heroServiceSkin.cgColor
         bucketBookLabel.font = .font20P
+		bucketCountLabel.isHidden = true
     }
     
     private func setupBucketLabel() {

@@ -85,6 +85,12 @@ final class SearchViewController: HeroBaseViewController {
         filterAccountBar.isHidden = !(isEnabled && viewModel?.currentSearchType.value == .user)
         filterBookmarkBar.isHidden = !(isEnabled && viewModel?.currentSearchType.value == .mark)
     }
+	
+	private func updateSearchBarButtonabled() {
+		filterMyBookButton.isEnabled = false
+		filterAccountButton.isEnabled = false
+		filterBookmarkButton.isEnabled = false
+	}
     
     private func setupBucketCollectionView() {
         mybuokCollectionView.backgroundColor = .heroServiceSkin
@@ -278,11 +284,13 @@ extension SearchViewController: FriendListCollectionCellDelegate {
 extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
 		if let keyword = searchBar.text, let currentType = viewModel?.currentSearchType.value {
+			print(currentType)
 			if let viewModel = viewModel {
-				if viewModel.isSearchedKeyword == false {
+				if viewModel.isSearchedKeyword == false || keyword == "" {
 					viewModel.fetchSearchResult(type: .myBucket, keyword: keyword)
 					viewModel.fetchSearchResult(type: .user, keyword: keyword)
 					viewModel.fetchSearchResult(type: .mark, keyword: keyword)
+					self.updateSearchBarButtonabled()
 				} else {
 					viewModel.fetchSearchResult(type: currentType, keyword: keyword)
 				}

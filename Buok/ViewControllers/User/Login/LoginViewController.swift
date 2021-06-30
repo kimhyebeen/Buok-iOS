@@ -133,8 +133,13 @@ extension LoginViewController: UITextFieldDelegate {
 
 extension LoginViewController: GIDSignInDelegate {
 	public func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-		guard let authentication = user.authentication else { return }
-		
+        if let error = error {
+            DebugLog("Google Login Cancel : \(error.localizedDescription)")
+            return
+        }
+
+        guard let authentication = user.authentication else { return }
+        
 		let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
 		Auth.auth().signIn(with: credential) { (authResult, error) in
 			if let error = error {
@@ -147,4 +152,8 @@ extension LoginViewController: GIDSignInDelegate {
 			}
 		}
 	}
+    
+    public func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
+        ErrorLog("Google Login Disconnect")
+    }
 }
