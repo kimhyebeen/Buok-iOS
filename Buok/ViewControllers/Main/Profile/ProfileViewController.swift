@@ -240,8 +240,15 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        // todo - 클릭 처리
-        return true
+        if isMyPage {
+            if viewModel?.bookmarkCount.value ?? 0 < 1 {
+                viewModel?.setRootVCToHomeVC()
+                return true
+            } else {
+                return false
+            }
+        }
+        return false
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

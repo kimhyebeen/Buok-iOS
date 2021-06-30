@@ -111,4 +111,15 @@ class ProfileViewModel {
 			}
 		})
 	}
+    
+    func setRootVCToHomeVC() {
+        let navigationVC = HeroNavigationController(navigationBarClass: HeroUINavigationBar.self, toolbarClass: nil)
+        navigationVC.viewControllers = [MainTabBarViewController()]
+        navigationVC.isNavigationBarHidden = true
+        
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            appDelegate.window?.rootViewController = navigationVC
+            appDelegate.window?.makeKeyAndVisible()
+        }
+    }
 }

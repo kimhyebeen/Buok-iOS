@@ -52,7 +52,7 @@ class EditProfileViewModel {
             case .success(let myPageUserData):
                 DebugLog(myPageUserData.debugDescription())
                 self?.nickname.value = myPageUserData.user.nickname
-                self?.introduce.value = myPageUserData.user.intro
+                self?.introduce.value = myPageUserData.user.intro ?? ""
                 self?.generateImageFromUrl(string: myPageUserData.user.profileUrl)
             case .failure(let error):
                 if error.statusCode == 400 {
