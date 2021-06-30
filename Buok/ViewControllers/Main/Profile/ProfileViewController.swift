@@ -50,7 +50,7 @@ class ProfileViewController: HeroBaseViewController {
     private func setupView() {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         self.view.backgroundColor = isMyPage ? .heroGrayF2EDE8 : .heroPrimaryBeigeLighter
-        
+		
         setupSafeAreaFillView()
         setupTopView()
         setupBackButton()
@@ -217,6 +217,7 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
         
         cell.cellType = .friendProfile
         cell.bucketFriendProfile = viewModel?.bucketBookData.value[indexPath.row]
+		cell.backgroundColor = .heroPrimaryBeigeLighter
         
         return cell
     }
@@ -240,7 +241,7 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
         if isMyPage {
             if viewModel?.bookmarkCount.value ?? 0 < 1 {
-                viewModel?.setRootVCToHomeVC()
+				viewModel?.setRootVCToHomeVC()
                 return true
             } else {
                 return false
@@ -367,7 +368,7 @@ extension ProfileViewController {
         
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.backgroundColor = .heroServiceSkin
+        collectionView.backgroundColor = isMyPage ? .heroGrayF2EDE8 : .heroPrimaryBeigeLighter
         collectionView.showsVerticalScrollIndicator = false
         collectionView.contentInset = UIEdgeInsets(top: 368 + 20, left: 20, bottom: 0, right: 20)
         collectionView.register(BuokmarkCollectionCell.self, forCellWithReuseIdentifier: BuokmarkCollectionCell.identifier)
