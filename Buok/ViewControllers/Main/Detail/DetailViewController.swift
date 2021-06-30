@@ -519,4 +519,14 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
         
         return UICollectionViewCell()
     }
+    
+    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == imageCollectionView {
+            let detailVC = ImageDetailViewController()
+            detailVC.currentPage = indexPath.row
+            detailVC.attachments = viewModel?.imageUrlList.value
+            detailVC.modalPresentationStyle = .fullScreen
+            present(detailVC, animated: true)
+        }
+    }
 }
