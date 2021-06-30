@@ -31,7 +31,6 @@ struct FriendProfile {
 }
 
 class ProfileViewModel {
-    private(set) var friendType: FriendButtonType = .friend
     private(set) var buokmarks: [BuokmarkFlag] = []
     private(set) var bucketBooks: [String] = []
     

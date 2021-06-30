@@ -159,7 +159,7 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
     
     private func countOfBucketBookMode(for section: Int) -> Int {
-        if viewModel?.friendType == .friend {
+        if viewModel?.isFriendStatus.value == .friend {
             emptyBucketStackView.isHidden = true
             return section == 0 ? 0 : viewModel?.bucketBookData.value.count ?? 0
         } else {
