@@ -13,6 +13,7 @@ final class PersonalInfoViewController: HeroBaseViewController {
     private let topContentView: UIView = UIView()
     private let titleLabel: UILabel = UILabel()
     private let backButton: HeroImageButton = HeroImageButton()
+    private let contentTextView: UITextView = UITextView()
     
     public var viewModel: PersonalInfoViewModel?
     
@@ -24,6 +25,32 @@ final class PersonalInfoViewController: HeroBaseViewController {
     private func setupViewLayout() {
         view.addSubview(topContentView)
         setupNavigationView()
+        setupTextView()
+        setupViewModel()
+    }
+    
+    private func setupViewModel() {
+        viewModel?.personalInfoData.bind({ [weak self] content in
+            guard let `self` = self else { return }
+            self.contentTextView.text = content
+        })
+        
+        viewModel?.getPersonalInfoData()
+    }
+    
+    private func setupTextView() {
+        view.addSubview(contentTextView)
+        contentTextView.snp.makeConstraints { make in
+            make.top.equalTo(topContentView.snp.bottom).offset(16)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().offset(-16)
+            make.bottom.equalToSuperview().offset(-16)
+        }
+        
+        contentTextView.font = .font14P
+        contentTextView.textColor = .heroGray5B
+        contentTextView.backgroundColor = .clear
+        contentTextView.showsVerticalScrollIndicator = false
     }
     
     private func setupNavigationView() {

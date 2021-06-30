@@ -99,6 +99,8 @@
 		B0B035ED2622B33800D65204 /* SettingConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B035EC2622B33800D65204 /* SettingConstants.swift */; };
 		B0B1D7B8267CB0F20058CEBB /* EditBucketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B1D7B7267CB0F20058CEBB /* EditBucketViewController.swift */; };
 		B0B1D7BA267CB1080058CEBB /* EditBucketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B1D7B9267CB1080058CEBB /* EditBucketViewModel.swift */; };
+		B0BF1946268C5CE300B6DF31 /* ServiceInfoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BF1945268C5CE300B6DF31 /* ServiceInfoData.swift */; };
+		B0BF1950268C5DBB00B6DF31 /* PersonalInfo.txt in Resources */ = {isa = PBXBuildFile; fileRef = B0BF194F268C5DBB00B6DF31 /* PersonalInfo.txt */; };
 		B0D0217D2602199600F25329 /* JoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D0217C2602199600F25329 /* JoinViewController.swift */; };
 		B0D0218226021A2100F25329 /* NadamProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D0218126021A2100F25329 /* NadamProperties.swift */; };
 		EE23DF74264EB2F500AB31D1 /* BuokmarkCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE23DF73264EB2F500AB31D1 /* BuokmarkCollectionCell.swift */; };
@@ -378,6 +380,8 @@
 		B0B035EC2622B33800D65204 /* SettingConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingConstants.swift; sourceTree = "<group>"; };
 		B0B1D7B7267CB0F20058CEBB /* EditBucketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBucketViewController.swift; sourceTree = "<group>"; };
 		B0B1D7B9267CB1080058CEBB /* EditBucketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBucketViewModel.swift; sourceTree = "<group>"; };
+		B0BF1945268C5CE300B6DF31 /* ServiceInfoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceInfoData.swift; sourceTree = "<group>"; };
+		B0BF194F268C5DBB00B6DF31 /* PersonalInfo.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = PersonalInfo.txt; sourceTree = "<group>"; };
 		B0D0217C2602199600F25329 /* JoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinViewController.swift; sourceTree = "<group>"; };
 		B0D0218126021A2100F25329 /* NadamProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NadamProperties.swift; sourceTree = "<group>"; };
 		B0D43A522600DA99003420CA /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -834,6 +838,7 @@
 				B0B0338F26219FE200D65204 /* Profile.swift */,
 				EE4C014F26587401002C5018 /* BuokmarkFlag.swift */,
 				B00FD53A266C8D0300A48B72 /* BucketModel.swift */,
+				B0BF1945268C5CE300B6DF31 /* ServiceInfoData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -979,6 +984,7 @@
 				B041747F25E2366F00D990A2 /* LaunchScreen.storyboard */,
 				B041748225E2366F00D990A2 /* Info.plist */,
 				B041747A25E2366E00D990A2 /* BucketList.xcdatamodeld */,
+				B0BF194F268C5DBB00B6DF31 /* PersonalInfo.txt */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1258,6 +1264,7 @@
 			files = (
 				B041748125E2366F00D990A2 /* LaunchScreen.storyboard in Resources */,
 				B041747E25E2366F00D990A2 /* Assets.xcassets in Resources */,
+				B0BF1950268C5DBB00B6DF31 /* PersonalInfo.txt in Resources */,
 				B082F2972658D59800A7AB6B /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1537,6 +1544,7 @@
 				B06B5EF625ECD0140045A491 /* SubThreeViewController.swift in Sources */,
 				B082F2C426594EC200A7AB6B /* CreateImageCell.swift in Sources */,
 				B00FD52D266B7F8400A48B72 /* DetailViewModel.swift in Sources */,
+				B0BF1946268C5CE300B6DF31 /* ServiceInfoData.swift in Sources */,
 				EEC801F9265910FF00777B43 /* ProfileBuokmarkHeaderView.swift in Sources */,
 				B01A28BB2665D52D00BE9DB3 /* HomeViewController+AttributedText.swift in Sources */,
 				B08CEB8E2663987900FF77BD /* WorkThruViewModel.swift in Sources */,

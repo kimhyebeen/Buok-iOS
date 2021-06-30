@@ -10,5 +10,9 @@ import Foundation
 import HeroCommon
 
 final class PersonalInfoViewModel {
+    var personalInfoData: Dynamic<String> = Dynamic("")
     
+    func getPersonalInfoData() {
+        self.personalInfoData.value = ServiceInfoData.loadContentIntoString(name: "PersonalInfo")
+    }
 }
