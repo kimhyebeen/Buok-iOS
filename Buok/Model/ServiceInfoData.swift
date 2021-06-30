@@ -21,4 +21,16 @@ class ServiceInfoData {
         }
         return ""
     }
+    
+    static func getCurrentVersionInfo() -> String? {
+        guard let dictionary = Bundle.main.infoDictionary,
+           let version = dictionary["CFBundleShortVersionString"] as? String,
+           let build = dictionary["CFBundleVersion"] as? String else {
+            return nil
+        }
+        
+        let versionAndBuild: String = "vserion: \(version), build: \(build)"
+        DebugLog("Version : \(versionAndBuild)")
+        return version
+    }
 }
