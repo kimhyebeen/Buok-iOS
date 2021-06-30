@@ -325,7 +325,6 @@ final class CreateViewController: HeroBaseViewController, UINavigationController
         })
         
         viewModel.bucketStatus.bind({ status in
-            DebugLog("BucketStatus Changed : \(status)")
             if status == .success || status == .failure {
                 self.datePicker.minimumDate = nil
             } else {
@@ -334,12 +333,11 @@ final class CreateViewController: HeroBaseViewController, UINavigationController
             self.statusTitleLabel.text = status?.getTitle()
         })
         
-        viewModel.finishDate.bind({ date in
+        viewModel.finishDate.bindAndFire({ date in
             self.setDateStringToButton(self.datePicker.date)
         })
         
         viewModel.bucketCategory.bind({ category in
-            DebugLog("Selected Category : \(category?.getTitle())")
             self.categoryTitleLabel.text = category?.getTitle()
         })
         
