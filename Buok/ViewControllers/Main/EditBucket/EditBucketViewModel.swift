@@ -8,6 +8,7 @@
 import Foundation
 import HeroCommon
 import HeroUI
+import Promise
 
 public class EditBucketViewModel {
     public var bucketId: Dynamic<Int>
@@ -15,6 +16,8 @@ public class EditBucketViewModel {
     public var bucketCategory: Dynamic<BucketCategory>
     public var bucketTitle: String
     public var bucketContent: String
+    private var isFinned: Bool = false
+    private var isBookmarked: Bool = false
     
     public var startDate: Dynamic<Date>
     public var finishDate: Dynamic<Date>
@@ -40,6 +43,8 @@ public class EditBucketViewModel {
                                                      HeroSelectItem(title: "기타")]
     
     public init(detailModel: BucketDetailModel) {
+        isFinned = detailModel.bucket.fin
+        isBookmarked = detailModel.bucket.bookmark
         bucketId = Dynamic(detailModel.bucket.id)
         bucketStatus = Dynamic(BucketStatus(rawValue: detailModel.bucket.bucketState - 2) ?? .pre)
 		bucketCategory = Dynamic(BucketCategory(rawValue: detailModel.bucket.categoryId - 2) ?? .goal)
@@ -70,17 +75,51 @@ public class EditBucketViewModel {
                     urlStrList.forEach {
                         self.imageURLStringList.value.append($0)
                     }
-                    self.requestEditPost(urlList: urlStrList)
+                    self.checkFinOrBookmark(urlList: urlStrList)
                 case .failure(let error):
                     ErrorLog("Error : \(error.localizedDescription) / \(error.statusCode)")
                 }
             })
         } else {
-            self.requestEditPost(urlList: nil)
+            self.checkFinOrBookmark(urlList: nil)
         }
     }
     
-    public func requestEditPost(urlList: [String]?) {
+    private func checkFinOrBookmark(urlList: [String]?) {
+        if (bucketStatus.value == .pre || bucketStatus.value == .present) && isBookmarked {
+            requestRemoveBookmark(urlList: urlList)
+        } else if (bucketStatus.value == .success || bucketStatus.value == .failure) && isFinned {
+            requestRemoveFin(urlList: urlList)
+        } else {
+            requestEditPost(urlList: urlList)
+        }
+    }
+    
+    private func requestRemoveFin(urlList: [String]?) {
+        BucketListAPIRequest.setBucketPin(isPinned: false, bucketId: self.bucketId.value, responseHandler: { [weak self] result in
+            switch result {
+            case .success(let isSuccess):
+                self?.requestEditPost(urlList: urlList)
+                DebugLog("Set Pin Success : \(isSuccess)")
+            case .failure(let error):
+                ErrorLog("ERROR : \(error.statusCode) / \(error.localizedDescription)")
+            }
+        })
+    }
+    
+    private func requestRemoveBookmark(urlList: [String]?) {
+        BucketListAPIRequest.setBucketBookmark(state: false, bucketId: self.bucketId.value) { [weak self] result in
+            switch result {
+            case .success(let isSuccess):
+                self?.requestEditPost(urlList: urlList)
+                DebugLog("Set Bookmark Success : \(isSuccess)")
+            case .failure(let error):
+                ErrorLog("ERROR : \(error.statusCode) / \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    private func requestEditPost(urlList: [String]?) {
         let bucket = BucketRequestModel(bucketName: bucketTitle,
                                         categoryId: bucketCategory.value.getCategoryIndex(),
                                         content: bucketContent,

@@ -472,10 +472,10 @@ public class DetailViewController: HeroBaseViewController {
     private func onClickOptionButton(_ sender: Any?) {
         if viewModel?.state.value == .done || viewModel?.state.value == .failure {
             // Add Bookmark
-            viewModel?.addBucketToBookmark()
+            viewModel?.toggleBookmarkOfBucket()
         } else {
             // Pin
-            viewModel?.setPinBucket()
+            viewModel?.toggleFinOfBucket()
         }
     }
 }

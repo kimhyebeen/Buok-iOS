@@ -21,7 +21,7 @@ public class DetailViewModel {
     public var isBookmark: Dynamic<Bool> = Dynamic(false)
     public var isPinned: Dynamic<Bool> = Dynamic(false)
     
-    func setPinBucket() {
+    func toggleFinOfBucket() {
         if let itemId = bucketItem.value?.id {
             BucketListAPIRequest.setBucketPin(isPinned: !isPinned.value, bucketId: itemId, responseHandler: { [weak self] result in
                 switch result {
@@ -35,9 +35,9 @@ public class DetailViewModel {
         }
     }
     
-    func addBucketToBookmark() {
+    func toggleBookmarkOfBucket() {
         if let itemId = bucketItem.value?.id {
-            BucketListAPIRequest.addBucketToBookmark(state: !isBookmark.value, bucketId: itemId) { [weak self] result in
+            BucketListAPIRequest.setBucketBookmark(state: !isBookmark.value, bucketId: itemId) { [weak self] result in
                 switch result {
                 case .success(let isSuccess):
                     DebugLog("Add Bookmark Success : \(isSuccess)")
