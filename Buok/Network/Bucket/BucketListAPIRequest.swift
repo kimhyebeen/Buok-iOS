@@ -127,7 +127,7 @@ public struct BucketListAPIRequest {
         }
     }
     
-    static func addBucketToBookmark(state: Bool, bucketId: Int, responseHandler: @escaping (Result<Bool, HeroAPIError>) -> Void) {
+    static func setBucketBookmark(state: Bool, bucketId: Int, responseHandler: @escaping (Result<Bool, HeroAPIError>) -> Void) {
         BaseAPIRequest.requestJSONResponse(requestType: BucketRequestType.addBucketToBookmark(state: state, bucketId: bucketId)).then { responseData in
             do {
                 if let dictData = responseData as? NSDictionary {
