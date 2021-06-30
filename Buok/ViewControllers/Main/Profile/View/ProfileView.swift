@@ -5,6 +5,7 @@
 //  Copyright © 2021 Buok. All rights reserved.
 //
 
+import HeroCommon
 import HeroUI
 
 protocol ProfileViewDelegate: AnyObject {
@@ -81,8 +82,17 @@ class ProfileView: UIView {
             }
         }
         
-        if let profileURL = URL(string: myPageData.user.profileUrl ?? "") {
-            self.profileImageView.kf.setImage(with: profileURL)
+        if let profileURLString = myPageData.user.profileUrl,
+           let profileURL = URL(string: profileURLString) {
+            self.profileImageView.kf.setImage(with: profileURL, placeholder: nil, options: nil, completionHandler: { result in
+                switch result {
+                case .success(let result):
+                    DebugLog("Image Fetch Result / Success : \(result.image)")
+                case .failure(let error):
+                    ErrorLog("Image Fetch Error : \(error.localizedDescription)")
+                    self.profileImageView.image = UIImage(heroSharedNamed: "ic_profile_48")
+                }
+            })
         }
         
         countingButtonStack.friendCount = myPageData.friendCount
@@ -103,8 +113,17 @@ class ProfileView: UIView {
             }
         }
         
-        if let profileURL = URL(string: userData.user.profileUrl ?? "") {
-            self.profileImageView.kf.setImage(with: profileURL)
+        if let profileURLString = userData.user.profileUrl,
+           let profileURL = URL(string: profileURLString) {
+            self.profileImageView.kf.setImage(with: profileURL, placeholder: nil, options: nil, completionHandler: { result in
+                switch result {
+                case .success(let result):
+                    DebugLog("Image Fetch Result / Success : \(result.image)")
+                case .failure(let error):
+                    ErrorLog("Image Fetch Error : \(error.localizedDescription)")
+                    self.profileImageView.image = UIImage(heroSharedNamed: "ic_profile_48")
+                }
+            })
         }
         
         countingButtonStack.friendCount = userData.friendCount
