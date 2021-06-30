@@ -13,7 +13,6 @@ import HeroUI
 
 public struct NotificationModel: Codable {
 	var alarmId: Int
-	var myUserId: Int?
 	var friendId: Int?
 	var title: String?
 	var message: String
