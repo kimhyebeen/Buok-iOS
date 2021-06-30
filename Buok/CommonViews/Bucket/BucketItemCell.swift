@@ -12,6 +12,7 @@ import HeroUI
 public enum BucketItemCellType {
     case normal
     case search
+    case friendProfile
 }
 
 protocol BucketItemCellProfileDelegate: AnyObject {
@@ -47,6 +48,14 @@ final class BucketItemCell: UICollectionViewCell {
         }
     }
     
+    public var bucketFriendProfile: ProfileBucketModel? {
+        didSet {
+            titleLabel.text = bucketFriendProfile?.bucketName
+            self.updateContentBgView()
+            self.setupCategoryIcon()
+        }
+    }
+    
     public var bucketSearch: SearchBucketModel? {
         didSet {
             if let urlStr = bucketSearch?.userProfileUrl, !urlStr.isEmpty, let profileUrl = URL(string: urlStr) {
@@ -56,8 +65,8 @@ final class BucketItemCell: UICollectionViewCell {
             }
             
             self.titleLabel.text = bucketSearch?.bucketName
-            self.updateContentBgViewInSearch()
-            self.setupCategoryIconInSearch()
+            self.updateContentBgView()
+            self.setupCategoryIcon()
         }
     }
     
@@ -151,17 +160,32 @@ final class BucketItemCell: UICollectionViewCell {
     }
     
     private func setupCategoryIcon() {
-        iconImageView.image = BucketCategory(rawValue: (bucket?.categoryId ?? 2) - 2)?.getIcon()?.withRenderingMode(.alwaysTemplate)
-        iconImageView.tintColor = .heroGrayA6A4A1
-    }
-    
-    private func setupCategoryIconInSearch() {
-        iconImageView.image = BucketCategory(rawValue: (bucketSearch?.categoryId ?? 2) - 2)?.getIcon()?.withRenderingMode(.alwaysTemplate)
+        var categoryId: Int = 2
+        switch cellType {
+        case .normal:
+            categoryId = bucket?.categoryId ?? 2
+        case .search:
+            categoryId = bucketSearch?.categoryId ?? 1
+        case .friendProfile:
+            categoryId = bucketFriendProfile?.categoryId ?? 2
+        }
+        
+        iconImageView.image = BucketCategory(rawValue: categoryId - 2)?.getIcon()?.withRenderingMode(.alwaysTemplate)
         iconImageView.tintColor = .heroGrayA6A4A1
     }
     
     private func updateContentBgView() {
-        let state = BucketState(rawValue: bucket?.bucketState ?? 2) ?? .now
+        var bucketState: Int = 2
+        switch cellType {
+        case .normal:
+            bucketState = bucket?.bucketState ?? 2
+        case .search:
+            bucketState = bucketSearch?.bucketState ?? 1
+        case .friendProfile:
+            bucketState = bucketFriendProfile?.bucketState ?? 2
+        }
+        
+        let state = BucketState(rawValue: bucketState) ?? .all
         stateView.state = state
         
         if state == .failure {
@@ -180,28 +204,6 @@ final class BucketItemCell: UICollectionViewCell {
         
         updateLabelProperty(state: state)
         setDateToLabel(state: state)
-    }
-    
-    private func updateContentBgViewInSearch() {
-		let state = BucketState(rawValue: bucketSearch?.bucketState ?? 1) ?? .all
-        stateView.state = state
-        
-        if state == .failure {
-            iconContainerView.backgroundColor = .heroGrayF2EDE8
-            contentBgView.backgroundColor = .heroGrayE7E1DC
-            contentBgView.layer.shadowRadius = 0
-            contentBgView.layer.shadowColor = UIColor.clear.cgColor
-            contentBgView.layer.shadowOffset = CGSize(width: 0, height: 0)
-        } else {
-            iconContainerView.backgroundColor = .heroGrayF1F1F1
-            contentBgView.backgroundColor = .heroWhite100s
-            contentBgView.layer.shadowRadius = 8
-            contentBgView.layer.shadowColor = UIColor.heroGrayC7BFB8.cgColor
-            contentBgView.layer.shadowOffset = CGSize(width: 0, height: 5)
-        }
-        
-        updateLabelProperty(state: state)
-        setDateToLabelInSearch(state: state)
     }
     
     private func updateLabelProperty(state: BucketState) {

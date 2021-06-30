@@ -211,14 +211,12 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
     
     private func settingBucketBookCell(_ collectionView: UICollectionView, _ indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BucketCollectionCell.identifier, for: indexPath) as? BucketCollectionCell else {
-            return BucketCollectionCell()
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BucketItemCell.identifier, for: indexPath) as? BucketItemCell else {
+            return BucketItemCell()
         }
         
-        let types: [BucketStatusType] = [.inProgress, .expected, .fail, .done]
-        if let strongViewModel = viewModel {
-            cell.setInformation(strongViewModel.bucketBooks[indexPath.row], types[indexPath.row % 4])
-        }
+        cell.cellType = .friendProfile
+        cell.bucketFriendProfile = viewModel?.bucketBookData.value[indexPath.row]
         
         return cell
     }
@@ -373,7 +371,7 @@ extension ProfileViewController {
         collectionView.showsVerticalScrollIndicator = false
         collectionView.contentInset = UIEdgeInsets(top: 368 + 20, left: 20, bottom: 0, right: 20)
         collectionView.register(BuokmarkCollectionCell.self, forCellWithReuseIdentifier: BuokmarkCollectionCell.identifier)
-        collectionView.register(BucketCollectionCell.self, forCellWithReuseIdentifier: BucketCollectionCell.identifier)
+        collectionView.register(BucketItemCell.self, forCellWithReuseIdentifier: BucketItemCell.identifier)
         collectionView.register(BuokmarkEmptyCollectionCell.self, forCellWithReuseIdentifier: BuokmarkEmptyCollectionCell.identifier)
     }
     
