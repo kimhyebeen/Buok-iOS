@@ -114,7 +114,6 @@ final class ImageDetailViewController: HeroBaseViewController {
     @objc
     private func onClickSave(_: UIButton) {
         let page = Int(currentPage)
-//        showProgressBar()
 
         guard let attachments = attachments else {
             return
@@ -124,15 +123,13 @@ final class ImageDetailViewController: HeroBaseViewController {
 
         if let url = URL(string: urlString),
            let data = try? Data(contentsOf: url),
-           let image = UIImage(data: data)
-        {
+           let image = UIImage(data: data) {
             UIImageWriteToSavedPhotosAlbum(image, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
         }
     }
 
-    @objc func image(_: UIImage, didFinishSavingWithError error: NSError?, contextInfo _: UnsafeRawPointer) {
-//        hideProgressBar()
-
+    @objc
+    func image(_: UIImage, didFinishSavingWithError error: NSError?, contextInfo _: UnsafeRawPointer) {
         if error != nil {
             let acM = UIAlertController(title: NSLocalizedString("saveErrorTitle", comment: ""), message: NSLocalizedString("saveErrorMessage", comment: ""), preferredStyle: .alert)
             acM.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default))
@@ -147,7 +144,7 @@ final class ImageDetailViewController: HeroBaseViewController {
     private func setPageTitle(title: String, boldTitle: String) {
         let boldHighlightAttribute = [
             NSAttributedString.Key.font: UIFont.font15P,
-            NSAttributedString.Key.foregroundColor: UIColor.heroGrayDA,
+            NSAttributedString.Key.foregroundColor: UIColor.heroGrayDA
         ]
 
         pageLabel.text = title
