@@ -168,6 +168,11 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
             let viewModel = WithDrawalViewModel()
             vc.viewModel = viewModel
             navigationController?.pushViewController(vc, animated: true)
+        } else if settingType == .policy {
+            let vc = PersonalInfoViewController()
+            let viewModel = PersonalInfoViewModel()
+            vc.viewModel = viewModel
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
     

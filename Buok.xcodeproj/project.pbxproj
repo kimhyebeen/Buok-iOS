@@ -50,6 +50,8 @@
 		B04C15E826015FCF0084BAEC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04C15E726015FCF0084BAEC /* LoginViewController.swift */; };
 		B04CF78025FD857B00FBAB10 /* HeroNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B04CF76925FD84D600FBAB10 /* HeroNetwork.framework */; };
 		B04CF78125FD857B00FBAB10 /* HeroNetwork.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B04CF76925FD84D600FBAB10 /* HeroNetwork.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B0543442268C0D390084CDEA /* PersonalInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0543441268C0D390084CDEA /* PersonalInfoViewController.swift */; };
+		B0543444268C0E5C0084CDEA /* PersonalInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0543443268C0E5C0084CDEA /* PersonalInfoViewModel.swift */; };
 		B0635AC52603897600046E88 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0635AC42603897600046E88 /* HomeViewController.swift */; };
 		B0635ADA260390E100046E88 /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0635AD9260390E100046E88 /* CreateViewController.swift */; };
 		B06B5CB425ECA4070045A491 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06B5CB325ECA4070045A491 /* MainTabBarViewController.swift */; };
@@ -327,6 +329,8 @@
 		B041755525E2384300D990A2 /* HeroCommon.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = HeroCommon.xcodeproj; path = HeroCommon/HeroCommon.xcodeproj; sourceTree = "<group>"; };
 		B04C15E726015FCF0084BAEC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B04CF75F25FD84D500FBAB10 /* HeroNetwork.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = HeroNetwork.xcodeproj; path = HeroNetwork/HeroNetwork.xcodeproj; sourceTree = "<group>"; };
+		B0543441268C0D390084CDEA /* PersonalInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoViewController.swift; sourceTree = "<group>"; };
+		B0543443268C0E5C0084CDEA /* PersonalInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoViewModel.swift; sourceTree = "<group>"; };
 		B0635AC42603897600046E88 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B0635AD9260390E100046E88 /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
 		B06B5CB325ECA4070045A491 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
@@ -721,6 +725,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		B0543438268C0D280084CDEA /* PersonalInfo */ = {
+			isa = PBXGroup;
+			children = (
+				B0543441268C0D390084CDEA /* PersonalInfoViewController.swift */,
+				B0543443268C0E5C0084CDEA /* PersonalInfoViewModel.swift */,
+			);
+			path = PersonalInfo;
+			sourceTree = "<group>";
+		};
 		B0635AC32603896D00046E88 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -906,6 +919,7 @@
 		B0B033B72621C95B00D65204 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				B0543438268C0D280084CDEA /* PersonalInfo */,
 				B00FD517266B6FCD00A48B72 /* WithDrawal */,
 				B0B033C02621C97300D65204 /* SettingViewController.swift */,
 				B0B033C82621CDA700D65204 /* SettingCell.swift */,
@@ -1442,6 +1456,7 @@
 			files = (
 				EE4C015E2658866F002C5018 /* EditProfileViewController.swift in Sources */,
 				B0635ADA260390E100046E88 /* CreateViewController.swift in Sources */,
+				B0543444268C0E5C0084CDEA /* PersonalInfoViewModel.swift in Sources */,
 				B08CEB8A2663931F00FF77BD /* WorkThruPageViewController.swift in Sources */,
 				B00FD541266C9A8900A48B72 /* ImageCell.swift in Sources */,
 				B01D43A826039D2500F2D28C /* DetailViewController.swift in Sources */,
@@ -1527,6 +1542,7 @@
 				B08CEB8E2663987900FF77BD /* WorkThruViewModel.swift in Sources */,
 				EE49409126476D5400CB0B71 /* ResetPasswordViewController.swift in Sources */,
 				B075225425ED06ED0016DC3A /* UserModel.swift in Sources */,
+				B0543442268C0D390084CDEA /* PersonalInfoViewController.swift in Sources */,
 				B00FD53F266C9A1F00A48B72 /* TagCell.swift in Sources */,
 				B0B035E82622B2B900D65204 /* SettingSectionHeaderView.swift in Sources */,
 				B0B033C92621CDA700D65204 /* SettingCell.swift in Sources */,
