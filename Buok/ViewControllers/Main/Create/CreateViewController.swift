@@ -325,22 +325,20 @@ final class CreateViewController: HeroBaseViewController, UINavigationController
         })
         
         viewModel.bucketStatus.bind({ status in
-            DebugLog("BucketStatus Changed : \(status)")
             if status == .success || status == .failure {
                 self.datePicker.minimumDate = nil
             } else {
                 self.datePicker.minimumDate = Date()
             }
-            self.statusTitleLabel.text = status.getTitle()
+            self.statusTitleLabel.text = status?.getTitle()
         })
         
-        viewModel.finishDate.bind({ date in
+        viewModel.finishDate.bindAndFire({ date in
             self.setDateStringToButton(self.datePicker.date)
         })
         
         viewModel.bucketCategory.bind({ category in
-            DebugLog("Selected Category : \(category.getTitle())")
-            self.categoryTitleLabel.text = category.getTitle()
+            self.categoryTitleLabel.text = category?.getTitle()
         })
         
         viewModel.imageList.bind({ _ in
@@ -351,15 +349,25 @@ final class CreateViewController: HeroBaseViewController, UINavigationController
             self.tagCollectionView?.reloadData()
         })
         
+        viewModel.errorType.bind({ [weak self] error in
+            guard let `self` = self else { return }
+            self.handleErrorType(type: error)
+        })
+        
         viewModel.isPostSuccess.bind({ isPostSuccess in
             if isPostSuccess {
                 DebugLog("Create Post SUCCESS")
                 self.navigationController?.popViewController(animated: true)
             } else {
                 ErrorLog("Create Post ERROR")
-                self.showPostErrorAlert()
+//                self.showPostErrorAlert()
+                self.showAlert(title: "오류", message: "버킷 등록 중 오류가 발생하였습니다.")
             }
         })
+    }
+    
+    private func handleErrorType(type: CreateErrorType) {
+        self.showAlert(title: type.getErrorMessage(), message: nil)
     }
     
     private func setupViewProperties() {
@@ -426,7 +434,8 @@ final class CreateViewController: HeroBaseViewController, UINavigationController
     @objc
     private func onClickDoneButton(_ sender: Any?) {
         DebugLog("Done Button Clicked")
-        viewModel.uploadImageList()
+//        viewModel.uploadImageList()
+        viewModel.checkValidation()
     }
     
     @objc
@@ -606,7 +615,8 @@ extension CreateViewController: TagAddCellDelegate, TagCellDelegate {
     
     func onClickAddButton() {
         if viewModel.tagList.value.count > 4 {
-            showErrorAlert()
+//            showErrorAlert()
+            showAlert(title: "태그 개수 초과", message: "태그는 5개까지 추가가능합니다.")
         } else {
             showAddTagAlert()
         }
@@ -630,8 +640,8 @@ extension CreateViewController: TagAddCellDelegate, TagCellDelegate {
         self.present(alert, animated: true, completion: nil)
     }
     
-    private func showErrorAlert() {
-        let alert = UIAlertController(title: "태그 개수 초과", message: "태그는 5개까지 추가가능합니다.", preferredStyle: .alert)
+    private func showAlert(title: String?, message: String?) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "확인", style: .default) { _ in
             // Nothing
         }
@@ -640,13 +650,23 @@ extension CreateViewController: TagAddCellDelegate, TagCellDelegate {
         self.present(alert, animated: true, completion: nil)
     }
     
-    private func showPostErrorAlert() {
-        let alert = UIAlertController(title: "오류", message: "버킷 등록 중 오류가 발생하였습니다.", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "확인", style: .default) { _ in
-            // Nothing
-        }
-        
-        alert.addAction(okAction)
-        self.present(alert, animated: true, completion: nil)
-    }
+//    private func showErrorAlert() {
+//        let alert = UIAlertController(title: "태그 개수 초과", message: "태그는 5개까지 추가가능합니다.", preferredStyle: .alert)
+//        let okAction = UIAlertAction(title: "확인", style: .default) { _ in
+//            // Nothing
+//        }
+//
+//        alert.addAction(okAction)
+//        self.present(alert, animated: true, completion: nil)
+//    }
+//
+//    private func showPostErrorAlert() {
+//        let alert = UIAlertController(title: "오류", message: "버킷 등록 중 오류가 발생하였습니다.", preferredStyle: .alert)
+//        let okAction = UIAlertAction(title: "확인", style: .default) { _ in
+//            // Nothing
+//        }
+//
+//        alert.addAction(okAction)
+//        self.present(alert, animated: true, completion: nil)
+//    }
 }

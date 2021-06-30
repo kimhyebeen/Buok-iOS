@@ -50,6 +50,8 @@
 		B04C15E826015FCF0084BAEC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04C15E726015FCF0084BAEC /* LoginViewController.swift */; };
 		B04CF78025FD857B00FBAB10 /* HeroNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B04CF76925FD84D600FBAB10 /* HeroNetwork.framework */; };
 		B04CF78125FD857B00FBAB10 /* HeroNetwork.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B04CF76925FD84D600FBAB10 /* HeroNetwork.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B0543442268C0D390084CDEA /* PersonalInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0543441268C0D390084CDEA /* PersonalInfoViewController.swift */; };
+		B0543444268C0E5C0084CDEA /* PersonalInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0543443268C0E5C0084CDEA /* PersonalInfoViewModel.swift */; };
 		B0635AC52603897600046E88 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0635AC42603897600046E88 /* HomeViewController.swift */; };
 		B0635ADA260390E100046E88 /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0635AD9260390E100046E88 /* CreateViewController.swift */; };
 		B06B5CB425ECA4070045A491 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06B5CB325ECA4070045A491 /* MainTabBarViewController.swift */; };
@@ -97,6 +99,11 @@
 		B0B035ED2622B33800D65204 /* SettingConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B035EC2622B33800D65204 /* SettingConstants.swift */; };
 		B0B1D7B8267CB0F20058CEBB /* EditBucketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B1D7B7267CB0F20058CEBB /* EditBucketViewController.swift */; };
 		B0B1D7BA267CB1080058CEBB /* EditBucketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B1D7B9267CB1080058CEBB /* EditBucketViewModel.swift */; };
+		B0BF1946268C5CE300B6DF31 /* ServiceInfoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BF1945268C5CE300B6DF31 /* ServiceInfoData.swift */; };
+		B0BF1950268C5DBB00B6DF31 /* PersonalInfo.txt in Resources */ = {isa = PBXBuildFile; fileRef = B0BF194F268C5DBB00B6DF31 /* PersonalInfo.txt */; };
+		B0BF1954268CA14B00B6DF31 /* ImageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BF1953268CA14B00B6DF31 /* ImageDetailViewController.swift */; };
+		B0BF1956268CA24A00B6DF31 /* ZoomableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BF1955268CA24A00B6DF31 /* ZoomableImageView.swift */; };
+		B0BF1958268CA26400B6DF31 /* ZoomableImageConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BF1957268CA26400B6DF31 /* ZoomableImageConstant.swift */; };
 		B0D0217D2602199600F25329 /* JoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D0217C2602199600F25329 /* JoinViewController.swift */; };
 		B0D0218226021A2100F25329 /* NadamProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D0218126021A2100F25329 /* NadamProperties.swift */; };
 		EE23DF74264EB2F500AB31D1 /* BuokmarkCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE23DF73264EB2F500AB31D1 /* BuokmarkCollectionCell.swift */; };
@@ -327,6 +334,8 @@
 		B041755525E2384300D990A2 /* HeroCommon.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = HeroCommon.xcodeproj; path = HeroCommon/HeroCommon.xcodeproj; sourceTree = "<group>"; };
 		B04C15E726015FCF0084BAEC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B04CF75F25FD84D500FBAB10 /* HeroNetwork.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = HeroNetwork.xcodeproj; path = HeroNetwork/HeroNetwork.xcodeproj; sourceTree = "<group>"; };
+		B0543441268C0D390084CDEA /* PersonalInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoViewController.swift; sourceTree = "<group>"; };
+		B0543443268C0E5C0084CDEA /* PersonalInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoViewModel.swift; sourceTree = "<group>"; };
 		B0635AC42603897600046E88 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B0635AD9260390E100046E88 /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
 		B06B5CB325ECA4070045A491 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
@@ -374,6 +383,11 @@
 		B0B035EC2622B33800D65204 /* SettingConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingConstants.swift; sourceTree = "<group>"; };
 		B0B1D7B7267CB0F20058CEBB /* EditBucketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBucketViewController.swift; sourceTree = "<group>"; };
 		B0B1D7B9267CB1080058CEBB /* EditBucketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBucketViewModel.swift; sourceTree = "<group>"; };
+		B0BF1945268C5CE300B6DF31 /* ServiceInfoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceInfoData.swift; sourceTree = "<group>"; };
+		B0BF194F268C5DBB00B6DF31 /* PersonalInfo.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = PersonalInfo.txt; sourceTree = "<group>"; };
+		B0BF1953268CA14B00B6DF31 /* ImageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailViewController.swift; sourceTree = "<group>"; };
+		B0BF1955268CA24A00B6DF31 /* ZoomableImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomableImageView.swift; sourceTree = "<group>"; };
+		B0BF1957268CA26400B6DF31 /* ZoomableImageConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomableImageConstant.swift; sourceTree = "<group>"; };
 		B0D0217C2602199600F25329 /* JoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinViewController.swift; sourceTree = "<group>"; };
 		B0D0218126021A2100F25329 /* NadamProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NadamProperties.swift; sourceTree = "<group>"; };
 		B0D43A522600DA99003420CA /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -597,6 +611,7 @@
 		B01D439E26039D1C00F2D28C /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				B0BF1952268CA13900B6DF31 /* ImageDetail */,
 				B01D43A726039D2500F2D28C /* DetailViewController.swift */,
 				B00FD52C266B7F8400A48B72 /* DetailViewModel.swift */,
 				B00FD53C266C96ED00A48B72 /* DetailHistoryCell.swift */,
@@ -721,6 +736,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		B0543438268C0D280084CDEA /* PersonalInfo */ = {
+			isa = PBXGroup;
+			children = (
+				B0543441268C0D390084CDEA /* PersonalInfoViewController.swift */,
+				B0543443268C0E5C0084CDEA /* PersonalInfoViewModel.swift */,
+			);
+			path = PersonalInfo;
+			sourceTree = "<group>";
+		};
 		B0635AC32603896D00046E88 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -821,6 +845,7 @@
 				B0B0338F26219FE200D65204 /* Profile.swift */,
 				EE4C014F26587401002C5018 /* BuokmarkFlag.swift */,
 				B00FD53A266C8D0300A48B72 /* BucketModel.swift */,
+				B0BF1945268C5CE300B6DF31 /* ServiceInfoData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -906,6 +931,7 @@
 		B0B033B72621C95B00D65204 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				B0543438268C0D280084CDEA /* PersonalInfo */,
 				B00FD517266B6FCD00A48B72 /* WithDrawal */,
 				B0B033C02621C97300D65204 /* SettingViewController.swift */,
 				B0B033C82621CDA700D65204 /* SettingCell.swift */,
@@ -924,6 +950,16 @@
 				B0B1D7B9267CB1080058CEBB /* EditBucketViewModel.swift */,
 			);
 			path = EditBucket;
+			sourceTree = "<group>";
+		};
+		B0BF1952268CA13900B6DF31 /* ImageDetail */ = {
+			isa = PBXGroup;
+			children = (
+				B0BF1953268CA14B00B6DF31 /* ImageDetailViewController.swift */,
+				B0BF1955268CA24A00B6DF31 /* ZoomableImageView.swift */,
+				B0BF1957268CA26400B6DF31 /* ZoomableImageConstant.swift */,
+			);
+			path = ImageDetail;
 			sourceTree = "<group>";
 		};
 		B0D021702602195B00F25329 /* MultiLevelVC */ = {
@@ -965,6 +1001,7 @@
 				B041747F25E2366F00D990A2 /* LaunchScreen.storyboard */,
 				B041748225E2366F00D990A2 /* Info.plist */,
 				B041747A25E2366E00D990A2 /* BucketList.xcdatamodeld */,
+				B0BF194F268C5DBB00B6DF31 /* PersonalInfo.txt */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1244,6 +1281,7 @@
 			files = (
 				B041748125E2366F00D990A2 /* LaunchScreen.storyboard in Resources */,
 				B041747E25E2366F00D990A2 /* Assets.xcassets in Resources */,
+				B0BF1950268C5DBB00B6DF31 /* PersonalInfo.txt in Resources */,
 				B082F2972658D59800A7AB6B /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1442,6 +1480,7 @@
 			files = (
 				EE4C015E2658866F002C5018 /* EditProfileViewController.swift in Sources */,
 				B0635ADA260390E100046E88 /* CreateViewController.swift in Sources */,
+				B0543444268C0E5C0084CDEA /* PersonalInfoViewModel.swift in Sources */,
 				B08CEB8A2663931F00FF77BD /* WorkThruPageViewController.swift in Sources */,
 				B00FD541266C9A8900A48B72 /* ImageCell.swift in Sources */,
 				B01D43A826039D2500F2D28C /* DetailViewController.swift in Sources */,
@@ -1468,6 +1507,7 @@
 				EE23DF74264EB2F500AB31D1 /* BuokmarkCollectionCell.swift in Sources */,
 				B08CEB8C2663934E00FF77BD /* WorkThruPageContentViewController.swift in Sources */,
 				B0D0217D2602199600F25329 /* JoinViewController.swift in Sources */,
+				B0BF1954268CA14B00B6DF31 /* ImageDetailViewController.swift in Sources */,
 				B041747625E2366E00D990A2 /* MultiLevelViewController.swift in Sources */,
 				B0B1D7B8267CB0F20058CEBB /* EditBucketViewController.swift in Sources */,
 				B023B156266A130D0060F625 /* ImageUploadAPIRequest.swift in Sources */,
@@ -1484,6 +1524,7 @@
 				EEB9EF9826269768001AF65F /* UserTextField.swift in Sources */,
 				EE79C445264AD72600E83B6A /* MypageBuokmarkHeaderView.swift in Sources */,
 				EE4940E02648332C00CB0B71 /* UITextView+.swift in Sources */,
+				B0BF1956268CA24A00B6DF31 /* ZoomableImageView.swift in Sources */,
 				B07CD1A5266676700031B106 /* SearchAPIRequest.swift in Sources */,
 				B0B033D32622AA0900D65204 /* SettingNavigator.swift in Sources */,
 				EE23DF77264EB36900AB31D1 /* BuokmarkFlagView.swift in Sources */,
@@ -1497,6 +1538,7 @@
 				EECEF1922627E08300CF9394 /* IntroduceTextView.swift in Sources */,
 				EE4940842647659700CB0B71 /* ForgetViewModel.swift in Sources */,
 				EECEF18C2627DFEA00CF9394 /* JoinIntroduceViewController+UI.swift in Sources */,
+				B0BF1958268CA26400B6DF31 /* ZoomableImageConstant.swift in Sources */,
 				EEA213D32625DAEA00E3AEA1 /* LoginPasswordViewController+UI.swift in Sources */,
 				B07AD1392667C3A6000CCDAC /* EmailAuthAPIRequest.swift in Sources */,
 				B07CD19C2666751F0031B106 /* NotificationViewController.swift in Sources */,
@@ -1522,11 +1564,13 @@
 				B06B5EF625ECD0140045A491 /* SubThreeViewController.swift in Sources */,
 				B082F2C426594EC200A7AB6B /* CreateImageCell.swift in Sources */,
 				B00FD52D266B7F8400A48B72 /* DetailViewModel.swift in Sources */,
+				B0BF1946268C5CE300B6DF31 /* ServiceInfoData.swift in Sources */,
 				EEC801F9265910FF00777B43 /* ProfileBuokmarkHeaderView.swift in Sources */,
 				B01A28BB2665D52D00BE9DB3 /* HomeViewController+AttributedText.swift in Sources */,
 				B08CEB8E2663987900FF77BD /* WorkThruViewModel.swift in Sources */,
 				EE49409126476D5400CB0B71 /* ResetPasswordViewController.swift in Sources */,
 				B075225425ED06ED0016DC3A /* UserModel.swift in Sources */,
+				B0543442268C0D390084CDEA /* PersonalInfoViewController.swift in Sources */,
 				B00FD53F266C9A1F00A48B72 /* TagCell.swift in Sources */,
 				B0B035E82622B2B900D65204 /* SettingSectionHeaderView.swift in Sources */,
 				B0B033C92621CDA700D65204 /* SettingCell.swift in Sources */,

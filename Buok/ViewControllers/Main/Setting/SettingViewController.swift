@@ -47,13 +47,6 @@ final class SettingViewController: HeroBaseViewController {
         tableView.register(SettingCell.self, forCellReuseIdentifier: SettingCell.identifier)
         tableView.register(SettingInfoCell.self, forCellReuseIdentifier: SettingInfoCell.identifier)
         view.backgroundColor = .heroGrayF2EDE8
-        
-//        navigationController?.setNavigationBarHidden(false, animated: false)
-//        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.heroGray82]
-//        navigationController?.navigationBar.titleTextAttributes = textAttributes
-//        navigationController?.navigationBar.backgroundColor = .heroGrayF2EDE8
-//        navigationItem.title = "설정"
-        
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
             make.top.equalTo(topContentView.snp.bottom)
@@ -168,6 +161,11 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
             let viewModel = WithDrawalViewModel()
             vc.viewModel = viewModel
             navigationController?.pushViewController(vc, animated: true)
+        } else if settingType == .policy {
+            let vc = PersonalInfoViewController()
+            let viewModel = PersonalInfoViewModel()
+            vc.viewModel = viewModel
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
     
@@ -177,6 +175,7 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
             if let cell = tableView.dequeueReusableCell(withIdentifier: SettingInfoCell.identifier, for: indexPath) as? SettingInfoCell {
                 cell.selectionStyle = .none
                 cell.type = .appVersion
+                cell.appVersion = ServiceInfoData.getCurrentVersionInfo()
                 cell.backgroundColor = .heroGrayF2EDE8
                 return cell
             }

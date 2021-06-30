@@ -14,7 +14,13 @@ final class SettingInfoCell: UITableViewCell {
     var type: SettingType? {
         didSet {
             titleLabel.text = type?.getTitle()
-            contentLabel.text = "최신 1.11.1 사용 중"
+            contentLabel.text = ""
+        }
+    }
+    
+    var appVersion: String? {
+        didSet {
+            contentLabel.text = "\(appVersion ?? "") 사용 중"
         }
     }
     
