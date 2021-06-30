@@ -96,6 +96,8 @@ public class DetailViewController: HeroBaseViewController {
                 self.historyContainerView.isHidden = true
             } else {
                 self.historyContainerView.isHidden = false
+                let date = historyList?.last?.modifiedDate.convertToDate().convertToSmallDotString() ?? ""
+                self.historyDescLabel.text = "\(date)에 최종적으로 변경됨"
                 self.historyTableView.reloadData()
             }
         })
@@ -435,7 +437,6 @@ public class DetailViewController: HeroBaseViewController {
         
         historyDescLabel.font = UIFont.systemFont(ofSize: 12, weight: .regular)
         historyDescLabel.textColor = .heroGrayDA
-        historyDescLabel.text = "2021. 03. 24에 최종적으로 변경됨"
         
         historyTableView.delegate = self
         historyTableView.dataSource = self
@@ -488,6 +489,8 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: DetailHistoryCell.identifier, for: indexPath) as? DetailHistoryCell {
             cell.historyItem = viewModel?.historyList.value?[indexPath.row]
+            
+            return cell
         }
         return UITableViewCell()
     }

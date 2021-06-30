@@ -16,7 +16,7 @@ final class DetailHistoryCell: UITableViewCell {
     
     var historyItem: BucketHistoryModel? {
         didSet {
-            dateLabel.text = historyItem?.modifiedDate.convertToDate().convertToSmallString()
+            dateLabel.text = historyItem?.modifiedDate.convertToDate().convertToSmallDotString()
             contentLabel.text = historyItem?.content
         }
     }
