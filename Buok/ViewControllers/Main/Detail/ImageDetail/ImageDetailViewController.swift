@@ -47,7 +47,7 @@ final class ImageDetailViewController: HeroBaseViewController {
         let viewWidth: CGFloat = view.bounds.size.width
 
         navigationController?.setNavigationBarHidden(false, animated: true)
-        view.backgroundColor = .black
+        view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.8)
 
         view.addSubview(scrollView)
         view.addSubview(titleBar)
@@ -65,7 +65,7 @@ final class ImageDetailViewController: HeroBaseViewController {
             make.centerY.equalToSuperview()
         }
 
-        pageLabel.textColor = .heroBlue100s
+        pageLabel.textColor = .heroWhite100s
         pageLabel.font = .font15PBold
         setPageTitle(title: "\(currentPage + 1) / \(attachments?.count ?? 0)", boldTitle: "\(attachments?.count ?? 0)")
 
@@ -74,6 +74,7 @@ final class ImageDetailViewController: HeroBaseViewController {
             make.width.equalTo(closeButton.snp.height)
         }
 
+        closeButton.imageView?.tintColor = .heroWhite100s
         closeButton.setImage(UIImage(heroSharedNamed: "ic_x")?.withRenderingMode(.alwaysTemplate), for: .normal)
         closeButton.addTarget(self, action: #selector(onClickClose(_:)), for: .touchUpInside)
 
@@ -146,7 +147,7 @@ final class ImageDetailViewController: HeroBaseViewController {
     private func setPageTitle(title: String, boldTitle: String) {
         let boldHighlightAttribute = [
             NSAttributedString.Key.font: UIFont.font15P,
-            NSAttributedString.Key.foregroundColor: UIColor.white,
+            NSAttributedString.Key.foregroundColor: UIColor.heroGrayDA,
         ]
 
         pageLabel.text = title
