@@ -489,7 +489,7 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: DetailHistoryCell.identifier, for: indexPath) as? DetailHistoryCell {
             cell.historyItem = viewModel?.historyList.value?[indexPath.row]
-            
+            cell.selectionStyle = .none
             return cell
         }
         return UITableViewCell()
