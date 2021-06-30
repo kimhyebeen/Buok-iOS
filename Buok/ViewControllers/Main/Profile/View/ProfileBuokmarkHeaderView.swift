@@ -36,6 +36,12 @@ class ProfileBuokmarkHeaderView: UIView {
         }
     }
     
+    var isFriend: Bool = false {
+        didSet {
+            bucketBookButton.isHidden = !isFriend
+        }
+    }
+    
     var isMyPage: Bool = false {
         didSet {
             myPageHeaderView.isHidden = !isMyPage
