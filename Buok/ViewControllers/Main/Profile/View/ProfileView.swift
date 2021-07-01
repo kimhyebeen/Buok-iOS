@@ -12,7 +12,6 @@ protocol ProfileViewDelegate: AnyObject {
     func onClickFriendButton()
     func onClickEditButton()
     func onClickFriendCountingButton()
-    func onClickBucketCountingButton()
 }
 
 class ProfileView: UIView {
@@ -147,11 +146,6 @@ class ProfileView: UIView {
     }
     
     @objc
-    func clickBucketCountingButton(_ sender: UIButton) {
-        delegate?.onClickBucketCountingButton()
-    }
-    
-    @objc
     func clickFriendButton(_ sender: UIButton) {
 		if friendButton.friendType.value == .none {
 			friendButton.settingFriendButtonType(for: .request)
@@ -173,8 +167,6 @@ extension ProfileView: CountingStackViewDelegate {
     func onClickStackItem(type: CountingType) {
         if type == .friend {
             delegate?.onClickFriendCountingButton()
-        } else if type == .bucket {
-            delegate?.onClickBucketCountingButton()
         }
     }
 }

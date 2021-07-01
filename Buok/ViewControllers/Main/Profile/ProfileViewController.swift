@@ -293,10 +293,6 @@ extension ProfileViewController: ProfileViewDelegate {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    func onClickBucketCountingButton() {
-        // 버킷 수 클릭
-    }
-    
     func onClickFriendButton() {
 		let userId = viewModel?.userData.value?.user.id ?? 0
 		if viewModel?.isFriendStatus.value == FriendButtonType.none {
