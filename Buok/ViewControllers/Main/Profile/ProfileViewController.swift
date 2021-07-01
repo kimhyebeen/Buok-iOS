@@ -40,6 +40,9 @@ class ProfileViewController: HeroBaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        if isMyPage { self.tabBarDelegate?.showTabBar() }
+        else { self.tabBarDelegate?.hideTabBar() }
+        
         if isMyPage {
             viewModel?.fetchMyPageInfo()
         } else {
@@ -123,8 +126,8 @@ class ProfileViewController: HeroBaseViewController {
     
     @objc
     func clickSettingButton(_ sender: UIButton) {
-        // todo - 설정 버튼 기능
         let settingVC = SettingViewController()
+        settingVC.tabBarDelegate = tabBarDelegate
         self.navigationController?.pushViewController(settingVC, animated: true)
     }
 }
@@ -285,6 +288,7 @@ extension ProfileViewController: ProfileViewDelegate {
         let vc = FriendListViewController()
 		let viewModel = FriendListViewModel(userId: self.viewModel?.userId ?? 0)
         vc.viewModel = viewModel
+        vc.tabBarDelegate = tabBarDelegate
         
         self.navigationController?.pushViewController(vc, animated: true)
     }
