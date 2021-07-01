@@ -23,7 +23,6 @@ class JoinNameViewController: HeroBaseViewController {
 
         viewModel?.isNicknameExist.bind({ [weak self] isExist in
             guard let isExist = isExist else {
-                // todo - 그냥 오류
                 return
             }
             
@@ -80,7 +79,6 @@ extension JoinNameViewController: UITextFieldDelegate {
 extension JoinNameViewController {
     // MARK: Back Button
     func setupBackButton() {
-        // todo - 뒤로가기 아이콘 적용
         backButton.setImage(UIImage(heroSharedNamed: "ic_back"), for: .normal)
         backButton.addTarget(self, action: #selector(clickBackButton(_:)), for: .touchUpInside)
         self.view.addSubview(backButton)

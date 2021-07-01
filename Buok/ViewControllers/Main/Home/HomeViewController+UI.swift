@@ -238,6 +238,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let viewModel = DetailViewModel()
         viewModel.bucketItem.value = bucket
         vc.viewModel = viewModel
+        vc.tabBarDelegate = tabBarDelegate
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

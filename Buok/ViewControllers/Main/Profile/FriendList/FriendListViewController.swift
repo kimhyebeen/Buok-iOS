@@ -16,7 +16,7 @@ final class FriendListViewController: HeroBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.tabBarDelegate?.hideTabBar()
         setupView()
         viewModel?.friendList.bind({ [weak self] _ in
             self?.collectionView.reloadData()

@@ -73,6 +73,7 @@ public class HomeViewController: HeroBaseViewController {
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel?.fetchBucketList()
+        self.tabBarDelegate?.showTabBar()
     }
     
     func bindViewModel() {

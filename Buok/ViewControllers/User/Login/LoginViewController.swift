@@ -33,11 +33,10 @@ public class LoginViewController: HeroBaseViewController {
     public override func viewDidLoad() {
 		super.viewDidLoad()
 		
-        TokenManager.shared.deleteAllTokenData()
+        _ = TokenManager.shared.deleteAllTokenData()
         
         viewModel.isEmailExist.bind({ isExist in
             guard let isExist = isExist else {
-                // todo - 로그인 성공도 아니고, not found도 아님
                 return
             }
             if isExist {

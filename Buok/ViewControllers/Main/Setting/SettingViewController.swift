@@ -30,6 +30,7 @@ final class SettingViewController: HeroBaseViewController {
         super.viewDidLoad()
         setupViewLayout()
         fetchMyPageInfo()
+        self.tabBarDelegate?.hideTabBar()
     }
     
     private func setupViewLayout() {

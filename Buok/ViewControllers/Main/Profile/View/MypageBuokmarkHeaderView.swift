@@ -44,7 +44,7 @@ extension MypageBuokmarkHeaderView {
     private func setupBuokmarkLabel() {
         buokmarkLabel.text = "북마크"
         buokmarkLabel.textColor = .heroGray5B
-        buokmarkLabel.font = .font20PBold // todo - 폰트 수정 필요
+        buokmarkLabel.font = .font20PBold
         self.addSubview(buokmarkLabel)
         
         buokmarkLabel.snp.makeConstraints { make in

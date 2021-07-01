@@ -40,6 +40,9 @@ class ProfileViewController: HeroBaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        if isMyPage { self.tabBarDelegate?.showTabBar() }
+        else { self.tabBarDelegate?.hideTabBar() }
+        
         if isMyPage {
             viewModel?.fetchMyPageInfo()
         } else {
@@ -63,13 +66,6 @@ class ProfileViewController: HeroBaseViewController {
     }
     
     private func bindingViewModel() {
-//        viewModel.().then { [weak self] profile in
-//            // todo - profileView에 적용
-//            self?.headerView.countOfBuokmark = profile.buokmarks.count
-//            self?.profileView.settingFriendButtonType(for: profile.type)
-//            self?.collectionView.reloadData()
-//        }
-        
         viewModel?.bookmarkCount.bind({ [weak self] count in
             self?.headerView.countOfBuokmark = count
             self?.collectionView.reloadData()
@@ -117,14 +113,9 @@ class ProfileViewController: HeroBaseViewController {
     }
     
     @objc
-    func clickFriendButton(_ sender: UIButton) {
-        // todo - 친구 요청 버튼 기능
-    }
-    
-    @objc
     func clickSettingButton(_ sender: UIButton) {
-        // todo - 설정 버튼 기능
         let settingVC = SettingViewController()
+        settingVC.tabBarDelegate = tabBarDelegate
         self.navigationController?.pushViewController(settingVC, animated: true)
     }
 }
@@ -285,12 +276,9 @@ extension ProfileViewController: ProfileViewDelegate {
         let vc = FriendListViewController()
 		let viewModel = FriendListViewModel(userId: self.viewModel?.userId ?? 0)
         vc.viewModel = viewModel
+        vc.tabBarDelegate = tabBarDelegate
         
         self.navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    func onClickBucketCountingButton() {
-        // 버킷 수 클릭
     }
     
     func onClickFriendButton() {

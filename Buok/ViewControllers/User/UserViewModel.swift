@@ -81,7 +81,6 @@ class UserViewModel {
     
     func checkNicknameExist(_ nickname: String) {
         self.nickname = nickname
-        // todo - nickname이 존재하는 별칭인지 아닌지 확인 요청
         InfoCheckAPIRequest.checkNickname(nickname: nickname, responseHandler: { result in
             switch result {
             case .success(let code):

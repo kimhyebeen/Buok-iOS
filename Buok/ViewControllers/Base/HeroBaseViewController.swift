@@ -13,6 +13,7 @@ import SnapKit
 public class HeroBaseViewController: UIViewController, UIGestureRecognizerDelegate {
     public var isKeyboardShowing: Bool = false
     public var observers: [NSObjectProtocol] = []
+    weak var tabBarDelegate: MainTabBarDelegate?
     
     open var keyboardInsetsAdjustingScrollView: UIScrollView? {
         return nil

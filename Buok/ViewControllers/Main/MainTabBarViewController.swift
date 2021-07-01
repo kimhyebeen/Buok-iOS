@@ -11,6 +11,11 @@ import HeroSharedAssets
 import HeroUI
 import SnapKit
 
+protocol MainTabBarDelegate: AnyObject {
+    func hideTabBar()
+    func showTabBar()
+}
+
 public class MainTabBarViewController: UITabBarController, UITabBarControllerDelegate {
     private let addButton: UIButton = {
 //        $0.backgroundColor = .heroGrayE7E1DC
@@ -54,6 +59,7 @@ public class MainTabBarViewController: UITabBarController, UITabBarControllerDel
     private func setupTabBarItems() {
         let homeVC = HomeViewController()
         homeVC.viewModel = HomeViewModel()
+        homeVC.tabBarDelegate = self
         
         let profileVC = ProfileViewController()
         let profileViewModel = ProfileViewModel()
@@ -64,7 +70,7 @@ public class MainTabBarViewController: UITabBarController, UITabBarControllerDel
                                          normalImage: UIImage(heroSharedNamed: "tab_home_un.png"),
                                          selectedImage: UIImage(heroSharedNamed: "tab_home.png"))
         
-        let addNC = createNavController(for: UIViewController(),
+        let addNC = createNavController(for: HeroBaseViewController(),
                                         normalImage: nil,
                                         selectedImage: nil)
         
@@ -96,9 +102,10 @@ public class MainTabBarViewController: UITabBarController, UITabBarControllerDel
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    fileprivate func createNavController(for rootViewController: UIViewController,
+    fileprivate func createNavController(for rootViewController: HeroBaseViewController,
                                          normalImage: UIImage?,
                                          selectedImage: UIImage?) -> UIViewController {
+        rootViewController.tabBarDelegate = self
         let navController = HeroNavigationController(navigationBarClass: HeroUINavigationBar.self, toolbarClass: nil)
         navController.tabBarItem = UITabBarItem(title: "", image: normalImage, selectedImage: selectedImage)
         navController.viewControllers = [rootViewController]
@@ -117,5 +124,19 @@ extension MainTabBarViewController: UIScrollViewDelegate {
 extension MainTabBarViewController: HeroTabBarViewDelegate {
     public func tabBarItem(at index: Int) {
 //        tabChanged(tapped: index)
+    }
+}
+
+extension MainTabBarViewController: MainTabBarDelegate {
+    func hideTabBar() {
+        addButton.isHidden = true
+        tabBarBorderView.isHidden = true
+        self.tabBar.isHidden = true
+    }
+    
+    func showTabBar() {
+        addButton.isHidden = false
+        tabBarBorderView.isHidden = false
+        self.tabBar.isHidden = false
     }
 }

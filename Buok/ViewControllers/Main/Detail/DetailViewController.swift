@@ -52,6 +52,7 @@ public class DetailViewController: HeroBaseViewController {
         setupMainLayout()
         setupViewProperties()
         bindViewModel()
+        self.tabBarDelegate?.hideTabBar()
     }
     
     public override func viewWillAppear(_ animated: Bool) {
