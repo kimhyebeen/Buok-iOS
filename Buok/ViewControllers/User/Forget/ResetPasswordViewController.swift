@@ -60,7 +60,6 @@ class ResetPasswordViewController: HeroBaseViewController {
     
     @objc
     func clickFinishButton(_ sender: UIButton) {
-        // todo - 비밀번호 재설정 요청
         viewModel?.resetPassword(newPassword: passwordField.text ?? "")
     }
     

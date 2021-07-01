@@ -11,7 +11,6 @@ extension LoginPasswordViewController {
     // MARK: BackButton
     func setupBackButton() {
         backButton.setImage(UIImage(heroSharedNamed: "ic_back"), for: .normal)
-        // todo - color 해제 후 backbutton에 아이콘 추가 및 edge inset 적용
         backButton.addTarget(self, action: #selector(clickBackButton(_:)), for: .touchUpInside)
         self.view.addSubview(backButton)
         

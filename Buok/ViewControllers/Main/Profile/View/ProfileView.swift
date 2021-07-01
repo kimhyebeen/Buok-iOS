@@ -191,7 +191,7 @@ extension ProfileView {
     private func setupNameLabel() {
         nameLabel.text = ""
         nameLabel.textColor = .heroGray5B
-        nameLabel.font = .font20PBold // todo - 폰트 수정 필요
+        nameLabel.font = .font20PBold
         self.addSubview(nameLabel)
         
         nameLabel.snp.makeConstraints { make in

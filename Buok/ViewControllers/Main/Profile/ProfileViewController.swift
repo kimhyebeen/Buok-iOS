@@ -66,13 +66,6 @@ class ProfileViewController: HeroBaseViewController {
     }
     
     private func bindingViewModel() {
-//        viewModel.().then { [weak self] profile in
-//            // todo - profileView에 적용
-//            self?.headerView.countOfBuokmark = profile.buokmarks.count
-//            self?.profileView.settingFriendButtonType(for: profile.type)
-//            self?.collectionView.reloadData()
-//        }
-        
         viewModel?.bookmarkCount.bind({ [weak self] count in
             self?.headerView.countOfBuokmark = count
             self?.collectionView.reloadData()
@@ -117,11 +110,6 @@ class ProfileViewController: HeroBaseViewController {
     @objc
     func clickBackButton(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
-    }
-    
-    @objc
-    func clickFriendButton(_ sender: UIButton) {
-        // todo - 친구 요청 버튼 기능
     }
     
     @objc

@@ -10,7 +10,6 @@ import HeroUI
 extension JoinIntroduceViewController {
     // MARK: Back Button
     func setupBackButton() {
-        // todo - 추후 뒤로가기 아이콘 적용
         backButton.setImage(UIImage(heroSharedNamed: "ic_back"), for: .normal)
         backButton.addTarget(self, action: #selector(clickBackButton(_:)), for: .touchUpInside)
         self.view.addSubview(backButton)
