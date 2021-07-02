@@ -96,6 +96,11 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 }
 
 extension AppDelegate: MessagingDelegate {
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        DebugLog("Push User Info : \(userInfo.debugDescription)")
+        completionHandler(UIBackgroundFetchResult.newData)
+    }
+    
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
         DebugLog("Firebase registration token: \(fcmToken ?? "nil")")
         if let token = fcmToken {
