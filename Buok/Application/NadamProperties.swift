@@ -156,3 +156,8 @@ public class NadamProperties: NSObject {
         return appVersion
     }()
 }
+
+public class GlobalMyInfo {
+    public static var myUserData: UserData?
+    public static var myUserId: Int?
+}

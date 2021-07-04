@@ -385,7 +385,7 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-		if let value = viewModel?.currentSearchType.value, value == .user {
+        if collectionView == friendCollectionView {
 			return 16
 		} else {
 			return 15
@@ -393,12 +393,17 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-		if let value = viewModel?.currentSearchType.value, value == .myBucket || value == .mark {
-//			return 18
+        if collectionView == mybuokCollectionView {
             return 8
 		} else {
 			return 0
 		}
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == mybuokCollectionView {
+            viewModel?.gotoBucketDetail(indexPath: indexPath, navigation: self.navigationController)
+        }
     }
 }
 

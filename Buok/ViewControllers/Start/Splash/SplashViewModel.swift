@@ -94,6 +94,8 @@ final class SplashViewModel {
                 DebugLog("사용자 정보: \(userData.nickname)\n\(userData.intro)\n\(userData.profileUrl ?? "")")
                 //                DebugLog("사용자 정보: \(userData.user.nickname)\n\(userData.user.intro)\n\(userData.user.profileUrl ?? "")")
                 self.isValidToken.value = true
+                GlobalMyInfo.myUserId = userData.id
+                GlobalMyInfo.myUserData = userData
             case .failure(let error):
                 ErrorLog("API Error : \(error.statusCode) / \(error.errorMessage) / \(error.localizedDescription)")
                 self.isValidToken.value = false

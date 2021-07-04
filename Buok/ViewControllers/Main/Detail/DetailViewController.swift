@@ -46,6 +46,12 @@ public class DetailViewController: HeroBaseViewController {
     private var tagCollectionView: UICollectionView?
     
     public var viewModel: DetailViewModel?
+    public var isMyDetailView: Bool = true {
+        didSet {
+            optionButton.isHidden = !isMyDetailView
+            menuButton.isHidden = !isMyDetailView
+        }
+    }
     
     public override func viewDidLoad() {
         super.viewDidLoad()

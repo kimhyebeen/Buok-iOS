@@ -11,7 +11,7 @@ import HeroNetwork
 import Promise
 
 // MARK: - Data
-struct UserData: Codable {
+public struct UserData: Codable {
 	var id: Int
 	var email: String?
 	var nickname: String

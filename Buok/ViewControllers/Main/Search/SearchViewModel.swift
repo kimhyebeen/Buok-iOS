@@ -88,4 +88,27 @@ extension SearchViewModel {
         vc.viewModel = viewModel
         navigation?.pushViewController(vc, animated: true)
     }
+    
+    func gotoBucketDetail(indexPath: IndexPath, navigation: UINavigationController?) {
+        let vc = DetailViewController()
+        let viewModel = DetailViewModel()
+        
+        if currentSearchType.value == .mark {
+            // bookmark
+            let bucket = bucketSearchList.value[indexPath.row]
+            let bucketItem = BucketModel(searchModel: bucket)
+            viewModel.bucketItem.value = bucketItem
+            vc.viewModel = viewModel
+            vc.isMyDetailView = (bucket.userId == GlobalMyInfo.myUserId)
+            navigation?.pushViewController(vc, animated: true)
+        } else if currentSearchType.value == .myBucket {
+            // myBuok
+            let bucket = bucketSearchList.value[indexPath.row]
+            let bucketItem = BucketModel(searchModel: bucket)
+            viewModel.bucketItem.value = bucketItem
+            vc.viewModel = viewModel
+            vc.isMyDetailView = true
+            navigation?.pushViewController(vc, animated: true)
+        }
+    }
 }

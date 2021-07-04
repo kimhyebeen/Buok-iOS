@@ -47,6 +47,30 @@ public struct BucketModel: Codable {
     var fin: Bool
     var bookmark: Bool
     var content: String?
+    
+    init(searchModel: SearchBucketModel) {
+        self.id = searchModel.id
+        self.bucketName = searchModel.bucketName
+        self.bucketState = searchModel.bucketState
+        self.createdDate = searchModel.createdDate
+        self.endDate = searchModel.endDate
+        self.categoryId = searchModel.categoryId ?? 2
+        self.fin = searchModel.fin
+        self.bookmark = searchModel.bookmark
+        self.content = searchModel.content
+    }
+    
+    init(profileModel: ProfileBucketModel) {
+        self.id = profileModel.id
+        self.bucketName = profileModel.bucketName
+        self.bucketState = profileModel.bucketState
+        self.createdDate = profileModel.createdDate
+        self.endDate = profileModel.endDate
+        self.categoryId = profileModel.categoryId ?? 2
+        self.fin = profileModel.fin
+        self.bookmark = profileModel.bookmark
+        self.content = profileModel.content
+    }
 }
 
 public struct BucketListData: Codable {
