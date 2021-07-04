@@ -58,17 +58,23 @@ final class SearchViewController: HeroBaseViewController {
         
         viewModel?.bucketSearchList.bind({ [weak self] _ in
             self?.updateSearchBarButtonEnabled()
-            self?.mybuokCollectionView.reloadData()
+            if let type = self?.viewModel?.currentSearchType.value, type == .myBucket {
+                self?.mybuokCollectionView.reloadData()
+            }
         })
 		
         viewModel?.friendList.bind({ [weak self] _ in
             self?.updateSearchBarButtonEnabled()
-            self?.friendCollectionView.reloadData()
+            if let type = self?.viewModel?.currentSearchType.value, type == .user {
+                self?.friendCollectionView.reloadData()
+            }
         })
         
         viewModel?.bookmarkSearchList.bind({ [weak self] _ in
             self?.updateSearchBarButtonEnabled()
-            self?.mybuokCollectionView.reloadData()
+            if let type = self?.viewModel?.currentSearchType.value, type == .mark {
+                self?.mybuokCollectionView.reloadData()
+            }
         })
     }
     
@@ -93,6 +99,7 @@ final class SearchViewController: HeroBaseViewController {
 	}
     
     private func setupBucketCollectionView() {
+        DebugLog("[TEST] setupBucketCollectionView()")
         mybuokCollectionView.backgroundColor = .heroServiceSkin
         view.addSubview(mybuokCollectionView)
         mybuokCollectionView.snp.makeConstraints { make in
@@ -104,6 +111,7 @@ final class SearchViewController: HeroBaseViewController {
     }
     
     private func setupFriendCollectionView() {
+        DebugLog("[TEST] setupFriendCollectionView()")
         friendCollectionView.backgroundColor = .heroServiceSkin
         view.addSubview(friendCollectionView)
         friendCollectionView.snp.makeConstraints { make in
@@ -225,6 +233,7 @@ final class SearchViewController: HeroBaseViewController {
     }
     
     private func setupViewProperties() {
+        DebugLog("[TEST] setupViewProperties()")
         mybuokCollectionView.delegate = self
         mybuokCollectionView.dataSource = self
         mybuokCollectionView.backgroundColor = .clear
