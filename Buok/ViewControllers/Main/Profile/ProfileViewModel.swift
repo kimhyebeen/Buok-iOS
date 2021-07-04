@@ -104,12 +104,12 @@ class ProfileViewModel {
 //        var bucketId: Int = -1
         
         if indexPath.section == 1 {
-            let item = BucketModel(profileModel: bucketBookData.value[indexPath.row])
-            DebugLog("[TEST] bucket Item Id : \(item.id)")
-            viewModel.bucketItem.value = item
-            vc.viewModel = viewModel
-            vc.isMyDetailView = (self.userId == GlobalMyInfo.myUserId)
-            navigation?.pushViewController(vc, animated: true)
+//            let item = BucketModel(profileModel: bucketBookData.value[indexPath.row])
+//            DebugLog("[TEST] bucket Item Id : \(item.id)")
+//            viewModel.bucketItem.value = item
+//            vc.viewModel = viewModel
+//            vc.isMyDetailView = (self.userId == GlobalMyInfo.myUserId)
+//            navigation?.pushViewController(vc, animated: true)
         }
 //        else {
 //            if indexPath.section == 0 {

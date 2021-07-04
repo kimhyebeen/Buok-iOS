@@ -95,14 +95,14 @@ extension SearchViewModel {
         
         if currentSearchType.value == .mark {
             // bookmark
-            let bucket = bookmarkSearchList.value[indexPath.row]
-            let bucketItem = BucketModel(searchModel: bucket)
-            DebugLog("[TEST] bucket Item Id : \(bucketItem.id)")
-            DebugLog("[TEST] bucket Item Name : \(bucketItem.bucketName)")
-            viewModel.bucketItem.value = bucketItem
-            vc.viewModel = viewModel
-            vc.isMyDetailView = (bucket.userId == GlobalMyInfo.myUserId)
-            navigation?.pushViewController(vc, animated: true)
+//            let bucket = bookmarkSearchList.value[indexPath.row]
+//            let bucketItem = BucketModel(searchModel: bucket)
+//            DebugLog("[TEST] bucket Item Id : \(bucketItem.id)")
+//            DebugLog("[TEST] bucket Item Name : \(bucketItem.bucketName)")
+//            viewModel.bucketItem.value = bucketItem
+//            vc.viewModel = viewModel
+//            vc.isMyDetailView = (bucket.userId == GlobalMyInfo.myUserId)
+//            navigation?.pushViewController(vc, animated: true)
         } else if currentSearchType.value == .myBucket {
             // myBuok
             let bucket = bucketSearchList.value[indexPath.row]
