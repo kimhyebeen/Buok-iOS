@@ -229,16 +229,22 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
         headerView.layer.transform = transform
     }
     
-    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        if isMyPage {
-            if viewModel?.bookmarkCount.value ?? 0 < 1 {
-				viewModel?.setRootVCToHomeVC()
-                return true
-            } else {
-                return false
-            }
+//    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+//        if isMyPage {
+//            if viewModel?.bookmarkCount.value ?? 0 < 1 {
+//				viewModel?.setRootVCToHomeVC()
+//                return true
+//            }
+//        }
+//        return false
+//    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if isMyPage, viewModel?.bookmarkCount.value ?? 0 < 1 {
+            viewModel?.setRootVCToHomeVC()
+        } else {
+            viewModel?.gotoBucketDetail(indexPath: indexPath, navigation: self.navigationController)
         }
-        return false
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

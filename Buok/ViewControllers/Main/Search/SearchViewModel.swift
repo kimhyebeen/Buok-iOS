@@ -95,8 +95,10 @@ extension SearchViewModel {
         
         if currentSearchType.value == .mark {
             // bookmark
-            let bucket = bucketSearchList.value[indexPath.row]
+            let bucket = bookmarkSearchList.value[indexPath.row]
             let bucketItem = BucketModel(searchModel: bucket)
+            DebugLog("[TEST] bucket Item Id : \(bucketItem.id)")
+            DebugLog("[TEST] bucket Item Name : \(bucketItem.bucketName)")
             viewModel.bucketItem.value = bucketItem
             vc.viewModel = viewModel
             vc.isMyDetailView = (bucket.userId == GlobalMyInfo.myUserId)

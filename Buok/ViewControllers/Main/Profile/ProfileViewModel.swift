@@ -97,4 +97,36 @@ class ProfileViewModel {
             appDelegate.window?.makeKeyAndVisible()
         }
     }
+    
+    func gotoBucketDetail(indexPath: IndexPath, navigation: UINavigationController?) {
+        let vc = DetailViewController()
+        let viewModel = DetailViewModel()
+//        var bucketId: Int = -1
+        
+        if indexPath.section == 1 {
+            let item = BucketModel(profileModel: bucketBookData.value[indexPath.row])
+            DebugLog("[TEST] bucket Item Id : \(item.id)")
+            viewModel.bucketItem.value = item
+            vc.viewModel = viewModel
+            vc.isMyDetailView = (self.userId == GlobalMyInfo.myUserId)
+            navigation?.pushViewController(vc, animated: true)
+        }
+//        else {
+//            if indexPath.section == 0 {
+//                let item = bookmarkData.value[indexPath.row]
+//                bucketId = item.id
+//
+//                BucketAPIRequest.requestBucketDetail(bucketId: bucketId, responseHandler: { result in
+//                    switch result {
+//                    case .success(let item):
+//                        viewModel.bucketDetailItem.value = item
+//                        vc.isMyDetailView = (self.userId == GlobalMyInfo.myUserId)
+//                        navigation?.pushViewController(vc, animated: true)
+//                    case .failure(let error):
+//                        ErrorLog("ERROR: \(error.statusCode) / \(error.localizedDescription)")
+//                    }
+//                })
+//            }
+//        }
+    }
 }
