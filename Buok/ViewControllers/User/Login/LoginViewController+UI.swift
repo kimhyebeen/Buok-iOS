@@ -106,7 +106,7 @@ extension LoginViewController {
     
     // MARK: AppleSignInButton
     func setupAppleSignInButton() {
-        appleSignInButton.setTitle("애플 아이디로 시작하기", for: .normal)
+        appleSignInButton.setTitle("Apple로 로그인", for: .normal)
         appleSignInButton.loginButtonType = .apple
         loginButtonStackView.addArrangedSubview(appleSignInButton)
         appleSignInButton.addTarget(self, action: #selector(appleSignIn), for: .touchUpInside)
@@ -122,7 +122,7 @@ extension LoginViewController {
     
     // MARK: GoogleSignInButton
     func setupGoogleSignInButton() {
-        googleSignInButton.setTitle("구글 아이디로 시작하기", for: .normal)
+        googleSignInButton.setTitle("Google로 로그인", for: .normal)
 //        googleSignInButton.setHeroTitle("구글 아이디로 시작하기")
         googleSignInButton.loginButtonType = .google
         loginButtonStackView.addArrangedSubview(googleSignInButton)
@@ -138,7 +138,7 @@ extension LoginViewController {
     // MARK: KakaoSignInButton
     func setupKakaoSignInButton() {
 //        kakaoSignInButton.setHeroTitle("카카오톡 아이디로 시작하기")
-        kakaoSignInButton.setTitle("카카오톡 아이디로 시작하기", for: .normal)
+        kakaoSignInButton.setTitle("카카오톡으로 로그인", for: .normal)
         kakaoSignInButton.loginButtonType = .kakao
         kakaoSignInButton.addTarget(self, action: #selector(onClickKakaoLogin(_:)), for: .touchUpInside)
         loginButtonStackView.addArrangedSubview(kakaoSignInButton)
