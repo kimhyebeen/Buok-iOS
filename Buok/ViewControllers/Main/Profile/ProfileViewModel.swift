@@ -112,21 +112,22 @@ class ProfileViewModel {
 //            navigation?.pushViewController(vc, animated: true)
         }
 //        else {
-//            if indexPath.section == 0 {
-//                let item = bookmarkData.value[indexPath.row]
-//                bucketId = item.id
-//
-//                BucketAPIRequest.requestBucketDetail(bucketId: bucketId, responseHandler: { result in
-//                    switch result {
-//                    case .success(let item):
-//                        viewModel.bucketDetailItem.value = item
-//                        vc.isMyDetailView = (self.userId == GlobalMyInfo.myUserId)
-//                        navigation?.pushViewController(vc, animated: true)
-//                    case .failure(let error):
-//                        ErrorLog("ERROR: \(error.statusCode) / \(error.localizedDescription)")
-//                    }
-//                })
-//            }
+            if indexPath.section == 0, self.userId == GlobalMyInfo.myUserId {
+                let item = bookmarkData.value[indexPath.row]
+                let bucketId = item.id
+
+                BucketAPIRequest.requestBucketDetail(bucketId: bucketId, responseHandler: { result in
+                    switch result {
+                    case .success(let item):
+                        viewModel.bucketItem.value = item.bucket
+                        vc.viewModel = viewModel
+                        vc.isMyDetailView = true
+                        navigation?.pushViewController(vc, animated: true)
+                    case .failure(let error):
+                        ErrorLog("ERROR: \(error.statusCode) / \(error.localizedDescription)")
+                    }
+                })
+            }
 //        }
     }
 }
