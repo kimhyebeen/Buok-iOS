@@ -380,7 +380,7 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
 			return CGSize(width: UIScreen.main.bounds.width, height: 48)
 		} else {
             let width = UIScreen.main.bounds.width - 40
-			return CGSize(width: width / 2 - 9, height: width / 2 - 9 + 16 + 2)
+			return CGSize(width: width / 2 - 4, height: width / 2 - 9 + 16 + 2)
 		}
     }
     
@@ -394,7 +394,8 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
 		if let value = viewModel?.currentSearchType.value, value == .myBucket || value == .mark {
-			return 18
+//			return 18
+            return 8
 		} else {
 			return 0
 		}

@@ -245,7 +245,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         // Before : Collection View Frame Width
         let width = UIScreen.main.bounds.width - 40
-        return CGSize(width: width / 2 - 9, height: width / 2 - 9 + 16 + 2)
+        return CGSize(width: width / 2 - 4, height: width / 2 - 9 + 16 + 2)
     }
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -253,6 +253,6 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 18
+        return 8
     }
 }

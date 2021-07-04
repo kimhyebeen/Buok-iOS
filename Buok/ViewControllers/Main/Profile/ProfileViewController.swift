@@ -246,7 +246,7 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
         if indexPath.section == 0 {
             return CGSize(width: width, height: 96)
         } else {
-            return CGSize(width: width / 2 - 9, height: width / 2 - 9 + 16 + 2)
+            return CGSize(width: width / 2 - 4, height: width / 2 - 9 + 16 + 2)
         }
     }
     
@@ -255,7 +255,7 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return section == 0 ? 0 : 18
+        return section == 0 ? 0 : 8
     }
 }
 
