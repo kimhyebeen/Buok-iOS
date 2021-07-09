@@ -1712,7 +1712,7 @@
 				CODE_SIGN_ENTITLEMENTS = Buok/Buok.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 2021.07.09.1;
 				DEVELOPMENT_TEAM = M79H9K226Y;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = Buok/Resources/Info.plist;
@@ -1721,6 +1721,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yiteam.BucketList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "Buok Real iOS Dev Provisioning";
@@ -1841,7 +1842,7 @@
 				CODE_SIGN_ENTITLEMENTS = Buok/Buok.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 2021.07.09.1;
 				DEVELOPMENT_TEAM = M79H9K226Y;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = Buok/Resources/Info.plist;
@@ -1850,6 +1851,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yiteam.BucketList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "Buok Real iOS Dev Provisioning";
