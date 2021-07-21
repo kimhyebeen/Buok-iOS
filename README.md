@@ -42,15 +42,15 @@
 
 ## Project Information
 
-- Git Flow : (iteration) - develop - feature
-- Multi Module (Main - [UI / Common / etc.])
-- Deployment Target: iOS 12.0
-- Network Module : PromiseKit + Alamofire
-- Clean Architecture
-- UIView Custom Transition & Presentation with custom Context Configuration
-- Widget Supported : WidgetKit, SwiftUI
-- Strict Code Convension Management (feat. Swift Lint)
-- All Code Based View Code (Not using Storyboard and Xib)
+- **Git Flow :** (iteration) - develop - feature
+- **Multi Module** (Main - [UI / Common / etc.])
+- **Deployment Target:** iOS 12.0
+- **Network Module :** PromiseKit + Alamofire
+- **Clean Architecture**
+- **UIView Custom Transition & Presentation with custom Context Configuration**
+- **Widget Supported :** WidgetKit, SwiftUI
+- **Strict Code Convension Management** (feat. Swift Lint)
+- **All Code Based View Code** (Not using Storyboard and Xib)
 
 ### Cooperation Environment
 JIRA : [YAPP iOS 1 JIRA](https://yappios1.atlassian.net/jira/software/projects/YITEAM/boards/1)
